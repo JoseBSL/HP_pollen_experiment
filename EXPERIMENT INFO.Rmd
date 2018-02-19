@@ -1,0 +1,45 @@
+---
+title: "Untitled"
+output: html_document
+---
+# Intro 
+
+
+# Methods
+
+The study was done with x species where all the species where consider focal species from xxx to xxx at University of New England. The rooms where temperature controlled with temperature between xxx at day time to xxx at nigth time. Soil was mixed with sand. Plants were fertilized weekly. Flowers were emasculated the day prior anthesis
+
+Treatments were randomized on the plant. Hand-pollination was done with a toothpick with three-four gentle touches on the surface of the stigma. Pollen per anther was counted with Neubaeur chamber N=20. The different treatments applied were control, self, cross, heterospecific with 50% pollen and 100% pollen.
+
+
+
+
+
+Hybrids where avoided
+
+Pot size 180 mm diameter
+
+Number of individuals (started with 24 ending with 16, lack of space)
+
+
+
+# Results
+
+
+Plots of pollen
+
+Morphometry
+
+Ovules
+
+Seed set
+
+Pollen grwoth
+
+Pic of pollen with SEM (pollen size)
+
+Pollen tubes and number of pollen grains
+
+
+
+#Discussion
