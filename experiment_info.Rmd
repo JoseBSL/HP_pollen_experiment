@@ -12,20 +12,20 @@ The study was done with x species (table 1) where all the species where consider
 Table of species:
 
 
-Solanaceae
+**Solanaceae**
 
 SOLY "Tommy Joe"
 CAAN "California Wonder""
 PEIN "Petunia integrifolia"
 SOME "Solanum melongera"
 
-Brassicaceae
+**Brassicaceae**
 
 Sinapis alba White mustard
 Brassica oleracea var. capitata
 Brassica rapa var. chinensis
 
-Convolvulaceae
+**Convolvulaceae**
 
 Ipomoea purpurea
 
