@@ -4,10 +4,19 @@ output: html_document
 ---
 # Intro 
 
+A common trend in natural ecosystems is pollinator sharing (REF). Therefore, pollen from different species can arrive to the stigmas of other species. The real impact of pollen in a natural ecosystem is still unknown. Nonetheless, some advances has been done with recent works where heterospecific pollen effect is evaluated (REFS).
+
+
 
 # Methods
 
 The study was done with x species (table 1) where all the species where consider focal species from xxx to xxx at University of New England. The rooms where temperature controlled with temperature between xxx at day time to xxx at nigth time.
+
+
+
+For all the species, the day prior anthesis flowers were emasculated and then hand-pollinated next day with toothpicks with 3-4 gentle touches over the stigma surface. 
+
+
 
 Table of species:
 
@@ -28,6 +37,21 @@ Brassica rapa var. chinensis
 **Convolvulaceae**
 
 Ipomoea purpurea
+
+
+Possible species to include:
+
+Ipomoea aquatica
+
+I. coccinea
+
+Convolvulus sabatius
+
+Sysimbrium spp
+
+Raphanus spp
+
+Eruca sativa
 
 
 
