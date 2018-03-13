@@ -4,9 +4,15 @@ output: html_document
 ---
 # Intro 
 
-A common trend in natural ecosystems is pollinator sharing (REF). Therefore, pollen from different species can arrive to the stigmas of other species. The real impact of pollen in a natural ecosystem is still unknown. Nonetheless, some advances has been done with recent works where heterospecific pollen effect is evaluated (REFS).
 
+**Paragraph 1**
+A common trend in natural ecosystems is pollinator sharing (REF). Therefore, pollen from different species can arrive to the stigmas of other species. The real impact of pollen in a natural ecosystem is still unknown. Nonetheless, some advances has been done with recent works where heterospecific pollen effect has been evaluated (REFS).
 
+**Paragraph 2**
+
+**Paragraph 3**
+
+**Paragraph 4**
 
 # Methods
 
