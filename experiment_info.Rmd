@@ -7,7 +7,7 @@ output: html_document
 
 **Paragraph 1**
 
-A common trend in natural ecosystems is pollinator sharing (REF). Therefore, pollen from different species can arrive to the stigmas of other species. The real impact of pollen in a natural ecosystem is still unknown. Nonetheless, some advances has been done with recent works where heterospecific pollen effect has been evaluated (REFS).
+A common trend in natural ecosystems is pollinator sharing (REF). Therefore, pollen from different species can arrive to the stigmas of other species. The real impact of pollen in a natural ecosystem is still unknown. Nonetheless, some advances has been done with recent works where heterospecific pollen effect has been evaluated (REFS). 
 
 **Paragraph 2**
 
@@ -19,12 +19,15 @@ We review the classic predicted traits of hterospecific pollen effect through a 
 
 # Methods
 
-The study was done with x species (table 1) where all the species where consider focal species from xxx to xxx at University of New England. The rooms where temperature controlled with temperature between xxx at day time to xxx at nigth time.
+The study was conducted in a glasshouse at University of New England (Armidale, Australia). Rooms were temperature controlled depending on the requirements of the species. The species selected belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), easy species to grow, low structural flower complexity. For the purpose of the experiment all the species where consider as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
+
 
 
 
 For all the species, the day prior anthesis flowers were emasculated and then hand-pollinated next day with toothpicks with 3-4 gentle touches over the stigma surface. 
 
+
+Check fertiliser type: Hortico (all purpose soluble fertiliser) NPK 23: 3.95: 14
 
 
 Table of species:
