@@ -10,15 +10,22 @@ d<-read.csv("Ovules.csv", sep=";")
 d <- stack(d)
 
 #Naming columns
-
 colnames(d)[1]<-"ovules"
 colnames(d)[2]<-"species"
+
 
 #boxplot from ggplot2
 ggplot(d, aes(x = species, y = ovules)) + geom_boxplot()
 
 #boxplot from ggplot2 reorder
 ggplot(d, aes(x = reorder(species, ovules, FUN = median), y = ovules)) + geom_boxplot()
+
+#subset per family (solanaceae, brassicaceae, convolvulaceae)
+solanaceae<-subset(d)[1:60,]
+
+ggplot(solanaceae, aes(x = species, y = ovules)) + geom_boxplot()
+
+ggplot(solanaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) + geom_boxplot()
 
 
 
