@@ -9,7 +9,8 @@ output: html_document
 
 The study was done with x species where all the species where consider focal species from xxx to xxx at University of New England. The rooms where temperature controlled with temperature between xxx at day time to xxx at nigth time. Soil was mixed with sand. Plants were fertilized weekly. Flowers were emasculated the day prior anthesis
 
-Treatments were randomized on the plant. Hand-pollination was done with a toothpick with three-four gentle touches on the surface of the stigma. Pollen per anther was counted with Neubaeur chamber N=20. The different treatments applied were control, self, cross, heterospecific with 50% pollen and 100% pollen.
+Treatments were randomized on the plant. Hand-pollination was done with a toothpick with three-four gentle touches on the surface of the stigma. Pollen per anther was counted with Neubaeur chamber with four counts per anther (N=20). The different treatments applied were control, self, cross, heterospecific with 50% pollen and 100% pollen.
+
 
 
 
