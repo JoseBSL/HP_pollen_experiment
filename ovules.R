@@ -31,7 +31,9 @@ ggplot(d, aes(x = reorder(species, ovules, FUN = median), y = ovules)) + geom_bo
 
 #subset per family (solanaceae, brassicaceae, convolvulaceae)
 solanaceae<-subset(d)[1:60,]
+brassicaceae<-subset(d)[61:120,]
 
+# OVULES SOLANACEAE
 ggplot(solanaceae, aes(x = species, y = ovules)) + geom_boxplot()
 
 ggplot(solanaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot(fill='#A4A4A4', color="black")+
@@ -43,4 +45,10 @@ theme(plot.title = element_text(hjust = 0.5))
 
 p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
 
+# OVULES BRASSICACEAE
 
+p <- ggplot(brassicaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+  labs(title="Brassicaceae",x="", y = "Ovules")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
