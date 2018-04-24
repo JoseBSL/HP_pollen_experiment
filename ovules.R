@@ -10,6 +10,10 @@ colnames(d)[1]<-"C. annuum"
 colnames(d)[2]<-"S. lycopersicum"
 colnames(d)[3]<-"S. melongera"
 colnames(d)[4]<-"P. integrifolia"
+colnames(d)[5]<-"B. oleracea"
+colnames(d)[6]<-"B. rapa"
+colnames(d)[7]<-"E. sativa"
+colnames(d)[8]<-"S. alba"
 
 
 #Reorganise data
