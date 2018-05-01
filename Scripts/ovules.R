@@ -5,7 +5,7 @@ library(forcats)
 library(Hmisc)
 library(Formula)
 #load data
-d<-read.csv("Ovules.csv", sep=";")
+d<-read.csv("Data/Ovules.csv", sep=";")
 
 colnames(d)[1]<-"C. annuum"
 colnames(d)[2]<-"S. lycopersicum"
@@ -55,33 +55,4 @@ p <- ggplot(brassicaceae, aes(x = reorder(species, ovules, FUN = median), y = ov
 p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
 
 
-
-#Try to plot sd
-
-ggplot(solanaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules))+
-  stat_boxplot( aes(species, ovules), 
-                geom='errorbar', linetype=1, width=0.5)+  #whiskers
-  geom_boxplot() +    
-  stat_summary(fun.y=mean, geom="point", size=2) + 
-  stat_summary(fun.data = mean_se, geom = "errorbar")
-
-
-p <- ggplot(brassicaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
-  labs(title="Brassicaceae",x="", y = "Ovules")+
-  theme(plot.title = element_text(hjust = 0.5))+
-
-
-
-  data_summary <- function(x) {
-    m <- mean(x)
-    ymin <- m-sd(x)
-    ymax <- m+sd(x)
-    return(c(y=m,ymin=ymin,ymax=ymax))
-  }
-  
-p + stat_summary(fun.data=data_summary, color="blue")
-  
-  
-p + stat_summary(fun.data=mean_sdl, 
-                 geom="pointrange", color="red")
-
+#Ovules CONVOLVULACEAE  
