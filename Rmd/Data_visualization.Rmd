@@ -1,0 +1,56 @@
+---
+title: "Data_visualization"
+output: pdf_document
+---
+
+## Ovules
+
+```{r, warning=FALSE, echo=FALSE}
+#load libraries
+
+library(ggplot2)
+library(Hmisc)
+library(Formula)
+#load data
+d<-read.csv("Data/Ovules.csv", sep=";")
+
+colnames(d)[1]<-"C. annuum"
+colnames(d)[2]<-"S. lycopersicum"
+colnames(d)[3]<-"S. melongera"
+colnames(d)[4]<-"P. integrifolia"
+colnames(d)[5]<-"B. oleracea"
+colnames(d)[6]<-"B. rapa"
+colnames(d)[7]<-"E. sativa"
+colnames(d)[8]<-"S. alba"
+
+
+#Reorganise data
+d <- stack(d)
+#Naming columns
+colnames(d)[1]<-"ovules"
+colnames(d)[2]<-"species"
+
+
+
+#subset per family (solanaceae, brassicaceae, convolvulaceae)
+solanaceae<-subset(d)[1:60,]
+brassicaceae<-subset(d)[61:120,]
+
+# OVULES SOLANACEAE
+p <- ggplot(solanaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+labs(title="Solanaceae",x="", y = "Ovules")+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
+
+# OVULES BRASSICACEAE
+
+p <- ggplot(brassicaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+  labs(title="Brassicaceae",x="", y = "Ovules")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
+
+
+```
+
