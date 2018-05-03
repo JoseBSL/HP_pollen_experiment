@@ -3,15 +3,18 @@ title: "Data_visualization"
 output: pdf_document
 ---
 
-## Ovules
+# Ovules per family, **Convolvulaceae is constant 4 or 6**
 
-```{r, warning=FALSE, echo=FALSE}
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3}
 #load libraries
 
 library(ggplot2)
 library(Hmisc)
 library(Formula)
 #load data
+
+par(mfrow=c(2,1))
+
 d<-read.csv("Data/Ovules.csv", sep=";")
 
 colnames(d)[1]<-"C. annuum"
