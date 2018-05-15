@@ -61,7 +61,6 @@ p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
 #Pollen per anther, just one Convolvulaceae at the moment
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3}
 library(ggplot2)
-library(forcats)
 library(Hmisc)
 library(Formula)
 
