@@ -30,14 +30,21 @@ tab<- cbind(tab,stigma_type, compatibility_system)
 tab<- data.frame(tab, stringsAsFactors=FALSE)
 class(tab)
 
+#Stigma type based on Shivanna 1977 and my own
 #Petunia Integrifolia stigma
 tab[1,4]<- "wet"
 #Capsicum anuum
 tab[2,4]<- "wet"
+#Solanum lycopersicum
+tab[3,4]<- "wet"
 #Solanum melongera
 tab[4,4]<- "wet"
-
 #Brassicas and convolvulaceas
 tab[5:10,4]<- "dry"
 
+View(tab)
 
+
+pollen_size <- rep("",10)
+
+tab <- cbind(tab, pollen_size)
