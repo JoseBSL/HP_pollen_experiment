@@ -51,13 +51,23 @@ pollen_size <- rep("",10)
 pollen_anther <- rep("",10)
 #Total number of ovules, (average N=20)
 n_ovules <- rep("",10)
-tab <- cbind(tab, pollen_size,pollen_anther,n_ovules)
-tabo<- data.frame(tab, stringsAsFactors=FALSE)
-tabo[2,8] <-  a
+#Unifying new columns
+bind <- cbind(pollen_size,pollen_anther,n_ovules)
+bind<- data.frame(bind, stringsAsFactors = F)
+tab <- cbind(tab, bind)
+tab<- data.frame(tab, stringsAsFactors=F)
+
+#loading ovule dataset to fill columns
 
 ovules <- read.csv("Data/Ovules.csv", sep = ";")
-a<-mean(ovules$CAAN)
-View(tab)
 
-car::recode
+#Round: it does it to the closest number
+#when it is 5, it does it to the nearest even number
+
+#Capsicum ovules average
+tab[2,8] <- round(mean(ovules$CAAN))
+#S. lycopersicum ovules average
+tab[3,8] <- round(mean(ovules$SOLY))
+
+
 
