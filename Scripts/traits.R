@@ -72,7 +72,18 @@ tab[3,8] <- round(mean(ovules$SOLY))
 tab[4,8] <- round(mean(ovules$SOME))
 #P. integrifolia ovules average
 tab[1,8] <- round(mean(ovules$PEIN))
-
+#B.oleracea ovules average
+tab[5,8] <- round(mean(ovules$BROL))
+#B. rapa ovules average
+tab[6,8] <- round(mean(ovules$BRRA))
+#E. sativa ovules average
+tab[7,8] <- round(mean(ovules$ERSA))
+#S. alba ovules average
+tab[8,8] <- round(mean(ovules$SIAL))
+#I. purpurea ovules (fix number)
+tab[9,8] <- 6
+#I. aquatica ovules (fix number)
+tab[10,8] <- 6
 
 
 
