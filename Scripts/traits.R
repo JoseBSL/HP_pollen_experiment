@@ -47,4 +47,17 @@ View(tab)
 
 pollen_size <- rep("",10)
 
-tab <- cbind(tab, pollen_size)
+#Total pollen per anther (average N=20)
+pollen_anther <- rep("",10)
+#Total number of ovules, (average N=20)
+n_ovules <- rep("",10)
+tab <- cbind(tab, pollen_size,pollen_anther,n_ovules)
+tabo<- data.frame(tab, stringsAsFactors=FALSE)
+tabo[2,8] <-  a
+
+ovules <- read.csv("Data/Ovules.csv", sep = ";")
+a<-mean(ovules$CAAN)
+View(tab)
+
+car::recode
+
