@@ -50,9 +50,9 @@ pollen_size <- rep("",10)
 #Total pollen per anther (average N=20)
 pollen_anther <- rep("",10)
 #Total number of ovules, (average N=20)
-n_ovules <- rep("",10)
+mean_ovules <- rep("",10)
 #Unifying new columns
-bind <- cbind(pollen_size,pollen_anther,n_ovules)
+bind <- cbind(pollen_size,pollen_anther,mean_ovules)
 bind<- data.frame(bind, stringsAsFactors = F)
 tab <- cbind(tab, bind)
 tab<- data.frame(tab, stringsAsFactors=F)
@@ -68,6 +68,12 @@ ovules <- read.csv("Data/Ovules.csv", sep = ";")
 tab[2,8] <- round(mean(ovules$CAAN))
 #S. lycopersicum ovules average
 tab[3,8] <- round(mean(ovules$SOLY))
+#S. melongera ovules average
+tab[4,8] <- round(mean(ovules$SOME))
+#P. integrifolia ovules average
+tab[1,8] <- round(mean(ovules$PEIN))
+
+
 
 
 
