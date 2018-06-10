@@ -60,16 +60,12 @@ tab <- cbind(tab, bind)
 tab<- data.frame(tab, stringsAsFactors=F)
 
 #loading ovule dataset to fill columns
-
 ovules <- read.csv("Data/Ovules.csv", sep = ";")
-
 #Round: it does it to the closest number
 #when it is 5, it does it to the nearest even number
-
 #Capsicum ovules average
 tab[2,8] <- round(mean(ovules$CAAN))
 tab[2,9] <- sd(ovules$CAAN)
-
 #S. lycopersicum ovules average
 tab[3,8] <- round(mean(ovules$SOLY))
 tab[3,9] <- sd(ovules$SOLY)
@@ -98,6 +94,10 @@ tab[9,9] <- NA
 tab[10,8] <- 6
 tab[10,9] <- NA
 
-
+#loading pollen dataset to fill columns
+pollen <- read.csv("data/Pollen.csv", sep = ";")
+#Pollen counted with Neubaeur chamber (just multiplied by 1000)
+#I have to calculate it properly
+#I have to consider that was diluted in 1 ml
 
 
