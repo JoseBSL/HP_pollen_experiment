@@ -97,7 +97,10 @@ tab[10,9] <- NA
 #loading pollen dataset to fill columns
 pollen <- read.csv("data/Pollen.csv", sep = ";")
 #Pollen counted with Neubaeur chamber (just multiplied by 1000)
-#I have to calculate it properly
-#I have to consider that was diluted in 1 ml
+#C=P.grains counted*10.000/Number of squares
+#so C=P.grains*1000/9;1000 because was in 0.1ml
+
+pollen <- pollen/9 
+
 
 
