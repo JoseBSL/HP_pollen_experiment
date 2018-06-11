@@ -58,8 +58,11 @@ sd_ovules <- rep("",10)
 #Pollen/ovule ratio
 pollen_ovule_ratio <- rep("",10)
 
+#Anthers
+anthers <- rep("",10)
+
 #Unifying new columns
-bind <- cbind(pollen_size,mean_pollen_anther,sd_pollen_anther, mean_ovules, sd_ovules, pollen_ovule_ratio)
+bind <- cbind(pollen_size,mean_pollen_anther,sd_pollen_anther, mean_ovules, sd_ovules, pollen_ovule_ratio, anthers)
 bind<- data.frame(bind, stringsAsFactors = F)
 tab <- cbind(tab, bind)
 tab<- data.frame(tab, stringsAsFactors=F)
