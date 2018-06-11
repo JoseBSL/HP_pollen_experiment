@@ -48,13 +48,13 @@ View(tab)
 pollen_size <- rep("",10)
 
 #Total pollen per anther (average N=20)
-pollen_anther <- rep("",10)
+mean_pollen_anther <- rep("",10)
 #Total number of ovules, (average N=20)
 mean_ovules <- rep("",10)
 sd_ovules <- rep("",10)
 
 #Unifying new columns
-bind <- cbind(pollen_size,pollen_anther,mean_ovules, sd_ovules)
+bind <- cbind(pollen_size,mean_pollen_anther,mean_ovules, sd_ovules)
 bind<- data.frame(bind, stringsAsFactors = F)
 tab <- cbind(tab, bind)
 tab<- data.frame(tab, stringsAsFactors=F)
@@ -101,6 +101,29 @@ pollen <- read.csv("data/Pollen.csv", sep = ";")
 #so C=P.grains*1000/9;1000 because was in 0.1ml
 
 pollen <- pollen/9 
+
+#P. integrifolian pollen average
+tab[1,7] <- round(mean(pollen$PEIN))
+#C. anuum pollen average
+tab[2,7] <- round(mean(pollen$CAAN))
+#S. lycopersicum pollen average
+tab[3,7] <- round(mean(pollen$SOLY))
+#S. melongera pollen average
+tab[4,7] <- round(mean(pollen$SOME))
+#B. oleracea pollen average
+tab[5,7] <- round(mean(pollen$BROL))
+#B. rapa pollen average
+tab[6,7] <- round(mean(pollen$BRRA))
+#E. sativa pollen average
+tab[7,7] <- round(mean(pollen$ERSA))
+#S. alba pollen average
+tab[8,7] <- round(mean(pollen$SIAL))
+#I. purpurea pollen average
+tab[9,7] <- round(mean(pollen$IPAQ, na.rm = T))
+#I. aquatica pollen average
+tab[10,7] <- round(mean(pollen$IPPU))
+
+
 
 
 
