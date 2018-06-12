@@ -162,3 +162,11 @@ tab[5:8,13] <- 6
 
 #Pollen ovule ratio, total pollen per flower/n of ovules
 tab$pollen_ovule_ratio <- round(as.numeric(tab[,8])*as.numeric(tab[,13])/as.numeric(tab[,10]),2)
+
+
+#Varieties
+tab[2,4] <- "California Wonder"
+tab[3,4] <- "Tommy Toe"
+tab[4,4] <- "Little fingers"
+tab[5,4] <- "Capitata"
+tab[6,4] <- "Chinensis"
