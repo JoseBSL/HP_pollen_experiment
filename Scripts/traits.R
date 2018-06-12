@@ -95,10 +95,10 @@ tab[7,10] <- round(sd(ovules$ERSA),2)
 #S. alba ovules average
 tab[8,9] <- round(mean(ovules$SIAL))
 tab[8,10] <- round(sd(ovules$SIAL),2)
-#I. purpurea ovules (fix number)
-tab[9,9] <- 6
-tab[9,10] <- NA
 #I. aquatica ovules (fix number)
+tab[9,9] <- 4
+tab[9,10] <- NA
+#I. purpurea ovules (fix number)
 tab[10,9] <- 6
 tab[10,10] <- NA
 
@@ -141,4 +141,18 @@ tab[9,8] <- round(sd(pollen$IPAQ, na.rm = T),2)
 tab[10,7] <- round(mean(pollen$IPPU))
 tab[10,8] <- round(sd(pollen$IPPU,na.rm = T),2)
 
-
+#Anthers
+#P. integrifolia
+tab[1,12] <- 5
+#C. anuum
+tab[2,12] <- 6
+#S. lycopersicum
+tab[3,12] <- 6
+#S. melongera
+tab[4,12] <- 6
+#I.aquatica
+tab[9,12] <- 5
+#I.purpurea
+tab[10,12] <- 5
+#Brassicaceae
+tab[5:8,12] <- 6
