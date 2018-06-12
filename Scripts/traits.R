@@ -22,7 +22,10 @@ genus <- c(sol_genus,bra_genus,con_genus)
 family <- c(sol_fam,bra_fam,con_fam)
 stigma_type <- rep("",10)
 compatibility_system <- rep("",10)
-tab <- cbind(family,genus,species)
+varieties <- rep("",10)
+
+
+tab <- cbind(family,genus,species, varieties)
 View(tab)
 
 #Adding stigma type column 
@@ -32,15 +35,15 @@ class(tab)
 
 #Stigma type based on Shivanna 1977 and my own
 #Petunia Integrifolia stigma
-tab[1,4]<- "wet"
+tab[1,5]<- "wet"
 #Capsicum anuum
-tab[2,4]<- "wet"
+tab[2,5]<- "wet"
 #Solanum lycopersicum
-tab[3,4]<- "wet"
+tab[3,5]<- "wet"
 #Solanum melongera
-tab[4,4]<- "wet"
+tab[4,5]<- "wet"
 #Brassicas and convolvulaceas
-tab[5:10,4]<- "dry"
+tab[5:10,5]<- "dry"
 
 View(tab)
 
@@ -72,35 +75,35 @@ ovules <- read.csv("Data/Ovules.csv", sep = ";")
 #Round: it does it to the closest number
 #when it is 5, it does it to the nearest even number
 #Capsicum ovules average
-tab[2,9] <- round(mean(ovules$CAAN))
-tab[2,10] <- round(sd(ovules$CAAN),2)
+tab[2,10] <- round(mean(ovules$CAAN))
+tab[2,11] <- round(sd(ovules$CAAN),2)
 #S. lycopersicum ovules average
-tab[3,9] <- round(mean(ovules$SOLY))
-tab[3,10] <- round(sd(ovules$SOLY),2)
+tab[3,10] <- round(mean(ovules$SOLY))
+tab[3,11] <- round(sd(ovules$SOLY),2)
 #S. melongera ovules average
-tab[4,9] <- round(mean(ovules$SOME))
-tab[4,10] <- round(sd(ovules$SOME),2)
+tab[4,10] <- round(mean(ovules$SOME))
+tab[4,11] <- round(sd(ovules$SOME),2)
 #P. integrifolia ovules average
-tab[1,9] <- round(mean(ovules$PEIN))
-tab[1,10] <- round(sd(ovules$PEIN),2)
+tab[1,10] <- round(mean(ovules$PEIN))
+tab[1,11] <- round(sd(ovules$PEIN),2)
 #B.oleracea ovules average
-tab[5,9] <- round(mean(ovules$BROL))
-tab[5,10] <- round(sd(ovules$BROL),2)
+tab[5,10] <- round(mean(ovules$BROL))
+tab[5,11] <- round(sd(ovules$BROL),2)
 #B. rapa ovules average
-tab[6,9] <- round(mean(ovules$BRRA))
-tab[6,10] <- round(sd(ovules$BRRA),2)
+tab[6,10] <- round(mean(ovules$BRRA))
+tab[6,11] <- round(sd(ovules$BRRA),2)
 #E. sativa ovules average
-tab[7,9] <- round(mean(ovules$ERSA))
-tab[7,10] <- round(sd(ovules$ERSA),2)
+tab[7,10] <- round(mean(ovules$ERSA))
+tab[7,11] <- round(sd(ovules$ERSA),2)
 #S. alba ovules average
-tab[8,9] <- round(mean(ovules$SIAL))
-tab[8,10] <- round(sd(ovules$SIAL),2)
+tab[8,10] <- round(mean(ovules$SIAL))
+tab[8,11] <- round(sd(ovules$SIAL),2)
 #I. aquatica ovules (fix number)
-tab[9,9] <- 4
-tab[9,10] <- NA
+tab[9,10] <- 4
+tab[9,11] <- NA
 #I. purpurea ovules (fix number)
-tab[10,9] <- 6
-tab[10,10] <- NA
+tab[10,10] <- 6
+tab[10,11] <- NA
 
 #loading pollen dataset to fill columns
 pollen <- read.csv("data/Pollen.csv", sep = ";")
@@ -111,51 +114,51 @@ pollen <- read.csv("data/Pollen.csv", sep = ";")
 pollen <- pollen/9 
 
 #P. integrifolian pollen average
-tab[1,7] <- round(mean(pollen$PEIN))
-tab[1,8] <- round(sd(pollen$PEIN),2)
+tab[1,8] <- round(mean(pollen$PEIN))
+tab[1,9] <- round(sd(pollen$PEIN),2)
 #C. anuum pollen average
-tab[2,7] <- round(mean(pollen$CAAN))
-tab[2,8] <- round(sd(pollen$CAAN),2)
+tab[2,8] <- round(mean(pollen$CAAN))
+tab[2,9] <- round(sd(pollen$CAAN),2)
 #S. lycopersicum pollen average
-tab[3,7] <- round(mean(pollen$SOLY))
-tab[3,8] <- round(sd(pollen$SOLY),2)
+tab[3,8] <- round(mean(pollen$SOLY))
+tab[3,9] <- round(sd(pollen$SOLY),2)
 #S. melongera pollen average
-tab[4,7] <- round(mean(pollen$SOME))
-tab[4,8] <- round(sd(pollen$SOME),2)
+tab[4,8] <- round(mean(pollen$SOME))
+tab[4,9] <- round(sd(pollen$SOME),2)
 #B. oleracea pollen average
-tab[5,7] <- round(mean(pollen$BROL))
-tab[5,8] <- round(sd(pollen$BROL),2)
+tab[5,8] <- round(mean(pollen$BROL))
+tab[5,9] <- round(sd(pollen$BROL),2)
 #B. rapa pollen average
-tab[6,7] <- round(mean(pollen$BRRA))
-tab[6,8] <- round(sd(pollen$BRRA),2)
+tab[6,8] <- round(mean(pollen$BRRA))
+tab[6,9] <- round(sd(pollen$BRRA),2)
 #E. sativa pollen average
-tab[7,7] <- round(mean(pollen$ERSA))
-tab[7,8] <- round(sd(pollen$ERSA),2)
+tab[7,8] <- round(mean(pollen$ERSA))
+tab[7,9] <- round(sd(pollen$ERSA),2)
 #S. alba pollen average
-tab[8,7] <- round(mean(pollen$SIAL))
-tab[8,8] <- round(sd(pollen$SIAL),2)
+tab[8,8] <- round(mean(pollen$SIAL))
+tab[8,9] <- round(sd(pollen$SIAL),2)
 #I. purpurea pollen average
-tab[9,7] <- round(mean(pollen$IPAQ, na.rm = T))
-tab[9,8] <- round(sd(pollen$IPAQ, na.rm = T),2)
+tab[9,8] <- round(mean(pollen$IPAQ, na.rm = T))
+tab[9,9] <- round(sd(pollen$IPAQ, na.rm = T),2)
 #I. aquatica pollen average
-tab[10,7] <- round(mean(pollen$IPPU))
-tab[10,8] <- round(sd(pollen$IPPU,na.rm = T),2)
+tab[10,8] <- round(mean(pollen$IPPU))
+tab[10,9] <- round(sd(pollen$IPPU,na.rm = T),2)
 
 #Anthers
 #P. integrifolia
-tab[1,12] <- 5
+tab[1,13] <- 5
 #C. anuum
-tab[2,12] <- 6
+tab[2,13] <- 6
 #S. lycopersicum
-tab[3,12] <- 6
+tab[3,13] <- 6
 #S. melongera
-tab[4,12] <- 6
+tab[4,13] <- 6
 #I.aquatica
-tab[9,12] <- 5
+tab[9,13] <- 5
 #I.purpurea
-tab[10,12] <- 5
+tab[10,13] <- 5
 #Brassicaceae
-tab[5:8,12] <- 6
+tab[5:8,13] <- 6
 
 #Pollen ovule ratio, total pollen per flower/n of ovules
-tab$pollen_ovule_ratio <- round(as.numeric(tab[,7])*as.numeric(tab[,12])/as.numeric(tab[,9]),2)
+tab$pollen_ovule_ratio <- round(as.numeric(tab[,8])*as.numeric(tab[,13])/as.numeric(tab[,10]),2)
