@@ -156,3 +156,6 @@ tab[9,12] <- 5
 tab[10,12] <- 5
 #Brassicaceae
 tab[5:8,12] <- 6
+
+#Pollen ovule ratio, total pollen per flower/n of ovules
+tab$pollen_ovule_ratio <- round(as.numeric(tab[,7])*as.numeric(tab[,12])/as.numeric(tab[,9]),2)
