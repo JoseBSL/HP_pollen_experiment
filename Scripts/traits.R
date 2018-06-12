@@ -177,3 +177,7 @@ library(ggplot2)
 p <- ggplot(data=tab, aes(x=species, y=pollen_ovule_ratio))+
 geom_bar(stat="identity", width=0.5)+coord_flip()
 p + ggtitle("Pollen/ovule ratio per species")
+
+p <- ggplot(data=tab, aes(x=species, y=pollen_ovule_ratio))+
+  geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))
+p + ggtitle("Pollen/ovule ratio per species")
