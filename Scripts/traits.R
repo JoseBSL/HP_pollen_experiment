@@ -174,10 +174,18 @@ tab[6,4] <- "Chinensis"
 
 barplot(tab$pollen_ovule_ratio, x.axis)
 library(ggplot2)
+library(colorspace)
 p <- ggplot(data=tab, aes(x=species, y=pollen_ovule_ratio))+
 geom_bar(stat="identity", width=0.5)+coord_flip()
 p + ggtitle("Pollen/ovule ratio per species")
 
-p <- ggplot(data=tab, aes(x=species, y=pollen_ovule_ratio))+
-  geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))
-p + ggtitle("Pollen/ovule ratio per species")
+colours <- rainbow_hcl(4, start = 30, end = 300)
+
+
+p <- ggplot(data=tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), y=pollen_ovule_ratio))+aes(fill=family)+
+  geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  scale_fill_manual(values=colours)
+p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
+
+
+
