@@ -9,8 +9,6 @@ output: pdf_document
 #load libraries
 
 library(ggplot2)
-library(Hmisc)
-library(Formula)
 #load data
 
 par(mfrow=c(2,1))
@@ -61,8 +59,6 @@ p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
 #Pollen per anther, just one Convolvulaceae at the moment
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3}
 library(ggplot2)
-library(Hmisc)
-library(Formula)
 
 
 p <- read.csv("data/Pollen.csv", sep = ";")

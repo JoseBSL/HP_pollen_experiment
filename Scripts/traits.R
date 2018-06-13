@@ -170,7 +170,15 @@ tab[4,4] <- "Little fingers"
 tab[5,4] <- "Capitata"
 tab[6,4] <- "Chinensis"
 
-
+#Pollen size (um)
+#IPPU#N=3
+IPPU <- c(99.11,97.78,95.88)
+IPPU <- mean(IPPU)
+tab[10,7] <- IPPU
+#IPAQ#N=3
+IPAQ <- c(73.90,68.61,67.78)
+IPAQ <- round(mean(IPAQ),2)
+tab[9,7] <- IPAQ
 
 barplot(tab$pollen_ovule_ratio, x.axis)
 library(ggplot2)
