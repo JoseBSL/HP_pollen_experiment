@@ -170,7 +170,7 @@ tab[4,4] <- "Little fingers"
 tab[5,4] <- "Capitata"
 tab[6,4] <- "Chinensis"
 
-#Pollen size (um)
+#Pollen size (um) Equatorial diameter, almost all have rounded shape when hydratated
 #IPPU#N=3
 IPPU <- c(99.11,97.78,95.88)
 IPPU <- mean(IPPU)
