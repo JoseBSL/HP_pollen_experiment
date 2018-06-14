@@ -171,14 +171,38 @@ tab[5,4] <- "Capitata"
 tab[6,4] <- "Chinensis"
 
 #Pollen size (um) Equatorial diameter, almost all have rounded shape when hydratated
-#IPPU#N=3
-IPPU <- c(99.11,97.78,95.88)
-IPPU <- mean(IPPU)
-tab[10,7] <- IPPU
-#IPAQ#N=3
-IPAQ <- c(73.90,68.61,67.78)
-IPAQ <- round(mean(IPAQ),2)
-tab[9,7] <- IPAQ
+pollen_size <- read.csv("data/pollen_size.csv", sep = ";")
+
+#Fixing number of decimals per column
+tab[,9] <- format(as.numeric(tab[,9]),nsmall = 2)
+
+#PEIN
+tab[1,7] <- mean(pollen_size$PEIN)
+#CAAN
+tab[2,7] <- mean(pollen_size$CAAN)
+#SOLY
+tab[3,7] <- mean(pollen_size$SOLY)
+#SOME
+tab[4,7] <- mean(pollen_size$SOME)
+#BROL
+tab[5,7] <- mean(pollen_size$BROL)
+#BRRA
+tab[6,7] <- mean(pollen_size$BRRA)
+#ERSA
+tab[7,7] <- mean(pollen_size$ERSA)
+#SIAL
+tab[8,7] <- mean(pollen_size$SIAL)
+#IPAQ
+tab[9,7] <- mean(pollen_size$IPAQ)
+#IPPU
+tab[10,7] <- mean(pollen_size$IPPU)
+
+
+
+#Fixing number of decimals per column
+tab[,7] <- as.numeric(tab[,7])
+tab[,7] <- round(tab[,7],2)
+
 
 barplot(tab$pollen_ovule_ratio, x.axis)
 library(ggplot2)
