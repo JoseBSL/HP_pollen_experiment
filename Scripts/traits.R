@@ -21,7 +21,7 @@ species <- c(solanaceae,brassicaceae, convolvulaceae)
 genus <- c(sol_genus,bra_genus,con_genus)
 family <- c(sol_fam,bra_fam,con_fam)
 stigma_type <- rep("",10)
-compatibility_system <- rep("",10)
+self-incompatibility_system <- rep("",10)
 varieties <- rep("",10)
 
 
@@ -29,7 +29,7 @@ tab <- cbind(family,genus,species, varieties)
 View(tab)
 
 #Adding stigma type column 
-tab<- cbind(tab,stigma_type, compatibility_system)
+tab<- cbind(tab,stigma_type, self-incompatibility_system)
 tab<- data.frame(tab, stringsAsFactors=FALSE)
 class(tab)
 
@@ -198,11 +198,13 @@ tab[9,7] <- mean(pollen_size$IPAQ)
 tab[10,7] <- mean(pollen_size$IPPU)
 
 
-
 #Fixing number of decimals per column
 tab[,7] <- as.numeric(tab[,7])
 tab[,7] <- round(tab[,7],2)
 
+#Adding compatibility system
+
+tab[1,6] <- "Gametophytic self-incompatibility"
 
 barplot(tab$pollen_ovule_ratio, x.axis)
 library(ggplot2)
