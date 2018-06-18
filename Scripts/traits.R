@@ -223,7 +223,24 @@ tab[5,7] <- "(Kitashiba & Nasrallah, 2014); DOI:10.1270/jsbbs.64.23"
 #B. rapa 
 tab[6,6] <- "Sporophytic self-incompatibility"
 tab[6,7] <- "(Kitashiba & Nasrallah, 2014); DOI:10.1270/jsbbs.64.23"
+#E. sativa
+tab[7,6] <- "Sporophytic self-incompatibility"
+tab[7,7] <- "(Verma et al., 1977); DOI:10.1098/rspb.1977.0034"
+#S. alba
+#Different cultivars have different compatibility
+tab[8,6] <- "Sporophytic self-(in)compatibility"
+tab[8,7] <-  "(Zeng & Cheng, 2014); DOI: 10.1007/s11032-013-9943-8" 
+#I. aquatica
+tab[9,6] <- "Self-compatible"
+tab[9,7] <-  "(Les, 2017); DOI: 10.1201/9781315118116" 
+#S. purpurea
+#Different cultivars have different compatibility
+tab[10,6] <- "Self-compatible"
+tab[10,7] <-  "(Smith & Rausher, 2006); DOI: 10.1111/j.1469-8137.2006.01933.x" 
 
+
+
+  
 barplot(tab$pollen_ovule_ratio, x.axis)
 library(ggplot2)
 library(colorspace)
