@@ -9,6 +9,9 @@ output: pdf_document
 #load libraries
 
 library(ggplot2)
+library(colorspace)
+colours <- rainbow_hcl(4, start = 30, end = 300)
+
 #load data
 
 par(mfrow=c(2,1))
@@ -39,10 +42,11 @@ brassicaceae<-subset(d)[61:120,]
 
 # OVULES SOLANACEAE
 p <- ggplot(solanaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
-labs(title="Solanaceae",x="", y = "Ovules")+
+labs(title="Solanaceae",x="", y = "Ovules")+aes(fill=species)+scale_fill_manual(values=colours)+
 theme(plot.title = element_text(hjust = 0.5))
 
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") 
+
 
 # OVULES BRASSICACEAE
 
