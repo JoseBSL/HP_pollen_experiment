@@ -1,7 +1,7 @@
 # In this script I'm going to create a table with the different traits of the species
 
 #Solanaceae
-solanaceae <- c("Petunia integrifolia","Capsicum annuum","Solanum lycopersicum","Solanum melongera")
+solanaceae <- c("Petunia integrifolia","Capsicum annuum","Solanum lycopersicum","Solanum melongena")
 sol_fam <- rep("Solanaceae",4)
 sol_genus <- c("Petunia","Capsicum","Solanum","Solanum")
 
