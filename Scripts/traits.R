@@ -7,7 +7,7 @@ sol_genus <- c("Petunia","Capsicum","Solanum","Solanum")
 
 
 #Brassicaceae
-brassicaceae <- c("Brassica oleracea", "Brassica rapa" ,"Eruca sativa", "Sinapis alba")
+brassicaceae <- c("Brassica oleracea", "Brassica rapa" ,"Eruca versicaria", "Sinapis alba")
 bra_fam <- rep("Brassicaceae",4)
 bra_genus <- c("Brassica", "Brassica" ,"Eruca", "Sinapis")
 
