@@ -72,3 +72,27 @@ lablist.x<-as.vector(mean_sd_ordered_some$Treatment)
 axis(x, at=1:24, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
 
+#Now with capscum (C. annuum, variety "California wonder")
+#CAAN
+caan_seed_set <- read.csv("Data/species_seed_set/CAAN_seed_set.csv", sep=";")
+mean_seed_seet_caan <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = caan_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_caan)[2] <-"avg"
+sd_seed_seet_caan <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = caan_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_caan)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_caan <- merge(mean_seed_seet_caan,sd_seed_seet_caan, by="treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_caan <- mean_sd_caan[order(mean_sd_caan$avg),] 
+
+x <- 1:22
+plot(x, mean_sd_ordered_caan$avg,
+     ylim=range(c(mean_sd_ordered_caan$avg-mean_sd_ordered_caan$sdev, mean_sd_ordered_caan$avg+mean_sd_ordered_caan$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_caan$avg-mean_sd_ordered_caan$sdev, x, mean_sd_ordered_caan$avg+mean_sd_ordered_caan$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_caan$treatment)
+axis(x, at=1:24, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
