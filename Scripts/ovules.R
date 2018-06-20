@@ -55,4 +55,10 @@ p <- ggplot(brassicaceae, aes(x = reorder(species, ovules, FUN = median), y = ov
 p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
 
 
-#Ovules CONVOLVULACEAE  
+#Ovules all
+
+p <- ggplot(d, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+  labs(title="Ovules per spp.",x="", y = "Ovules")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")

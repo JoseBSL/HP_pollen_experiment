@@ -45,17 +45,26 @@ p <- ggplot(solanaceae, aes(x = reorder(species, ovules, FUN = median), y = ovul
 labs(title="Solanaceae",x="", y = "Ovules")+aes(fill=species)+scale_fill_manual(values=colours)+
 theme(plot.title = element_text(hjust = 0.5))
 
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") 
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none") 
 
 
 # OVULES BRASSICACEAE
-
 p <- ggplot(brassicaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
-  labs(title="Brassicaceae",x="", y = "Ovules")+
-  theme(plot.title = element_text(hjust = 0.5))
+labs(title="Brassicaceae",x="", y = "Ovules")+aes(fill=species)+scale_fill_manual(values=colours)+
+theme(plot.title = element_text(hjust = 0.5))
 
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none") 
 
+#all species
+#formating d, to have just the spp of interest
+
+
+
+p <- ggplot(d, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+labs(title="Ovules per spp.",x="", y = "Ovules")+aes(fill=species)+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 ```
 
