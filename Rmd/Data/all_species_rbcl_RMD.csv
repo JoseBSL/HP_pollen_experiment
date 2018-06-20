@@ -1,0 +1,12 @@
+"","Ginkgo_biloba_Outgroup","Sinapis_alba","Eruca_vesicaria","Brassica_oleracea","Brassica_rapa","Ipomoea_purpurea","Ipomoea_aquatica","Petunia_integrifolia","Capsicum_annuum","Solanum_lycopersicum","Solanum_melongena"
+"Ginkgo_biloba_Outgroup",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Sinapis_alba",0.135,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Eruca_vesicaria",0.14,0.012,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Brassica_oleracea",0.143,0.012,0.004,NA,NA,NA,NA,NA,NA,NA,NA
+"Brassica_rapa",0.143,0.012,0.004,0,NA,NA,NA,NA,NA,NA,NA
+"Ipomoea_purpurea",0.156,0.114,0.124,0.121,0.121,NA,NA,NA,NA,NA,NA
+"Ipomoea_aquatica",0.156,0.109,0.119,0.116,0.116,0.012,NA,NA,NA,NA,NA
+"Petunia_integrifolia",0.137,0.104,0.104,0.107,0.107,0.064,0.06,NA,NA,NA,NA
+"Capsicum_annuum",0.141,0.112,0.116,0.119,0.119,0.053,0.056,0.03,NA,NA,NA
+"Solanum_lycopersicum",0.139,0.111,0.111,0.114,0.114,0.06,0.062,0.028,0.018,NA,NA
+"Solanum_melongena",0.137,0.109,0.114,0.116,0.116,0.056,0.058,0.024,0.01,0.008,NA

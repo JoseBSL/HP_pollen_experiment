@@ -1,11 +1,10 @@
 ---
 title: "Data_visualization"
-output: pdf_document
+output:
+      pdf_document
 ---
 
-# Ovules per family, **Convolvulaceae is constant 4 or 6**
-
-```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=4}
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.8}
 #load libraries
 
 library(ggplot2)
@@ -132,5 +131,11 @@ p <- ggplot(data=tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), 
 p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
 
 
+```
+
+
+
+```{r echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics('Images/all_species.png')
 ```
 

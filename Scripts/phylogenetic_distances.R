@@ -8,3 +8,4 @@ rownames(all_species_rbcl) <- species
 all_species_rbcl<- all_species_rbcl[,-1]
 colnames(all_species_rbcl) <- species
 
+#write.csv(all_species_rbcl, file="Data/all_species_rbcl_RMD.csv")
