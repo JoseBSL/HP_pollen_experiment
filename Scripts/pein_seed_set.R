@@ -69,7 +69,7 @@ plot(x, mean_sd_ordered_some$avg,
 # add arrows
 arrows(x, mean_sd_ordered_some$avg-mean_sd_ordered_some$sdev, x, mean_sd_ordered_some$avg+mean_sd_ordered_some$sdev, length=0.05, angle=90, code=3)
 lablist.x<-as.vector(mean_sd_ordered_some$Treatment)
-axis(x, at=1:24, labels = FALSE)
+axis(x, at=1:23, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
 
 #Now with capscum (C. annuum, variety "California wonder")
@@ -93,6 +93,30 @@ plot(x, mean_sd_ordered_caan$avg,
 # add arrows
 arrows(x, mean_sd_ordered_caan$avg-mean_sd_ordered_caan$sdev, x, mean_sd_ordered_caan$avg+mean_sd_ordered_caan$sdev, length=0.05, angle=90, code=3)
 lablist.x<-as.vector(mean_sd_ordered_caan$treatment)
-axis(x, at=1:24, labels = FALSE)
+axis(x, at=1:22, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
+#Now with tomato (S. lycopersicum, variety "Tommy Joe")
+#SOLY
+soly_seed_set <- read.csv("Data/species_seed_set/SOLY_seed_set.csv", sep=";")
+mean_seed_seet_soly <- dcast(Treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = soly_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_soly)[2] <-"avg"
+sd_seed_seet_soly <- dcast(Treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = soly_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_soly)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_soly <- merge(mean_seed_seet_soly,sd_seed_seet_soly, by="Treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_soly <- mean_sd_soly[order(mean_sd_soly$avg),] 
+
+x <- 1:26
+plot(x, mean_sd_ordered_soly$avg,
+     ylim=range(c(mean_sd_ordered_soly$avg-mean_sd_ordered_soly$sdev, mean_sd_ordered_soly$avg+mean_sd_ordered_soly$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_soly$avg-mean_sd_ordered_soly$sdev, x, mean_sd_ordered_soly$avg+mean_sd_ordered_soly$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_soly$Treatment)
+axis(x, at=1:26, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
 
