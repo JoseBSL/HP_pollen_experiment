@@ -120,3 +120,26 @@ lablist.x<-as.vector(mean_sd_ordered_soly$Treatment)
 axis(x, at=1:26, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
 
+#Now with BROL (B. oleracea, variety "capitata")
+#BROL
+brol_seed_set <- read.csv("Data/species_seed_set/BROL_seed_set.csv", sep=";")
+mean_seed_seet_brol <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = mean, data = brol_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_brol)[2] <-"avg"
+sd_seed_seet_brol <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = sd, data = brol_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_brol)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_brol <- merge(mean_seed_seet_brol,sd_seed_seet_brol, by="Treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_brol <- mean_sd_brol[order(mean_sd_brol$avg),] 
+
+x <- 1:25
+plot(x, mean_sd_ordered_brol$avg,
+     ylim=range(c(mean_sd_ordered_brol$avg-mean_sd_ordered_brol$sdev, mean_sd_ordered_brol$avg+mean_sd_ordered_brol$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_brol$avg-mean_sd_ordered_brol$sdev, x, mean_sd_ordered_brol$avg+mean_sd_ordered_brol$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_brol$Treatment)
+axis(x, at=1:25, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
