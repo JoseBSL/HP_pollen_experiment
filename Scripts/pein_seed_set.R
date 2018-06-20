@@ -143,3 +143,28 @@ arrows(x, mean_sd_ordered_brol$avg-mean_sd_ordered_brol$sdev, x, mean_sd_ordered
 lablist.x<-as.vector(mean_sd_ordered_brol$Treatment)
 axis(x, at=1:25, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
+
+#Now with SIAL (S. alba, white mustard)
+#SIAL
+sial_seed_set <- read.csv("Data/species_seed_set/SIAL_seed_set.csv", sep=";")
+mean_seed_seet_sial <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = mean, data = sial_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_sial)[2] <-"avg"
+sd_seed_seet_sial <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = sd, data = sial_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_sial)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_sial <- merge(mean_seed_seet_sial,sd_seed_seet_sial, by="Treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_sial <- mean_sd_sial[order(mean_sd_sial$avg),] 
+
+x <- 1:22
+plot(x, mean_sd_ordered_sial$avg,
+     ylim=range(c(mean_sd_ordered_sial$avg-mean_sd_ordered_sial$sdev, mean_sd_ordered_sial$avg+mean_sd_ordered_sial$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_sial$avg-mean_sd_ordered_sial$sdev, x, mean_sd_ordered_sial$avg+mean_sd_ordered_sial$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_sial$Treatment)
+axis(x, at=1:22, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
