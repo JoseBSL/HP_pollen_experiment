@@ -15,7 +15,6 @@ colours <- rainbow_hcl(4, start = 30, end = 300)
 #load data
 
 par(mfrow=c(2,1))
-
 d<-read.csv("Data/Ovules.csv", sep=";")
 d<- d[,-c(9,11)]
 colnames(d)[1]<-"C. annuum"
@@ -30,12 +29,16 @@ colnames(d)[9]<-"I. aquatica"
 colnames(d)[10]<-"I. purpurea"
 
 
-
 #Reorganise data
 d <- stack(d)
 #Naming columns
 colnames(d)[1]<-"ovules"
 colnames(d)[2]<-"species"
+
+family<- c(rep("solanaceae",60),rep("brassicaceae",60),rep("convolvulaceae",30))
+
+d[,"family"] <- family
+
 
 
 
