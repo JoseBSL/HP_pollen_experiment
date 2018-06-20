@@ -5,7 +5,7 @@ output: pdf_document
 
 # Ovules per family, **Convolvulaceae is constant 4 or 6**
 
-```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3}
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=4}
 #load libraries
 
 library(ggplot2)
@@ -17,7 +17,7 @@ colours <- rainbow_hcl(4, start = 30, end = 300)
 par(mfrow=c(2,1))
 
 d<-read.csv("Data/Ovules.csv", sep=";")
-
+d<- d[,-c(9,11)]
 colnames(d)[1]<-"C. annuum"
 colnames(d)[2]<-"S. lycopersicum"
 colnames(d)[3]<-"S. melongera"
@@ -26,6 +26,9 @@ colnames(d)[5]<-"B. oleracea"
 colnames(d)[6]<-"B. rapa"
 colnames(d)[7]<-"E. sativa"
 colnames(d)[8]<-"S. alba"
+colnames(d)[9]<-"I. aquatica"
+colnames(d)[10]<-"I. purpurea"
+
 
 
 #Reorganise data
@@ -61,7 +64,7 @@ p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +t
 
 
 p <- ggplot(d, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
-labs(title="Ovules per spp.",x="", y = "Ovules")+aes(fill=species)+
+labs(title="Ovules per spp.",x="", y = "Ovules")+aes(fill=family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
 theme(plot.title = element_text(hjust = 0.5))
 
 p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
@@ -114,6 +117,17 @@ p <- ggplot(all, aes(x = reorder(species, pollen, FUN = median), y = pollen)) + 
   theme(plot.title = element_text(hjust = 0.5))
 
 p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
+
+```
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+tab <- read.csv("Data/tab.csv", sep="", header = T)
+
+p <- ggplot(data=tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), y=pollen_ovule_ratio))+aes(fill=family)+
+  geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  scale_fill_manual(values=colours)
+p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
+
 
 ```
 

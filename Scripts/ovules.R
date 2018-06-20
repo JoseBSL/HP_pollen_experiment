@@ -6,7 +6,7 @@ library(Hmisc)
 library(Formula)
 #load data
 d<-read.csv("Data/Ovules.csv", sep=";")
-
+d<- d[,-c(9,11)]
 colnames(d)[1]<-"C. annuum"
 colnames(d)[2]<-"S. lycopersicum"
 colnames(d)[3]<-"S. melongera"
@@ -15,6 +15,8 @@ colnames(d)[5]<-"B. oleracea"
 colnames(d)[6]<-"B. rapa"
 colnames(d)[7]<-"E. sativa"
 colnames(d)[8]<-"S. alba"
+colnames(d)[9]<-"I. aquatica"
+colnames(d)[10]<-"I. purpurea"
 
 
 #Reorganise data
@@ -22,6 +24,11 @@ d <- stack(d)
 #Naming columns
 colnames(d)[1]<-"ovules"
 colnames(d)[2]<-"species"
+
+family<- c(rep("solanaceae",60),rep("brassicaceae",60),rep("convolvulaceae",30))
+
+d[,"family"] <- family
+
 
 
 #boxplot from ggplot2

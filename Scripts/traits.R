@@ -238,7 +238,7 @@ tab[9,7] <-  "(Les, 2017); DOI: 10.1201/9781315118116"
 tab[10,6] <- "Self-compatible"
 tab[10,7] <-  "(Smith & Rausher, 2006); DOI: 10.1111/j.1469-8137.2006.01933.x" 
 
-
+write.table(tab, file = "data/tab.csv")
 
   
 barplot(tab$pollen_ovule_ratio, x.axis)
@@ -255,6 +255,5 @@ p <- ggplot(data=tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), 
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   scale_fill_manual(values=colours)
 p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
-
 
 
