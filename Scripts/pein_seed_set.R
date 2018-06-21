@@ -249,9 +249,9 @@ text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE
 #IPPU
 
 ippu_seed_set <- read.csv("Data/species_seed_set/IPPU_seed_set.csv", sep=";")
-mean_seed_seet_ippu <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = ippu_seed_set, na.rm= TRUE)
+mean_seed_seet_ippu <- dcast(treatment ~ ., value.var = "seed.set", fun.aggregate = mean, data = ippu_seed_set, na.rm= TRUE)
 colnames(mean_seed_seet_ippu)[2] <-"avg"
-sd_seed_seet_ippu <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = ippu_seed_set, na.rm= TRUE)
+sd_seed_seet_ippu <- dcast(treatment ~ ., value.var = "seed.set", fun.aggregate = sd, data = ippu_seed_set, na.rm= TRUE)
 colnames(sd_seed_seet_ippu)[2] <-"sdev"
 
 #Unify mean and sd with merge
