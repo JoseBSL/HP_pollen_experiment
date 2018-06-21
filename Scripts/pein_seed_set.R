@@ -168,3 +168,53 @@ arrows(x, mean_sd_ordered_sial$avg-mean_sd_ordered_sial$sdev, x, mean_sd_ordered
 lablist.x<-as.vector(mean_sd_ordered_sial$Treatment)
 axis(x, at=1:22, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
+#Now with ERSA (E. versicaria, wild rocket)
+#ERSA
+
+ersa_seed_set <- read.csv("Data/species_seed_set/ERSA_seed_set.csv", sep=";")
+mean_seed_seet_ersa <- dcast(Treatment ~ ., value.var = "seed.production", fun.aggregate = mean, data = ersa_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_ersa)[2] <-"avg"
+sd_seed_seet_ersa <- dcast(Treatment ~ ., value.var = "seed.production", fun.aggregate = sd, data = ersa_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_ersa)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_ersa <- merge(mean_seed_seet_ersa,sd_seed_seet_ersa, by="Treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_ersa <- mean_sd_ersa[order(mean_sd_ersa$avg),] 
+
+x <- 1:22
+plot(x, mean_sd_ordered_ersa$avg,
+     ylim=range(c(mean_sd_ordered_ersa$avg-mean_sd_ordered_ersa$sdev, mean_sd_ordered_ersa$avg+mean_sd_ordered_ersa$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_ersa$avg-mean_sd_ordered_ersa$sdev, x, mean_sd_ordered_ersa$avg+mean_sd_ordered_ersa$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_ersa$Treatment)
+axis(x, at=1:22, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
+#Now with BRRA (B. rapa, chinensis)
+#BRRA
+
+brra_seed_set <- read.csv("Data/species_seed_set/BRRA_seed_set.csv", sep=";")
+mean_seed_seet_brra <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = mean, data = brra_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_brra)[2] <-"avg"
+sd_seed_seet_brra <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = sd, data = brra_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_brra)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_brra <- merge(mean_seed_seet_brra,sd_seed_seet_brra, by="Treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_brra <- mean_sd_brra[order(mean_sd_brra$avg),] 
+
+x <- 1:22
+plot(x, mean_sd_ordered_brra$avg,
+     ylim=range(c(mean_sd_ordered_brra$avg-mean_sd_ordered_brra$sdev, mean_sd_ordered_brra$avg+mean_sd_ordered_brra$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_brra$avg-mean_sd_ordered_brra$sdev, x, mean_sd_ordered_brra$avg+mean_sd_ordered_brra$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_brra$Treatment)
+axis(x, at=1:22, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
