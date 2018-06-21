@@ -3,7 +3,7 @@
 #There are 3 crosses were seeds were lost (2,7,9)
 #load libraries
 library(reshape2)
-
+library(ggplot2)
 #read data
 pein_seed_set <- read.csv("Data/species_seed_set/PEIN_seed_set.csv", sep=";")
 pein_seed_set <- pein_seed_set[-c(42,47,49),]
@@ -43,8 +43,12 @@ summatory_seed_seet <- dcast(Treatment ~ ., value.var = "Seed.production", fun.a
 
 #Delete RARA rows, species not included because sterility
 summatory_seed_seet <- summatory_seed_seet[-c(16,17),]
+colnames(summatory_seed_seet)[2] <- "seeds"
 
-barplot(summatory_seed_seet$.)
+p <- ggplot(data=summatory_seed_seet, aes(x=reorder(Treatment, seeds, colour = cut), y=seeds))+
+  geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  scale_fill_manual(values=colours)
+p + ggtitle("") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
 
 #Now with eggplant (S. melongena, variety "little fingers")
 #SOME
