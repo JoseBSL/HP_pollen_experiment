@@ -218,3 +218,54 @@ arrows(x, mean_sd_ordered_brra$avg-mean_sd_ordered_brra$sdev, x, mean_sd_ordered
 lablist.x<-as.vector(mean_sd_ordered_brra$Treatment)
 axis(x, at=1:22, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
+#Now with IPAQ (I. aquatica)
+#IPAQ
+
+ipaq_seed_set <- read.csv("Data/species_seed_set/IPAQ_seed_set.csv", sep=";")
+mean_seed_seet_ipaq <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = ipaq_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_ipaq)[2] <-"avg"
+sd_seed_seet_ipaq <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = ipaq_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_ipaq)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_ipaq <- merge(mean_seed_seet_ipaq,sd_seed_seet_ipaq, by="treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_ipaq <- mean_sd_ipaq[order(mean_sd_ipaq$avg),] 
+
+x <- 1:24
+plot(x, mean_sd_ordered_ipaq$avg,
+     ylim=range(c(mean_sd_ordered_ipaq$avg-mean_sd_ordered_ipaq$sdev, mean_sd_ordered_ipaq$avg+mean_sd_ordered_ipaq$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_ipaq$avg-mean_sd_ordered_ipaq$sdev, x, mean_sd_ordered_ipaq$avg+mean_sd_ordered_ipaq$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_ipaq$treatment)
+axis(x, at=1:24, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
+
+#Now with IPPU (I. purpurea)
+#IPPU
+
+ippu_seed_set <- read.csv("Data/species_seed_set/IPPU_seed_set.csv", sep=";")
+mean_seed_seet_ippu <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = ippu_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_ippu)[2] <-"avg"
+sd_seed_seet_ippu <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = ippu_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_ippu)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_ippu <- merge(mean_seed_seet_ippu,sd_seed_seet_ippu, by="treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_ippu <- mean_sd_ippu[order(mean_sd_ippu$avg),] 
+
+x <- 1:24
+plot(x, mean_sd_ordered_ippu$avg,
+     ylim=range(c(mean_sd_ordered_ippu$avg-mean_sd_ordered_ippu$sdev, mean_sd_ordered_ippu$avg+mean_sd_ordered_ippu$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Scatter plot with std.dev error bars")
+# add arrows
+arrows(x, mean_sd_ordered_ippu$avg-mean_sd_ordered_ippu$sdev, x, mean_sd_ordered_ippu$avg+mean_sd_ordered_ippu$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_ippu$treatment)
+axis(x, at=1:24, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
