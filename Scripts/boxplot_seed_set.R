@@ -11,7 +11,6 @@ library(dplyr)
 #read data and cleaning
 pein_seed_set <- read.csv("Data/species_seed_set/PEIN_seed_set.csv", sep=";")
 pein_seed_set <- pein_seed_set[-c(42,47,49),]
-caan_seed_set <- read.csv("Data/species_seed_set/CAAN_seed_set.csv", sep=";")
 
 #
 ##
@@ -97,7 +96,34 @@ p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +t
 ###
 ##
 #
+caan_seed_set <- read.csv("Data/species_seed_set/CAAN_seed_set.csv", sep=";")
 
-caan_seed_set <- filter(caan_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%" & Treatment!="COSA 50%" & Treatment!="COSA 100%")
+#adding the focal species, first 50%
+Species <- rep("CAAN", 10)
+Treatment <- rep("CAAN 50%", 10)
+Treatment.number <- seq(1:10)
+Seed.production <- rep(0, 10)
+caan_50 <- data.frame(Species,Treatment, Treatment.number, Seed.production)
+#adding the focal species, 100%
+Species <- rep("CAAN", 10)
+Treatment <- rep("CAAN 100%", 10)
+Treatment.number <- seq(1:10)
+Seed.production <- rep(0, 10)
+caan_100<-  data.frame(Species,Treatment, Treatment.number, Seed.production)
+#Order from lower to higher values the average, to plot it nicely
+caan_seed_set <- caan_seed_set[,-4]
+colnames(caan_seed_set)[1] <- "Species"
+colnames(caan_seed_set)[2] <- "Treatment"
+colnames(caan_seed_set)[3] <- "Treatment.number"
+colnames(caan_seed_set)[4] <- "Seed.production"
+caan_seed_set <- rbind(caan_seed_set, some_50, some_100)
+caan_seed_set <- some_seed_set[order(caan_seed_set$Treatment),]  
+
+
+p <- ggplot(some_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
+  labs(title="Solanum melongena",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 
