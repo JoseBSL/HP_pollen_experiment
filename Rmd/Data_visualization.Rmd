@@ -9,8 +9,9 @@ output:
 
 library(ggplot2)
 library(colorspace)
-colours <- rainbow_hcl(4, start = 30, end = 300)
+library(gridExtra)
 
+colours <- rainbow_hcl(4, start = 30, end = 300)
 #load data
 
 par(mfrow=c(2,1))
@@ -135,8 +136,131 @@ p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(
 knitr::include_graphics('Images/all_species.png')
 ```
 
+\newpage
+```{r,echo=FALSE, message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6, fig.width=8,out.width='100%'}
+par(mfrow=c(2,2))
+#load libraries
+library(reshape2)
+library(ggplot2)
+#read data
+pein_seed_set <- read.csv("Data/PEIN_seed_set.csv", sep=";")
+pein_seed_set <- pein_seed_set[-c(42,47,49),]
 
-```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+mean_seed_seet <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = mean, data = pein_seed_set, na.rm= TRUE)
+
+colnames(mean_seed_seet)[2] <-"avg"
+
+sd_seed_seet <- dcast(Treatment ~ ., value.var = "Seed.production", fun.aggregate = sd, data = pein_seed_set, na.rm= TRUE)
+
+colnames(sd_seed_seet)[2] <-"sdev"
+
+
+
+#Unify mean and sd with merge
+mean_sd <- merge(mean_seed_seet,sd_seed_seet, by="Treatment")
+#Removing RARA, species not considered because sterility 
+mean_sd<- mean_sd[-c(16,17),]
+
+merge_1 <- data.frame(mean_sd, stringsAsFactors = F)
+  
+merge_1$Treatment<- as.character(merge_1$Treatment)
+pein <- c("PEIN", NA, NA)
+
+str(merge_1)
+mean_sd_1 <- rbind(merge_1,pein)
+
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered <- mean_sd[order(mean_sd$avg),]  
+
+
+
+mean_sd_ordered_alphabetically<- mean_sd_ordered[order(mean_sd_ordered$Treatment),]
+
+#ploting averages with sd
+x <- 1:22
+plot(x, mean_sd_ordered$avg,
+     ylim=range(c(mean_sd_ordered$avg-mean_sd_ordered$sdev, mean_sd_ordered$avg+mean_sd_ordered$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Petunia integrifolia")
+# add arrows
+arrows(x, mean_sd_ordered$avg-mean_sd_ordered$sdev, x, mean_sd_ordered$avg+mean_sd_ordered$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered$Treatment)
+axis(x, at=1:22, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, cex= 0.6, adj = 1.25,srt = 45, xpd = TRUE)
+
+some_seed_set <- read.csv("Data/SOME_seed_set.csv", sep=";")
+mean_seed_seet_some <- dcast(Treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = some_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_some)[2] <-"avg"
+sd_seed_seet_some <- dcast(Treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = some_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_some)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_some <- merge(mean_seed_seet_some,sd_seed_seet_some, by="Treatment")
+#Delete RARA rows, species not included because sterility
+mean_sd_some <- mean_sd_some[-c(8,9,20),]
+
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_some <- mean_sd_some[order(mean_sd_some$avg),] 
+
+x <- 1:22
+plot(x, mean_sd_ordered_some$avg,
+     ylim=range(c(mean_sd_ordered_some$avg-mean_sd_ordered_some$sdev, mean_sd_ordered_some$avg+mean_sd_ordered_some$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Solanum melongena")
+# add arrows
+arrows(x, mean_sd_ordered_some$avg-mean_sd_ordered_some$sdev, x, mean_sd_ordered_some$avg+mean_sd_ordered_some$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_some$Treatment)
+axis(x, at=1:22, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x,  cex= 0.6, adj = 1.25,srt = 45, xpd = TRUE)
+
+caan_seed_set <- read.csv("Data/CAAN_seed_set.csv", sep=";")
+mean_seed_seet_caan <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = caan_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_caan)[2] <-"avg"
+sd_seed_seet_caan <- dcast(treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = caan_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_caan)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_caan <- merge(mean_seed_seet_caan,sd_seed_seet_caan, by="treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_caan <- mean_sd_caan[order(mean_sd_caan$avg),] 
+
+x <- 1:22
+plot(x, mean_sd_ordered_caan$avg,
+     ylim=range(c(mean_sd_ordered_caan$avg-mean_sd_ordered_caan$sdev, mean_sd_ordered_caan$avg+mean_sd_ordered_caan$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Capsicum annuum")
+# add arrows
+arrows(x, mean_sd_ordered_caan$avg-mean_sd_ordered_caan$sdev, x, mean_sd_ordered_caan$avg+mean_sd_ordered_caan$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_caan$treatment)
+axis(x, at=1:22, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x,  cex= 0.6, adj = 1.25,srt = 45, xpd = TRUE)
+
+soly_seed_set <- read.csv("Data/SOLY_seed_set.csv", sep=";")
+mean_seed_seet_soly <- dcast(Treatment ~ ., value.var = "seed_set", fun.aggregate = mean, data = soly_seed_set, na.rm= TRUE)
+colnames(mean_seed_seet_soly)[2] <-"avg"
+sd_seed_seet_soly <- dcast(Treatment ~ ., value.var = "seed_set", fun.aggregate = sd, data = soly_seed_set, na.rm= TRUE)
+colnames(sd_seed_seet_soly)[2] <-"sdev"
+
+#Unify mean and sd with merge
+mean_sd_soly <- merge(mean_seed_seet_soly,sd_seed_seet_soly, by="Treatment")
+#Order from lower to higher values the average, to plot it nicely
+mean_sd_ordered_soly <- mean_sd_soly[order(mean_sd_soly$avg),] 
+
+x <- 1:26
+plot(x, mean_sd_ordered_soly$avg,
+     ylim=range(c(mean_sd_ordered_soly$avg-mean_sd_ordered_soly$sdev, mean_sd_ordered_soly$avg+mean_sd_ordered_soly$sdev)),
+     pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
+     main="Solanum lycopersicum")
+# add arrows
+arrows(x, mean_sd_ordered_soly$avg-mean_sd_ordered_soly$sdev, x, mean_sd_ordered_soly$avg+mean_sd_ordered_soly$sdev, length=0.05, angle=90, code=3)
+lablist.x<-as.vector(mean_sd_ordered_soly$Treatment)
+axis(x, at=1:26, labels = FALSE)
+text(x, par("usr")[3] - 0.2, labels = lablist.x, cex= 0.6, adj = 1.25,srt = 45, xpd = TRUE)
+
+```
+
+\newpage
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.5, fig.width=5,fig.show='asis',fig.align='center',out.width='70%'}
 #Preparing seed set plots, starting with Petunia
 
 #There are 3 crosses were seeds were lost (2,7,9)
@@ -144,8 +268,12 @@ knitr::include_graphics('Images/all_species.png')
 library(reshape2)
 library(ggplot2)
 library(dplyr)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(egg)
+library(gtable)
 
- par(mfrow=c(1,4))
 
 #read data and cleaning
 pein_seed_set <- read.csv("Data/PEIN_seed_set.csv", sep=";")
@@ -183,11 +311,11 @@ pein_seed_set <- pein_seed_set[order(pein_seed_set$Treatment),]
 
 
 
-p <- ggplot(pein_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
+plot1 <- ggplot(pein_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
   labs(title="Petunia integrifolia",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5))
 
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+plot1 + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 #
 ##
@@ -222,11 +350,11 @@ some_seed_set$Treatment<- as.character(some_seed_set$Treatment)
 some_seed_set <- some_seed_set[order(some_seed_set$Treatment),]  
 
 
-p <- ggplot(some_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
+plot2 <- ggplot(some_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
   labs(title="Solanum melongena",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5))
 
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+plot2 + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 
 #
@@ -261,11 +389,11 @@ caan_seed_set$Treatment<- as.character(caan_seed_set$Treatment)
 caan_seed_set <- caan_seed_set[order(caan_seed_set$Treatment),]  
 
 
-p <- ggplot(caan_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
+plot3 <- ggplot(caan_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
   labs(title="Capsicum annuum",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5))
 
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+plot3 + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 #
 ##
@@ -302,11 +430,11 @@ soly_seed_set$Treatment<- as.character(soly_seed_set$Treatment)
 soly_seed_set <- soly_seed_set[order(soly_seed_set$Treatment),]  
 
 
-p <- ggplot(soly_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
+plot4 <- ggplot(soly_seed_set, aes(x = Treatment, y = Seed.production)) +   geom_boxplot()+
   labs(title="Solanum lycopersicum",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5))
 
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+plot4 + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none") 
 
 ```
 
