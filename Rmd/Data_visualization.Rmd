@@ -148,7 +148,7 @@ library(dplyr)
  par(mfrow=c(1,4))
 
 #read data and cleaning
-pein_seed_set <- read.csv("Data/species_seed_set/PEIN_seed_set.csv", sep=";")
+pein_seed_set <- read.csv("Data/PEIN_seed_set.csv", sep=";")
 pein_seed_set <- pein_seed_set[-c(42,47,49),]
 
 #
@@ -198,7 +198,7 @@ p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +t
 #
 
 #Taking out species that weren't used
-some_seed_set <- read.csv("Data/species_seed_set/SOME_seed_set.csv", sep=";")
+some_seed_set <- read.csv("Data/SOME_seed_set.csv", sep=";")
 some_seed_set <- filter(some_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%" & Treatment!="COSA 50%" & Treatment!="COSA 100%")
 
 #adding the focal species, first 50%
@@ -236,7 +236,7 @@ p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +t
 ###
 ##
 #
-caan_seed_set <- read.csv("Data/species_seed_set/CAAN_seed_set.csv", sep=";")
+caan_seed_set <- read.csv("Data/CAAN_seed_set.csv", sep=";")
 
 #adding the focal species, first 50%
 Species <- rep("CAAN", 10)
@@ -276,7 +276,7 @@ p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +t
 #
 
 
-soly_seed_set <- read.csv("Data/species_seed_set/SOLY_seed_set.csv", sep=";")
+soly_seed_set <- read.csv("Data/SOLY_seed_set.csv", sep=";")
 soly_seed_set <- filter(soly_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%"& Treatment!="COSA 50%"& Treatment!="COSA 100%" )
 
 #adding the focal species, first 50%
