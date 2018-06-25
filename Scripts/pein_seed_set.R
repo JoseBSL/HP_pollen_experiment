@@ -48,7 +48,7 @@ colnames(summatory_seed_seet)[2] <- "seeds"
 p <- ggplot(data=summatory_seed_seet, aes(x=reorder(Treatment, seeds, colour = cut), y=seeds))+
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   scale_fill_manual(values=colours)
-p + ggtitle("") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
+p + ggtitle("") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species", y="Seeds summatory")
 
 #Now with eggplant (S. melongena, variety "little fingers")
 #SOME
@@ -61,10 +61,13 @@ colnames(sd_seed_seet_some)[2] <-"sdev"
 
 #Unify mean and sd with merge
 mean_sd_some <- merge(mean_seed_seet_some,sd_seed_seet_some, by="Treatment")
+#Delete RARA rows, species not included because sterility
+mean_sd_some <- mean_sd_some[-c(8,9,20),]
+
 #Order from lower to higher values the average, to plot it nicely
 mean_sd_ordered_some <- mean_sd_some[order(mean_sd_some$avg),] 
 
-x <- 1:23
+x <- 1:22
 plot(x, mean_sd_ordered_some$avg,
      ylim=range(c(mean_sd_ordered_some$avg-mean_sd_ordered_some$sdev, mean_sd_ordered_some$avg+mean_sd_ordered_some$sdev)),
      pch=19, xlab="", xaxt='n', ylab="Mean +/- SD",
@@ -72,8 +75,23 @@ plot(x, mean_sd_ordered_some$avg,
 # add arrows
 arrows(x, mean_sd_ordered_some$avg-mean_sd_ordered_some$sdev, x, mean_sd_ordered_some$avg+mean_sd_ordered_some$sdev, length=0.05, angle=90, code=3)
 lablist.x<-as.vector(mean_sd_ordered_some$Treatment)
-axis(x, at=1:23, labels = FALSE)
+axis(x, at=1:22, labels = FALSE)
 text(x, par("usr")[3] - 0.2, labels = lablist.x, adj = 1.25,srt = 45, xpd = TRUE)
+
+
+#Now I'm going to try to represent the same data in a different way, summatory of seed set which could be more informative
+
+summatory_seed_seet_some <- dcast(Treatment ~ ., value.var = "seed_set", fun.aggregate = sum, data = some_seed_set, na.rm= TRUE)
+
+#Delete RARA rows, species not included because sterility
+summatory_seed_seet_some <- summatory_seed_seet_some[-c(8,9,20),]
+colnames(summatory_seed_seet_some)[2] <- "seeds"
+
+p <- ggplot(data=summatory_seed_seet_some, aes(x=reorder(Treatment, seeds, colour = cut), y=seeds))+
+  geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  scale_fill_manual(values=colours)
+p + ggtitle("") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species", y="Seeds summatory")
+
 
 #Now with capscum (C. annuum, variety "California wonder")
 #CAAN

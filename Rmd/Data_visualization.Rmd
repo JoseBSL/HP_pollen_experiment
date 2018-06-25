@@ -135,3 +135,5 @@ p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(
 knitr::include_graphics('Images/all_species.png')
 ```
 
+
+
