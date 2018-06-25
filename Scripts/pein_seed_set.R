@@ -23,8 +23,21 @@ mean_sd <- merge(mean_seed_seet,sd_seed_seet, by="Treatment")
 #Removing RARA, species not considered because sterility 
 mean_sd<- mean_sd[-c(16,17),]
 
+merge_1 <- data.frame(mean_sd, stringsAsFactors = F)
+  
+merge_1$Treatment<- as.character(merge_1$Treatment)
+pein <- c("PEIN", NA, NA)
+
+str(merge_1)
+mean_sd_1 <- rbind(merge_1,pein)
+
 #Order from lower to higher values the average, to plot it nicely
-mean_sd_ordered <- mean_sd[order(mean_sd$avg),] 
+mean_sd_ordered <- mean_sd[order(mean_sd$avg),]  
+
+
+
+mean_sd_ordered_alphabetically<- mean_sd_ordered[order(mean_sd_ordered$Treatment),]
+
 #ploting averages with sd
 x <- 1:22
 plot(x, mean_sd_ordered$avg,
