@@ -1,0 +1,112 @@
+---
+title: "Glasshouse experiment"
+output: html_document
+---
+# Intro 
+
+
+**Paragraph 1** Introduction to the topic
+
+Flowerings plants depend highly on animal vectors to be pollinated (Ollerton et al, 2011) and their coevolutive history has lead to a great diversity of floral structures (Refs). Generally these different plant species coexist together in natural ecosystems where they compete for pollinators (Refs) or facilitate pollinator's visitation. In addition, pollinator sharing is a common feature in natural ecosystems (Ref) and therefore plant species will recieve conspecific pollen but also heterospecific pollen or interspecific pollen (HP or IP). 
+
+
+Vamosi species limited by pollen
+
+
+**Paragraph 2** Research on the topic so far
+
+
+
+**Paragraph 3**
+
+**Paragraph 4**
+
+We review the classic predicted traits of hterospecific pollen effect through a matrix of intereactions with heterogeneous traits. 
+
+# Methods
+
+The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The species selected (Table 1) belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species/family selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), low structural flower complexity and fast life cycle. For the purpose of the experiment all the species where consider as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
+
+**Table 1**
+```{r}
+
+```
+
+
+**Hand-pollination**
+
+Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Had-pollination was realized with 3-4 gentle touches on the surface of the stigma. The mixes of pollen were performed based on the pollen counts on an eppendorf. Pollen on anthers was counted through Neubaeur chamber.
+
+For all the species, the day prior anthesis flowers were emasculated and then hand-pollinated next day with toothpicks with 3-4 gentle touches over the stigma surface. 
+
+**Solanaceae**
+
+SOLY "Tommy Joe"
+CAAN "California Wonder""
+PEIN "Petunia integrifolia"
+SOME "Solanum melongera"
+
+**Brassicaceae**
+
+Sinapis alba White mustard
+Brassica oleracea var. capitata
+Brassica rapa var. chinensis
+
+**Convolvulaceae**
+
+Ipomoea purpurea
+
+
+Possible species to include:
+
+Ipomoea aquatica
+
+I. coccinea
+
+Convolvulus sabatius
+
+Sysimbrium spp
+
+Raphanus spp
+
+Eruca sativa
+
+
+
+
+
+Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Had-pollination was realized with 3-4 gentle touches on the surface of the stigma. The mixes of pollen were realized based on the pollen counts on an eppendorf. Pollen on anthers was counted through Neubaeur chamber.
+
+Flower selection criteria: Big flowers, easy/fast growing.
+
+Soil was mixed with sand
+
+Hybrids where avoided
+
+Pot size 
+
+Number of individuals (started with 24 ending with 16, lack of space)
+
+
+
+# Results
+
+**Ovules**
+
+Plots of pollen
+
+Morphometry
+
+
+
+Seed set
+
+Pollen grwoth
+
+Pic of pollen with SEM (pollen size)
+
+Pollen tubes and number of pollen grains
+
+
+
+#Discussion
