@@ -7,7 +7,7 @@ output: html_document
 
 **Paragraph 1** Introduction to the topic
 
-Flowerings plants depend highly on animal vectors to be pollinated (Ollerton et al, 2011) and their coevolutive history has lead to a great diversity of floral structures (Refs). Generally these different plant species coexist together in natural ecosystems where they compete for pollinators (Refs) or facilitate pollinator's visitation. In addition, pollinator sharing is a common feature in natural ecosystems (Ref) and therefore plant species will recieve conspecific pollen but also heterospecific pollen or interspecific pollen (HP or IP). 
+Flowerings plants depend highly on animal vectors to be pollinated (Ollerton et al, 2011) and their coevolutive history has lead to a great diversity of floral structures (Refs). Generally these different plant species coexist together in natural ecosystems where they compete for pollinators (Refs) or facilitate pollinator's visitation. In addition, pollinator sharing is a common feature in natural ecosystems (Ref) and therefore plant species will recieve conspecific pollen but also heterospecific pollen (HP). 
 
 **Paragraph 2** Research on the topic so far
 
