@@ -73,9 +73,28 @@ pein_seed_set_final=pein_seed_set_final[,-c(5,6)]
 #adding NA'S to the focal species
 pein_seed_set_final[pein_seed_set_final$Treatment==c("PEIN 50%"),4] <- NA
 #changing non_focal species name
-pein_seed_set_final$Family <- NA
-pein_seed_set_final[pein_seed_set_final$Treatment==c("BROL 50%", "BRRA 50%"), 5] <- "a"
+pein_seed_set_final$Treatment=as.character(pein_seed_set_final$Treatment)
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="BROL 50%"] <- "Brassicaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="BRRA 50%"] <- "Brassicaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="SIAL 50%"] <- "Brassicaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="ERSA 50%"] <- "Brassicaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="SOLY 50%"] <- "Solanaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="CAAN 50%"] <- "Solanaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="IPPU 50 %"] <- "Convolvulaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
 
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="BROL 50%"] <- "Brassica oleracea"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="BRRA 50%"] <- "Brassica rapa"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="CAAN 50%"] <- "Capsicum annuum"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="ERSA 50%"] <- "Eruca vesicaria" #Eruca sativa seems to be a synonym
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="IPAQ 50%"] <- "Ipomoea aquatica"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="IPPU 50 %"] <- "Ipomoea purpurea"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="PEIN 50%"] <- "Petunia integrifolia"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 
 #locking factor level to maintain order
 p <- ggplot(pein_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
@@ -83,3 +102,24 @@ p <- ggplot(pein_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatme
   theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2)
 
 p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+
+#Colur per family
+
+p <- ggplot(pein_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+  labs(title="Petunia integrifolia",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2)
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+
+#I think we kind of missing something with boxplots
+#I'm going to sum seeds per Treatment to see if it improves the visualization of the differences
+pein_seed_set$Treatment<- as.character(pein_seed_set$Treatment)
+pein_seed_set_sum <- dcast(factor(Treatment, levels=unique(Treatment))+Family~., value.var = "Seed.production", fun.aggregate = sum, data =pein_seed_set_final , na.rm= TRUE)
+colnames(pein_seed_set_sum)<- c("Treatment","Family","Sum_seed")
+
+
+p<-ggplot(pein_seed_set_sum, aes(x=Treatment, y=Sum_seed)) +
+  geom_bar(stat="identity")+ labs(title="Petunia integrifolia",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) 
+p+theme(legend.position="none")
+
