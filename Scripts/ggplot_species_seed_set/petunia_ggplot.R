@@ -81,7 +81,7 @@ pein_seed_set_final$Family[pein_seed_set_final$Treatment=="ERSA 50%"] <- "Brassi
 pein_seed_set_final$Family[pein_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
 pein_seed_set_final$Family[pein_seed_set_final$Treatment=="SOLY 50%"] <- "Solanaceae"
 pein_seed_set_final$Family[pein_seed_set_final$Treatment=="CAAN 50%"] <- "Solanaceae"
-pein_seed_set_final$Family[pein_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
+pein_seed_set_final$Family[pein_seed_set_final$Treatment=="PEIN 50%"] <- "Solanaceae"
 pein_seed_set_final$Family[pein_seed_set_final$Treatment=="IPPU 50 %"] <- "Convolvulaceae"
 pein_seed_set_final$Family[pein_seed_set_final$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
 
