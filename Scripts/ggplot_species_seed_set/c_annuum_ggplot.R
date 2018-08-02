@@ -114,6 +114,6 @@ colnames(caan_seed_set_sum)<- c("Treatment","Family","Sum_seed")
 
 
 p<-ggplot(caan_seed_set_sum, aes(x=Treatment, y=Sum_seed)) +
-  geom_bar(stat="identity")+ labs(title="Solanum melongena",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  geom_bar(stat="identity")+ labs(title="Capsicum annuum",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) 
 p+theme(legend.position="none")
