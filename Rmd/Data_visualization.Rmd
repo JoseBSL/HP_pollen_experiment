@@ -103,12 +103,16 @@ pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="CROSS"] <- "Cross"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="SELF"] <- "Self"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="CONTROL"] <- "Control"
+pein_seed_set_final$Treatment[pein_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
 
 #Colur per family
 
-a <- ggplot(pein_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+a <- ggplot(pein_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Petunia integrifolia",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 
 
@@ -201,12 +205,16 @@ caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="CROSS"] <- "Cross"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SELF"] <- "Self"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="CONTROL"] <- "Control"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
 
 
 #Different colour per family
-b <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+b <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Capsicum annuum",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_blank())+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 #
 ##
@@ -300,11 +308,15 @@ soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="CROSS"] <- "Cross"
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SELF"] <- "Self"
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="CONTROL"] <- "Control"
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
 
 #Different colour per family
-c <- ggplot(soly_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+c <- ggplot(soly_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Solanum lycopersicum",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 
 #
@@ -397,11 +409,15 @@ some_seed_set_final$Treatment[some_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="CROSS"] <- "Cross"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SELF"] <- "Self"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="CONTROL"] <- "Control"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
 
 #Different colour per family
-d <- ggplot(some_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+d <- ggplot(some_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Solanum melongena",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 gl <- lapply(list(a,b,c,d), ggplotGrob)
 library(grid)
@@ -479,7 +495,7 @@ brol_seed_set_bind <- filter(brol_seed_set_bind, percentage!="100%")
 brol_seed_set_cross <- filter(brol_seed_set_bind, non_focal %in% c("Cross"))
 brol_seed_set_self <- filter(brol_seed_set_bind, non_focal %in% c("Self"))
 brol_seed_set_control <- filter(brol_seed_set_bind, non_focal %in% c("Control"))
-brol_seed_set_flower <- filter(brol_seed_set_bind, non_focal %in% c("FC"))
+brol_seed_set_flower <- filter(brol_seed_set_bind, non_focal %in% c("Flower"))
 
 #Changing 0 for NA'S FOCAL species
 
@@ -490,7 +506,7 @@ brol_seed_set_flower <- filter(brol_seed_set_bind, non_focal %in% c("FC"))
 brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Cross"),]
 brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Self"),]
 brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Control"),]
-brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("FC"),]
+brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Flower"),]
 
 brol_seed_set_final<-rbind(brol_seed_set_bind,brol_seed_set_cross, brol_seed_set_self, brol_seed_set_control,
                            brol_seed_set_flower)
@@ -522,11 +538,12 @@ brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="FC"] <- "Flower control"
 
 #Different colour per family
-a <- ggplot(brol_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+a <- ggplot(brol_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Brassica oleracea",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_blank())+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 #
 ##
@@ -619,11 +636,12 @@ brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="FC"] <- "Flower control"
 
 #Different colour per family
-b <- ggplot(brra_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+b <- ggplot(brra_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Brassica rapa",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_blank())+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 
 #
 ##
@@ -673,7 +691,7 @@ ersa_seed_set_bind <- filter(ersa_seed_set_bind, percentage!="100%")
 ersa_seed_set_cross <- filter(ersa_seed_set_bind, non_focal %in% c("Cross"))
 ersa_seed_set_self <- filter(ersa_seed_set_bind, non_focal %in% c("Self"))
 ersa_seed_set_control <- filter(ersa_seed_set_bind, non_focal %in% c("Control"))
-ersa_seed_set_flower <- filter(ersa_seed_set_bind, non_focal %in% c("FC"))
+ersa_seed_set_flower <- filter(ersa_seed_set_bind, non_focal %in% c("Flower"))
 
 #Changing 0 for NA'S FOCAL species
 
@@ -684,7 +702,7 @@ ersa_seed_set_flower <- filter(ersa_seed_set_bind, non_focal %in% c("FC"))
 ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Cross"),]
 ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Self"),]
 ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Control"),]
-ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("FC"),]
+ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Flower"),]
 
 ersa_seed_set_final<-rbind(ersa_seed_set_bind,ersa_seed_set_cross, ersa_seed_set_self, ersa_seed_set_control,
                            ersa_seed_set_flower)
@@ -716,11 +734,12 @@ ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="FC"] <- "Flower control"
 
 #Different colour per family
-c <- ggplot(ersa_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
+c <- ggplot(ersa_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Eruca versicaria",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
 #
 ##
 ###
@@ -769,7 +788,7 @@ sial_seed_set_bind <- filter(sial_seed_set_bind, percentage!="100%")
 sial_seed_set_cross <- filter(sial_seed_set_bind, non_focal %in% c("Cross"))
 sial_seed_set_self <- filter(sial_seed_set_bind, non_focal %in% c("Self"))
 sial_seed_set_control <- filter(sial_seed_set_bind, non_focal %in% c("Control"))
-sial_seed_set_flower <- filter(sial_seed_set_bind, non_focal %in% c("FC"))
+sial_seed_set_flower <- filter(sial_seed_set_bind, non_focal %in% c("Flower"))
 
 #Changing 0 for NA'S FOCAL species
 
@@ -780,7 +799,7 @@ sial_seed_set_flower <- filter(sial_seed_set_bind, non_focal %in% c("FC"))
 sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Cross"),]
 sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Self"),]
 sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Control"),]
-sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("FC"),]
+sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Flower"),]
 
 sial_seed_set_final<-rbind(sial_seed_set_bind,sial_seed_set_cross, sial_seed_set_self, sial_seed_set_control,
                            sial_seed_set_flower)
@@ -812,10 +831,11 @@ sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="FC"] <- "Flower control"
 
 #Different colour per family
-d <- ggplot(sial_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
-  labs(title="Sinapis alba",x="", y = "", tag= "D")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+ theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2)+ stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") + theme(legend.position="none")
+d <- ggplot(sial_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Sinapis alba",x="", y = "", tag= "D")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+ theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+ stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") + theme(legend.position="none")
 
 
 gl <- lapply(list(a,b,c,d), ggplotGrob)
@@ -834,7 +854,243 @@ grid.draw(grobz.plot)
 
 
 ```
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.7, fig.width=7,out.width='100%'}
 
+
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+
+#Preparing seed set plots, starting with Petunia
+#
+##
+###
+#I. AQUATICA
+###
+##
+#
+
+
+ipaq_seed_set <- read.csv("Data/ipaq_seed_set.csv", sep=";")
+colnames(ipaq_seed_set)[1] <- "Species"
+colnames(ipaq_seed_set)[2] <- "Treatment"
+colnames(ipaq_seed_set)[3] <- "Treatment.number"
+colnames(ipaq_seed_set)[4] <- "Seed.production"
+
+ipaq_seed_set <- filter(ipaq_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%"& Treatment!="COSA 50%"& Treatment!="COSA 100%" )
+
+#adding the focal species, first 50%
+Species <- rep("IPAQ", 10)
+Treatment <- rep("IPAQ 50%", 10)
+Treatment.number <- seq(1:10)
+Seed.production <- rep(0, 10)
+ipaq_50 <- data.frame(Species,Treatment, Treatment.number, Seed.production)
+#adding the focal species, 100%
+Species <- rep("IPAQ", 10)
+Treatment <- rep("IPAQ 100%", 10)
+Treatment.number <- seq(1:10)
+Seed.production <- rep(0, 10)
+ipaq_100<-  data.frame(Species,Treatment, Treatment.number, Seed.production)
+#Order from lower to higher values the average, to plot it nicely
+
+ipaq_seed_set <- rbind(ipaq_seed_set, ipaq_50, ipaq_100)
+ipaq_seed_set$Treatment<- as.character(ipaq_seed_set$Treatment)
+ipaq_seed_set <- ipaq_seed_set[order(ipaq_seed_set$Treatment),]  
+
+#Organizing with just 50% and cross, self, flower control and control on a side
+
+library(stringr)
+ipaq_seed_set_div <- str_split_fixed(as.character(ipaq_seed_set$Treatment), " ", 2)
+ipaq_seed_set_div <- data.frame(ipaq_seed_set_div, stringsAsFactors = F)
+colnames(ipaq_seed_set_div)=c("non_focal","percentage")
+ipaq_seed_set_bind <- cbind(ipaq_seed_set,ipaq_seed_set_div)
+ipaq_seed_set_bind <- filter(ipaq_seed_set_bind, percentage!="100%")
+
+#Because I want to give it specifically order I do it separately
+#pein_seed_set_common <- filter(ipaq_seed_set_bind, non_focal %in% c("CROSS", "SELF","CONTROL","FLOWER"))
+
+ipaq_seed_set_cross <- filter(ipaq_seed_set_bind, Treatment %in% c("cross"))
+ipaq_seed_set_self <- filter(ipaq_seed_set_bind, Treatment %in% c("self"))
+ipaq_seed_set_control <- filter(ipaq_seed_set_bind, Treatment %in% c("control"))
+ipaq_seed_set_flower <- filter(ipaq_seed_set_bind, Treatment %in% c("flower control"))
+
+#Changing 0 for NA'S FOCAL species
+
+
+
+
+# I HAVENT BEEN ABLE TO WORK OUT ALL AT THE SAME TIME SO i DO IOT SEPARATELY
+ipaq_seed_set_bind=ipaq_seed_set_bind[ipaq_seed_set_bind$Treatment!=c("cross"),]
+ipaq_seed_set_bind=ipaq_seed_set_bind[ipaq_seed_set_bind$Treatment!=c("self"),]
+ipaq_seed_set_bind=ipaq_seed_set_bind[ipaq_seed_set_bind$Treatment!=c("control"),]
+ipaq_seed_set_bind=ipaq_seed_set_bind[ipaq_seed_set_bind$Treatment!=c("flower control"),]
+
+ipaq_seed_set_final<-rbind(ipaq_seed_set_bind,ipaq_seed_set_cross, ipaq_seed_set_self, ipaq_seed_set_control,
+                           ipaq_seed_set_flower)
+#deleting extra columns used for data formating
+ipaq_seed_set_final=ipaq_seed_set_final[,-c(5,6)]
+#adding NA'S to the focal species
+ipaq_seed_set_final[ipaq_seed_set_final$Treatment==c("IPPA 50%"),4] <- NA
+
+#changing non_focal species name
+ipaq_seed_set_final$Treatment=as.character(ipaq_seed_set_final$Treatment)
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="BROL 50%"] <- "Brassicaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="BRRA 50%"] <- "Brassicaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="SIAL 50%"] <- "Brassicaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="ERSA 50%"] <- "Brassicaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="CAAN 50%"] <- "Solanaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="SOLY 50%"] <- "Solanaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="PEIN 50%"] <- "Solanaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="IPPU 50%"] <- "Convolvulaceae"
+ipaq_seed_set_final$Family[ipaq_seed_set_final$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="BROL 50%"] <- "Brassica oleracea"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="BRRA 50%"] <- "Brassica rapa"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="CAAN 50%"] <- "Capsicum annuum"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="ERSA 50%"] <- "Eruca vesicaria" #Eruca sativa seems to be a synonym
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="IPAQ 50%"] <- "Ipomoea aquatica"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="IPPU 50%"] <- "Ipomoea purpurea"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="PEIN 50%"] <- "Petunia integrifolia"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="cross"] <- "Cross"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="self"] <- "Self"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="control"] <- "Control"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="flower control"] <- "Flower control"
+
+
+#Different colour per family
+a <- ggplot(ipaq_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Ipomea aquatica",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+
+ippu_seed_set <- read.csv("Data/ippu_seed_set.csv", sep=";")
+colnames(ippu_seed_set)[1] <- "Species"
+colnames(ippu_seed_set)[2] <- "Treatment"
+colnames(ippu_seed_set)[3] <- "Treatment.number"
+colnames(ippu_seed_set)[4] <- "Seed.production"
+
+ippu_seed_set <- filter(ippu_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%"& Treatment!="COSA 50%"& Treatment!="COSA 100%" )
+
+#adding the focal species, first 50%
+Species <- rep("IPPU", 10)
+Treatment <- rep("IPPU 50%", 10)
+Treatment.number <- seq(1:10)
+Seed.production <- rep(0, 10)
+ippu_50 <- data.frame(Species,Treatment, Treatment.number, Seed.production)
+#adding the focal species, 100%
+Species <- rep("IPPU", 10)
+Treatment <- rep("IPPU 100%", 10)
+Treatment.number <- seq(1:10)
+Seed.production <- rep(0, 10)
+ippu_100<-  data.frame(Species,Treatment, Treatment.number, Seed.production)
+#Order from lower to higher values the average, to plot it nicely
+
+ippu_seed_set <- rbind(ippu_seed_set, ippu_50, ippu_100)
+ippu_seed_set$Treatment<- as.character(ippu_seed_set$Treatment)
+ippu_seed_set <- ippu_seed_set[order(ippu_seed_set$Treatment),]  
+
+#Organizing with just 50% and cross, self, flower control and control on a side
+
+library(stringr)
+ippu_seed_set_div <- str_split_fixed(as.character(ippu_seed_set$Treatment), " ", 2)
+ippu_seed_set_div <- data.frame(ippu_seed_set_div, stringsAsFactors = F)
+colnames(ippu_seed_set_div)=c("non_focal","percentage")
+ippu_seed_set_bind <- cbind(ippu_seed_set,ippu_seed_set_div)
+ippu_seed_set_bind <- filter(ippu_seed_set_bind, percentage!="100%")
+
+#Because I want to give it specifically order I do it separately
+#pein_seed_set_common <- filter(ippu_seed_set_bind, non_focal %in% c("CROSS", "SELF","CONTROL","FLOWER"))
+
+ippu_seed_set_cross <- filter(ippu_seed_set_bind, Treatment %in% c("cross"))
+ippu_seed_set_self <- filter(ippu_seed_set_bind, Treatment %in% c("self"))
+ippu_seed_set_control <- filter(ippu_seed_set_bind, Treatment %in% c("control"))
+ippu_seed_set_flower <- filter(ippu_seed_set_bind, Treatment %in% c("flower control"))
+
+#Changing 0 for NA'S FOCAL species
+
+
+
+
+# I HAVENT BEEN ABLE TO WORK OUT ALL AT THE SAME TIME SO i DO IOT SEPARATELY
+ippu_seed_set_bind=ippu_seed_set_bind[ippu_seed_set_bind$Treatment!=c("cross"),]
+ippu_seed_set_bind=ippu_seed_set_bind[ippu_seed_set_bind$Treatment!=c("self"),]
+ippu_seed_set_bind=ippu_seed_set_bind[ippu_seed_set_bind$Treatment!=c("control"),]
+ippu_seed_set_bind=ippu_seed_set_bind[ippu_seed_set_bind$Treatment!=c("flower control"),]
+
+ippu_seed_set_final<-rbind(ippu_seed_set_bind,ippu_seed_set_cross, ippu_seed_set_self, ippu_seed_set_control,
+                           ippu_seed_set_flower)
+#deleting extra columns used for data formating
+ippu_seed_set_final=ippu_seed_set_final[,-c(5,6)]
+#adding NA'S to the focal species
+ippu_seed_set_final[ippu_seed_set_final$Treatment==c("IPPU 50%"),4] <- NA
+
+#changing non_focal species name
+ippu_seed_set_final$Treatment=as.character(ippu_seed_set_final$Treatment)
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="BROL 50%"] <- "Brassicaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="BRRA 50%"] <- "Brassicaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="IPPU 50%"] <- "Brassicaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="ERSA 50%"] <- "Brassicaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="CAAN 50%"] <- "Solanaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="SOLY 50%"] <- "Solanaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="PEIN 50%"] <- "Solanaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="IPPU 50%"] <- "Convolvulaceae"
+ippu_seed_set_final$Family[ippu_seed_set_final$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="BROL 50%"] <- "Brassica oleracea"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="BRRA 50%"] <- "Brassica rapa"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="CAAN 50%"] <- "Capsicum annuum"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="ERSA 50%"] <- "Eruca vesicaria" #Eruca sativa seems to be a synonym
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="IPAQ 50%"] <- "Ipomoea aquatica"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="IPPU 50%"] <- "Ipomoea purpurea"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="PEIN 50%"] <- "Petunia integrifolia"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="cross"] <- "Cross"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="self"] <- "Self"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="control"] <- "Control"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="flower control"] <- "Flower control"
+
+
+
+#Different colour per family
+b <- ggplot(ippu_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Ipomea purpurea",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+
+
+
+#There are 3 crosses were seeds were lost (2,7,9)
+#load libraries
+
+#read data and cleaning
+
+gl <- lapply(list(a,b), ggplotGrob)
+library(grid)
+widths <- do.call(unit.pmax, lapply(gl, "[[", "widths"))
+heights <- do.call(unit.pmax, lapply(gl, "[[", "heights"))
+lg <- lapply(gl, function(g) {g$widths <- widths; g$heights <- heights; g})
+
+
+
+grobz <- lapply(list(a, b), ggplotGrob)
+grobz.plot <- arrangeGrob(grobs = list(rbind(grobz[[1]], size = "last"),
+                                        rbind(grobz[[2]], size = "last")), ncol = 2,top="Convolvulaceae")
+
+grid.draw(grobz.plot)
+
+```
+
+\newpage
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.8}
 #load libraries
 
