@@ -188,7 +188,7 @@ caan_seed_set_final$Family[caan_seed_set_final$Treatment=="BROL 50%"] <- "Brassi
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="BRRA 50%"] <- "Brassicaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="SIAL 50%"] <- "Brassicaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="ERSA 50%"] <- "Brassicaceae"
-caan_seed_set_final$Family[caan_seed_set_final$Treatment=="caan 50%"] <- "Solanaceae"
+caan_seed_set_final$Family[caan_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="SOLY 50%"] <- "Solanaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="CAAN 50%"] <- "Solanaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="PEIN 50%"] <- "Solanaceae"
@@ -495,7 +495,7 @@ brol_seed_set_bind <- filter(brol_seed_set_bind, percentage!="100%")
 brol_seed_set_cross <- filter(brol_seed_set_bind, non_focal %in% c("Cross"))
 brol_seed_set_self <- filter(brol_seed_set_bind, non_focal %in% c("Self"))
 brol_seed_set_control <- filter(brol_seed_set_bind, non_focal %in% c("Control"))
-brol_seed_set_flower <- filter(brol_seed_set_bind, non_focal %in% c("Flower"))
+brol_seed_set_flower <- filter(brol_seed_set_bind, non_focal %in% c("FC"))
 
 #Changing 0 for NA'S FOCAL species
 
@@ -506,7 +506,7 @@ brol_seed_set_flower <- filter(brol_seed_set_bind, non_focal %in% c("Flower"))
 brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Cross"),]
 brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Self"),]
 brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Control"),]
-brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("Flower"),]
+brol_seed_set_bind=brol_seed_set_bind[brol_seed_set_bind$non_focal!=c("FC"),]
 
 brol_seed_set_final<-rbind(brol_seed_set_bind,brol_seed_set_cross, brol_seed_set_self, brol_seed_set_control,
                            brol_seed_set_flower)

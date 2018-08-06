@@ -46,7 +46,7 @@ sial_seed_set_bind <- filter(sial_seed_set_bind, percentage!="100%")
 sial_seed_set_cross <- filter(sial_seed_set_bind, non_focal %in% c("Cross"))
 sial_seed_set_self <- filter(sial_seed_set_bind, non_focal %in% c("Self"))
 sial_seed_set_control <- filter(sial_seed_set_bind, non_focal %in% c("Control"))
-sial_seed_set_flower <- filter(sial_seed_set_bind, non_focal %in% c("FC"))
+sial_seed_set_flower <- filter(sial_seed_set_bind, non_focal %in% c("Flower"))
 
 #Changing 0 for NA'S FOCAL species
 
@@ -57,7 +57,7 @@ sial_seed_set_flower <- filter(sial_seed_set_bind, non_focal %in% c("FC"))
 sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Cross"),]
 sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Self"),]
 sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Control"),]
-sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("FC"),]
+sial_seed_set_bind=sial_seed_set_bind[sial_seed_set_bind$non_focal!=c("Flower"),]
 
 sial_seed_set_final<-rbind(sial_seed_set_bind,sial_seed_set_cross, sial_seed_set_self, sial_seed_set_control,
                            sial_seed_set_flower)
