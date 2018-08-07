@@ -118,6 +118,8 @@ pein_seed_set_final=rbind(pein_seed_set_brassicaceae, pein_seed_set_convolvulace
                           pein_seed_set_solanaceae, pein_seed_set_cross, pein_seed_set_self, pein_seed_set_control,
                           pein_seed_set_flower)
 
+write.csv(pein_seed_set_final, "Rmd/Data/pein_seed_set_final.csv")
+
 cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 #Colur per family
 
