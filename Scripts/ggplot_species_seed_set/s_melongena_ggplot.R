@@ -88,8 +88,39 @@ some_seed_set_final$Treatment[some_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="CROSS"] <- "Cross"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SELF"] <- "Self"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="CONTROL"] <- "Control"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
 
+some_seed_set_brassicaceae <- filter(some_seed_set_final, Family %in% c("Brassicaceae"))
+some_seed_set_convolvulaceae <- filter(some_seed_set_final, Family %in% c("Convolvulaceae"))
+some_seed_set_solanaceae <- filter(some_seed_set_final, Family %in% c("Solanaceae"))
+some_seed_set_final$Family[is.na(some_seed_set_final$Family)] <- "Solanum lycopersicum"
+some_seed_set_cross=some_seed_set_cross[,-c(5,6)]
+some_seed_set_cross$Family <- "other"
+some_seed_set_self=some_seed_set_self[,-c(5,6)]
+some_seed_set_self$Family <- "other"
+some_seed_set_control=some_seed_set_control[,-c(5,6)]
+some_seed_set_control$Family <- "other"
+some_seed_set_flower=some_seed_set_flower[,-c(5,6)]
+some_seed_set_flower$Family <- "other"
 
+some_seed_set_final=rbind(some_seed_set_brassicaceae, some_seed_set_convolvulaceae, 
+                          some_seed_set_solanaceae, some_seed_set_cross, some_seed_set_self, some_seed_set_control,
+                          some_seed_set_flower)
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="CROSS"] <- "Cross"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="SELF"] <- "Self"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="CONTROL"] <- "Control"
+some_seed_set_final$Treatment[some_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
+
+write.csv(some_seed_set_final, "Rmd/Data/some_seed_set_final.csv")
+cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
+#Different colour per family
+d <- ggplot(some_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Solanum melongena",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+d
 #Different colour per species
 p <- ggplot(some_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
   labs(title="Solanum melongena",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+

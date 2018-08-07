@@ -42,7 +42,7 @@ soly_seed_set_bind <- cbind(soly_seed_set,soly_seed_set_div)
 soly_seed_set_bind <- filter(soly_seed_set_bind, percentage!="100%")
 
 #Because I want to give it specifically order I do it separately
-#pein_seed_set_common <- filter(soly_seed_set_bind, non_focal %in% c("CROSS", "SELF","CONTROL","FLOWER"))
+#caan_seed_set_common <- filter(soly_seed_set_bind, non_focal %in% c("CROSS", "SELF","CONTROL","FLOWER"))
 
 soly_seed_set_cross <- filter(soly_seed_set_bind, non_focal %in% c("CROSS"))
 soly_seed_set_self <- filter(soly_seed_set_bind, non_focal %in% c("SELF"))
@@ -91,6 +91,38 @@ soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SIAL 50%"] <- "Sin
 soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 
+
+soly_seed_set_brassicaceae <- filter(soly_seed_set_final, Family %in% c("Brassicaceae"))
+soly_seed_set_convolvulaceae <- filter(soly_seed_set_final, Family %in% c("Convolvulaceae"))
+soly_seed_set_solanaceae <- filter(soly_seed_set_final, Family %in% c("Solanaceae"))
+soly_seed_set_final$Family[is.na(soly_seed_set_final$Family)] <- "Solanum lycopersicum"
+soly_seed_set_cross=soly_seed_set_cross[,-c(5,6)]
+soly_seed_set_cross$Family <- "other"
+soly_seed_set_self=soly_seed_set_self[,-c(5,6)]
+soly_seed_set_self$Family <- "other"
+soly_seed_set_control=soly_seed_set_control[,-c(5,6)]
+soly_seed_set_control$Family <- "other"
+soly_seed_set_flower=soly_seed_set_flower[,-c(5,6)]
+soly_seed_set_flower$Family <- "other"
+
+soly_seed_set_final=rbind(soly_seed_set_brassicaceae, soly_seed_set_convolvulaceae, 
+                          soly_seed_set_solanaceae, soly_seed_set_cross, soly_seed_set_self, soly_seed_set_control,
+                          soly_seed_set_flower)
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="CROSS"] <- "Cross"
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SELF"] <- "Self"
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="CONTROL"] <- "Control"
+soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
+
+write.csv(soly_seed_set_final, "Rmd/Data/soly_seed_set_final.csv")
+
+
+cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
+#Different colour per family
+c <- ggplot(soly_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Solanum lycopersicum",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
+c
 #Different colour per Treatment
 p <- ggplot(soly_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
   labs(title="Solanum lycopersicum",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
