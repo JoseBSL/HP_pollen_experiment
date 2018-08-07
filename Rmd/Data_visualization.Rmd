@@ -624,10 +624,28 @@ brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOLY 50%"] <- "Sol
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="FC"] <- "Flower control"
 
+brol_seed_set_brassicaceae <- filter(brol_seed_set_final, Family %in% c("Brassicaceae"))
+brol_seed_set_convolvulaceae <- filter(brol_seed_set_final, Family %in% c("Convolvulaceae"))
+brol_seed_set_solanaceae <- filter(brol_seed_set_final, Family %in% c("Solanaceae"))
+brol_seed_set_final$Family[is.na(brol_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+brol_seed_set_cross=brol_seed_set_cross[,-c(5,6)]
+brol_seed_set_cross$Family <- "other"
+brol_seed_set_self=brol_seed_set_self[,-c(5,6)]
+brol_seed_set_self$Family <- "other"
+brol_seed_set_control=brol_seed_set_control[,-c(5,6)]
+brol_seed_set_control$Family <- "other"
+brol_seed_set_flower=brol_seed_set_flower[,-c(5,6)]
+brol_seed_set_flower$Family <- "other"
+
+brol_seed_set_final=rbind(brol_seed_set_brassicaceae, brol_seed_set_convolvulaceae, 
+                          brol_seed_set_solanaceae, brol_seed_set_cross, brol_seed_set_self, brol_seed_set_control,
+                          brol_seed_set_flower)
 #Different colour per family
-a <- ggplot(brol_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Brassica oleracea",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_blank())+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+a <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Brassica oleracea",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
 
 #
 ##
@@ -722,10 +740,31 @@ brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SOLY 50%"] <- "Sol
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="FC"] <- "Flower control"
 
+brra_seed_set_brassicaceae <- filter(brra_seed_set_final, Family %in% c("Brassicaceae"))
+brra_seed_set_convolvulaceae <- filter(brra_seed_set_final, Family %in% c("Convolvulaceae"))
+brra_seed_set_solanaceae <- filter(brra_seed_set_final, Family %in% c("Solanaceae"))
+brra_seed_set_final$Family[is.na(brra_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+brra_seed_set_cross=brra_seed_set_cross[,-c(5,6)]
+brra_seed_set_cross$Family <- "other"
+brra_seed_set_self=brra_seed_set_self[,-c(5,6)]
+brra_seed_set_self$Family <- "other"
+brra_seed_set_control=brra_seed_set_control[,-c(5,6)]
+brra_seed_set_control$Family <- "other"
+brra_seed_set_flower=brra_seed_set_flower[,-c(5,6)]
+brra_seed_set_flower$Family <- "other"
+
+brra_seed_set_final=rbind(brra_seed_set_brassicaceae, brra_seed_set_convolvulaceae, 
+                          brra_seed_set_solanaceae, brra_seed_set_cross, brra_seed_set_self, brra_seed_set_control,
+                          brra_seed_set_flower)
+
+
+
 #Different colour per family
-b <- ggplot(brra_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Brassica rapa",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_blank())+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+b <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Brassica rapa",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
 
 #
 ##
@@ -820,11 +859,33 @@ ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SOLY 50%"] <- "Sol
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="FC"] <- "Flower control"
 
+
+ersa_seed_set_brassicaceae <- filter(ersa_seed_set_final, Family %in% c("Brassicaceae"))
+ersa_seed_set_convolvulaceae <- filter(ersa_seed_set_final, Family %in% c("Convolvulaceae"))
+ersa_seed_set_solanaceae <- filter(ersa_seed_set_final, Family %in% c("Solanaceae"))
+ersa_seed_set_final$Family[is.na(ersa_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+ersa_seed_set_cross=ersa_seed_set_cross[,-c(5,6)]
+ersa_seed_set_cross$Family <- "other"
+ersa_seed_set_self=ersa_seed_set_self[,-c(5,6)]
+ersa_seed_set_self$Family <- "other"
+ersa_seed_set_control=ersa_seed_set_control[,-c(5,6)]
+ersa_seed_set_control$Family <- "other"
+ersa_seed_set_flower=ersa_seed_set_flower[,-c(5,6)]
+ersa_seed_set_flower$Family <- "other"
+
+ersa_seed_set_final=rbind(ersa_seed_set_brassicaceae, ersa_seed_set_convolvulaceae, 
+                          ersa_seed_set_solanaceae, ersa_seed_set_cross, ersa_seed_set_self, ersa_seed_set_control,
+                          ersa_seed_set_flower)
+
+
+
+
 #Different colour per family
 c <- ggplot(ersa_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="Eruca versicaria",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
-#
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
 ##
 ###
 #S. ALBA  
@@ -917,10 +978,31 @@ sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SOLY 50%"] <- "Sol
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="FC"] <- "Flower control"
 
+sial_seed_set_brassicaceae <- filter(sial_seed_set_final, Family %in% c("Brassicaceae"))
+sial_seed_set_convolvulaceae <- filter(sial_seed_set_final, Family %in% c("Convolvulaceae"))
+sial_seed_set_solanaceae <- filter(sial_seed_set_final, Family %in% c("Solanaceae"))
+sial_seed_set_final$Family[is.na(sial_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+sial_seed_set_cross=sial_seed_set_cross[,-c(5,6)]
+sial_seed_set_cross$Family <- "other"
+sial_seed_set_self=sial_seed_set_self[,-c(5,6)]
+sial_seed_set_self$Family <- "other"
+sial_seed_set_control=sial_seed_set_control[,-c(5,6)]
+sial_seed_set_control$Family <- "other"
+sial_seed_set_flower=sial_seed_set_flower[,-c(5,6)]
+sial_seed_set_flower$Family <- "other"
+
+sial_seed_set_final=rbind(sial_seed_set_brassicaceae, sial_seed_set_convolvulaceae, 
+                          sial_seed_set_solanaceae, sial_seed_set_cross, sial_seed_set_self, sial_seed_set_control,
+                          sial_seed_set_flower)
+
+
+
+
 #Different colour per family
 d <- ggplot(sial_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Sinapis alba",x="", y = "", tag= "D")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+ theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+ stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") + theme(legend.position="none")
-
+  labs(title="Sinapis alba",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 gl <- lapply(list(a,b,c,d), ggplotGrob)
 library(grid)
@@ -1043,16 +1125,34 @@ ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="SIAL 50%"] <- "Sin
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 
+
+
+ipaq_seed_set_brassicaceae <- filter(ipaq_seed_set_final, Family %in% c("Brassicaceae"))
+ipaq_seed_set_convolvulaceae <- filter(ipaq_seed_set_final, Family %in% c("Convolvulaceae"))
+ipaq_seed_set_solanaceae <- filter(ipaq_seed_set_final, Family %in% c("Solanaceae"))
+ipaq_seed_set_final$Family[is.na(ipaq_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+ipaq_seed_set_cross=ipaq_seed_set_cross[,-c(5,6)]
+ipaq_seed_set_cross$Family <- "other"
+ipaq_seed_set_self=ipaq_seed_set_self[,-c(5,6)]
+ipaq_seed_set_self$Family <- "other"
+ipaq_seed_set_control=ipaq_seed_set_control[,-c(5,6)]
+ipaq_seed_set_control$Family <- "other"
+ipaq_seed_set_flower=ipaq_seed_set_flower[,-c(5,6)]
+ipaq_seed_set_flower$Family <- "other"
+
+ipaq_seed_set_final=rbind(ipaq_seed_set_brassicaceae, ipaq_seed_set_convolvulaceae, 
+                          ipaq_seed_set_solanaceae, ipaq_seed_set_cross, ipaq_seed_set_self, ipaq_seed_set_control,
+                          ipaq_seed_set_flower)
+
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="cross"] <- "Cross"
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="self"] <- "Self"
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="control"] <- "Control"
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="flower control"] <- "Flower control"
-
-
 #Different colour per family
 a <- ggplot(ipaq_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Ipomea aquatica",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+  labs(title="Ipomoea aquatica",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 ippu_seed_set <- read.csv("Data/ippu_seed_set.csv", sep=";")
 colnames(ippu_seed_set)[1] <- "Species"
@@ -1145,12 +1245,32 @@ ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="control"] <- "Cont
 ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="flower control"] <- "Flower control"
 
 
+ippu_seed_set_brassicaceae <- filter(ippu_seed_set_final, Family %in% c("Brassicaceae"))
+ippu_seed_set_convolvulaceae <- filter(ippu_seed_set_final, Family %in% c("Convolvulaceae"))
+ippu_seed_set_solanaceae <- filter(ippu_seed_set_final, Family %in% c("Solanaceae"))
+ippu_seed_set_final$Family[is.na(ippu_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+ippu_seed_set_cross=ippu_seed_set_cross[,-c(5,6)]
+ippu_seed_set_cross$Family <- "other"
+ippu_seed_set_self=ippu_seed_set_self[,-c(5,6)]
+ippu_seed_set_self$Family <- "other"
+ippu_seed_set_control=ippu_seed_set_control[,-c(5,6)]
+ippu_seed_set_control$Family <- "other"
+ippu_seed_set_flower=ippu_seed_set_flower[,-c(5,6)]
+ippu_seed_set_flower$Family <- "other"
+
+ippu_seed_set_final=rbind(ippu_seed_set_brassicaceae, ippu_seed_set_convolvulaceae, 
+                          ippu_seed_set_solanaceae, ippu_seed_set_cross, ippu_seed_set_self, ippu_seed_set_control,
+                          ippu_seed_set_flower)
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="cross"] <- "Cross"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="self"] <- "Self"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="control"] <- "Control"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="flower control"] <- "Flower control"
 
 #Different colour per family
 b <- ggplot(ippu_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Ipomea purpurea",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family)) + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
-
+  labs(title="Ipomoea purpurea",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
 #There are 3 crosses were seeds were lost (2,7,9)
