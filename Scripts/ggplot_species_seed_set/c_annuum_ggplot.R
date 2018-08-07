@@ -1,3 +1,4 @@
+
 #
 ##
 ###
@@ -70,7 +71,7 @@ caan_seed_set_final$Family[caan_seed_set_final$Treatment=="BROL 50%"] <- "Brassi
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="BRRA 50%"] <- "Brassicaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="SIAL 50%"] <- "Brassicaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="ERSA 50%"] <- "Brassicaceae"
-caan_seed_set_final$Family[caan_seed_set_final$Treatment=="caan 50%"] <- "Solanaceae"
+caan_seed_set_final$Family[caan_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="SOLY 50%"] <- "Solanaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="CAAN 50%"] <- "Solanaceae"
 caan_seed_set_final$Family[caan_seed_set_final$Treatment=="PEIN 50%"] <- "Solanaceae"
@@ -87,8 +88,37 @@ caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="CROSS"] <- "Cross"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="SELF"] <- "Self"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="CONTROL"] <- "Control"
+caan_seed_set_final$Treatment[caan_seed_set_final$Treatment=="FLOWER CONTROL"] <- "Flower control"
 
+caan_seed_set_brassicaceae <- filter(caan_seed_set_final, Family %in% c("Brassicaceae"))
+caan_seed_set_convolvulaceae <- filter(caan_seed_set_final, Family %in% c("Convolvulaceae"))
+caan_seed_set_solanaceae <- filter(caan_seed_set_final, Family %in% c("Solanaceae"))
+caan_seed_set_final$Family[is.na(caan_seed_set_final$Family)] <- "Solanum lycopersicum"
+caan_seed_set_cross=caan_seed_set_cross[,-c(5,6)]
+caan_seed_set_cross$Family <- "other"
+caan_seed_set_self=caan_seed_set_self[,-c(5,6)]
+caan_seed_set_self$Family <- "other"
+caan_seed_set_control=caan_seed_set_control[,-c(5,6)]
+caan_seed_set_control$Family <- "other"
+caan_seed_set_flower=caan_seed_set_flower[,-c(5,6)]
+caan_seed_set_flower$Family <- "other"
 
+caan_seed_set_final=rbind(caan_seed_set_brassicaceae, caan_seed_set_convolvulaceae, 
+                          caan_seed_set_solanaceae, caan_seed_set_cross, caan_seed_set_self, caan_seed_set_control,
+                          caan_seed_set_flower)
+
+write.csv(caan_seed_set_final, "Rmd/Data/caan_seed_set_final.csv")
+
+cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
+#Colur per family
+#Different colour per family
+b <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="Capsicum annuum",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+b
 
 #Different colour per treatment
 p <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
