@@ -6,7 +6,6 @@
 ##
 #
 
-
 sial_seed_set <- read.csv("Data/species_seed_set/sial_seed_set.csv", sep=";")
 sial_seed_set <- filter(sial_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%"& Treatment!="COSA 50%"& Treatment!="COSA 100%" )
 
@@ -89,6 +88,28 @@ sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+sial_seed_set_final$Treatment[sial_seed_set_final$Treatment=="FC"] <- "Flower control"
+
+sial_seed_set_brassicaceae <- filter(sial_seed_set_final, Family %in% c("Brassicaceae"))
+sial_seed_set_convolvulaceae <- filter(sial_seed_set_final, Family %in% c("Convolvulaceae"))
+sial_seed_set_solanaceae <- filter(sial_seed_set_final, Family %in% c("Solanaceae"))
+sial_seed_set_final$Family[is.na(sial_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+sial_seed_set_cross=sial_seed_set_cross[,-c(5,6)]
+sial_seed_set_cross$Family <- "other"
+sial_seed_set_self=sial_seed_set_self[,-c(5,6)]
+sial_seed_set_self$Family <- "other"
+sial_seed_set_control=sial_seed_set_control[,-c(5,6)]
+sial_seed_set_control$Family <- "other"
+sial_seed_set_flower=sial_seed_set_flower[,-c(5,6)]
+sial_seed_set_flower$Family <- "other"
+
+sial_seed_set_final=rbind(sial_seed_set_brassicaceae, sial_seed_set_convolvulaceae, 
+                          sial_seed_set_solanaceae, sial_seed_set_cross, sial_seed_set_self, sial_seed_set_control,
+                          sial_seed_set_flower)
+
+
+write.csv(sial_seed_set_final, "Rmd/Data/sial_seed_set_final.csv")
 
 #Different colour per Treatment
 p <- ggplot(sial_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+

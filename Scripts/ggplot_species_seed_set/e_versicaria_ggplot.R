@@ -46,7 +46,7 @@ ersa_seed_set_bind <- filter(ersa_seed_set_bind, percentage!="100%")
 ersa_seed_set_cross <- filter(ersa_seed_set_bind, non_focal %in% c("Cross"))
 ersa_seed_set_self <- filter(ersa_seed_set_bind, non_focal %in% c("Self"))
 ersa_seed_set_control <- filter(ersa_seed_set_bind, non_focal %in% c("Control"))
-ersa_seed_set_flower <- filter(ersa_seed_set_bind, non_focal %in% c("FC"))
+ersa_seed_set_flower <- filter(ersa_seed_set_bind, non_focal %in% c("Flower"))
 
 #Changing 0 for NA'S FOCAL species
 
@@ -57,7 +57,7 @@ ersa_seed_set_flower <- filter(ersa_seed_set_bind, non_focal %in% c("FC"))
 ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Cross"),]
 ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Self"),]
 ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Control"),]
-ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("FC"),]
+ersa_seed_set_bind=ersa_seed_set_bind[ersa_seed_set_bind$non_focal!=c("Flower"),]
 
 ersa_seed_set_final<-rbind(ersa_seed_set_bind,ersa_seed_set_cross, ersa_seed_set_self, ersa_seed_set_control,
                            ersa_seed_set_flower)
@@ -89,8 +89,32 @@ ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+ersa_seed_set_final$Treatment[ersa_seed_set_final$Treatment=="FC"] <- "Flower control"
 
-#Different colour per Treatment
+
+ersa_seed_set_brassicaceae <- filter(ersa_seed_set_final, Family %in% c("Brassicaceae"))
+ersa_seed_set_convolvulaceae <- filter(ersa_seed_set_final, Family %in% c("Convolvulaceae"))
+ersa_seed_set_solanaceae <- filter(ersa_seed_set_final, Family %in% c("Solanaceae"))
+ersa_seed_set_final$Family[is.na(ersa_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+ersa_seed_set_cross=ersa_seed_set_cross[,-c(5,6)]
+ersa_seed_set_cross$Family <- "other"
+ersa_seed_set_self=ersa_seed_set_self[,-c(5,6)]
+ersa_seed_set_self$Family <- "other"
+ersa_seed_set_control=ersa_seed_set_control[,-c(5,6)]
+ersa_seed_set_control$Family <- "other"
+ersa_seed_set_flower=ersa_seed_set_flower[,-c(5,6)]
+ersa_seed_set_flower$Family <- "other"
+
+ersa_seed_set_final=rbind(ersa_seed_set_brassicaceae, ersa_seed_set_convolvulaceae, 
+                          ersa_seed_set_solanaceae, ersa_seed_set_cross, ersa_seed_set_self, ersa_seed_set_control,
+                          ersa_seed_set_flower)
+
+
+write.csv(ersa_seed_set_final, "Rmd/Data/ersa_seed_set_final.csv")
+
+
+
 p <- ggplot(ersa_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
   labs(title="Eruca versicaria",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5))

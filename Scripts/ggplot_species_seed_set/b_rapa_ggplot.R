@@ -6,7 +6,6 @@
 ##
 #
 
-
 brra_seed_set <- read.csv("Data/species_seed_set/BRRA_seed_set.csv", sep=";")
 brra_seed_set <- filter(brra_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%"& Treatment!="COSA 50%"& Treatment!="COSA 100%" )
 
@@ -89,6 +88,27 @@ brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+brra_seed_set_final$Treatment[brra_seed_set_final$Treatment=="FC"] <- "Flower control"
+
+brra_seed_set_brassicaceae <- filter(brra_seed_set_final, Family %in% c("Brassicaceae"))
+brra_seed_set_convolvulaceae <- filter(brra_seed_set_final, Family %in% c("Convolvulaceae"))
+brra_seed_set_solanaceae <- filter(brra_seed_set_final, Family %in% c("Solanaceae"))
+brra_seed_set_final$Family[is.na(brra_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+brra_seed_set_cross=brra_seed_set_cross[,-c(5,6)]
+brra_seed_set_cross$Family <- "other"
+brra_seed_set_self=brra_seed_set_self[,-c(5,6)]
+brra_seed_set_self$Family <- "other"
+brra_seed_set_control=brra_seed_set_control[,-c(5,6)]
+brra_seed_set_control$Family <- "other"
+brra_seed_set_flower=brra_seed_set_flower[,-c(5,6)]
+brra_seed_set_flower$Family <- "other"
+
+brra_seed_set_final=rbind(brra_seed_set_brassicaceae, brra_seed_set_convolvulaceae, 
+                          brra_seed_set_solanaceae, brra_seed_set_cross, brra_seed_set_self, brra_seed_set_control,
+                          brra_seed_set_flower)
+
+write.csv(brra_seed_set_final, "Rmd/Data/brra_seed_set_final.csv")
 
 #Different colour per Treatment
 p <- ggplot(brra_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
