@@ -6,7 +6,6 @@
 ##
 #
 
-
 brol_seed_set <- read.csv("Data/species_seed_set/BROL_seed_set.csv", sep=";")
 brol_seed_set <- filter(brol_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%"& Treatment!="COSA 50%"& Treatment!="COSA 100%" )
 
@@ -89,6 +88,27 @@ brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="PEIN 50%"] <- "Pet
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="FC"] <- "Flower control"
+
+brol_seed_set_brassicaceae <- filter(brol_seed_set_final, Family %in% c("Brassicaceae"))
+brol_seed_set_convolvulaceae <- filter(brol_seed_set_final, Family %in% c("Convolvulaceae"))
+brol_seed_set_solanaceae <- filter(brol_seed_set_final, Family %in% c("Solanaceae"))
+brol_seed_set_final$Family[is.na(brol_seed_set_final$Family)] <- "Solanum lycopersicum"
+
+brol_seed_set_cross=brol_seed_set_cross[,-c(5,6)]
+brol_seed_set_cross$Family <- "other"
+brol_seed_set_self=brol_seed_set_self[,-c(5,6)]
+brol_seed_set_self$Family <- "other"
+brol_seed_set_control=brol_seed_set_control[,-c(5,6)]
+brol_seed_set_control$Family <- "other"
+brol_seed_set_flower=brol_seed_set_flower[,-c(5,6)]
+brol_seed_set_flower$Family <- "other"
+
+brol_seed_set_final=rbind(brol_seed_set_brassicaceae, brol_seed_set_convolvulaceae, 
+                          brol_seed_set_solanaceae, brol_seed_set_cross, brol_seed_set_self, brol_seed_set_control,
+                          brol_seed_set_flower)
+
+write.csv(brol_seed_set_final, "Rmd/Data/brol_seed_set_final.csv")
 
 #Different colour per Treatment
 p <- ggplot(brol_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
@@ -116,3 +136,4 @@ p<-ggplot(brol_seed_set_sum, aes(x=Treatment, y=Sum_seed)) +
   geom_bar(stat="identity")+ labs(title="Brassica oleracea",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) 
 p+theme(legend.position="none")
+
