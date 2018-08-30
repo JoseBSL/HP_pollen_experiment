@@ -1007,3 +1007,22 @@ plot4 + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black"
 
 ```
 
+```{r, fig.width=8}
+pollen_ratios_brassicaceae <- read.csv("Data/pollen_ratios_brassicaceae.csv", header = T)
+ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Brassicaceae")
+```
+
+```{r, fig.width=8}
+pollen_ratios_solanaceae <- read.csv("Data/pollen_ratios_solanaceae.csv", header = T)
+ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Solanaceae")
+```
+
+```{r, fig.width=8}
+pollen_ratios_convolvulaceae <- read.csv("Data/pollen_ratios_convolvulaceae.csv", header = T)
+ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Convolvulaceae")
+```
+
+
