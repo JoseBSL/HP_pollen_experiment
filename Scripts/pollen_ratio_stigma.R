@@ -58,8 +58,8 @@ ggplot(pollen_ratios, aes(x=spp, y=ratio, fill=variable)) +
 #Brassicaceae pollen ratio plot
 
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
-pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="IPPU" & pollen_ratios$focal!="IPAQ"& pollen_ratios$focal!="SOME"&
-                               pollen_ratios$focal!="SOLY" & pollen_ratios$focal!="PEIN"& pollen_ratios$focal!="CAAN",  ]
+pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory" & pollen_ratios$focal!="Water morning glory"& pollen_ratios$focal!="Eggplant"&
+                               pollen_ratios$focal!="Tomato" & pollen_ratios$focal!="Petunia"& pollen_ratios$focal!="Capsicum",  ]
 
 #write.csv(pollen_ratios_brassicaceae, "Rmd/Data/pollen_ratios_brassicaceae.csv")
 
@@ -69,8 +69,8 @@ ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
 #Solanaceae pollen ratio plot
 
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
-pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="IPPU" & pollen_ratios$focal!="IPAQ"& pollen_ratios$focal!="BROL"&
-                                 pollen_ratios$focal!="BRRA" & pollen_ratios$focal!="SIAL"& pollen_ratios$focal!="ERSA",  ]
+pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory" & pollen_ratios$focal!="Water morning glory"& pollen_ratios$focal!="Wild cabbage"&
+                                 pollen_ratios$focal!="Pak choi" & pollen_ratios$focal!="White mustard"& pollen_ratios$focal!="Rocket",  ]
 
 #write.csv(pollen_ratios_solanaceae, "Rmd/Data/pollen_ratios_solanaceae.csv")
 
@@ -84,9 +84,9 @@ ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
 
 pollen_ratios$spp <- paste(pollen_ratios$focal,pollen_ratios$non_focal)
-pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="CAAN" & pollen_ratios$focal!="SOME"& pollen_ratios$focal!="BROL"&
-                                 pollen_ratios$focal!="BRRA" & pollen_ratios$focal!="SIAL"
-                               & pollen_ratios$focal!="ERSA"& pollen_ratios$focal!="SOLY"& pollen_ratios$focal!="PEIN",  ]
+pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="Capsicum" & pollen_ratios$focal!="Eggplant"& pollen_ratios$focal!="Wild cabbage"&
+                                 pollen_ratios$focal!="Pak choi" & pollen_ratios$focal!="White mustard"
+                               & pollen_ratios$focal!="Rocket"& pollen_ratios$focal!="Tomato"& pollen_ratios$focal!="Petunia",  ]
 
 #write.csv(pollen_ratios_convolvulaceae, "Rmd/Data/pollen_ratios_convolvulaceae.csv")
 
