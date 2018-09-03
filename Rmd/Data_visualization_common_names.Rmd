@@ -260,6 +260,163 @@ grobz.plot <- arrangeGrob(grobs = list(rbind(grobz[[1]], size = "last"),
 grid.draw(grobz.plot)
 
 ```
+\newpage
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.8}
+#load libraries
+
+library(ggplot2)
+library(colorspace)
+library(gridExtra)
+
+colours <- rainbow_hcl(4, start = 30, end = 300)
+#load data
+
+par(mfrow=c(2,1))
+d<-read.csv("Data/Ovules.csv", sep=";")
+d<- d[,-c(9,11)]
+colnames(d)[1]<-"C. annuum"
+colnames(d)[2]<-"S. lycopersicum"
+colnames(d)[3]<-"S. melongera"
+colnames(d)[4]<-"P. integrifolia"
+colnames(d)[5]<-"B. oleracea"
+colnames(d)[6]<-"B. rapa"
+colnames(d)[7]<-"E. sativa"
+colnames(d)[8]<-"S. alba"
+colnames(d)[9]<-"I. aquatica"
+colnames(d)[10]<-"I. purpurea"
+
+
+#Reorganise data
+d <- stack(d)
+#Naming columns
+colnames(d)[1]<-"ovules"
+colnames(d)[2]<-"species"
+
+family<- c(rep("solanaceae",60),rep("brassicaceae",60),rep("convolvulaceae",30))
+
+d[,"family"] <- family
+
+
+
+
+#subset per family (solanaceae, brassicaceae, convolvulaceae)
+solanaceae<-subset(d)[1:60,]
+brassicaceae<-subset(d)[61:120,]
+
+# OVULES SOLANACEAE
+p <- ggplot(solanaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+labs(title="Solanaceae",x="", y = "Ovules")+aes(fill=species)+scale_fill_manual(values=colours)+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none") 
+
+
+# OVULES BRASSICACEAE
+p <- ggplot(brassicaceae, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+labs(title="Brassicaceae",x="", y = "Ovules")+aes(fill=species)+scale_fill_manual(values=colours)+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none") 
+
+#all species
+#formating d, to have just the spp of interest
+
+
+
+p <- ggplot(d, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   geom_boxplot()+
+labs(title="Ovules per spp.",x="", y = "Ovules")+aes(fill=family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+
+```
+
+
+#Pollen per anther, just one Convolvulaceae at the moment
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3}
+library(ggplot2)
+
+
+p <- read.csv("data/Pollen.csv", sep = ";")
+
+#Deleting extra row (21)
+p <-p[-21,]
+
+#boxplot(p)
+#Reorganize data for ggplot
+p<-stack(p)
+#colnames
+colnames(p)[1]<-"pollen"
+colnames(p)[2]<-"species"
+
+all<-p
+solanaceae<-subset(p)[1:100,]
+brassicaceae<- subset(p)[101:180,]
+
+#Solanaceae
+p <- ggplot(solanaceae, aes(x = reorder(species, pollen, FUN = median), y = pollen)) +   geom_boxplot()+
+labs(title="Solanaceae",x="", y = "pollen")+aes(fill=species)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+
+#Brassicaceae
+p <- ggplot(brassicaceae, aes(x = reorder(species, pollen, FUN = median), y = pollen)) +   geom_boxplot()+
+labs(title="Brassicaceae",x="", y = "pollen")+aes(fill=species)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+
+
+#all
+p <- ggplot(all, aes(x = reorder(species, pollen, FUN = median), y = pollen)) +   geom_boxplot()+
+labs(title="All species",x="", y = "pollen")+aes(fill=species)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+theme(plot.title = element_text(hjust = 0.5))
+
+p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
+```
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+tab <- read.csv("Data/tab.csv", sep="", header = T)
+
+p <- ggplot(data=tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), y=pollen_ovule_ratio))+aes(fill=family)+
+  geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  scale_fill_manual(values=colours)
+p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
+
+
+```
+
+
+
+```{r echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics('Images/all_species.png')
+```
+
+\newpage
+```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
+pollen_ratios_brassicaceae <- read.csv("Data/pollen_ratios_brassicaceae.csv", header = T)
+ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Brassicaceae") + theme(axis.text.x=element_text(angle=60,hjust=1))
+
+```
+\newpage
+```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
+pollen_ratios_solanaceae <- read.csv("Data/pollen_ratios_solanaceae.csv", header = T)
+ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Solanaceae") + theme(axis.text.x=element_text(angle=60,hjust=1))
+
+```
+\newpage
+```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
+pollen_ratios_convolvulaceae <- read.csv("Data/pollen_ratios_convolvulaceae.csv", header = T)
+ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Convolvulaceae") + theme(axis.text.x=element_text(angle=60,hjust=1))
+
+```
+
+
+
 
 \newpage
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.8}
