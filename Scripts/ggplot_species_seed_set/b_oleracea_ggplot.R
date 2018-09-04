@@ -5,6 +5,9 @@
 ###
 ##
 #
+library(dplyr)
+library(reshape2)
+library(ggplot2)
 
 brol_seed_set <- read.csv("Data/species_seed_set/BROL_seed_set.csv", sep=";")
 brol_seed_set <- filter(brol_seed_set, Treatment!="RARA 100%" & Treatment!="RARA 50%"& Treatment!="COSA 50%"& Treatment!="COSA 100%" )
