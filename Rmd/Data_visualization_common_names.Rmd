@@ -388,12 +388,14 @@ p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(
 ```
 
 
-
+\newpage
+#CHOLOROPLAST RBCL PHYLOGENY
 ```{r echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics('Images/all_species.png')
 ```
 
 \newpage
+###POLLEN MIX RATIOS PER FAMILY -3 NEXT PAGES-
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
 pollen_ratios_brassicaceae <- read.csv("Data/pollen_ratios_brassicaceae.csv", header = T)
 ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
@@ -423,6 +425,7 @@ ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
 
 
 \newpage
+###POLLEN PER ANTHER
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3}
 library(ggplot2)
 
