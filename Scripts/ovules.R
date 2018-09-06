@@ -7,16 +7,16 @@ library(Formula)
 #load data
 d<-read.csv("Data/Ovules.csv", sep=";")
 d<- d[,-c(9,11)]
-colnames(d)[1]<-"C. annuum"
-colnames(d)[2]<-"S. lycopersicum"
-colnames(d)[3]<-"S. melongera"
-colnames(d)[4]<-"P. integrifolia"
-colnames(d)[5]<-"B. oleracea"
-colnames(d)[6]<-"B. rapa"
-colnames(d)[7]<-"E. sativa"
-colnames(d)[8]<-"S. alba"
-colnames(d)[9]<-"I. aquatica"
-colnames(d)[10]<-"I. purpurea"
+colnames(d)[1]<-"Capsicum"
+colnames(d)[2]<-"Tomato"
+colnames(d)[3]<-"Eggplant"
+colnames(d)[4]<-"Petunia"
+colnames(d)[5]<-"Wild cabagge"
+colnames(d)[6]<-"Pak choi"
+colnames(d)[7]<-"Rocket"
+colnames(d)[8]<-"White mustard"
+colnames(d)[9]<-"Water morning glory"
+colnames(d)[10]<-"Morning glory"
 
 
 #Reorganise data
@@ -29,7 +29,7 @@ family<- c(rep("solanaceae",60),rep("brassicaceae",60),rep("convolvulaceae",30))
 
 d[,"family"] <- family
 
-
+write.csv(d, "Rmd/Data/d.csv")
 
 #boxplot from ggplot2
 ggplot(d, aes(x = species, y = ovules)) + geom_boxplot()
@@ -69,3 +69,22 @@ p <- ggplot(d, aes(x = reorder(species, ovules, FUN = median), y = ovules)) +   
   theme(plot.title = element_text(hjust = 0.5))
 
 p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black")
+
+
+#Plot all
+
+cbPalette <- c( "#56B4E9","#E69F00","#009E73")
+
+ggplot(d, aes(x = reorder(species, ovules, FUN = median, na.rm = TRUE), y = ovules)) +
+  geom_boxplot(outlier.shape = NA)+labs(title="All species",x="", y = "Nº of ovules")+
+  aes(fill=family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+
+  geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=family))+
+  scale_color_manual(values = cbPalette) + 
+  stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.title = element_blank())
+
+
+
+
+
+
