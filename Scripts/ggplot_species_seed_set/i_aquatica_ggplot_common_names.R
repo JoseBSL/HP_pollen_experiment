@@ -6,6 +6,10 @@
 ##
 #
 
+library(dplyr)
+library(ggplot2)
+library(reshape2)
+
 
 ipaq_seed_set <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";")
 colnames(ipaq_seed_set)[1] <- "Species"
@@ -114,6 +118,13 @@ ipaq_seed_set_flower$Family <- "other"
 ipaq_seed_set_final=rbind(ipaq_seed_set_brassicaceae, ipaq_seed_set_convolvulaceae, 
                           ipaq_seed_set_solanaceae, ipaq_seed_set_cross, ipaq_seed_set_self, ipaq_seed_set_control,
                           ipaq_seed_set_flower)
+
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="flower control"] <- "Flower control"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="control"] <- "Control"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="self"] <- "Self"
+ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="cross"] <- "Cross"
+
+
 write.csv(ipaq_seed_set_final, "Rmd/Data/ipaq_seed_set_final_common_names.csv")
 
 #Different colour per Treatment

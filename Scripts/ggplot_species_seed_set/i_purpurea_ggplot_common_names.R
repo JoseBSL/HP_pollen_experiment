@@ -114,6 +114,13 @@ ippu_seed_set_flower$Family <- "other"
 ippu_seed_set_final=rbind(ippu_seed_set_brassicaceae, ippu_seed_set_convolvulaceae, 
                           ippu_seed_set_solanaceae, ippu_seed_set_cross, ippu_seed_set_self, ippu_seed_set_control,
                           ippu_seed_set_flower)
+
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="cross"] <- "Cross"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="self"] <- "Self"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="control"] <- "Control"
+ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="flower control"] <- "Flower control"
+
+
 write.csv(ippu_seed_set_final, "Rmd/Data/ippu_seed_set_final_common_names.csv")
 
 
