@@ -3,6 +3,8 @@ title: "Data_visualization"
 output:
       pdf_document
 ---
+
+###SEED SET PER SPECIES WITH DIFFERENT TREATMENTS
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6, fig.width=7,out.width='100%'}
 #Preparing seed set plots, starting with Petunia
 
