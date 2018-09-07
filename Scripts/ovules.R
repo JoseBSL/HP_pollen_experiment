@@ -81,10 +81,20 @@ ggplot(d, aes(x = reorder(species, ovules, FUN = median, na.rm = TRUE), y = ovul
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+
   geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=family))+
   scale_color_manual(values = cbPalette) + 
-  stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.title = element_blank())
+  stat_summary(fun.y=mean, geom="point", shape="*", size=5) +
+  theme(legend.title = element_blank())+facet_grid(. ~ family)
 
 
+#Density plot of number of ovules 
 
+library(cowplot)
+theme_set(theme_gray())
+#Preparing a plot of just Brassicaceae
+d <- d[d$species!="Eggplant" & d$species!="Capsicum" & d$species!="Tomato" &
+         d$species!="Petunia" & d$species!="Morning glory" & d$species!="Water morning glory",]
 
+iris2 <- ggplot(d, aes(x = ovules, fill = species)) +
+  geom_density(alpha = 0.7) +
+  theme(legend.position = c(0.8, 0.8))
 
-
+cowplot::plot_grid( iris2, labels = "AUTO")
