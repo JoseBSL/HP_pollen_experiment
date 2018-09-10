@@ -299,6 +299,44 @@ ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
 
 ```
 
+\newpage
+###TOTAL POLLEN ON STIGMA -NEXT 3 PAGES-
+```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
+total_pollen_brassicaceae <- read.csv("Data/total_pollen_brassicaceae.csv", header=T)
+
+ggplot(total_pollen_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Brassicaceae", x="", y="Pollen grains on stigma") + 
+  theme(axis.text.x=element_text(angle=60,hjust=1))+
+  scale_fill_manual(values=c("grey10", "grey60"))
+
+```
+
+\newpage
+```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
+
+total_pollen_solanaceae <- read.csv("Data/total_pollen_solanaceae.csv", header=T)
+
+
+ggplot(total_pollen_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Solanaceae", x="", y="Pollen mix ratio") +
+  theme(axis.text.x=element_text(angle=60,hjust=1))+
+  scale_fill_manual(values=c("grey10", "grey60"))
+
+```
+\newpage
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
+
+total_pollen_convolvulaceae <- read.csv("Data/total_pollen_convolvulaceae.csv", header=T)
+
+ggplot(total_pollen_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) + 
+  geom_bar(stat='identity', position='dodge') +labs(title="Convolvulaceae", x="", y="Pollen mix ratio") + 
+  theme(axis.text.x=element_text(angle=60,hjust=1))+
+  scale_fill_manual(values=c("grey10", "grey60"))
+
+
+
+```
 
 \newpage
 ###POLLEN PER ANTHER (N=20, I. aquatica N=10)
@@ -366,8 +404,6 @@ tab <- read.csv("Data/tab_common_names.csv", sep="", header = T)
 
 ggplot(tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), y=pollen_ovule_ratio))+aes(fill=family)+
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust=1))+scale_fill_manual(values=cbPalette)
-
-
 
 ```
 

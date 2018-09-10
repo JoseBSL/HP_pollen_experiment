@@ -239,6 +239,7 @@ tab[10,6] <- "Self-compatible"
 tab[10,7] <-  "(Smith & Rausher, 2006); DOI: 10.1111/j.1469-8137.2006.01933.x" 
 
 write.table(tab, file = "data/tab_common_names.csv")
+write.table(tab, file = "Rmd/Data/tab_common_names.csv")
 
 
 barplot(tab$pollen_ovule_ratio, x.axis)

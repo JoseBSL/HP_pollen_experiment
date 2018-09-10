@@ -89,6 +89,9 @@ total_pollen_convolvulaceae <- total_pollen[total_pollen$focal!="Capsicum" & tot
                                               & total_pollen$focal!="Rocket"& total_pollen$focal!="Tomato"& total_pollen$focal!="Petunia",  ]
 
 
+
+
+
 #write.csv(total_pollen_convolvulaceae, "Rmd/Data/total_pollen_convolvulaceae.csv")
 
 
