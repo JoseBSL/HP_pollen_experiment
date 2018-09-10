@@ -396,6 +396,10 @@ ggplot(d, aes(x = reorder(species, ovules, FUN = median, na.rm = TRUE), y = ovul
   stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.title = element_blank())
 ```
 
+\newpage
+
+###POLLEN OVULE RATIO. TOTAL POLLEN PER FLOWER DIVIDED BY NUMBER OF OVULES
+
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
 library(dplyr)
 library(ggplot2)
