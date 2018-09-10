@@ -50,6 +50,7 @@ total_pollen$non_focal[total_pollen$non_focal=="IPPU"] <- "Morning glory"
 total_pollen$spp <- paste(total_pollen$focal,total_pollen$non_focal, sep="-")
 
 write.csv(total_pollen, "Data/total_pollen.csv")
+write.csv(total_pollen, "Rmd/Data/total_pollen.csv")
 
 
 ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable)) +
@@ -62,7 +63,7 @@ total_pollen <- read.csv("Data/total_pollen.csv")
 total_pollen_brassicaceae <- total_pollen[total_pollen$focal!="Morning glory" & total_pollen$focal!="Water morning glory"& total_pollen$focal!="Eggplant"&
                                             total_pollen$focal!="Tomato" & total_pollen$focal!="Petunia"& total_pollen$focal!="Capsicum",  ]
 
-#write.csv(total_pollen_brassicaceae, "Rmd/Data/total_pollen_brassicaceae.csv")
+write.csv(total_pollen_brassicaceae, "Rmd/Data/total_pollen_brassicaceae.csv")
 
 ggplot(total_pollen_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="Brassicaceae", x="", y="Pollen mix ratio") + 

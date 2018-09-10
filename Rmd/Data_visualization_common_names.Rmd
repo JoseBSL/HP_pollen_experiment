@@ -404,7 +404,6 @@ tab <- read.csv("Data/tab_common_names.csv", sep="", header = T)
 
 ggplot(tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), y=pollen_ovule_ratio))+aes(fill=family)+
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust=1))+scale_fill_manual(values=cbPalette)
-
 ```
 
 
