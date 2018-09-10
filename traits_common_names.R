@@ -1,18 +1,18 @@
 # In this script I'm going to create a table with the different traits of the species
 
 #Solanaceae
-solanaceae <- c("Petunia integrifolia","Capsicum annuum","Solanum lycopersicum","Solanum melongena")
+solanaceae <- c("Petunia","Capsicum","Tomato","Eggplant")
 sol_fam <- rep("Solanaceae",4)
 sol_genus <- c("Petunia","Capsicum","Solanum","Solanum")
 
 
 #Brassicaceae
-brassicaceae <- c("Brassica oleracea", "Brassica rapa" ,"Eruca versicaria", "Sinapis alba")
+brassicaceae <- c("Pak choi", "Wild cabbage" ,"Rocket", "White mustard")
 bra_fam <- rep("Brassicaceae",4)
 bra_genus <- c("Brassica", "Brassica" ,"Eruca", "Sinapis")
 
 #Convolvulaceae
-convolvulaceae <- c("Ipomoea aquatica", "Ipomoea purpurea")
+convolvulaceae <- c("Water morning glory", "Morning glory")
 con_fam <- c("Convolvulaceae","Convolvulaceae")
 con_genus <- c("Ipomoea", "Ipomoea")
 
@@ -238,14 +238,14 @@ tab[9,7] <-  "(Les, 2017); DOI: 10.1201/9781315118116"
 tab[10,6] <- "Self-compatible"
 tab[10,7] <-  "(Smith & Rausher, 2006); DOI: 10.1111/j.1469-8137.2006.01933.x" 
 
-write.table(tab, file = "data/tab.csv")
+write.table(tab, file = "data/tab_common_names.csv")
 
-  
+
 barplot(tab$pollen_ovule_ratio, x.axis)
 library(ggplot2)
 library(colorspace)
 p <- ggplot(data=tab, aes(x=species, y=pollen_ovule_ratio))+
-geom_bar(stat="identity", width=0.5)+coord_flip()
+  geom_bar(stat="identity", width=0.5)+coord_flip()
 p + ggtitle("Pollen/ovule ratio per species")
 
 colours <- rainbow_hcl(4, start = 30, end = 300)
