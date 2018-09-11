@@ -410,4 +410,53 @@ ggplot(tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), y=pollen_o
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust=1))+scale_fill_manual(values=cbPalette)
 ```
 
+\newpage
+
+###STIGMA AREA
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+
+t_stigma_area <- read.csv("Data/t_stigma_area.csv")
+t_stigma_area_brassicaceae <- read.csv("Data/t_stigma_area_brassicaceae.csv")
+t_stigma_area_solanaceae <- read.csv("Data/t_stigma_area_solanaceae.csv")
+t_stigma_area_convolvulaceae <- read.csv("Data/t_stigma_area_convolvulaceae.csv")
+
+theme_set(theme_gray())
+a <- ggplot(t_stigma_area_brassicaceae, aes(x = um, fill = species_common)) +
+  geom_density(alpha = 0.7) +
+  theme(legend.position = c(0.8, 0.8))
+
+b <- ggplot(t_stigma_area_solanaceae, aes(x = um, fill = species_common)) +
+  geom_density(alpha = 0.7) +
+  theme(legend.position = c(0.8, 0.8))
+
+cowplot::plot_grid(a,b, labels = "AUTO")
+```
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+
+t_stigma_area <- read.csv("Data/t_stigma_area.csv")
+t_stigma_area_brassicaceae <- read.csv("Data/t_stigma_area_brassicaceae.csv")
+t_stigma_area_solanaceae <- read.csv("Data/t_stigma_area_solanaceae.csv")
+t_stigma_area_convolvulaceae <- read.csv("Data/t_stigma_area_convolvulaceae.csv")
+
+theme_set(theme_gray())
+a <- ggplot(t_stigma_area, aes(x = um, fill = species_common)) +
+  geom_density(alpha = 0.7) +
+  theme(legend.position = c(0.8, 0.8))
+
+cowplot::plot_grid(a, labels = "AUTO")
+
+###All Area per family
+
+theme_set(theme_gray())
+a <- ggplot(t_stigma_area, aes(x = um, fill = family)) +
+  geom_density(alpha = 0.7) +
+  theme(legend.position = c(0.8, 0.8))
+
+cowplot::plot_grid(a, labels = "AUTO")
+
+```
+
 
