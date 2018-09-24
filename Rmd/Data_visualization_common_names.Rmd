@@ -5,6 +5,8 @@ output:
 ---
 
 ###SEED SET PER SPECIES WITH DIFFERENT TREATMENTS
+
+Light blue:Brassicaceae, orange: Convolvulaceae, green:Solanaceae, grey: xenogamy, autogamy and controls
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6, fig.width=7,out.width='100%'}
 #Preparing seed set plots, starting with Petunia
 
@@ -272,6 +274,9 @@ knitr::include_graphics('Images/all_species.png')
 
 \newpage
 ###POLLEN MIX RATIOS PER FAMILY -3 NEXT PAGES- (N=3)
+
+Each histogram shows the pollen ratio in percentage of the focal and non-focal species. The barplots are organized per family.
+
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
 pollen_ratios_brassicaceae <- read.csv("Data/pollen_ratios_brassicaceae.csv", header = T)
 ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
@@ -436,6 +441,8 @@ cowplot::plot_grid(a,b, labels = "AUTO")
 \newpage
 
 ###STIGMA AREA. ALL SPECIES, COLOUR PER SPECIES AND FAMILY
+
+I like this type of density plot and I wanted to show the differences of stigma area of our 3 familys. The x axis shows the area in micrometers (um^2).
 
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
 
