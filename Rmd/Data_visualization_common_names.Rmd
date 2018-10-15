@@ -6,7 +6,6 @@ output:
 
 ###SEED SET PER SPECIES WITH DIFFERENT TREATMENTS
 
-Light blue:Brassicaceae, orange: Convolvulaceae, green:Solanaceae, grey: xenogamy, autogamy and controls
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6, fig.width=7,out.width='100%'}
 #Preparing seed set plots, starting with Petunia
 
@@ -18,6 +17,7 @@ library(dplyr)
 library(gridExtra)
 library(grid)
 library(lattice)
+library(ggpubr)
 #read data and cleaning
 pein_seed_set_final <- read.csv("Data/pein_seed_set_final_common_names.csv")
 pein_seed_set_final=pein_seed_set_final[,-1]
@@ -26,7 +26,7 @@ cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 #Colur per family
 
 a <- ggplot(pein_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Petunia",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  labs(title="A) Petunia",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
@@ -45,7 +45,7 @@ caan_seed_set_final=caan_seed_set_final[,-1]
 #Colur per family
 #Different colour per family
 b <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Capsicum",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  labs(title="B) Capsicum",x="", y = "")+aes(fill=Family)+theme(axis.text.x =element_blank())+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
@@ -65,7 +65,7 @@ soly_seed_set_final=soly_seed_set_final[,-1]
 cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 #Different colour per family
 c <- ggplot(soly_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Tomato",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  labs(title="C) Tomato",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
@@ -84,7 +84,7 @@ some_seed_set_final=some_seed_set_final[,-1]
 
 #Different colour per family
 d <- ggplot(some_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Eggplant",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  labs(title="D) Eggplant",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
@@ -95,16 +95,20 @@ widths <- do.call(unit.pmax, lapply(gl, "[[", "widths"))
 heights <- do.call(unit.pmax, lapply(gl, "[[", "heights"))
 lg <- lapply(gl, function(g) {g$widths <- widths; g$heights <- heights; g})
 
-
-
 grobz <- lapply(list(a, b, c, d), ggplotGrob)
 grobz.plot <- arrangeGrob( grobs = list(rbind(grobz[[1]], grobz[[3]], size = "last"),
-                                        rbind(grobz[[2]], grobz[[4]], size = "last")),
+                                        rbind(grobz[[2]], grobz[[4]], size = "last")), 
                            ncol = 2, top="Solanaceae Focal Species")
+
 
 grid.draw(grobz.plot)
 
+load("legend.rda")
+grid.newpage()
+grid.draw(legend) 
 ```
+
+**Figure 1**. Seed set of Solanaceae species with the different pollination treatments (N=10) A) Petunia, B) Capsicum, C) Tomato, D) Eggplant. In total 9 different crosses with 50% heterospecific pollen appear from left to right. The focal treatment with itself is shown in blank to maintain simmetry among pannels. Moreover, for each species are also shown in grey hand cross pollination, hand self pollination, control (bagged emasculated flowers) and flower control (bagged flowers).
 
 
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6, fig.width=7,out.width='100%'}
@@ -129,7 +133,7 @@ brol_seed_set_final <- read.csv("Data/brol_seed_set_final.csv")
 brol_seed_set_final=brol_seed_set_final[,-1]
 #Different colour per family
 a <- ggplot(brol_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Wild cabagge",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  labs(title="A) Wild cabagge",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
@@ -147,7 +151,7 @@ brra_seed_set_final=brra_seed_set_final[,-1]
 
 #Different colour per family
 b <- ggplot(brra_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Pak choi",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  labs(title="B) Pak choi",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
@@ -165,7 +169,7 @@ ersa_seed_set_final=ersa_seed_set_final[,-1]
 
 #Different colour per family
 c <- ggplot(ersa_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Rocket",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  labs(title="C) Rocket",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 ##
@@ -182,7 +186,7 @@ sial_seed_set_final=sial_seed_set_final[,-1]
 
 #Different colour per family
 d <- ggplot(sial_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="White mustard",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  labs(title="D) White mustard",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 gl <- lapply(list(a,b,c,d), ggplotGrob)
@@ -199,8 +203,13 @@ grobz.plot <- arrangeGrob( grobs = list(rbind(grobz[[1]], grobz[[3]], size = "la
 
 grid.draw(grobz.plot)
 
-
+load("legend.rda")
+grid.newpage()
+grid.draw(legend) 
 ```
+
+**Figure 2**. Seed set of Brassicaceae species with the different pollination treatments (N=10) A) Wild cabbage, B) Pak choi, C) Rocket, D) White mustard. In total 9 different crosses with 50% heterospecific pollen appear from left to right. The focal treatment with itself is shown in blank to maintain simmetry among pannels. Moreover, for each species are also shown in grey hand cross pollination, hand self pollination, control (bagged emasculated flowers) and flower control (bagged flowers).
+
 
 \newpage
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.7, fig.width=7,out.width='100%'}
@@ -229,7 +238,7 @@ cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 
 #Different colour per family
 a <- ggplot(ipaq_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Water morning glory",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  labs(title="A) Water morning glory",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 #IPPU
@@ -240,7 +249,7 @@ ippu_seed_set_final=ippu_seed_set_final[,-1]
 
 #Different colour per family
 b <- ggplot(ippu_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
-  labs(title="Morning glory",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  labs(title="B) Morning glory",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
 
@@ -263,7 +272,13 @@ grobz.plot <- arrangeGrob(grobs = list(rbind(grobz[[1]], size = "last"),
 
 grid.draw(grobz.plot)
 
+load("legend.rda")
+grid.newpage()
+grid.draw(legend) 
+
 ```
+
+**Figure 3**. Seed set of Convolvulaceae species with the different pollination treatments (N=10) A) Water morning glory, B) Morning glory. In total 9 different crosses with 50% heterospecific pollen appear from left to right. The focal treatment with itself is shown in blank to maintain simmetry among pannels. Moreover, for each species are also shown in grey hand cross pollination, hand self pollination, control (bagged emasculated flowers) and flower control (bagged flowers).
 
 
 \newpage
@@ -271,6 +286,11 @@ grid.draw(grobz.plot)
 ```{r echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics('Images/all_species.png')
 ```
+
+**Figure 4**. Evolutionary distances of the ten species used in the experiment using maximum composite likelihood method.
+
+
+
 
 \newpage
 ###POLLEN MIX RATIOS PER FAMILY -3 NEXT PAGES- (N=3)
