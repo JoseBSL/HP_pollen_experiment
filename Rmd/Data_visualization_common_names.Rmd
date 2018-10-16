@@ -4,6 +4,13 @@ output:
       pdf_document
 ---
 
+*Abstract*
+
+
+
+\newpage
+
+
 ###SEED SET PER SPECIES WITH DIFFERENT TREATMENTS
 
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6, fig.width=7,out.width='100%'}
@@ -289,13 +296,9 @@ knitr::include_graphics('Images/all_species.png')
 
 **Figure 4**. Evolutionary distances of the ten species used in the experiment using maximum composite likelihood method.
 
-
-
-
 \newpage
 ###POLLEN MIX RATIOS PER FAMILY -3 NEXT PAGES- (N=3)
 
-Each histogram shows the pollen ratio in percentage of the focal and non-focal species. The barplots are organized per family.
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
 pollen_ratios_brassicaceae <- read.csv("Data/pollen_ratios_brassicaceae.csv", header = T)
@@ -305,6 +308,9 @@ ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   scale_fill_manual(values=c("grey10", "grey60"))+ ylim(0,100)
 
 ```
+
+**Figure 5**. Percentage of pollen deposited on the stigma of a subset of species of the Brassicaceae family with pollen mixes with the other two families (N=3). The black line represents the theoretical 50% pollen percentage of our mixes. The sample that was in ethanol was dried in a heater (few days) and then the solution was filled with sodium hydroxide to degradate the tissue. Once the tissue was soft, all the solution plus the tissue was placed on a grid and the whole quantity of the microtube was counted. 
+
 \newpage
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
 pollen_ratios_solanaceae <- read.csv("Data/pollen_ratios_solanaceae.csv", header = T)
@@ -314,6 +320,9 @@ ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
   scale_fill_manual(values=c("grey10", "grey60"))+ ylim(0,100)
 
 ```
+
+**Figure 6**. Percentage of pollen deposited on the stigma of a subset of species of the Solanaceae family with pollen mixes with the other two families (N=3). The black line represents the theoretical 50% pollen percentage of our mixes. The sample that was in ethanol was dried in a heater (few days) and then the solution was filled with sodium hydroxide to degradate the tissue. Once the tissue was soft, all the solution plus the tissue was placed on a grid and the whole quantity of the microtube was counted. 
+
 \newpage
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
 pollen_ratios_convolvulaceae <- read.csv("Data/pollen_ratios_convolvulaceae.csv", header = T)
@@ -323,6 +332,9 @@ ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   scale_fill_manual(values=c("grey10", "grey60"))+ ylim(0,100)
 
 ```
+
+**Figure 7**. Percentage of pollen deposited on the stigma of a subset of species of the Convolvulaceae family with pollen mixes with the other two families (N=3). The black line represents the theoretical 50% pollen percentage of our mixes. The sample that was in ethanol was dried in a heater (few days) and then the solution was filled with sodium hydroxide to degradate the tissue. Once the tissue was soft, all the solution plus the tissue was placed on a grid and the whole quantity of the microtube was counted. 
+
 
 \newpage
 ###TOTAL POLLEN ON STIGMA -NEXT 3 PAGES-
@@ -336,6 +348,8 @@ ggplot(total_pollen_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
 
 ```
 
+**Figure 8**. Total pollen deposited on the stigma of a subset of species of the Brassicaceae family with pollen mixes with the other two families (N=3). The sample that was in ethanol was dried in a heater (few days) and then the solution was filled with sodium hydroxide to degradate the tissue. Once the tissue was soft, all the solution plus the tissue was placed on a grid and the whole quantity of the microtube was counted. 
+
 \newpage
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
 
@@ -348,6 +362,9 @@ ggplot(total_pollen_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
   scale_fill_manual(values=c("grey10", "grey60"))
 
 ```
+
+**Figure 9**. Total pollen deposited on the stigma of a subset of species of the Solanaceae family with pollen mixes with the other two families (N=3). The sample that was in ethanol was dried in a heater (few days) and then the solution was filled with sodium hydroxide to degradate the tissue. Once the tissue was soft, all the solution plus the tissue was placed on a grid and the whole quantity of the microtube was counted. 
+
 \newpage
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.width=8}
@@ -362,6 +379,9 @@ ggplot(total_pollen_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
 
 
 ```
+
+**Figure 10**. Total pollen deposited on the stigma of a subset of species of the Convolvulaceae family with pollen mixes with the other two families (N=3). The sample that was in ethanol was dried in a heater (few days) and then the solution was filled with sodium hydroxide to degradate the tissue. Once the tissue was soft, all the solution plus the tissue was placed on a grid and the whole quantity of the microtube was counted. 
+
 
 \newpage
 ###POLLEN PER ANTHER (N=20, I. aquatica N=10)
@@ -379,20 +399,28 @@ cbPalette <- c( "#56B4E9","#E69F00","#009E73")
   labs(title="All species",x="", y = "Pollen per anther")+aes(fill=family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.title = element_blank())
  
-#Samte thing but without eggplant to improve visualization
- 
-#all
+```
 
- all <- all[all$species !="Eggplant",]
- 
+**Figure 11**. Pollen per anther of the ten species used in our artificial community belonging to three different families, Brassicaceae, Solanaceae and Convolvulaceae (N=20, I.aquatica N=10). Species are coloured by family. Pollen was counted with an hemocytometer.
+
+
+\newpage
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3}
+library(ggplot2)
+
+
+all <- read.csv("Data/all.csv", header=T)
+
+cbPalette <- c( "#56B4E9","#E69F00","#009E73")
+
+all <- all[all$species !="Eggplant",]
  
  ggplot(all, aes(x = reorder(species, pollen, FUN = median, na.rm = TRUE), y = pollen)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="All species(-Eggplant)",x="", y = "Pollen per anther")+aes(fill=family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.title = element_blank())
- 
- 
-
 ```
+
+**Figure 12**. Pollen per anther of the species used in our artificial community belonging to three different families, Brassicaceae, Solanaceae and Convolvulaceae (N=20, I.aquatica N=10). Eggplant excluded in order to improve data visualization. Species are coloured by family. Pollen was counted with an hemocytometer.
 
 \newpage
 ###OVULES (N=15)
@@ -410,20 +438,11 @@ ggplot(d, aes(x = reorder(species, ovules, FUN = median, na.rm = TRUE), y = ovul
   scale_color_manual(values = cbPalette) + 
   stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.title = element_blank())
 
- d <- d[d$species !="Eggplant",]
- 
- ggplot(d, aes(x = reorder(species, ovules, FUN = median, na.rm = TRUE), y = ovules)) +
-  geom_boxplot(outlier.shape = NA)+labs(title="All species(-Eggplant)",x="", y = "Nº of ovules")+
-  aes(fill=family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+
-  geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=family))+
-  scale_color_manual(values = cbPalette) + 
-  stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.title = element_blank())
 ```
 
-\newpage
+**Figure 13**. Number of ovules of the ten species (N=15). Species are coloured by family.
 
-###POLLEN OVULE RATIO. TOTAL POLLEN PER FLOWER DIVIDED BY NUMBER OF OVULES
+\newpage
 
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
 library(dplyr)
@@ -435,9 +454,10 @@ ggplot(tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), y=pollen_o
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 60, hjust=1))+scale_fill_manual(values=cbPalette)
 ```
 
-\newpage
+**Figure 14**. Pollen ovule ratio for all the species. Total pollen per flower was estimated by multiplying by the total number of anthers of the flower. Species are coloured by family.
 
-###STIGMA AREA. BRASSICACEAE+1 AND SOLANACEAE+1
+
+\newpage
 
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
 
@@ -458,11 +478,10 @@ b <- ggplot(t_stigma_area_solanaceae, aes(x = um, fill = species_common)) +
 cowplot::plot_grid(a,b, labels = "AUTO")
 ```
 
+**Figure 15**. Density plot of the stigmatic area. The measurements were conducted with a stereo microscope. Species are divided in two pannels of 5 species each (4 Brassicaceae + 1 Convolvulaceae and 4 Solanaceae + 1 Convolvulaceae). The x axis shows the area in square micrometers.
+
+
 \newpage
-
-###STIGMA AREA. ALL SPECIES, COLOUR PER SPECIES AND FAMILY
-
-I like this type of density plot and I wanted to show the differences of stigma area of our 3 familys. The x axis shows the area in micrometers (um^2).
 
 ```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
 
@@ -477,9 +496,18 @@ a <- ggplot(t_stigma_area, aes(x = um, fill = species_common)) +
   theme(legend.position = c(0.8, 0.8))
 
 cowplot::plot_grid(a, labels = "AUTO")
+```
 
+**Figure 16**. Density plot of the stigmatic area for all the species. The measurements were conducted with a stereo microscope. The x axis shows the area in square micrometers.
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+
+t_stigma_area <- read.csv("Data/t_stigma_area.csv")
+t_stigma_area_brassicaceae <- read.csv("Data/t_stigma_area_brassicaceae.csv")
+t_stigma_area_solanaceae <- read.csv("Data/t_stigma_area_solanaceae.csv")
+t_stigma_area_convolvulaceae <- read.csv("Data/t_stigma_area_convolvulaceae.csv")
 ###All Area per family
-
 theme_set(theme_gray())
 a <- ggplot(t_stigma_area, aes(x = um, fill = family)) +
   geom_density(alpha = 0.7) +
@@ -488,5 +516,9 @@ a <- ggplot(t_stigma_area, aes(x = um, fill = family)) +
 cowplot::plot_grid(a, labels = "AUTO")
 
 ```
+
+**Figure 17**. Density plot of the stigmatic area for the 10 species grouped by the three families: Brassicaceae, Solanaceae and Convolvulaceae. The measurements were conducted with a stereo microscope. The x axis shows the area in square micrometers.
+
+
 
 
