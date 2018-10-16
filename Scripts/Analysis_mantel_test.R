@@ -33,8 +33,9 @@ i <- NULL
 y <- NULL
 for (i in species_list){
 
- i <- filter(i, Treatment!="RARA 100%" & Treatment!="RARA 50%" )
+ i <- filter(i, Treatment!="RARA 50%", Treatment!="COSA 50%")
  i <-i[-grep("100", i$Treatment),] 
   
   y <- rbind(y, i)
 }
+
