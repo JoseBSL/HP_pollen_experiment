@@ -53,11 +53,33 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
 #Check mean of SOME, there is one extra don´t know why...
 mean(y[y$Species=="SOME", "Seed_set"])
 y_mean <- dcast(Species + Treatment ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y, na.rm= TRUE)
-y_mean <- y_mean[-11 , ]
-colnames(y_mean)[3] <- "Seed_Set"
+colnames(y_mean)[3] <- "Seed_set"
 
-#rename to make it more intuitive
-y_mean_effect <- y_mean
+
+Treatment <- str_split_fixed(as.character(y_mean$Treatment), " ", 2)
+Treatment <- Treatment[ , -2]
+y_mean <- cbind(y_mean, Treatment)
+y_mean <- y_mean[ , -2]
+
+#str(y_mean)
+#y_mean$Treatment <- as.character(y_mean$Treatment)
+#y_mean$Species <- as.character(y_mean$Species)
+#y_mean$Seed_set <- as.numeric(y_mean$Seed_set)
+
+
+matrix <- tapply(y_mean$Seed_set, y_mean[c("Species", "Treatment")], mean)
+
+matrix<- matrix[-11,]
+
+#Fixing this value, don´t know why it doesn´t read it properly. I think it has an space or a weird format
+matrix[10,5] <- 0
+
+
+
+
+
+
+
 
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
@@ -69,7 +91,6 @@ for (i in species_list){
   
   y <- rbind(y, i)
 }
-
 y_cross_1 <- y[grep("CROSS", y$Treatment), ]
 y_cross_2 <- y[grep("cross", y$Treatment), ]
 y_cross_3 <- y[grep("Cross", y$Treatment), ]
@@ -78,23 +99,8 @@ y_cross_2 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, da
 y_cross_3 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_3, na.rm= TRUE)
 y_cross <- rbind(y_cross_1, y_cross_2, y_cross_3)
 colnames(y_cross)[2] <- "Seed_seet_cross"
-y_all <- merge(y_mean_effect, y_cross, by="Species")
+y_all <- merge(y_cross, y_cross, by="Species")
 
-#This is our proxy of effect for the moment 
-y_all$effect <- y_all$Seed_seet_cross - y_all$Seed_Set
-y_all <- y_all[ , -c(3,4)]
-colnames(y_all) <- c("Focal","Non_focal", "Effect")
-Non_focal <- str_split_fixed(as.character(y_all$Non_focal), " ", 2)
-Non_focal <- Non_focal[ , -2]
-y_all <- cbind(y_all, Non_focal)
-y_all <- y_all[ , -2]
-
-
-
-
-
-
-y_all_matrix <- as.matrix(y_all)
 
 
 
