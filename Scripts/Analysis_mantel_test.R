@@ -73,14 +73,9 @@ matrix<- matrix[-11,]
 
 #Fixing this value, don´t know why it doesn´t read it properly. I think it has an space or a weird format
 matrix[10,5] <- 0
+#SIAL-> It seems that I didn´t do this one
 
-
-
-
-
-
-
-
+#Now I create the matrix with the cross value
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
 y <- NULL
