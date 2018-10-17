@@ -93,9 +93,10 @@ y_cross_1 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, da
 y_cross_2 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_2, na.rm= TRUE)
 y_cross_3 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_3, na.rm= TRUE)
 y_cross <- rbind(y_cross_1, y_cross_2, y_cross_3)
-colnames(y_cross)[2] <- "Seed_seet_cross"
-y_all <- merge(y_cross, y_cross, by="Species")
+colnames(y_cross)[2] <- "Seed_set_cross"
 
+y_cross$Non_focal <- y_cross$Species
 
+matrix_cross <- tapply(y_cross$Seed_set_cross, y_cross[c("Species", "Non_focal")], mean)
 
 
