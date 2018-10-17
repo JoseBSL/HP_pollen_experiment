@@ -19,6 +19,8 @@ ipaq  <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";", stringsAsF
 
 library(dplyr)
 library(reshape2)
+library(stringr)
+
 
 #soly[-grep("100%", soly$Treatment), ]
 #To create the matrix of effect we are going to estimate the net effect as 
@@ -80,16 +82,19 @@ y_all <- merge(y_mean_effect, y_cross, by="Species")
 
 #This is our proxy of effect for the moment 
 y_all$effect <- y_all$Seed_seet_cross - y_all$Seed_Set
-
 y_all <- y_all[ , -c(3,4)]
-
 colnames(y_all) <- c("Focal","Non_focal", "Effect")
+Non_focal <- str_split_fixed(as.character(y_all$Non_focal), " ", 2)
+Non_focal <- Non_focal[ , -2]
+y_all <- cbind(y_all, Non_focal)
+y_all <- y_all[ , -2]
 
-split(y_all$Non_focal, " ")
 
 
 
 
+
+y_all_matrix <- as.matrix(y_all)
 
 
 
