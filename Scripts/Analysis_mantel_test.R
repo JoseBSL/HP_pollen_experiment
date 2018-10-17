@@ -1,5 +1,7 @@
 #In this script I´m going to prepare the data to do some first Analysis
 
+#In first place I modify the data to create a matrix
+
 #Load seed set data for 10 species
 
 soly  <- read.csv("Data/species_seed_set/soly_seed_set.csv", sep=";", stringsAsFactors = F)
@@ -31,9 +33,9 @@ soly<- soly[,-4]
 caan<- caan[,-4]
 
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
-
 i <- NULL
 y <- NULL
+
 for (i in species_list){
 colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
  i <- filter(i, Treatment!="RARA 50%", Treatment!="COSA 50%",
@@ -50,11 +52,10 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
 mean(y[y$Species=="SOME", "Seed_set"])
 y_mean <- dcast(Species + Treatment ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y, na.rm= TRUE)
 y_mean <- y_mean[-11 , ]
-colnames(y_mean)[2] <- "Seed_Set"
+colnames(y_mean)[3] <- "Seed_Set"
 
 #rename to make it more intuitive
 y_mean_effect <- y_mean
-
 
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
@@ -70,13 +71,25 @@ for (i in species_list){
 y_cross_1 <- y[grep("CROSS", y$Treatment), ]
 y_cross_2 <- y[grep("cross", y$Treatment), ]
 y_cross_3 <- y[grep("Cross", y$Treatment), ]
-
 y_cross_1 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_1, na.rm= TRUE)
 y_cross_2 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_2, na.rm= TRUE)
 y_cross_3 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_3, na.rm= TRUE)
-
 y_cross <- rbind(y_cross_1, y_cross_2, y_cross_3)
 colnames(y_cross)[2] <- "Seed_seet_cross"
+y_all <- merge(y_mean_effect, y_cross, by="Species")
+
+#This is our proxy of effect for the moment 
+y_all$effect <- y_all$Seed_seet_cross - y_all$Seed_Set
+
+y_all <- y_all[ , -c(3,4)]
+
+colnames(y_all) <- c("Focal","Non_focal", "Effect")
+
+split(y_all$Non_focal, " ")
 
 
-merge(y_mean_effect, y_cross, by="Species")
+
+
+
+
+
