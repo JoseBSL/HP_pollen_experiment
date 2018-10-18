@@ -21,6 +21,8 @@ evo_distance  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.csv", 
 library(dplyr)
 library(reshape2)
 library(stringr)
+library(ape)
+library(ade4)
 
 
 #soly[-grep("100%", soly$Treatment), ]
@@ -109,6 +111,7 @@ diag(matrix_cross) <- NA
 matrix_effect <- matrix/matrix_cross * 100
 matrix_effect[matrix_effect[,]>100] <-100
 #To make it more intuitive, 100% 0 percent of seed set
+matrix_effect_original <- matrix_effect
 matrix_effect <- 100-matrix_effect
 
 #Now edit the evolutionary distances
@@ -127,5 +130,24 @@ makeSymm <- function(evo_distance) {
 }
 evo_distance <- makeSymm(evo_distance)
 diag(evo_distance) <- NA
+evo_distance <- evo_distance[order(rownames(evo_distance)), order(colnames(evo_distance))] 
+evo_distance <- mapply(evo_distance, FUN=as.numeric)
+evo_distance <- matrix(data=evo_distance, ncol=10, nrow=10)
+rownames(evo_distance) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
+colnames(evo_distance) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
+evo_distance <- evo_distance[order(rownames(evo_distance)), order(colnames(evo_distance))] 
+diag(evo_distance) <- 0
+diag(matrix_effect) <- 0
 
-evo_distance[order(rownames(evo_distance)), order(colnames(evo_distance))] 
+
+a.dist <- dist(evo_distance)
+a.dist <- as.matrix(a.dist)
+matrix.effect.dist <-dist(matrix_effect) 
+matrix.effect.dist <- as.matrix(matrix.effect.dist)
+#Fixing value of SIAL-IPAQ
+matrix_effect[8,5]<-0
+matrix_effect_original[8,5]<-0
+
+mantel.test(matrix_effect, evo_distance, graph = TRUE)
+mantel.test(matrix_effect_original, evo_distance, graph = TRUE)
+
