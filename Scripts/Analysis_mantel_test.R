@@ -148,3 +148,16 @@ matrix_effect_original[8,5]<-0
 mantel.test(matrix_effect, evo_distance, graph = TRUE)
 mantel.test(matrix_effect_original, evo_distance, graph = TRUE)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
