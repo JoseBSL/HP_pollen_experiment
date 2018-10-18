@@ -1,6 +1,7 @@
 #In this script I´m going to prepare the data to do some first Analysis
 
 #In first place I modify the data to create a matrix
+#Then I perform Mantel test between the two matrices (percentage of decrease of seed set and evol. distances)
 
 #Load seed set data for 10 species
 soly  <- read.csv("Data/species_seed_set/soly_seed_set.csv", sep=";", stringsAsFactors = F)
@@ -140,14 +141,10 @@ diag(evo_distance) <- 0
 diag(matrix_effect) <- 0
 
 
-a.dist <- dist(evo_distance)
-a.dist <- as.matrix(a.dist)
-matrix.effect.dist <-dist(matrix_effect) 
-matrix.effect.dist <- as.matrix(matrix.effect.dist)
 #Fixing value of SIAL-IPAQ
 matrix_effect[8,5]<-0
 matrix_effect_original[8,5]<-0
-
+#Mantel test with percentage 100-matrix and normal percentage
 mantel.test(matrix_effect, evo_distance, graph = TRUE)
 mantel.test(matrix_effect_original, evo_distance, graph = TRUE)
 
