@@ -1,0 +1,56 @@
+Species 1,Species 2,Dist
+AF305063.1 Pinus massoniana,DQ003650.1 Brassica oleracea var. capitata,0.706
+AF305063.1 Pinus massoniana,KJ685107.1 Eruca vesicaria,0.694
+DQ003650.1 Brassica oleracea var. capitata,KJ685107.1 Eruca vesicaria,0.030
+AF305063.1 Pinus massoniana,MG923989.1 Brassica rapa,0.715
+DQ003650.1 Brassica oleracea var. capitata,MG923989.1 Brassica rapa,0.008
+KJ685107.1 Eruca vesicaria,MG923989.1 Brassica rapa,0.030
+AF305063.1 Pinus massoniana,MG923992.1 Sinapis alba,0.717
+DQ003650.1 Brassica oleracea var. capitata,MG923992.1 Sinapis alba,0.026
+KJ685107.1 Eruca vesicaria,MG923992.1 Sinapis alba,0.030
+MG923989.1 Brassica rapa,MG923992.1 Sinapis alba,0.017
+AF305063.1 Pinus massoniana,KY968856.1 Ipomoea purpurea,0.679
+DQ003650.1 Brassica oleracea var. capitata,KY968856.1 Ipomoea purpurea,0.274
+KJ685107.1 Eruca vesicaria,KY968856.1 Ipomoea purpurea,0.289
+MG923989.1 Brassica rapa,KY968856.1 Ipomoea purpurea,0.280
+MG923992.1 Sinapis alba,KY968856.1 Ipomoea purpurea,0.288
+AF305063.1 Pinus massoniana,KP261915.1 Ipomoea aquatica,0.688
+DQ003650.1 Brassica oleracea var. capitata,KP261915.1 Ipomoea aquatica,0.297
+KJ685107.1 Eruca vesicaria,KP261915.1 Ipomoea aquatica,0.302
+MG923989.1 Brassica rapa,KP261915.1 Ipomoea aquatica,0.303
+MG923992.1 Sinapis alba,KP261915.1 Ipomoea aquatica,0.293
+KY968856.1 Ipomoea purpurea,KP261915.1 Ipomoea aquatica,0.057
+AF305063.1 Pinus massoniana,DQ208035.1 Petunia integrifolia,0.728
+DQ003650.1 Brassica oleracea var. capitata,DQ208035.1 Petunia integrifolia,0.244
+KJ685107.1 Eruca vesicaria,DQ208035.1 Petunia integrifolia,0.242
+MG923989.1 Brassica rapa,DQ208035.1 Petunia integrifolia,0.255
+MG923992.1 Sinapis alba,DQ208035.1 Petunia integrifolia,0.254
+KY968856.1 Ipomoea purpurea,DQ208035.1 Petunia integrifolia,0.223
+KP261915.1 Ipomoea aquatica,DQ208035.1 Petunia integrifolia,0.234
+AF305063.1 Pinus massoniana,GU944973.1 Capsicum annuum,0.591
+DQ003650.1 Brassica oleracea var. capitata,GU944973.1 Capsicum annuum,0.278
+KJ685107.1 Eruca vesicaria,GU944973.1 Capsicum annuum,0.286
+MG923989.1 Brassica rapa,GU944973.1 Capsicum annuum,0.278
+MG923992.1 Sinapis alba,GU944973.1 Capsicum annuum,0.271
+KY968856.1 Ipomoea purpurea,GU944973.1 Capsicum annuum,0.161
+KP261915.1 Ipomoea aquatica,GU944973.1 Capsicum annuum,0.160
+DQ208035.1 Petunia integrifolia,GU944973.1 Capsicum annuum,0.167
+AF305063.1 Pinus massoniana,MH283747.1 Solanum melongena,0.683
+DQ003650.1 Brassica oleracea var. capitata,MH283747.1 Solanum melongena,0.261
+KJ685107.1 Eruca vesicaria,MH283747.1 Solanum melongena,0.255
+MG923989.1 Brassica rapa,MH283747.1 Solanum melongena,0.272
+MG923992.1 Sinapis alba,MH283747.1 Solanum melongena,0.266
+KY968856.1 Ipomoea purpurea,MH283747.1 Solanum melongena,0.190
+KP261915.1 Ipomoea aquatica,MH283747.1 Solanum melongena,0.167
+DQ208035.1 Petunia integrifolia,MH283747.1 Solanum melongena,0.138
+GU944973.1 Capsicum annuum,MH283747.1 Solanum melongena,0.167
+AF305063.1 Pinus massoniana,LC076483.1 Solanum lycopersicum,0.686
+DQ003650.1 Brassica oleracea var. capitata,LC076483.1 Solanum lycopersicum,0.254
+KJ685107.1 Eruca vesicaria,LC076483.1 Solanum lycopersicum,0.225
+MG923989.1 Brassica rapa,LC076483.1 Solanum lycopersicum,0.254
+MG923992.1 Sinapis alba,LC076483.1 Solanum lycopersicum,0.249
+KY968856.1 Ipomoea purpurea,LC076483.1 Solanum lycopersicum,0.228
+KP261915.1 Ipomoea aquatica,LC076483.1 Solanum lycopersicum,0.216
+DQ208035.1 Petunia integrifolia,LC076483.1 Solanum lycopersicum,0.118
+GU944973.1 Capsicum annuum,LC076483.1 Solanum lycopersicum,0.151
+MH283747.1 Solanum melongena,LC076483.1 Solanum lycopersicum,0.111
