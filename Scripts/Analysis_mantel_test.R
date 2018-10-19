@@ -110,9 +110,9 @@ diag(matrix_cross) <- NA
 
 #The proxy of effect is the decrease in seed set 
 matrix_effect <- matrix/matrix_cross * 100
+matrix_effect_original <- matrix_effect
 matrix_effect[matrix_effect[,]>100] <-100
 #To make it more intuitive, 100% 0 percent of seed set
-matrix_effect_original <- matrix_effect
 matrix_effect <- 100-matrix_effect
 
 #Now edit the evolutionary distances
@@ -146,7 +146,11 @@ matrix_effect[8,5]<-0
 matrix_effect_original[8,5]<-0
 #Mantel test with percentage 100-matrix and normal percentage
 mantel.test(matrix_effect, evo_distance, graph = TRUE)
+diag(matrix_effect_original) <- 100
 mantel.test(matrix_effect_original, evo_distance, graph = TRUE)
+
+
+
 
 
 
