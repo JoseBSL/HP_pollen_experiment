@@ -162,7 +162,6 @@ colnames(evo_distance_its) <- c("BROL", "ERSA", "BRRA", "SIAL", "IPPU", "IPAQ", 
 evo_distance_its <- makeSymm(evo_distance_its)
 diag(evo_distance_its) <- 0
 evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(colnames(evo_distance_its))] 
-
 mantel.test(matrix_effect_original, evo_distance_its, graph = TRUE)
 
 

@@ -9,6 +9,20 @@ output: html_document
 
 Flowerings plants depend highly on animal vectors to be pollinated (Ollerton et al, 2011) and their coevolutive history has lead to a great diversity of floral structures (Refs). Generally these different plant species coexist together in natural ecosystems where they compete for pollinators (Refs) or facilitate pollinator's visitation. In addition, pollinator sharing is a common feature in natural ecosystems (Ref) and therefore plant species will recieve conspecific pollen but also heterospecific pollen (HP). 
 
+The arrival of foreign pollen have been studied by several authors (). The effects of it are highly dependent but no studies have been done testing what are the main traits tha cause this negative effect... For this reason we have develop an artificial community where we test the followin hypothesis
+
+1) ...
+
+2) ...
+
+
+
+
+
+
+
+
+
 **Paragraph 2** Research on the topic so far
 
 Vamosi species limited by pollen
@@ -24,7 +38,7 @@ We review the classic predicted traits of hterospecific pollen effect through a 
 
 # Methods
 
-The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The species selected (Table 1) belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species/family selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), low structural flower complexity and fast life cycle. For the purpose of the experiment all the species where consider as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
+The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The species selected (Table 1) belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species/family selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), heterogeneous traits, low structural flower complexity and fast life cycle. For the purpose of the experiment all the species where consider as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
 
 **Table 1**
 ```{r}
