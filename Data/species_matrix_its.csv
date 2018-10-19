@@ -1,0 +1,56 @@
+Species 1,Species 2,Dist
+KY968856.1 Ipomoea purpurea,KP261915.1 Ipomoea aquatica,0.058
+KY968856.1 Ipomoea purpurea,DQ208035.1 Petunia integrifolia,0.226
+KP261915.1 Ipomoea aquatica,DQ208035.1 Petunia integrifolia,0.238
+KY968856.1 Ipomoea purpurea,GU944973.1 Capsicum annuum,0.164
+KP261915.1 Ipomoea aquatica,GU944973.1 Capsicum annuum,0.163
+DQ208035.1 Petunia integrifolia,GU944973.1 Capsicum annuum,0.170
+KY968856.1 Ipomoea purpurea,MH283747.1 Solanum melongena,0.193
+KP261915.1 Ipomoea aquatica,MH283747.1 Solanum melongena,0.170
+DQ208035.1 Petunia integrifolia,MH283747.1 Solanum melongena,0.140
+GU944973.1 Capsicum annuum,MH283747.1 Solanum melongena,0.170
+KY968856.1 Ipomoea purpurea,LC076483.1 Solanum lycopersicum,0.232
+KP261915.1 Ipomoea aquatica,LC076483.1 Solanum lycopersicum,0.219
+DQ208035.1 Petunia integrifolia,LC076483.1 Solanum lycopersicum,0.119
+GU944973.1 Capsicum annuum,LC076483.1 Solanum lycopersicum,0.153
+MH283747.1 Solanum melongena,LC076483.1 Solanum lycopersicum,0.113
+KY968856.1 Ipomoea purpurea,DQ191445.1 Ginkgo biloba internal,0.352
+KP261915.1 Ipomoea aquatica,DQ191445.1 Ginkgo biloba internal,0.364
+DQ208035.1 Petunia integrifolia,DQ191445.1 Ginkgo biloba internal,0.407
+GU944973.1 Capsicum annuum,DQ191445.1 Ginkgo biloba internal,0.342
+MH283747.1 Solanum melongena,DQ191445.1 Ginkgo biloba internal,0.379
+LC076483.1 Solanum lycopersicum,DQ191445.1 Ginkgo biloba internal,0.386
+KY968856.1 Ipomoea purpurea,DQ003650.1 Brassica oleracea var. capitata,0.262
+KP261915.1 Ipomoea aquatica,DQ003650.1 Brassica oleracea var. capitata,0.265
+DQ208035.1 Petunia integrifolia,DQ003650.1 Brassica oleracea var. capitata,0.270
+GU944973.1 Capsicum annuum,DQ003650.1 Brassica oleracea var. capitata,0.226
+MH283747.1 Solanum melongena,DQ003650.1 Brassica oleracea var. capitata,0.288
+LC076483.1 Solanum lycopersicum,DQ003650.1 Brassica oleracea var. capitata,0.279
+DQ191445.1 Ginkgo biloba internal,DQ003650.1 Brassica oleracea var. capitata,0.346
+KY968856.1 Ipomoea purpurea,KJ685107.1 Eruca vesicaria,0.271
+KP261915.1 Ipomoea aquatica,KJ685107.1 Eruca vesicaria,0.269
+DQ208035.1 Petunia integrifolia,KJ685107.1 Eruca vesicaria,0.282
+GU944973.1 Capsicum annuum,KJ685107.1 Eruca vesicaria,0.234
+MH283747.1 Solanum melongena,KJ685107.1 Eruca vesicaria,0.296
+LC076483.1 Solanum lycopersicum,KJ685107.1 Eruca vesicaria,0.261
+DQ191445.1 Ginkgo biloba internal,KJ685107.1 Eruca vesicaria,0.339
+DQ003650.1 Brassica oleracea var. capitata,KJ685107.1 Eruca vesicaria,0.031
+KY968856.1 Ipomoea purpurea,MG923989.1 Brassica rapa,0.268
+KP261915.1 Ipomoea aquatica,MG923989.1 Brassica rapa,0.271
+DQ208035.1 Petunia integrifolia,MG923989.1 Brassica rapa,0.282
+GU944973.1 Capsicum annuum,MG923989.1 Brassica rapa,0.226
+MH283747.1 Solanum melongena,MG923989.1 Brassica rapa,0.300
+LC076483.1 Solanum lycopersicum,MG923989.1 Brassica rapa,0.279
+DQ191445.1 Ginkgo biloba internal,MG923989.1 Brassica rapa,0.346
+DQ003650.1 Brassica oleracea var. capitata,MG923989.1 Brassica rapa,0.009
+KJ685107.1 Eruca vesicaria,MG923989.1 Brassica rapa,0.031
+KY968856.1 Ipomoea purpurea,MG923992.1 Sinapis alba,0.276
+KP261915.1 Ipomoea aquatica,MG923992.1 Sinapis alba,0.267
+DQ208035.1 Petunia integrifolia,MG923992.1 Sinapis alba,0.288
+GU944973.1 Capsicum annuum,MG923992.1 Sinapis alba,0.226
+MH283747.1 Solanum melongena,MG923992.1 Sinapis alba,0.302
+LC076483.1 Solanum lycopersicum,MG923992.1 Sinapis alba,0.281
+DQ191445.1 Ginkgo biloba internal,MG923992.1 Sinapis alba,0.352
+DQ003650.1 Brassica oleracea var. capitata,MG923992.1 Sinapis alba,0.026
+KJ685107.1 Eruca vesicaria,MG923992.1 Sinapis alba,0.031
+MG923989.1 Brassica rapa,MG923992.1 Sinapis alba,0.017
