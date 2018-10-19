@@ -17,8 +17,6 @@ ipaq  <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";", stringsAsF
 
 #load matrix of evolutionary distances
 evo_distance  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.csv", sep=";", stringsAsFactors = F)
-#load csv of evolutionary distance of ITS, not in matrix format
-evo_distance_its  <- read.csv("Data/its_outgroup_pinus.csv", sep=",", stringsAsFactors = F)
 
 
 
@@ -156,12 +154,16 @@ mantel.test(matrix_effect_original, evo_distance, graph = TRUE)
 
 #Now with the ITS tree. 
 #First I have to fix a bit the data.frame and convert it to a matrix
-evo_distance_its <- evo_distance_its[-1,-1]
+#load csv of evolutionary distance of ITS, not in matrix format
+evo_distance_its  <- read.csv("Data/its_outgroup_pinus.csv", sep=",", stringsAsFactors = F)
+evo_distance_its <- evo_distance_its[-1,-c(1,2)]
 rownames(evo_distance_its) <- c("BROL", "ERSA", "BRRA", "SIAL", "IPPU", "IPAQ", "PEIN", "CAAN", "SOME", "SOLY")
 colnames(evo_distance_its) <- c("BROL", "ERSA", "BRRA", "SIAL", "IPPU", "IPAQ", "PEIN", "CAAN", "SOME", "SOLY")
+evo_distance_its <- makeSymm(evo_distance_its)
+diag(evo_distance_its) <- 0
+evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(colnames(evo_distance_its))] 
 
-
-
+mantel.test(matrix_effect_original, evo_distance_its, graph = TRUE)
 
 
 
