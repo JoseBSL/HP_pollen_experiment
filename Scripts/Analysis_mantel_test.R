@@ -246,12 +246,12 @@ y_mean_cross[10,10] <- y_cross[4,2]
 
 pdist <- pdist(y_mean_cross)
 pdist <- as.matrix(y_mean_cross)
-
 dist <- dist(y_mean_cross)
 dist <- as.matrix(dist)
-
-mantel.test(y_mean_cross,pdist)
-mantel.test(y_mean_cross,dist)
 #Same result calculating matrix distances differently
+mantel.test(pdist,d)
+mantel.test(dist,d)
+
+
 
 
