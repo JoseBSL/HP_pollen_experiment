@@ -17,8 +17,8 @@ ipaq  <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";", stringsAsF
 
 #load matrix of evolutionary distances
 evo_distance  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.csv", sep=";", stringsAsFactors = F)
-
-
+#Reading data.frame of traits. Keep working with it later...
+traits <- read.csv("Data/tab.csv", sep="")
 
 #load libraries
 library(dplyr)
@@ -26,7 +26,9 @@ library(reshape2)
 library(stringr)
 library(ape)
 library(ade4)
-
+library(vegan)
+library(permute)
+library(lattice)
 
 #soly[-grep("100%", soly$Treatment), ]
 #To create the matrix of effect we are going to estimate the net effect as 
@@ -35,7 +37,6 @@ library(ade4)
 
 
 #Deleting column of fruit set for some solanaceae species
-
 some<- some[,-4]
 soly<- soly[,-4]
 caan<- caan[,-4]
@@ -76,6 +77,8 @@ matrix[10,5] <- 0
 #SIAL-> It seems that I didn´t do this one
 
 #Now I create the matrix with the cross value
+
+
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
 y <- NULL
@@ -165,9 +168,22 @@ evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(co
 mantel.test(matrix_effect_original, evo_distance_its, graph = TRUE)
 
 
-
-
-
+#Now I´m going to prepare the traits to check them
+#Here I perform mantel test between pollen ovule ratios and seed percentage of seed set reduction
+traits <- read.csv("Data/tab.csv", sep="")
+traits_1 <- traits[,13]
+traits_1 <- data_frame(traits_1)
+rownames(traits_1) <- traits[,3]
+colnames(traits_1) <- "Pollen ovule raio"
+d <- vegdist(traits_1, method="euclidean")
+d <- as.matrix(d)
+d <- d[order(rownames(d)), order(colnames(d))] 
+rownames(d) <- rownames(evo_distance_its)
+colnames(d) <- colnames(evo_distance_its)
+matrix_effect_original[matrix_effect_original[,]>100] <-100
+diag(d)<- 0
+diag(matrix_effect_original)<- 100
+mantel.test(d, matrix_effect_original)
 
 
 
