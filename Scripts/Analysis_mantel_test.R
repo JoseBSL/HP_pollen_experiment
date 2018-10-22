@@ -252,6 +252,11 @@ dist <- as.matrix(dist)
 mantel.test(pdist,d)
 mantel.test(dist,d)
 
+#Now I´m going to try to create binary values for incompatibility and check with mantel
+#Another option is to adrees the diffent levels of incompatibility with the self pollination that I made
+
+
+
 
 
 
