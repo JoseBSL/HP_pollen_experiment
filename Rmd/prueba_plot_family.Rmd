@@ -24,7 +24,7 @@ pein_seed_set_final=pein_seed_set_final[,-1]
 cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 #Colur per family
 
-a <- ggplot(pein_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+a <- ggplot(pein_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="A) Petunia",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
@@ -43,7 +43,7 @@ caan_seed_set_final=caan_seed_set_final[,-1]
 
 #Colur per family
 #Different colour per family
-b <- ggplot(caan_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+b <- ggplot(caan_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="B) Capsicum",x="", y = "")+aes(fill=Family)+theme(axis.text.x =element_blank())+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
@@ -63,7 +63,7 @@ soly_seed_set_final=soly_seed_set_final[,-1]
 
 cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 #Different colour per family
-c <- ggplot(soly_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+c <- ggplot(soly_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="C) Tomato",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
@@ -82,7 +82,7 @@ some_seed_set_final=some_seed_set_final[,-1]
 
 
 #Different colour per family
-d <- ggplot(some_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+d <- ggplot(some_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
   labs(title="D) Eggplant",x="", y = "")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
   theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
 
@@ -105,4 +105,173 @@ grid.draw(grobz.plot)
 load("legend.rda")
 grid.newpage()
 grid.draw(legend) 
+```
+
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6, fig.width=7,out.width='100%'}
+library(dplyr)
+
+#load libraries
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+library(gtable)
+
+cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
+
+##
+###
+#B. OLERACEA
+###
+##
+#
+
+brol_seed_set_final <- read.csv("Data/brol_seed_set_final.csv")
+brol_seed_set_final=brol_seed_set_final[,-1]
+#Different colour per family
+a <- ggplot(brol_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="A) Wild cabagge",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
+
+#
+##
+###
+#B. RAPA
+###
+##
+#
+
+
+brra_seed_set_final <- read.csv("Data/brra_seed_set_final.csv")
+brra_seed_set_final=brra_seed_set_final[,-1]
+
+#Different colour per family
+b <- ggplot(brra_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="B) Pak choi",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x =element_blank())+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
+
+#
+##
+###
+#E. VERSICARIA
+###
+##
+#
+
+ersa_seed_set_final <- read.csv("Data/ersa_seed_set_final_common_names.csv")
+ersa_seed_set_final=ersa_seed_set_final[,-1]
+
+
+#Different colour per family
+c <- ggplot(ersa_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="C) Rocket",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
+##
+###
+#S. ALBA  
+###
+##
+#
+
+sial_seed_set_final <- read.csv("Data/sial_seed_set_final_common_names.csv")
+sial_seed_set_final=sial_seed_set_final[,-1]
+
+
+
+#Different colour per family
+d <- ggplot(sial_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="D) White mustard",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
+gl <- lapply(list(a,b,c,d), ggplotGrob)
+library(grid)
+widths <- do.call(unit.pmax, lapply(gl, "[[", "widths"))
+heights <- do.call(unit.pmax, lapply(gl, "[[", "heights"))
+lg <- lapply(gl, function(g) {g$widths <- widths; g$heights <- heights; g})
+
+
+
+grobz <- lapply(list(a, b, c, d), ggplotGrob)
+grobz.plot <- arrangeGrob( grobs = list(rbind(grobz[[1]], grobz[[3]], size = "last"),
+                                        rbind(grobz[[2]], grobz[[4]], size = "last")), ncol = 2,top="Brassicaceae Focal species")
+
+grid.draw(grobz.plot)
+
+load("legend.rda")
+grid.newpage()
+grid.draw(legend) 
+```
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=3.7, fig.width=7,out.width='100%'}
+
+
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+
+#Preparing seed set plots, starting with Petunia
+#
+##
+###
+#I. AQUATICA
+###
+##
+#
+ipaq_seed_set_final <- read.csv("Data/ipaq_seed_set_final_common_names.csv")
+ipaq_seed_set_final=ipaq_seed_set_final[,-1]
+
+cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
+
+
+#Different colour per family
+a <- ggplot(ipaq_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="A) Water morning glory",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
+#IPPU
+ippu_seed_set_final <- read.csv("Data/ippu_seed_set_final_common_names.csv")
+ippu_seed_set_final=ippu_seed_set_final[,-1]
+
+
+
+#Different colour per family
+b <- ggplot(ippu_seed_set_final, aes(x = factor(Family, levels=unique(Family)), y = Seed.production)) +   geom_boxplot(outlier.shape = NA)+
+  labs(title="B) Morning glory",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
+  theme(plot.title = element_text(hjust = 0.5)) +scale_fill_manual(values=cbPalette)+ geom_jitter(width = 0.3,shape=1,size=0.8, aes(colour=Family))+scale_color_manual(values = cbPalette) + stat_summary(fun.y=mean, geom="point", shape="*", size=5) +theme(legend.position="none")
+
+
+#There are 3 crosses were seeds were lost (2,7,9)
+#load libraries
+
+#read data and cleaning
+
+gl <- lapply(list(a,b), ggplotGrob)
+library(grid)
+widths <- do.call(unit.pmax, lapply(gl, "[[", "widths"))
+heights <- do.call(unit.pmax, lapply(gl, "[[", "heights"))
+lg <- lapply(gl, function(g) {g$widths <- widths; g$heights <- heights; g})
+
+
+
+grobz <- lapply(list(a, b), ggplotGrob)
+grobz.plot <- arrangeGrob(grobs = list(rbind(grobz[[1]], size = "last"),
+                                        rbind(grobz[[2]], size = "last")), ncol = 2,top="Convolvulaceae")
+
+grid.draw(grobz.plot)
+
+load("legend.rda")
+grid.newpage()
+grid.draw(legend) 
+
 ```

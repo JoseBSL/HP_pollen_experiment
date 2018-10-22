@@ -29,7 +29,8 @@ library(ade4)
 library(vegan)
 library(permute)
 library(lattice)
-
+library(distances)
+library(pdist)
 #soly[-grep("100%", soly$Treatment), ]
 #To create the matrix of effect we are going to estimate the net effect as 
 #Cross-(average of 50% treatments)
@@ -185,5 +186,72 @@ diag(d)<- 0
 diag(matrix_effect_original)<- 100
 mantel.test(d, matrix_effect_original)
 
+
+#Mantel between seed set percentage change and pollen, ovules, pollen size
+traits <- read.csv("Data/tab.csv", sep="")
+traits_1 <- traits[,c(8,9,11)]
+rownames(traits_1) <- traits[,3]
+d <- vegdist(traits_1, method="euclidean")
+d <- as.matrix(d)
+d <- d[order(rownames(d)), order(colnames(d))] 
+rownames(d) <- rownames(evo_distance_its)
+colnames(d) <- colnames(evo_distance_its)
+matrix_effect_original[matrix_effect_original[,]>100] <-100
+diag(d)<- 0
+diag(matrix_effect_original)<- 100
+mantel.test(d, matrix_effect_original)
+
+#Mantel between seed set percentage change and ovules
+traits <- read.csv("Data/tab.csv", sep="")
+traits_1 <- traits[,11]
+traits_1 <- data_frame(traits_1)
+rownames(traits_1) <- traits[,3]
+d <- vegdist(traits_1, method="euclidean")
+d <- as.matrix(d)
+d <- d[order(rownames(d)), order(colnames(d))] 
+rownames(d) <- rownames(evo_distance_its)
+colnames(d) <- colnames(evo_distance_its)
+matrix_effect_original[matrix_effect_original[,]>100] <-100
+diag(d)<- 0
+diag(matrix_effect_original)<- 100
+mantel.test(d, matrix_effect_original)
+
+
+#Now I´m going to prepare the differences of seed set in a different way
+#Instead of doing percentages respect the cross. I´m going to check with euclidean distance 
+#of the difference cross-(mean of treatments)
+
+View(y_mean)
+View(y_cross)
+y_mean_cross <- merge(y_mean, y_cross, by="Species")
+
+y_mean_cross$result <- (y_mean_cross$Seed_set_cross)-(y_mean_cross$Seed_set)
+y_mean_cross[y_mean_cross[,]<0] <-0
+y_mean_cross <- tapply(y_mean_cross$result, y_mean_cross[c("Species", "Treatment")], mean)
+diag(y_mean_cross) <-0
+#The diagonal should be the values of the cross
+#Fix two NA´S
+y_mean_cross[10,5]<- 0
+y_mean_cross[8,5]<- y_mean_cross[8,6]
+y_mean_cross[1,1] <- y_cross[7,2]
+y_mean_cross[2,2] <- y_cross[8,2]
+y_mean_cross[3,3] <- y_cross[1,2]
+y_mean_cross[4,4] <- y_cross[9,2]
+y_mean_cross[5,5] <- y_cross[5,2]
+y_mean_cross[6,6] <- y_cross[6,2]
+y_mean_cross[7,7] <- y_cross[2,2]
+y_mean_cross[8,8] <- y_cross[10,2]
+y_mean_cross[9,9] <- y_cross[3,2]
+y_mean_cross[10,10] <- y_cross[4,2]
+
+pdist <- pdist(y_mean_cross)
+pdist <- as.matrix(y_mean_cross)
+
+dist <- dist(y_mean_cross)
+dist <- as.matrix(dist)
+
+mantel.test(y_mean_cross,pdist)
+mantel.test(y_mean_cross,dist)
+#Same result calculating matrix distances differently
 
 
