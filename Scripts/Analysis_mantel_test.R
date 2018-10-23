@@ -251,12 +251,23 @@ dist <- as.matrix(dist)
 #Same result calculating matrix distances differently
 mantel.test(pdist,d)
 mantel.test(dist,d)
-
+mantel(dist,d)
 #Now I´m going to try to create binary values for incompatibility and check with mantel
 #Another option is to adrees the diffent levels of incompatibility with the self pollination that I made
+traits <- read.csv("Data/tab.csv", sep="")
+incompatibility <- traits[,c(3,6)]
+incompatibility$binary <- c(0,1,1,1,0,0,0,0,1,1)
+incompatibility_mod <- incompatibility[,-c(1,2)]
+incompatibility_mod <- data.frame(incompatibility_mod)
+rownames(incompatibility_mod) <- incompatibility[,1]
+m <- vegdist(incompatibility_mod, method="euclidean")
+m <- as.matrix(m)
+m <- m[order(rownames(m)), order(colnames(m))] 
+rownames(m) <- rownames(evo_distance_its)
+colnames(m) <- colnames(evo_distance_its)
 
-
-
-
-
-
+mantel.test(pdist,m)
+mantel.test(dist,m)
+mantel(dist,m)
+#No correlation with binary
+mantel(evo_distance,m)
