@@ -1,20 +1,18 @@
 ---
 title: "| Título en español \n| Title in English\n"
-  
-author: Nombre Apellidos^1^, Nombre Apellidos^2^
-  
+author: "Name Apellidos^1^, Nombre Apellidos^2^"
+csl: ecosistemas.csl
 output:
+  pdf_document: default
   word_document:
     fig_caption: yes
     fig_height: 6
     fig_width: 7.5
     highlight: null
     reference_docx: Ecosistemas_template.docx
-    
-csl: ecosistemas.csl
-bibliography: 
-  - references.bib
-  - knitcitations.bib
+bibliography:
+- references.bib
+- knitcitations.bib
 ---
 
 
@@ -25,28 +23,13 @@ bibliography:
 > Autor para correspondencia: Nombre Apellidos [minombre@micorreo.com]
 
 
-
-
-# Resumen
-
-> **Título en español**. En el resumen debe constar el propósito del artículo, una síntesis de la metodología utilizada y de los resultados más relevantes obtenidos y sus implicaciones. El resumen debe tener una extensión máxima de 250 palabras, incluyendo, en la primera línea, el título del artículo. Es obligatorio la presentación de un resumen en inglés además del resumen en castellano. Letra Arial 10 y espaciado de 1 línea. Las comunicaciones breves tendrán igualmente un resumen en castellano y en inglés pero la extensión del mismo será de 150 palabras máximo. Únicamente están exentos de aportar resumen las contribuciones enviadas a las secciones de Resúmenes de tesis, Notas y Reseñas bibliográficas.
-
-
 # Abstract
 
 > **Title in English**. En el resumen debe constar el propósito del artículo, una síntesis de la metodología utilizada y de los resultados más relevantes obtenidos y sus implicaciones. El resumen debe tener una extensión máxima de 250 palabras, incluyendo, en la primera línea, el título del artículo. Es obligatorio la presentación de un resumen en inglés además del resumen en castellano. Letra Arial 10 y espaciado de 1 línea. Las comunicaciones breves tendrán igualmente un resumen en castellano y en inglés pero la extensión del mismo será de 150 palabras máximo. Únicamente están exentos de aportar resumen las contribuciones enviadas a las secciones de Resúmenes de tesis, Notas y Reseñas bibliográficas.
 
-
-# Palabras clave
-
-> palabra1; palabra2; palabra3; palabra4 
-
-
 # Keywords
 
 > keyword1; keyword2; keyword3; keyword4
-
-
 
 ```{r knitcitations, echo=FALSE, cache = FALSE}
 library(knitcitations)
@@ -54,22 +37,11 @@ cleanbib()
 cite_options(citation_format = "pandoc")
 ```
 
+# Introduction
+
+# Methods
 
 
-# Introducción 
-
-Esta es una plantilla para escribir artículos en formato Rmarkdown para la revista [Ecosistemas](www.revistaecosistemas.net). Para saber más sobre Rmarkdown, visite http://rmarkdown.rstudio.com. Para ver un ejemplo de manuscrito escrito íntegramente en Rmarkdown, visite https://github.com/ecoinfAEET/Reproducibilidad/blob/master/Repro_ms.Rmd.
-
-Hay varias formas de citar bibliografía (véase http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html). Una de ellas requiere simplemente adjuntar un fichero BibTex con todas las referencias, y citar cada una de ellas usando su 'CitationKey' [e.g. @Yan2011; @Sutherland2011]. También pueden utilizarse paquetes como [knitcitations](https://cran.r-project.org/web/packages/knitcitations/index.html) o [RefManageR](https://cran.r-project.org/web/packages/RefManageR/index.html) para obtener automáticamente la información bibliográfica de internet. Por ejemplo, para citar un artículo es tan fácil como escribir su DOI `r citep("10.1016/j.tree.2006.03.016")` o incluso solo algunas palabras claves `r citep("Ricklefs 2008 American Naturalist")`. Estos artículos aparecerán automágicamente en la lista de referencias citadas. 
-
-
- 
-
-# Métodos
-
-## Área de estudio
-
-Nuestro estudio tuvo lugar en un bosque dominado por *Quercus suber* y *Laurus nobilis*.
 
 
 ## Análisis de datos
@@ -93,7 +65,7 @@ Utilizamos R `r citep(citation())` y Rmarkdown `r citep(list(citation("knitr"), 
 
 
 
-# Resultados
+# Results
 
 Esta sección está dividida en subsecciones.
 
@@ -133,7 +105,7 @@ Agradecimientos.
 
 
 
-###### REFERENCIAS
+###### References
 
 ```{r write_citations, cache=FALSE, include=FALSE}
 write.bibtex(file="knitcitations.bib")
