@@ -39,8 +39,16 @@ cite_options(citation_format = "pandoc")
 
 # Introduction
 
-Plant ecological generalization means that a wide range of floral visitors will visit this particular species. Normally plant species co-occur with other different species in natural systems and therefore pollinator sharing is common characteristic in natural ecosystems.
 
+*Paragraph 1*
+Plants with ecological generalization receives a wide range of floral visitors (Refs), these plant species tend to co-occur with other species and have floral visitors in common. This potential pollinators can deposit conspecific pollen and heterospecific pollen and cause conspecific pollen loss. All this features are important to understand the effectivenes of pollinators and the reproductive biology of the plant. Plant species that invest highly in sexual reproduction will have mechanism to attract a great number of pollinators but also to avoid self pollination and possibly different ecological niche of the sexual organs to avoid heterospecific pollen deposition in case this one acts strongly...
+
+
+*Paragraph 2*
+
+*Paragraph 3*
+
+*Paragraph 4*
 
 
 
