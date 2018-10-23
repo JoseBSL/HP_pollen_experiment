@@ -271,3 +271,45 @@ mantel.test(dist,m)
 mantel(dist,m)
 #No correlation with binary
 mantel(evo_distance,m)
+#Now lets take the values of self compatibility
+species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
+i <- NULL
+y <- NULL
+for (i in species_list){
+  colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
+  i <- filter(i, Treatment!="RARA 50%", Treatment!="COSA 50%")
+  i <-i[-grep("100", i$Treatment),] 
+  
+  y <- rbind(y, i)
+}
+y_self_1 <- y[grep("SELF", y$Treatment), ]
+y_self_2 <- y[grep("self", y$Treatment), ]
+y_self_3 <- y[grep("Self", y$Treatment), ]
+
+y_self_1$cond <- ifelse(y_self_1$Seed_set>0,1,0)
+y_self_2$cond <- ifelse(y_self_2$Seed_set>0,1,0)
+y_self_3$cond <- ifelse(y_self_3$Seed_set>0,1,0)
+
+y_self_1 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_1, na.rm= TRUE)
+y_self_2 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_2, na.rm= TRUE)
+y_self_3 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_3, na.rm= TRUE)
+
+y_self <- rbind(y_self_1, y_self_2, y_self_3)
+colnames(y_self)[2] <- "Self"
+y_self$Non_focal <- y_self$Species
+matrix_self <- tapply(y_self$Self, y_self[c("Species", "Species")], mean)
+
+matrix_self[1,1:10] <- matrix_self[1,1]#BROL
+matrix_self[2,1:10] <- matrix_self[2,2]#BRRA
+matrix_self[3,1:10] <- matrix_self[3,3]#CAAN
+matrix_self[4,1:10] <- matrix_self[4,4]#ERSA
+matrix_self[5,1:10] <- matrix_self[5,5]#IPAQ
+matrix_self[6,1:10] <- matrix_self[6,6]#IPPU
+matrix_self[7,1:10] <- matrix_self[7,7]#PEIN
+matrix_self[8,1:10] <- matrix_self[8,8]#SIAL
+matrix_self[9,1:10] <- matrix_self[9,9]#SOLY
+matrix_self[10,1:10] <- matrix_self[10,10]#SOME
+diag(matrix_self) <- 0
+
+mantel.test(dist,matrix_self)
+mantel(dist,matrix_self)
