@@ -25,7 +25,7 @@ bibliography:
 
 # Abstract
 
-> **Title in English**. En el resumen debe constar el propósito del artículo, una síntesis de la metodología utilizada y de los resultados más relevantes obtenidos y sus implicaciones. El resumen debe tener una extensión máxima de 250 palabras, incluyendo, en la primera línea, el título del artículo. Es obligatorio la presentación de un resumen en inglés además del resumen en castellano. Letra Arial 10 y espaciado de 1 línea. Las comunicaciones breves tendrán igualmente un resumen en castellano y en inglés pero la extensión del mismo será de 150 palabras máximo. Únicamente están exentos de aportar resumen las contribuciones enviadas a las secciones de Resúmenes de tesis, Notas y Reseñas bibliográficas.
+Pollinator sharing can have negative consequences for species fitness with the arrival of foreign pollen. However, the costs of heterospecific pollen are not yet well understood. For this reason, we have conducted a glasshouse experiment where we try to understand how phylogenetic relatedness and the different traits of these species are involved in this process. We experimentally crossed 10 species belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Overall, more than 4000 crosses were done and seed set and pollen tubes were considered as proxy of effect. We found that for all species foreign pollen (50% or less) reduced seed set. Moreover, the seed set reduction is not dependent on the degree of relatedness of the pollen donor. However, the effect is governed by the degree of relatedness and the traits of the species recipient. Our results show that the outcome of heterospecific pollen deposition is determined in greater degree by the traits of the pollen recipient than the pollen donor and that certain traits such as compatibility system are crucial to understand the costs of heterospecific pollen.
 
 # Keywords
 
@@ -38,6 +38,11 @@ cite_options(citation_format = "pandoc")
 ```
 
 # Introduction
+
+Plant ecological generalization means that a wide range of floral visitors will visit this particular species. Normally plant species co-occur with other different species in natural systems and therefore pollinator sharing is common characteristic in natural ecosystems.
+
+
+
 
 # Methods
 
