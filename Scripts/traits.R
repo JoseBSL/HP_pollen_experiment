@@ -257,3 +257,5 @@ p <- ggplot(data=tab, aes(x=reorder(species, pollen_ovule_ratio, colour = cut), 
 p + ggtitle("Pollen/ovule ratio per species") + theme(plot.title = element_text(hjust = 0.5))+ labs(x = "Species")
 
 
+library(devtools)
+install_github("Pakillo/rmdTemplates")
