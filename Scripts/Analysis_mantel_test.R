@@ -36,23 +36,36 @@ scale(soly_cross$seed_set)
 ((soly_cross[1,4])-mean(soly_cross$seed_set))/sd(soly_cross$seed_set)
 #Now prepare all data sets to be standarize
 soly$scale_seed<-scale(soly$seed_set)
-some$scale_seed<-as.integer(scale(some$seed_set))
-pein$scale_seed<-as.integer(scale(pein$Seed.production))
-caan$scale_seed<-as.integer(scale(caan$seed_set))
-ersa$scale_seed<-as.integer(scale(ersa$seed.production))
-brra$scale_seed<-as.integer(scale(brra$Seed.production))
-sial$scale_seed<-as.integer(scale(sial$Seed.production))
-brol$scale_seed<-as.integer(scale(brol$Seed.production))
-ippu$scale_seed<-as.integer(scale(ippu$seed.set))
-ipaq$scale_seed<-as.integer(scale(ipaq$seed_set))
+some$scale_seed<-scale(some$seed_set)
+pein$scale_seed<-scale(pein$Seed.production)
+caan$scale_seed<-scale(caan$seed_set)
+ersa$scale_seed<-scale(ersa$seed.production)
+brra$scale_seed<-scale(brra$Seed.production)
+sial$scale_seed<-scale(sial$Seed.production)
+brol$scale_seed<-scale(brol$Seed.production)
+ippu$scale_seed<-scale(ippu$seed.set)
+ipaq$scale_seed<-scale(ipaq$seed_set)
 
 
 #Deleting column of fruit set for some solanaceae species to make equal number of columns
 some<- some[,-4]
 soly<- soly[,-4]
 caan<- caan[,-4]
-soly <- data.frame(soly, stringsAsFactors = T)
-str(soly)
+
+#Makin all columns numerical ones
+soly[3:5] <- lapply(soly[3:5], as.numeric)
+some[3:5] <- lapply(some[3:5], as.numeric)
+caan[3:5] <- lapply(caan[3:5], as.numeric)
+pein[3:5] <- lapply(pein[3:5], as.numeric)
+brol[3:5] <- lapply(brol[3:5], as.numeric)
+brra[3:5] <- lapply(brra[3:5], as.numeric)
+ersa[3:5] <- lapply(ersa[3:5], as.numeric)
+sial[3:5] <- lapply(sial[3:5], as.numeric)
+ipaq[3:5] <- lapply(ipaq[3:5], as.numeric)
+ippu[3:5] <- lapply(ippu[3:5], as.numeric)
+
+
+#Preparing for loop to clean dataframe and select columns of interest
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
 y <- NULL
@@ -70,21 +83,26 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_s
 }
 
 #Now we have a dataframe with all the species, treatments and seed set and standarized seed set
-
-
-
-
-
-
-
-#Check mean of SOME, there is one extra don´t know why...
-mean(y[y$Species=="SOME", "Seed_set"])
+#First one with seed set mean of Treatments
 y_mean <- dcast(Species + Treatment ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y, na.rm= TRUE)
 colnames(y_mean)[3] <- "Seed_set"
 Treatment <- str_split_fixed(as.character(y_mean$Treatment), " ", 2)
 Treatment <- Treatment[ , -2]
 y_mean <- cbind(y_mean, Treatment)
 y_mean <- y_mean[ , -2]
+#Second one with seed set mean of standarized treatments
+y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y, na.rm= TRUE)
+colnames(y_mean_scale)[3] <- "Scale_seed"
+Treatment <- str_split_fixed(as.character(y_mean_scale$Treatment), " ", 2)
+Treatment <- Treatment[ , -2]
+y_mean_scale <- cbind(y_mean, Treatment)
+y_mean_scale <- y_mean_scale[ , -2]
+
+
+
+
+
+
 
 #str(y_mean)
 #y_mean$Treatment <- as.character(y_mean$Treatment)
