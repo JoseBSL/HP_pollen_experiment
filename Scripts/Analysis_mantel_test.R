@@ -1,25 +1,6 @@
 #In this script I´m going to prepare the data to do some first Analysis
-
 #In first place I modify the data to create a matrix
 #Then I perform Mantel test between the two matrices (percentage of decrease of seed set and evol. distances)
-
-#Load seed set data for 10 species
-soly  <- read.csv("Data/species_seed_set/soly_seed_set.csv", sep=";", stringsAsFactors = F)
-some  <- read.csv("Data/species_seed_set/some_seed_set.csv", sep=";", stringsAsFactors = F)
-pein  <- read.csv("Data/species_seed_set/pein_seed_set.csv", sep=";", stringsAsFactors = F)
-caan  <- read.csv("Data/species_seed_set/caan_seed_set.csv", sep=";", stringsAsFactors = F)
-ersa  <- read.csv("Data/species_seed_set/ersa_seed_set.csv", sep=";", stringsAsFactors = F)
-brra  <- read.csv("Data/species_seed_set/brra_seed_set.csv", sep=";", stringsAsFactors = F)
-sial  <- read.csv("Data/species_seed_set/sial_seed_set.csv", sep=";", stringsAsFactors = F)
-brol  <- read.csv("Data/species_seed_set/brol_seed_set.csv", sep=";", stringsAsFactors = F)
-ippu  <- read.csv("Data/species_seed_set/ippu_seed_set.csv", sep=";", stringsAsFactors = F)
-ipaq  <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";", stringsAsFactors = F)
-
-#load matrix of evolutionary distances
-evo_distance  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.csv", sep=";", stringsAsFactors = F)
-#Reading data.frame of traits. Keep working with it later...
-traits <- read.csv("Data/tab.csv", sep="")
-
 #load libraries
 library(dplyr)
 library(reshape2)
@@ -31,22 +12,53 @@ library(permute)
 library(lattice)
 library(distances)
 library(pdist)
-#soly[-grep("100%", soly$Treatment), ]
-#To create the matrix of effect we are going to estimate the net effect as 
-#Cross-(average of 50% treatments)
-#I´m going to try to do it in a for loop
+#Load seed set data for 10 species
+soly  <- read.csv("Data/species_seed_set/soly_seed_set.csv", sep=";", stringsAsFactors = F)
+some  <- read.csv("Data/species_seed_set/some_seed_set.csv", sep=";", stringsAsFactors = F)
+pein  <- read.csv("Data/species_seed_set/pein_seed_set.csv", sep=";", stringsAsFactors = F)
+caan  <- read.csv("Data/species_seed_set/caan_seed_set.csv", sep=";", stringsAsFactors = F)
+ersa  <- read.csv("Data/species_seed_set/ersa_seed_set.csv", sep=";", stringsAsFactors = F)
+brra  <- read.csv("Data/species_seed_set/brra_seed_set.csv", sep=";", stringsAsFactors = F)
+sial  <- read.csv("Data/species_seed_set/sial_seed_set.csv", sep=";", stringsAsFactors = F)
+brol  <- read.csv("Data/species_seed_set/brol_seed_set.csv", sep=";", stringsAsFactors = F)
+ippu  <- read.csv("Data/species_seed_set/ippu_seed_set.csv", sep=";", stringsAsFactors = F)
+ipaq  <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";", stringsAsFactors = F)
+#load matrix of evolutionary distances
+evo_distance  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.csv", sep=";", stringsAsFactors = F)
+#Reading data.frame of traits. Keep working with it later...
+traits <- read.csv("Data/tab.csv", sep="")
+
+#Standarize values with function scale. standarize valuei=Xi-mean(x)/sd(x)
+#Example
+head(soly$seed_set)- mean(soly$seed_set)
+soly_cross <- filter(soly, Treatment=="CROSS")
+scale(soly_cross$seed_set)
+((soly_cross[1,4])-mean(soly_cross$seed_set))/sd(soly_cross$seed_set)
+#Now prepare all data sets to be standarize
+soly$scale_seed<-scale(soly$seed_set)
+some$scale_seed<-as.integer(scale(some$seed_set))
+pein$scale_seed<-as.integer(scale(pein$Seed.production))
+caan$scale_seed<-as.integer(scale(caan$seed_set))
+ersa$scale_seed<-as.integer(scale(ersa$seed.production))
+brra$scale_seed<-as.integer(scale(brra$Seed.production))
+sial$scale_seed<-as.integer(scale(sial$Seed.production))
+brol$scale_seed<-as.integer(scale(brol$Seed.production))
+ippu$scale_seed<-as.integer(scale(ippu$seed.set))
+ipaq$scale_seed<-as.integer(scale(ipaq$seed_set))
 
 
-#Deleting column of fruit set for some solanaceae species
+#Deleting column of fruit set for some solanaceae species to make equal number of columns
 some<- some[,-4]
 soly<- soly[,-4]
 caan<- caan[,-4]
+soly <- data.frame(soly, stringsAsFactors = T)
+str(soly)
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
 y <- NULL
 
 for (i in species_list){
-colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
+colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_seed")
  i <- filter(i, Treatment!="RARA 50%", Treatment!="COSA 50%",
              Treatment!="Cross", Treatment!="Self", Treatment!="Control",Treatment!="Flower Control",
              Treatment!="FC", Treatment!="CROSS", Treatment!="FLOWER CONTROL", Treatment!="control",
@@ -56,6 +68,14 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
   
   y <- rbind(y, i)
 }
+
+#Now we have a dataframe with all the species, treatments and seed set and standarized seed set
+
+
+
+
+
+
 
 #Check mean of SOME, there is one extra don´t know why...
 mean(y[y$Species=="SOME", "Seed_set"])
