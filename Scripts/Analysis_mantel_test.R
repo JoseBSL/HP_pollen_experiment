@@ -52,7 +52,7 @@ some<- some[,-4]
 soly<- soly[,-4]
 caan<- caan[,-4]
 
-#Makin all columns numerical ones
+#Making all columns numerical ones
 soly[3:5] <- lapply(soly[3:5], as.numeric)
 some[3:5] <- lapply(some[3:5], as.numeric)
 caan[3:5] <- lapply(caan[3:5], as.numeric)
@@ -91,25 +91,39 @@ Treatment <- Treatment[ , -2]
 y_mean <- cbind(y_mean, Treatment)
 y_mean <- y_mean[ , -2]
 #Second one with seed set mean of standarized treatments
-y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y, na.rm= TRUE)
+y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y, na.rm= TRUE)
 colnames(y_mean_scale)[3] <- "Scale_seed"
 Treatment <- str_split_fixed(as.character(y_mean_scale$Treatment), " ", 2)
 Treatment <- Treatment[ , -2]
-y_mean_scale <- cbind(y_mean, Treatment)
+y_mean_scale <- cbind(y_mean_scale, Treatment)
 y_mean_scale <- y_mean_scale[ , -2]
 
-
-
-
-
-
-
-#str(y_mean)
-#y_mean$Treatment <- as.character(y_mean$Treatment)
-#y_mean$Species <- as.character(y_mean$Species)
-#y_mean$Seed_set <- as.numeric(y_mean$Seed_set)
-matrix <- tapply(y_mean$Seed_set, y_mean[c("Species", "Treatment")], mean)
+#Now I create two matrices one that has seed set and onother with standarized seed set as mention above
+matrix <- tapply(y_mean$Seed_set, y_mean[c("Species", "Treatment")], mean) 
 matrix<- matrix[-11,]
+#Here I have to make the diagonal the values of the cross
+
+
+matrix_scale <- tapply(y_mean_scale$Scale_seed, y_mean_scale[c("Species", "Treatment")], mean)
+matrix_scale <- matrix_scale[-11,]
+#In this one I have to make the diagonal 0 because is standarized
+
+diag(matrix_scale) <- 0
+#Fixing this two values for now...
+
+matrix_scale[8,5] <- matrix_scale[7,6]
+
+matrix_scale[10,5] <- matrix_scale[10,6]
+
+
+
+
+
+
+
+
+
+
 
 #Fixing this value, don´t know why it doesn´t read it properly. I think it has an space or a weird format
 matrix[10,5] <- 0
@@ -314,7 +328,7 @@ species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
 y <- NULL
 for (i in species_list){
-  colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
+  colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_seed")
   i <- filter(i, Treatment!="RARA 50%", Treatment!="COSA 50%")
   i <-i[-grep("100", i$Treatment),] 
   
@@ -330,6 +344,8 @@ y_self_3$cond <- ifelse(y_self_3$Seed_set>0,1,0)
 
 y_self_1 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_1, na.rm= TRUE)
 y_self_2 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_2, na.rm= TRUE)
+
+
 y_self_3 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_3, na.rm= TRUE)
 
 y_self <- rbind(y_self_1, y_self_2, y_self_3)
@@ -349,5 +365,6 @@ matrix_self[9,1:10] <- matrix_self[9,9]#SOLY
 matrix_self[10,1:10] <- matrix_self[10,10]#SOME
 diag(matrix_self) <- 0
 
-mantel.test(dist,matrix_self)
-mantel(dist,matrix_self)
+mantel.test(matrix_scale,matrix_self)
+mantel(matrix_scale,matrix_self)
+
