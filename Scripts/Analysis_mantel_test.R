@@ -110,33 +110,23 @@ matrix_scale <- matrix_scale[-11,]
 
 diag(matrix_scale) <- 0
 #Fixing this two values for now...
-
+matrix[8,5] <- matrix[7,6]
+matrix[10,5] <- matrix[10,6]
 matrix_scale[8,5] <- matrix_scale[7,6]
-
 matrix_scale[10,5] <- matrix_scale[10,6]
 
 
 
 
 
-
-
-
-
-
-
-#Fixing this value, don´t know why it doesn´t read it properly. I think it has an space or a weird format
-matrix[10,5] <- 0
-#SIAL-> It seems that I didn´t do this one
-
-#Now I create the matrix with the cross value
-
+#Now I prepare the two matrices for cross seed set. One is just the seed set without modification
+#The other has the standarized seed set (matrix_cross and matrix_cross_scale respectively)
 
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
 y <- NULL
 for (i in species_list){
-  colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set")
+  colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_seed")
   i <- filter(i, Treatment!="RARA 50%", Treatment!="COSA 50%")
   i <-i[-grep("100", i$Treatment),] 
   
@@ -152,8 +142,7 @@ y_cross <- rbind(y_cross_1, y_cross_2, y_cross_3)
 colnames(y_cross)[2] <- "Seed_set_cross"
 y_cross$Non_focal <- y_cross$Species
 matrix_cross <- tapply(y_cross$Seed_set_cross, y_cross[c("Species", "Non_focal")], mean)
-
-#I edit the matrix manually, values of the diagonal to full row and the diagonal NA
+#I edit the matrix manually, values of the diagonal to full row 
 matrix_cross[1,1:10] <- matrix_cross[1,1]#BROL
 matrix_cross[2,1:10] <- matrix_cross[2,2]#BRRA
 matrix_cross[3,1:10] <- matrix_cross[3,3]#CAAN
@@ -164,7 +153,61 @@ matrix_cross[7,1:10] <- matrix_cross[7,7]#PEIN
 matrix_cross[8,1:10] <- matrix_cross[8,8]#SIAL
 matrix_cross[9,1:10] <- matrix_cross[9,9]#SOLY
 matrix_cross[10,1:10] <- matrix_cross[10,10]#SOME
-diag(matrix_cross) <- NA
+
+
+y_cross_scale_1 <- y[grep("CROSS", y$Treatment), ]
+y_cross_scale_2 <- y[grep("cross", y$Treatment), ]
+y_cross_scale_3 <- y[grep("Cross", y$Treatment), ]
+y_cross_scale_1 <- dcast(Species ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y_cross_scale_1, na.rm= TRUE)
+y_cross_scale_2 <- dcast(Species ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y_cross_scale_2, na.rm= TRUE)
+y_cross_scale_3 <- dcast(Species ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y_cross_scale_3, na.rm= TRUE)
+y_cross_scale <- rbind(y_cross_scale_1, y_cross_scale_2, y_cross_scale_3)
+colnames(y_cross_scale)[2] <- "Scale_seed"
+y_cross_scale$Non_focal <- y_cross_scale$Species
+matrix_cross_scale <- tapply(y_cross_scale$Scale_seed, y_cross_scale[c("Species", "Non_focal")], mean)
+#I edit the matrix manually, values of the diagonal to full row 
+matrix_cross_scale[1,1:10] <- matrix_cross_scale[1,1]#BROL
+matrix_cross_scale[2,1:10] <- matrix_cross_scale[2,2]#BRRA
+matrix_cross_scale[3,1:10] <- matrix_cross_scale[3,3]#CAAN
+matrix_cross_scale[4,1:10] <- matrix_cross_scale[4,4]#ERSA
+matrix_cross_scale[5,1:10] <- matrix_cross_scale[5,5]#IPAQ
+matrix_cross_scale[6,1:10] <- matrix_cross_scale[6,6]#IPPU
+matrix_cross_scale[7,1:10] <- matrix_cross_scale[7,7]#PEIN
+matrix_cross_scale[8,1:10] <- matrix_cross_scale[8,8]#SIAL
+matrix_cross_scale[9,1:10] <- matrix_cross_scale[9,9]#SOLY
+matrix_cross_scale[10,1:10] <- matrix_cross_scale[10,10]#SOME
+
+#Fix the diagonal of matrix_scale because it should the "maximum value" of the cross
+diag(matrix_scale) <- diag(matrix_cross_scale)
+
+#I´m going to substract the two matrices BUT I have negative values 
+#So I´m going to fix that adding the minimum value to the two matrices
+#New minimum should be 0
+min(matrix_scale)
+max(matrix_scale)
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Probably it can be done with less code, but not going to fix that now...
+
+
+
+
+
+
+
+
+
 
 #The proxy of effect is the decrease in seed set 
 matrix_effect <- matrix/matrix_cross * 100
