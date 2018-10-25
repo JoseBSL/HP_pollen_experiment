@@ -116,9 +116,6 @@ matrix_scale[8,5] <- matrix_scale[7,6]
 matrix_scale[10,5] <- matrix_scale[10,6]
 
 
-
-
-
 #Now I prepare the two matrices for cross seed set. One is just the seed set without modification
 #The other has the standarized seed set (matrix_cross and matrix_cross_scale respectively)
 
@@ -183,17 +180,18 @@ diag(matrix_scale) <- diag(matrix_cross_scale)
 #I´m going to substract the two matrices BUT I have negative values 
 #So I´m going to fix that adding the minimum value to the two matrices
 #New minimum should be 0
-min(matrix_scale)
-max(matrix_scale)
-
-matrix_scale <- matrix_scale + abs(min(matrix_scale))
-matrix_cross_scale <- matrix_cross_scale + abs(min(matrix_scale))
+a <- min(matrix_scale)
+#I save this value
+#max(matrix_scale)
+matrix_scale <- matrix_scale + abs(a)
+matrix_cross_scale <- matrix_cross_scale + abs(a)
 
 
 #Now the negative values are fixed. Time to make the matrix of effect respect the cross with the standarized
 #The normal values of seed set are going to be on a side for a while
 
 
+matrix_scale_effect <- matrix_cross_scale-matrix_scale
 
 
 
@@ -214,12 +212,6 @@ matrix_cross_scale <- matrix_cross_scale + abs(min(matrix_scale))
 
 
 
-#The proxy of effect is the decrease in seed set 
-matrix_effect <- matrix/matrix_cross * 100
-matrix_effect_original <- matrix_effect
-matrix_effect[matrix_effect[,]>100] <-100
-#To make it more intuitive, 100% 0 percent of seed set
-matrix_effect <- 100-matrix_effect
 
 #Now edit the evolutionary distances
 
@@ -414,5 +406,6 @@ matrix_self[10,1:10] <- matrix_self[10,10]#SOME
 diag(matrix_self) <- 0
 
 mantel.test(matrix_scale,matrix_self)
-mantel(matrix_scale,matrix_self)
+mantel(matrix_scale_effect,evo_distance)
+mantel(matrix_scale_effect,evo_distance)
 
