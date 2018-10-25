@@ -186,6 +186,12 @@ diag(matrix_scale) <- diag(matrix_cross_scale)
 min(matrix_scale)
 max(matrix_scale)
 
+matrix_scale <- matrix_scale + abs(min(matrix_scale))
+matrix_cross_scale <- matrix_cross_scale + abs(min(matrix_scale))
+
+
+#Now the negative values are fixed. Time to make the matrix of effect respect the cross with the standarized
+#The normal values of seed set are going to be on a side for a while
 
 
 
@@ -198,7 +204,6 @@ max(matrix_scale)
 
 
 
-#Probably it can be done with less code, but not going to fix that now...
 
 
 
