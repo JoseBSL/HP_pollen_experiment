@@ -24,7 +24,8 @@ brol  <- read.csv("Data/species_seed_set/brol_seed_set.csv", sep=";", stringsAsF
 ippu  <- read.csv("Data/species_seed_set/ippu_seed_set.csv", sep=";", stringsAsFactors = F)
 ipaq  <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";", stringsAsFactors = F)
 #load matrix of evolutionary distances
-evo_distance  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.csv", sep=";", stringsAsFactors = F)
+evo_distance_rbcl  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.csv", sep=";", stringsAsFactors = F)
+evo_distance_its  <- read.csv("Data/its_outgroup_pinus.csv", sep=",", stringsAsFactors = F)
 #Reading data.frame of traits. Keep working with it later...
 traits <- read.csv("Data/tab.csv", sep="")
 
@@ -194,71 +195,52 @@ matrix_cross_scale <- matrix_cross_scale + abs(a)
 matrix_scale_effect <- matrix_cross_scale-matrix_scale
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #Now edit the evolutionary distances
+#They are the distances calculated with MEGA 7 (pairwise distances)
 
-evo_distance <- evo_distance[ , -2]
-evo_distance <- as.matrix(evo_distance)
 
-rownames(evo_distance) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
-evo_distance <- evo_distance[, -1]
-colnames(evo_distance) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
-diag(evo_distance) <- 0
 
-makeSymm <- function(evo_distance) {
-  evo_distance[upper.tri(evo_distance)] <- t(evo_distance)[upper.tri(evo_distance)]
-  return(evo_distance)
+
+
+evo_distance_rbcl <- evo_distance_rbcl[ , -2]
+evo_distance_rbcl <- as.matrix(evo_distance_rbcl)
+
+rownames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
+evo_distance_rbcl <- evo_distance_rbcl[, -1]
+colnames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
+diag(evo_distance_rbcl) <- 0
+
+makeSymm <- function(evo_distance_rbcl) {
+  evo_distance_rbcl[upper.tri(evo_distance_rbcl)] <- t(evo_distance_rbcl)[upper.tri(evo_distance_rbcl)]
+  return(evo_distance_rbcl)
 }
-evo_distance <- makeSymm(evo_distance)
-diag(evo_distance) <- NA
-evo_distance <- evo_distance[order(rownames(evo_distance)), order(colnames(evo_distance))] 
-evo_distance <- mapply(evo_distance, FUN=as.numeric)
-evo_distance <- matrix(data=evo_distance, ncol=10, nrow=10)
-rownames(evo_distance) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
-colnames(evo_distance) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
-evo_distance <- evo_distance[order(rownames(evo_distance)), order(colnames(evo_distance))] 
-diag(evo_distance) <- 0
-diag(matrix_effect) <- 0
-
-
-#Fixing value of SIAL-IPAQ
-matrix_effect[8,5]<-0
-matrix_effect_original[8,5]<-0
+evo_distance_rbcl <- makeSymm(evo_distance_rbcl)
+diag(evo_distance_rbcl) <- NA
+evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order(colnames(evo_distance_rbcl))] 
+evo_distance_rbcl <- mapply(evo_distance_rbcl, FUN=as.numeric)
+evo_distance_rbcl <- matrix(data=evo_distance_rbcl, ncol=10, nrow=10)
+rownames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
+colnames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
+evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order(colnames(evo_distance_rbcl))] 
+diag(evo_distance_rbcl) <- 0
 #Mantel test with percentage 100-matrix and normal percentage
-mantel.test(matrix_effect, evo_distance, graph = TRUE)
-diag(matrix_effect_original) <- 100
-mantel.test(matrix_effect_original, evo_distance, graph = TRUE)
+mantel.test(matrix_scale_effect, evo_distance_rbcl, graph = TRUE)
+mantel(matrix_scale_effect, evo_distance_rbcl)
 
 
 #Now with the ITS tree. 
 #First I have to fix a bit the data.frame and convert it to a matrix
 #load csv of evolutionary distance of ITS, not in matrix format
-evo_distance_its  <- read.csv("Data/its_outgroup_pinus.csv", sep=",", stringsAsFactors = F)
 evo_distance_its <- evo_distance_its[-1,-c(1,2)]
 rownames(evo_distance_its) <- c("BROL", "ERSA", "BRRA", "SIAL", "IPPU", "IPAQ", "PEIN", "CAAN", "SOME", "SOLY")
 colnames(evo_distance_its) <- c("BROL", "ERSA", "BRRA", "SIAL", "IPPU", "IPAQ", "PEIN", "CAAN", "SOME", "SOLY")
 evo_distance_its <- makeSymm(evo_distance_its)
 diag(evo_distance_its) <- 0
 evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(colnames(evo_distance_its))] 
+
 mantel.test(matrix_effect_original, evo_distance_its, graph = TRUE)
+mantel(matrix_scale_effect, evo_distance_its)
+
 
 
 #Now I´m going to prepare the traits to check them
@@ -276,8 +258,8 @@ colnames(d) <- colnames(evo_distance_its)
 matrix_effect_original[matrix_effect_original[,]>100] <-100
 diag(d)<- 0
 diag(matrix_effect_original)<- 100
-mantel.test(d, matrix_effect_original)
-
+mantel.test(d, matrix_scale_effect)
+mantel(d, matrix_scale_effect)
 
 #Mantel between seed set percentage change and pollen, ovules, pollen size
 traits <- read.csv("Data/tab.csv", sep="")
@@ -408,4 +390,7 @@ diag(matrix_self) <- 0
 mantel.test(matrix_scale,matrix_self)
 mantel(matrix_scale_effect,evo_distance)
 mantel(matrix_scale_effect,evo_distance)
+
+
+
 
