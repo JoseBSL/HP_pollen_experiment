@@ -37,7 +37,7 @@ morphometry <- morphometry[, -c(4:15)]
 
 measurement  <- str_split_fixed(as.character(morphometry$measurement), "_", 3)
 measurement <- as.data.frame(measurement)
-measurement$new <- paste(measurement$V1, "_", measurement$V2 )
+measurement$new <- paste(measurement$V1,"_", measurement$V2 )
 morphometry[,2] <- measurement[,4] 
 #Aggregate of different variables 
 morphometry <- dcast(species + measurement ~ ., value.var = "um", fun.aggregate = mean, data = morphometry, na.rm= TRUE)
@@ -47,8 +47,10 @@ morphometry <- dcast(species + measurement ~ ., value.var = "um", fun.aggregate 
 colnames(morphometry)[3] <- "um"
 
 #First I create the dataframes then I order and finally I insert them in the trait_all data.frame
+
+#Stigma
 stigma <-morphometry[grep("stigma", morphometry$measurement),] 
-#Stigma area 
+#Stigma area (square micrometers, only unit like this)
 stigma_area <-stigma[grep("area", stigma$measurement),] 
 #Stigma length
 stigma_lenght <-stigma[grep("length", stigma$measurement),] 
@@ -58,5 +60,33 @@ stigma_surface <-stigma[grep("surface", stigma$measurement),]
 stigma_width <-stigma[grep("width", stigma$measurement),] 
 
 
+#Style
+style <-morphometry[grep("style", morphometry$measurement),] 
+#Style length
+style_length <-style[grep("length", style$measurement),] 
+#Style width
+style_width <-style[grep("width", style$measurement),] 
 
 
+#Ovary
+ovary <-morphometry[grep("ovary", morphometry$measurement),] 
+
+#Ovary width
+ovary_width <-ovary[grep("width", ovary$measurement),] 
+#Ovary width
+ovary_length <-ovary[grep("legth", ovary$measurement),] 
+ovary_length$measurement <- gsub('ovary _ legth', 'ovary _ length', ovary_length$measurement)
+
+#Ok now all the traits are ready!! Lets add it to traits_all.
+
+traits_all$stigma_area <- stigma_area$um
+traits_all$stigma_lenght <- stigma_lenght$um
+traits_all$stigma_surface <- stigma_surface$um
+traits_all$stigma_width <- stigma_width$um
+traits_all$style_length <- stigma_lenght$um
+traits_all$style_width <- style_width$um
+traits_all$ovary_width <- ovary_width$um
+traits_all$ovary_length <- ovary_length$um
+
+
+write.csv(traits_all, "Data/traits_all.csv")
