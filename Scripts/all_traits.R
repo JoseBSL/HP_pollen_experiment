@@ -29,7 +29,34 @@ traits_all <- traits_all[order(traits_all$species),]
 traits_all[,3] <- selfing[,2]
 colnames(traits_all)[3]<- "Selfing_rate"
 
-
 #Add other numerical trais
+morphometry <- read.csv("Data/species_traits.csv")
+morphometry <- morphometry[, -c(4:15)]
+
+#Now I have to remove the numbers after "_" 
+
+measurement  <- str_split_fixed(as.character(morphometry$measurement), "_", 3)
+measurement <- as.data.frame(measurement)
+measurement$new <- paste(measurement$V1, "_", measurement$V2 )
+morphometry[,2] <- measurement[,4] 
+#Aggregate of different variables 
+morphometry <- dcast(species + measurement ~ ., value.var = "um", fun.aggregate = mean, data = morphometry, na.rm= TRUE)
+#Some grammar mistakes, at least they seem to be homogeneous among species
+
+#Fix colnames
+colnames(morphometry)[3] <- "um"
+
+#First I create the dataframes then I order and finally I insert them in the trait_all data.frame
+stigma <-morphometry[grep("stigma", morphometry$measurement),] 
+#Stigma area 
+stigma_area <-stigma[grep("area", stigma$measurement),] 
+#Stigma length
+stigma_lenght <-stigma[grep("length", stigma$measurement),] 
+#Stigma surface
+stigma_surface <-stigma[grep("surface", stigma$measurement),] 
+#Stigma width
+stigma_width <-stigma[grep("width", stigma$measurement),] 
+
+
 
 
