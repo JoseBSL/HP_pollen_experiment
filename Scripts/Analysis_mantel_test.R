@@ -369,6 +369,8 @@ y_self_2 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = 
 y_self_3 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_3, na.rm= TRUE)
 
 y_self <- rbind(y_self_1, y_self_2, y_self_3)
+
+#write.csv(y_self, "Data/selfing_rate.csv")
 colnames(y_self)[2] <- "Self"
 y_self$Non_focal <- y_self$Species
 matrix_self <- tapply(y_self$Self, y_self[c("Species", "Species")], mean)
