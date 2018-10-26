@@ -89,4 +89,4 @@ traits_all$ovary_width <- ovary_width$um
 traits_all$ovary_length <- ovary_length$um
 
 
-write.csv(traits_all, "Data/traits_all.csv")
+#write.csv(traits_all, "Data/traits_all.csv")

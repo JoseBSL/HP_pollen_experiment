@@ -28,6 +28,8 @@ evo_distance_rbcl  <- read.csv("Data/species_matrix_phylogenetic_distance_rbcl.c
 evo_distance_its  <- read.csv("Data/its_outgroup_pinus.csv", sep=",", stringsAsFactors = F)
 #Reading data.frame of traits. Keep working with it later...
 traits <- read.csv("Data/tab.csv", sep="")
+traits_all <- read.csv("Data/traits_all.csv", sep=",")
+traits_all <- traits_all[,-1]
 
 #Standarize values with function scale. standarize valuei=Xi-mean(x)/sd(x)
 #Example
