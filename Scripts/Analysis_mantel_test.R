@@ -187,21 +187,15 @@ a <- min(matrix_scale)
 matrix_scale <- matrix_scale + abs(a)
 matrix_cross_scale <- matrix_cross_scale + abs(a)
 
-
 #Now the negative values are fixed. Time to make the matrix of effect respect the cross with the standarized
 #The normal values of seed set are going to be on a side for a while
-
-
 matrix_scale_effect <- matrix_cross_scale-matrix_scale
+
+
 
 
 #Now edit the evolutionary distances
 #They are the distances calculated with MEGA 7 (pairwise distances)
-
-
-
-
-
 evo_distance_rbcl <- evo_distance_rbcl[ , -2]
 evo_distance_rbcl <- as.matrix(evo_distance_rbcl)
 
@@ -226,6 +220,7 @@ diag(evo_distance_rbcl) <- 0
 #Mantel test with percentage 100-matrix and normal percentage
 mantel.test(matrix_scale_effect, evo_distance_rbcl, graph = TRUE)
 mantel(matrix_scale_effect, evo_distance_rbcl)
+mantel(matrix_scale_effect, (evo_distance_rbcl)^2)
 
 
 #Now with the ITS tree. 
@@ -239,8 +234,11 @@ diag(evo_distance_its) <- 0
 evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(colnames(evo_distance_its))] 
 
 mantel.test(matrix_effect_original, evo_distance_its, graph = TRUE)
-mantel(matrix_scale_effect, evo_distance_its)
+mantel.test(matrix_effect_original, (evo_distance_its^2), graph = TRUE)
 
+mantel(matrix_scale_effect, evo_distance_its)
+mantel(matrix_scale_effect, evo_distance_its_square_root)
+evo_distance_its_square_root <- evo_distance_its^2
 
 
 #Now I´m going to prepare the traits to check them
