@@ -243,6 +243,32 @@ mantel(matrix_scale_effect, evo_distance_its_square_root)
 evo_distance_its_square_root <- evo_distance_its^2
 
 
+#Now I convert the data.frame of all traits to a distance matrix 
+rownames(traits_all) <- rownames(matrix_scale_effect)
+traits_all <- traits_all[,-1]
+
+traits_all_dist <- dist(traits_all, diag=T, upper=T)
+ 
+
+mantel(matrix_scale_effect, traits_all_dist)
+
+library(qgraph)
+traits_all_dist_inverse <- 1/traits_all_dist
+jpeg('example_forcedraw.jpg', width=1000, height=1000, unit='px')
+qgraph(traits_all_dist_inverse, layout='spring', vsize=3)
+dev.off()
+
+
+
+
+
+
+
+
+
+
+
+
 #Now I´m going to prepare the traits to check them
 #Here I perform mantel test between pollen ovule ratios and seed percentage of seed set reduction
 traits <- read.csv("Data/tab.csv", sep="")
