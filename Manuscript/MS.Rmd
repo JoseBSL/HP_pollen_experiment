@@ -41,8 +41,8 @@ cite_options(citation_format = "pandoc")
 
 
 *Paragraph 1*
-Plants with ecological generalization receives a wide range of floral visitors (Refs), these plant species tend to co-occur with other species and have floral visitors in common. This potential pollinators can deposit conspecific pollen and heterospecific pollen and cause conspecific pollen loss. All this features are important to understand the effectivenes of pollinators and the reproductive biology of the plant. Plant species that invest highly in sexual reproduction will have mechanism to attract a great number of pollinators but also to avoid self pollination and possibly different ecological niche of the sexual organs to avoid heterospecific pollen deposition in case this one acts strongly...
 
+Plants with ecological generalization receives a wide range of floral visitors (Refs), these plant species tend to co-occur with other species and have floral visitors in common. This potential pollinators can deposit conspecific pollen and heterospecific pollen and cause conspecific pollen loss. All this features are important to understand the effectivenes of pollinators and the reproductive biology of the plant. 
 
 *Paragraph 2*
 
@@ -52,7 +52,32 @@ Plants with ecological generalization receives a wide range of floral visitors (
 
 
 
+
 # Methods
+
+The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The species selected (Table 1) belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species/family selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), heterogeneous traits, low structural flower complexity and fast life cycle. For the purpose of the experiment all the species where consider as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
+
+**Hand-pollination**
+
+To test heterospecific pollen effect the standard 50-50% pollen mix was performed (Ref) and 100% heterospecific pollen. Furthermore, hand cross pollination, hand self pollination, apomixis (emsaculated bagged flowers) and natural selfing (non-emasculated bagged flowers) was tested.
+
+
+Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Had-pollination was realized with 3-4 gentle touches on the surface of the stigma. The mixes of pollen were performed based on the pollen counts on an eppendorf. Pollen on anthers was counted through Neubaeur chamber.
+
+
+Treatments: 50-50% and 100%
+
+hand self pollination
+
+hand cross pollination (Pollen from different individual)
+
+Apomixis
+
+Natural selfing
+
+
+
+
 
 
 
@@ -169,29 +194,6 @@ kable(head(iris))
 **Figure 1**. Figure caption.
 
 **Figure 2**. Figure caption.
-
-
-
-
-
-###### FIGURA 1
-
-```{r Fig1, echo=FALSE, fig.cap="Figura 1. Esto es un ejemplo.", cache=FALSE}
-x <- rnorm(100)
-y <- jitter(x, 1000)
-plot(x, y)
-```
-
-
-
-###### FIGURA 2
-
-```{r Fig2, echo=FALSE, fig.cap="Figura 2. Segundo ejemplo", cache=FALSE}
-a <- sort(rnorm(100))
-b <- c(rep("Group Small", 35), rep("Group Big", 65))
-boxplot(a ~ b)
-```
-
 
 
 
