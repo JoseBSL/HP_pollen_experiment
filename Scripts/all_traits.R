@@ -315,14 +315,9 @@ soly_style_length[15,]<-soly_style_length[14,]
 soly_style_length[15,2] <- "style_length_15"
 #For now I leave it like this
 soly_stigma_length <- soly_traits[grep("stigma_leng", soly_traits$measurement),]
+soly_stigma_length[10,3] <- soly_stigma_length[9,3] 
+
 soly_ovary_length <- soly_traits[grep("ovary_le", soly_traits$measurement),]
-
 soly_gynoecium_length <- cbind(soly_style_length, soly_stigma_length, soly_ovary_length)
-
-
-
-
-
-
-
-
+soly_gynoecium_length$gynoecium_length <- rowSums(soly_gynoecium_length[,c(3,6,9)])
+soly_gynoecium_length <- soly_gynoecium_length[, c(1,10)]
