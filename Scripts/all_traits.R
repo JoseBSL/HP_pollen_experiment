@@ -53,7 +53,7 @@ stigma <-morphometry[grep("stigma", morphometry$measurement),]
 #Stigma area (square micrometers, only unit like this)
 stigma_area <-stigma[grep("area", stigma$measurement),] 
 #Stigma length
-stigma_lenght <-stigma[grep("length", stigma$measurement),] 
+stigma_length <-stigma[grep("length", stigma$measurement),] 
 #Stigma surface
 stigma_surface <-stigma[grep("surface", stigma$measurement),] 
 #Stigma width
@@ -87,6 +87,20 @@ traits_all$style_length <- stigma_lenght$um
 traits_all$style_width <- style_width$um
 traits_all$ovary_width <- ovary_width$um
 traits_all$ovary_length <- ovary_length$um
+
+
+
+
+cor.test(stigma_lenght$um, stigma_width$um)
+cor.test(stigma_length$um, stigma_area$um)
+cor.test(width$um, area$um)
+cor.test(ovary_width$um, o_length$um)
+cor.test(stigma_length$um, ovary_length$um)
+cor.test(style_length$um, style_width$um)
+cor.test(style_length$um, stigma_length$um)
+cor.test(style_length$um, ovary_length$um)
+
+
 
 
 #write.csv(traits_all, "Data/traits_all.csv")
@@ -139,53 +153,122 @@ cor.test(s_length$um, o_length$um)
 length <- filter(morphometry, measurement=="stigma _ length" & species=="SOLY")
 width <- filter(morphometry, measurement=="stigma _ width" & species=="SOLY")
 area <- filter(morphometry, measurement=="stigma _ area" & species=="SOLY")
+o_length <- filter(morphometry, measurement=="ovary _ legth" & species=="SOLY")
+o_width <- filter(morphometry, measurement=="ovary _ width" & species=="SOLY")
+s_length <- filter(morphometry, measurement=="style _ length" & species=="SOLY")
+s_width <- filter(morphometry, measurement=="style _ width" & species=="SOLY")
+s_width<- s_width[1:15,]
+s_length[15,]<-s_length[14,]
 
 cor.test(length$um, width$um)
 cor.test(length$um, area$um)
 cor.test(width$um, area$um)
-
+cor.test(o_width$um, o_length$um)
+cor.test(length$um, o_length$um)
+cor.test(s_length$um, s_width$um)
+cor.test(s_length$um, length$um)
+cor.test(s_length$um, o_length$um)
 
 length <- filter(morphometry, measurement=="stigma _ length" & species=="PEIN")
 width <- filter(morphometry, measurement=="stigma _ width" & species=="PEIN")
 area <- filter(morphometry, measurement=="stigma _ area" & species=="PEIN")
+o_length <- filter(morphometry, measurement=="ovary _ legth" & species=="PEIN")
+o_width <- filter(morphometry, measurement=="ovary _ width" & species=="PEIN")
+s_length <- filter(morphometry, measurement=="style _ length" & species=="PEIN")
+s_width <- filter(morphometry, measurement=="style _ width" & species=="PEIN")
+s_width<- s_width[1:15,]
+
+
 
 cor.test(length$um, width$um)
 cor.test(length$um, area$um)
 cor.test(width$um, area$um)
+cor.test(o_width$um, o_length$um)
+cor.test(length$um, o_length$um)
+cor.test(s_length$um, s_width$um)
+cor.test(s_length$um, length$um)
+cor.test(s_length$um, o_length$um)
 
 
 length <- filter(morphometry, measurement=="stigma _ length" & species=="BRRA")
 width <- filter(morphometry, measurement=="stigma _ width" & species=="BRRA")
 area <- filter(morphometry, measurement=="stigma _ area" & species=="BRRA")
+o_length <- filter(morphometry, measurement=="ovary _ legth" & species=="BRRA")
+o_width <- filter(morphometry, measurement=="ovary _ width" & species=="BRRA")
+s_length <- filter(morphometry, measurement=="style _ length" & species=="BRRA")
+s_width <- filter(morphometry, measurement=="style _ width" & species=="BRRA")
+s_width<- s_width[1:15,]
 
 cor.test(length$um, width$um)
 cor.test(length$um, area$um)
 cor.test(width$um, area$um)
+cor.test(o_width$um, o_length$um)
+cor.test(length$um, o_length$um)
+cor.test(s_length$um, s_width$um)
+cor.test(s_length$um, length$um)
+cor.test(s_length$um, o_length$um)
 
 length <- filter(morphometry, measurement=="stigma _ length" & species=="BROL")
 width <- filter(morphometry, measurement=="stigma _ width" & species=="BROL")
 area <- filter(morphometry, measurement=="stigma _ area" & species=="BROL")
+o_length <- filter(morphometry, measurement=="ovary _ legth" & species=="BROL")
+o_width <- filter(morphometry, measurement=="ovary _ width" & species=="BROL")
+s_length <- filter(morphometry, measurement=="style _ length" & species=="BROL")
+s_width <- filter(morphometry, measurement=="style _ width" & species=="BROL")
+s_width<- s_width[1:15,]
+s_length[15,]<-s_length[14,]
 
 cor.test(length$um, width$um)
 cor.test(length$um, area$um)
 cor.test(width$um, area$um)
+cor.test(o_width$um, o_length$um)
+cor.test(length$um, o_length$um)
+cor.test(s_length$um, s_width$um)
+cor.test(s_length$um, length$um)
+cor.test(s_length$um, o_length$um)
 
 length <- filter(morphometry, measurement=="stigma _ length" & species=="SIAL")
 width <- filter(morphometry, measurement=="stigma _ width" & species=="SIAL")
 area <- filter(morphometry, measurement=="stigma _ area" & species=="SIAL")
+o_length <- filter(morphometry, measurement=="ovary _ legth" & species=="SIAL")
+o_width <- filter(morphometry, measurement=="ovary _ width" & species=="SIAL")
+s_length <- filter(morphometry, measurement=="style _ length" & species=="SIAL")
+s_width <- filter(morphometry, measurement=="style _ width" & species=="SIAL")
+s_width<- s_width[1:15,]
+s_length[15,]<-s_length[14,]
+
+
 
 cor.test(length$um, width$um)
 cor.test(length$um, area$um)
 cor.test(width$um, area$um)
+cor.test(o_width$um, o_length$um)
+cor.test(length$um, o_length$um)
+cor.test(s_length$um, s_width$um)
+cor.test(s_length$um, length$um)
+cor.test(s_length$um, o_length$um)
 
 
 length <- filter(morphometry, measurement=="stigma _ length" & species=="ERSA")
 width <- filter(morphometry, measurement=="stigma _ width" & species=="ERSA")
 area <- filter(morphometry, measurement=="stigma _ area" & species=="ERSA")
+o_length <- filter(morphometry, measurement=="ovary _ legth" & species=="ERSA")
+o_width <- filter(morphometry, measurement=="ovary _ width" & species=="ERSA")
+s_length <- filter(morphometry, measurement=="style _ length" & species=="ERSA")
+s_width <- filter(morphometry, measurement=="style _ width" & species=="ERSA")
+s_width<- s_width[1:15,]
+s_length[15,]<-s_length[14,]
+
+
 
 cor.test(length$um, width$um)
 cor.test(length$um, area$um)
 cor.test(width$um, area$um)
+cor.test(o_width$um, o_length$um)
+cor.test(length$um, o_length$um)
+cor.test(s_length$um, s_width$um)
+cor.test(s_length$um, length$um)
+cor.test(s_length$um, o_length$um)
 
 
 length <- filter(morphometry, measurement=="stigma _ length" & species=="IPAQ")
@@ -205,15 +288,40 @@ cor.test(length$um, area$um)
 cor.test(width$um, area$um)
 
 
-
-
-
-
-
 ovary_width <- filter(morphometry, measurement=="ovary _ width")
 ovary_length <- filter(morphometry, measurement=="ovary _ legth")#I maintain the spelling mistake...
 
 cor.test(ovary_length$um, ovary_width$um)
+
+
+
+
+####
+####
+####
+#### GYNOECIUM LENGTH
+####
+####
+
+#Here I prepare the a dataframe with the total gynoecium length
+morphometry <- read.csv("Data/species_traits.csv")
+morphometry <- morphometry[, -c(4:15)]
+#I have to do it for each species
+#Start with tomato
+soly_traits <- filter(morphometry, species=="SOLY")
+soly_style_length <- soly_traits[grep("style_leng", soly_traits$measurement),] 
+#Fix missing value
+soly_style_length[15,]<-soly_style_length[14,]
+soly_style_length[15,2] <- "style_length_15"
+#For now I leave it like this
+soly_stigma_length <- soly_traits[grep("stigma_leng", soly_traits$measurement),]
+soly_ovary_length <- soly_traits[grep("ovary_le", soly_traits$measurement),]
+
+soly_gynoecium_length <- cbind(soly_style_length, soly_stigma_length, soly_ovary_length)
+
+
+
+
 
 
 

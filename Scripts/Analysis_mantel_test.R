@@ -254,6 +254,23 @@ cor.test(traits_all$stigma_surface, traits_all$stigma_length)
 cor.test(traits_all$stigma_width, traits_all$stigma_lenght)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Scale each trait separately
 scale(traits_all$stigma_type)
 scale(traits_all$stigma_type)
