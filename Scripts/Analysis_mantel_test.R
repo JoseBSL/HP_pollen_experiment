@@ -219,7 +219,7 @@ diag(evo_distance_rbcl) <- 0
 #Mantel test with percentage 100-matrix and normal percentage
 mantel.test(matrix_scale_effect, evo_distance_rbcl, graph = TRUE)
 mantel(matrix_scale_effect, evo_distance_rbcl)
-mantel(matrix_scale_effect, (evo_distance_rbcl)^2)
+mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
 
 
 #Now with the ITS tree. 
@@ -240,18 +240,99 @@ mantel(matrix_scale_effect, evo_distance_its_square_root)
 evo_distance_its_square_root <- sqrt(evo_distance_its)
 
 
-#Now I convert the data.frame of all traits to a distance matrix 
-rownames(traits_all) <- rownames(matrix_scale_effect)
-traits_all <- traits_all[,-1]
 
+#From here I start working with the traits
+traits_all <- read.csv("Data/traits_all.csv", sep=",")
+rownames(traits_all) <- rownames(matrix_scale_effect)
+#I check trait by trait first with mantel test
+#First with the selfing rate, I extract colum and then create a matrix distance
+traits_self <- traits_all[,4]
+traits_self <- as.data.frame(traits_self)
+traits_self <- 1- traits_self
+rownames(traits_self) <- rownames(matrix_scale_effect)
+traits_self_dist <- dist(traits_self, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_self_dist)
+
+#Pollen ovule ratio now
+
+traits_ratio <- traits_all[,8]
+traits_ratio <- as.data.frame(traits_ratio)
+rownames(traits_ratio) <- rownames(matrix_scale_effect)
+traits_ratio_dist <- dist(traits_ratio, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_ratio_dist)
+
+#Ovules
+
+traits_ovules <- traits_all[,6]
+traits_ovules <- as.data.frame(traits_ovules)
+rownames(traits_ovules) <- rownames(matrix_scale_effect)
+traits_ovules_dist <- dist(traits_ovules, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_ovules_dist)
+
+#Stigmatic area
+
+traits_stigma_area <- traits_all[,9]
+traits_stigma_area <- as.data.frame(traits_stigma_area)
+rownames(traits_stigma_area) <- rownames(matrix_scale_effect)
+traits_stigma_area_dist <- dist(traits_stigma_area, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_stigma_area_dist)
+
+#Pollen
+
+traits_pollen <- traits_all[,5]
+traits_pollen <- as.data.frame(traits_pollen)
+rownames(traits_pollen) <- rownames(matrix_scale_effect)
+traits_pollen_dist <- dist(traits_pollen, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_pollen_dist)
+
+#Style length
+
+traits_style_length <- traits_all[,13]
+traits_style_length <- as.data.frame(traits_style_length)
+traits_style_length <- 1- traits_style_length
+rownames(traits_style_length) <- rownames(matrix_scale_effect)
+traits_style_length_dist <- dist(traits_style_length, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_style_length_dist)
+
+
+#
+
+traits_style_length <- traits_all[,13]
+traits_style_length <- as.data.frame(traits_style_length)
+traits_style_length <- 1- traits_style_length
+rownames(traits_style_length) <- rownames(matrix_scale_effect)
+traits_style_length_dist <- dist(traits_style_length, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_style_dist)
+
+
+
+
+bioenv(matrix_scale_effect~traits_all$Selfing_rate)
+
+#ejemplo
+
+# The method is very slow for large number of possible subsets.
+# Therefore only 6 variables in this example.
+data(varespec)
+varespec[]
+data(varechem)
+sol <- bioenv(wisconsin(varespec) ~ log(N) + P + K + Ca + pH + Al, varechem)
+sol
+summary(sol)
+
+
+
+
+
+
+
+
+
+
+#Here I´m doing Mantel test with all the traits but without scaling!!!!
 traits_all_dist <- dist(traits_all, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_all_dist)
 
-# Here the traits are non-scaled and we have many traits that are highly correlated
-#Now check correlation and clean the traits that are adding noise
-
-cor.test(traits_all$stigma_surface, traits_all$stigma_length)
-cor.test(traits_all$stigma_width, traits_all$stigma_lenght)
 
 
 
@@ -261,6 +342,54 @@ cor.test(traits_all$stigma_width, traits_all$stigma_lenght)
 
 
 
+traits_all_self <- dist(traits_all$Selfing_rate, diag=T, upper=T)
+traits_all_self <- as.matrix(traits_all_self)
+diag(traits_all_self) <- 1
+rownames(traits_all_self) <- rownames(evo_distance_its)
+colnames(traits_all_self) <- rownames(evo_distance_its)
+mantel(matrix_scale_effect, traits_all_self)
+
+
+traits_all_ovules <- dist(traits_all$mean_ovules, diag=T, upper=T)
+traits_all_ovules <- as.matrix(traits_all_ovules)
+diag(traits_all_ovules) <- 1
+rownames(traits_all_ovules) <- rownames(evo_distance_its)
+colnames(traits_all_ovules) <- rownames(evo_distance_its)
+mantel(matrix_scale_effect, traits_all_ovules)
+
+
+traits_all <- read.csv("Data/traits_all.csv", sep=",")
+#Now just with selfing rate
+traits_all <- traits_all[,-c(1:3)]
+traits_selfing <- traits_all[,1]
+traits_selfing <- scale(traits_selfing)
+rownames(traits_selfing) <- rownames(evo_distance_its)
+traits_selfing <- dist(traits_selfing, diag=T, upper=T)
+traits_selfing <- as.matrix(traits_selfing)
+
+traits_selfing <- 1- traits_selfing
+mantel(matrix_scale_effect, traits_selfing)
+
+
+traits_selfing_1 = traits_selfing[, rep(1, each=10)]
+rownames(traits_selfing_1) <- rownames(evo_distance_its)
+colnames(traits_selfing_1) <- rownames(evo_distance_its)
+diag(traits_selfing_1) <- 1
+mantel(matrix_scale_effect, traits_selfing_1)
+traits_selfing_1_scale <- scale(traits_selfing_1)
+mantel(matrix_scale_effect, traits_selfing_1)
+
+traits_selfing_2 <- dist(traits_selfing_1)
+mantel(matrix_scale_effect, traits_selfing_1_scale)
+
+
+
+traits_selfing_dist <- dist(traits_selfing, diag=T, upper=T)
+traits_selfing_dist <- as.matrix(traits_selfing_dist)
+rownames(traits_selfing_dist) <- rownames(evo_distance_its)
+colnames(traits_selfing_dist) <- rownames(evo_distance_its)
+
+mantel(matrix_scale_effect, traits_selfing_dist)
 
 
 
@@ -268,23 +397,34 @@ cor.test(traits_all$stigma_width, traits_all$stigma_lenght)
 
 
 
+rownames(traits_all) <- rownames(matrix_scale_effect)
+traits_all <- traits_all[,-1]
 
-
+traits_all_scale <- traits_all
 
 #Scale each trait separately
-scale(traits_all$stigma_type)
-scale(traits_all$stigma_type)
-scale(traits_all$stigma_type)
-scale(traits_all$stigma_type)
-scale(traits_all$stigma_type)
-scale(traits_all$stigma_type)
-scale(traits_all$stigma_type)
-scale(traits_all$stigma_type)
+traits_all_scale$stigma_type <- scale(traits_all$stigma_type)
+traits_all_scale$Selfing_rate <-scale(traits_all$Selfing_rate)
+traits_all_scale$pollen_size <-scale(traits_all$pollen_size)
+traits_all_scale$mean_pollen_anther <-scale(traits_all$mean_pollen_anther)
+traits_all_scale$mean_ovules <-scale(traits_all$mean_ovules)
+traits_all_scale$pollen_ovule_ratio <-scale(traits_all$pollen_ovule_ratio)
+traits_all_scale$anthers <-scale(traits_all$anthers)
+traits_all_scale$stigma_area <-scale(traits_all$stigma_area)
+traits_all_scale$stigma_length <-scale(traits_all$stigma_length)
+traits_all_scale$stigma_surface <-scale(traits_all$stigma_surface)
+traits_all_scale$stigma_width <-scale(traits_all$stigma_width)
+traits_all_scale$style_length <-scale(traits_all$style_length)
+traits_all_scale$style_width <-scale(traits_all$style_width)
+traits_all_scale$ovary_width <-scale(traits_all$ovary_width)
+traits_all_scale$ovary_length <-scale(traits_all$ovary_length)
+
+traits_all_scale_dist <- dist(traits_all_scale, diag=T, upper=T)
 
 
 
 
-
+mantel(matrix_scale_effect, traits_all_scale_dist)
 
 
 
@@ -319,156 +459,6 @@ table.dist(traits_all_dist_inverse_low, clabel = 0.8, csize = 1, grid = TRUE,
 
 
 
-#Now I´m going to prepare the traits to check them
-#Here I perform mantel test between pollen ovule ratios and seed percentage of seed set reduction
-traits <- read.csv("Data/tab.csv", sep="")
-traits_1 <- traits[,13]
-traits_1 <- data_frame(traits_1)
-rownames(traits_1) <- traits[,3]
-colnames(traits_1) <- "Pollen ovule raio"
-d <- vegdist(traits_1, method="euclidean")
-d <- as.matrix(d)
-d <- d[order(rownames(d)), order(colnames(d))] 
-rownames(d) <- rownames(evo_distance_its)
-colnames(d) <- colnames(evo_distance_its)
-matrix_effect_original[matrix_effect_original[,]>100] <-100
-diag(d)<- 0
-diag(matrix_effect_original)<- 100
-mantel.test(d, matrix_scale_effect)
-mantel(d, matrix_scale_effect)
-
-#Mantel between seed set percentage change and pollen, ovules, pollen size
-traits <- read.csv("Data/tab.csv", sep="")
-traits_1 <- traits[,c(8,9,11)]
-rownames(traits_1) <- traits[,3]
-d <- vegdist(traits_1, method="euclidean")
-d <- as.matrix(d)
-d <- d[order(rownames(d)), order(colnames(d))] 
-rownames(d) <- rownames(evo_distance_its)
-colnames(d) <- colnames(evo_distance_its)
-matrix_effect_original[matrix_effect_original[,]>100] <-100
-diag(d)<- 0
-diag(matrix_effect_original)<- 100
-mantel.test(d, matrix_effect_original)
-
-#Mantel between seed set percentage change and ovules
-traits <- read.csv("Data/tab.csv", sep="")
-traits_1 <- traits[,11]
-traits_1 <- data_frame(traits_1)
-rownames(traits_1) <- traits[,3]
-d <- vegdist(traits_1, method="euclidean")
-d <- as.matrix(d)
-d <- d[order(rownames(d)), order(colnames(d))] 
-rownames(d) <- rownames(evo_distance_its)
-colnames(d) <- colnames(evo_distance_its)
-matrix_effect_original[matrix_effect_original[,]>100] <-100
-diag(d)<- 0
-diag(matrix_effect_original)<- 100
-mantel.test(d, matrix_effect_original)
 
 
-#Now I´m going to prepare the differences of seed set in a different way
-#Instead of doing percentages respect the cross. I´m going to check with euclidean distance 
-#of the difference cross-(mean of treatments)
-
-View(y_mean)
-View(y_cross)
-y_mean_cross <- merge(y_mean, y_cross, by="Species")
-
-y_mean_cross$result <- (y_mean_cross$Seed_set_cross)-(y_mean_cross$Seed_set)
-y_mean_cross[y_mean_cross[,]<0] <-0
-y_mean_cross <- tapply(y_mean_cross$result, y_mean_cross[c("Species", "Treatment")], mean)
-diag(y_mean_cross) <-0
-#The diagonal should be the values of the cross
-#Fix two NA´S
-y_mean_cross[10,5]<- 0
-y_mean_cross[8,5]<- y_mean_cross[8,6]
-y_mean_cross[1,1] <- y_cross[7,2]
-y_mean_cross[2,2] <- y_cross[8,2]
-y_mean_cross[3,3] <- y_cross[1,2]
-y_mean_cross[4,4] <- y_cross[9,2]
-y_mean_cross[5,5] <- y_cross[5,2]
-y_mean_cross[6,6] <- y_cross[6,2]
-y_mean_cross[7,7] <- y_cross[2,2]
-y_mean_cross[8,8] <- y_cross[10,2]
-y_mean_cross[9,9] <- y_cross[3,2]
-y_mean_cross[10,10] <- y_cross[4,2]
-
-pdist <- pdist(y_mean_cross)
-pdist <- as.matrix(y_mean_cross)
-dist <- dist(y_mean_cross)
-dist <- as.matrix(dist)
-#Same result calculating matrix distances differently
-mantel.test(pdist,d)
-mantel.test(dist,d)
-mantel(dist,d)
-#Now I´m going to try to create binary values for incompatibility and check with mantel
-#Another option is to adrees the diffent levels of incompatibility with the self pollination that I made
-traits <- read.csv("Data/tab.csv", sep="")
-incompatibility <- traits[,c(3,6)]
-incompatibility$binary <- c(0,1,1,1,0,0,0,0,1,1)
-incompatibility_mod <- incompatibility[,-c(1,2)]
-incompatibility_mod <- data.frame(incompatibility_mod)
-rownames(incompatibility_mod) <- incompatibility[,1]
-m <- vegdist(incompatibility_mod, method="euclidean")
-m <- as.matrix(m)
-m <- m[order(rownames(m)), order(colnames(m))] 
-rownames(m) <- rownames(evo_distance_its)
-colnames(m) <- colnames(evo_distance_its)
-
-mantel.test(pdist,m)
-mantel.test(dist,m)
-mantel(dist,m)
-#No correlation with binary
-mantel(evo_distance,m)
-#Now lets take the values of self compatibility
-species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
-i <- NULL
-y <- NULL
-for (i in species_list){
-  colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_seed")
-  i <- filter(i, Treatment!="RARA 50%", Treatment!="COSA 50%")
-  i <-i[-grep("100", i$Treatment),] 
-  
-  y <- rbind(y, i)
-}
-y_self_1 <- y[grep("SELF", y$Treatment), ]
-y_self_2 <- y[grep("self", y$Treatment), ]
-y_self_3 <- y[grep("Self", y$Treatment), ]
-
-y_self_1$cond <- ifelse(y_self_1$Seed_set>0,1,0)
-y_self_2$cond <- ifelse(y_self_2$Seed_set>0,1,0)
-y_self_3$cond <- ifelse(y_self_3$Seed_set>0,1,0)
-
-y_self_1 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_1, na.rm= TRUE)
-y_self_2 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_2, na.rm= TRUE)
-
-
-y_self_3 <- dcast(Species ~ ., value.var = "cond", fun.aggregate = mean, data = y_self_3, na.rm= TRUE)
-
-y_self <- rbind(y_self_1, y_self_2, y_self_3)
-
-#write.csv(y_self, "Data/selfing_rate.csv")
-colnames(y_self)[2] <- "Self"
-y_self$Non_focal <- y_self$Species
-matrix_self <- tapply(y_self$Self, y_self[c("Species", "Species")], mean)
-
-matrix_self[1,1:10] <- matrix_self[1,1]#BROL
-matrix_self[2,1:10] <- matrix_self[2,2]#BRRA
-matrix_self[3,1:10] <- matrix_self[3,3]#CAAN
-matrix_self[4,1:10] <- matrix_self[4,4]#ERSA
-matrix_self[5,1:10] <- matrix_self[5,5]#IPAQ
-matrix_self[6,1:10] <- matrix_self[6,6]#IPPU
-matrix_self[7,1:10] <- matrix_self[7,7]#PEIN
-matrix_self[8,1:10] <- matrix_self[8,8]#SIAL
-matrix_self[9,1:10] <- matrix_self[9,9]#SOLY
-matrix_self[10,1:10] <- matrix_self[10,10]#SOME
-diag(matrix_self) <- 0
-
-mantel.test(matrix_scale,matrix_self)
-mantel(matrix_scale_effect,evo_distance)
-mantel(matrix_scale_effect,evo_distance)
-
-
-
-
+#
