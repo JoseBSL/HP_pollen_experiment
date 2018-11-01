@@ -252,6 +252,9 @@ traits_self <- 1- traits_self
 rownames(traits_self) <- rownames(matrix_scale_effect)
 traits_self_dist <- dist(traits_self, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_self_dist)
+bioenv(matrix_scale_effect~as.matrix(traits_self)+as.matrix(traits_ratio)+as.matrix(traits_ovules))
+
+str(traits_self)
 
 #Pollen ovule ratio now
 
@@ -295,7 +298,7 @@ traits_style_length_dist <- dist(traits_style_length, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_style_length_dist)
 
 
-#
+#Ovary length
 
 traits_style_length <- traits_all[,13]
 traits_style_length <- as.data.frame(traits_style_length)
@@ -305,9 +308,10 @@ traits_style_length_dist <- dist(traits_style_length, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_style_dist)
 
 
+min(matrix_scale_effect)
+matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))
 
-
-bioenv(matrix_scale_effect~traits_all$Selfing_rate)
+bioenv(matrix_scale_effect~traits_all$stigma_area, trace=T)
 
 #ejemplo
 
