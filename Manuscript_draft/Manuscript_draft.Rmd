@@ -115,6 +115,11 @@ Foreign pollen effect was studied through two different treatments, one with 50%
 
 Explain the phylogeny...
 
+Two types of evolutive distances were calculated with thow kinds of markers: 1) Internal transcribed spacer (ITS) 2) ribulose-bisphosphate carboxylase (RBCL)
+
+
+
+
 Explain the measurement of the traits... 
 
 
