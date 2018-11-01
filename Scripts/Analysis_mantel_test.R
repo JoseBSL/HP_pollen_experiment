@@ -250,9 +250,12 @@ traits_self <- traits_all[,4]
 traits_self <- as.data.frame(traits_self)
 traits_self <- 1- traits_self
 rownames(traits_self) <- rownames(matrix_scale_effect)
-traits_self_dist <- dist(traits_self, diag=T, upper=T)
+traits_self_dist <- dist(traits_self, diag=T, upper=T, method = "manhattan")
 mantel(matrix_scale_effect, traits_self_dist)
-bioenv(matrix_scale_effect~as.matrix(traits_self)+as.matrix(traits_ratio)+as.matrix(traits_ovules))
+bioenv(matrix_scale_effect~as.matrix(traits_all$mean_pollen_anther))
+
+matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))
+
 
 str(traits_self)
 
