@@ -460,8 +460,13 @@ table.dist(traits_all_dist_inverse_low, clabel = 0.8, csize = 1, grid = TRUE,
 
 
 
+data(varespec)
+data(varechem)
+sol <- bioenv(wisconsin(varespec) ~ log(N) + P + K + Ca + pH + Al, varechem)
+sol
+summary(sol)
 
-
+bioenv(matrix_scale_effect ~  traits_all$Selfing_rate)
 
 
 

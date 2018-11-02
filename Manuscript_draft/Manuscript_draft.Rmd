@@ -104,18 +104,16 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 
 **Paragraph 1**
 
-In natural systems plant species normally coexist and share their floral visitors with other species (Bascompte et al., 2003). This pollinator sharing from the plant perpective can be negative due to competition (refs) or positive due to facilitation (refs). Moreover, once the pollinator has landed on the stigma some other issues for the species fitness may arise, the arrival of foreign pollen and conspecific pollen loss. 
+In natural systems plant species normally coexist and share their floral visitors with other species (Bascompte et al., 2003). This pollinator sharing from the plant perpective can be negative due to competition (refs) or positive due to facilitation (refs). Moreover, once the pollinator has landed on the stigma some other issues for the species fitness may arise, the arrival of foreign pollen and conspecific pollen loss (Morales & Traveset 2008)
 
 **Paragraph 2**
 
-The effect of heterospecific pollen has been widely studied (refs). Native species are supposed to have greater negative effects than native ones @arceo2016. However, the quantity of pollen that integrates in the network can be quite low @bartomeus2008. Moreover, closely related species are supposed to reduce fitness in greter effect but the evidence is scarce and based on independent studies with different methodlogies (refs) or studies that just check that with very highly close related species with the aim of study hybridization (refs).    
-
+The effect of heterospecific pollen has been widely studied (Morales & Traveset 2008). Native species are supposed to have greater negative effect than native ones @arceo2016. However, the quantity of pollen that integrates in the network can be quite low @bartomeus2008. Moreover, closely related species are supposed to reduce fitness in greater effect but the evidence is scarce and based on independent studies with different methodologies (Arceo-gomez & Ashman 2016) or studies that just check it with a pair of species that are highly related with the aim to understand hybridization costs (refs). There is a need to deepen into how relatednes is involve in the costs of heterospecific pollen effect. Furthermore, following the conceptual trait framework of Ashman and Arceo-Gomez on heterospecific pollen there are good theoretical basis for trait effect. Notwithstanding, non empirical work has tested how really these traits are involved in heterospecific pollen effect.
 
 
 
 **Paragraph 3**
 
-Relatedness. What we know?
 
 **Paragraph 4**
 
@@ -125,9 +123,11 @@ The great difficulty of working with pollen in a coflowering community make the 
 
 The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The species selected (Table 1) belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species/family selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), heterogeneous traits, low structural flower complexity and fast life cycle. For the purpose of the experiment all the species where considered as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
 
+Brown and Mitchell 2001 could be a good paper to explain why we pick seed set as a proxy and not fruit set. We cannot see changes on it, losing information with it.
+
 **Hand-pollination**
 
-Foreign pollen effect was studied through two different treatments, one with 50% conspecific pollen and 50% heterospecific pollen and a second one with 100% foreign pollen (N=10). The proxy of effect were seed set and "pollen tubes". Moreover, hand cross pollination, hand self pollination, apomixis (bagged emasculated flowers) and natural selfing were tested (N=10). Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Had-pollination was realized with 3-4 gentle touches on the surface of the stigma. The mixes of pollen were performed on an eppendorf based on the pollen counts maded with Neubaeur chamber (each anther was counted 4 times for 20 different anthers per species).
+Foreign pollen effect was studied through two different treatments, one with 50% conspecific pollen and 50% heterospecific pollen and a second one with 100% foreign pollen (N=10). Seed set was the proxy of effect (see Brown and Mitchell 2001, for differences in effect between seed set and fruit set) and "pollen tubes". Moreover, hand cross pollination, hand self pollination, apomixis (bagged emasculated flowers) and natural selfing were tested (N=10). Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Had-pollination was realized with 3-4 gentle touches on the surface of the stigma. The mixes of pollen were performed on an eppendorf based on the pollen counts maded with Neubaeur chamber (each anther was counted 4 times for 20 different anthers per species).
 
 
 **Evolutive distance**
