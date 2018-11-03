@@ -108,11 +108,14 @@ In natural systems plant species normally coexist and share their floral visitor
 
 **Paragraph 2**
 
-The effect of heterospecific pollen has been widely studied (Morales & Traveset 2008). Native species are supposed to have greater negative effect than native ones @arceo2016. However, the quantity of pollen that integrates in the network can be quite low @bartomeus2008. Moreover, closely related species are supposed to reduce fitness in greater effect but the evidence is scarce and based on independent studies with different methodologies (Arceo-gomez & Ashman 2016) or studies that just check it with a pair of species that are highly related with the aim to understand hybridization costs (refs). There is a need to deepen into how relatednes is involve in the costs of heterospecific pollen effect. Furthermore, following the conceptual trait framework of Ashman and Arceo-Gomez on heterospecific pollen there are good theoretical basis for trait effect. Notwithstanding, non empirical work has tested how really these traits are involved in heterospecific pollen effect.
+The effect of heterospecific pollen has been widely studied (Morales & Traveset 2008). Invasive species are supposed to have greater negative effect than native ones @arceo2016. Although when non-natives species don´t have greater negative effect we still don´t know why. For this reason, this ecological question is non a native non native one is a trait based issue that is still to be solved. Moreover, the quantity of pollen that integrates in the network can be quite variable ranging from low quatities @bartomeus2008 to intermediate (ref) to high (ref). Moreover, closely related species are supposed to reduce fitness in greater effect but the evidence is scarce and based on independent studies with different methodologies (Arceo-gomez & Ashman 2016) or studies that just check it with a pair of species that are highly related with the aim to understand hybridization costs (refs). There is a need to deepen into how relatednes is involve in the costs of heterospecific pollen effect. Furthermore, following the conceptual trait framework of Ashman and Arceo-Gomez on heterospecific pollen there are good theoretical basis for trait effect. Notwithstanding, non empirical work has tested how really these traits are involved in heterospecific pollen effect.
 
-
+Explain traits. Put examples
 
 **Paragraph 3**
+
+
+
 
 
 **Paragraph 4**

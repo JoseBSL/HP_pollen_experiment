@@ -434,43 +434,11 @@ traits_all_scale_dist <- dist(traits_all_scale, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_all_scale_dist)
 
 
+#Just checking how dist works
+#dist(traits_all$mean_ovules, diag = T, upper=T)
+#Distances are equal at both sides of the matrix
+#I´m using the default euclidean distance
+# sqrt(sum((x-y)2))
 
 
 
-
-
-
-#Checking waysto plot distance matrices
-#Way 1
-library(qgraph)
-traits_all_dist_inverse <- 1/traits_all_dist
-jpeg('example_forcedraw.jpg', width=1000, height=1000, unit='px')
-qgraph(traits_all_dist_inverse, layout='spring', vsize=3)
-dev.off()
-
-#Way 2
-traits_all_dist_low <- dist(traits_all, diag=T)
-traits_all_dist_inverse_low <- 1/traits_all_dist_low
-
-table.dist(traits_all_dist_inverse_low, clabel = 0.8, csize = 1, grid = TRUE, 
-           labels=attr(traits_all_dist_inverse, "Labels"))
-
-
-
-
-
-
-data(varespec)
-data(varechem)
-sol <- bioenv(wisconsin(varespec) ~ log(N) + P + K + Ca + pH + Al, varechem)
-sol
-summary(sol)
-
-bioenv(matrix_scale_effect ~  traits_all$Selfing_rate)
-
-
-
-
-
-
-#
