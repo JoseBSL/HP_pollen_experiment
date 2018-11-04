@@ -193,6 +193,9 @@ matrix_cross_scale <- matrix_cross_scale + abs(a)
 #The normal values of seed set are going to be on a side for a while
 matrix_scale_effect <- matrix_cross_scale-matrix_scale
 
+#Write csv in the two data folders in order to print 
+#write.csv(matrix_scale_effect, "Data/matrix_scale_effect.csv")
+#write.csv(matrix_scale_effect, "Rmd/Data/matrix_scale_effect.csv")
 #Now edit the evolutionary distances
 #They are the distances calculated with MEGA 7 (pairwise distances)
 evo_distance_rbcl <- evo_distance_rbcl[ , -2]
