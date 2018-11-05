@@ -85,15 +85,8 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_s
   y <- rbind(y, i)
 }
 
-#Now we have a dataframe with all the species, treatments and seed set and standarized seed set
-#First one with seed set mean of Treatments
-y_mean <- dcast(Species + Treatment ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y, na.rm= TRUE)
-colnames(y_mean)[3] <- "Seed_set"
-Treatment <- str_split_fixed(as.character(y_mean$Treatment), " ", 2)
-Treatment <- Treatment[ , -2]
-y_mean <- cbind(y_mean, Treatment)
-y_mean <- y_mean[ , -2]
-#Second one with seed set mean of standarized treatments
+
+#I prepare here the mean of the seed set of standarized treatments
 y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y, na.rm= TRUE)
 colnames(y_mean_scale)[3] <- "Scale_seed"
 Treatment <- str_split_fixed(as.character(y_mean_scale$Treatment), " ", 2)
@@ -101,11 +94,7 @@ Treatment <- Treatment[ , -2]
 y_mean_scale <- cbind(y_mean_scale, Treatment)
 y_mean_scale <- y_mean_scale[ , -2]
 
-#Now I create two matrices one that has seed set and onother with standarized seed set as mention above
-matrix <- tapply(y_mean$Seed_set, y_mean[c("Species", "Treatment")], mean) 
-matrix<- matrix[-11,]
 #Here I have to make the diagonal the values of the cross
-
 
 matrix_scale <- tapply(y_mean_scale$Scale_seed, y_mean_scale[c("Species", "Treatment")], mean)
 matrix_scale <- matrix_scale[-11,]
@@ -234,85 +223,143 @@ colnames(evo_distance_its) <- c("BROL", "ERSA", "BRRA", "SIAL", "IPPU", "IPAQ", 
 evo_distance_its <- makeSymm(evo_distance_its)
 diag(evo_distance_its) <- 0
 evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(colnames(evo_distance_its))] 
-
-mantel.test(matrix_effect_original, evo_distance_its, graph = TRUE)
-mantel.test(matrix_effect_original, (evo_distance_its^2), graph = TRUE)
-
+#Mantel test between its distance and the scaled matrix of effect
 mantel(matrix_scale_effect, evo_distance_its)
-mantel(matrix_scale_effect, evo_distance_its_square_root)
 evo_distance_its_square_root <- sqrt(evo_distance_its)
-
-
+mantel(matrix_scale_effect, evo_distance_its_square_root)
+protest(matrix_scale_effect, evo_distance_its_square_root)
 
 #From here I start working with the traits
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
 rownames(traits_all) <- rownames(matrix_scale_effect)
+
+#I check Mantel between all the traits and the distance matrix of the effect of heterospecific pollen
+#For that, first I standarize the values of the different columns
+
+
+traits_all <- traits_all[,-c(1,2)]
+#For mantel I scale the dat.frame
+traits_all_scaled <- scale(traits_all)
+#Check if the columns are well scaled mean 0 and sd 1
+colMeans(traits_all_scaled)
+apply(traits_all_scaled, 2, sd)
+#Seems that scaled is correct
+#Now I apply Mantel
+traits_all_scaled_dist <- dist(traits_all_scaled)
+mantel(matrix_scale_effect, traits_all_scaled_dist)
+protest(matrix_scale_effect, traits_all_scaled_dist)
+#With all the traits r=0.07 and significance 0.375
+
+
+#Moreover, I try an alternative way to Mantel
+traits_all_bioenv <- traits_all[,-c(1,2)]
+#Bioenv standarize 
+bioenv(matrix_scale_effect,traits_all_bioenv)
+#Result r=0.45 being pollen ovule ratio, stigma width and style width the best model
+
+
 #I check trait by trait first with mantel test
-#First with the selfing rate, I extract colum and then create a matrix distance
-traits_self <- traits_all[,4]
-traits_self <- as.data.frame(traits_self)
-traits_self <- 1- traits_self
-rownames(traits_self) <- rownames(matrix_scale_effect)
-traits_self_dist <- dist(traits_self, diag=T, upper=T, method = "manhattan")
+
+#FirstLY, I start with selfing rate, I extract colum and then create a matrix of distance
+traits_all_scaled_self <- traits_all_scaled[,2]
+traits_all_scaled_self <- as.data.frame(traits_all_scaled_self)
+traits_all_scaled_self <- traits_all_scaled_self
+rownames(traits_all_scaled_self) <- rownames(traits_all_scaled_self)
+traits_self_dist <- dist(traits_all_scaled_self, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_self_dist)
-bioenv(matrix_scale_effect~as.matrix(traits_all$mean_pollen_anther))
-
-matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))
+protest(matrix_scale_effect, traits_self_dist)
 
 
-str(traits_self)
+#Mantel gives very low correlation between selfing rate and the effect distance matrix of seed set
+#This surprise me...
+
+#Pollen size
+pollen_size <- traits_all_scaled[,3]
+pollen_size <- as.data.frame(pollen_size)
+pollen_size <- pollen_size
+rownames(pollen_size) <- rownames(pollen_size)
+pollen_size_dist <- dist(pollen_size, diag=T, upper=T)
+mantel(matrix_scale_effect, pollen_size_dist)
+protest(matrix_scale_effect, pollen_size_dist)
+
+#Pollen per anther
+pollen <- traits_all_scaled[,4]
+pollen <- as.data.frame(pollen)
+pollen <- pollen
+rownames(pollen) <- rownames(pollen)
+pollen_dist <- dist(pollen, diag=T, upper=T)
+mantel(matrix_scale_effect, pollen_dist)
+protest(matrix_scale_effect, pollen_dist)
+#Ovules
+
+ovules <- traits_all_scaled[,5]
+ovules <- as.data.frame(ovules)
+rownames(ovules) <- rownames(ovules)
+ovules_dist <- dist(ovules, diag=T, upper=T)
+mantel(matrix_scale_effect, ovules_dist)
+protest(matrix_scale_effect, ovules_dist)
 
 #Pollen ovule ratio now
 
-traits_ratio <- traits_all[,8]
-traits_ratio <- as.data.frame(traits_ratio)
-rownames(traits_ratio) <- rownames(matrix_scale_effect)
-traits_ratio_dist <- dist(traits_ratio, diag=T, upper=T)
-mantel(matrix_scale_effect, traits_ratio_dist)
-
-#Ovules
-
-traits_ovules <- traits_all[,6]
-traits_ovules <- as.data.frame(traits_ovules)
-rownames(traits_ovules) <- rownames(matrix_scale_effect)
-traits_ovules_dist <- dist(traits_ovules, diag=T, upper=T)
-mantel(matrix_scale_effect, traits_ovules_dist)
-
-#Stigmatic area
-
-traits_stigma_area <- traits_all[,9]
-traits_stigma_area <- as.data.frame(traits_stigma_area)
-rownames(traits_stigma_area) <- rownames(matrix_scale_effect)
-traits_stigma_area_dist <- dist(traits_stigma_area, diag=T, upper=T)
-mantel(matrix_scale_effect, traits_stigma_area_dist)
-
-#Pollen
-
-traits_pollen <- traits_all[,5]
-traits_pollen <- as.data.frame(traits_pollen)
-rownames(traits_pollen) <- rownames(matrix_scale_effect)
-traits_pollen_dist <- dist(traits_pollen, diag=T, upper=T)
-mantel(matrix_scale_effect, traits_pollen_dist)
-
-#Style length
-
-traits_style_length <- traits_all[,13]
-traits_style_length <- as.data.frame(traits_style_length)
-traits_style_length <- 1- traits_style_length
-rownames(traits_style_length) <- rownames(matrix_scale_effect)
-traits_style_length_dist <- dist(traits_style_length, diag=T, upper=T)
-mantel(matrix_scale_effect, traits_style_length_dist)
+p_o_ratio <- traits_all_scaled[,6]
+p_o_ratio <- as.data.frame(p_o_ratio)
+rownames(p_o_ratio) <- rownames(p_o_ratio)
+p_o_ratio_dist <- dist(p_o_ratio, diag=T, upper=T)
+mantel(matrix_scale_effect, p_o_ratio_dist)
+protest(matrix_scale_effect, p_o_ratio_dist)
 
 
-#Ovary length
+#Anthers
 
-traits_style_length <- traits_all[,13]
-traits_style_length <- as.data.frame(traits_style_length)
-traits_style_length <- 1- traits_style_length
-rownames(traits_style_length) <- rownames(matrix_scale_effect)
-traits_style_length_dist <- dist(traits_style_length, diag=T, upper=T)
-mantel(matrix_scale_effect, traits_style_dist)
+anthers <- traits_all_scaled[,7]
+anthers <- as.data.frame(anthers)
+rownames(anthers) <- rownames(anthers)
+anthers_dist <- dist(anthers, diag=T, upper=T)
+mantel(matrix_scale_effect, anthers_dist)
+protest(matrix_scale_effect, anthers_dist)
 
+#Stigma_area
+stigma_area <- traits_all_scaled[,8]
+stigma_area <- as.data.frame(stigma_area)
+rownames(stigma_area) <- rownames(stigma_area)
+stigma_area_dist <- dist(stigma_area, diag=T, upper=T)
+mantel(matrix_scale_effect, stigma_area_dist)
+protest(matrix_scale_effect, stigma_area_dist)
+
+
+#Stigma_length
+stigma_length <- traits_all_scaled[,9]
+stigma_length <- as.data.frame(stigma_length)
+rownames(stigma_length) <- rownames(stigma_length)
+stigma_length_dist <- dist(stigma_length, diag=T, upper=T)
+mantel(matrix_scale_effect, stigma_length_dist)
+protest(matrix_scale_effect, stigma_length_dist)
+
+#Stigma surface
+stigma_surface <- traits_all_scaled[,10]
+stigma_surface <- as.data.frame(stigma_surface)
+rownames(stigma_surface) <- rownames(stigma_surface)
+stigma_surface_dist <- dist(stigma_surface, diag=T, upper=T)
+mantel(matrix_scale_effect, stigma_surface_dist)
+protest(matrix_scale_effect, stigma_surface_dist)
+
+#Stigma width
+stigma_width <- traits_all_scaled[,11]
+stigma_width <- as.data.frame(stigma_width)
+stigma_width <- 1- stigma_width
+rownames(stigma_width) <- rownames(stigma_width)
+stigma_width_dist <- dist(stigma_width, diag=T, upper=T)
+mantel(matrix_scale_effect, stigma_width_dist)
+protest(matrix_scale_effect, stigma_width_dist)
+
+#Style_length
+style_length <- traits_all_scaled[,12]
+style_length <- as.data.frame(style_length)
+style_length <- 1- style_length
+rownames(style_length) <- rownames(style_length)
+style_length_dist <- dist(style_length, diag=T, upper=T)
+mantel(matrix_scale_effect, style_length_dist)
+protest(matrix_scale_effect, style_length_dist)
 
 min(matrix_scale_effect)
 matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))

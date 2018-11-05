@@ -63,10 +63,11 @@ pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory"
 
 #write.csv(pollen_ratios_brassicaceae, "Rmd/Data/pollen_ratios_brassicaceae.csv")
 
+
 ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="Brassicaceae", x="", y="Pollen mix ratio") + 
-  theme(axis.text.x=element_text(angle=60,hjust=1))+geom_hline(yintercept = 50)+
-  scale_fill_manual(values=c("grey10", "grey60"))+ ylim(0,100)
+  geom_bar(stat='identity', position='dodge') +labs(title="Brassicaceae") +
+  theme(axis.text.x=element_text(angle=60,hjust=1)) + scale_fill_grey() +  theme_classic() + geom_hline(yintercept = 50)
+
 #Solanaceae pollen ratio plot
 
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
@@ -74,25 +75,22 @@ pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory" &
                                  pollen_ratios$focal!="Pak choi" & pollen_ratios$focal!="White mustard"& pollen_ratios$focal!="Rocket",  ]
 
 #write.csv(pollen_ratios_solanaceae, "Rmd/Data/pollen_ratios_solanaceae.csv")
+
 ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="Solanaceae", x="", y="Pollen mix ratio") +
-  theme(axis.text.x=element_text(angle=60,hjust=1))+geom_hline(yintercept = 50)+
-  scale_fill_manual(values=c("grey10", "grey60"))+ ylim(0,100)
+  geom_bar(stat='identity', position='dodge') +labs(title="Solanaceae") +
+  theme(axis.text.x=element_text(angle=60,hjust=1)) + scale_fill_grey() +  theme_classic() + geom_hline(yintercept = 50)
 
 #Convolvulaceae
 
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
 
+pollen_ratios$spp <- paste(pollen_ratios$focal,pollen_ratios$non_focal)
 pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="Capsicum" & pollen_ratios$focal!="Eggplant"& pollen_ratios$focal!="Wild cabbage"&
                                  pollen_ratios$focal!="Pak choi" & pollen_ratios$focal!="White mustard"
                                & pollen_ratios$focal!="Rocket"& pollen_ratios$focal!="Tomato"& pollen_ratios$focal!="Petunia",  ]
 
-
 #write.csv(pollen_ratios_convolvulaceae, "Rmd/Data/pollen_ratios_convolvulaceae.csv")
 
-
-ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) + 
-  geom_bar(stat='identity', position='dodge') +labs(title="Convolvulaceae", x="", y="Pollen mix ratio") + 
-  theme(axis.text.x=element_text(angle=60,hjust=1))+geom_hline(yintercept = 50)+
-  scale_fill_manual(values=c("grey10", "grey60"))+ ylim(0,100)
-
+ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="Convolvulaceae") +
+  theme(axis.text.x=element_text(angle=60,hjust=1)) + scale_fill_grey() +  theme_classic() + geom_hline(yintercept = 50)
