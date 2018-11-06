@@ -234,6 +234,7 @@ traits_all <- read.csv("Data/traits_all.csv", sep=",")
 rownames(traits_all) <- rownames(matrix_scale_effect)
 
 #I check Mantel between all the traits and the distance matrix of the effect of heterospecific pollen
+#IMPORTANT: P values of Mantel seems to be of one sided test 
 #For that, first I standarize the values of the different columns
 
 
@@ -267,8 +268,10 @@ traits_all_scaled_self <- traits_all_scaled_self
 rownames(traits_all_scaled_self) <- rownames(traits_all_scaled_self)
 traits_self_dist <- dist(traits_all_scaled_self, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_self_dist)
-protest(matrix_scale_effect, traits_self_dist)
-
+#r=0.033 significance=0.399
+prot_self <- protest(matrix_scale_effect, traits_self_dist)
+plot(prot_self)
+#corr proc rotation=
 
 #Mantel gives very low correlation between selfing rate and the effect distance matrix of seed set
 #This surprise me...
@@ -492,3 +495,31 @@ mantel(matrix_scale_effect, traits_all_scale_dist)
 
 
 
+
+
+#exampple of plotin protest
+
+data(varespec)
+vare.dist <- vegdist(wisconsin(varespec))
+library(MASS)  ## isoMDS
+mds.null <- isoMDS(vare.dist, tol=1e-7)
+mds.alt <- isoMDS(vare.dist, initMDS(vare.dist), maxit=200, tol=1e-7)
+vare.proc <- procrustes(mds.alt, mds.null)
+vare.proc
+summary(vare.proc)
+plot(vare.proc)
+plot(vare.proc, kind=2)
+residuals(vare.proc)
+
+data(dune)
+data(dune.env)
+adonis(dune ~ Management*A1, data=dune.env, permutations=999)
+adonis(dune ~ Management*A1, data=dune.env, permutations=99)
+
+adonis(matrix_scale_effect ~ traits_all$Selfing_rate)
+
+min(matrix_scale_effect)
+matrix_scale_effect_positive <- min(matrix_scale_effect)+ matrix_scale_effect
+adonis(matrix_scale_effect_positive ~ traits_all$Selfing_rate)
+
+ a <- matrix_scale_effect + min(matrix_scale_effect)
