@@ -5,7 +5,7 @@ author:
   name: Jose B. Lanuza, Ignasi Bartomeus, Tya-Linn Ashman, Romina Rader
 - affilnum: 3
   email: barragansljose@gmail.com
-  name: null
+  name: Jose
 affiliation:
 - affil: US Environmental Protection Agency, Office of Research and Development, National
     Health and Environmental Effects Research Laboratory, Atlantic Ecology Division,
@@ -82,7 +82,7 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 
 \vspace{3mm}\hrule
 
-*Keywords*: heterospecific pollen, plant reproduction, fitness, competition 
+*Keywords*: heterospecific pollen, plant reproduction, fitness, pollen competition 
 
 \doublespace
 
@@ -166,6 +166,40 @@ The great difficulty of working with pollen in a coflowering community make the 
 
 # METHODS
 
+[comment starts]()
+Glasshouse trial
+•	Species selected and why – how you made them co-flower
+•	Give details of sources and planting seeds, growth medium in pots, temperature and light details
+•	Hand crosses and how you did them, how you measured seed set over time.
+•	Analyses of data – standardization, means, matrices etc.  
+
+•	Analyses and technical difficulties: We calculated effect size by subtracting the mean of the cross pollinated seed set by the mean effect of the HP pollen (explain exactly what figures you used to calculate this) – check with liam about potentially using missing values analyses for the species we don’t have?
+
+Check that the method is working well to prove that your crosses were close to 50% results in SI i.e not all mixes were 50/50% and we have now counted all the pollen to make this a quantitative variable. We also need to factor in the point that we have different total abundances of pollen across our treatments, irrespective of ratios. 
+To what extent are differences in the ratios of pollen applied by hand across different plant families influenced by plant traits such as pollen size, morphology and stigma surface type? 
+
+Results – may need to include amount of pollen in models as random factor- prefill matrix with missing value analyse for the species you don’t have.  
+Question 1: how do different pollination treatments (100% HP, 50% HP, self and cross ) impact HP pollen across different plant families? Even with 100% HP one (or more species?) still produced seed set. 
+
+Result Effect size of Seed set ~ phylogenetic distance relationship
+We found that the variation ?/ mean effect size of seed set is positively related to phylogenetic distance.  This means the more unrelated the species are, the greater the negative impact of heterospecific pollen (give stats  effect size i.e. Procrustes, X = 0.35; P = 0.03)
+
+
+Question 2 : what are the main traits impacting HP impacts? (compatibility system, pollen size, stigma surface, wet/dry stigma, length of style etc.  
+
+Effect size of seed set ~ floral traits/ reproductive plant traits
+We found that the three best terms to explain the variation in seed set is pollen/ovule ratio, stigma width and style length (Stats effect size i.e. X = 0.39, P = 0.02).  
+Need to provide correlation matrix for all traits just for 10 species
+Show both ways to present this.
+Which particular traits do you find significant effects for?
+Show this and give stats.
+Present plot for each trait and effect size
+
+[comment finishes]()
+
+
+
+
 The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The species selected (Table 1) belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species/family selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), heterogeneous traits, low structural flower complexity and fast life cycle. For the purpose of the experiment all the species where considered as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
 
 Brown and Mitchell 2001 could be a good paper to explain why we pick seed set as a proxy and not fruit set. We cannot see changes on it, losing information with it.
@@ -203,9 +237,10 @@ We used the statistical language `R` `r citep(citation())` for all our analyses.
 
 
 # DISCUSSION
+ 
+Discussion
 
-Discuss.
-
+1.	 What are the implications of the findings?
 
 
 # CONCLUSIONS
