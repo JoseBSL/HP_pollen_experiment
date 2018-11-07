@@ -16,6 +16,7 @@ affiliation:
 - affil: Estacion Biologica de Donana (EBD-CSIC), E-41092 Sevilla, Spain
   affilnum: 3
 output:
+  word_document: null
   pdf_document:
     fig_caption: yes
     fig_height: 7
@@ -25,7 +26,6 @@ output:
     keep_tex: yes
     number_sections: no
     template: manuscript.latex
-  word_document: null
   html_document: null
 capsize: normalsize
 classoption: a4paper
