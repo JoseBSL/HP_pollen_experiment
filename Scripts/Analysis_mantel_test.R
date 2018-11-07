@@ -387,5 +387,5 @@ model1 <- glm(effect~distance, data= m)
 
 summary(model1)
 plot(model1)
-library(visreg)
+library(visreg, xlab="a")
 visreg(model1)
