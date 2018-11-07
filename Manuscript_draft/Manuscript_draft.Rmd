@@ -1,56 +1,45 @@
 ---
-title: 'How phylogenetic relatedness and floral traits are involved in heterospecifc pollen effect in an artificial co-flowering community'
-
-author:  
-
-- name: Jose B. Lanuza
-  affilnum: '1,2'
-  
-- name:  
-  affilnum: 3
-  email: barragansljose@gmail.com
-  
-affiliation:
-
-- affilnum: 1
-  affil: US Environmental Protection Agency, Office of Research and Development, National Health and Environmental Effects Research Laboratory, Atlantic Ecology Division, 27 Tarzwell Drive  Narragansett, RI, 02882, USA
-  
-- affilnum: 2
-  affil: Big Name University, Department of R, City, BN, 01020, USA
-  
+title: Working title, The impact of heterospecific pollen on plant reproductive success is mediated by phylogenetic distance and floral reproductive traits 
+author:
+- affilnum: '1,2'
+  name: Jose B. Lanuza, Ignasi Bartomeus, Tya-Linn Ashman, Romina Rader
 - affilnum: 3
-  affil: Estacion Biologica de Donana (EBD-CSIC), E-41092 Sevilla, Spain
-  
+  email: barragansljose@gmail.com
+  name: null
+affiliation:
+- affil: US Environmental Protection Agency, Office of Research and Development, National
+    Health and Environmental Effects Research Laboratory, Atlantic Ecology Division,
+    27 Tarzwell Drive  Narragansett, RI, 02882, USA
+  affilnum: 1
+- affil: Big Name University, Department of R, City, BN, 01020, USA
+  affilnum: 2
+- affil: Estacion Biologica de Donana (EBD-CSIC), E-41092 Sevilla, Spain
+  affilnum: 3
 output:
-
   pdf_document:
     fig_caption: yes
-    fig_width: 7
     fig_height: 7
+    fig_width: 7
+    includes:
+      in_header: header.tex
     keep_tex: yes
     number_sections: no
     template: manuscript.latex
-    includes:
-      in_header: header.tex
-
-  html_document: null
-  
   word_document: null
-
-documentclass: article
-classoption: a4paper
+  html_document: null
 capsize: normalsize
+classoption: a4paper
+csl: ecology.csl
+documentclass: article
 fontsize: 11pt
+footerdate: yes
 geometry: margin=1in
 linenumbers: yes
+bibliography:
+- references.bib
+- knitcitations.bib
 spacing: doublespacing
-footerdate: yes
 abstract: no
-bibliography: 
-  - references.bib
-  - knitcitations.bib
-csl: ecology.csl
-
 ---
 
 
@@ -100,7 +89,60 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 \bleft
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # INTRODUCTION
+[Cut and paste some paragraphs from your literature review/ proposal](Romina)
 
 **Paragraph 1**
 
