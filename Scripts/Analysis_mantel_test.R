@@ -212,8 +212,8 @@ diag(evo_distance_rbcl) <- 0
 mantel.test(matrix_scale_effect, evo_distance_rbcl, graph = TRUE)
 mantel(matrix_scale_effect, evo_distance_rbcl)
 mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
-
-
+p <- mantel.correlog(matrix_scale_effect, sqrt(evo_distance_rbcl))
+plot(p)
 #Now with the ITS tree. 
 #First I have to fix a bit the data.frame and convert it to a matrix
 #load csv of evolutionary distance of ITS, not in matrix format
@@ -227,7 +227,11 @@ evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(co
 mantel(matrix_scale_effect, evo_distance_its)
 evo_distance_its_square_root <- sqrt(evo_distance_its)
 mantel(matrix_scale_effect, evo_distance_its_square_root)
+p <- mantel.correlog(matrix_scale_effect, evo_distance_its_square_root) 
+plot(p)
 protest(matrix_scale_effect, evo_distance_its_square_root)
+
+cancor(matrix_scale_effect, evo_distance_its_square_root)
 
 #From here I start working with the traits
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
@@ -366,160 +370,22 @@ protest(matrix_scale_effect, style_length_dist)
 
 min(matrix_scale_effect)
 matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))
-
 bioenv(matrix_scale_effect~traits_all$stigma_area, trace=T)
 
-#ejemplo
 
-# The method is very slow for large number of possible subsets.
-# Therefore only 6 variables in this example.
-data(varespec)
-varespec[]
-data(varechem)
-sol <- bioenv(wisconsin(varespec) ~ log(N) + P + K + Ca + pH + Al, varechem)
-sol
-summary(sol)
+mantel(matrix_scale_effect, evo_distance_its_square_root)
 
 
+a <- melt(matrix_scale_effect)
+b <- melt(evo_distance_its_square_root)
 
+m <- cbind(a,b)
+colnames(m) <- c("Species", "Non_focal", "effect", "spp", "distance")
 
+plot(effect~distance, data=m)
+model1 <- glm(effect~distance, data= m)
 
-
-
-
-
-
-#Here I´m doing Mantel test with all the traits but without scaling!!!!
-traits_all_dist <- dist(traits_all, diag=T, upper=T)
-mantel(matrix_scale_effect, traits_all_dist)
-
-
-
-
-
-
-
-
-
-
-traits_all_self <- dist(traits_all$Selfing_rate, diag=T, upper=T)
-traits_all_self <- as.matrix(traits_all_self)
-diag(traits_all_self) <- 1
-rownames(traits_all_self) <- rownames(evo_distance_its)
-colnames(traits_all_self) <- rownames(evo_distance_its)
-mantel(matrix_scale_effect, traits_all_self)
-
-
-traits_all_ovules <- dist(traits_all$mean_ovules, diag=T, upper=T)
-traits_all_ovules <- as.matrix(traits_all_ovules)
-diag(traits_all_ovules) <- 1
-rownames(traits_all_ovules) <- rownames(evo_distance_its)
-colnames(traits_all_ovules) <- rownames(evo_distance_its)
-mantel(matrix_scale_effect, traits_all_ovules)
-
-
-traits_all <- read.csv("Data/traits_all.csv", sep=",")
-#Now just with selfing rate
-traits_all <- traits_all[,-c(1:3)]
-traits_selfing <- traits_all[,1]
-traits_selfing <- scale(traits_selfing)
-rownames(traits_selfing) <- rownames(evo_distance_its)
-traits_selfing <- dist(traits_selfing, diag=T, upper=T)
-traits_selfing <- as.matrix(traits_selfing)
-
-traits_selfing <- 1- traits_selfing
-mantel(matrix_scale_effect, traits_selfing)
-
-
-traits_selfing_1 = traits_selfing[, rep(1, each=10)]
-rownames(traits_selfing_1) <- rownames(evo_distance_its)
-colnames(traits_selfing_1) <- rownames(evo_distance_its)
-diag(traits_selfing_1) <- 1
-mantel(matrix_scale_effect, traits_selfing_1)
-traits_selfing_1_scale <- scale(traits_selfing_1)
-mantel(matrix_scale_effect, traits_selfing_1)
-
-traits_selfing_2 <- dist(traits_selfing_1)
-mantel(matrix_scale_effect, traits_selfing_1_scale)
-
-
-
-traits_selfing_dist <- dist(traits_selfing, diag=T, upper=T)
-traits_selfing_dist <- as.matrix(traits_selfing_dist)
-rownames(traits_selfing_dist) <- rownames(evo_distance_its)
-colnames(traits_selfing_dist) <- rownames(evo_distance_its)
-
-mantel(matrix_scale_effect, traits_selfing_dist)
-
-
-
-
-
-
-
-rownames(traits_all) <- rownames(matrix_scale_effect)
-traits_all <- traits_all[,-1]
-
-traits_all_scale <- traits_all
-
-#Scale each trait separately
-traits_all_scale$stigma_type <- scale(traits_all$stigma_type)
-traits_all_scale$Selfing_rate <-scale(traits_all$Selfing_rate)
-traits_all_scale$pollen_size <-scale(traits_all$pollen_size)
-traits_all_scale$mean_pollen_anther <-scale(traits_all$mean_pollen_anther)
-traits_all_scale$mean_ovules <-scale(traits_all$mean_ovules)
-traits_all_scale$pollen_ovule_ratio <-scale(traits_all$pollen_ovule_ratio)
-traits_all_scale$anthers <-scale(traits_all$anthers)
-traits_all_scale$stigma_area <-scale(traits_all$stigma_area)
-traits_all_scale$stigma_length <-scale(traits_all$stigma_length)
-traits_all_scale$stigma_surface <-scale(traits_all$stigma_surface)
-traits_all_scale$stigma_width <-scale(traits_all$stigma_width)
-traits_all_scale$style_length <-scale(traits_all$style_length)
-traits_all_scale$style_width <-scale(traits_all$style_width)
-traits_all_scale$ovary_width <-scale(traits_all$ovary_width)
-traits_all_scale$ovary_length <-scale(traits_all$ovary_length)
-
-traits_all_scale_dist <- dist(traits_all_scale, diag=T, upper=T)
-
-
-
-
-mantel(matrix_scale_effect, traits_all_scale_dist)
-
-
-#Just checking how dist works
-#dist(traits_all$mean_ovules, diag = T, upper=T)
-#Distances are equal at both sides of the matrix
-#I´m using the default euclidean distance
-# sqrt(sum((x-y)2))
-
-
-
-
-
-#exampple of plotin protest
-
-data(varespec)
-vare.dist <- vegdist(wisconsin(varespec))
-library(MASS)  ## isoMDS
-mds.null <- isoMDS(vare.dist, tol=1e-7)
-mds.alt <- isoMDS(vare.dist, initMDS(vare.dist), maxit=200, tol=1e-7)
-vare.proc <- procrustes(mds.alt, mds.null)
-vare.proc
-summary(vare.proc)
-plot(vare.proc)
-plot(vare.proc, kind=2)
-residuals(vare.proc)
-
-data(dune)
-data(dune.env)
-adonis(dune ~ Management*A1, data=dune.env, permutations=999)
-adonis(dune ~ Management*A1, data=dune.env, permutations=99)
-
-adonis(matrix_scale_effect ~ traits_all$Selfing_rate)
-
-min(matrix_scale_effect)
-matrix_scale_effect_positive <- min(matrix_scale_effect)+ matrix_scale_effect
-adonis(matrix_scale_effect_positive ~ traits_all$Selfing_rate)
-
- a <- matrix_scale_effect + min(matrix_scale_effect)
+summary(model1)
+plot(model1)
+library(visreg)
+visreg(model1)
