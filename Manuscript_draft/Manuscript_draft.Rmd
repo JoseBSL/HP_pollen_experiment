@@ -82,7 +82,7 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 
 \vspace{3mm}\hrule
 
-*Keywords*: heterospecific pollen, plant reproduction, fitness, pollen competition 
+*Keywords*: heterospecific pollen, plant reproduction, fitness, interspecific competition, phylogenetic distance. 
 
 \doublespace
 
@@ -90,63 +90,15 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # INTRODUCTION
-[Cut and paste some paragraphs from your literature review/ proposal](Romina)
 
 **Paragraph 1**
 
-In natural systems plant species normally coexist and share their floral visitors with other species (Bascompte et al., 2003). This pollinator sharing from the plant perpective can be negative due to competition (refs) or positive due to facilitation (refs). Moreover, once the pollinator has landed on the stigma some other issues for the species fitness may arise, the arrival of foreign pollen and conspecific pollen loss (Morales & Traveset 2008)
+In natural systems plant species normally coexist and share their floral visitors with other species @bascompte2003. This pollinator sharing from the plant perspective at the pre-pollination stage can be negative due to competition @pauw2013 or positive due to facilitation @carvalheiro2014. Once, the floral visitor has arrived to the flower, pollen deposition can take place and with an increasing number of visits the higher the chances of ovule fertilization (Refs).
+
+I like what I have so far BUT we can make the story more complete
+
+Moreover, once the pollinator has landed on the stigma some other issues for the plant species may arise, the arrival of foreign pollen and conspecific pollen loss @morales2008.
 
 **Paragraph 2**
 
