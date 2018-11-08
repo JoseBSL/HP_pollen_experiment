@@ -1,11 +1,9 @@
 ---
 title: Working title, The impact of heterospecific pollen on plant reproductive success is mediated by phylogenetic distance and floral reproductive traits 
 author:
-- affilnum: '1,2'
-  name: Jose B. Lanuza, Ignasi Bartomeus, Tya-Linn Ashman, Romina Rader
-- affilnum: 3
+- affilnum: '1,2,3'
+  name: Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman, Romina Rader
   email: barragansljose@gmail.com
-  name: Jose
 affiliation:
 - affil: US Environmental Protection Agency, Office of Research and Development, National
     Health and Environmental Effects Research Laboratory, Atlantic Ecology Division,
@@ -16,7 +14,6 @@ affiliation:
 - affil: Estacion Biologica de Donana (EBD-CSIC), E-41092 Sevilla, Spain
   affilnum: 3
 output:
-  word_document: null
   pdf_document:
     fig_caption: yes
     fig_height: 7
@@ -26,6 +23,7 @@ output:
     keep_tex: yes
     number_sections: no
     template: manuscript.latex
+  word_document: null
   html_document: null
 capsize: normalsize
 classoption: a4paper
@@ -94,11 +92,7 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 
 **Paragraph 1**
 
-In natural systems plant species normally coexist and share their floral visitors with other species @bascompte2003. This pollinator sharing from the plant perspective at the pre-pollination stage can be negative due to competition @pauw2013 or positive due to facilitation @carvalheiro2014. Once, the floral visitor has arrived to the flower, pollen deposition can take place and with an increasing number of visits the higher the chances of ovule fertilization (Refs).
-
-I like what I have so far BUT we can make the story more complete
-
-Moreover, once the pollinator has landed on the stigma some other issues for the plant species may arise, the arrival of foreign pollen and conspecific pollen loss @morales2008.
+In natural systems plant species normally coexist and share their floral visitors with other species @bascompte2003. This pollinator sharing from the plant perspective at the pre-pollination stage can be negative due to competition @pauw2013 or positive due to facilitation @carvalheiro2014. Once, the floral visitor has arrived to the flower, pollen deposition on the stigma can take place and therefore ovule fertilization. An increasing number of visits generally correlates with higher chances of fertilization (Refs). However this is not always the case, among these flower visitors we find also nectar robbers and pollen thiefs (Refs) or pollen quality (example with ref?). Moreover, other less studies issues in the pollination process such as conspecific pollen loss or the arrival of foreign pollen can have detrimental effects for the species fitness @morales2008.
 
 **Paragraph 2**
 
