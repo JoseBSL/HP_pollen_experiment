@@ -1,6 +1,8 @@
 #In this script I´m going to prepare the data to do some first Analysis
 #In first place I modify the data to create a matrix
-#Then I perform Mantel test between the two matrices (percentage of decrease of seed set and evol. distances)
+#Then I perform some analyses to compare matrices 
+#1)Between mean scaled Hp effect - mean scaled hand cross pollination ~ evolutive distance
+#2)Between mean scaled Hp effect - mean scaled hand cross pollination ~ traits
 #load libraries
 library(dplyr)
 library(reshape2)
@@ -32,12 +34,11 @@ traits_all <- read.csv("Data/traits_all.csv", sep=",")
 traits_all <- traits_all[,-1]
 
 #Standarize values with function scale. standarize valuei=Xi-mean(x)/sd(x)
-#Example
-head(soly$seed_set)- mean(soly$seed_set)
+#Example of how the function scale works
 soly_cross <- filter(soly, Treatment=="CROSS")
 scale(soly_cross$seed_set)
-((soly_cross[1,4])-mean(soly_cross$seed_set))/sd(soly_cross$seed_set)
-#Now prepare all data sets to be standarize
+((soly_cross[1,5])-mean(soly_cross$seed_set))/sd(soly_cross$seed_set)
+#Scale seed set for 10 species
 soly$scale_seed<-scale(soly$seed_set)
 some$scale_seed<-scale(some$seed_set)
 pein$scale_seed<-scale(pein$Seed.production)
@@ -50,12 +51,12 @@ ippu$scale_seed<-scale(ippu$seed.set)
 ipaq$scale_seed<-scale(ipaq$seed_set)
 
 
-#Deleting column of fruit set for some solanaceae species to make equal number of columns
+#Deleting column of fruit (just 3 spp had them)
 some<- some[,-4]
 soly<- soly[,-4]
 caan<- caan[,-4]
 
-#Making all columns numerical ones
+#Making all columns numerical ones. If not the loop doesn´t run
 soly[3:5] <- lapply(soly[3:5], as.numeric)
 some[3:5] <- lapply(some[3:5], as.numeric)
 caan[3:5] <- lapply(caan[3:5], as.numeric)
@@ -85,6 +86,7 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_s
   y <- rbind(y, i)
 }
 
+#Now we have a dataframe y with the scaled seed set for all the HP treatments
 
 #I prepare here the mean of the seed set of standarized treatments
 y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y, na.rm= TRUE)
@@ -387,5 +389,14 @@ model1 <- glm(effect~distance, data= m)
 
 summary(model1)
 plot(model1)
-library(visreg, xlab="a")
+library(visreg)
 visreg(model1)
+
+
+stigma_area_dist = as.matrix(stigma_area_dist)
+c <- melt(stigma_area_dist)
+n <- cbind(a,c)
+colnames(n) <- c("Species", "Non_focal", "effect", "spp","sp", "distance")
+model1 <- glm(effect~distance, data= n)
+visreg(model1)
+
