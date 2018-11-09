@@ -86,21 +86,25 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_s
   y <- rbind(y, i)
 }
 
-#Now we have a dataframe y with the scaled seed set for all the HP treatments
+#Now we have a dataframe "y" with the scaled seed set for all the HP treatments
 
-#I prepare here the mean of the seed set of standarized treatments
+#Now calculate mean seed set of Hp treatments
 y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y, na.rm= TRUE)
 colnames(y_mean_scale)[3] <- "Scale_seed"
 Treatment <- str_split_fixed(as.character(y_mean_scale$Treatment), " ", 2)
 Treatment <- Treatment[ , -2]
 y_mean_scale <- cbind(y_mean_scale, Treatment)
-y_mean_scale <- y_mean_scale[ , -2]
-
-#Here I have to make the diagonal the values of the cross
-
+y_mean_scale <- y_mean_scale[ , -2] 
+#Renaming SOME seems to have an space 
+y_mean_scale[81:89,1] <- "SOME"
+#Almost there, dataframe with mean scaled seed set per treatment
+#I convert it now to a matrix, and from now operate with matrices
 matrix_scale <- tapply(y_mean_scale$Scale_seed, y_mean_scale[c("Species", "Treatment")], mean)
-matrix_scale <- matrix_scale[-11,]
-#In this one I have to make the diagonal 0 because is standarized
+
+#Changing diagonal NA´s for 0´s or value of the cross?
+#CHECK!!!
+
+
 
 diag(matrix_scale) <- 0
 #Fixing this two values for now...
