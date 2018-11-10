@@ -101,17 +101,18 @@ y_mean_scale[81:89,1] <- "SOME"
 #I convert it now to a matrix, and from now operate with matrices
 matrix_scale <- tapply(y_mean_scale$Scale_seed, y_mean_scale[c("Species", "Treatment")], mean)
 
-#Changing diagonal NA´s for 0´s or value of the cross?
-#CHECK!!!
 
-
-
-diag(matrix_scale) <- 0
-#Fixing this two values for now...
-matrix[8,5] <- matrix[7,6]
-matrix[10,5] <- matrix[10,6]
+#There is an NA of Treatment that I did´t perform. I give same value of its conspecific
+#Criteria for doing this: Both have the biggest pollen
+#For the rest of treatments both effects are very similar
 matrix_scale[8,5] <- matrix_scale[7,6]
-matrix_scale[10,5] <- matrix_scale[10,6]
+#Meanwhile the diagonal is still NA. Fix that after I prepare the "cross"
+
+
+
+
+#Checking script...
+
 
 
 #Now I prepare the two matrices for cross seed set. One is just the seed set without modification
