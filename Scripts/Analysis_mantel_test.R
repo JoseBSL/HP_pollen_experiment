@@ -152,36 +152,42 @@ matrix_scale_effect <- matrix_cross_scale-matrix_scale
 #Maybe fix that?
 
 
-#Checking script
-
-
-
-#Write csv in the two data folders in order to print 
+#Save matrix of effect csv 
 #write.csv(matrix_scale_effect, "Data/matrix_scale_effect.csv")
 #write.csv(matrix_scale_effect, "Rmd/Data/matrix_scale_effect.csv")
 #Now edit the evolutionary distances
 #They are the distances calculated with MEGA 7 (pairwise distances)
+#Two different markers for distances RBCL and ITS
 evo_distance_rbcl <- evo_distance_rbcl[ , -2]
+#Transformto matrix
 evo_distance_rbcl <- as.matrix(evo_distance_rbcl)
-
+#same rownames of the matrix of effect
 rownames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
 evo_distance_rbcl <- evo_distance_rbcl[, -1]
+#same colnames of the matrix of effect
 colnames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
 diag(evo_distance_rbcl) <- 0
-
+#Because they are distances I make symmetrical the upper part of the matrix
 makeSymm <- function(evo_distance_rbcl) {
   evo_distance_rbcl[upper.tri(evo_distance_rbcl)] <- t(evo_distance_rbcl)[upper.tri(evo_distance_rbcl)]
   return(evo_distance_rbcl)
 }
 evo_distance_rbcl <- makeSymm(evo_distance_rbcl)
-diag(evo_distance_rbcl) <- NA
+#Order columns alphabetically
 evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order(colnames(evo_distance_rbcl))] 
+#Changing from characters to numerical
 evo_distance_rbcl <- mapply(evo_distance_rbcl, FUN=as.numeric)
 evo_distance_rbcl <- matrix(data=evo_distance_rbcl, ncol=10, nrow=10)
 rownames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
 colnames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
 evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order(colnames(evo_distance_rbcl))] 
-diag(evo_distance_rbcl) <- 0
+
+
+
+#Checking script
+
+
+
 #Mantel test with percentage 100-matrix and normal percentage
 mantel.test(matrix_scale_effect, evo_distance_rbcl, graph = TRUE)
 mantel(matrix_scale_effect, evo_distance_rbcl)
