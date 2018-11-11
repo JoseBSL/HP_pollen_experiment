@@ -109,15 +109,7 @@ matrix_scale[8,5] <- matrix_scale[7,6]
 #Meanwhile the diagonal is still NA. Fix that after I prepare the "cross"
 
 
-
-
-#Checking script...
-
-
-
-#Now I prepare the two matrices for cross seed set. One is just the seed set without modification
-#The other has the standarized seed set (matrix_cross and matrix_cross_scale respectively)
-
+# Preparing data frame of the scaled hand cross pollination
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
 y <- NULL
@@ -128,28 +120,6 @@ for (i in species_list){
   
   y <- rbind(y, i)
 }
-y_cross_1 <- y[grep("CROSS", y$Treatment), ]
-y_cross_2 <- y[grep("cross", y$Treatment), ]
-y_cross_3 <- y[grep("Cross", y$Treatment), ]
-y_cross_1 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_1, na.rm= TRUE)
-y_cross_2 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_2, na.rm= TRUE)
-y_cross_3 <- dcast(Species ~ ., value.var = "Seed_set", fun.aggregate = mean, data = y_cross_3, na.rm= TRUE)
-y_cross <- rbind(y_cross_1, y_cross_2, y_cross_3)
-colnames(y_cross)[2] <- "Seed_set_cross"
-y_cross$Non_focal <- y_cross$Species
-matrix_cross <- tapply(y_cross$Seed_set_cross, y_cross[c("Species", "Non_focal")], mean)
-#I edit the matrix manually, values of the diagonal to full row 
-matrix_cross[1,1:10] <- matrix_cross[1,1]#BROL
-matrix_cross[2,1:10] <- matrix_cross[2,2]#BRRA
-matrix_cross[3,1:10] <- matrix_cross[3,3]#CAAN
-matrix_cross[4,1:10] <- matrix_cross[4,4]#ERSA
-matrix_cross[5,1:10] <- matrix_cross[5,5]#IPAQ
-matrix_cross[6,1:10] <- matrix_cross[6,6]#IPPU
-matrix_cross[7,1:10] <- matrix_cross[7,7]#PEIN
-matrix_cross[8,1:10] <- matrix_cross[8,8]#SIAL
-matrix_cross[9,1:10] <- matrix_cross[9,9]#SOLY
-matrix_cross[10,1:10] <- matrix_cross[10,10]#SOME
-
 
 y_cross_scale_1 <- y[grep("CROSS", y$Treatment), ]
 y_cross_scale_2 <- y[grep("cross", y$Treatment), ]
@@ -176,18 +146,15 @@ matrix_cross_scale[10,1:10] <- matrix_cross_scale[10,10]#SOME
 #Fix the diagonal of matrix_scale because it should the "maximum value" of the cross
 diag(matrix_scale) <- diag(matrix_cross_scale)
 
-#I´m going to substract the two matrices BUT I have negative values 
-#So I´m going to fix that adding the minimum value to the two matrices
-#New minimum should be 0
-a <- min(matrix_scale)
-#I save this value
-#max(matrix_scale)
-matrix_scale <- matrix_scale + abs(a)
-matrix_cross_scale <- matrix_cross_scale + abs(a)
-
-#Now the negative values are fixed. Time to make the matrix of effect respect the cross with the standarized
-#The normal values of seed set are going to be on a side for a while
+#Creating matrix of effect (mean cross spp x1-mean HP effect spp x1)
 matrix_scale_effect <- matrix_cross_scale-matrix_scale
+#There are some values that the effect is greater than the cross
+#Maybe fix that?
+
+
+#Checking script
+
+
 
 #Write csv in the two data folders in order to print 
 #write.csv(matrix_scale_effect, "Data/matrix_scale_effect.csv")
