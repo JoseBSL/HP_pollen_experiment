@@ -183,17 +183,32 @@ colnames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ",
 evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order(colnames(evo_distance_rbcl))] 
 
 
+#Now I compare the matrix of scaled seed set (Cross-HP) with the evolutive distances
+# There are different ways of doing Mantel on R
+#This seems the more complete one so far. Mantel.test doesn´t give all info...
+mantel(matrix_scale_effect, evo_distance_rbcl)
+mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
+#significance=0.017, r=0.32
+#How do I interpret this?
+# Heterospecific pollen effect is significantly correlated with evolutive distance
+#Could I say the greater the evolutive distance the smaller the effect?
+#Why I say this: Cross-Hp is our proxy,
+#if it is a high number it means that the effect was small
+p <- mantel.correlog(matrix_scale_effect, sqrt(evo_distance_rbcl))
+plot(p)
+#Now I perform procrustes test (similar to mantel)
+protest(matrix_scale_effect, sqrt(evo_distance_rbcl))
+#significance 0.594, correlation=0.47
+
+
+
+
 
 #Checking script
 
 
 
-#Mantel test with percentage 100-matrix and normal percentage
-mantel.test(matrix_scale_effect, evo_distance_rbcl, graph = TRUE)
-mantel(matrix_scale_effect, evo_distance_rbcl)
-mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
-p <- mantel.correlog(matrix_scale_effect, sqrt(evo_distance_rbcl))
-plot(p)
+
 #Now with the ITS tree. 
 #First I have to fix a bit the data.frame and convert it to a matrix
 #load csv of evolutionary distance of ITS, not in matrix format
