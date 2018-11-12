@@ -152,6 +152,16 @@ matrix_scale_effect <- matrix_cross_scale-matrix_scale
 #Maybe fix that?
 
 
+#
+##
+###
+###### PART 1   MATRIX EFFECT~EVOLUTIVE DISTANCES
+###
+##
+#
+
+
+
 #Save matrix of effect csv 
 #write.csv(matrix_scale_effect, "Data/matrix_scale_effect.csv")
 #write.csv(matrix_scale_effect, "Rmd/Data/matrix_scale_effect.csv")
@@ -187,6 +197,9 @@ evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order
 # There are different ways of doing Mantel on R
 #This seems the more complete one so far. Mantel.test doesn´t give all info...
 mantel(matrix_scale_effect, evo_distance_rbcl)
+#significance=0.024, r=0.29
+#Now with the square root of the evolutive distances
+#Based on Letten & Cornwell 2014
 mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
 #significance=0.017, r=0.32
 #How do I interpret this?
@@ -196,18 +209,12 @@ mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
 #if it is a high number it means that the effect was small
 p <- mantel.correlog(matrix_scale_effect, sqrt(evo_distance_rbcl))
 plot(p)
+
 #Now I perform procrustes test (similar to mantel)
+#Peres-Neto & Jackson, 2000 describes the advantages of Procrustes over Mantel
 protest(matrix_scale_effect, sqrt(evo_distance_rbcl))
+plot(protest(matrix_scale_effect, sqrt(evo_distance_rbcl)))
 #significance 0.594, correlation=0.47
-
-
-
-
-
-#Checking script
-
-
-
 
 #Now with the ITS tree. 
 #First I have to fix a bit the data.frame and convert it to a matrix
@@ -220,13 +227,26 @@ diag(evo_distance_its) <- 0
 evo_distance_its <- evo_distance_its[order(rownames(evo_distance_its)), order(colnames(evo_distance_its))] 
 #Mantel test between its distance and the scaled matrix of effect
 mantel(matrix_scale_effect, evo_distance_its)
+#significance=0.035 ,r=0.2633
+#Now with the square root of the evolutive distances
+#Based on Letten & Cornwell 2014
 evo_distance_its_square_root <- sqrt(evo_distance_its)
 mantel(matrix_scale_effect, evo_distance_its_square_root)
+#significance=0.028, r=0.2764
 p <- mantel.correlog(matrix_scale_effect, evo_distance_its_square_root) 
 plot(p)
 protest(matrix_scale_effect, evo_distance_its_square_root)
+#significance=0.765, procustes corr=0.5259
 
-cancor(matrix_scale_effect, evo_distance_its_square_root)
+
+#
+##
+###
+###### PART 2   MATRIX EFFECT~TRAITS
+###
+##
+#
+
 
 #From here I start working with the traits
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
@@ -247,11 +267,11 @@ apply(traits_all_scaled, 2, sd)
 #Now I apply Mantel
 traits_all_scaled_dist <- dist(traits_all_scaled)
 mantel(matrix_scale_effect, traits_all_scaled_dist)
+#significance=0.41, r=0.41
 protest(matrix_scale_effect, traits_all_scaled_dist)
-#With all the traits r=0.07 and significance 0.375
+#significance=0.946, procustes correlation=0.575
 
-
-#Moreover, I try an alternative way to Mantel
+#Bioenv
 traits_all_bioenv <- traits_all[,-c(1,2)]
 #Bioenv standarize 
 bioenv(matrix_scale_effect,traits_all_bioenv)
