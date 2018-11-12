@@ -454,6 +454,14 @@ bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 
 
 
+#Checking NMDS
+#Keep tomorrow
+example_NMDS=metaMDS(traits_all_scaled[,1:5],  k=2,)
+plot(example_NMDS)
+
+
+
+
 min(matrix_scale_effect)
 matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))
 bioenv(matrix_scale_effect~traits_all$stigma_area, trace=T)
