@@ -271,11 +271,20 @@ mantel(matrix_scale_effect, traits_all_scaled_dist)
 protest(matrix_scale_effect, traits_all_scaled_dist)
 #significance=0.946, procustes correlation=0.575
 
-#Bioenv
+
+#Bioenv, alternative way, similar to Mantel and procustes
+#BUT it finds the variables that are  more relevant to our model
+#It scale the variables, so it doesn´t matter if they are scaled or not
+#We obtain the same result, I check below
 traits_all_bioenv <- traits_all[,-c(1,2)]
-#Bioenv standarize 
+traits_all_bioenv_scaled <- scale(traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv)
+bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
 #Result r=0.45 being pollen ovule ratio, stigma width and style width the best model
+
+
+
+#Checking script
 
 
 #I check trait by trait first with mantel test
@@ -290,6 +299,12 @@ mantel(matrix_scale_effect, traits_self_dist)
 #r=0.033 significance=0.399
 prot_self <- protest(matrix_scale_effect, traits_self_dist)
 plot(prot_self)
+
+data(dune)
+data(dune.env)
+adonis(dune ~ Management*A1, data=dune.env, permutations=100)
+adonis(matrix_scale_effect, traits_all_scaled_self)
+
 #corr proc rotation=
 
 #Mantel gives very low correlation between selfing rate and the effect distance matrix of seed set
