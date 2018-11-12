@@ -297,6 +297,8 @@ mantel(matrix_scale_effect, traits_stigma_dist)
 #significance=0.016, r=0.27
 protest(matrix_scale_effect, traits_stigma_dist)
 #significance=0.373, procustes correlation=0.3208
+bioenv(matrix_scale_effect~traits_all$stigma_type, method="pearson", trace=T)
+#corr=-0.16
 
 #2)Selfing rate
 traits_all_scaled_self <- traits_all_scaled[,2]
@@ -313,6 +315,10 @@ adonis(formula=matrix_scale_effect ~Selfing_rate ,data=traits_all_scaled)
 #Mantel gives very low correlation between selfing rate 
 #and the effect distance matrix of seed set
 #This surprise me...
+bioenv(matrix_scale_effect~traits_all$Selfing_rate, method="pearson", trace=T)
+#correlation=0.14
+
+
 
 #3)Pollen size
 pollen_size <- traits_all_scaled[,3]
@@ -324,6 +330,9 @@ mantel(matrix_scale_effect, pollen_size_dist)
 #significance=0.233, r=0.1526
 protest(matrix_scale_effect, pollen_size_dist)
 #significance=0.519, procustes correlation=-0.05605
+bioenv(matrix_scale_effect~traits_all$pollen_size, method="pearson", trace=T)
+#correlation=0.11
+
 
 #4)Pollen per anther
 pollen <- traits_all_scaled[,4]
@@ -335,7 +344,8 @@ mantel(matrix_scale_effect, pollen_dist)
 #significance=0.491,r=-0.05605
 protest(matrix_scale_effect, pollen_dist)
 #significance=0.907, procustes correlation=
-
+bioenv(matrix_scale_effect~traits_all$mean_pollen_anther, method="pearson", trace=T)
+#correlation=-0.13
 
 #5)Ovules
 ovules <- traits_all_scaled[,5]
@@ -346,6 +356,8 @@ mantel(matrix_scale_effect, ovules_dist)
 #significance=0.487, r=-0.03
 protest(matrix_scale_effect, ovules_dist)
 #0.884, procustes correlation=0.28
+bioenv(matrix_scale_effect~traits_all$mean_ovules, method="pearson", trace=T)
+#correlation=-0.17
 
 #6)Pollen ovule ratio now
 p_o_ratio <- traits_all_scaled[,6]
@@ -353,8 +365,11 @@ p_o_ratio <- as.data.frame(p_o_ratio)
 rownames(p_o_ratio) <- rownames(p_o_ratio)
 p_o_ratio_dist <- dist(p_o_ratio, diag=T, upper=T)
 mantel(matrix_scale_effect, p_o_ratio_dist)
+#significance=0.793, r=-0.1492 
 protest(matrix_scale_effect, p_o_ratio_dist)
-
+#significance=0.958, procustes correlation=0.2758
+bioenv(matrix_scale_effect~traits_all$pollen_ovule_ratio, method="pearson", trace=T)
+#correlation=0.0.60
 
 #7)Anthers
 anthers <- traits_all_scaled[,7]
@@ -362,7 +377,12 @@ anthers <- as.data.frame(anthers)
 rownames(anthers) <- rownames(anthers)
 anthers_dist <- dist(anthers, diag=T, upper=T)
 mantel(matrix_scale_effect, anthers_dist)
+#significance=0.356, r=0.05802
 protest(matrix_scale_effect, anthers_dist)
+#significance=0.806, procustes corr=0.2194
+bioenv(matrix_scale_effect~traits_all$anthers, method="pearson", trace=T)
+#correlation=-0.0403
+
 
 #8)Stigma_area
 stigma_area <- traits_all_scaled[,8]
@@ -370,7 +390,11 @@ stigma_area <- as.data.frame(stigma_area)
 rownames(stigma_area) <- rownames(stigma_area)
 stigma_area_dist <- dist(stigma_area, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_area_dist)
+#significance=0.027, r=0.3721
 protest(matrix_scale_effect, stigma_area_dist)
+#significance=0.73, procustes correlation=0.385
+bioenv(matrix_scale_effect~traits_all$stigma_area, method="pearson", trace=T)
+#correlation=-0.086
 
 
 #9)Stigma_length
@@ -379,7 +403,12 @@ stigma_length <- as.data.frame(stigma_length)
 rownames(stigma_length) <- rownames(stigma_length)
 stigma_length_dist <- dist(stigma_length, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_length_dist)
+#significance=0.305, r=0.05021
 protest(matrix_scale_effect, stigma_length_dist)
+#significance=0.128, procustes correlation 0.3995
+bioenv(matrix_scale_effect~traits_all$stigma_length, method="pearson", trace=T)
+#correlation=-0.17
+
 
 #10)Stigma surface
 stigma_surface <- traits_all_scaled[,10]
@@ -387,7 +416,12 @@ stigma_surface <- as.data.frame(stigma_surface)
 rownames(stigma_surface) <- rownames(stigma_surface)
 stigma_surface_dist <- dist(stigma_surface, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_surface_dist)
+#significance=0.01, r=0.4271
 protest(matrix_scale_effect, stigma_surface_dist)
+#significance=0.796, procustes correlation=0.4063
+bioenv(matrix_scale_effect~traits_all$stigma_surface, method="pearson", trace=T)
+#correlation=-0.09
+
 
 #11)Stigma width
 stigma_width <- traits_all_scaled[,11]
@@ -396,7 +430,11 @@ stigma_width <- 1- stigma_width
 rownames(stigma_width) <- rownames(stigma_width)
 stigma_width_dist <- dist(stigma_width, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_width_dist)
+#significance=0.891, r=-0.24
 protest(matrix_scale_effect, stigma_width_dist)
+#significance=0.253, procustes correlation=0.3819
+bioenv(matrix_scale_effect~traits_all$stigma_width, method="pearson", trace=T)
+#correlation=0.33
 
 #12)Style_length
 style_length <- traits_all_scaled[,12]
@@ -405,31 +443,31 @@ style_length <- 1- style_length
 rownames(style_length) <- rownames(style_length)
 style_length_dist <- dist(style_length, diag=T, upper=T)
 mantel(matrix_scale_effect, style_length_dist)
+#significance=0.303, r=0.05021
 protest(matrix_scale_effect, style_length_dist)
+#significance=0.113, procustes correlation=0.3995
+bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
+#correlation=-0.1757
+
+
+
+
+
 
 min(matrix_scale_effect)
 matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))
 bioenv(matrix_scale_effect~traits_all$stigma_area, trace=T)
-
-
 mantel(matrix_scale_effect, evo_distance_its_square_root)
-
-
 a <- melt(matrix_scale_effect)
 b <- melt(evo_distance_its_square_root)
-
 m <- cbind(a,b)
 colnames(m) <- c("Species", "Non_focal", "effect", "spp", "distance")
-
 plot(effect~distance, data=m)
 model1 <- glm(effect~distance, data= m)
-
 summary(model1)
 plot(model1)
 library(visreg)
 visreg(model1)
-
-
 stigma_area_dist = as.matrix(stigma_area_dist)
 c <- melt(stigma_area_dist)
 n <- cbind(a,c)
