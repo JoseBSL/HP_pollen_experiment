@@ -255,15 +255,13 @@ rownames(traits_all) <- rownames(matrix_scale_effect)
 #I check Mantel between all the traits and the distance matrix of the effect of heterospecific pollen
 #IMPORTANT: P values of Mantel seems to be of one sided test 
 #For that, first I standarize the values of the different columns
-
-
 traits_all <- traits_all[,-c(1,2)]
 #For mantel I scale the dat.frame
 traits_all_scaled <- scale(traits_all)
 #Check if the columns are well scaled mean 0 and sd 1
 colMeans(traits_all_scaled)
 apply(traits_all_scaled, 2, sd)
-#Seems that scaled is correct
+#Seems that are well scaled 
 #Now I apply Mantel
 traits_all_scaled_dist <- dist(traits_all_scaled)
 mantel(matrix_scale_effect, traits_all_scaled_dist)
@@ -271,73 +269,85 @@ mantel(matrix_scale_effect, traits_all_scaled_dist)
 protest(matrix_scale_effect, traits_all_scaled_dist)
 #significance=0.946, procustes correlation=0.575
 
-
 #Bioenv, alternative way, similar to Mantel and procustes
 #BUT it finds the variables that are  more relevant to our model
 #It scale the variables, so it doesn´t matter if they are scaled or not
 #We obtain the same result, I check below
-traits_all_bioenv <- traits_all[,-c(1,2)]
+traits_all_bioenv <- traits_all
 traits_all_bioenv_scaled <- scale(traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
 #Result r=0.45 being pollen ovule ratio, stigma width and style width the best model
+adonis(matrix_scale_effect ~. ,data=traits_all)
+traits_all_scaled=as.data.frame(traits_all_scaled)
+#Adonis analogous to Manova. Don´t going to pay attention to it for the moment 
+#Just seing how it goes and the output
+#Don´t know how appropiate it is...
+adonis(formula=matrix_scale_effect ~. ,data=traits_all_scaled)
 
+#Start trait by trait
 
+#1)Stigma type
+traits_all_scaled_stigma <- traits_all_scaled[,1]
+traits_all_scaled_stigma <- as.data.frame(traits_all_scaled_stigma)
+traits_all_scaled_stigma <- traits_all_scaled_stigma
+rownames(traits_all_scaled_stigma) <- rownames(traits_all_scaled_stigma)
+traits_stigma_dist <- dist(traits_all_scaled_stigma, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_stigma_dist)
+#significance=0.016, r=0.27
+protest(matrix_scale_effect, traits_stigma_dist)
+#significance=0.373, procustes correlation=0.3208
 
-#Checking script
-
-
-#I check trait by trait first with mantel test
-
-#FirstLY, I start with selfing rate, I extract colum and then create a matrix of distance
+#2)Selfing rate
 traits_all_scaled_self <- traits_all_scaled[,2]
 traits_all_scaled_self <- as.data.frame(traits_all_scaled_self)
 traits_all_scaled_self <- traits_all_scaled_self
 rownames(traits_all_scaled_self) <- rownames(traits_all_scaled_self)
 traits_self_dist <- dist(traits_all_scaled_self, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_self_dist)
-#r=0.033 significance=0.399
-prot_self <- protest(matrix_scale_effect, traits_self_dist)
-plot(prot_self)
-
-data(dune)
-data(dune.env)
-adonis(dune ~ Management*A1, data=dune.env, permutations=100)
-adonis(matrix_scale_effect, traits_all_scaled_self)
-
-#corr proc rotation=
-
-#Mantel gives very low correlation between selfing rate and the effect distance matrix of seed set
+#significance=0.424, r=0.03015
+protest(matrix_scale_effect, traits_self_dist)
+#significance=0597, procustes correlation=0.3609
+adonis(formula=matrix_scale_effect ~Selfing_rate ,data=traits_all_scaled)
+#R2=0.46, p=0.198
+#Mantel gives very low correlation between selfing rate 
+#and the effect distance matrix of seed set
 #This surprise me...
 
-#Pollen size
+#3)Pollen size
 pollen_size <- traits_all_scaled[,3]
 pollen_size <- as.data.frame(pollen_size)
 pollen_size <- pollen_size
 rownames(pollen_size) <- rownames(pollen_size)
 pollen_size_dist <- dist(pollen_size, diag=T, upper=T)
 mantel(matrix_scale_effect, pollen_size_dist)
+#significance=0.233, r=0.1526
 protest(matrix_scale_effect, pollen_size_dist)
+#significance=0.519, procustes correlation=-0.05605
 
-#Pollen per anther
+#4)Pollen per anther
 pollen <- traits_all_scaled[,4]
 pollen <- as.data.frame(pollen)
 pollen <- pollen
 rownames(pollen) <- rownames(pollen)
 pollen_dist <- dist(pollen, diag=T, upper=T)
 mantel(matrix_scale_effect, pollen_dist)
+#significance=0.491,r=-0.05605
 protest(matrix_scale_effect, pollen_dist)
-#Ovules
+#significance=0.907, procustes correlation=
 
+
+#5)Ovules
 ovules <- traits_all_scaled[,5]
 ovules <- as.data.frame(ovules)
 rownames(ovules) <- rownames(ovules)
 ovules_dist <- dist(ovules, diag=T, upper=T)
 mantel(matrix_scale_effect, ovules_dist)
+#significance=0.487, r=-0.03
 protest(matrix_scale_effect, ovules_dist)
+#0.884, procustes correlation=0.28
 
-#Pollen ovule ratio now
-
+#6)Pollen ovule ratio now
 p_o_ratio <- traits_all_scaled[,6]
 p_o_ratio <- as.data.frame(p_o_ratio)
 rownames(p_o_ratio) <- rownames(p_o_ratio)
@@ -346,8 +356,7 @@ mantel(matrix_scale_effect, p_o_ratio_dist)
 protest(matrix_scale_effect, p_o_ratio_dist)
 
 
-#Anthers
-
+#7)Anthers
 anthers <- traits_all_scaled[,7]
 anthers <- as.data.frame(anthers)
 rownames(anthers) <- rownames(anthers)
@@ -355,7 +364,7 @@ anthers_dist <- dist(anthers, diag=T, upper=T)
 mantel(matrix_scale_effect, anthers_dist)
 protest(matrix_scale_effect, anthers_dist)
 
-#Stigma_area
+#8)Stigma_area
 stigma_area <- traits_all_scaled[,8]
 stigma_area <- as.data.frame(stigma_area)
 rownames(stigma_area) <- rownames(stigma_area)
@@ -364,7 +373,7 @@ mantel(matrix_scale_effect, stigma_area_dist)
 protest(matrix_scale_effect, stigma_area_dist)
 
 
-#Stigma_length
+#9)Stigma_length
 stigma_length <- traits_all_scaled[,9]
 stigma_length <- as.data.frame(stigma_length)
 rownames(stigma_length) <- rownames(stigma_length)
@@ -372,7 +381,7 @@ stigma_length_dist <- dist(stigma_length, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_length_dist)
 protest(matrix_scale_effect, stigma_length_dist)
 
-#Stigma surface
+#10)Stigma surface
 stigma_surface <- traits_all_scaled[,10]
 stigma_surface <- as.data.frame(stigma_surface)
 rownames(stigma_surface) <- rownames(stigma_surface)
@@ -380,7 +389,7 @@ stigma_surface_dist <- dist(stigma_surface, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_surface_dist)
 protest(matrix_scale_effect, stigma_surface_dist)
 
-#Stigma width
+#11)Stigma width
 stigma_width <- traits_all_scaled[,11]
 stigma_width <- as.data.frame(stigma_width)
 stigma_width <- 1- stigma_width
@@ -389,7 +398,7 @@ stigma_width_dist <- dist(stigma_width, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_width_dist)
 protest(matrix_scale_effect, stigma_width_dist)
 
-#Style_length
+#12)Style_length
 style_length <- traits_all_scaled[,12]
 style_length <- as.data.frame(style_length)
 style_length <- 1- style_length
