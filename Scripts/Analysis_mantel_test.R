@@ -455,32 +455,9 @@ protest(matrix_scale_effect, style_length_dist)
 bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 #correlation=-0.1757
 
+#Save environment to load object in Markdown
+#save.image(file='Manuscript_draft/myEnvironment_mantel.RData')
 
 
 
-
-
-
-
-
-min(matrix_scale_effect)
-matrix_scale_effect=matrix_scale_effect+abs(min(matrix_scale_effect))
-bioenv(matrix_scale_effect~traits_all$stigma_area, trace=T)
-mantel(matrix_scale_effect, evo_distance_its_square_root)
-a <- melt(matrix_scale_effect)
-b <- melt(evo_distance_its_square_root)
-m <- cbind(a,b)
-colnames(m) <- c("Species", "Non_focal", "effect", "spp", "distance")
-plot(effect~distance, data=m)
-model1 <- glm(effect~distance, data= m)
-summary(model1)
-plot(model1)
-library(visreg)
-visreg(model1)
-stigma_area_dist = as.matrix(stigma_area_dist)
-c <- melt(stigma_area_dist)
-n <- cbind(a,c)
-colnames(n) <- c("Species", "Non_focal", "effect", "spp","sp", "distance")
-model1 <- glm(effect~distance, data= n)
-visreg(model1)
 

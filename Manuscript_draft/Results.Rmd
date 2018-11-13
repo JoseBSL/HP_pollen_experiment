@@ -1,0 +1,60 @@
+---
+title: "Results"
+author: "Jose"
+date: "13/11/18"
+output: pdf_document
+#bibliography: references.bib
+---
+
+```{r, echo=FALSE, message=FALSE}
+library(vegan)
+library(xtable)
+library(kableExtra)
+#load environment
+load("myEnvironment_mantel.RData")
+```
+
+Now I compare the matrix of effect, which is the matrix of cross scaled seed set minus the matrix of mean scaled seed set with the treatments per species.
+
+#Part 1 Relation between effect of Hp and evolutive distance
+
+1) With the RBCL marker
+
+Mantel effect~evolutive distance
+```{r, echo=FALSE, message=FALSE}
+mantel_rbcl <- mantel(matrix_scale_effect, evo_distance_rbcl)
+mantel_rbcl_sqrt <- mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
+pro_rbcl <- protest(matrix_scale_effect, evo_distance_rbcl)
+pro_rbcl_sqrt <- protest(matrix_scale_effect, sqrt(evo_distance_rbcl))
+
+r <- c(as.numeric(mantel_rbcl[3]), as.numeric(mantel_rbcl_sqrt[3]),
+       as.numeric(pro_rbcl[6]),as.numeric(pro_rbcl_sqrt[6]))
+p <- c(as.numeric(mantel_rbcl[4]),as.numeric(mantel_rbcl_sqrt[4]),
+       as.numeric(pro_rbcl[13]),as.numeric(pro_rbcl_sqrt[13]))
+Analysis <- c("Mantel", "Mantel", "Procustes", "Procustes")
+Type <- c("normal evolutive distance","sqrt evolutive distance","normal evolutive distance", "sqrt evolutive distance")
+table<- data.frame(r,p, Analysis, Type)
+kable(table, format="markdown")
+```
+
+I wonder if the matrices are too small for procustes, is a general trend for all the analysis to have a non significant p value and correlation around these numbers.
+
+2) With the ITS marker
+```{r, echo=FALSE, message=FALSE}
+mantel_its <- mantel(matrix_scale_effect, evo_distance_its)
+mantel_its_sqrt <- mantel(matrix_scale_effect, sqrt(evo_distance_its))
+pro_its <- protest(matrix_scale_effect, evo_distance_its)
+pro_its_sqrt <- protest(matrix_scale_effect, sqrt(evo_distance_its))
+
+r <- c(as.numeric(mantel_its[3]), as.numeric(mantel_its_sqrt[3]),
+       as.numeric(pro_its[6]),as.numeric(pro_its_sqrt[6]))
+p <- c(as.numeric(mantel_its[4]),as.numeric(mantel_its_sqrt[4]),
+       as.numeric(pro_its[13]),as.numeric(pro_its_sqrt[13]))
+Analysis <- c("Mantel", "Mantel", "Procustes", "Procustes")
+Type <- c("normal evolutive distance","sqrt evolutive distance","normal evolutive distance", "sqrt evolutive distance")
+table<- data.frame(r,p, Analysis, Type)
+kable(table, format="markdown")
+```
+
+
+#Part 2 Relation between effect of Hp and traits
