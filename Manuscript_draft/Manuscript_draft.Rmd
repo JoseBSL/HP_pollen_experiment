@@ -97,13 +97,24 @@ issues in the pollination process are conspecific pollen loss and the arrival of
 
 **Paragraph 2**
 
-Recent important studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 (More refs).
+Recent important studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 @ashamn2013 @arceo2016. A general overview of it is that reduces species fitness (REFS). Other general facts... Quantity of foreign pollen that arrives...
+
+Mention invasive species in this paragraph
+
+Few studies have tried to understand how relatedness is involved in the hp effect but generally 
 
 
+Until our knowledge ....
+
+Rescue from here the useful things:
 
 Invasive species are supposed to have greater negative effect than native ones @arceo2016. Although when non-natives species don´t have greater negative effect we still don´t know why. For this reason, this ecological question is non a native non native one is a trait based issue that is still to be solved. Moreover, the quantity of pollen that integrates in the network can be quite variable ranging from low quatities @bartomeus2008 to intermediate (ref) to high (ref). Moreover, closely related species are supposed to reduce fitness in greater effect but the evidence is scarce and based on independent studies with different methodologies (Arceo-gomez & Ashman 2016) or studies that just check it with a pair of species that are highly related with the aim to understand hybridization costs (refs). There is a need to deepen into how relatednes is involve in the costs of heterospecific pollen effect. Furthermore, following the conceptual trait framework of Ashman and Arceo-Gomez on heterospecific pollen there are good theoretical basis for trait effect. Notwithstanding, non empirical work has tested how really these traits are involved in heterospecific pollen effect.
 
 Explain traits. Put examples
+
+what is closely related? same genus? Just that right, the rest is far related?
+
+I would like to add that the experiments focus on two proxies of effect prezygotic and postzygotic. Why focus on postzygotic? Is the final stage where we can see the effect. Further studies should also study germination rates.
 
 **Paragraph 3**
 
