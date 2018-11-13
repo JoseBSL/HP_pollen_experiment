@@ -274,6 +274,7 @@ mantel(matrix_scale_effect, traits_all_scaled_dist)
 #significance=0.296, r=0.09
 protest(matrix_scale_effect, traits_all_scaled_dist)
 #significance=0.946, procustes correlation=0.5968
+protest(matrix_scale_effect, traits_all_scaled)
 
 #Bioenv, alternative way, similar to Mantel and procustes
 #BUT it finds the variables that are  more relevant to our model
@@ -411,6 +412,7 @@ stigma_length_dist <- dist(stigma_length, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_length_dist)
 #significance=0.179, r=0.07872
 protest(matrix_scale_effect, stigma_length_dist)
+protest(matrix_scale_effect, traits_all_scaled$stigma_length)
 #significance=0.111, procustes correlation 0.4231
 bioenv(matrix_scale_effect~traits_all$stigma_length, method="pearson", trace=T)
 #correlation=-0.167
@@ -458,6 +460,49 @@ bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 #Save environment to load object in Markdown
 #save.image(file='Manuscript_draft/myEnvironment_mantel.RData')
 
+its_distance <- melt(evo_distance_its)
+scaled_effect <- melt(matrix_scale_effect)
+scaled_effect$Species=as.character(scaled_effect$Species)
+scaled_effect$col_focal[scaled_effect$Species==c("BROL")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("BRRA")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("SIAL")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("ERSA")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("SOME")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("SOLY")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("PEIN")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("CAAN")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("IPAQ")] <- "black"
+scaled_effect$col_focal[scaled_effect$Species==c("IPPU")] <- "black"
+
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BROL")] <- "red"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BRRA")] <- "red"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SIAL")] <- "red"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("ERSA")] <- "red"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SOME")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SOLY")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("PEIN")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("CAAN")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPAQ")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPPU")] <- "blue"
 
 
+
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BROL")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BRRA")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SIAL")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("ERSA")] <- "blue"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SOME")] <- "green"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SOLY")] <- "green"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("PEIN")] <- "green"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("CAAN")] <- "green"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPAQ")] <- "green"
+scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPPU")] <- "green"
+
+
+plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
+     xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_focal)
+
+
+plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
+     xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_non_focal)
 
