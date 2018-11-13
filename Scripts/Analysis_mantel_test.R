@@ -148,6 +148,11 @@ diag(matrix_scale) <- diag(matrix_cross_scale)
 
 #Creating matrix of effect (mean cross spp x1-mean HP effect spp x1)
 matrix_scale_effect <- matrix_cross_scale-matrix_scale
+#We set our lower bound to 0
+#Maximum theoretical value is our cross, "no treatments could be greater than it"
+matrix_scale_effect[matrix_scale_effect<0]<- 0
+
+
 #There are some values that the effect is greater than the cross
 #Maybe fix that?
 
@@ -202,6 +207,7 @@ mantel(matrix_scale_effect, evo_distance_rbcl)
 #Based on Letten & Cornwell 2014
 mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
 #significance=0.017, r=0.32
+#When we make our negative values to 0 we reduce a bit the r here
 #How do I interpret this?
 # Heterospecific pollen effect is significantly correlated with evolutive distance
 #Could I say the greater the evolutive distance the smaller the effect?
@@ -265,9 +271,9 @@ apply(traits_all_scaled, 2, sd)
 #Now I apply Mantel
 traits_all_scaled_dist <- dist(traits_all_scaled)
 mantel(matrix_scale_effect, traits_all_scaled_dist)
-#significance=0.41, r=0.41
+#significance=0.296, r=0.09
 protest(matrix_scale_effect, traits_all_scaled_dist)
-#significance=0.946, procustes correlation=0.575
+#significance=0.946, procustes correlation=0.5968
 
 #Bioenv, alternative way, similar to Mantel and procustes
 #BUT it finds the variables that are  more relevant to our model
@@ -277,7 +283,7 @@ traits_all_bioenv <- traits_all
 traits_all_bioenv_scaled <- scale(traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
-#Result r=0.45 being pollen ovule ratio, stigma width and style width the best model
+#Result r=0.3711462 being pollen ovule ratio, stigma width and style width the best model
 adonis(matrix_scale_effect ~. ,data=traits_all)
 traits_all_scaled=as.data.frame(traits_all_scaled)
 #Adonis analogous to Manova. Don´t going to pay attention to it for the moment 
@@ -340,10 +346,10 @@ pollen <- as.data.frame(pollen)
 pollen <- pollen
 rownames(pollen) <- rownames(pollen)
 pollen_dist <- dist(pollen, diag=T, upper=T)
-mantel(matrix_scale_effect, pollen_dist)
-#significance=0.491,r=-0.05605
+mantel(matrix_scale_effect, pollen_dist) 
+#significance=0.491,r=-0.1097
 protest(matrix_scale_effect, pollen_dist)
-#significance=0.907, procustes correlation=
+#significance=0.907, procustes correlation=0.3174
 bioenv(matrix_scale_effect~traits_all$mean_pollen_anther, method="pearson", trace=T)
 #correlation=-0.13
 
@@ -353,11 +359,11 @@ ovules <- as.data.frame(ovules)
 rownames(ovules) <- rownames(ovules)
 ovules_dist <- dist(ovules, diag=T, upper=T)
 mantel(matrix_scale_effect, ovules_dist)
-#significance=0.487, r=-0.03
+#significance=0.487, r=-0.08
 protest(matrix_scale_effect, ovules_dist)
-#0.884, procustes correlation=0.28
+#0.884, procustes correlation=0.2985
 bioenv(matrix_scale_effect~traits_all$mean_ovules, method="pearson", trace=T)
-#correlation=-0.17
+#correlation=-0.14
 
 #6)Pollen ovule ratio now
 p_o_ratio <- traits_all_scaled[,6]
@@ -365,11 +371,11 @@ p_o_ratio <- as.data.frame(p_o_ratio)
 rownames(p_o_ratio) <- rownames(p_o_ratio)
 p_o_ratio_dist <- dist(p_o_ratio, diag=T, upper=T)
 mantel(matrix_scale_effect, p_o_ratio_dist)
-#significance=0.793, r=-0.1492 
+#significance=0.752, r=-0.1533
 protest(matrix_scale_effect, p_o_ratio_dist)
 #significance=0.958, procustes correlation=0.2758
 bioenv(matrix_scale_effect~traits_all$pollen_ovule_ratio, method="pearson", trace=T)
-#correlation=0.0.60
+#correlation=0.0439
 
 #7)Anthers
 anthers <- traits_all_scaled[,7]
@@ -379,9 +385,9 @@ anthers_dist <- dist(anthers, diag=T, upper=T)
 mantel(matrix_scale_effect, anthers_dist)
 #significance=0.356, r=0.05802
 protest(matrix_scale_effect, anthers_dist)
-#significance=0.806, procustes corr=0.2194
+#significance=0.806, procustes corr=0.2352
 bioenv(matrix_scale_effect~traits_all$anthers, method="pearson", trace=T)
-#correlation=-0.0403
+#correlation=-0.0406
 
 
 #8)Stigma_area
@@ -390,11 +396,11 @@ stigma_area <- as.data.frame(stigma_area)
 rownames(stigma_area) <- rownames(stigma_area)
 stigma_area_dist <- dist(stigma_area, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_area_dist)
-#significance=0.027, r=0.3721
+#significance=0.025, r=0.4002
 protest(matrix_scale_effect, stigma_area_dist)
-#significance=0.73, procustes correlation=0.385
+#significance=0.657, procustes correlation=0.4041
 bioenv(matrix_scale_effect~traits_all$stigma_area, method="pearson", trace=T)
-#correlation=-0.086
+#correlation=-0.0859
 
 
 #9)Stigma_length
@@ -403,11 +409,11 @@ stigma_length <- as.data.frame(stigma_length)
 rownames(stigma_length) <- rownames(stigma_length)
 stigma_length_dist <- dist(stigma_length, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_length_dist)
-#significance=0.305, r=0.05021
+#significance=0.179, r=0.07872
 protest(matrix_scale_effect, stigma_length_dist)
-#significance=0.128, procustes correlation 0.3995
+#significance=0.111, procustes correlation 0.4231
 bioenv(matrix_scale_effect~traits_all$stigma_length, method="pearson", trace=T)
-#correlation=-0.17
+#correlation=-0.167
 
 
 #10)Stigma surface
@@ -416,7 +422,7 @@ stigma_surface <- as.data.frame(stigma_surface)
 rownames(stigma_surface) <- rownames(stigma_surface)
 stigma_surface_dist <- dist(stigma_surface, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_surface_dist)
-#significance=0.01, r=0.4271
+#significance=0.007, r=0.4469
 protest(matrix_scale_effect, stigma_surface_dist)
 #significance=0.796, procustes correlation=0.4063
 bioenv(matrix_scale_effect~traits_all$stigma_surface, method="pearson", trace=T)
@@ -453,11 +459,6 @@ bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 
 
 
-
-#Checking NMDS
-#Keep tomorrow
-example_NMDS=metaMDS(traits_all_scaled[,1:5],  k=2,)
-plot(example_NMDS)
 
 
 
