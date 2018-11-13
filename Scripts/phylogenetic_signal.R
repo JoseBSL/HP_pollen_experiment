@@ -4,10 +4,18 @@ pollen_tree=read.tree("Data/pollen_tree.nwk")
 pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
 pollen_tree=read.tree("Data/tree_neighbour.nwk")
 
+plot(pollen_tree)
+add.scale.bar(x=0, y=1, length = 0.01)
+
+plot(tree_10)
+
 
 tree_10 <- read.newick("Data/pollen_tree_no_outgroup.nwk")
 tree_10=as.phylo(tree_10)
+plot.phylo(tree_10)
+add.scale.bar(x=0, y=9)
 
+locator(1)
 #Phylo signal for selfing rate
 selfing <-as.data.frame(traits_all[,c("Selfing_rate")])
 rownames(selfing) <- tree_10[[3]]

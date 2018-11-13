@@ -1,0 +1,106 @@
+---
+title: "Results"
+author: "Jose"
+date: "13/11/18"
+output: pdf_document
+bibliography: references.bib
+---
+
+```{r, echo=FALSE, message=FALSE}
+library(vegan)
+library(xtable)
+library(kableExtra)
+library(reshape2)
+library(ape)
+library(phytools)
+#load environment
+load("myEnvironment_mantel.RData")
+```
+
+To check for the effect of heterospecific pollen we assume that the optimal seed production is with the hand cross pollination (pollen from a different individual of the same species) and then we substract to the mean value of cross pollination the mean value of heterospecific pollen effect across treatments. Previously we have scaled the seed for each species with mean 0 and standard deviation of 1. When a species had higher values of seed production with treatments than the cross we set as maximum value for the treatments the same as the hand cross pollination.
+
+#Part 1 Relation between effect of Hp and evolutive distance
+
+I try Mantel test and procustes test, although both are similar procustes performs better in wider range of circumstances @peres2001. Moreover, I consider the square root of the evolutive distances which improves the statistical power in comparison to the normal distances @letten2015.
+
+1) With the RBCL marker
+
+Heterospecific pollen effect~evolutive distance
+```{r, echo=FALSE, message=FALSE}
+mantel_rbcl <- mantel(matrix_scale_effect, evo_distance_rbcl)
+mantel_rbcl_sqrt <- mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
+pro_rbcl <- protest(matrix_scale_effect, evo_distance_rbcl, symmetric=F)
+pro_rbcl_sqrt <- protest(matrix_scale_effect, sqrt(evo_distance_rbcl))
+
+
+r <- c(as.numeric(mantel_rbcl[3]), as.numeric(mantel_rbcl_sqrt[3]),
+       as.numeric(pro_rbcl[6]),as.numeric(pro_rbcl_sqrt[6]))
+p <- c(as.numeric(mantel_rbcl[4]),as.numeric(mantel_rbcl_sqrt[4]),
+       as.numeric(pro_rbcl[13]),as.numeric(pro_rbcl_sqrt[13]))
+Analysis <- c("Mantel", "Mantel", "Procustes", "Procustes")
+Type <- c("normal evolutive distance","sqrt evolutive distance","normal evolutive distance", "sqrt evolutive distance")
+table<- data.frame(r,p, Analysis, Type)
+kable(table, format="markdown")
+```
+
+I wonder if the matrices are too small for procustes, is a general trend for all the analysis to have a non significant p value and correlation around these numbers.
+
+2) With the ITS marker
+
+Heterospecific pollen effect~evolutive distance
+```{r, echo=FALSE, message=FALSE}
+mantel_its <- mantel(matrix_scale_effect, evo_distance_its)
+mantel_its_sqrt <- mantel(matrix_scale_effect, sqrt(evo_distance_its))
+pro_its <- protest(matrix_scale_effect, evo_distance_its)
+pro_its_sqrt <- protest(matrix_scale_effect, sqrt(evo_distance_its))
+
+r <- c(as.numeric(mantel_its[3]), as.numeric(mantel_its_sqrt[3]),
+       as.numeric(pro_its[6]),as.numeric(pro_its_sqrt[6]))
+p <- c(as.numeric(mantel_its[4]),as.numeric(mantel_its_sqrt[4]),
+       as.numeric(pro_its[13]),as.numeric(pro_its_sqrt[13]))
+Analysis <- c("Mantel", "Mantel", "Procustes", "Procustes")
+Type <- c("normal evolutive distance","sqrt evolutive distance","normal evolutive distance", "sqrt evolutive distance")
+table<- data.frame(r,p, Analysis, Type)
+kable(table, format="markdown")
+```
+
+I plot now the pairwise distances on the x axis and the effect of heterospecific pollen on the y axis, although is not very intuitive the greater the effect the closer to 0 because the mean hand cross pollination and the mean heterospecific pollen effect were more similar. 
+
+\newpage
+
+```{r, echo=FALSE, message=FALSE, fig.cap="Scatterplot of the evolutive distances (x axis) and the mean scaled effect per species (ITS markers)."}
+its_distance <- melt(evo_distance_its)
+scaled_effect <- melt(matrix_scale_effect)
+scaled_effect$Species=as.character(scaled_effect$Species)
+scaled_effect$col_focal[scaled_effect$Species==c("BROL")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("BRRA")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("SIAL")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("ERSA")] <- "red"
+scaled_effect$col_focal[scaled_effect$Species==c("SOME")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("SOLY")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("PEIN")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("CAAN")] <- "blue"
+scaled_effect$col_focal[scaled_effect$Species==c("IPAQ")] <- "green"
+scaled_effect$col_focal[scaled_effect$Species==c("IPPU")] <- "green"
+plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
+     xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_focal)
+```
+
+\newpage
+
+```{r, echo=FALSE, message=FALSE}
+pollen_tree=read.tree("pollen_tree.nwk")
+plot(pollen_tree)
+add.scale.bar(x=0, y=1)
+```
+
+\newpage
+#Part 2 Relation between effect of Hp and traits
+
+```{r}
+
+```
+
+
+
+#References
