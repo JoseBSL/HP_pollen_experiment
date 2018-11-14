@@ -15,6 +15,8 @@ library(lattice)
 library(distances)
 library(pdist)
 library(plotrix)
+library(dplyr)
+
 #Load seed set data for 10 species
 soly  <- read.csv("Data/species_seed_set/soly_seed_set.csv", sep=";", stringsAsFactors = F)
 some  <- read.csv("Data/species_seed_set/some_seed_set.csv", sep=";", stringsAsFactors = F)
@@ -194,8 +196,8 @@ evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order
 #Changing from characters to numerical
 evo_distance_rbcl <- mapply(evo_distance_rbcl, FUN=as.numeric)
 evo_distance_rbcl <- matrix(data=evo_distance_rbcl, ncol=10, nrow=10)
-rownames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
-colnames(evo_distance_rbcl) <- c("SIAL", "ERSA", "BROL", "BRRA", "IPPU", "IPAQ", "PEIN", "CAAN", "SOLY", "SOME")
+rownames(evo_distance_rbcl) <- rownames(matrix_scale_effect)
+colnames(evo_distance_rbcl) <- rownames(matrix_scale_effect)
 evo_distance_rbcl <- evo_distance_rbcl[order(rownames(evo_distance_rbcl)), order(colnames(evo_distance_rbcl))] 
 
 
@@ -461,6 +463,15 @@ bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 #Save environment to load object in Markdown
 #save.image(file='Manuscript_draft/myEnvironment_mantel.RData')
 
+
+
+#
+##
+#### Prepare data 
+##
+#
+
+
 its_distance <- melt(evo_distance_its)
 scaled_effect <- melt(matrix_scale_effect)
 scaled_effect$Species=as.character(scaled_effect$Species)
@@ -499,6 +510,7 @@ scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("CAAN")] <- "green"
 scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPAQ")] <- "green"
 scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPPU")] <- "green"
 
+par(xpd=FALSE)
 
 plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
      xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_focal)
@@ -506,9 +518,32 @@ plot(its_distance$value, scaled_effect$value, main="Scatterplot ",
 #locator(1)
 draw.circle(0.265,0.22,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
 
-draw.circle(0.20,1.8,radius=0.09,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+draw.circle(0.245,1.8,radius=0.07,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+
+#Maybe a regression line makes the plot more intuituve
+#Let's check
 
 
-plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
-     xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_non_focal)
+#General model for all 
+focal <- cbind(scaled_effect,its_distance)
+focal <- data.frame(focal, stringsAsFactors = F)
+str(focal)
+focal_bra <- filter(focal, Species==c("BROL","BRRA","ERSA","SIAL"))
+focal_sol <- filter(focal, Species==c("SOME","SOLY","PEIN","CAAN"))
+focal_con <- filter(focal, Species==c("IPAQ","IPPU"))
+model_bra <- lm(focal_bra$value ~ focal_bra$value.1)
+#summary(model_brra)
+abline(model_bra, col="red")
+model_sol <- lm(focal_sol$value ~ focal_sol$value.1)
+#summary(model_sol)
+abline(model_sol, col="blue")
+model_con <- lm(focal_con$value ~ focal_con$value.1)
+#summary(model_con)
+abline(model_con, col="black")
 
+
+
+result <- lm(scaled_effect$value~its_distance$value)
+summary(result)
+library(visreg)
+abline(result)

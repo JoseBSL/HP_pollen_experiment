@@ -14,15 +14,19 @@ library(reshape2)
 library(ape)
 library(phytools)
 library(plotrix)
+library(dplyr)
 #load environment
 load("myEnvironment_mantel.RData")
 ```
 
-To check for the effect of heterospecific pollen we assume that the optimal seed production is with the hand cross pollination (pollen from a different individual of the same species) and then we substract to the mean value of cross pollination the mean value of heterospecific pollen effect across treatments. Previously we have scaled the seed for each species with mean 0 and standard deviation of 1. When a species had higher values of seed production with treatments than the cross we set as maximum value for the treatments the same as the hand cross pollination.
+To check for the effect of heterospecific pollen we assume that the optimal seed production is the hand cross pollination (pollinated with pollen from a different individual of the same species). Then, we substract to the mean value of hand cross pollination the mean value of heterospecific pollen effect across treatments (50% conspecific-50%heterospecific pollen). Previously we have scaled the seed set for each species with mean 0 and standard deviation of 1 to be able to compare among species. When a species had higher values of seed production with treatments than the cross, we set as maximum value for the treatments the same as the hand cross pollination. However, we should take into account that analysis in general improve if we keep these negative values. If we put these words into a formula being i the different focal species and j the different donors:
+
+Eq.1  $$HpEffect_{i}=Mean(CrosPollinationSeeds)_{i}-Mean(TreatmentSeeds_{ij})$$
+
 
 #Part 1 Relation between effect of Hp and evolutive distance
 
-I try Mantel test and procustes test, although both are similar procustes performs better in wider range of circumstances @peres2001. Moreover, I consider the square root of the evolutive distances which improves the statistical power in comparison to the normal distances @letten2015.
+I try Mantel test and procustes test, although both are similar procustes performs better in a wider range of circumstances @peres2001. Moreover, I consider the square root of the evolutive distances which improves the statistical power in comparison to the normal distances @letten2015.
 
 1) With the RBCL marker
 
@@ -65,11 +69,11 @@ table<- data.frame(r,p, Analysis, Type)
 kable(table, format="markdown")
 ```
 
-I plot now the pairwise distances on the x axis and the effect of heterospecific pollen on the y axis, although is not very intuitive the greater the effect the closer to 0 because the mean hand cross pollination and the mean heterospecific pollen effect were more similar. 
+I plot now the pairwise distances on the x axis and the effect of heterospecific pollen on the y axis. The greater the effect of heterospecific pollen the greater the number on the y axis.
 
 \newpage
 
-```{r, echo=FALSE, message=FALSE, fig.cap="Scatterplot of the evolutive distances (x axis) and the mean scaled effect per species (ITS markers)."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure 1. Scatterplot of the evolutive distances (x axis) and the mean scaled effect per species (ITS markers). In other words, each point is defined by the phylogenetic distnace between a pair of species (x axis) and the effect of heterospecifc pollen which considers also an interaction between the same pair of species (donor and recipient)(y axis)"}
 its_distance <- melt(evo_distance_its)
 scaled_effect <- melt(matrix_scale_effect)
 scaled_effect$Species=as.character(scaled_effect$Species)
@@ -83,16 +87,34 @@ scaled_effect$col_focal[scaled_effect$Species==c("PEIN")] <- "blue"
 scaled_effect$col_focal[scaled_effect$Species==c("CAAN")] <- "blue"
 scaled_effect$col_focal[scaled_effect$Species==c("IPAQ")] <- "green"
 scaled_effect$col_focal[scaled_effect$Species==c("IPPU")] <- "green"
-plot(its_distance$value, scaled_effect$value, main="Hp effect & evolutive distance", 
-     xlab="Pairwise evolutive distances", ylab="Hp effect (Scaled seed set)", pch=19, col=scaled_effect$col_focal)
+plot(its_distance$value, scaled_effect$value, main="Hp effect & phylogenetic distance", 
+     xlab="Pairwise phylogenetic distances", ylab="Hp effect (Scaled seed set)", pch=19, col=scaled_effect$col_focal)
 draw.circle(0.265,0.22,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
-draw.circle(0.20,1.8,radius=0.09,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
-
+draw.circle(0.245,1.8,radius=0.07,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+focal <- cbind(scaled_effect,its_distance)
+focal <- data.frame(focal, stringsAsFactors = F)
+#str(focal)
+focal_bra <- filter(focal, Species==c("BROL","BRRA","ERSA","SIAL"))
+focal_sol <- filter(focal, Species==c("SOME","SOLY","PEIN","CAAN"))
+focal_con <- filter(focal, Species==c("IPAQ","IPPU"))
+model_bra <- lm(focal_bra$value ~ focal_bra$value.1)
+#summary(model_brra)
+abline(model_bra, col="red")
+model_sol <- lm(focal_sol$value ~ focal_sol$value.1)
+#summary(model_sol)
+abline(model_sol, col="blue")
+model_con <- lm(focal_con$value ~ focal_con$value.1)
+#summary(model_con)
+abline(model_con, col="black")
 ```
+
+
+Overall, it seems that with phylogenetic distance, heterospecific pollen effect increases for the three families. From Mantel analysis we can conclude that we have a significant correlation between phylogenetic distance and heterospecific pollen effect with r values between 0.25 and 0.3. However, for procustes test we were not able to find a significant correlation between these two despite the procustes correlation gave higher values. In Figure 1 we can also see these general pattern of a higher effect with phylogenetic distance with the different regressions lines per family. I have done simple linear models, probably I should consider other alternatives that fit better the cloud of points. In Figure 1 the two coulored circles are there for a reason, once we consider just the crosses between the "far related species" we see a general pattern for solanaceae with almost all the values above 0.5. Solanaceae curiously belongs to the group with gametophytic incompatibility which is predicted to suffer more from heterospecific pollen. Moreover, for Brassicaceae (red points) again for the far related crosses we find kind of two groups with high effect and no effect. The no effect correspond to the species without incompatibility (over 50% of selfing) and the high effect to the species with strong incompatibility (0% of selfing), again this confirms theory.
+
 
 \newpage
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 pollen_tree=read.tree("pollen_tree.nwk")
 plot(pollen_tree)
 add.scale.bar(x=0, y=1)
