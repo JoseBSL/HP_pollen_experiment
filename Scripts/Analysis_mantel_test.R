@@ -14,6 +14,7 @@ library(permute)
 library(lattice)
 library(distances)
 library(pdist)
+library(plotrix)
 #Load seed set data for 10 species
 soly  <- read.csv("Data/species_seed_set/soly_seed_set.csv", sep=";", stringsAsFactors = F)
 some  <- read.csv("Data/species_seed_set/some_seed_set.csv", sep=";", stringsAsFactors = F)
@@ -501,6 +502,11 @@ scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPPU")] <- "green"
 
 plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
      xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_focal)
+
+#locator(1)
+draw.circle(0.265,0.22,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+
+draw.circle(0.20,1.8,radius=0.09,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
 
 
 plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 

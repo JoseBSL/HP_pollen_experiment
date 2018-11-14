@@ -13,6 +13,7 @@ library(kableExtra)
 library(reshape2)
 library(ape)
 library(phytools)
+library(plotrix)
 #load environment
 load("myEnvironment_mantel.RData")
 ```
@@ -82,8 +83,11 @@ scaled_effect$col_focal[scaled_effect$Species==c("PEIN")] <- "blue"
 scaled_effect$col_focal[scaled_effect$Species==c("CAAN")] <- "blue"
 scaled_effect$col_focal[scaled_effect$Species==c("IPAQ")] <- "green"
 scaled_effect$col_focal[scaled_effect$Species==c("IPPU")] <- "green"
-plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
-     xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_focal)
+plot(its_distance$value, scaled_effect$value, main="Hp effect & evolutive distance", 
+     xlab="Pairwise evolutive distances", ylab="Hp effect (Scaled seed set)", pch=19, col=scaled_effect$col_focal)
+draw.circle(0.265,0.22,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+draw.circle(0.20,1.8,radius=0.09,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+
 ```
 
 \newpage
