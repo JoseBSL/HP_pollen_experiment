@@ -6,7 +6,7 @@ output: pdf_document
 bibliography: references.bib
 ---
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(vegan)
 library(xtable)
 library(kableExtra)

@@ -92,12 +92,11 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 
 **Paragraph 1**
 
-In natural systems plant species normally coexist and share their floral visitors with other species @bascompte2003. This pollinator sharing from the plant perspective at the pre-pollination stage can be negative due to competition @pauw2013 or positive due to facilitation @carvalheiro2014. Once, the floral visitor has arrived to the flower, pollen deposition on the stigma can take place and hence ovule fertilization. An increasing number of visits generally correlates with higher chances of fertilization (Refs). However this is not always the case, among these possible flower visitors we find also nectar robbers and pollen thiefs (Refs) and the quality of pollen that is deposited on the stigma is also highly relevant to the pollination succes (Refs). Moreover, other less study
-issues in the pollination process are conspecific pollen loss and the arrival of foreign pollen which can have important detrimental effects for the species fitness @morales2008 (More refs).
+In natural systems plant species normally coexist and share their floral visitors with other species @bascompte2003. This pollinator sharing from the plant perspective at the pre-pollination stage can be negative due to competition @pauw2013 or positive due to facilitation @carvalheiro2014. Once, the floral visitor has arrived to the flower, pollen deposition on the stigma can take place and hence ovule fertilization. An increasing number of visits generally correlates with higher chances of fertilization (Refs). However this is not always the case, among these possible flower visitors we find also nectar robbers and pollen thiefs (Refs) and the quality of pollen that is deposited on the stigma is also highly relevant to the pollination succes (Refs). Moreover, other less study issues in the pollination process are conspecific pollen loss and the arrival of foreign pollen which can have important detrimental effects for the species fitness @morales2008 (More refs).
 
 **Paragraph 2**
 
-Recent important studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 @ashamn2013 @arceo2016. A general overview of it is that reduces species fitness (REFS). Other general facts... Quantity of foreign pollen that arrives...
+Recent important studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 @ashamn2013 @arceo2016. A general overview of it can reduce species fitness (REFS) but not in al the cases (Refs). Other general facts... Quantity of foreign pollen that arrives...
 
 Mention invasive species in this paragraph
 
@@ -127,6 +126,12 @@ I would like to add that the experiments focus on two proxies of effect prezygot
 Sell well our work: We are the first empirical experiment testig the effect of heterospecific pollen with phylogenetic distance
 
 The great difficulty of working with pollen in a coflowering community make the understanding of heterospecifc pollen effect a real challenge. For this reason we have created an artificial co-flowering community in a glasshouse to test the effect with all the possible combinations among them. Where we test the folowing hypothesis: 1) Does heterospecific pollen reduce seed set, if so, 2) Does heterospecific pollen effect depend on the relatedness of the species, 3) Does heterospecific pollen effect depend on any floral trait? 
+
+
+Maybe another possible hypothesis to test is the reciprocity of the effect of heterospecifc pollen????
+
+Use the sterile species as a proof of the mechanical interference. Was a mistake but seems cool proof!!!
+
 
 # METHODS
 
