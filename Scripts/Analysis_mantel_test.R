@@ -467,13 +467,15 @@ bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 
 #
 ##
-#### Prepare data 
+#### PART 3 visualising this differences
 ##
 #
 
-
-its_distance <- melt(evo_distance_its)
+#Firs I melt the matyrics into long format
+its_distance <- melt(evo_distance_its_square_root, id.vars = as.character(evo_distance_its_square_root[,0]))
 scaled_effect <- melt(matrix_scale_effect)
+
+#I assing a new column with colours to differentiate the points
 scaled_effect$Species=as.character(scaled_effect$Species)
 scaled_effect$col_focal[scaled_effect$Species==c("BROL")] <- "red"
 scaled_effect$col_focal[scaled_effect$Species==c("BRRA")] <- "red"
@@ -485,7 +487,7 @@ scaled_effect$col_focal[scaled_effect$Species==c("PEIN")] <- "blue"
 scaled_effect$col_focal[scaled_effect$Species==c("CAAN")] <- "blue"
 scaled_effect$col_focal[scaled_effect$Species==c("IPAQ")] <- "black"
 scaled_effect$col_focal[scaled_effect$Species==c("IPPU")] <- "black"
-
+#Other column in case I want to differentiate by the donor
 scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BROL")] <- "red"
 scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BRRA")] <- "red"
 scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SIAL")] <- "red"
@@ -498,39 +500,70 @@ scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPAQ")] <- "blue"
 scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPPU")] <- "blue"
 
 
-
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BROL")] <- "blue"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("BRRA")] <- "blue"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SIAL")] <- "blue"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("ERSA")] <- "blue"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SOME")] <- "green"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("SOLY")] <- "green"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("PEIN")] <- "green"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("CAAN")] <- "green"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPAQ")] <- "green"
-scaled_effect$col_non_focal[scaled_effect$Non_focal ==c("IPPU")] <- "green"
-
-par(xpd=FALSE)
-
+#Now I plot the points
 plot(its_distance$value, scaled_effect$value, main="Scatterplot ", 
      xlab="dist", ylab="effect", pch=19, col=scaled_effect$col_focal)
 
 #locator(1)
 draw.circle(0.265,0.22,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
-
+draw.circle(0.265,2.3,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
 draw.circle(0.245,1.8,radius=0.07,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
 
 #Maybe a regression line makes the plot more intuituve
 #Let's check
 
-
 #General model for all 
 focal <- cbind(scaled_effect,its_distance)
 focal <- data.frame(focal, stringsAsFactors = F)
-str(focal)
-focal_bra <- filter(focal, Species==c("BROL","BRRA","ERSA","SIAL"))
-focal_sol <- filter(focal, Species==c("SOME","SOLY","PEIN","CAAN"))
-focal_con <- filter(focal, Species==c("IPAQ","IPPU"))
+
+focal_brol <- focal[ which( focal$Species== "BROL"& focal$Non_focal!="BROL") , ]
+focal_brra <- focal[ which( focal$Species== "BRRA"& focal$Non_focal!="BRRA") , ]
+focal_ersa <- focal[ which( focal$Species== "ERSA"& focal$Non_focal!="ERSA") , ]
+focal_sial <- focal[ which( focal$Species== "SIAL"& focal$Non_focal!="SIAL") , ]
+focal_some <- focal[ which( focal$Species== "SOME"& focal$Non_focal!="SOME") , ]
+focal_soly <- focal[ which( focal$Species== "SOLY"& focal$Non_focal!="SOLY") , ]
+focal_pein <- focal[ which( focal$Species== "PEIN"& focal$Non_focal!="PEIN") , ]
+focal_caan <- focal[ which( focal$Species== "CAAN"& focal$Non_focal!="CAAN") , ]
+focal_ipaq <- focal[ which( focal$Species== "IPAQ"& focal$Non_focal!="IPAQ") , ]
+focal_ippu <- focal[ which( focal$Species== "IPPU"& focal$Non_focal!="IPPU") , ]
+str(focal_brol)
+focal <- rbind(focal_brol, focal_brra, focal_ersa, focal_sial, focal_some, focal_soly, 
+      focal_pein, focal_caan, focal_ipaq, focal_ippu)
+
+focal_bra_a <- focal[focal$Species==c("BROL"),]
+focal_bra_b <- focal[focal$Species==c("BRRA"),]
+focal_bra_c <- focal[focal$Species==c("SIAL"),]
+focal_bra_d <- focal[focal$Species==c("ERSA"),]
+length((focal_bra$Species))
+focal_bra <- rbind(focal_bra_a,focal_bra_b,focal_bra_c,focal_bra_d)
+length(prueba$Species)
+
+focal_sol_a <- focal[focal$Species==c("SOME"),]
+focal_sol_b <- focal[focal$Species==c("SOLY"),]
+focal_sol_c <- focal[focal$Species==c("PEIN"),]
+focal_sol_d <- focal[focal$Species==c("CAAN"),]
+
+focal_sol <- rbind(focal_sol_a,focal_sol_b,focal_sol_c,focal_sol_d)
+
+focal_con_a <- focal[focal$Species==c("IPAQ"),]
+focal_con_b <- focal[focal$Species==c("IPPU"),]
+focal_con <- rbind(focal_con_a, focal_con_b)
+
+
+colnames(focal)[3] <- "hp_effect"
+colnames(focal)[7] <- "its_distance"
+
+
+plot(focal$hp_effect ~ focal$its_distance, main="", xlim=c(0.05,0.6),
+     xlab="Evolutive distance", ylab="Hp effect", pch=19, col=focal$col_focal)
+
+legend(x=0.04,y=3.2,legend=c("Brassicaceae","Convolvulaceae","Solanaceae"),pch=(c(16,16,16)), 
+       col = c("red","black","blue"), bty="n",cex=0.6,pt.cex=0.6,xpd=TRUE)
+
+#draw.circle(0.265,0.22,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+#draw.circle(0.265,2.3,radius=0.045,nv=100,border="red",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+#draw.circle(0.245,1.8,radius=0.07,nv=100,border="blue",col=NA,lty=1,density=NULL,angle=45,lwd=1)
+
 model_bra <- lm(focal_bra$value ~ focal_bra$value.1)
 #summary(model_brra)
 abline(model_bra, col="red")
@@ -542,8 +575,45 @@ model_con <- lm(focal_con$value ~ focal_con$value.1)
 abline(model_con, col="black")
 
 
+#Now I'm going to prepare the same plot but just with points of each family                 
+#donor same family
+key(focal_brol)
+focal_brol$Non_focal=as.character(focal_brol$Non_focal)
+#Brassicaceae donor brassicaceae
+a <- subset(focal_brol, Non_focal=="BRRA" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
+b <- subset(focal_brra, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
+c <- subset(focal_ersa, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
+d <- subset(focal_sial, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
 
-result <- lm(scaled_effect$value~its_distance$value)
-summary(result)
-library(visreg)
-abline(result)
+bra <- rbind(a,b,c,d)
+
+#Solanaceae donor solanaceae
+
+e <- subset(focal_soly, Non_focal=="CAAN" | Non_focal=="PEIN"| Non_focal=="SOLY" | Non_focal=="SOME")
+f <- subset(focal_some, Non_focal=="CAAN" | Non_focal=="PEIN"| Non_focal=="SOLY" | Non_focal=="SOME")
+g <- subset(focal_pein, Non_focal=="CAAN" | Non_focal=="PEIN"| Non_focal=="SOLY" | Non_focal=="SOME")
+h <- subset(focal_caan, Non_focal=="CAAN" | Non_focal=="PEIN"| Non_focal=="SOLY" | Non_focal=="SOME")
+
+sol <- rbind(e,f,g,h)
+
+#Convolvulaceae with convolvulaceae
+
+i <- subset(focal_ipaq, Non_focal=="IPPU" | Non_focal=="IPAQ")
+k <- subset(focal_ippu, Non_focal=="IPPU" | Non_focal=="IPAQ")
+
+con <- rbind(i,k)
+
+all <- rbind(bra, sol, con)
+all$col_focal[all$Species==c("BROL")] <- "red"
+all$col_focal[all$Species==c("BRRA")] <- "red"
+all$col_focal[all$Species==c("SIAL")] <- "red"
+all$col_focal[all$Species==c("ERSA")] <- "red"
+all$col_focal[all$Species==c("SOME")] <- "blue"
+all$col_focal[all$Species==c("SOLY")] <- "blue"
+all$col_focal[all$Species==c("PEIN")] <- "blue"
+all$col_focal[all$Species==c("CAAN")] <- "blue"
+all$col_focal[all$Species==c("IPAQ")] <- "black"
+all$col_focal[all$Species==c("IPPU")] <- "black"
+
+plot(all$value ~ all$value.1, main="", xlim=c(0.05,0.6),
+     xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all$col_focal)
