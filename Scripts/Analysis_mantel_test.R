@@ -617,3 +617,5 @@ all$col_focal[all$Species==c("IPPU")] <- "black"
 
 plot(all$value ~ all$value.1, main="", xlim=c(0.05,0.6),
      xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all$col_focal)
+
+
