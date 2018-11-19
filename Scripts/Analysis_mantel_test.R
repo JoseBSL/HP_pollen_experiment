@@ -287,6 +287,9 @@ traits_all_bioenv <- traits_all
 traits_all_bioenv_scaled <- scale(traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
+bio_result <- bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
+save(bio_result, file="Manuscript_draft/bio_result.RData")
+bio_result[3]
 #Result r=0.3711462 being pollen ovule ratio, stigma width and style width the best model
 adonis(matrix_scale_effect ~. ,data=traits_all)
 traits_all_scaled=as.data.frame(traits_all_scaled)
@@ -437,7 +440,7 @@ bioenv(matrix_scale_effect~traits_all$stigma_surface, method="pearson", trace=T)
 #11)Stigma width
 stigma_width <- traits_all_scaled[,11]
 stigma_width <- as.data.frame(stigma_width)
-stigma_width <- 1- stigma_width
+stigma_width <- stigma_width
 rownames(stigma_width) <- rownames(stigma_width)
 stigma_width_dist <- dist(stigma_width, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_width_dist)
@@ -450,7 +453,6 @@ bioenv(matrix_scale_effect~traits_all$stigma_width, method="pearson", trace=T)
 #12)Style_length
 style_length <- traits_all_scaled[,12]
 style_length <- as.data.frame(style_length)
-style_length <- 1- style_length
 rownames(style_length) <- rownames(style_length)
 style_length_dist <- dist(style_length, diag=T, upper=T)
 mantel(matrix_scale_effect, style_length_dist)
@@ -459,6 +461,37 @@ protest(matrix_scale_effect, style_length_dist)
 #significance=0.113, procustes correlation=0.3995
 bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 #correlation=-0.1757
+
+#13)Style_width
+style_width <- traits_all_scaled[,12]
+style_width <- as.data.frame(style_width)
+rownames(style_width) <- rownames(style_width)
+style_width_dist <- dist(style_width, diag=T, upper=T)
+mantel(matrix_scale_effect, style_width_dist)
+#significance=0.0787, r=0.07872
+protest(matrix_scale_effect, style_width_dist)
+#significance=0.115, procustes correlation=0.4231
+
+#13)Ovary_width
+ovary_width <- traits_all_scaled[,12]
+ovary_width <- as.data.frame(ovary_width)
+rownames(ovary_width) <- rownames(ovary_width)
+ovary_width_dist <- dist(ovary_width, diag=T, upper=T)
+mantel(matrix_scale_effect, ovary_width_dist)
+#significance=0.0787, r=0.07872
+protest(matrix_scale_effect, ovary_width_dist)
+#significance=0.115, procustes correlation=0.4231
+
+#13)Ovary_length
+ovary_length <- traits_all_scaled[,12]
+ovary_length <- as.data.frame(ovary_length)
+rownames(ovary_length) <- rownames(ovary_length)
+ovary_length_dist <- dist(ovary_length, diag=T, upper=T)
+mantel(matrix_scale_effect, ovary_length_dist)
+#significance=0.0787, r=0.07872
+protest(matrix_scale_effect, ovary_length_dist)
+#significance=0.115, procustes correlation=0.4231
+
 
 #Save environment to load object in Markdown
 #save.image(file='Manuscript_draft/myEnvironment_mantel.RData')
@@ -581,9 +614,9 @@ key(focal_brol)
 focal_brol$Non_focal=as.character(focal_brol$Non_focal)
 #Brassicaceae donor brassicaceae
 a <- subset(focal_brol, Non_focal=="BRRA" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
-b <- subset(focal_brra, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
-c <- subset(focal_ersa, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
-d <- subset(focal_sial, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BROL")
+b <- subset(focal_brra, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BRRA")
+c <- subset(focal_ersa, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BRRA")
+d <- subset(focal_sial, Non_focal=="BROL" | Non_focal=="ERSA"| Non_focal=="SIAL" | Non_focal=="BRRA")
 
 bra <- rbind(a,b,c,d)
 
@@ -615,7 +648,60 @@ all$col_focal[all$Species==c("CAAN")] <- "blue"
 all$col_focal[all$Species==c("IPAQ")] <- "black"
 all$col_focal[all$Species==c("IPPU")] <- "black"
 
-plot(all$value ~ all$value.1, main="", xlim=c(0.05,0.6),
+all$close_related <-1
+
+#Half of the plot done, now I prepare distant related donors (not of the same family)
+plot(all$value ~jitter(all$close_related, factor=10),xlim=c(0,3), main="",
      xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all$col_focal)
 
+#Brassicaceae donor brassicaceae
+a <- subset(focal_brol, Non_focal=="CAAN" | Non_focal=="SOLY"| Non_focal=="SOME" | Non_focal=="PEIN"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
 
+b <- subset(focal_brra, Non_focal=="CAAN" | Non_focal=="SOLY"| Non_focal=="SOME" | Non_focal=="PEIN"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
+
+c <- subset(focal_ersa, Non_focal=="CAAN" | Non_focal=="SOLY"| Non_focal=="SOME" | Non_focal=="PEIN"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
+
+d <- subset(focal_sial, Non_focal=="CAAN" | Non_focal=="SOLY"| Non_focal=="SOME" | Non_focal=="PEIN"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
+
+bra <- rbind(a,b,c,d)
+
+e <- subset(focal_soly, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL" | Non_focal=="BRRA"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
+f <- subset(focal_pein, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL" | Non_focal=="BRRA"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
+g <- subset(focal_some, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL" | Non_focal=="BRRA"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
+h <- subset(focal_soly, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL" | Non_focal=="BRRA"
+            | Non_focal=="IPAQ"| Non_focal=="IPPU")
+
+sol <- rbind(e,f,g,h)
+
+i <- subset(focal_ipaq, Non_focal=="SOME" | Non_focal=="SOLY"| Non_focal=="PEIN"| Non_focal=="CAAN"
+            | Non_focal=="BROL"| Non_focal=="BRRA"| Non_focal=="ERSA"| Non_focal=="SIAL")
+K <- subset(focal_ipaq, Non_focal=="SOME" | Non_focal=="SOLY"| Non_focal=="PEIN"| Non_focal=="CAAN"
+            | Non_focal=="BROL"| Non_focal=="BRRA"| Non_focal=="ERSA"| Non_focal=="SIAL")
+con <- rbind(i,k)
+all_non_focal <- rbind(bra, sol, con)
+
+all_non_focal$close_related <-2
+
+all <- rbind(all, all_non_focal)
+#Now I plot corsses between family and across families, to see if the cloud of point is different
+plot(all$value ~jitter(all$close_related, factor=1),xaxt='n',xlim=c(0,3), main="",
+     xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all$col_focal)
+axis(1, at=1:2, labels=c("family crosses", "across family" ))
+
+all$compatibility <- "black"
+all$compatibility[all$Species==c("BROL")] <- "cyan"
+all$compatibility[all$Species==c("BRRA")] <- "cyan"
+all$compatibility[all$Species==c("ERSA")] <- "red"
+all$compatibility[all$Species==c("SIAL")] <- "red"
+
+
+plot(all$value ~jitter(all$close_related, factor=1),xaxt='n',xlim=c(0,3), main="",
+     xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all$compatibility)
+axis(1, at=1:2, labels=c("family crosses", "across family crosses" ))

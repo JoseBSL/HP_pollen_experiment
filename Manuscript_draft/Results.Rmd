@@ -111,13 +111,7 @@ abline(model_con, col="black")
 ```
 
 
-
-
-
-
-
-
-In Figure 1 we can also see these general pattern of a higher effect with phylogenetic distance with the different regressions lines per family. I have done simple linear models, probably I should consider other alternatives that fit better the cloud of points. In Figure 1 the two coulored circles are there for a reason, once we consider just the crosses between the "far related species" we see a general pattern for solanaceae with almost all the values above 0.5. Solanaceae curiously belongs to the group with gametophytic incompatibility which is predicted to suffer more from heterospecific pollen. Moreover, for Brassicaceae (red points) again for the far related crosses we find kind of two groups with high effect and no effect. The no effect correspond to the species without incompatibility (over 50% of selfing) and the high effect to the species with strong incompatibility (0% of selfing), in order to show this in a better way I'm going just to plot these points of interest with their corresponding labels.
+So far I think phylogenetic distance doesn't help to visualize heterospecific pollen effect. Grouping by traits or the type of donor seems to be much more informative.
 
 
 \newpage
@@ -131,7 +125,67 @@ add.scale.bar(x=0, y=1)
 \newpage
 #Part 2 Relation between effect of Hp and traits
 
-```{r}
+Here I perform Mantel test and Procustes test between the traits and heterospecific pollen effect. For both Mantel and procustes we weren't able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits. With Bioenv we can now what are the traits that gives a best fit of correlation between matrices. The best model is with pollen ovule ratio, stigma width and style width.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("bio_result.RData")
+m_all <- mantel(matrix_scale_effect, traits_all_scaled_dist)
+p_all <- protest(matrix_scale_effect, traits_all_scaled_dist)
+
+r <- c(as.numeric(m_all[3]),as.numeric(p_all[6]), as.numeric(bio_result$`models`[[3]]$est))
+p <- c(as.numeric(m_all[4]),as.numeric(p_all[13]), NA)
+Analysis <- c("Mantel", "Procustes", "Bioenv")
+table<- data.frame(r,p, Analysis)
+kable(table, format="markdown")
+
+```
+
+Now I perform the analysis with both Mantel and Procustes trait by trait.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+a_1 <- mantel(matrix_scale_effect, traits_stigma_dist)
+a_2 <- protest(matrix_scale_effect, traits_stigma_dist)
+b_1 <- mantel(matrix_scale_effect, traits_self_dist)
+b_2 <- protest(matrix_scale_effect, traits_self_dist)
+c_1 <- mantel(matrix_scale_effect, pollen_size_dist)
+c_2 <- protest(matrix_scale_effect, pollen_size_dist)
+d_1 <- mantel(matrix_scale_effect, pollen_dist)
+d_2 <- protest(matrix_scale_effect, pollen_dist)
+e_1 <- mantel(matrix_scale_effect, ovules_dist)
+e_2 <- protest(matrix_scale_effect, ovules_dist)
+f_1 <- mantel(matrix_scale_effect, p_o_ratio_dist)
+f_2 <- protest(matrix_scale_effect, p_o_ratio_dist)
+g_1 <- mantel(matrix_scale_effect, anthers_dist)
+g_2 <- protest(matrix_scale_effect, anthers_dist)
+h_1 <- mantel(matrix_scale_effect, stigma_area_dist)
+h_2 <- protest(matrix_scale_effect, stigma_area_dist)
+i_1 <- mantel(matrix_scale_effect, stigma_length_dist)
+i_2 <- protest(matrix_scale_effect, stigma_length_dist)
+j_1 <- mantel(matrix_scale_effect, stigma_surface_dist)
+j_2 <- protest(matrix_scale_effect, stigma_surface_dist)
+k_1 <- mantel(matrix_scale_effect, stigma_width_dist)
+k_2 <- protest(matrix_scale_effect, stigma_width_dist)
+l_1 <- mantel(matrix_scale_effect, style_length_dist)
+l_2 <- protest(matrix_scale_effect, style_length_dist)
+m_1 <- mantel(matrix_scale_effect, style_width_dist)
+m_2 <- protest(matrix_scale_effect, style_width_dist)
+n_1 <- mantel(matrix_scale_effect, ovary_length_dist)
+n_2 <- protest(matrix_scale_effect, ovary_length_dist)
+o_1 <- mantel(matrix_scale_effect, ovary_width_dist)
+o_2 <- protest(matrix_scale_effect, ovary_width_dist)
+
+r <- c(as.numeric(a_1[3]),as.numeric(a_2[6]),as.numeric(b_1[3]),as.numeric(b_2[6]),as.numeric(c_1[3]),
+       as.numeric(c_2[6]), as.numeric(d_1[3]), as.numeric(d_2[6]), as.numeric(e_1[3]), as.numeric(e_2[6]),
+       as.numeric(f_1[3]), as.numeric(f_2[6]), as.numeric(g_1[3]), as.numeric(g_2[6]), as.numeric(h_1[3]), as.numeric(h_2[6]), as.numeric(i_1[3]), as.numeric(i_2[6]), as.numeric(j_1[3]), as.numeric(j_2[6]), as.numeric(k_1[3]), as.numeric(k_2[6]), as.numeric(l_1[3]), as.numeric(l_2[6]), as.numeric(m_1[3]), as.numeric(m_2[6]),as.numeric(n_1[3]), as.numeric(n_2[6]), as.numeric(o_1[3]), as.numeric(o_2[6]))
+
+p <- c(as.numeric(a_1[4]),as.numeric(a_2[13]), as.numeric(b_1[4]),as.numeric(b_2[13]), as.numeric(c_1[4]),as.numeric(c_2[13]), as.numeric(d_1[4]),as.numeric(d_2[13]), as.numeric(e_1[4]),as.numeric(e_2[13]), as.numeric(f_1[4]),as.numeric(f_2[13]), as.numeric(g_1[4]),as.numeric(g_2[13]), as.numeric(h_1[4]),as.numeric(h_2[13]),  as.numeric(i_1[4]),as.numeric(i_2[13]),  as.numeric(j_1[4]),as.numeric(j_2[13]), as.numeric(k_1[4]),as.numeric(k_2[13]), as.numeric(l_1[4]),as.numeric(l_2[13]), as.numeric(m_1[4]),as.numeric(m_2[13]), as.numeric(n_1[4]),as.numeric(n_2[13]), as.numeric(o_1[4]),as.numeric(o_2[13]))
+
+Analysis <- c("**Mantel**", "Procustes","Mantel", "Procustes", "Mantel", "Procustes", "Mantel", "Procustes", "Mantel", "Procustes", "Mantel", "Procustes", "Mantel", "Procustes", "**Mantel**", "Procustes", "Mantel", "Procustes", "**Mantel**", "Procustes","Mantel", "Procustes", "Mantel", "Procustes", "Mantel", "Procustes",
+              "Mantel", "Procustes", "Mantel", "Procustes")
+Trait<- c("**Stigma_type**", "Stigma_type", "Selfing_rate", "Selfing_rate", "Pollen size", "Pollen size", "Pollen_anther","Pollen_anther", "Ovules", "Ovules", "Pollen_ovule_ratio", "Pollen_ovule_ratio", "Anthers", 
+          "Anthers", "**Stigma_area**", "Stigma_area", "Stigma_length", "Stigma_length", "**Stigma_surface**", "Stigma_surface", "Stigma_width", "Stigma_width", "Style_length", "Style_length", "Style_width", "Style_width", "Ovary_length", "Ovary_length", "Ovary_width", "Ovary_width")
+table<- data.frame(r,p, Analysis, Trait)
+kable(table, format="markdown")
 
 ```
 
