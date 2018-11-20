@@ -23,10 +23,13 @@ To check for the effect of heterospecific pollen we assume that the optimal seed
 
 Eq.1  $$HpEffect_{i}=Mean(CrosPollinationSeeds_{i})-Mean(TreatmentSeeds_{ij})$$
 
+So the higher the values HpEffect the higher the negative impact of heterospecific pollen.
+
 The number of possible combinations with 10 species (multiplied by two because is in both directions the treatments A to B and B to A):
 
 $$(\frac{10}{2})=\frac{10!}{2!*(8!)}*2=90 $$
 
+In total we performed 4400 treatments. If we just consider seed set, 2200 treatments including [50% Hp, 100% Hp, hand cross pollination, self pollination, natural selfing (bagged flowers) and apomixis (emasculated flowers)].
 
 #Part 1 Relation between effect of Hp and evolutive distance
 
@@ -87,7 +90,7 @@ legend(x=0.04,y=3.2,legend=c("Brassicaceae","Convolvulaceae","Solanaceae"),pch=(
 Figure 1. Scatterplot of the evolutive distances (x axis) and the mean scaled effect per species (ITS markers). In other words, each point is defined by the phylogenetic distance between a pair of species (x axis) and the effect of heterospecifc pollen which considers also an interaction between the same pair of species (donor and recipient)(y axis)
 \newpage
 
-Although is not very elegant, I  had the curiosity of how a regression line will fit these 3 different families. Here I show how they fit the colud of points per family *lm(HpEffect~its_distance)*. Anyway, don't think this is very informative.
+Although is not very elegant, I  had the curiosity of how a regression line will fit these 3 different families. Here I show how they fit the cloud of points per family *lm(HpEffect~its_distance)*. Anyway, don't think this is very informative.
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -125,7 +128,7 @@ add.scale.bar(x=0, y=1)
 \newpage
 #Part 2 Relation between effect of Hp and traits
 
-Here I perform Mantel test and Procustes test between the traits and heterospecific pollen effect. For both Mantel and procustes we weren't able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits. With Bioenv we can now what are the traits that gives a best fit of correlation between matrices. The best model is with pollen ovule ratio, stigma width and style width.
+Here I perform Mantel test and Procustes test between the traits and heterospecific pollen effect. For both Mantel and procustes we weren't able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits. With Bioenv we can know what are the traits that gives a best fit of correlation between matrices. The best model is with pollen ovule ratio, stigma width and style width.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("bio_result.RData")
