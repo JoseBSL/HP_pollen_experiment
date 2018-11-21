@@ -498,6 +498,26 @@ protest(matrix_scale_effect, ovary_length_dist)
 
 
 
+#After checking the correlations between the morphological traits, we clean some variables
+#For stigma we are going to use one measurement that is going to be the width seen from the top 
+#which is highly correlated with the area (square micrometers) also seen from the top
+#For style we are going to use just the length
+
+traits_all_scaled_clean <- traits_all_scaled[,-c(7,8,10,12)]
+all_scaled_clean_dist <- dist(traits_all_scaled_clean)
+mantel(matrix_scale_effect, all_scaled_clean_dist)
+
+protest(matrix_scale_effect, all_scaled_clean_dist)
+
+traits_checking <- traits_all_scaled[,-c(2,3,4,5,7,8,9,11,12,13,14,15)]
+traits_checking_dist <- dist(traits_checking)
+
+mantel(matrix_scale_effect, traits_checking_dist)
+protest(matrix_scale_effect, traits_checking_dist)
+
+cor.test(traits_all_scaled$stigma_type, traits_all_scaled$stigma_surface)
+
+
 #
 ##
 #### PART 3 visualising this differences

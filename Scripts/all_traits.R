@@ -80,29 +80,73 @@ ovary_length$measurement <- gsub('ovary _ legth', 'ovary _ length', ovary_length
 #Ok now all the traits are ready!! Lets add it to traits_all.
 
 traits_all$stigma_area <- stigma_area$um
-traits_all$stigma_length <- stigma_lenght$um
+traits_all$stigma_length <- stigma_length$um
 traits_all$stigma_surface <- stigma_surface$um
 traits_all$stigma_width <- stigma_width$um
-traits_all$style_length <- stigma_lenght$um
+traits_all$style_length <- stigma_length$um
 traits_all$style_width <- style_width$um
 traits_all$ovary_width <- ovary_width$um
 traits_all$ovary_length <- ovary_length$um
 
 
+#save.image("Manuscript_draft/Data/stigma_area.RData")
+#save.image("Manuscript_draft/Data/stigma_length.RData")
+#save.image("Manuscript_draft/Data/stigma_surface.RData")
+#save.image("Manuscript_draft/Data/stigma_width.RData")
+#save.image("Manuscript_draft/Data/style_length.RData")
+#save.image("Manuscript_draft/Data/style_width.RData")
+#save.image("Manuscript_draft/Data/ovary_width.RData")
+#save.image("Manuscript_draft/Data/ovary_length.RData")
+
+#dir.create("Manuscript_draft/Data")
+
+save.image(file='Manuscript_draft/Data/trait_corr.RData')
 
 
-cor.test(stigma_lenght$um, stigma_width$um)
-cor.test(stigma_length$um, stigma_area$um)
-cor.test(width$um, area$um)
-cor.test(ovary_width$um, o_length$um)
+cor.test(stigma_area$um, stigma_length$um)
+cor.test(stigma_area$um, stigma_surface$um)
+cor.test(stigma_area$um, stigma_width$um)
+cor.test(stigma_area$um, style_length$um)
+cor.test(stigma_area$um, style_width$um)
+cor.test(stigma_area$um, ovary_width$um)
+cor.test(stigma_area$um, ovary_length$um)
+
+cor.test(stigma_length$um, stigma_surface$um)
+cor.test(stigma_length$um, stigma_width$um)
+cor.test(stigma_length$um, style_length$um)
+cor.test(stigma_length$um, style_width$um)
+cor.test(stigma_length$um, ovary_width$um)
 cor.test(stigma_length$um, ovary_length$um)
+
+cor.test(stigma_surface$um, stigma_width$um)
+cor.test(stigma_surface$um, style_length$um)
+cor.test(stigma_surface$um, style_width$um)
+cor.test(stigma_surface$um, ovary_width$um)
+cor.test(stigma_surface$um, ovary_length$um)
+
+cor.test(stigma_width$um, style_length$um)
+cor.test(stigma_width$um, style_width$um)
+cor.test(stigma_width$um, ovary_width$um)
+cor.test(stigma_width$um, ovary_length$um)
+
 cor.test(style_length$um, style_width$um)
-cor.test(style_length$um, stigma_length$um)
+cor.test(style_length$um, ovary_width$um)
 cor.test(style_length$um, ovary_length$um)
 
+cor.test(style_width$um, ovary_width$um)
+cor.test(style_width$um, ovary_length$um)
+
+cor.test(ovary_width$um, ovary_length$um)
 
 
-
+#Checking how to call the variables
+a_1 <- cor.test(ovary_width$um, ovary_length$um)
+library(kableExtra)
+a <- c(a_1[3], a_1[4])
+b <- c(a_1[3], a_1[4])
+c <- rbind(a,b)
+table<- data.frame(c)
+kable(table)
 #write.csv(traits_all, "Data/traits_all.csv")
 
 #Checking for correlations

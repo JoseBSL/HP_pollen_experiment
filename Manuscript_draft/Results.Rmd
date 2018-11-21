@@ -23,7 +23,7 @@ To check for the effect of heterospecific pollen we assume that the optimal seed
 
 Eq.1  $$HpEffect_{i}=Mean(CrosPollinationSeeds_{i})-Mean(TreatmentSeeds_{ij})$$
 
-So the higher the values HpEffect the higher the negative impact of heterospecific pollen.
+Therefore, the higher the values of HpEffect the higher the impact of it.
 
 The number of possible combinations with 10 species (multiplied by two because is in both directions the treatments A to B and B to A):
 
@@ -49,8 +49,8 @@ r <- c(as.numeric(mantel_rbcl[3]), as.numeric(mantel_rbcl_sqrt[3]),
        as.numeric(pro_rbcl[6]),as.numeric(pro_rbcl_sqrt[6]))
 p <- c(as.numeric(mantel_rbcl[4]),as.numeric(mantel_rbcl_sqrt[4]),
        as.numeric(pro_rbcl[13]),as.numeric(pro_rbcl_sqrt[13]))
-Analysis <- c("Mantel", "Mantel", "Procustes", "Procustes")
-Type <- c("normal evolutive distance","sqrt evolutive distance","normal evolutive distance", "sqrt evolutive distance")
+Analysis <- c("**Mantel**", "**Mantel**", "Procustes", "Procustes")
+Type <- c("**normal evolutive distance**","**sqrt evolutive distance**","normal evolutive distance", "sqrt evolutive distance")
 table<- data.frame(r,p, Analysis, Type)
 kable(table, format="markdown")
 ```
@@ -70,65 +70,18 @@ r <- c(as.numeric(mantel_its[3]), as.numeric(mantel_its_sqrt[3]),
        as.numeric(pro_its[6]),as.numeric(pro_its_sqrt[6]))
 p <- c(as.numeric(mantel_its[4]),as.numeric(mantel_its_sqrt[4]),
        as.numeric(pro_its[13]),as.numeric(pro_its_sqrt[13]))
-Analysis <- c("Mantel", "Mantel", "Procustes", "Procustes")
-Type <- c("normal evolutive distance","sqrt evolutive distance","normal evolutive distance", "sqrt evolutive distance")
+Analysis <- c("**Mantel**", "**Mantel**", "Procustes", "Procustes")
+Type <- c("**normal evolutive distance**","**sqrt evolutive distance**","normal evolutive distance", "sqrt evolutive distance")
 table<- data.frame(r,p, Analysis, Type)
 kable(table, format="markdown")
 ```
 
-Overall, it seems that with phylogenetic distance, heterospecific pollen effect increases for the three families. From Mantel analysis we can conclude that we have a significant correlation between phylogenetic distance and heterospecific pollen effect with r values between 0.25 and 0.3. However, for procustes test we were not able to find a significant correlation between these two despite procustes correlation gave higher values. This positive correlation should be further explored. Maybe a scatterplot of the phylogenetic distance and the heterospecific pollen effect could help to understand this correlation.
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-plot(focal$hp_effect ~ focal$its_distance, main="", xlim=c(0.05,0.6),
-     xlab="Evolutive distance", ylab="Hp effect", pch=19, col=focal$col_focal)
-
-legend(x=0.04,y=3.2,legend=c("Brassicaceae","Convolvulaceae","Solanaceae"),pch=(c(16,16,16)), 
-       col = c("red","black","blue"), bty="n",cex=0.6,pt.cex=0.6,xpd=TRUE)
-
-```
-Figure 1. Scatterplot of the evolutive distances (x axis) and the mean scaled effect per species (ITS markers). In other words, each point is defined by the phylogenetic distance between a pair of species (x axis) and the effect of heterospecifc pollen which considers also an interaction between the same pair of species (donor and recipient)(y axis)
-\newpage
-
-Although is not very elegant, I  had the curiosity of how a regression line will fit these 3 different families. Here I show how they fit the cloud of points per family *lm(HpEffect~its_distance)*. Anyway, don't think this is very informative.
-
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-
-plot(focal$hp_effect ~ focal$its_distance, main="", xlim=c(0.05,0.6),
-     xlab="Evolutive distance", ylab="Hp effect", pch=19, col=focal$col_focal)
-
-legend(x=0.04,y=3.2,legend=c("Brassicaceae","Convolvulaceae","Solanaceae"),pch=(c(16,16,16)), 
-       col = c("red","black","blue"), bty="n",cex=0.6,pt.cex=0.6,xpd=TRUE)
-
-model_bra <- lm(focal_bra$value ~ focal_bra$value.1)
-#summary(model_brra)
-abline(model_bra, col="red")
-model_sol <- lm(focal_sol$value ~ focal_sol$value.1)
-#summary(model_sol)
-abline(model_sol, col="blue")
-model_con <- lm(focal_con$value ~ focal_con$value.1)
-#summary(model_con)
-abline(model_con, col="black")
-
-```
-
-
-So far I think phylogenetic distance doesn't help to visualize heterospecific pollen effect. Grouping by traits or the type of donor seems to be much more informative.
-
-
-\newpage
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-pollen_tree=read.tree("pollen_tree.nwk")
-plot(pollen_tree)
-add.scale.bar(x=0, y=1)
-```
+Overall, it seems that with phylogenetic distance, heterospecific pollen effect increases for the three families. From Mantel analysis we can conclude that we have a significant correlation between phylogenetic distance and heterospecific pollen effect with r values between 0.25 and 0.3. However, for procustes test we were not able to find a significant correlation between these two despite procustes correlation gave higher values. This positive correlation should be further explored.
 
 \newpage
 #Part 2 Relation between effect of Hp and traits
 
-Here I perform Mantel test and Procustes test between the traits and heterospecific pollen effect. For both Mantel and procustes we weren't able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits. With Bioenv we can know what are the traits that gives a best fit of correlation between matrices. The best model is with pollen ovule ratio, stigma width and style width.
+Here I perform Mantel test and Procustes test between the traits and heterospecific pollen effect. For both Mantel and procustes we were not able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits. With Bioenv we can know what are the traits that gives a best fit of correlation between matrices. The best model is with pollen ovule ratio, stigma width and style width.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("bio_result.RData")
@@ -192,6 +145,59 @@ kable(table, format="markdown")
 
 ```
 
+Now I show the correlations between the different morphological traits in order to clean the data. The correlation is performed between the mean values for each species, so N=10.
 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("Data/trait_corr.RData")
+
+a_1 <- cor.test(stigma_area$um, stigma_length$um)
+a_2 <- cor.test(stigma_area$um, stigma_surface$um)
+a_3 <- cor.test(stigma_area$um, stigma_width$um)
+a_4 <- cor.test(stigma_area$um, style_length$um)
+a_5 <- cor.test(stigma_area$um, style_width$um)
+a_6 <- cor.test(stigma_area$um, ovary_width$um)
+a_7 <- cor.test(stigma_area$um, ovary_length$um)
+b_1 <- cor.test(stigma_length$um, stigma_surface$um)
+b_2 <- cor.test(stigma_length$um, stigma_width$um)
+b_3 <- cor.test(stigma_length$um, style_length$um)
+b_4 <- cor.test(stigma_length$um, style_width$um)
+b_5 <- cor.test(stigma_length$um, ovary_width$um)
+b_6 <- cor.test(stigma_length$um, ovary_length$um)
+c_1 <- cor.test(stigma_surface$um, stigma_width$um)
+c_2 <- cor.test(stigma_surface$um, style_length$um)
+c_3 <- cor.test(stigma_surface$um, style_width$um)
+c_4 <- cor.test(stigma_surface$um, ovary_width$um)
+c_5 <- cor.test(stigma_surface$um, ovary_length$um)
+d_1 <- cor.test(stigma_width$um, style_length$um)
+d_2 <- cor.test(stigma_width$um, style_width$um)
+d_3 <- cor.test(stigma_width$um, ovary_width$um)
+d_4 <- cor.test(stigma_width$um, ovary_length$um)
+e_1 <- cor.test(style_length$um, style_width$um)
+e_2 <- cor.test(style_length$um, ovary_width$um)
+e_3 <- cor.test(style_length$um, ovary_length$um)
+f_1 <- cor.test(style_width$um, ovary_width$um)
+f_2 <- cor.test(style_width$um, ovary_length$um)
+g_1 <- cor.test(ovary_width$um, ovary_length$um)
+
+r <- c(a_1[4],a_2[4],a_3[4],a_4[4],a_5[4],a_6[4],a_7[4], b_1[4],b_2[4],b_3[4],b_4[4],b_5[4],b_6[4], c_1[4],c_2[4],c_3[4],c_4[4],c_5[4], d_1[4],d_2[4],d_3[4],d_4[4], e_1[4],e_2[4],e_3[4], f_1[4],f_2[4], g_1[4])
+r<- as.numeric(r)
+p <- c(a_1[3],a_2[3],a_3[3],a_4[3],a_5[3],a_6[3],a_7[3], b_1[3],b_2[3],b_3[3],b_4[3],b_5[3],b_6[3], c_1[3],c_2[3],c_3[3],c_4[3],c_5[3], d_1[3],d_2[3],d_3[3],d_4[3], e_1[3],e_2[3],e_3[3], f_1[3],f_2[3], g_1[3])
+p<-as.numeric(p)
+corr_a<- c("Stigma_area~Stigma_length","**Stigma_area~Stigma_surface**","Stigma_area~Stigma_width","**Stigma_area~Style_length**","Stigma_area~Style_width","Stigma_area~Ovary_width","Stigma_area~Ovary_length")
+corr_b <- c("Stigma_length~Stigma_surface","Stigma_length~Stigma_width","Stigma_length~Style_length","Stigma_length~Style_width","**Stigma_length~Ovary_width**","Stigma_length~Ovary_length")
+corr_c <- c("stigma_surface~Stigma_width","**stigma_surface~Style_length**","stigma_surface~Style_width","stigma_surface~Ovary_width","stigma_surface~Ovary_length")
+corr_d <- c("Stigma_width~Style_length","Stigma_width~Style_width","Stigma_width~Ovary_width","Stigma_width~Ovary_length")
+corr_e <- c("Style_length~Style_width","Style_length~Ovary_width","Style_length~Ovary_length")
+corr_f <- c("Style_width~Ovary_width","Style_width~Ovary_length")
+corr_g <- c("Ovary_width~Ovary_length")
+corr <- c(corr_a,corr_b,corr_c,corr_d,corr_e,corr_f,corr_g)
+
+table<- data.frame(r,p, corr)
+kable(table, format="markdown")
+
+```
+
+As it was expected, stigma area (square micrometers) and and stigma surface are highly correlated. Basically, they are the same measure. They are two different ways to estimate stigma size. 
 
 #References
