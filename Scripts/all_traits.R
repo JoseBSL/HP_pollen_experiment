@@ -78,6 +78,7 @@ ovary_length <-ovary[grep("legth", ovary$measurement),]
 ovary_length$measurement <- gsub('ovary _ legth', 'ovary _ length', ovary_length$measurement)
 
 #Ok now all the traits are ready!! Lets add it to traits_all.
+#dir.create("Data/Morpho_RData")
 
 traits_all$stigma_area <- stigma_area$um
 traits_all$stigma_length <- stigma_length$um
@@ -89,18 +90,11 @@ traits_all$ovary_width <- ovary_width$um
 traits_all$ovary_length <- ovary_length$um
 
 
-#save.image("Manuscript_draft/Data/stigma_area.RData")
-#save.image("Manuscript_draft/Data/stigma_length.RData")
-#save.image("Manuscript_draft/Data/stigma_surface.RData")
-#save.image("Manuscript_draft/Data/stigma_width.RData")
-#save.image("Manuscript_draft/Data/style_length.RData")
-#save.image("Manuscript_draft/Data/style_width.RData")
-#save.image("Manuscript_draft/Data/ovary_width.RData")
-#save.image("Manuscript_draft/Data/ovary_length.RData")
+#save.image("Data/Morpho_RData/traits.RData")
 
 #dir.create("Manuscript_draft/Data")
 
-save.image(file='Manuscript_draft/Data/trait_corr.RData')
+#save.image(file='Manuscript_draft/Data/trait_corr.RData')
 
 
 cor.test(stigma_area$um, stigma_length$um)
