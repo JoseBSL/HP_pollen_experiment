@@ -1,4 +1,7 @@
 
+#In this script I prepare morphometry in long format to do a PCA of the gynoecium components of each species
+
+
 #Load libraries
 library(vegan)
 library(qpcR)
@@ -22,6 +25,9 @@ stigma_length[is.na(stigma_length$um)==TRUE,]
 sum(is.na(stigma_length$um))
 stigma_length$seq <- seq.int(nrow(stigma_length))
 stigma_length[10,3] = stigma_length[9,3]
+stigma_length[95,3] = stigma_length[94,3]
+stigma_length[128,3] = stigma_length[127,3]
+
 
 
 #Now the style traits
@@ -52,26 +58,42 @@ style_length <- style_length[order(style_length$seq),]
 
 
 #With style width, last morphological trait
-length(style_width[style_width=="SOLY","species"])
-length(style_width[style_width=="PEIN","species"])
-length(style_width[style_width=="CAAN","species"])
-length(style_width[style_width=="SOME","species"])
+
+style_width$seq <- seq.int(nrow(style_width))
+
+#selecting just 15 of each in order to don´t have more than 150 rows
+soly=subset(style_width, species=="SOLY") #It has already 15
+ippu=subset(style_width, species=="IPPU")
+ippu=ippu[1:15,]
+brol=subset(style_width, species=="BROL")
+brol=brol[1:15,]
+pein=subset(style_width, species=="PEIN")
+pein=pein[1:15,]
+some=subset(style_width, species=="SOME")
+some=some[1:15,]
+sial=subset(style_width, species=="SIAL")
+sial=sial[1:15,]
+caan=subset(style_width, species=="CAAN")
+caan=caan[1:15,]
+brra=subset(style_width, species=="BRRA")
+brra=brra[1:15,]
+ipaq=subset(style_width, species=="IPAQ")
+ipaq=ipaq[1:15,]
+ersa=subset(style_width, species=="ERSA")
+ersa=ersa[1:15,]
+
+style_width=rbind(soly, ippu, brol, pein, some, sial, caan, brra, ipaq, ersa)
+#Fix two outliers
+style_width$seq <- seq.int(nrow(style_width))
+stigma_length[15,3] = stigma_length[14,3]
 
 
 
 
-
-
-
-
-
-
-
-
-traits_all = cbind(ovary_length,ovary_width, stigma_surface, stigma_length, style_length)
+traits_all = cbind(ovary_length,ovary_width, stigma_surface, stigma_length, style_length, stigma_length)
 traits=traits_all
 head(traits)
-traits=traits[,c(3,6,9,13,17)]
+traits=traits[,c(3,6,9,13,17,21)]
 head(traits)
 #traits=dist(traits)
 str(traits)
@@ -113,12 +135,16 @@ myplotbetadisper(traits, cex=1,pch=10:21,
 library(ggfortify)
 library(ggplot2)
 library(stats)
-all_pca=traits_all[,c(3,6,9,13,17)]
+library(cluster)
+all_pca=traits_all[,c(3,6,9,13,17,21)]
 df <- iris[c(1, 2, 3, 4)]
 autoplot(prcomp(all_pca))
-autoplot(prcomp(all_pca), data = traits_all, colour = 'species')
-#It works, but I think I have some serious outliers. Fix them
+autoplot(prcomp(all_pca), data = traits_all, colour = 'species', frame = TRUE, frame.type = 'norm')
 
+autoplot(fanny(iris[-5], 3), frame = TRUE)
+autoplot(fanny(all_pca, 10), frame = TRUE)
+#Super cool plot, just lacking the labels
+autoplot(pam(all_pca, 10), frame = TRUE, frame.type = 'norm')
 
 
 
