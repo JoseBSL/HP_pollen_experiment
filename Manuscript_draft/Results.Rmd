@@ -19,6 +19,7 @@ library(ggfortify)
 library(ggplot2)
 library(stats)
 library(cluster)
+library(MASS)
 #load environment
 load("myEnvironment_mantel.RData")
 ```
@@ -232,6 +233,31 @@ load("betadisper.RData")
 autoplot(prcomp(all_pca), data = traits_all, colour = 'family', frame = TRUE, frame.type = 'norm', main="Gynoecium spp PCA")
 ```
 
+\newpage
+Now I use non metric multidimensional scaling for all the traits of our species. The traits used are: Stigma_type, Selfing_rate, Pollem_size, Mean_pollen_anther, Mean_ovules, Pollen_ovule_ratio, Anthers, Stigma_length, Stigma_surface (width), Style_length, Style_width, Ovary_width, Ovary_length
 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, cache.comments=FALSE,results='hide',fig.keep='all'}
+all <- read.csv("Data/traits_all.csv", sep=",")
+rownames(all) <- c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
+all <- all[,-c(1,2,10,13)]
+all_scaled <- scale(all)
+all_scaled_dist <- dist(all_scaled)
+autoplot(sammon(all_scaled_dist), shape = FALSE, main="Non-metric multidimensional scaling",label.colour = 'blue', label.size = 3)
+```
+
+
+\newpage
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, cache.comments=FALSE, results='hide'}
+all <- read.csv("Data/traits_all.csv", sep=",")
+rownames(all) <- c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
+spp=c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
+all <- all[,-c(1,2,10,13)]
+#In this case we consider all the traits. 
+NMDS=metaMDS(all,k=2,trymax=100)
+ordiplot(NMDS,type="n")
+orditorp(NMDS,display="sites",col=c(rep("green",2),"blue","green", rep("black",2),"blue","green", rep("blue",2)),
+         air=0.01,cex=1.25)
+```
 
 #References

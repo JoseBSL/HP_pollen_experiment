@@ -136,6 +136,7 @@ library(ggfortify)
 library(ggplot2)
 library(stats)
 library(cluster)
+library(MASS)
 all_pca=traits_all[,c(3,6,9,13,17,21)]
 df <- iris[c(1, 2, 3, 4)]
 autoplot(prcomp(all_pca))
@@ -195,7 +196,7 @@ save.image("Manuscript_draft/betadisper.RData")
 
 all <- read.csv("Data/traits_all.csv", sep=",")
 rownames(all) <- c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
-all <- all[,-c(1,2)]
+all <- all[,-c(1,2,10,13)]
 all_scaled <- scale(all)
 all_scaled_dist <- dist(all_scaled)
 
@@ -203,17 +204,32 @@ all_scaled_dist <- dist(all_scaled)
 #In this case we consider all the traits. 
 autoplot(all_scaled_dist)
 autoplot(cmdscale(all_scaled_dist, eig = TRUE), label = TRUE, label.size = 3)
-autoplot(sammon(all_scaled_dist), shape = FALSE, label.colour = 'blue', label.size = 3)
+autoplot(sammon(all_scaled_dist), shape = FALSE, main="Non-metric multidimensional scaling",label.colour = 'blue', label.size = 3)
 #I´m going to clean some redundant morphometic traits
 
 autoplot(sammon(all_scaled_dist), shape = FALSE, label.colour = 'blue', label.size = 3)
 
 all <- read.csv("Data/traits_all.csv", sep=",")
 rownames(all) <- c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
+spp=c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
 all <- all[,-c(1,2,10,13)]
-all_scaled_dist <- dist(all_scaled)
 #In this case we consider all the traits. 
-autoplot(all_scaled_dist)
-autoplot(cmdscale(all_scaled_dist, eig = TRUE), label = TRUE, label.size = 3)
-autoplot(sammon(all_scaled_dist), shape = FALSE, label.colour = 'blue', label.size = 3)
+
+NMDS=metaMDS(all,k=2,trymax=100)
+stressplot(NMDS)
+plot(NMDS)
+ordiplot(NMDS)
+orditorp(NMDS,display="sites",cex=1.25,air=0.01)
+treat=c(rep("Treatment1",5),rep("Treatment2",5))
+ordiplot(NMDS,type="n")
+ordihull(NMDS,groups=spp,draw="polygon",col="grey90",label=F)
+orditorp(NMDS,display="sites",col=c(rep("green",2),"blue","green", rep("black",2),"blue","green", rep("blue",2)),
+         air=0.01,cex=1.25)
+
+library(vegan)
+set.seed(2)
+community_matrix=matrix(
+  sample(1:100,300,replace=T),nrow=10,
+  dimnames=list(paste("community",1:10,sep=""),paste("sp",1:30,sep="")))
+example_NMDS=metaMDS(community_matrix,k=2,trymax=100)
 
