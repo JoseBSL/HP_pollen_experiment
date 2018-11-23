@@ -145,8 +145,22 @@ autoplot(fanny(iris[-5], 3), frame = TRUE)
 autoplot(fanny(all_pca, 10), frame = TRUE)
 #Super cool plot, just lacking the labels
 autoplot(pam(all_pca, 10), frame = TRUE, frame.type = 'norm')
+#I´m going to try to put colours per family
 
+traits_all$family[traits_all$species==c("SOLY")] <- "Solanaceae"
+traits_all$family[traits_all$species==c("SOME")] <- "Solanaceae"
+traits_all$family[traits_all$species==c("PEIN")] <- "Solanaceae"
+traits_all$family[traits_all$species==c("CAAN")] <- "Solanaceae"
+traits_all$family[traits_all$species==c("BROL")] <- "Brassicaceae"
+traits_all$family[traits_all$species==c("BRRA")] <- "Brassicaceae"
+traits_all$family[traits_all$species==c("SIAL")] <- "Brassicaceae"
+traits_all$family[traits_all$species==c("ERSA")] <- "Brassicaceae"
+traits_all$family[traits_all$species==c("IPPU")] <- "Convolvulaceae"
+traits_all$family[traits_all$species==c("IPAQ")] <- "Convolvulaceae"
 
+autoplot(prcomp(all_pca), data = traits_all,   colour = 'family', frame = TRUE, frame.type = 'norm', main="Gynoecium spp PCA")
+
+all_pca[2,3]<-NA
 
 #eXAMPLE
 library(vegan)
@@ -172,3 +186,34 @@ myplotbetadisper(mod, ellipse = TRUE, hull = FALSE,
                  fillrect=col.fill.rect, coltextrect=col.text.rect, 
                  alphaPoints=transp.centroids, labPoints=labPts,
                  main= "MultiVariate Permutation")
+
+
+save.image("Manuscript_draft/betadisper.RData")
+
+
+#Now I load the dataframe with the distances of traits to plot NMDS
+
+all <- read.csv("Data/traits_all.csv", sep=",")
+rownames(all) <- c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
+all <- all[,-c(1,2)]
+all_scaled <- scale(all)
+all_scaled_dist <- dist(all_scaled)
+
+
+#In this case we consider all the traits. 
+autoplot(all_scaled_dist)
+autoplot(cmdscale(all_scaled_dist, eig = TRUE), label = TRUE, label.size = 3)
+autoplot(sammon(all_scaled_dist), shape = FALSE, label.colour = 'blue', label.size = 3)
+#I´m going to clean some redundant morphometic traits
+
+autoplot(sammon(all_scaled_dist), shape = FALSE, label.colour = 'blue', label.size = 3)
+
+all <- read.csv("Data/traits_all.csv", sep=",")
+rownames(all) <- c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
+all <- all[,-c(1,2,10,13)]
+all_scaled_dist <- dist(all_scaled)
+#In this case we consider all the traits. 
+autoplot(all_scaled_dist)
+autoplot(cmdscale(all_scaled_dist, eig = TRUE), label = TRUE, label.size = 3)
+autoplot(sammon(all_scaled_dist), shape = FALSE, label.colour = 'blue', label.size = 3)
+

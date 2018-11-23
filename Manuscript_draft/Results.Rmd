@@ -15,6 +15,10 @@ library(ape)
 library(phytools)
 library(plotrix)
 library(dplyr)
+library(ggfortify)
+library(ggplot2)
+library(stats)
+library(cluster)
 #load environment
 load("myEnvironment_mantel.RData")
 ```
@@ -199,5 +203,35 @@ kable(table, format="markdown")
 ```
 
 As it was expected, stigma area (square micrometers) and and stigma surface are highly correlated. Basically, they are the same measure. They are two different ways to estimate stigma size. 
+
+\newpage
+Multivariate homogeinity of groups dispersions (variances). Non-euclidean distances are handle by reducing the original distances to principal coordinates. Here I present an analysis of the variances for the measurements of Gynoecium for the ten species. The measurements used are width and length of stigma, style and ovary.    
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("betadisper.RData")
+plot(traits, cex=1,pch=10:21,
+     main="Gynoecium:MDS coordinates", cex.lab=1.25,label.cex=0.5,
+     xlab=labs[1], ylab=labs[2], ylim=c(-0.35,0.35),xlim=c(-0.35,0.35),
+     hull=FALSE, ellipse=TRUE, conf=0.68, lwd=2)
+
+```
+
+\newpage
+Other way of showing the same results but now with Principal Components Analysis. Maybe is more elegant? Grouped by species.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("betadisper.RData")
+autoplot(prcomp(all_pca), data = traits_all, colour = 'species', frame = TRUE, frame.type = 'norm')
+```
+
+\newpage
+Now I group by family
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("betadisper.RData")
+autoplot(prcomp(all_pca), data = traits_all, colour = 'family', frame = TRUE, frame.type = 'norm', main="Gynoecium spp PCA")
+```
+
+
 
 #References
