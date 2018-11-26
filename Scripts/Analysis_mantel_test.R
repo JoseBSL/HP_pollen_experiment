@@ -725,3 +725,57 @@ all$compatibility[all$Species==c("SIAL")] <- "red"
 plot(all$value ~jitter(all$close_related, factor=1),xaxt='n',xlim=c(0,3), main="",
      xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all$compatibility)
 axis(1, at=1:2, labels=c("family crosses", "across family crosses" ))
+
+#Because of the interesting results of Brassicaceae I'm going to try to consider just this family 
+
+all_bra <- subset(all, Species %in% c("BROL", "BRRA", "ERSA", "SIAL"))
+#To make it more intuitive I rename the columns 
+colnames(all_bra)[3] <- "hp_effect"
+#Clean unwanted columns
+all_bra=all_bra[,-c(6,7)]
+
+#Selfing rates: Percentage of fruit produced with 10 hand self pollination treatments
+all_bra$compatibility[all_bra$Species==c("BROL")] <- "blue"  #0
+all_bra$compatibility[all_bra$Species==c("BRRA")] <- "red"   #0
+all_bra$compatibility[all_bra$Species==c("ERSA")] <- "green" #0.1
+all_bra$compatibility[all_bra$Species==c("SIAL")] <- "grey"  #0.7 selfing
+
+plot(all_bra$hp_effect ~jitter(all_bra$close_related, factor=1),xaxt='n',xlim=c(0,3), main="",
+     xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all_bra$compatibility)
+axis(1, at=1:2, labels=c("family crosses", "across family crosses" ))
+
+
+#lib
+library(ggplot2)
+library(cowplot)
+
+all_bra$close_related <- 1
+colnames(all_bra)[1]<-"Focal"
+head(all_bra)
+all_bra$Pollen_recipient[all_bra$Focal=="BROL"] <-"Brassica oleracea. 
+Selfing rate=0"
+all_bra$Pollen_recipient[all_bra$Focal=="BRRA"] <-"Brassica rapa. 
+Selfing rate=0"
+all_bra$Pollen_recipient[all_bra$Focal=="SIAL"] <-"Sinapis alba. 
+Selfing rate=0.7"
+all_bra$Pollen_recipient[all_bra$Focal=="ERSA"] <-"Eruca versicaria. 
+Selfing rate=0.1"
+
+cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
+save(all_bra ,file="Manuscript_draft/Data/all_bra.Rda")
+
+
+ ggplot(all_bra, aes(x=close_related, y=hp_effect)) + 
+  geom_jitter(width=0.1,aes(colour = Pollen_recipient),size=4)+
+  theme_cowplot()+theme(axis.title.x=element_blank(),
+axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.7, 0.92))+
+  scale_x_continuous(limits = c(0.8, 1.35)) +scale_y_continuous("Heterospecific pollen effect")+
+   annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
+   geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Brassicaceae spp", subtitle = "")
+
+#Now I'm going to colour by stigma area
+ 
+#BROL 865.4767
+#BRRA 719.9713
+#ERSA 682.7980
+#SIAL 968.8343

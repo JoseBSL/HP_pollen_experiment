@@ -20,6 +20,7 @@ library(ggplot2)
 library(stats)
 library(cluster)
 library(MASS)
+library(cowplot)
 #load environment
 load("myEnvironment_mantel.RData")
 ```
@@ -29,12 +30,6 @@ To check for the effect of heterospecific pollen we assume that the optimal seed
 Eq.1  $$HpEffect_{i}=Mean(CrosPollinationSeeds_{i})-Mean(TreatmentSeeds_{ij})$$
 
 Therefore, the higher the values of HpEffect the higher the impact of it.
-
-The number of possible combinations with 10 species (multiplied by two because is in both directions the treatments A to B and B to A):
-
-$$(\frac{10}{2})=\frac{10!}{2!*(8!)}*2=90 $$
-
-In total we performed 4400 treatments. If we just consider seed set, 2200 treatments including [50% Hp, 100% Hp, hand cross pollination, self pollination, natural selfing (bagged flowers) and apomixis (emasculated flowers)].
 
 #Part 1 Relation between effect of Hp and evolutive distance
 
@@ -234,7 +229,7 @@ autoplot(prcomp(all_pca), data = traits_all, colour = 'family', frame = TRUE, fr
 ```
 
 \newpage
-Now I use non metric multidimensional scaling for all the traits of our species. The traits used are: Stigma_type, Selfing_rate, Pollem_size, Mean_pollen_anther, Mean_ovules, Pollen_ovule_ratio, Anthers, Stigma_length, Stigma_surface (width), Style_length, Style_width, Ovary_width, Ovary_length
+Now I use non metric multidimensional scaling for all the traits of our species. The traits used are: Stigma_type, Selfing_rate, Pollen_size, Mean_pollen_anther, Mean_ovules, Pollen_ovule_ratio, Anthers, Stigma_length, Stigma_surface (width), Style_length, Style_width, Ovary_width, Ovary_length
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, cache.comments=FALSE,results='hide',fig.keep='all'}
@@ -259,5 +254,24 @@ ordiplot(NMDS,type="n")
 orditorp(NMDS,display="sites",col=c(rep("green",2),"blue","green", rep("black",2),"blue","green", rep("blue",2)),
          air=0.01,cex=1.25)
 ```
+
+\newpage
+
+Interestignly for Brassicaceae species selfing rates matches pretty well the output of heterospecific pollen effect. Therefore, seems that selfing rates in Brassicaceae species could be a good predictor of foreign pollen effect. When we consider the relatedness of the donors, for instance crosses between families 
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("Data/all_bra.Rda")
+cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
+ ggplot(all_bra, aes(x=close_related, y=hp_effect)) + 
+  geom_jitter(width=0.1,aes(colour = Pollen_recipient),size=3.5)+
+  theme_cowplot()+theme(axis.title.x=element_blank(),
+axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.7, 0.8))+
+  scale_x_continuous(limits = c(0.8, 1.35)) +scale_y_continuous("Heterospecific pollen effect")+
+   annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
+   geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Brassicaceae spp", subtitle = "")
+```
+
 
 #References
