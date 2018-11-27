@@ -503,7 +503,7 @@ protest(matrix_scale_effect, ovary_length_dist)
 #which is highly correlated with the area (square micrometers) also seen from the top
 #For style we are going to use just the length
 
-traits_all_scaled_clean <- traits_all_scaled[,-c(7,8,10,12)]
+traits_all_scaled_clean <- traits_all_scaled[,-c(1,3,4,5,7,8,11,12,13,14,15)]
 all_scaled_clean_dist <- dist(traits_all_scaled_clean)
 mantel(matrix_scale_effect, all_scaled_clean_dist)
 
@@ -695,14 +695,14 @@ f <- subset(focal_pein, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL"
             | Non_focal=="IPAQ"| Non_focal=="IPPU")
 g <- subset(focal_some, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL" | Non_focal=="BRRA"
             | Non_focal=="IPAQ"| Non_focal=="IPPU")
-h <- subset(focal_soly, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL" | Non_focal=="BRRA"
+h <- subset(focal_caan, Non_focal=="SIAL" | Non_focal=="ERSA"| Non_focal=="BROL" | Non_focal=="BRRA"
             | Non_focal=="IPAQ"| Non_focal=="IPPU")
 
 sol <- rbind(e,f,g,h)
 
 i <- subset(focal_ipaq, Non_focal=="SOME" | Non_focal=="SOLY"| Non_focal=="PEIN"| Non_focal=="CAAN"
             | Non_focal=="BROL"| Non_focal=="BRRA"| Non_focal=="ERSA"| Non_focal=="SIAL")
-K <- subset(focal_ipaq, Non_focal=="SOME" | Non_focal=="SOLY"| Non_focal=="PEIN"| Non_focal=="CAAN"
+k <- subset(focal_ippu, Non_focal=="SOME" | Non_focal=="SOLY"| Non_focal=="PEIN"| Non_focal=="CAAN"
             | Non_focal=="BROL"| Non_focal=="BRRA"| Non_focal=="ERSA"| Non_focal=="SIAL")
 con <- rbind(i,k)
 all_non_focal <- rbind(bra, sol, con)
@@ -773,9 +773,105 @@ axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.7
    annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
    geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Brassicaceae spp", subtitle = "")
 
-#Now I'm going to colour by stigma area
+#Now I do the same for Solanaceae species
  
-#BROL 865.4767
-#BRRA 719.9713
-#ERSA 682.7980
-#SIAL 968.8343
+ all_sol <- subset(all, Species %in% c("SOME", "SOLY", "CAAN", "PEIN"))
+ #To make it more intuitive I rename the columns 
+ colnames(all_sol)[3] <- "hp_effect"
+ #Clean unwanted columns
+ all_sol=all_sol[,-c(6,7)]
+ 
+ #Selfing rates: Percentage of fruit produced with 10 hand self pollination treatments
+ all_sol$compatibility[all_sol$Species==c("SOME")] <- "blue"  #0
+ all_sol$compatibility[all_sol$Species==c("PEIN")] <- "red"   #0
+ all_sol$compatibility[all_sol$Species==c("SOLY")] <- "green" #0
+ all_sol$compatibility[all_sol$Species==c("CAAN")] <- "black"  #0
+ 
+ plot(all_sol$hp_effect ~jitter(all_sol$close_related, factor=1),xaxt='n',xlim=c(0,3), main="",
+      xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all_sol$compatibility)
+ axis(1, at=1:2, labels=c("family crosses", "across family crosses" ))
+ #Because fruit set is not very informative for solanaceae I check now this numbers with
+ #Percentage of decrease of seed set between self and cross
+ #This makes me think that in the matrix of traits maybe it should be adressed on this way too
+ #pein
+ a<- mean(pein[pein$Treatment=="SELF", "Seed.production"])
+ b<- mean(pein[pein$Treatment=="CROSS", "Seed.production"])
+ 100- (a/b*100) #[1] 73.58216 Decrease in seed set for PEIN
+ #soly
+ a<- mean(soly[soly$Treatment=="SELF", "seed_set"])
+ b<- mean(soly[soly$Treatment=="CROSS", "seed_set"])
+ 100- (a/b*100) #51.89417
+ #caan
+ a<- mean(caan[caan$treatment=="SELF", "seed_set"])
+ b<- mean(caan[caan$treatment=="CROSS", "seed_set"])
+ 100- (a/b*100) #36.389
+ #some
+ a<- mean(some[some$Treatment=="SELF", "seed_set"])
+ b<- mean(some[some$Treatment=="CROSS", "seed_set"])
+ 100- (a/b*100) #0% even better with self (-45.46496)
+ #Now I'm going to compare with the scaled seed set
+ a<- mean(pein[pein$Treatment=="SELF", "scaled_seed"])
+ b<- mean(pein[pein$Treatment=="CROSS", "scaled_seed"])
+ 100- (a/b*100) #[1] 73.58216 Decrease in seed set for PEIN
+ 
+ 
+ 
+ all_sol$close_related <- 1
+ colnames(all_sol)[1]<-"Focal"
+ head(all_sol)
+ 
+ all_sol$Pollen_recipient[all_sol$Focal=="SOME"] <-"Solanum melongena. 
+ Selfing decrease=0%"
+ all_sol$Pollen_recipient[all_sol$Focal=="PEIN"] <-"Petunia integrifolia. 
+ Selfing decrease=73.6%"
+ all_sol$Pollen_recipient[all_sol$Focal=="CAAN"] <-"Capsicum annuum. 
+ Selfing decrease=36.4%"
+ all_sol$Pollen_recipient[all_sol$Focal=="SOLY"] <-"Solanum lycopersicum. 
+ Selfing decrease=51.9%"
+ 
+ cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
+ save(all_sol ,file="Manuscript_draft/Data/all_sol.Rda")
+ 
+ 
+ ggplot(all_sol, aes(x=close_related, y=hp_effect)) + 
+   geom_jitter(width=0.1,aes(colour = Pollen_recipient),size=4)+
+   theme_cowplot()+theme(axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.7, 0.92))+
+   scale_x_continuous(limits = c(0.8, 1.35)) +scale_y_continuous("Heterospecific pollen effect")+
+   annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
+   geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Solanaceae spp", subtitle = "")
+ 
+ 
+ #Now I do the same for Convolvulaceae species
+ 
+ all_con <- subset(all, Species %in% c("IPAQ", "IPPU"))
+ #To make it more intuitive I rename the columns 
+ colnames(all_con)[3] <- "hp_effect"
+ #Clean unwanted columns
+ all_con=all_con[,-c(6,7)]
+ 
+ #Selfing rates: Percentage of fruit produced with 10 hand self pollination treatments
+ all_con$compatibility[all_con$Species==c("IPAQ")] <- "blue"  #0
+ all_con$compatibility[all_con$Species==c("IPPU")] <- "red"   #0
+ 
+ all_con$close_related <- 1
+ colnames(all_con)[1]<-"Focal"
+ head(all_con)
+ 
+ all_con$Pollen_recipient[all_con$Focal=="IPAQ"] <-"Ipomoea aquatica. 
+ Selfing decrease=0%"
+ all_con$Pollen_recipient[all_con$Focal=="IPPU"] <-"Ipomoea purpurea. 
+ Selfing decrease=73.6%"
+ 
+ cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
+ save(all_con ,file="Manuscript_draft/Data/all_con.Rda")
+ 
+ 
+ ggplot(all_con, aes(x=close_related, y=hp_effect)) + 
+   geom_jitter(width=0.1,aes(colour = Pollen_recipient),size=4)+
+   theme_cowplot()+theme(axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.6, 0.92))+
+   scale_x_continuous(limits = c(0.8, 1.35)) +scale_y_continuous("Heterospecific pollen effect")+
+   annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
+   geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Solanaceae spp", subtitle = "")
+ 

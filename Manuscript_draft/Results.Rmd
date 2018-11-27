@@ -33,7 +33,7 @@ Therefore, the higher the values of HpEffect the higher the impact of it.
 
 #Part 1 Relation between effect of Hp and evolutive distance
 
-I try Mantel test and procustes test, although both are similar procustes performs better in a wider range of circumstances @peres2001. Moreover, I consider the square root of the evolutive distances which improves the statistical power in comparison to the normal distances @letten2015.
+I try **Mantel test** and procustes test, although both are similar procustes performs better in a wider range of circumstances @peres2001. Moreover, I consider the square root of the evolutive distances which improves the statistical power in comparison to the normal distances @letten2015.
 
 1) With the RBCL marker
 
@@ -78,10 +78,9 @@ kable(table, format="markdown")
 
 Overall, it seems that with phylogenetic distance, heterospecific pollen effect increases for the three families. From Mantel analysis we can conclude that we have a significant correlation between phylogenetic distance and heterospecific pollen effect with r values between 0.25 and 0.3. However, for procustes test we were not able to find a significant correlation between these two despite procustes correlation gave higher values. This positive correlation should be further explored.
 
-\newpage
 #Part 2 Relation between effect of Hp and traits
 
-Here I perform Mantel test and Procustes test between the traits and heterospecific pollen effect. For both Mantel and procustes we were not able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits. With Bioenv we can know what are the traits that gives a best fit of correlation between matrices. The best model is with pollen ovule ratio, stigma width and style width.
+Here I perform **Mantel test** and **Procustes test** between the matrices of traits and heterospecific pollen effect. For both Mantel and procustes we were not able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits (similar result also if we not consider some rudendant traits). With **Bioenv** we can see what are the traits that gives a best fit of correlation between our matrix of Hp effect and the dataset of traits The best model with Bioenv is with pollen ovule ratio, stigma width and style width. For procustes the stigma surface (width from aerial view) seems to be correlated with the Hp effect. Moreover, stigma type too but these values are converted to distance from ones and zeros and don not know how much it can be trusted.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("bio_result.RData")
@@ -96,7 +95,7 @@ kable(table, format="markdown")
 
 ```
 
-Now I perform the analysis with both Mantel and Procustes trait by trait.
+Now I perform the analysis with both **Mantel** and **Procustes** trait by trait.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 a_1 <- mantel(matrix_scale_effect, traits_stigma_dist)
@@ -257,7 +256,7 @@ orditorp(NMDS,display="sites",col=c(rep("green",2),"blue","green", rep("black",2
 
 \newpage
 
-Interestignly for Brassicaceae species selfing rates matches pretty well the output of heterospecific pollen effect. Therefore, seems that selfing rates in Brassicaceae species could be a good predictor of foreign pollen effect. When we consider the relatedness of the donors, for instance crosses between families 
+Interestignly for Brassicaceae species selfing rates matches pretty well the output of heterospecific pollen effect for 3 of 4 species. Therefore, it seems that selfing rates in Brassicaceae species could be a good predictor of foreign pollen effect. Another thing that I would like to remark is the similar behaviour of each individual species irrespective of the donor. This is a constant pattern for all our species of the different 3 families (other 2 families below). I think it is a very interesting finding that each species despite some variation maintains normally a similar response independently of the nature of the donor.
 
 
 
@@ -267,11 +266,48 @@ cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
  ggplot(all_bra, aes(x=close_related, y=hp_effect)) + 
   geom_jitter(width=0.1,aes(colour = Pollen_recipient),size=3.5)+
   theme_cowplot()+theme(axis.title.x=element_blank(),
-axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.7, 0.8))+
+axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.6, 0.8))+
   scale_x_continuous(limits = c(0.8, 1.35)) +scale_y_continuous("Heterospecific pollen effect")+
    annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
    geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Brassicaceae spp", subtitle = "")
 ```
+Figure X. Heterospecific pollen effect on the different species of the Brassicaceae family
+\newpage
 
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("Data/all_sol.Rda")
+cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
+ 
+ ggplot(all_sol, aes(x=close_related, y=hp_effect)) + 
+   geom_jitter(width=0.1,aes(colour = Pollen_recipient),size=4)+
+   theme_cowplot()+theme(axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.6, 0.8))+
+   scale_x_continuous(limits = c(0.8, 1.35)) +scale_y_continuous("Heterospecific pollen effect")+
+   annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
+   geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Solanaceae spp", subtitle = "")
+ 
+ 
+```
+
+\newpage
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("Data/all_con.Rda")
+cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
+ 
+ggplot(all_con, aes(x=close_related, y=hp_effect)) + 
+   geom_jitter(width=0.1,aes(colour = Pollen_recipient),size=4)+
+   theme_cowplot()+theme(axis.title.x=element_blank(),
+                         axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.6, 0.92))+
+   scale_x_continuous(limits = c(0.8, 1.35)) +scale_y_continuous("Heterospecific pollen effect")+
+   annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
+   geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Solanaceae spp", subtitle = "")
+ 
+ 
+ 
+```
 
 #References
