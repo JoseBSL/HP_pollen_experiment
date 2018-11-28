@@ -155,6 +155,7 @@ matrix_scale_effect <- matrix_cross_scale-matrix_scale
 #Maximum theoretical value is our cross, "no treatments could be greater than it"
 matrix_scale_effect[matrix_scale_effect<0]<- 0
 
+#saveRDS(matrix_scale_effect, "Manuscript_draft/Data/matrix_scale_effect.Rda")
 
 #There are some values that the effect is greater than the cross
 #Maybe fix that?
@@ -735,10 +736,19 @@ colnames(all_bra)[3] <- "hp_effect"
 all_bra=all_bra[,-c(6,7)]
 
 #Selfing rates: Percentage of fruit produced with 10 hand self pollination treatments
-all_bra$compatibility[all_bra$Species==c("BROL")] <- "blue"  #0
-all_bra$compatibility[all_bra$Species==c("BRRA")] <- "red"   #0
-all_bra$compatibility[all_bra$Species==c("ERSA")] <- "green" #0.1
-all_bra$compatibility[all_bra$Species==c("SIAL")] <- "grey"  #0.7 selfing
+all_bra$compatibility[all_bra$Species==c("BROL")] <- "blue"  #100
+all_bra$compatibility[all_bra$Species==c("BRRA")] <- "red"   #100
+all_bra$compatibility[all_bra$Species==c("ERSA")] <- "green" #98
+all_bra$compatibility[all_bra$Species==c("SIAL")] <- "grey"  #0 selfing
+
+a<- mean(sial[sial$Treatment=="Self", "Seed.production"])
+b<- mean(sial[sial$Treatment=="Cross", "Seed.production"])
+100- (a/b*100) #[1] -11.5 so 0 % of decrease
+
+a<- mean(ersa[ersa$Treatment=="Self", "seed.production"])
+b<- mean(ersa[ersa$Treatment=="Cross", "seed.production"])
+100- (a/b*100) #[1] 98%
+
 
 plot(all_bra$hp_effect ~jitter(all_bra$close_related, factor=1),xaxt='n',xlim=c(0,3), main="",
      xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all_bra$compatibility)
@@ -753,13 +763,13 @@ all_bra$close_related <- 1
 colnames(all_bra)[1]<-"Focal"
 head(all_bra)
 all_bra$Pollen_recipient[all_bra$Focal=="BROL"] <-"Brassica oleracea. 
-Selfing rate=0"
+Selfing decrease=100%"
 all_bra$Pollen_recipient[all_bra$Focal=="BRRA"] <-"Brassica rapa. 
-Selfing rate=0"
+Selfing decrease=100%"
 all_bra$Pollen_recipient[all_bra$Focal=="SIAL"] <-"Sinapis alba. 
-Selfing rate=0.7"
+Selfing decrease=0%"
 all_bra$Pollen_recipient[all_bra$Focal=="ERSA"] <-"Eruca versicaria. 
-Selfing rate=0.1"
+Selfing decrease=98%"
 
 cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
 save(all_bra ,file="Manuscript_draft/Data/all_bra.Rda")
@@ -858,10 +868,19 @@ axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.7
  colnames(all_con)[1]<-"Focal"
  head(all_con)
  
+ a<- mean(ippu[ippu$treatment=="self", "seed.set"])
+ b<- mean(ippu[ippu$treatment=="cross", "seed.set"])
+ 100- (a/b*100) #[1] -173.6842 This means that selfin produced 173% more seeds
+ 
+ a<- mean(ipaq[ipaq$treatment=="self", "seed_set"])
+ b<- mean(ipaq[ipaq$treatment=="cross", "seed_set"])
+ 100- (a/b*100) #[1] 25% 
+ 
+ 
  all_con$Pollen_recipient[all_con$Focal=="IPAQ"] <-"Ipomoea aquatica. 
- Selfing decrease=0%"
+ Selfing decrease=25%"
  all_con$Pollen_recipient[all_con$Focal=="IPPU"] <-"Ipomoea purpurea. 
- Selfing decrease=73.6%"
+ Selfing decrease=0%"
  
  cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
  save(all_con ,file="Manuscript_draft/Data/all_con.Rda")

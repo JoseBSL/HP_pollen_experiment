@@ -4,6 +4,8 @@ author: "Jose"
 date: "13/11/18"
 output: pdf_document
 bibliography: references.bib
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -25,7 +27,7 @@ library(cowplot)
 load("myEnvironment_mantel.RData")
 ```
 
-To check for the effect of heterospecific pollen we assume that the optimal seed production is the hand cross pollination (pollinated with pollen from a different individual of the same species). Then, we substract to the mean value of hand cross pollination the mean value of heterospecific pollen effect across treatments (50% conspecific-50%heterospecific pollen). Previously we have scaled the seed set for each species with mean 0 and standard deviation of 1 to be able to compare among species. When a species had higher values of seed production with treatments than the cross, we set as maximum value for the treatments the same as the hand cross pollination. However, we should take into account that analysis in general improve if we keep these negative values. If we put these words into a formula being i the different focal species and j the different donors:
+To check for the effect of heterospecific pollen we assume that the optimal seed production is the hand cross pollination (pollinated with pollen from a different individual of the same species). Then, we substract to the mean value of hand cross pollination the mean value of heterospecific pollen effect across treatments (50% conspecific-50%heterospecific pollen). Previously we have scaled the seed set for each species with mean 0 and standard deviation of 1 to be able to compare among species. When a species had higher values of seed production with treatments than the cross, we set as maximum value for the treatments the same as the hand cross pollination. However, we should consider that analysis in general improve if we keep these negative values. If we put these words into a formula being i the different focal species and j the different donors:
 
 Eq.1  $$HpEffect_{i}=Mean(CrosPollinationSeeds_{i})-Mean(TreatmentSeeds_{ij})$$
 
@@ -80,7 +82,7 @@ Overall, it seems that with phylogenetic distance, heterospecific pollen effect 
 
 #Part 2 Relation between effect of Hp and traits
 
-Here I perform **Mantel test** and **Procustes test** between the matrices of traits and heterospecific pollen effect. For both Mantel and procustes we were not able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits (similar result also if we not consider some rudendant traits). With **Bioenv** we can see what are the traits that gives a best fit of correlation between our matrix of Hp effect and the dataset of traits The best model with Bioenv is with pollen ovule ratio, stigma width and style width. For procustes the stigma surface (width from aerial view) seems to be correlated with the Hp effect. Moreover, stigma type too but these values are converted to distance from ones and zeros and don not know how much it can be trusted.
+Here I perform **Mantel test** and **Procustes test** between the matrices of traits and heterospecific pollen effect. For both Mantel and procustes we were not able to find evidence of correlation between matrices. At the moment we are using all the traits without filtering the correlated traits (similar result also if we not consider some rudendant traits). With **Bioenv** we can see what are the traits that gives a best fit of correlation between our matrix of Hp effect and the dataset of traits The best model with Bioenv is with pollen ovule ratio, stigma width and style width. For Mantel the stigma surface (width from aerial view) seems to be correlated with the Hp effect. Moreover, stigma type too but these values are converted to distance from ones and zeros and don not know how much it can be trusted.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("bio_result.RData")
@@ -200,7 +202,7 @@ kable(table, format="markdown")
 As it was expected, stigma area (square micrometers) and and stigma surface are highly correlated. Basically, they are the same measure. They are two different ways to estimate stigma size. 
 
 \newpage
-Multivariate homogeinity of groups dispersions (variances). Non-euclidean distances are handle by reducing the original distances to principal coordinates. Here I present an analysis of the variances for the measurements of Gynoecium for the ten species. The measurements used are width and length of stigma, style and ovary.    
+Multivariate homogeinity of groups dispersions (variances). Non-euclidean distances are handle by reducing the original distances to principal coordinates. Here I present an analysis of the variances for the measurements of Gynoecium for the ten species. The measurements used are width and length of stigma, style and ovary. Outliers were substituted by other values from the same variable and species. Didn't know how to perform it with NA's.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("betadisper.RData")
@@ -242,6 +244,8 @@ autoplot(sammon(all_scaled_dist), shape = FALSE, main="Non-metric multidimension
 
 
 \newpage
+Other type of NMDS
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, cache.comments=FALSE, results='hide'}
 all <- read.csv("Data/traits_all.csv", sep=",")
 rownames(all) <- c("BROL","BRRA","CAAN","ERSA","IPAQ","IPPU","PEIN","SIAL","SOLY","SOME")
@@ -256,7 +260,11 @@ orditorp(NMDS,display="sites",col=c(rep("green",2),"blue","green", rep("black",2
 
 \newpage
 
-Interestignly for Brassicaceae species selfing rates matches pretty well the output of heterospecific pollen effect for 3 of 4 species. Therefore, it seems that selfing rates in Brassicaceae species could be a good predictor of foreign pollen effect. Another thing that I would like to remark is the similar behaviour of each individual species irrespective of the donor. This is a constant pattern for all our species of the different 3 families (other 2 families below). I think it is a very interesting finding that each species despite some variation maintains normally a similar response independently of the nature of the donor.
+Now I try to show the results of heterospecific pollen effect in a easy way to understand the pattern of seed set across treatments. For that I do 3 different scatterplots by family and then I colour the different spp. Note that the points should be all in the same vertical line because just Y axis is numerical but for representation purposes they are spread randomly across the x axis. I have added in the legend the selfing rates, in my opinion could be a bit informative to understand the different patterns. For Brassicaceae the percentage of fruiting is considered and for Solanaceae and Convolvulaceae the percentage of decrease of seed set in comparison with optimum pollination (seed set of hand cross poll.) is taken into account.
+
+ What I see:
+ 
+Interestignly for Brassicaceae species selfing rates matches pretty well the output of heterospecific pollen effect for 3 of 4 species. Therefore, it seems that selfing rates in Brassicaceae species could be a good predictor of foreign pollen effect. Another thing that I would like to remark is the *similar behaviour of each individual species irrespective of the donor*. This is a constant pattern for all our species of the different 3 families (other 2 families below). I think it is a very interesting finding that each species despite some variation maintains normally a similar response independently of the nature of the donor. *Moreover, the effect is high or low irrespective of the family but more or less constant within spp*.
 
 
 
@@ -271,10 +279,12 @@ axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.6
    annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
    geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Brassicaceae spp", subtitle = "")
 ```
-Figure X. Heterospecific pollen effect on the different species of the Brassicaceae family
+Figure X. Heterospecific pollen effect of the different species of the Brassicaceae family. Each point correspond to the scaled seed set for the different treatments (9 for each spp). Random dispersion was applied to the points to avoid overlapping (jitter). The line, is an arbitrary line that I added in the half of the plot (approx) to try to improve visualization.
+
+
 \newpage
 
-
+Again species with highest selfing has lowest Hp effect.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("Data/all_sol.Rda")
@@ -290,9 +300,11 @@ cbPalette <- c("#000000", "#E69F00", "darkturquoise", "deeppink3")
  
  
 ```
+Figure X. Heterospecific pollen effect on the different species of the Solanaceae family. Random dispersion was applied to the points to avoid overlapping (jitter).
 
 \newpage
 
+Same, species with highest selfing has lowest Hp effect.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("Data/all_con.Rda")
@@ -308,6 +320,29 @@ ggplot(all_con, aes(x=close_related, y=hp_effect)) +
  
  
  
+```
+Figure X. Heterospecific pollen effect on the different species of the Convolvulaceae family. Random dispersion was applied to the points to avoid overlapping (jitter).
+
+
+
+
+\newpage
+
+Phylogenetic signal of traits
+
+The variables with highes values of Pagel's lambda are *selfing rate*, *pollen size*, *stigma surface* and *stigma width*. How to interpretate high values and no significance?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("Data/phylo_sign.RData")
+
+lambda <- c(stigma_type[1], selfing[1], pollen_size[1], mean_pollen_anther[1], mean_ovules[1], pollen_ovule_ratio[1], stigma_area[1], stigma_length[1], stigma_surface[1], stigma_width[1], style_length[1], style_width[1], ovary_length[1], ovary_width[1])
+lambda<- as.numeric(lambda)
+p <- c(stigma_type[4], selfing[4], pollen_size[4], mean_pollen_anther[4], mean_ovules[4], pollen_ovule_ratio[4], stigma_area[4], stigma_length[4], stigma_surface[4], stigma_width[4], style_length[1], style_width[1], ovary_length[1], ovary_width[1])
+p <- as.numeric(p)
+trait <- c("stigma_type","**selfing_rate**", "**pollen_size**", "mean_pollen_anther", "mean_ovules", "pollen_ovule_ratio", "stigma_area", "stigma_length", "**stigma_surface**", "**stigma_width**", "style_length", "style_width", "ovary_length",
+           "ovary_width")
+table<- data.frame(lambda,p, trait)
+kable(table, format="markdown")
 ```
 
 #References
