@@ -222,6 +222,11 @@ plot(p)
 
 #Now I perform procrustes test (similar to mantel)
 #Peres-Neto & Jackson, 2000 describes the advantages of Procrustes over Mantel
+
+a <-  vegdist(wisconsin(matrix_scale_effect))
+prueba_a <- monoMDS(matrix_scale_effect, y = cmdscale(a))
+prueba_b <- monoMDS(evo_distance_rbcl)
+protest(prueba_a, prueba_b)
 protest(matrix_scale_effect, sqrt(evo_distance_rbcl))
 plot(protest(matrix_scale_effect, sqrt(evo_distance_rbcl)))
 #significance 0.594, correlation=0.47
@@ -894,3 +899,63 @@ axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position = c(0.7
    annotate("text", x = c(0.82,0.82), y=c(0.4,2.2), label = c("Low effect","High effect"))+
    geom_hline(yintercept = 1.5)+scale_color_manual(values = cbPalette)+labs(title = "Solanaceae spp", subtitle = "")
  
+ 
+ #After Nacho and Romina advices I'm going to put on the X axis the selfing rate
+ #Basically I have to add just a new column with this values
+ #I start with Brassicaceae
+ 
+ a<- mean(sial[sial$Treatment=="Self", "Seed.production"])
+ b<- mean(sial[sial$Treatment=="Cross", "Seed.production"])
+(a/b*100) #[1] 100% selfing
+ 
+ a<- mean(ersa[ersa$Treatment=="Self", "seed.production"])
+ b<- mean(ersa[ersa$Treatment=="Cross", "seed.production"])
+ (a/b*100) #[1] 2% selfing
+ 
+ #BROL and BRRA 0%
+ 
+ 
+#How I should call this column? Selfing decrease doesn't seem that intuitive 
+all_bra$compatibility[all_bra$Focal=="BROL"] <- 0
+all_bra$compatibility[all_bra$Focal=="BRRA"] <- 0
+all_bra$compatibility[all_bra$Focal=="SIAL"] <- 100
+all_bra$compatibility[all_bra$Focal=="ERSA"] <- 2
+str(all_bra)
+all_bra$compatibility=as.numeric(all_bra$compatibility)
+ggplot(all_bra, aes(x=compatibility, y=hp_effect)) + 
+  geom_jitter(width=1.5,aes(colour = Focal),size=4)
+
+
+#Solanaceae
+all_sol$compatibility[all_sol$Focal=="CAAN"] <- 64
+all_sol$compatibility[all_sol$Focal=="SOLY"] <- 48
+all_sol$compatibility[all_sol$Focal=="SOME"] <- 100
+all_sol$compatibility[all_sol$Focal=="PEIN"] <- 26
+all_sol$compatibility=as.numeric(all_sol$compatibility)
+
+ggplot(all_sol, aes(x=compatibility, y=hp_effect)) + 
+  geom_jitter(width=1.5,aes(colour = Focal),size=4)
+
+all_con$compatibility[all_con$Focal=="IPAQ"] <- 75
+all_con$compatibility[all_con$Focal=="IPPU"] <- 100
+all_con$compatibility=as.numeric(all_con$compatibility)
+
+ggplot(all_con, aes(x=compatibility, y=hp_effect)) + 
+  geom_jitter(width=1.5,aes(colour = Focal),size=4)
+
+ALL <- rbind(all_bra, all_sol, all_con)
+
+ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
+  geom_jitter(width=1.5,aes(colour = Focal),size=4)
+
+#Load library for GLMM
+library(nlme)
+
+model1=lm(hp_effect~compatibility, data=ALL)
+summary(model1)
+
+model2=lme(hp_effect~compatibility, data=ALL, random=)
+summary(model2)
+coef(model2)
+plot(ranef(model2))
+plot(model2)
