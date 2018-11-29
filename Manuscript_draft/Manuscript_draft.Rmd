@@ -96,7 +96,14 @@ In natural systems plant species normally coexist and share their floral visitor
 
 **Paragraph 2**
 
-Recent important studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 @ashamn2013 @arceo2016. A general overview of it can reduce species fitness (REFS) but not in al the cases (Refs). Other general facts... Quantity of foreign pollen that arrives...
+Recent important studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 @ashamn2013 @arceo2016. A general overview of heterospecific pollen effect is that it can play an important role on species fitness but seems to be context dependent and not always fitness decreased is produced. There are several traits that are postulated to be highly relevant to this process. However the relative importance of them and their contribution to this effect is not yet well understood. 
+
+**Paragraph 3**
+
+
+can reduce species fitness (REFS) but seems to be highly contex-dependent. There are hypothesized that some traits can play a crucial role in this species interaction such as stigma type, pollen size, 
+
+
 
 Mention invasive species in this paragraph
 
