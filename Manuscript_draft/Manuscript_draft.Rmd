@@ -76,7 +76,8 @@ cite_options(citation_format = "pandoc")
 
 \vspace{2mm}\hrule
 
-Possible journals to publish: New phytologist, journal of ecology, oikos...
+Pollinator sharing can have negative consequences for species fitness with the arrival of foreign pollen. However, the costs of heterospecific pollen are not yet well understood. For this reason, we have conducted a glasshouse experiment where we try to understand how phylogenetic relatedness and the different traits of these species are involved in this process. We experimentally crossed 10 species belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Overall, more than 4000 crosses were done and seed set and pollen tubes were considered as proxy of effect. We found that for all species foreign pollen (50% or less) reduced seed set. Moreover, the seed set reduction is not dependent on the degree of relatedness of the pollen donor. However, the effect is governed by the degree of relatedness and the traits of the species recipient. Our results show that the outcome of heterospecific pollen deposition is determined in greater degree by the traits of the pollen recipient than the pollen donor and that certain traits such as compatibility system are crucial to understand the costs of heterospecific pollen.
+
 
 \vspace{3mm}\hrule
 
@@ -92,11 +93,20 @@ Possible journals to publish: New phytologist, journal of ecology, oikos...
 
 **Paragraph 1**
 
-In natural systems plant species normally coexist and share their floral visitors with other species @bascompte2003. This pollinator sharing from the plant perspective at the pre-pollination stage can be negative due to competition @pauw2013 or positive due to facilitation @carvalheiro2014. Once, the floral visitor has arrived to the flower, pollen deposition on the stigma can take place and hence ovule fertilization. An increasing number of visits generally correlates with higher chances of fertilization (Refs). However this is not always the case, among these possible flower visitors we find also nectar robbers and pollen thiefs (Refs) and the quality of pollen that is deposited on the stigma is also highly relevant to the pollination succes (Refs). Moreover, other less study issues in the pollination process are conspecific pollen loss and the arrival of foreign pollen which can have important detrimental effects for the species fitness @morales2008 (More refs).
+In natural systems plant species normally coexist and share their floral visitors with other species @bascompte2003. This pollinator sharing from the plant perspective at the pre-pollination stage can be negative due to competition @pauw2013 or positive due to facilitation @carvalheiro2014. Once the floral visitor has arrived to the flower, pollen deposition on the stigma can take place and hence ovule fertilization. An increasing number of visits generally correlates with higher chances of fertilization @engel2003. However this is not always the case, among these possible flower visitors we find also nectar robbers and pollen thiefs @inouye1980 and the quality of pollen that is deposited on the stigma is also highly relevant to the pollination succes @aizen2007. Moreover, other less study issues in the pollination process are conspecific pollen loss and the arrival of foreign pollen which can have important detrimental effects for the species fitness @morales2008 @ashman2013.
 
 **Paragraph 2**
 
-Recent important studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 @ashamn2013 @arceo2016. A general overview of heterospecific pollen effect is that it can play an important role on species fitness but seems to be context dependent and not always fitness decreased is produced. There are several traits that are postulated to be highly relevant to this process. However the relative importance of them and their contribution to this effect is not yet well understood. 
+Recent studies have advanced in the ecological importance of heterospecific pollen effect @morales2008 @ashamn2013 @arceo2016. A general overview of heterospecific pollen effect is that it can play an important role on species fitness but seems to be context dependent and not always fitness decreased is produced @morales2008. There are several traits that are postulated to be highly relevant to this process but the correlation with heterospecific pollen effect remains porrly understood. 
+
+Mention relatedness somwhere here.
+
+
+
+
+
+
+Moreover, the different methods used make difficult to compare among different experiments. For instance many articles do not describe the foreign pollen quantity used to test for effect or how this pollen was applied (Refs). The small size of pollen, great environmental variability and population outcrossing rates among others make of this field of study a daunting task and higly unpredictable.
 
 **Paragraph 3**
 
