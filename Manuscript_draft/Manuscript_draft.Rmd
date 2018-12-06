@@ -87,8 +87,6 @@ Pollinator sharing can have negative consequences for species fitness with the a
 
 \bleft
 
-
-
 # INTRODUCTION
 
 **Paragraph 1** General idea to our concept
@@ -97,13 +95,16 @@ In natural systems plant species normally coexist and share their floral visitor
 
 **Paragraph 2** Introducing topic and knowledge gap
 
-Recent studies have advanced in the ecological understanding of heterospecific pollen effect @morales2008 @ashman2013 @arceo2016. A general overview of foreign pollen arrival is that it can play an important role on species fitness but seems to be context dependent and not always produce a decrease in fitness @morales2008. Part of this unpredictability is due to the enormous variability of foreing pollen transferred in nature, where levels between 0 and 75 percent are seen, but most commonly values ranges between 0 and 20 percent of the total pollen load, being the generalist species the ones that receive greater loads of heterospecific pollen @bartomeus2008 @montgomery2012 @ashman2013 @fang2013. Although heterospecific pollen quantity is fundamental to understand the outcome of the interaction so is the different traits of both pollen donor and recipient. @ashman2013 postulated the first predictive framework for traits of heterospecific pollen effect, where different traits such as compatibility system and pollen size among others seems to be crucial to understand foreing pollen effect. Moreover, in @tong2016 an assymetric effect was shown in a crossing experiment between 6 species of the genus *Pedicularis* where the pollen of long styled species was able to grow the full length of the style on short styled species but not viceversa. Despite these recent caveats, we still lack empirical evidence to affirm what are the main traits that drive heterospecific pollen effect for both pollen donor and recipient at seed production level. Interestingly, to comprehend how these traits interact is also crucial to look at the phylogenetic relatedness of the species. There is a considerable amount of literature of crosses between close related species @brown2001 @arceo2016can @tong2016 but few works focused on heterospecific pollen of far related species which is a more realistic feature in natural systems due to a less likely niche overlap (REF). Although close related species seems to affect greatly species fitness @arceo2016 the effect of heterospecific pollen of far and close related species remains to be explored.
+Recent studies have advanced in the ecological understanding of heterospecific pollen effect @morales2008 @ashman2013 @arceo2016. A general overview of foreign pollen arrival is that it can play an important role on species fitness but seems to be context dependent and not always produce a decrease in fitness @morales2008. Part of this unpredictability is due to the enormous variability of foreing pollen transferred in nature, where levels between 0 and 75 percent are seen, but most commonly values ranges between 0 and 20 percent of the total pollen load, being the generalist species the ones that receive greater loads of heterospecific pollen @bartomeus2008 @montgomery2012 @ashman2013 @fang2013. Although heterospecific pollen quantity is fundamental to understand the outcome of the interaction so is the different traits of both pollen donor and recipient. @ashman2013 postulated the first predictive framework for traits of heterospecific pollen effect, where different traits such as compatibility system and pollen size among others seems to be crucial to understand foreing pollen effect. Moreover, in @tong2016 an assymetric effect was shown in a crossing experiment between 6 species of the genus *Pedicularis* where the pollen of long styled species was able to grow the full length of the style on short styled species but not viceversa. Despite these recent caveats, we still lack empirical evidence to affirm what are the main traits that drive heterospecific pollen effect for both pollen donor and recipient at seed production level. Interestingly, to comprehend how these traits interact is also crucial to look at the phylogenetic relatedness of the species. There is a considerable amount of literature of crosses between close related species @brown2001 @arceo2016can @tong2016 but few works focused on heterospecific pollen of far related species which is a more realistic feature in natural systems due to a less likely niche overlap (REF). Although close related species seems to affect greatly species fitness @arceo2016 the importance of heterospecific pollen effect of far and close related species remains to be explored at community level.
 
 
 
 **Paragraph 3** Expanding ideas with examples
 
-The great environmental variability in natural systems and complexity of floral structures make heterospecific pollination studies a daunting task. For this reason, controlled pollination experiments where hand pollination is applied instead of using pollinators as pollen vectors have simplified this task. However, other issues may arise such as overestimation of the effect (REFs), different methods across studies or lack of descriptive methodology for reproducible work (REFs). One of the most common ways to estimate heterospecific pollen effect through hand pollination treatments is by using 50% pollen mixes of conspecific and heterospecific pollen @arceo2016 (More Refs). 
+Traditionally, 
+
+. For this reason, controlled pollination experiments where hand pollination is applied instead of using pollinators as pollen vectors have simplified this task. However, other issues may arise such as overestimation of the effect (REFs), different methods across studies or lack of descriptive methodology for reproducible work (REFs). One of the most common ways to estimate heterospecific pollen effect is through hand pollination with mixes of 50% conspecific pollen and 50% heterospecific pollen (REF). 
+
 
 
 
@@ -114,51 +115,9 @@ Traditionally heterospecific pollen effect has focused its attention on differen
 
 **Paragraph 4** Introducing our experiment
 
-Sell well our work: We are the first empirical experiment testig the effect of heterospecific pollen with phylogenetic distance
-
-The great difficulty of working with pollen in a coflowering community make the understanding of heterospecifc pollen effect a real challenge. For this reason we have created an artificial co-flowering community in a glasshouse to test the effect with all the possible combinations among them. Where we test the folowing hypothesis: 1) Does heterospecific pollen reduce seed set, if so, 2) Does heterospecific pollen effect depend on the relatedness of the species, 3) Does heterospecific pollen effect depend on any floral trait? 
-
-
-Maybe another possible hypothesis to test is the reciprocity of the effect of heterospecifc pollen????
-
-Use the sterile species as a proof of the mechanical interference. Was a mistake but seems cool proof!!!
-
+The great environmental variability in natural systems and complexity of floral structures make heterospecific pollination studies a daunting task. Although plant-pollinator network and pollen network studies can give a first picture of the importance of foreign pollen is necessary to address how its effect is shaped with both traits and relatedness of the species. For this reason, in this study we have created an artificial co-flowering community with 10 species belonging to three different families where we try to test the following questions: 1) Does heterospecific pollen reduce seed set, if so, 2) Does heterospecific pollen effect depend on the relatedness of the species, 3) Does heterospecific pollen effect depend on any floral trait? 
 
 # METHODS
-
-[comment starts]()
-Glasshouse trial
-•	Species selected and why – how you made them co-flower
-•	Give details of sources and planting seeds, growth medium in pots, temperature and light details
-•	Hand crosses and how you did them, how you measured seed set over time.
-•	Analyses of data – standardization, means, matrices etc.  
-
-•	Analyses and technical difficulties: We calculated effect size by subtracting the mean of the cross pollinated seed set by the mean effect of the HP pollen (explain exactly what figures you used to calculate this) – check with liam about potentially using missing values analyses for the species we don’t have?
-
-Check that the method is working well to prove that your crosses were close to 50% results in SI i.e not all mixes were 50/50% and we have now counted all the pollen to make this a quantitative variable. We also need to factor in the point that we have different total abundances of pollen across our treatments, irrespective of ratios. 
-To what extent are differences in the ratios of pollen applied by hand across different plant families influenced by plant traits such as pollen size, morphology and stigma surface type? 
-
-Results – may need to include amount of pollen in models as random factor- prefill matrix with missing value analyse for the species you don’t have.  
-Question 1: how do different pollination treatments (100% HP, 50% HP, self and cross ) impact HP pollen across different plant families? Even with 100% HP one (or more species?) still produced seed set. 
-
-Result Effect size of Seed set ~ phylogenetic distance relationship
-We found that the variation ?/ mean effect size of seed set is positively related to phylogenetic distance.  This means the more unrelated the species are, the greater the negative impact of heterospecific pollen (give stats  effect size i.e. Procrustes, X = 0.35; P = 0.03)
-
-
-Question 2 : what are the main traits impacting HP impacts? (compatibility system, pollen size, stigma surface, wet/dry stigma, length of style etc.  
-
-Effect size of seed set ~ floral traits/ reproductive plant traits
-We found that the three best terms to explain the variation in seed set is pollen/ovule ratio, stigma width and style length (Stats effect size i.e. X = 0.39, P = 0.02).  
-Need to provide correlation matrix for all traits just for 10 species
-Show both ways to present this.
-Which particular traits do you find significant effects for?
-Show this and give stats.
-Present plot for each trait and effect size
-
-[comment finishes]()
-
-
-
 
 The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The species selected (Table 1) belonged to three different families, Solanaceae, Brassicaceae and Convolvulaceae. The criteria of species/family selection was based on close/distant related species (see phylogenetic tree for relatedness fig 1), heterogeneous traits, low structural flower complexity and fast life cycle. For the purpose of the experiment all the species where considered as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
 
@@ -171,11 +130,11 @@ Foreign pollen effect was studied through two different treatments, one with 50%
 
 **Evolutive distance**
 
-Two types of evolutive distances were calculated with MEGA7 thow kinds of markers: 1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase (RBCL)
+Two types of evolutive distances were calculated with MEGA7 for two kinds of markers: 1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase (RBCL)
 
 **Traits**
 
-Several traits of the ten species were measured. Pollen per anther was counted, number of ovules, stigma width and length and stigmatic area, style width and length, ovary width and length. Moreover stigma type was tested. Self-incompatibility was 
+The traits measured for each species were pollen per anther, number of ovules, stigma width and length and stigmatic area, style width and length, ovary width and length. Moreover stigma type was tested. Pollen was counted for 20 anthers of each species with 4 replicates per sample with an hemocytometer. Previously anthers were squashed on a known solution with the pippete tip and homogeneize with a vortex for 30 seconds. Ovule number was counted with the help of an stereomicroscope and a small grid over a petri dish from 15 randomly selected flowers. The different morphometrical traits were measured with XXXX. Levels of self incompatibility were estimated by dividing the the fruit set of hand self pollination by hand cross pollination 
 
 
 
