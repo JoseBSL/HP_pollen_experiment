@@ -30,6 +30,7 @@
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -239,15 +240,17 @@ crucial to look at the phylogenetic relatedness of the species. There is
 a considerable amount of literature of crosses between close related
 species Brown and Mitchell (2001) Arceo-Gómez et al. (2016) Tong and
 Huang (2016) but few works focused on heterospecific pollen of far
-related species. Although the effect of close related species is
-predicted to be greater Ashman and Arceo-Gómez (2013) the presence of
-pollen of non related species on multiple species Arceo-Gómez and Ashman
-(2016) and the higher chances to coexist with a species that has less
-niche overlap (Ref) make foreign pollen from far related species also an
-important subject of study in order to understand the importance of
-heterospecific pollen in natural systems. Notwithstanding, the effect of
-heterospecific pollen of far and close related species at community
-level remains to be explored beyond single pairwise interactions.
+related species Thomson et al. (1982) Galen and Gregory (1989) Neiland
+and Wilcock (1999) which also show a noteworthy fitness decrease.
+Although the effect of close related species is predicted to be greater
+Ashman and Arceo-Gómez (2013) the presence of pollen of non related
+species on multiple species Arceo-Gómez and Ashman (2016) and the higher
+chances to coexist with a species that has less niche overlap (Ref) make
+foreign pollen from far related species also an important subject of
+study in order to understand the importance of heterospecific pollen in
+natural systems. Notwithstanding, the effect of heterospecific pollen of
+far and close related species at community level remains to be explored
+beyond single pairwise interactions.
 
 \textbf{Paragraph 3} Expanding ideas with examples
 
@@ -258,10 +261,10 @@ compatible species Ashman and Arceo-Gómez (2013). The type of
 incompatibility, sporophytic or gametophytic is related with the place
 of pollen recognition where the former take place at the sitgma level
 and the latter occurs within the style, this last late acting pollen
-recognition mechanism is associated with greater negative effect
-({\textbf{???}}). Remarkably, there is a great variability in mating
-systems across populations Whitehead et al. (2018) and therefore predict
-an effect of foreign pollen is a bit obscured by the variability within
+recognition mechanism is associated with greater negative effect Barrett
+(1988). Remarkably, there is a great variability in mating systems
+across populations Whitehead et al. (2018) and therefore predict an
+effect of foreign pollen is a bit obscured by the variability within
 species, however species that are strong selfers or strong outcrossers
 have less variablity in mating systems and predictions of effect could
 be more realistic (see figure 1 from Whitehead et al. (2018)). Moreover,
@@ -307,32 +310,42 @@ considered as pollen recipient and as pollen donor (see interaction
 matrix, fig 2). Species were watered once or twice per day and
 fertilized weekly (NPK 23: 3.95: 14).
 
-Brown and Mitchell 2001 could be a good paper to explain why we pick
-seed set as a proxy and not fruit set. We cannot see changes on it,
-losing information with it.
+\textbf{Table 1}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Family & Genus & Species\tabularnewline
+\midrule
+\endhead
+Brassicaceae & Brassica & Brassica rapa\tabularnewline
+Brassicaceae & Brassica & Brassica oleracea\tabularnewline
+Brassicaceae & Eruca & Eruca versicaria\tabularnewline
+Brassicaceae & Sinapis & Sinapis alba\tabularnewline
+Convolvulaceae & Ipomoea & Ipomoea aquatica\tabularnewline
+Convolvulaceae & Ipomoea & Ipomoea purpurea\tabularnewline
+Solanaceae & Capsicum & Capsicum annuum\tabularnewline
+Solanaceae & Petunia & Petunia integrifolia\tabularnewline
+Solanaceae & Solanum & Solanum lycopersicum\tabularnewline
+Solanaceae & Solanum & Solanum melongena\tabularnewline
+\bottomrule
+\end{longtable}
 
 \textbf{Hand-pollination}
 
 Foreign pollen effect was studied through two different treatments, one
 with 50\% conspecific pollen and 50\% heterospecific pollen and a second
-one with 100\% foreign pollen (N=10). Seed set was the proxy of effect
-(see Brown and Mitchell 2001, for differences in effect between seed set
-and fruit set) and ``pollen tubes''. Moreover, hand cross pollination,
-hand self pollination, apomixis (bagged emasculated flowers) and natural
-selfing were tested (N=10). Flowers were emasculated the day prior
-anthesis and hand pollinated next day with a toothpick. Had-pollination
-was realized with 3-4 gentle touches on the surface of the stigma. The
-mixes of pollen were performed on an eppendorf based on the pollen
-counts maded with Neubaeur chamber (each anther was counted 4 times for
-20 different anthers per species).
+one with 100\% foreign pollen (N=10). Therefore, 180 different
+combinations were perform with N=10. Seed set was the proxy of effect
+for all our teratments. Moreover, hand cross pollination, hand self
+pollination, apomixis (bagged emasculated flowers) and natural selfing
+were tested (N=10). Flowers were emasculated the day prior anthesis and
+hand pollinated next day with a toothpick. Had-pollination was realized
+with 3-4 gentle touches on the surface of the stigma. The mixes of
+pollen were performed on an eppendorf based on the pollen counts maded
+with Neubaeur chamber (each anther was counted 4 times for 20 different
+anthers per species).
 
-\textbf{Evolutive distance}
-
-Two types of evolutive distances were calculated with MEGA7 for two
-kinds of markers: 1) Internal transcribed spacer (ITS) and 2)
-ribulose-bisphosphate carboxylase (RBCL)
-
-\textbf{Traits}
+\textbf{Traits and evolutive distance}
 
 The traits measured for each species were pollen per anther, number of
 ovules, stigma width and length and stigmatic area, style width and
@@ -344,7 +357,12 @@ seconds. Ovule number was counted with the help of an stereomicroscope
 and a small grid over a petri dish from 15 randomly selected flowers.
 The different morphometrical traits were measured with XXXX. Levels of
 self incompatibility were estimated by dividing the the fruit set of
-hand self pollination by hand cross pollination
+hand self pollination by hand cross pollination. Moreover, two types of
+evolutive distances were calculated with MEGA7 for two kinds of markers:
+1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate
+carboxylase (RBCL)
+
+\textbf{Analysis}
 
 We used the statistical language \texttt{R} (R Core Team 2018) for all
 our analyses. These were implemented in dynamic rmarkdown documents
@@ -353,6 +371,8 @@ using \texttt{knitr} (Xie 2014, 2015, 2018) and \texttt{rmarkdown}
 with \texttt{lme4} (Bates et al. 2015).
 
 \section{RESULTS}\label{results}
+
+Heterospecific pollen produced fitness for xxx cases.
 
 \section{DISCUSSION}\label{discussion}
 
@@ -406,6 +426,11 @@ understanding of the fitness costs of heterospecific pollen receipt and
 its importance in co-flowering communities. American Journal of Botany
 100:1061--1070.
 
+\hypertarget{ref-barrett1988}{}
+Barrett, S. C. 1988. The evolution, maintenance, and loss of
+self-incompatibility systems. Plant reproductive ecology: patterns and
+strategies:98--124.
+
 \hypertarget{ref-bartomeus2008}{}
 Bartomeus, I., J. Bosch, and M. Vilà. 2008. High invasive pollen
 transfer, yet low deposition on native stigmas in a carpobrotus-invaded
@@ -442,6 +467,12 @@ Fang, Q., and S.-Q. Huang. 2013. A directed network analysis of
 heterospecific pollen transfer in a biodiverse community. Ecology
 94:1176--1185.
 
+\hypertarget{ref-galen1989}{}
+Galen, C., and T. Gregory. 1989. Interspecific pollen transfer as a
+mechanism of competition: Consequences of foreign pollen contamination
+for seed set in the alpine wildflower, polemonium viscosum. Oecologia
+81:120--123.
+
 \hypertarget{ref-inouye1980}{}
 Inouye, D. W. 1980. The terminology of floral larceny. Ecology
 61:1251--1253.
@@ -455,6 +486,11 @@ prairie community. Oecologia 168:449--458.
 Morales, C. L., and A. Traveset. 2008. Interspecific pollen transfer:
 Magnitude, prevalence and consequences for plant fitness. Critical
 Reviews in Plant Sciences 27:221--238.
+
+\hypertarget{ref-neiland1999}{}
+Neiland, M., and C. Wilcock. 1999. The presence of heterospecific pollen
+on stigmas of nectariferous and nectarless orchids and its consequences
+for their reproductive success. Protoplasma 208:65--75.
 
 \hypertarget{ref-pauw2013}{}
 Pauw, A. 2013. Can pollination niches facilitate plant coexistence?
