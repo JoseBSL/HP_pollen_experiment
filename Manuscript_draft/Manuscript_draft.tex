@@ -31,6 +31,25 @@
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \usepackage[margin=1in]{geometry}
 \usepackage{longtable,booktabs}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -373,6 +392,8 @@ with \texttt{lme4} (Bates et al. 2015).
 \section{RESULTS}\label{results}
 
 Heterospecific pollen produced fitness for xxx cases.
+
+\includegraphics{output/figures/unnamed-chunk-2-1.pdf}
 
 \section{DISCUSSION}\label{discussion}
 

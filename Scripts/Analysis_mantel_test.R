@@ -963,6 +963,8 @@ plot(model2)
 
 #Lets add new column with a seq of the length of the dataset and i use that as random effect (different individuals)
 
+#save.image(file='Manuscript_draft/myEnv.RData')
+
 ALL$indv<- seq.int(nrow(ALL))
 model2=lme(hp_effect~compatibility, data=ALL, random=~1|indv)
 summary(model2)

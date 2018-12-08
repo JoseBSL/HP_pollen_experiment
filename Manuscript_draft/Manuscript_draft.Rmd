@@ -145,6 +145,17 @@ We used the statistical language `R` `r citep(citation())` for all our analyses.
 
 Heterospecific pollen produced fitness for xxx cases.
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+load("myEnv.RData")
+library(nlme)
+library(lme4)
+library(ggplot2)
+Model.2 <- lmer(hp_effect ~ compatibility + (1 | Focal), data = ALL)
+ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
+  geom_jitter(width=1.5,aes(colour = Focal),size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(Model.2))))
+
+```
 
 
 
