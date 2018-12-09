@@ -126,23 +126,35 @@ kable(table, format="markdown")
 
 **Hand-pollination**
 
-Foreign pollen effect was studied through two different treatments, one with 50% conspecific pollen and 50% heterospecific pollen and a second one with 100% foreign pollen (N=10). Therefore, 180 different combinations were perform with N=10. Seed set was the proxy of effect for all our teratments. Moreover, hand cross pollination, hand self pollination, apomixis (bagged emasculated flowers) and natural selfing were tested (N=10). Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Hand-pollination was realized with 3-4 gentle touches on the stigma surface. The mixes of pollen were performed on an eppendorf based on the pollen counts maded with Neubaeur chamber (each anther was counted 4 times for 20 different anthers per species). In order to confirm that the treatments applied were 50-50 percent pollen, for each focal species the total stigmatic load of pollen was counted from one donor of each family (N=3). 
+Foreign pollen effect was studied through two different treatments, one with 50% conspecific pollen and 50% heterospecific pollen and a second one with 100% foreign pollen (N=10). Therefore, 180 different combinations were perform with N=10. Seed set was the proxy of effect for all our treatments. Moreover, hand cross pollination, hand self pollination, apomixis (bagged emasculated flowers) and natural selfing were tested for each species (N=10). Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Hand-pollination was conducted with 3-4 gentle touches on the stigma surface. The mixes of pollen were realized on an eppendorf based on the pollen counts maded with Neubaeur chamber (each anther was counted 4 times for 20 different anthers per species). In order to confirm that the treatments applied were 50-50 percent pollen, for each focal species the total stigmatic load of pollen was counted from one donor of each family (N=3). 
 
 
 **Traits and evolutive distance**
 
-The traits measured for each species were pollen per anther, number of ovules, stigma width and length and stigmatic area, style width and length, ovary width and length. Moreover stigma type was tested. Pollen was counted for 20 anthers of each species with 4 replicates per sample with an hemocytometer. Previously anthers were squashed on a known solution with the pippete tip and homogeneize with a vortex for 30 seconds. Ovule number was counted with the help of an stereomicroscope and a small grid over a petri dish from 15 randomly selected flowers. The different morphometrical traits were measured with XXXX. Levels of self incompatibility were estimated by dividing the the fruit set of hand self pollination by hand cross pollination. Moreover, two types of evolutive distances were calculated with MEGA7 for two kinds of markers: 1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase (RBCL) 
+The traits measured for each species were pollen per anther, number of ovules, stigma width and length and stigmatic area, style width and length, ovary width and length. Moreover stigma type was tested. Pollen was counted for 20 anthers of each species with 4 replicates per sample with an hemocytometer. Previously anthers were squashed on a known solution with the pippete tip and homogeneize with a vortex for 30 seconds. Ovule number was counted with the help of an stereomicroscope and a small grid over a petri dish from 15 randomly selected flowers. The different morphometrical traits were measured with a digital stereomicrospe. Levels of self incompatibility were estimated by dividing the the fruit set of hand self pollination by hand cross pollination @lloyd1992. 
 
 **Analysis**
 
-We used the statistical language `R` `r citep(citation())` for all our analyses. These were implemented in dynamic rmarkdown documents using `knitr` `r citep(citation("knitr"))` and `rmarkdown` `r citep(citation("rmarkdown"))` packages. To test the effect of heterospecific pollen, we substracted the to seed set of hand cross pollination the seed set of the heterospecific pollen treatments. Therefore, small values mean low effect and viceversa. To be able to compare among species seed set was previosly scaled for all species. In order to see relations between hetereospecific pollen effect and traits we performed Mantel test between the matrix of effect and the distance matrix of each trait (euclidean distances). Moreover, Mantel test was also conducted between heterospecific pollen effect and phylogenetic distance. 
+We used the statistical language `R` `r citep(citation())` for all our analyses. To test the effect of heterospecific pollen, we substracted to the seed set of hand cross pollination the seed set of heterospecific pollen treatments. Therefore, small values mean low effect and viceversa. To be able to compare among species, seed set was previosly scaled with mean 0 and standard deviation of 1. In order to see correlations between hetereospecific pollen effect and traits we performed Mantel test between the matrix of effect and the distance matrix of each trait (euclidean distances). Moreover, Mantel test was also conducted between heterospecific pollen effect and the square root of the matrix of phylogenetic distance due to improvement in the statistical power (Letten & Cornwell 2014). We explored also the the relations between traits and heterospecific pollen effect through generalized mixed models where the response variable was heterospecific pollen effect, the independent variable the different traits and the random effects the different treatments per species. Moreover, pairwise evolutive distances were calculated with MEGA7 for two kinds of markers: 1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase (RBCL). The sequences of interest were downloaded from NCBI GenBank and the phylogenetic tree constructed by maximum likelihood with MEGA7.
+
+Phylogenetic signal of traits?
 
 
 \newpage
 
 # RESULTS
 
-Heterospecific pollen produced fitness for xxx cases.
+
+Heterospecific pollen reduced seet set signifcatively in xxx from xxx pairwise species combinations. Being greater in xxx and then in xxx. I have tested that with linear mixed effect models (add this to methods). Add boxplots here...
+
+Mantel test gave significant values p<0.05 for both types of evolutive distances considered, with r coefficients of 0.29 and 0.25 for the distances of ITS and RBCL markers respectively. Moreover, Mantel test gave a significant correlation between stigma width and stigma type with xxxx. Trait correlations were also explored with ... and we found that...
+
+Fix mantel test selfing rates and change it for compatibility index...
+
+
+
+Fix this to GLMM? Yep I have to...
+
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=5, fig.cap="The effect of heterospecific pollen (scaled see set) is represented in function of the compatibility system (self/cross*100) for the the different species. Each coulored dot represents the interaction of a focal species with a different pollen donor."}
 load("myEnv.RData")
