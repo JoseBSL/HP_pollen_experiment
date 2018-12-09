@@ -964,18 +964,16 @@ plot(model2)
 #Lets add new column with a seq of the length of the dataset and i use that as random effect (different individuals)
 
 #save.image(file='Manuscript_draft/myEnv.RData')
-
-ALL$indv<- seq.int(nrow(ALL))
+#Index of self compatibility Lloyd and Schoen 1992
+ALL$indv<- seq.int(1:10)
 model2=lme(hp_effect~compatibility, data=ALL, random=~1|indv)
 summary(model2)
 tempEf$fit <- predict(model) 
 
-Model.2 <- lmer(hp_effect ~ compatibility + (1 | Focal), data = ALL)
-summary(Model.2)
-
-ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
+#Model.2 <- lmer(hp_effect ~ compatibility + (1 | Focal), data = ALL)
+#summary(Model.2)
+#ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
   geom_jitter(width=1.5,aes(colour = Focal),size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
-
 ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
   geom_jitter(width=1.5,aes(colour = Focal),size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(Model.2))))
+  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(model2))))+theme_cowplot()

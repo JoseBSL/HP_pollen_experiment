@@ -100,11 +100,11 @@ Recent studies have advanced in the ecological understanding of heterospecific p
 
 **Paragraph 3** Expanding ideas with examples
 
-Interestingly, incompatibility system seems to play an important role in foreign pollen effect where species that are self incompatible would have stronger barriers towards heterospecific pollen than self compatible species @ashman2013. The type of incompatibility, sporophytic or gametophytic is related with the place of pollen recognition where the former take place at the sitgma level and the latter occurs within the style, this last late acting pollen recognition mechanism is associated with greater negative effect @barrett1988. Remarkably, there is a great variability in mating systems across populations @whitehead2018 and therefore predict an effect of foreign pollen is a bit obscured by the variability within species, however species that are strong selfers or strong outcrossers have less variablity in mating systems and predictions of effect could be more realistic (see figure 1 from @whitehead2018). Moreover, other traits such as number of pollen grains per flower and number of ovules have been tradittionally associated with the type of incompatibility system where species with higher pollen ovule ratios are predicted to be xenogamous and species with low pollen ovule ratios autogamous (REF). Selfer species would have a reduction of herkogamy (REF), less pollen production per ovule (REF) and therefore less likely to contribute in exporting pollen in the community. Other morphological traits, like stigma size can be determinant for the total pollen quatity that a stigma can receive and therefore related to do that pollen size would also play an important role. Example with pollen here.
+Interestingly, incompatibility system seems to play an important role in foreign pollen effect where species that are self incompatible would have stronger barriers towards heterospecific pollen than self compatible species @ashman2013. The type of incompatibility, sporophytic or gametophytic is related with the place of pollen recognition where the former take place at the sitgma level and the latter occurs within the style, this last late acting pollen recognition mechanism is associated with greater negative effect @barrett1988. Remarkably, there is a great variability in mating systems across populations @whitehead2018 and therefore predict an effect of foreign pollen is a bit obscured by the variability within species, however species that are strong selfers or strong outcrossers have less variablity in mating systems and predictions of effect could be more realistic (see figure 1 from @whitehead2018). Moreover, other traits such as number of pollen grains per flower and number of ovules have been tradittionally associated with the type of incompatibility system where species with higher pollen ovule ratios are predicted to be xenogamous and species with low pollen ovule ratios autogamous (REF). Selfer species would have a reduction of herkogamy (REF) and less pollen production per ovule (REF) which can be interpretated as a reduction of pollen expoorted into the community. Other morphological traits, like stigma size can be determinant for the total pollen quatity that a stigma can receive and therefore related to do that pollen size would also play an important role. Example with pollen here.
 
 **Paragraph 4** Introducing our experiment
 
-The great environmental variability in natural systems and complexity of floral structures make heterospecific pollination studies a daunting task. Moreover, variation in sampling effort have been shown to be determinant to characterize pollen transfer interactions @arceo2018. Although plant-pollinator network and pollen network studies can give a first picture of the importance of foreign pollen is necessary to address how its effect is shaped with both traits and relatedness of the species. For this reason, in this study we have created an artificial co-flowering community with 10 species belonging to three different families where we try to test the following questions: 1) Does heterospecific pollen reduce seed set, if so, 2) Does heterospecific pollen effect depend on the relatedness of the species, 3) Does heterospecific pollen effect depend on any floral trait? 
+The great environmental variability in natural systems and complexity of floral structures make heterospecific pollination studies a daunting task. Moreover, variation in sampling effort have been shown to be determinant to characterize pollen transfer interactions @arceo2018. Although plant-pollinator network and pollen network studies can give a first picture of the importance of foreign pollen is necessary to address how its effect is shaped with both traits and relatedness of the species. For this reason, in this study we have created an artificial co-flowering community with 10 species belonging to three different families with different traits where we try to test the following questions: 1) Does heterospecific pollen reduce seed set, if so, 2) Does heterospecific pollen effect depend on any floral trait? 3) Does heterospecific pollen effect depend on the relatedness of the species. 
 
 # METHODS
 
@@ -126,7 +126,7 @@ kable(table, format="markdown")
 
 **Hand-pollination**
 
-Foreign pollen effect was studied through two different treatments, one with 50% conspecific pollen and 50% heterospecific pollen and a second one with 100% foreign pollen (N=10). Therefore, 180 different combinations were perform with N=10. Seed set was the proxy of effect for all our teratments. Moreover, hand cross pollination, hand self pollination, apomixis (bagged emasculated flowers) and natural selfing were tested (N=10). Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Had-pollination was realized with 3-4 gentle touches on the surface of the stigma. The mixes of pollen were performed on an eppendorf based on the pollen counts maded with Neubaeur chamber (each anther was counted 4 times for 20 different anthers per species).
+Foreign pollen effect was studied through two different treatments, one with 50% conspecific pollen and 50% heterospecific pollen and a second one with 100% foreign pollen (N=10). Therefore, 180 different combinations were perform with N=10. Seed set was the proxy of effect for all our teratments. Moreover, hand cross pollination, hand self pollination, apomixis (bagged emasculated flowers) and natural selfing were tested (N=10). Flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Hand-pollination was realized with 3-4 gentle touches on the stigma surface. The mixes of pollen were performed on an eppendorf based on the pollen counts maded with Neubaeur chamber (each anther was counted 4 times for 20 different anthers per species). In order to confirm that the treatments applied were 50-50 percent pollen, for each focal species the total stigmatic load of pollen was counted from one donor of each family (N=3). 
 
 
 **Traits and evolutive distance**
@@ -135,25 +135,25 @@ The traits measured for each species were pollen per anther, number of ovules, s
 
 **Analysis**
 
-
-We used the statistical language `R` `r citep(citation())` for all our analyses. These were implemented in dynamic rmarkdown documents using `knitr` `r citep(citation("knitr"))` and `rmarkdown` `r citep(citation("rmarkdown"))` packages. All the multilevel models were fitted with `lme4` `r citep(citation("lme4"))`. 
-
+We used the statistical language `R` `r citep(citation())` for all our analyses. These were implemented in dynamic rmarkdown documents using `knitr` `r citep(citation("knitr"))` and `rmarkdown` `r citep(citation("rmarkdown"))` packages. To test the effect of heterospecific pollen, we substracted the to seed set of hand cross pollination the seed set of the heterospecific pollen treatments. Therefore, small values mean low effect and viceversa. To be able to compare among species seed set was previosly scaled for all species. In order to see relations between hetereospecific pollen effect and traits we performed Mantel test between the matrix of effect and the distance matrix of each trait (euclidean distances). Moreover, Mantel test was also conducted between heterospecific pollen effect and phylogenetic distance. 
 
 
+\newpage
 
 # RESULTS
 
 Heterospecific pollen produced fitness for xxx cases.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=5, fig.cap="The effect of heterospecific pollen (scaled see set) is represented in function of the compatibility system (self/cross*100) for the the different species. Each coulored dot represents the interaction of a focal species with a different pollen donor."}
 load("myEnv.RData")
 library(nlme)
 library(lme4)
 library(ggplot2)
-Model.2 <- lmer(hp_effect ~ compatibility + (1 | Focal), data = ALL)
+library(cowplot)
+model2=lme(hp_effect~compatibility, data=ALL, random=~1|indv)
 ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
   geom_jitter(width=1.5,aes(colour = Focal),size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(Model.2))))
+  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(model2))))+theme_cowplot()
 
 ```
 

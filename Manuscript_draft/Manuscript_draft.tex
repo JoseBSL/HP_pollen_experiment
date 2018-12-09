@@ -358,11 +358,13 @@ combinations were perform with N=10. Seed set was the proxy of effect
 for all our teratments. Moreover, hand cross pollination, hand self
 pollination, apomixis (bagged emasculated flowers) and natural selfing
 were tested (N=10). Flowers were emasculated the day prior anthesis and
-hand pollinated next day with a toothpick. Had-pollination was realized
-with 3-4 gentle touches on the surface of the stigma. The mixes of
-pollen were performed on an eppendorf based on the pollen counts maded
-with Neubaeur chamber (each anther was counted 4 times for 20 different
-anthers per species).
+hand pollinated next day with a toothpick. HaNd-pollination was realized
+with 3-4 gentle touches on the stigma surface. The mixes of pollen were
+performed on an eppendorf based on the pollen counts maded with Neubaeur
+chamber (each anther was counted 4 times for 20 different anthers per
+species). In order to confirm that the treatments applied were 50-50\%
+pollen we counted for each species the total pollen stigmatic load from
+a donor of each family (N=3).
 
 \textbf{Traits and evolutive distance}
 
@@ -386,14 +388,30 @@ carboxylase (RBCL)
 We used the statistical language \texttt{R} (R Core Team 2018) for all
 our analyses. These were implemented in dynamic rmarkdown documents
 using \texttt{knitr} (Xie 2014, 2015, 2018) and \texttt{rmarkdown}
-(Allaire et al. 2018) packages. All the multilevel models were fitted
-with \texttt{lme4} (Bates et al. 2015).
+(Allaire et al. 2018) packages. To test the effect of heterospecific
+pollen, we substracted the to seed set of hand cross pollination the
+seed set of the heterospecific pollen treatments. Therefore, small
+values mean low effect and viceversa. To be able to compare among
+species seed set was previosly scaled for all species. In order to see
+relations between hetereospecific pollen effect and traits we performed
+Mantel test between the matrix of effect and the distance matrix of each
+trait (euclidean distances). Moreover, Mantel test was also conducted
+between heterospecific pollen effect and phylogenetic distance.
+
+\newpage
 
 \section{RESULTS}\label{results}
 
 Heterospecific pollen produced fitness for xxx cases.
 
+\begin{figure}
+\centering
 \includegraphics{output/figures/unnamed-chunk-2-1.pdf}
+\caption{The effect of heterospecific pollen (scaled see set) is
+represented in function of the compatibility system (self/cross*100) for
+the the different species. Each coulored dot represents the interaction
+of a focal species with a different pollen donor.}
+\end{figure}
 
 \section{DISCUSSION}\label{discussion}
 
@@ -461,11 +479,6 @@ community. Annals of Botany 102:417--424.
 Bascompte, J., P. Jordano, C. J. Melián, and J. M. Olesen. 2003. The
 nested assembly of plant--animal mutualistic networks. Proceedings of
 the National Academy of Sciences 100:9383--9387.
-
-\hypertarget{ref-Bates_2015}{}
-Bates, D., M. Mächler, B. Bolker, and S. Walker. 2015. Fitting linear
-mixed-effects models using lme4. Journal of Statistical Software
-67:1--48.
 
 \hypertarget{ref-brown2001}{}
 Brown, B. J., and R. J. Mitchell. 2001. Competition for pollination:
