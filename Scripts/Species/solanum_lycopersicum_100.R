@@ -39,7 +39,7 @@ soly_seed_set_div <- str_split_fixed(as.character(soly_seed_set$Treatment), " ",
 soly_seed_set_div <- data.frame(soly_seed_set_div, stringsAsFactors = F)
 colnames(soly_seed_set_div)=c("non_focal","percentage")
 soly_seed_set_bind <- cbind(soly_seed_set,soly_seed_set_div)
-soly_seed_set_bind <- filter(soly_seed_set_bind, percentage!="100%")
+soly_seed_set_bind <- filter(soly_seed_set_bind, percentage!="50%")
 
 #Because I want to give it specifically order I do it separately
 #caan_seed_set_common <- filter(soly_seed_set_bind, non_focal %in% c("CROSS", "SELF","CONTROL","FLOWER"))
