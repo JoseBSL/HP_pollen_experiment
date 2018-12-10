@@ -80,16 +80,16 @@ soly_seed_set_final$Family[soly_seed_set_final$Treatment=="PEIN 100%"] <- "Solan
 soly_seed_set_final$Family[soly_seed_set_final$Treatment=="IPPU 100%"] <- "Convolvulaceae"
 soly_seed_set_final$Family[soly_seed_set_final$Treatment=="IPAQ 100%"] <- "Convolvulaceae"
 
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="BROL 50%"] <- "Brassica oleracea"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="BRRA 50%"] <- "Brassica rapa"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="CAAN 50%"] <- "Capsicum annuum"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="ERSA 50%"] <- "Eruca vesicaria" #Eruca sativa seems to be a synonym
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="IPAQ 50%"] <- "Ipomoea aquatica"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="IPPU 50%"] <- "Ipomoea purpurea"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="PEIN 50%"] <- "Petunia integrifolia"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
-soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="BROL 50%"] <- "Brassica oleracea"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="BRRA 50%"] <- "Brassica rapa"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="CAAN 50%"] <- "Capsicum annuum"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="ERSA 50%"] <- "Eruca vesicaria" #Eruca sativa seems to be a synonym
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="IPAQ 50%"] <- "Ipomoea aquatica"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="IPPU 50%"] <- "Ipomoea purpurea"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="PEIN 50%"] <- "Petunia integrifolia"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
+#soly_seed_set_final$Treatment[soly_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
 
 
 soly_seed_set_brassicaceae <- filter(soly_seed_set_final, Family %in% c("Brassicaceae"))
