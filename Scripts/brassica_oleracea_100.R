@@ -40,7 +40,7 @@ brol_seed_set_div <- str_split_fixed(as.character(brol_seed_set$Treatment), " ",
 brol_seed_set_div <- data.frame(brol_seed_set_div, stringsAsFactors = F)
 colnames(brol_seed_set_div)=c("non_focal","percentage")
 brol_seed_set_bind <- cbind(brol_seed_set,brol_seed_set_div)
-brol_seed_set_bind <- filter(brol_seed_set_bind, percentage!="100%")
+brol_seed_set_bind <- filter(brol_seed_set_bind, percentage!="50%")
 
 #Because I want to give it specifically order I do it separately
 #pein_seed_set_common <- filter(brol_seed_set_bind, non_focal %in% c("CROSS", "SELF","CONTROL","FLOWER"))
@@ -67,27 +67,27 @@ brol_seed_set_final[brol_seed_set_final$Treatment==c("BROL 50%"),4] <- NA
 
 #changing non_focal species name
 brol_seed_set_final$Treatment=as.character(brol_seed_set_final$Treatment)
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="BROL 50%"] <- "Brassicaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="BRRA 50%"] <- "Brassicaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="SIAL 50%"] <- "Brassicaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="ERSA 50%"] <- "Brassicaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="CAAN 50%"] <- "Solanaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="SOLY 50%"] <- "Solanaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="SOME 50%"] <- "Solanaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="PEIN 50%"] <- "Solanaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="IPPU 50%"] <- "Convolvulaceae"
-brol_seed_set_final$Family[brol_seed_set_final$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="BROL 100%"] <- "Brassicaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="BRRA 100%"] <- "Brassicaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="SIAL 100%"] <- "Brassicaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="ERSA 100%"] <- "Brassicaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="CAAN 100%"] <- "Solanaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="SOLY 100%"] <- "Solanaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="SOME 100%"] <- "Solanaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="PEIN 100%"] <- "Solanaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="IPPU 100%"] <- "Convolvulaceae"
+brol_seed_set_final$Family[brol_seed_set_final$Treatment=="IPAQ 100%"] <- "Convolvulaceae"
 
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="BROL 50%"] <- "Brassica oleracea"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="BRRA 50%"] <- "Brassica rapa"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="CAAN 50%"] <- "Capsicum annuum"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="ERSA 50%"] <- "Eruca vesicaria" #Eruca sativa seems to be a synonym
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="IPAQ 50%"] <- "Ipomoea aquatica"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="IPPU 50%"] <- "Ipomoea purpurea"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="PEIN 50%"] <- "Petunia integrifolia"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SIAL 50%"] <- "Sinapis alba"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOLY 50%"] <- "Solanum lycopersicum"
-brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOME 50%"] <- "Solanum melongena"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="BROL 100%"] <- "Brassica oleracea"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="BRRA 100%"] <- "Brassica rapa"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="CAAN 100%"] <- "Capsicum annuum"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="ERSA 100%"] <- "Eruca vesicaria" #Eruca sativa seems to be a synonym
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="IPAQ 100%"] <- "Ipomoea aquatica"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="IPPU 100%"] <- "Ipomoea purpurea"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="PEIN 100%"] <- "Petunia integrifolia"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SIAL 100%"] <- "Sinapis alba"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOLY 100%"] <- "Solanum lycopersicum"
+brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="SOME 100%"] <- "Solanum melongena"
 brol_seed_set_final$Treatment[brol_seed_set_final$Treatment=="FC"] <- "Flower control"
 
 brol_seed_set_brassicaceae <- filter(brol_seed_set_final, Family %in% c("Brassicaceae"))
@@ -108,4 +108,4 @@ brol_seed_set_final=rbind(brol_seed_set_brassicaceae, brol_seed_set_convolvulace
                           brol_seed_set_solanaceae, brol_seed_set_cross, brol_seed_set_self, brol_seed_set_control,
                           brol_seed_set_flower)
 
-write.csv(brol_seed_set_final, "Rmd/Data/brol_seed_set_final.csv")
+write.csv(brol_seed_set_final, "Rmd/Data/brol_seed_set_100.csv")
