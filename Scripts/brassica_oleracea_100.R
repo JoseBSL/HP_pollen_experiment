@@ -109,31 +109,3 @@ brol_seed_set_final=rbind(brol_seed_set_brassicaceae, brol_seed_set_convolvulace
                           brol_seed_set_flower)
 
 write.csv(brol_seed_set_final, "Rmd/Data/brol_seed_set_final.csv")
-
-#Different colour per Treatment
-p <- ggplot(brol_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
-  labs(title="Brassica oleracea",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5))
-
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
-
-#Different colour per family
-p <- ggplot(brol_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
-  labs(title="Brassica oleracea",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) + geom_jitter(width = 0.2)
-
-p + stat_summary(fun.y=mean, geom="point", shape="*", size=5, colour="black") +theme(legend.position="none")
-
-
-#I think we kind of missing something with boxplots
-#I'm going to sum seeds per Treatment to see if it improves the visualization of the differences
-brol_seed_set$Treatment<- as.character(brol_seed_set$Treatment)
-brol_seed_set_sum <- dcast(factor(Treatment, levels=unique(Treatment))+Family~., value.var = "Seed.production", fun.aggregate = sum, data =brol_seed_set_final , na.rm= TRUE)
-colnames(brol_seed_set_sum)<- c("Treatment","Family","Sum_seed")
-
-
-p<-ggplot(brol_seed_set_sum, aes(x=Treatment, y=Sum_seed)) +
-  geom_bar(stat="identity")+ labs(title="Brassica oleracea",x="", y = "Seeds")+aes(fill=Family)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-  theme(plot.title = element_text(hjust = 0.5)) 
-p+theme(legend.position="none")
-
