@@ -174,6 +174,4 @@ summary(mod1)
 #significant differences for all
 #No seeds produced with 100% treatments
 
-
-
 #I'm going to compile now the fruit information.
