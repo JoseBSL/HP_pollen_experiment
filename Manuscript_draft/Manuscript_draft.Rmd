@@ -14,7 +14,6 @@ affiliation:
 - affil: Estacion Biologica de Donana (EBD-CSIC), E-41092 Sevilla, Spain
   affilnum: 3
 output:
-  word_document: null
   pdf_document:
     fig_caption: yes
     fig_height: 7
@@ -24,6 +23,7 @@ output:
     keep_tex: yes
     number_sections: no
     template: manuscript.latex
+  word_document: null
   html_document: null
 capsize: normalsize
 classoption: a4paper
@@ -145,9 +145,10 @@ Phylogenetic signal of traits?
 # RESULTS
 
 
-Heterospecific pollen reduced seet set signifcatively in xxx from xxx pairwise species combinations. Being greater in xxx and then in xxx. I have tested that with linear mixed effect models (add this to methods). Add boxplots here...
+Heterospecific pollen reduced seet set signifcatively with the 50-50% heterospecific pollen treatments for 65% of the paiwise interactions p<0.05. Across families we found a very similar effect but when species where look at species level they respond differently even within the same family, for instance for two species of the Brassicaceae family Brassica oleracea and Eruca sativa we found very contrasting effects of foreign pollen where for the first one, all donors reduce seedt set significatively and for the second, just two species did out of nine. The treatments of 100% heterospecific pollen ... didn't seed except... 
 
-Mantel test gave significant values p<0.05 for both types of evolutive distances considered, with r coefficients of 0.29 and 0.25 for the distances of ITS and RBCL markers respectively. Moreover, Mantel test gave a significant correlation between stigma width and stigma type with xxxx. Trait correlations were also explored with ... and we found that...
+
+Mantel test indicates that a possible correlation exist between heterospecific pollen effect and the evolutive distances, for  ITS and RBCL markers we had r coefficients of 0.29 and 0.25 respectively p<0.05. Moreover, Mantel test indicates that also a possible correlation between stigma width and stigma type exist. Trait correlations were also explored with ... and we found that...
 
 Fix mantel test selfing rates and change it for compatibility index...
 
@@ -170,6 +171,7 @@ ggplot(ALL, aes(x=compatibility, y=hp_effect)) +
 ```
 
 
+\newpage
 
 
 # DISCUSSION

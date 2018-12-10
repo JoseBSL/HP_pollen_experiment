@@ -292,11 +292,12 @@ ovules have been tradittionally associated with the type of
 incompatibility system where species with higher pollen ovule ratios are
 predicted to be xenogamous and species with low pollen ovule ratios
 autogamous (REF). Selfer species would have a reduction of herkogamy
-(REF), less pollen production per ovule (REF) and therefore less likely
-to contribute in exporting pollen in the community. Other morphological
-traits, like stigma size can be determinant for the total pollen quatity
-that a stigma can receive and therefore related to do that pollen size
-would also play an important role. Example with pollen here.
+(REF) and less pollen production per ovule (REF) which can be
+interpretated as a reduction of pollen expoorted into the community.
+Other morphological traits, like stigma size can be determinant for the
+total pollen quatity that a stigma can receive and therefore related to
+do that pollen size would also play an important role. Example with
+pollen here.
 
 \textbf{Paragraph 4} Introducing our experiment
 
@@ -309,10 +310,11 @@ can give a first picture of the importance of foreign pollen is
 necessary to address how its effect is shaped with both traits and
 relatedness of the species. For this reason, in this study we have
 created an artificial co-flowering community with 10 species belonging
-to three different families where we try to test the following
-questions: 1) Does heterospecific pollen reduce seed set, if so, 2) Does
-heterospecific pollen effect depend on the relatedness of the species,
-3) Does heterospecific pollen effect depend on any floral trait?
+to three different families with different traits where we try to test
+the following questions: 1) Does heterospecific pollen reduce seed set,
+if so, 2) Does heterospecific pollen effect depend on any floral trait?
+3) Does heterospecific pollen effect depend on the relatedness of the
+species.
 
 \section{METHODS}\label{methods}
 
@@ -355,16 +357,17 @@ Foreign pollen effect was studied through two different treatments, one
 with 50\% conspecific pollen and 50\% heterospecific pollen and a second
 one with 100\% foreign pollen (N=10). Therefore, 180 different
 combinations were perform with N=10. Seed set was the proxy of effect
-for all our teratments. Moreover, hand cross pollination, hand self
+for all our treatments. Moreover, hand cross pollination, hand self
 pollination, apomixis (bagged emasculated flowers) and natural selfing
-were tested (N=10). Flowers were emasculated the day prior anthesis and
-hand pollinated next day with a toothpick. HaNd-pollination was realized
-with 3-4 gentle touches on the stigma surface. The mixes of pollen were
-performed on an eppendorf based on the pollen counts maded with Neubaeur
-chamber (each anther was counted 4 times for 20 different anthers per
-species). In order to confirm that the treatments applied were 50-50\%
-pollen we counted for each species the total pollen stigmatic load from
-a donor of each family (N=3).
+were tested for each species (N=10). Flowers were emasculated the day
+prior anthesis and hand pollinated next day with a toothpick.
+Hand-pollination was conducted with 3-4 gentle touches on the stigma
+surface. The mixes of pollen were realized on an eppendorf based on the
+pollen counts maded with Neubaeur chamber (each anther was counted 4
+times for 20 different anthers per species). In order to confirm that
+the treatments applied were 50-50 percent pollen, for each focal species
+the total stigmatic load of pollen was counted from one donor of each
+family (N=3).
 
 \textbf{Traits and evolutive distance}
 
@@ -376,33 +379,63 @@ with an hemocytometer. Previously anthers were squashed on a known
 solution with the pippete tip and homogeneize with a vortex for 30
 seconds. Ovule number was counted with the help of an stereomicroscope
 and a small grid over a petri dish from 15 randomly selected flowers.
-The different morphometrical traits were measured with XXXX. Levels of
-self incompatibility were estimated by dividing the the fruit set of
-hand self pollination by hand cross pollination. Moreover, two types of
-evolutive distances were calculated with MEGA7 for two kinds of markers:
-1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate
-carboxylase (RBCL)
+The different morphometrical traits were measured with a digital
+stereomicrospe. Levels of self incompatibility were estimated by
+dividing the the fruit set of hand self pollination by hand cross
+pollination Lloyd and Schoen (1992).
 
 \textbf{Analysis}
 
 We used the statistical language \texttt{R} (R Core Team 2018) for all
-our analyses. These were implemented in dynamic rmarkdown documents
-using \texttt{knitr} (Xie 2014, 2015, 2018) and \texttt{rmarkdown}
-(Allaire et al. 2018) packages. To test the effect of heterospecific
-pollen, we substracted the to seed set of hand cross pollination the
-seed set of the heterospecific pollen treatments. Therefore, small
-values mean low effect and viceversa. To be able to compare among
-species seed set was previosly scaled for all species. In order to see
-relations between hetereospecific pollen effect and traits we performed
-Mantel test between the matrix of effect and the distance matrix of each
-trait (euclidean distances). Moreover, Mantel test was also conducted
-between heterospecific pollen effect and phylogenetic distance.
+our analyses. To test the effect of heterospecific pollen, we
+substracted to the seed set of hand cross pollination the seed set of
+heterospecific pollen treatments. Therefore, small values mean low
+effect and viceversa. To be able to compare among species, seed set was
+previosly scaled with mean 0 and standard deviation of 1. In order to
+see correlations between hetereospecific pollen effect and traits we
+performed Mantel test between the matrix of effect and the distance
+matrix of each trait (euclidean distances). Moreover, Mantel test was
+also conducted between heterospecific pollen effect and the square root
+of the matrix of phylogenetic distance due to improvement in the
+statistical power (Letten \& Cornwell 2014). We explored also the the
+relations between traits and heterospecific pollen effect through
+generalized mixed models where the response variable was heterospecific
+pollen effect, the independent variable the different traits and the
+random effects the different treatments per species. Moreover, pairwise
+evolutive distances were calculated with MEGA7 for two kinds of markers:
+1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate
+carboxylase (RBCL). The sequences of interest were downloaded from NCBI
+GenBank and the phylogenetic tree constructed by maximum likelihood with
+MEGA7.
+
+Phylogenetic signal of traits?
 
 \newpage
 
 \section{RESULTS}\label{results}
 
-Heterospecific pollen produced fitness for xxx cases.
+Heterospecific pollen reduced seet set signifcatively with the 50-50\%
+heterospecific pollen treatments for 65\% of the paiwise interactions
+p\textless{}0.05. Across families we found a very similar effect but
+when species where look at species level they respond differently even
+within the same family, for instance for two species of the Brassicaceae
+family Brassica oleracea and Eruca sativa we found very contrasting
+effects of foreign pollen where for the first one, all donors reduce
+seedt set significatively and for the second, just two species did out
+of nine. The treatments of 100\% heterospecific pollen \ldots{} didn't
+seed except\ldots{}
+
+Mantel test indicates that a possible correlation exist between
+heterospecific pollen effect and the evolutive distances, for ITS and
+RBCL markers we had r coefficients of 0.29 and 0.25 respectively
+p\textless{}0.05. Moreover, Mantel test indicates that also a possible
+correlation between stigma width and stigma type exist. Trait
+correlations were also explored with \ldots{} and we found that\ldots{}
+
+Fix mantel test selfing rates and change it for compatibility
+index\ldots{}
+
+Fix this to GLMM? Yep I have to\ldots{}
 
 \begin{figure}
 \centering
@@ -412,6 +445,8 @@ represented in function of the compatibility system (self/cross*100) for
 the the different species. Each coulored dot represents the interaction
 of a focal species with a different pollen donor.}
 \end{figure}
+
+\newpage
 
 \section{DISCUSSION}\label{discussion}
 
@@ -435,11 +470,6 @@ Discussion
 Aizen, M. A., and L. D. Harder. 2007. Expanding the limits of the
 pollen-limitation concept: Effects of pollen quantity and quality.
 Ecology 88:271--281.
-
-\hypertarget{ref-Allaire_2018}{}
-Allaire, J., Y. Xie, J. McPherson, J. Luraschi, K. Ushey, A. Atkins, H.
-Wickham, J. Cheng, and W. Chang. 2018. Rmarkdown: Dynamic documents for
-r.
 
 \hypertarget{ref-arceo2018}{}
 Arceo-Gómez, G., C. Alonso, T.-L. Ashman, and V. Parra-Tabla. 2018.
@@ -511,6 +541,11 @@ for seed set in the alpine wildflower, polemonium viscosum. Oecologia
 Inouye, D. W. 1980. The terminology of floral larceny. Ecology
 61:1251--1253.
 
+\hypertarget{ref-lloyd1992}{}
+Lloyd, D. G., and D. J. Schoen. 1992. Self-and cross-fertilization in
+plants. i. functional dimensions. International Journal of Plant
+Sciences 153:358--369.
+
 \hypertarget{ref-montgomery2012}{}
 Montgomery, B. R., and B. J. Rathcke. 2012. Effects of floral
 restrictiveness and stigma size on heterospecific pollen receipt in a
@@ -548,19 +583,6 @@ transfer. New Phytologist 211:1452--1461.
 Whitehead, M. R., R. Lanfear, R. J. Mitchell, and J. D. Karron. 2018.
 Plant mating systems often vary widely among populations. Frontiers in
 Ecology and Evolution 6:38.
-
-\hypertarget{ref-Xie_2014}{}
-Xie, Y. 2014. Knitr: A comprehensive tool for reproducible research in
-R. \emph{in} V. Stodden, F. Leisch, and R. D. Peng, editors.
-Implementing reproducible computational research. Chapman; Hall/CRC.
-
-\hypertarget{ref-Xie_2015}{}
-Xie, Y. 2015. Dynamic documents with R and knitr. 2nd editions. Chapman;
-Hall/CRC, Boca Raton, Florida.
-
-\hypertarget{ref-Xie_2018}{}
-Xie, Y. 2018. Knitr: A general-purpose package for dynamic report
-generation in r.
 
 \eleft
 
