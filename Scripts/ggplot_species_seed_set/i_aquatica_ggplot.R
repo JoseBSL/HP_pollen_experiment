@@ -98,6 +98,8 @@ ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="control"] <- "Cont
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="flower control"] <- "Flower control"
 
 
+
+
 #Different colour per Treatment
 p <- ggplot(ipaq_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
   labs(title="Ipomea aquatica",x="", y = "Seeds")+aes(fill=Treatment)+theme(axis.text.x = element_text(angle = 60, hjust = 1))+
