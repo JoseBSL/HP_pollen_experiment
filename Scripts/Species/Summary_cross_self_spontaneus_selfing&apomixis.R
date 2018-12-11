@@ -18,7 +18,7 @@ brol_self$Seed.production=as.numeric(brol_self$Seed.production)
 brol_self$Seed.production=brol_self$Seed.production/traits_all[traits_all$species=="Brassica oleracea","mean_ovules"]
 brol_self=mean(brol_self$Seed.production)
 
-brol_control=brol_seed_set_final[brol_seed_set_final$Treatment=="control",]
+brol_control=brol_seed_set_final[brol_seed_set_final$Treatment=="Control",]
 brol_control$Seed.production=as.numeric(brol_control$Seed.production)
 brol_control$Seed.production=brol_control$Seed.production/traits_all[traits_all$species=="Brassica oleracea","mean_ovules"]
 brol_control=mean(brol_control$Seed.production)
@@ -164,7 +164,7 @@ soly_control$Seed.production=as.numeric(soly_control$Seed.production)
 soly_control$Seed.production=soly_control$Seed.production/traits_all[traits_all$species=="Solanum lycopersicum","mean_ovules"]
 soly_control=mean(soly_control$Seed.production)
 
-soly_FC=soly_seed_set_final[soly_seed_set_final$Treatment=="Flower Control",]
+soly_FC=soly_seed_set_final[soly_seed_set_final$Treatment=="Flower control",]
 soly_FC$Seed.production=as.numeric(soly_FC$Seed.production)
 soly_FC$Seed.production=soly_FC$Seed.production/traits_all[traits_all$species=="Solanum lycopersicum","mean_ovules"]
 soly_FC=mean(soly_FC$Seed.production)
@@ -188,7 +188,7 @@ some_control$Seed.production=as.numeric(some_control$Seed.production)
 some_control$Seed.production=some_control$Seed.production/traits_all[traits_all$species=="Solanum melongena","mean_ovules"]
 some_control=mean(some_control$Seed.production)
 
-some_FC=some_seed_set_final[some_seed_set_final$Treatment=="Flower Control",]
+some_FC=some_seed_set_final[some_seed_set_final$Treatment=="Flower control",]
 some_FC$Seed.production=as.numeric(some_FC$Seed.production)
 some_FC$Seed.production=some_FC$Seed.production/traits_all[traits_all$species=="Solanum melongena","mean_ovules"]
 some_FC=mean(some_FC$Seed.production)
@@ -211,7 +211,7 @@ ipaq_control$Seed.production=as.numeric(ipaq_control$Seed.production)
 ipaq_control$Seed.production=ipaq_control$Seed.production/traits_all[traits_all$species=="Ipomoea aquatica","mean_ovules"]
 ipaq_control=mean(ipaq_control$Seed.production)
 
-ipaq_FC=ipaq_seed_set_final[ipaq_seed_set_final$Treatment=="Flower Control",]
+ipaq_FC=ipaq_seed_set_final[ipaq_seed_set_final$Treatment=="Flower control",]
 ipaq_FC$Seed.production=as.numeric(ipaq_FC$Seed.production)
 ipaq_FC$Seed.production=ipaq_FC$Seed.production/traits_all[traits_all$species=="Ipomoea aquatica","mean_ovules"]
 ipaq_FC=mean(ipaq_FC$Seed.production)
@@ -221,20 +221,37 @@ ippu_seed_set_final <- read.csv("Rmd/Data/ippu_seed_set_final.csv")
 
 ippu_cross=ippu_seed_set_final[ippu_seed_set_final$Treatment=="Cross",]
 ippu_cross$Seed.production=as.numeric(ippu_cross$Seed.production)
-ippu_cross$Seed.production=ippu_cross$Seed.production/traits_all[traits_all$species=="Ipomoea aquatica","mean_ovules"]
+ippu_cross$Seed.production=ippu_cross$Seed.production/traits_all[traits_all$species=="Ipomoea purpurea","mean_ovules"]
 ippu_cross=mean(ippu_cross$Seed.production)
 
 ippu_self=ippu_seed_set_final[ippu_seed_set_final$Treatment=="Self",]
 ippu_self$Seed.production=as.numeric(ippu_self$Seed.production)
-ippu_self$Seed.production=ippu_self$Seed.production/traits_all[traits_all$species=="Ipomoea aquatica","mean_ovules"]
+ippu_self$Seed.production=ippu_self$Seed.production/traits_all[traits_all$species=="Ipomoea purpurea","mean_ovules"]
 ippu_self=mean(ippu_self$Seed.production)
 
 ippu_control=ippu_seed_set_final[ippu_seed_set_final$Treatment=="Control",]
 ippu_control$Seed.production=as.numeric(ippu_control$Seed.production)
-ippu_control$Seed.production=ippu_control$Seed.production/traits_all[traits_all$species=="Ipomoea aquatica","mean_ovules"]
+ippu_control$Seed.production=ippu_control$Seed.production/traits_all[traits_all$species=="Ipomoea purpurea","mean_ovules"]
 ippu_control=mean(ippu_control$Seed.production)
 
-ippu_FC=ippu_seed_set_final[ippu_seed_set_final$Treatment=="Flower Control",]
+ippu_FC=ippu_seed_set_final[ippu_seed_set_final$Treatment=="Flower control",]
 ippu_FC$Seed.production=as.numeric(ippu_FC$Seed.production)
-ippu_FC$Seed.production=ippu_FC$Seed.production/traits_all[traits_all$species=="Ipomoea aquatica","mean_ovules"]
+ippu_FC$Seed.production=ippu_FC$Seed.production/traits_all[traits_all$species=="Ipomoea purpurea","mean_ovules"]
 ippu_FC=mean(ippu_FC$Seed.production)
+
+#% seed set for the species for the different 4 Treatments
+cross <- c(brol_cross, brra_cross, ersa_cross, sial_cross, ipaq_cross, ippu_cross, caan_cross, pein_cross,
+           soly_cross, some_cross)
+
+self <- c(brol_self, brra_self, ersa_self, sial_self, ipaq_self, ippu_self, caan_self, pein_self,
+           soly_self, some_self)
+
+nat_self <- c(brol_FC, brra_FC, ersa_FC, sial_FC, ipaq_FC, ippu_FC, caan_FC, pein_FC,
+          soly_FC, some_FC)
+
+apo <- c(brol_control, brra_control, ersa_control, sial_control, ipaq_control, ippu_control, caan_control, pein_control,
+              soly_control, some_control)
+
+
+
+
