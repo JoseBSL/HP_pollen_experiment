@@ -252,6 +252,7 @@ nat_self <- c(brol_FC, brra_FC, ersa_FC, sial_FC, ipaq_FC, ippu_FC, caan_FC, pei
 apo <- c(brol_control, brra_control, ersa_control, sial_control, ipaq_control, ippu_control, caan_control, pein_control,
               soly_control, some_control)
 
+#save.image(file='Manuscript_draft/table_treatments.RData')
 
 
 
