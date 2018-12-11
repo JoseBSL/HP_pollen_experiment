@@ -242,15 +242,22 @@ ippu_FC=mean(ippu_FC$Seed.production)
 #% seed set for the species for the different 4 Treatments
 cross <- c(brol_cross, brra_cross, ersa_cross, sial_cross, ipaq_cross, ippu_cross, caan_cross, pein_cross,
            soly_cross, some_cross)
+cross <- cross*100
+
+cross=replace(cross, cross>100, 100)
 
 self <- c(brol_self, brra_self, ersa_self, sial_self, ipaq_self, ippu_self, caan_self, pein_self,
            soly_self, some_self)
+self <-self*100
 
 nat_self <- c(brol_FC, brra_FC, ersa_FC, sial_FC, ipaq_FC, ippu_FC, caan_FC, pein_FC,
           soly_FC, some_FC)
+nat_self <- nat_self*100
 
 apo <- c(brol_control, brra_control, ersa_control, sial_control, ipaq_control, ippu_control, caan_control, pein_control,
               soly_control, some_control)
+
+apo <-apo*100
 
 #save.image(file='Manuscript_draft/table_treatments.RData')
 
