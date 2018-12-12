@@ -76,11 +76,7 @@ cite_options(citation_format = "pandoc")
 
 \vspace{2mm}\hrule
 
-Pollinator sharing can have negative consequences for species fitness with the arrival of foreign pollen. However, the costs of heterospecific pollen are not yet well understood. For this reason, we have conducted a glasshouse experiment where we try to understand how phylogenetic relatedness and the different traits of these species are involved in this process. We experimentally crossed 10 species belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Overall, more than 4000 crosses were done and seed set and pollen tubes were considered as proxy of effect. We found that for all species foreign pollen (50% or less) reduced seed set. Moreover, the seed set reduction is not dependent on the degree of relatedness of the pollen donor. However, the effect is governed by the degree of relatedness and the traits of the species recipient. Our results show that the outcome of heterospecific pollen deposition is determined in greater degree by the traits of the pollen recipient than the pollen donor and that certain traits such as compatibility system are crucial to understand the costs of heterospecific pollen.
-
-Romina's correction
-
-Pollinator sharing can have negative consequences for plant fitness with the arrival of foreign pollen. However, the costs of heterospecific pollen are not yet well understood. We  conducted a glasshouse experiment to understand how phylogenetic relatedness and plant traits mediate the impacts of heterospecific pollen transfer. We conducted 4XXXX crosses  by experimentally transferring pollen (50% ratio) from 10 plant donors to 10 recipients belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Seed set and pollen tube development were considered proxies of plant fitness. We found that for all species, the application of foreign pollen (50% or less) reduced seed set. Moreover, the reduction in seed set was dependent on the degree of relatedness and reproductive traits of the pollen recipient and not the pollen donor. Our results show that certain traits, particularly mating system,  are critical in understanding the costs of heterospecific pollen.
+Pollinator sharing can have negative consequences for plant fitness with the arrival of foreign pollen. However, the costs of heterospecific pollen are not yet well understood. We  conducted a glasshouse experiment to understand how phylogenetic relatedness and plant traits mediate the impacts of heterospecific pollen transfer. We conducted 4XXXX crosses by experimentally transferring pollen (50% and 100% ratio) with reciporcal crosses between 10 species belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Seed set was used as proxy of plant fitness. We found that for 65% of the treatments with 50% mix reduced seed set. Moreover, the reduction in seed set was dependent on the degree of relatedness and reproductive traits of the pollen recipient and not the pollen donor. Our results show that certain traits, particularly compatibility system,  are critical in understanding the costs of heterospecific pollen.
 \vspace{3mm}\hrule
 
 *Keywords*: heterospecific pollen, plant reproduction, fitness, interspecific competition, phylogenetic distance. 
@@ -97,18 +93,22 @@ In most ecosystems, plant species normally coexist and share their floral visito
 
 **Paragraph 2** Introducing topic and knowledge gap
 
-By visiting many plant species, many pollinators are responsible for conspecific pollen loss and the transport of foreign pollen, both of which can have important detrimental effects on species fitness @morales2008;  @ashman2013; @arceo2016. Foreign pollen arrival can play an important role in plant species fitness but outcomes are variable and appear to be context dependent as there is not always a decrease in fitness @morales2008. Some of this variation is likely due to the enormous variability of foreign pollen transferred across systems ranging from between 0 and 75 percent but most studies report ranges of heterospecific pollen between 0 and 20 percent of the total pollen load @bartomeus2008 @montgomery2012; @ashman2013; @fang2013, yet even these relatively low amounts of heterospecific pollen transferred can decrease fitness greatly @thomson1982. While we now have some understanding of the impacts of heterospecific pollen quantity, we have less understanding of other factors that could be driving the variation in impacts upon fitness.  @ashman2013 postulated the first predictive framework that identifies a need to understand how plant traits might mediate heterospecific pollen effect, whereby mating system and pollen size were predicted to potentially mediate the impact of foreign pollen transfer on plant fitness. This concept is supported by other studies, such as @tong2016 that demonstrate an asymmetrical effect in 6 species of Pedicularis whereby the pollen of long styled species was able to grow the full length of the style on short styled species but not vice versa. While this suggests that the impacts of heterospecific pollen may differ among pollen donor and recipient, few studies have been conducted to ascertain whether this pattern is in fact a trend or to identify the extent to which other plant traits are critical to heterospecific pollen impacts. 
+By visiting many plant species, many pollinators are responsible for conspecific pollen loss and the transport of foreign pollen, both of which can have important detrimental effects on species fitness @morales2008;  @ashman2013; @arceo2016. Foreign pollen arrival can play an important role in plant species fitness but outcomes are variable and appear to be context dependent as there is not always a decrease in fitness @morales2008. Some of this variation is likely due to the enormous variability of foreign pollen transferred across systems ranging from between 0 and 75 percent but most studies report ranges of heterospecific pollen between 0 and 20 percent of the total pollen load @bartomeus2008 @montgomery2012; @ashman2013; @fang2013, yet even these relatively low amounts of heterospecific pollen transferred can decrease fitness greatly @thomson1982. While we now have some understanding of the impacts of heterospecific pollen quantity, we have less understanding of other factors that could be driving the variation in impacts upon fitness.  @ashman2013 postulated the first predictive framework that identifies a need to understand how plant traits might mediate heterospecific pollen effect, whereby mating system and pollen size were predicted to potentially mediate the impact of foreign pollen transfer on plant fitness. This concept is supported by other studies, such as @tong2016 that demonstrate an asymmetrical effect in 6 species of *Pedicularis* whereby the pollen of long styled species was able to grow the full length of the style on short styled species but not vice versa. While this suggests that the impacts of heterospecific pollen may differ among pollen donor and recipient, few studies have been conducted to ascertain whether this pattern is in fact a trend or to identify the extent to which other plant traits are critical to heterospecific pollen impacts. 
 
 
 **Paragraph 3** Expanding ideas with examples
 
-Given the large variability in mating systems across populations @whitehead2018, it is difficult to determine potential impacts upon HP transfer yet incompatibility system is another plant trait that appears to play an important role in foreign pollen effect whereby species that are self incompatible have stronger barriers to heterospecific pollen than self-compatible species @ashman2013. The type of incompatibility, (i.e. whether sporophytic or gametophytic) is related to the location of pollen recognition; sporophytic incompatibility relates to signaling at the stigma surface while gametophytic occurs within the style.  This later acting pollen recognition mechanism is associated with greater negative effect than sporophytic recognistion @barrett1988. Nonetheless, an effect of foreign pollen is a bit obscured by the variability within species, however species that are strong selfers or strong outcrossers have less variablity in mating systems and predictions of effect could be more realistic (see figure 1 from @whitehead2018). Moreover, other traits such as number of pollen grains per flower and number of ovules have been traditionally associated with the type of incompatibility system where species with higher pollen ovule ratios are predicted to be xenogamous and species with low pollen ovule ratios autogamous (REF). Selfer species are known to have a reduction of herkogamy (REF) and less pollen production per ovule (REF) which can be interpretated as a reduction of pollen exported into the community. Other morphological traits, like stigma size can be determinant for the total pollen quatity that a stigma can receive and therefore related to do that pollen size would also play an important role. Example with pollen here.
+Given the large variability in mating systems across populations @whitehead2018, it is difficult to determine potential impacts upon HP transfer yet incompatibility system is another plant trait that appears to play an important role in foreign pollen effect whereby species that are self incompatible have stronger barriers to heterospecific pollen than self-compatible species @ashman2013. The type of incompatibility, (i.e. whether sporophytic or gametophytic) is related to the location of pollen recognition; sporophytic incompatibility relates to signaling at the stigma surface while gametophytic occurs within the style @barrett1988.  This later acting pollen recognition mechanism is associated with greater negative effect than sporophytic recognistion @ashman2013. Nonetheless, an effect of foreign pollen is a bit obscured by the variability within species, however species that are strong selfers or strong outcrossers have less variablity in mating systems and predictions of effect could be more realistic (see figure 1 from @whitehead2018). Moreover, other traits such as number of pollen grains per flower and number of ovules have been traditionally associated with the type of incompatibility system where species with higher pollen ovule ratios are predicted to be xenogamous and species with low pollen ovule ratios autogamous (REF). Selfer species are known to have a reduction of herkogamy (REF) and less pollen production per ovule (REF) which can be interpretated as a reduction of pollen exported into the community. Other morphological traits, like stigma size can be determinant for the total pollen quatity that a stigma can receive and therefore related to do that pollen size would also play an important role. Example with pollen here.
 
-**Paragraph 3** Maybe connect with paragrph above?
+[This last bit of the paragraph is still under development](Jose)
 
-Species with similar traits are more closely related  XXXXXXXXX.  (Refs? Brown and Mitchell (2001) Arceo-Gómez et al. (2016) Tong and Huang (2016) ).  Several studies predict that the impact of HP transfer is likely to be greater for closely related species (Ashman and Arceo-Gómez (2013)).  Few studies however, have focused on the impacts of heterospecific pollen of distantly related species Thomson et al. (1982) Galen and Gregory (1989) Neiland and Wilcock (1999). Yet, most insects and most stigmas have been found to carry multiple species of foreign pollen with little attention to degree of relatedness (Arceo-Gómez and Ashman (2016); Fang and Huang (2013) ; also cite studies from pollen transfer networks here such as ). Further, a majority of plant species are generalist and thus receive visits from multiple different pollinators.  Given these are generally the ones that receive greater loads of heterospecific pollen Fang and Huang (2013) and unrelated species are more likely to coexist  with other species due to less niche overlap (Ref),  understanding the role of foreign pollen from distantly related species thus deserves greater attention in understanding coexistence blah blahXXXXX refs.. Notwithstanding, the effect of heterospecific pollen of far and close related species at community level remains to be explored beyond single pairwise interactions.
+**Paragraph 4** Maybe connect with paragrph above?
 
-**Paragraph 4** Introducing our experiment
+[Comments on it](Romina)
+
+Species with similar traits are more closely related  XXXXXXXXX.  (Refs? Brown and Mitchell (2001) Arceo-Gómez et al. (2016) Tong and Huang (2016) ).  Several studies predict that the impact of HP transfer is likely to be greater for closely related species (Ashman and Arceo-Gómez (2013)).  Few studies however, have focused on the impacts of heterospecific pollen of distantly related species Thomson et al. (1982) Galen and Gregory (1989) Neiland and Wilcock (1999). Yet, most insects and most stigmas have been found to carry multiple species of foreign pollen with little attention to degree of relatedness (Arceo-Gómez and Ashman (2016); Fang and Huang (2013) ; also cite studies from pollen transfer networks here such as... ). Further, a majority of plant species are generalist and thus receive visits from multiple different pollinators.  Given these are generally the ones that receive greater loads of heterospecific pollen Fang and Huang (2013) and unrelated species are more likely to coexist  with other species due to less niche overlap (Ref),  understanding the role of foreign pollen from distantly related species thus deserves greater attention in understanding coexistence blah blahXXXXX refs.. Notwithstanding, the effect of heterospecific pollen of far and close related species at community level remains to be explored beyond single pairwise interactions.
+
+**Paragraph 5** Introducing our experiment
 
 In this study we investigated how floral reproductive traits and relatedness mediate the impact of HP transfer by asking the following research questions : To what extent do (i) floral reproductive traits and (ii) relatedness, mediate the impacts of heterospecific pollen on seed set.  We do this by creating an artificial co-flowering community with 10 species belonging to three different families with different traits.  
 
@@ -141,16 +141,15 @@ The traits measured for each species were pollen per anther, number of ovules, s
 
 **Analysis**
 
-We used the statistical language `R` `r citep(citation())` for all our analyses. To test the effect of heterospecific pollen, we substracted to the seed set of hand cross pollination the seed set of heterospecific pollen treatments. Therefore, small values mean low effect and viceversa. To be able to compare among species, seed set was previosly scaled with mean 0 and standard deviation of 1. In order to see correlations between hetereospecific pollen effect and traits we performed Mantel test between the matrix of effect and the distance matrix of each trait (euclidean distances). Moreover, Mantel test was also conducted between heterospecific pollen effect and the square root of the matrix of phylogenetic distance due to improvement in the statistical power (Letten & Cornwell 2014). We explored also the the relations between traits and heterospecific pollen effect through generalized mixed models where the response variable was heterospecific pollen effect, the independent variable the different traits and the random effects the different treatments per species. Moreover, pairwise evolutive distances were calculated with MEGA7 for two kinds of markers: 1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase (RBCL). The sequences of interest were downloaded from NCBI GenBank and the phylogenetic tree constructed by maximum likelihood with MEGA7.
+We used the statistical language `R` `r citep(citation())` for all our analyses. Differences of seed set between treatments and hand cross pollination for each species was tested through mixed linear models. For the following analysis we scaled the values of seed production for all the species with mean 0 and sd of 1. To test the effect of heterospecific pollen, we substracted to the seed set of hand cross pollination the seed set of heterospecific pollen treatments. In order to see correlations between heterospecific pollen effect and traits we performed Mantel test between the matrix of heterospecific pollen effect and the distance matrix of each trait (euclidean distances). Moreover, Mantel test was also conducted between heterospecific pollen effect and the square root of the matrix of phylogenetic distance due to improvement in the statistical power (Letten & Cornwell 2014). We explored also the the relations between traits and heterospecific pollen effect through generalized mixed models where the response variable was heterospecific pollen effect, the independent variable the different traits and the random effects the different treatments per species. Moreover, pairwise evolutive distances were calculated with MEGA7 for two kinds of markers: 1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase (RBCL). The sequences of interest were downloaded from NCBI GenBank and the phylogenetic tree constructed by maximum likelihood with MEGA7.
 
-Phylogenetic signal of traits?
-
+[Phylogenetic signal of traits?](Jose)
 
 \newpage
 
 # RESULTS
 
-Results of hand cross pollination, self hand pollination, natural selfing and apomixis are presented in **Table 2**. Heterospecific pollen reduced seet set signifcatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Across families we found a very similar effect but when species where look at species level they respond differently even within the same family, for instance for two species of the Brassicaceae family *Brassica oleracea* and *Eruca versicaria* we found very contrasting effects of foreign pollen where for the first one, all donors reduce seed set significatively and for the second, just two species did out of nine. The 100% foreign pollen treatments barely produced seeds or fruits and just for *Sinapis alba* we did not find significant differences between the hand cross pollination and one treatment with pollen from a confamilial. Solanaceae species with berry fruit type developed small fruits or even normal fruits in some cases. *S. lycopersicum* seems to produced small fruits (35% of the treatments) independently of pollen and pollen donor due to also apomictic treatments did, never normal size. *C. annuum* produced some fruits (9%) of both small and normal size and finally *S. melongena* produced seedless normal fruits with just confamilial pollen (3%), for both species seems that fruit formation was induced by pollen on the stigma because of lack of fruit production with apomictic treatments.
+Results of hand cross pollination, self hand pollination, natural selfing and apomixis are presented in **Table 2**. Heterospecific pollen reduced seet set signifcatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Across families we found a very similar effect but when species where look at species level they respond differently even within the same family, for instance for two species of the Brassicaceae family *Brassica oleracea* and *Eruca versicaria* we found very contrasting effects of foreign pollen where for the first one, all donors reduce seed set significatively and for the second, just two species did out of nine. The 100% foreign pollen treatments barely produced seeds or fruits and just for *Sinapis alba* we did not find significant differences between the hand cross pollination and one treatment with pollen from a confamilial. Solanaceae species with berry fruit type developed small fruits or even normal fruits in some cases. *S. lycopersicum* seems to produced small fruits (35% of the treatments) independently of pollen and pollen donor due to also apomictic treatments did, never normal size. *C. annuum* produced some fruits (9%) of both small and normal size and finally *S. melongena* produced seedless normal fruits with just confamilial pollen (3%), for both species seems that fruit formation was induced by pollen on the stigma because of lack of fruit production with treatments that tested for apomixis.
 
 **Table 2**. Perecentage of seeds produced per ovule for the ten species used in the experiment. The treatments presented are hand cross pollination, hand self pollination, natural selfing and apomixis (emasculated flowers).
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
@@ -166,13 +165,11 @@ kable(table, format="markdown")
 ```
 
 
-Mantel test indicates that a possible correlation exist between heterospecific pollen effect and the evolutive distances, for  ITS and RBCL markers we had r coefficients of 0.29 and 0.25 respectively p<0.05. Moreover, Mantel test indicates that also a possible correlation between stigma width and stigma type exist. Trait correlations were also explored with ... and we found that...
+Mantel test indicates that a possible correlation exist between heterospecific pollen effect and the evolutive distances, for ITS and RBCL markers we had r coefficients of 0.29 and 0.25 respectively p<0.05. Moreover, Mantel test indicates that also a possible correlation between stigma width and stigma type exist. Trait correlations were also explored with GLMM
 
-Fix mantel test selfing rates and change it for compatibility index...
+[I have done it at the moment just for Compatibility system](Jose)
+[Also I have to fix from mixed linear model to GLMM, just realize that](Jose)
 
-
-
-Fix this to GLMM? Yep I have to...
 
 \newpage
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=5, fig.cap="The effect of heterospecific pollen (scaled see set) is represented in function of the compatibility system (self/cross*100) for the the different species. Each coulored dot represents the interaction of a focal species with a different pollen donor."}
@@ -188,6 +185,8 @@ ggplot(ALL, aes(x=compatibility, y=hp_effect)) +
 
 ```
 
+
+[Compatibility index don´t multiply per 100 from Lloyd](Jose)
 
 \newpage
 
@@ -207,10 +206,6 @@ $S=dO(1-e^bp)$
 $S=dO(1-e^bp(HpEffect))$
 
 but this Hp effect maybe can be divided at the same time in the interaction between recipient-donor with the main traits that drive the effect. Moreover, this should consider quantity of hp. lINEAR EFFECT? How to model this maybe talk with nacho.
-
-
-
-
 
 
 
@@ -254,36 +249,6 @@ Effect:
 -In small stigmas big pollen grains can occupy great part of the stigmatic area.
 
 -small pollen grains can get embeded
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*Negative*
-
--Stigma clogging
-
--
-
-
-
-
 
 
 # CONCLUSIONS
