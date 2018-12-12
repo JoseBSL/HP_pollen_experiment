@@ -194,7 +194,13 @@ ggplot(ALL, aes(x=compatibility, y=hp_effect)) +
  
 Discussion
 
-1.	 What are the implications of the findings?
+ What are the implications of the findings?
+
+
+
+
+
+
 
 Ideas about pollen size in heterospecific pollen effect. (still have to develop it more...)
 
@@ -204,9 +210,15 @@ Donor's pollen:
 2) Donor pollen size = Recipient pollen size
 3) Donor pollen size > Recipient pollen size
 
-Small pollen can clogg the stigma. YES. Big pollen doesn't fit in very small stigmas. YES. 
+1) Donor pollen size < Recipient pollen size
 
-Is small pollen likely to affect bigger pollen. Ideas: It can be compensated with, less number of ovules to fertilize and faster pollen tube growth. So generally speaking, when the differences in pollen size are evident we expect a similar outcome.
+*Negative*
+
+-Stigma clogging
+
+-
+
+
 
 
 
