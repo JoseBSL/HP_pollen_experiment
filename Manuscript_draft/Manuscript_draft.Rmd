@@ -204,8 +204,7 @@ Discussion
 
 Ideas about pollen size in heterospecific pollen effect. (still have to develop it more...)
 
-Let's classify pollen size in three groups in order to understand the interaction between pollen donor and recipient. 
-Donor's pollen:
+Let's classify pollen size in three groups in order to understand the interaction between pollen donor and recipient:
 1) Donor pollen size < Recipient pollen size
 2) Donor pollen size = Recipient pollen size
 3) Donor pollen size > Recipient pollen size
