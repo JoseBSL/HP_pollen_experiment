@@ -1,0 +1,28 @@
+---
+title: "Ideas"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I'm going to try to describe some ideas here that they need more thinking but I would like to see what do you think and if it woth pursuing them. 
+
+Based on a paper of Haizen & Harder, 2007 (https://doi.org/10.1890/06-1017)  
+
+From the paper:
+
+Suppose that a pistil contains O ovules and that its stigma receives P pollen grains, which may differ in quality, resulting in p = P/O pollen grains per ovule. Germination failure and attrition of pollen tubes in the style reduce the number of male gametophytes in the pistil, so that pollen tubes from only a proportion, b, of the original P pollen grains reach the ovary and compete for fertilization. If the pollen tubes in the ovary distribute randomly among ovules, the number of pollen tubes that can fertilize each ovule will follow a Poisson distribution with a mean of bp. Consequently, if one pollen tube is sufficient to fertilize an ovule, the probability that an ovule is not fertilized (i.e., no pollen tube) is e-bp, so the probability that it is fertilized is 1 - e-bp. Thus a total of (1 - e-bp)O ovules will be fertilized. If a fraction d of fertilized ovules mature into seeds, for a given mixture of pollen, the flower's total expected seed production is
+
+$S=dO(1-e^bp)$
+
+We could reformulate this with Hp effect. Here the lack of mathematical skill limit me, so I add it like this for now.
+
+$S=dO(1-e^bp(HpEffect))$
+
+Then based on our work. This Hpeffect can be described with the main traits that predict its effect. I know there are many variables but we can do a simplistic framework where we consider similar pollen size of pollen donro and recipient.
+
+Hpeffect Degree of relatedness+Mating system+Hp

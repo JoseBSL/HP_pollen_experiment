@@ -1,5 +1,5 @@
 ---
-title: working title Compatibility system and stygma size of pollen recipient as main predictors of heterospecific pollen effect
+title: working title Compatibility system and stigma size are the main predictors of heterospecific pollen effect
 author:
 - affilnum: '1,2,3'
   name: Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman, Romina Rader
@@ -78,7 +78,9 @@ cite_options(citation_format = "pandoc")
 
 Pollinator sharing can have negative consequences for species fitness with the arrival of foreign pollen. However, the costs of heterospecific pollen are not yet well understood. For this reason, we have conducted a glasshouse experiment where we try to understand how phylogenetic relatedness and the different traits of these species are involved in this process. We experimentally crossed 10 species belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Overall, more than 4000 crosses were done and seed set and pollen tubes were considered as proxy of effect. We found that for all species foreign pollen (50% or less) reduced seed set. Moreover, the seed set reduction is not dependent on the degree of relatedness of the pollen donor. However, the effect is governed by the degree of relatedness and the traits of the species recipient. Our results show that the outcome of heterospecific pollen deposition is determined in greater degree by the traits of the pollen recipient than the pollen donor and that certain traits such as compatibility system are crucial to understand the costs of heterospecific pollen.
 
+Romina's correction
 
+Pollinator sharing can have negative consequences for plant fitness with the arrival of foreign pollen. However, the costs of heterospecific pollen are not yet well understood. We  conducted a glasshouse experiment to understand how phylogenetic relatedness and plant traits mediate the impacts of heterospecific pollen transfer. We conducted 4XXXX crosses  by experimentally transferring pollen (50% ratio) from 10 plant donors to 10 recipients belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Seed set and pollen tube development were considered proxies of plant fitness. We found that for all species, the application of foreign pollen (50% or less) reduced seed set. Moreover, the reduction in seed set was dependent on the degree of relatedness and reproductive traits of the pollen recipient and not the pollen donor. Our results show that certain traits, particularly mating system,  are critical in understanding the costs of heterospecific pollen.
 \vspace{3mm}\hrule
 
 *Keywords*: heterospecific pollen, plant reproduction, fitness, interspecific competition, phylogenetic distance. 
@@ -196,6 +198,16 @@ Discussion
 
  What are the implications of the findings?
 
+Other idea based on the paper of Aizen 2007:
+
+He explains seed set in this way. O total number of ovules, d fraction of ovules that become seed set, b proportion of pollen grains that reach ovules, p number of pollen grains.
+
+$S=dO(1-e^bp)$
+
+$S=dO(1-e^bp(HpEffect))$
+
+but this Hp effect maybe can be divided at the same time in the interaction between recipient-donor with the main traits that drive the effect. Moreover, this should consider quantity of hp. lINEAR EFFECT? How to model this maybe talk with nacho.
+
 
 
 
@@ -209,7 +221,59 @@ Let's classify pollen size in three groups in order to understand the interactio
 2) Donor pollen size = Recipient pollen size
 3) Donor pollen size > Recipient pollen size
 
+Now I try to develop each part
+
 1) Donor pollen size < Recipient pollen size
+
+Effect:
+
+- Donor's pollen could clogg the stigma
+
+- Chemical inhibition
+
+Traits associated with bigger pollen of the recipient:
+
+- Recipient's pollen have faster pollen tube growth (example with my data)
+
+- Reduction in number of ovules (Also with my species)
+
+- Big differences in pollen size can be traduced in low relatednes therefore less likely of pollen germination on a far related stigma.
+
+
+2) Donor pollen size = Recipient pollen size
+
+- Very relatedness dependant this point
+
+- Similar probabilities of taken space on the stigma
+
+
+3) Donor pollen size > Recipient pollen size
+
+Effect: 
+
+-In small stigmas big pollen grains can occupy great part of the stigmatic area.
+
+-small pollen grains can get embeded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 *Negative*
 
