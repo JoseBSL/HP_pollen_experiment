@@ -130,4 +130,4 @@ Species$Treatment[Species$Treatment=="FLOWER CONTROL"] <-"Flower control"
 Species$Treatment[Species$Treatment=="Flower Control"] <-"Flower control"
 Species$Treatment[Species$Treatment=="FC"] <-"Flower control"
 
-#write.csv(Species,"Data/species_sed_set")
+write.csv(Species,"Data/species_seed_set.csv")

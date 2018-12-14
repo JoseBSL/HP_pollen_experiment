@@ -209,10 +209,11 @@ model_1_1 <- lme(scaled~Treatment,random=~1|Treatment.number,data=scaled_seed)
 summary(model_1_1)
 anova(model_1_1)
 
-write.csv(scaled_seed, "scaled_seed.csv")
-
 #Let's try to approach in another way (Romina suggestion)
 
-
-
+seed_set <- read.csv("Data/species_seed_set.csv")
+head(seed_set)
+seed_set=na.omit(seed_set)
+model_1_1 <- lme(Scaled_seed_set~Treatment,random=~1|Treatment.number,data=seed_set)
+summary(model_1_1)
 
