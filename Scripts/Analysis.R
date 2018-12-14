@@ -175,3 +175,35 @@ summary(mod1)
 #No seeds produced with 100% treatments
 
 #I'm going to compile now the fruit information.
+
+
+#I'm going to check now the effect of the different donors on seed set
+pein_seed_set_final$scaled <- scale(pein_seed_set_final$Seed.production)
+soly_seed_set_final$scaled <- scale(soly_seed_set_final$Seed.production)
+some_seed_set_final$scaled <- scale(some_seed_set_final$Seed.production)
+soly_seed_set_final$scaled <- scale(soly_seed_set_final$Seed.production)
+sial_seed_set_final$scaled <- scale(sial_seed_set_final$Seed.production)
+ersa_seed_set_final$scaled <- scale(ersa_seed_set_final$Seed.production)
+brra_seed_set_final$scaled <- scale(brra_seed_set_final$Seed.production)
+brol_seed_set_final$scaled <- scale(brol_seed_set_final$Seed.production)
+ipaq_seed_set_final$scaled <- scale(ipaq_seed_set_final$Seed.production)
+ippu_seed_set_final$scaled <- scale(ippu_seed_set_final$Seed.production)
+
+scaled_seed <- rbind(pein_seed_set_final,soly_seed_set_final)
+str(scaled_seed)
+scaled_seed$Family=as.character(scaled_seed$Family)
+scaled_seed<- subset(scaled_seed, Family!="other")
+
+library(lme4)
+
+hist(scaled_seed$scaled)
+
+model_1<- lmer(scaled ~ Treatment + (1|Treatment.number),data=scaled_seed)
+summary(model_1)
+print(model_1, corr=F)
+
+
+library(nlme)
+model_1_1 <- lme(scaled~Treatment,random=~1|Treatment.number,data=scaled_seed)
+summary(model_1_1)
+anova(model_1_1)
