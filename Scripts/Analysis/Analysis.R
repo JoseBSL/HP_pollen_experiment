@@ -238,8 +238,8 @@ Recipient=ggplot(seed_set_focal, aes(x=Species, y=mean, group=1)) +
   geom_point(shape=21, size=3, fill="white")+ggtitle("Recipient average effect")
 print(Recipient + labs(title= "Recipient average effect",
                    y="Mean +/- sd", x = "Species"))
-mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (7)))
-print(Recipient +mynamestheme+ labs(title= "Donor average effect",
+mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (6)))
+print(Recipient +mynamestheme+ labs(title= "Recipient average seed set",
                                 y="Mean +/- sd", x = "Species"))
 
 seed_set_non_focal=subset(seed_set, Treatment!="Control"& Treatment!="Cross"& Treatment!="Self" & Treatment!="Flower control")
@@ -255,7 +255,7 @@ seed_set_non_focal=merge(seed_set_non_focal_mean, seed_set_non_focal_sd, by="Tre
 Donor=ggplot(seed_set_non_focal, aes(x=Treatment, y=mean, group=1)) +
   geom_line() +
   geom_errorbar(width=.1, aes(ymin=mean-sd, ymax=mean+sd)) +
-  geom_point(shape=21, size=3, fill="white")+ggtitle("Donor average effect")
-mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (7)))
+  geom_point(shape=21, size=3, fill="white")+ggtitle("Donor average seed set")
+mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (6)))
 print(Donor +mynamestheme+ labs(title= "Donor average effect",
                       y="Mean +/- sd", x = "Species"))
