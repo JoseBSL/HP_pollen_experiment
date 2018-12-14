@@ -97,6 +97,7 @@ ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="self"] <- "Self"
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="control"] <- "Control"
 ipaq_seed_set_final$Treatment[ipaq_seed_set_final$Treatment=="flower control"] <- "Flower control"
 
+write.csv(ipaq_seed_set_final, "Rmd/Data/ipaq_seed_set_final.csv")
 
 
 

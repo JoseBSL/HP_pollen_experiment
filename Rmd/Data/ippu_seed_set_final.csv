@@ -1,141 +1,141 @@
 "","Species","Treatment","Treatment.number","Seed.production","Family"
-"1","IPPU","Wild cabagge",1,6,"Brassicaceae"
-"2","IPPU","Wild cabagge",2,4,"Brassicaceae"
-"3","IPPU","Wild cabagge",3,3,"Brassicaceae"
-"4","IPPU","Wild cabagge",4,4,"Brassicaceae"
-"5","IPPU","Wild cabagge",5,0,"Brassicaceae"
-"6","IPPU","Wild cabagge",6,0,"Brassicaceae"
-"7","IPPU","Wild cabagge",7,5,"Brassicaceae"
-"8","IPPU","Wild cabagge",8,0,"Brassicaceae"
-"9","IPPU","Wild cabagge",9,6,"Brassicaceae"
-"10","IPPU","Wild cabagge",10,4,"Brassicaceae"
-"11","IPPU","Pak choi",1,0,"Brassicaceae"
-"12","IPPU","Pak choi",2,2,"Brassicaceae"
-"13","IPPU","Pak choi",3,1,"Brassicaceae"
-"14","IPPU","Pak choi",4,1,"Brassicaceae"
-"15","IPPU","Pak choi",5,0,"Brassicaceae"
-"16","IPPU","Pak choi",6,0,"Brassicaceae"
-"17","IPPU","Pak choi",7,4,"Brassicaceae"
-"18","IPPU","Pak choi",8,0,"Brassicaceae"
-"19","IPPU","Pak choi",9,0,"Brassicaceae"
-"20","IPPU","Pak choi",10,0,"Brassicaceae"
-"21","IPPU","Capsicum",1,0,"Solanaceae"
-"22","IPPU","Capsicum",2,0,"Solanaceae"
-"23","IPPU","Capsicum",3,0,"Solanaceae"
-"24","IPPU","Capsicum",4,0,"Solanaceae"
-"25","IPPU","Capsicum",5,0,"Solanaceae"
-"26","IPPU","Capsicum",6,0,"Solanaceae"
-"27","IPPU","Capsicum",7,0,"Solanaceae"
-"28","IPPU","Capsicum",8,0,"Solanaceae"
-"29","IPPU","Capsicum",9,0,"Solanaceae"
-"30","IPPU","Capsicum",10,0,"Solanaceae"
-"31","IPPU","Rocket",1,1,"Brassicaceae"
-"32","IPPU","Rocket",2,0,"Brassicaceae"
-"33","IPPU","Rocket",3,0,"Brassicaceae"
-"34","IPPU","Rocket",4,0,"Brassicaceae"
-"35","IPPU","Rocket",5,0,"Brassicaceae"
-"36","IPPU","Rocket",6,0,"Brassicaceae"
-"37","IPPU","Rocket",7,0,"Brassicaceae"
-"38","IPPU","Rocket",8,0,"Brassicaceae"
-"39","IPPU","Rocket",9,0,"Brassicaceae"
-"40","IPPU","Rocket",10,0,"Brassicaceae"
-"41","IPPU","Water morning glory",1,0,"Convolvulaceae"
-"42","IPPU","Water morning glory",2,0,"Convolvulaceae"
-"43","IPPU","Water morning glory",3,6,"Convolvulaceae"
-"44","IPPU","Water morning glory",4,4,"Convolvulaceae"
-"45","IPPU","Water morning glory",5,0,"Convolvulaceae"
-"46","IPPU","Water morning glory",6,3,"Convolvulaceae"
-"47","IPPU","Water morning glory",7,5,"Convolvulaceae"
-"48","IPPU","Water morning glory",8,5,"Convolvulaceae"
-"49","IPPU","Water morning glory",9,5,"Convolvulaceae"
-"50","IPPU","Water morning glory",10,6,"Convolvulaceae"
-"51","IPPU","Morning glory",1,NA,"Convolvulaceae"
-"52","IPPU","Morning glory",2,NA,"Convolvulaceae"
-"53","IPPU","Morning glory",3,NA,"Convolvulaceae"
-"54","IPPU","Morning glory",4,NA,"Convolvulaceae"
-"55","IPPU","Morning glory",5,NA,"Convolvulaceae"
-"56","IPPU","Morning glory",6,NA,"Convolvulaceae"
-"57","IPPU","Morning glory",7,NA,"Convolvulaceae"
-"58","IPPU","Morning glory",8,NA,"Convolvulaceae"
-"59","IPPU","Morning glory",9,NA,"Convolvulaceae"
-"60","IPPU","Morning glory",10,NA,"Convolvulaceae"
-"61","IPPU","Petunia",1,0,"Solanaceae"
-"62","IPPU","Petunia",2,0,"Solanaceae"
-"63","IPPU","Petunia",3,0,"Solanaceae"
-"64","IPPU","Petunia",4,0,"Solanaceae"
-"65","IPPU","Petunia",5,0,"Solanaceae"
-"66","IPPU","Petunia",6,5,"Solanaceae"
-"67","IPPU","Petunia",7,6,"Solanaceae"
-"68","IPPU","Petunia",8,0,"Solanaceae"
-"69","IPPU","Petunia",9,1,"Solanaceae"
-"70","IPPU","Petunia",10,0,"Solanaceae"
-"71","IPPU","White mustard",1,0,NA
-"72","IPPU","White mustard",2,0,NA
-"73","IPPU","White mustard",3,0,NA
-"74","IPPU","White mustard",4,2,NA
-"75","IPPU","White mustard",5,2,NA
-"76","IPPU","White mustard",6,4,NA
-"77","IPPU","White mustard",7,2,NA
-"78","IPPU","White mustard",8,0,NA
-"79","IPPU","White mustard",9,0,NA
-"80","IPPU","White mustard",10,0,NA
-"81","IPPU","Tomato",1,0,"Solanaceae"
-"82","IPPU","Tomato",2,0,"Solanaceae"
-"83","IPPU","Tomato",3,0,"Solanaceae"
-"84","IPPU","Tomato",4,0,"Solanaceae"
-"85","IPPU","Tomato",5,0,"Solanaceae"
-"86","IPPU","Tomato",6,0,"Solanaceae"
-"87","IPPU","Tomato",7,0,"Solanaceae"
-"88","IPPU","Tomato",8,0,"Solanaceae"
-"89","IPPU","Tomato",9,0,"Solanaceae"
-"90","IPPU","Tomato",10,0,"Solanaceae"
-"91","IPPU","Eggplant",1,3,"Solanaceae"
-"92","IPPU","Eggplant",2,0,"Solanaceae"
-"93","IPPU","Eggplant",3,0,"Solanaceae"
-"94","IPPU","Eggplant",4,6,"Solanaceae"
-"95","IPPU","Eggplant",5,0,"Solanaceae"
-"96","IPPU","Eggplant",6,0,"Solanaceae"
-"97","IPPU","Eggplant",7,5,"Solanaceae"
-"98","IPPU","Eggplant",8,0,"Solanaceae"
-"99","IPPU","Eggplant",9,1,"Solanaceae"
-"100","IPPU","Eggplant",10,0,"Solanaceae"
-"101","IPPU","Cross",1,1,NA
-"102","IPPU","Cross",2,2,NA
-"103","IPPU","Cross",3,1,NA
-"104","IPPU","Cross",4,2,NA
-"105","IPPU","Cross",5,1,NA
-"106","IPPU","Cross",6,6,NA
-"107","IPPU","Cross",7,0,NA
-"108","IPPU","Cross",8,0,NA
-"109","IPPU","Cross",9,0,NA
-"110","IPPU","Cross",10,6,NA
-"111","IPPU","Self",1,5,NA
-"112","IPPU","Self",2,4,NA
-"113","IPPU","Self",3,5,NA
-"114","IPPU","Self",4,5,NA
-"115","IPPU","Self",5,6,NA
-"116","IPPU","Self",6,6,NA
-"117","IPPU","Self",7,5,NA
-"118","IPPU","Self",8,6,NA
-"119","IPPU","Self",9,6,NA
-"120","IPPU","Self",10,4,NA
-"121","IPPU","Control",1,0,NA
-"122","IPPU","Control",2,0,NA
-"123","IPPU","Control",3,0,NA
-"124","IPPU","Control",4,0,NA
-"125","IPPU","Control",5,0,NA
-"126","IPPU","Control",6,0,NA
-"127","IPPU","Control",7,0,NA
-"128","IPPU","Control",8,0,NA
-"129","IPPU","Control",9,0,NA
-"130","IPPU","Control",10,0,NA
-"131","IPPU","Flower control",1,3,NA
-"132","IPPU","Flower control",2,2,NA
-"133","IPPU","Flower control",3,3,NA
-"134","IPPU","Flower control",4,0,NA
-"135","IPPU","Flower control",5,0,NA
-"136","IPPU","Flower control",6,0,NA
-"137","IPPU","Flower control",7,0,NA
-"138","IPPU","Flower control",8,0,NA
-"139","IPPU","Flower control",9,5,NA
-"140","IPPU","Flower control",10,6,NA
+"1","IPPU","Brassica oleracea",1,6,"Brassicaceae"
+"2","IPPU","Brassica oleracea",2,4,"Brassicaceae"
+"3","IPPU","Brassica oleracea",3,3,"Brassicaceae"
+"4","IPPU","Brassica oleracea",4,4,"Brassicaceae"
+"5","IPPU","Brassica oleracea",5,0,"Brassicaceae"
+"6","IPPU","Brassica oleracea",6,0,"Brassicaceae"
+"7","IPPU","Brassica oleracea",7,5,"Brassicaceae"
+"8","IPPU","Brassica oleracea",8,0,"Brassicaceae"
+"9","IPPU","Brassica oleracea",9,6,"Brassicaceae"
+"10","IPPU","Brassica oleracea",10,4,"Brassicaceae"
+"11","IPPU","Brassica rapa",1,0,"Brassicaceae"
+"12","IPPU","Brassica rapa",2,2,"Brassicaceae"
+"13","IPPU","Brassica rapa",3,1,"Brassicaceae"
+"14","IPPU","Brassica rapa",4,1,"Brassicaceae"
+"15","IPPU","Brassica rapa",5,0,"Brassicaceae"
+"16","IPPU","Brassica rapa",6,0,"Brassicaceae"
+"17","IPPU","Brassica rapa",7,4,"Brassicaceae"
+"18","IPPU","Brassica rapa",8,0,"Brassicaceae"
+"19","IPPU","Brassica rapa",9,0,"Brassicaceae"
+"20","IPPU","Brassica rapa",10,0,"Brassicaceae"
+"21","IPPU","Capsicum annuum",1,0,"Solanaceae"
+"22","IPPU","Capsicum annuum",2,0,"Solanaceae"
+"23","IPPU","Capsicum annuum",3,0,"Solanaceae"
+"24","IPPU","Capsicum annuum",4,0,"Solanaceae"
+"25","IPPU","Capsicum annuum",5,0,"Solanaceae"
+"26","IPPU","Capsicum annuum",6,0,"Solanaceae"
+"27","IPPU","Capsicum annuum",7,0,"Solanaceae"
+"28","IPPU","Capsicum annuum",8,0,"Solanaceae"
+"29","IPPU","Capsicum annuum",9,0,"Solanaceae"
+"30","IPPU","Capsicum annuum",10,0,"Solanaceae"
+"51","IPPU","Eruca vesicaria",1,1,"Brassicaceae"
+"52","IPPU","Eruca vesicaria",2,0,"Brassicaceae"
+"53","IPPU","Eruca vesicaria",3,0,"Brassicaceae"
+"54","IPPU","Eruca vesicaria",4,0,"Brassicaceae"
+"55","IPPU","Eruca vesicaria",5,0,"Brassicaceae"
+"56","IPPU","Eruca vesicaria",6,0,"Brassicaceae"
+"57","IPPU","Eruca vesicaria",7,0,"Brassicaceae"
+"58","IPPU","Eruca vesicaria",8,0,"Brassicaceae"
+"59","IPPU","Eruca vesicaria",9,0,"Brassicaceae"
+"60","IPPU","Eruca vesicaria",10,0,"Brassicaceae"
+"71","IPPU","Ipomoea aquatica",1,0,"Convolvulaceae"
+"72","IPPU","Ipomoea aquatica",2,0,"Convolvulaceae"
+"73","IPPU","Ipomoea aquatica",3,6,"Convolvulaceae"
+"74","IPPU","Ipomoea aquatica",4,4,"Convolvulaceae"
+"75","IPPU","Ipomoea aquatica",5,0,"Convolvulaceae"
+"76","IPPU","Ipomoea aquatica",6,3,"Convolvulaceae"
+"77","IPPU","Ipomoea aquatica",7,5,"Convolvulaceae"
+"78","IPPU","Ipomoea aquatica",8,5,"Convolvulaceae"
+"79","IPPU","Ipomoea aquatica",9,5,"Convolvulaceae"
+"80","IPPU","Ipomoea aquatica",10,6,"Convolvulaceae"
+"81","IPPU","Ipomoea purpurea",1,NA,"Convolvulaceae"
+"82","IPPU","Ipomoea purpurea",2,NA,"Convolvulaceae"
+"83","IPPU","Ipomoea purpurea",3,NA,"Convolvulaceae"
+"84","IPPU","Ipomoea purpurea",4,NA,"Convolvulaceae"
+"85","IPPU","Ipomoea purpurea",5,NA,"Convolvulaceae"
+"86","IPPU","Ipomoea purpurea",6,NA,"Convolvulaceae"
+"87","IPPU","Ipomoea purpurea",7,NA,"Convolvulaceae"
+"88","IPPU","Ipomoea purpurea",8,NA,"Convolvulaceae"
+"89","IPPU","Ipomoea purpurea",9,NA,"Convolvulaceae"
+"90","IPPU","Ipomoea purpurea",10,NA,"Convolvulaceae"
+"91","IPPU","Petunia integrifolia",1,0,"Solanaceae"
+"92","IPPU","Petunia integrifolia",2,0,"Solanaceae"
+"93","IPPU","Petunia integrifolia",3,0,"Solanaceae"
+"94","IPPU","Petunia integrifolia",4,0,"Solanaceae"
+"95","IPPU","Petunia integrifolia",5,0,"Solanaceae"
+"96","IPPU","Petunia integrifolia",6,5,"Solanaceae"
+"97","IPPU","Petunia integrifolia",7,6,"Solanaceae"
+"98","IPPU","Petunia integrifolia",8,0,"Solanaceae"
+"99","IPPU","Petunia integrifolia",9,1,"Solanaceae"
+"100","IPPU","Petunia integrifolia",10,0,"Solanaceae"
+"111","IPPU","Sinapis alba",1,0,NA
+"112","IPPU","Sinapis alba",2,0,NA
+"113","IPPU","Sinapis alba",3,0,NA
+"114","IPPU","Sinapis alba",4,2,NA
+"115","IPPU","Sinapis alba",5,2,NA
+"116","IPPU","Sinapis alba",6,4,NA
+"117","IPPU","Sinapis alba",7,2,NA
+"118","IPPU","Sinapis alba",8,0,NA
+"119","IPPU","Sinapis alba",9,0,NA
+"120","IPPU","Sinapis alba",10,0,NA
+"121","IPPU","Solanum lycopersicum",1,0,"Solanaceae"
+"122","IPPU","Solanum lycopersicum",2,0,"Solanaceae"
+"123","IPPU","Solanum lycopersicum",3,0,"Solanaceae"
+"124","IPPU","Solanum lycopersicum",4,0,"Solanaceae"
+"125","IPPU","Solanum lycopersicum",5,0,"Solanaceae"
+"126","IPPU","Solanum lycopersicum",6,0,"Solanaceae"
+"127","IPPU","Solanum lycopersicum",7,0,"Solanaceae"
+"128","IPPU","Solanum lycopersicum",8,0,"Solanaceae"
+"129","IPPU","Solanum lycopersicum",9,0,"Solanaceae"
+"130","IPPU","Solanum lycopersicum",10,0,"Solanaceae"
+"131","IPPU","Solanum melongena",1,3,"Solanaceae"
+"132","IPPU","Solanum melongena",2,0,"Solanaceae"
+"133","IPPU","Solanum melongena",3,0,"Solanaceae"
+"134","IPPU","Solanum melongena",4,6,"Solanaceae"
+"135","IPPU","Solanum melongena",5,0,"Solanaceae"
+"136","IPPU","Solanum melongena",6,0,"Solanaceae"
+"137","IPPU","Solanum melongena",7,5,"Solanaceae"
+"138","IPPU","Solanum melongena",8,0,"Solanaceae"
+"139","IPPU","Solanum melongena",9,1,"Solanaceae"
+"140","IPPU","Solanum melongena",10,0,"Solanaceae"
+"110","IPPU","Cross",1,1,NA
+"210","IPPU","Cross",2,2,NA
+"31","IPPU","Cross",3,1,NA
+"41","IPPU","Cross",4,2,NA
+"510","IPPU","Cross",5,1,NA
+"61","IPPU","Cross",6,6,NA
+"710","IPPU","Cross",7,0,NA
+"810","IPPU","Cross",8,0,NA
+"910","IPPU","Cross",9,0,NA
+"101","IPPU","Cross",10,6,NA
+"141","IPPU","Self",1,5,NA
+"211","IPPU","Self",2,4,NA
+"32","IPPU","Self",3,5,NA
+"42","IPPU","Self",4,5,NA
+"511","IPPU","Self",5,6,NA
+"62","IPPU","Self",6,6,NA
+"711","IPPU","Self",7,5,NA
+"811","IPPU","Self",8,6,NA
+"911","IPPU","Self",9,6,NA
+"102","IPPU","Self",10,4,NA
+"142","IPPU","Control",1,0,NA
+"212","IPPU","Control",2,0,NA
+"33","IPPU","Control",3,0,NA
+"43","IPPU","Control",4,0,NA
+"512","IPPU","Control",5,0,NA
+"63","IPPU","Control",6,0,NA
+"712","IPPU","Control",7,0,NA
+"812","IPPU","Control",8,0,NA
+"912","IPPU","Control",9,0,NA
+"103","IPPU","Control",10,0,NA
+"143","IPPU","Flower control",1,3,NA
+"213","IPPU","Flower control",2,2,NA
+"34","IPPU","Flower control",3,3,NA
+"44","IPPU","Flower control",4,0,NA
+"513","IPPU","Flower control",5,0,NA
+"64","IPPU","Flower control",6,0,NA
+"713","IPPU","Flower control",7,0,NA
+"813","IPPU","Flower control",8,0,NA
+"913","IPPU","Flower control",9,5,NA
+"104","IPPU","Flower control",10,6,NA

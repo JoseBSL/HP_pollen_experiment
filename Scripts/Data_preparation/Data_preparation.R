@@ -120,9 +120,14 @@ ippu_seed_set_final$Species[ippu_seed_set_final$Species=="IPPU"] <- "Ipomoea pur
 Species=rbind(Species,ippu_seed_set_final)
 unique(Species$Species)
 unique(Species$Treatment)
-
+str(Species)
 #Now I have the 10 spp. I call all the treatments in a similar way.
+Species$Treatment=as.character(Species$Treatment)
+Species$Treatment[Species$Treatment=="CROSS"] <-"Cross"
+Species$Treatment[Species$Treatment=="SELF"] <-"Self"
+Species$Treatment[Species$Treatment=="CONTROL"] <-"Control"
+Species$Treatment[Species$Treatment=="FLOWER CONTROL"] <-"Flower control"
+Species$Treatment[Species$Treatment=="Flower Control"] <-"Flower control"
+Species$Treatment[Species$Treatment=="FC"] <-"Flower control"
 
-
-
-
+#write.csv(Species,"Data/species_sed_set")

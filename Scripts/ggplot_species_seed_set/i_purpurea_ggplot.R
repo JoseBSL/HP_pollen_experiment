@@ -97,6 +97,7 @@ ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="self"] <- "Self"
 ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="control"] <- "Control"
 ippu_seed_set_final$Treatment[ippu_seed_set_final$Treatment=="flower control"] <- "Flower control"
 
+write.csv(ippu_seed_set_final, "Rmd/Data/ippu_seed_set_final.csv")
 
 #Different colour per Treatment
 p <- ggplot(ippu_seed_set_final, aes(x = factor(Treatment, levels=unique(Treatment)), y = Seed.production)) +   geom_boxplot()+
