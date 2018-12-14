@@ -5,9 +5,10 @@ library(dplyr)
 library(nlme)
 library(lme4)
 library(reshape2)
+library(ggplot2)
 
 #50-50% pollen analysis respect cross. At the moment seed set is not scaled for this case.
-
+#I do it for each species separately
 #PEIN
 pein_seed_set_final <- read.csv("Rmd/Data/pein_seed_set_final.csv")
 pein_seed_set_final_TEST <- subset(pein_seed_set_final, Treatment==c("CROSS") | Treatment==("Brassica oleracea"))
@@ -217,3 +218,44 @@ seed_set=na.omit(seed_set)
 model_1_1 <- lme(Scaled_seed_set~Treatment,random=~1|Treatment.number,data=seed_set)
 summary(model_1_1)
 
+seed_set_focal <- dcast(Species + Treatment ~ ., value.var = "Scaled_seed_set", fun.aggregate = mean, data = seed_set, na.rm= TRUE)
+seed_set_focal=subset(seed_set_focal, Treatment!="Control"& Treatment!="Cross"& Treatment!="Self" & Treatment!="Flower control")
+colnames(seed_set_focal)[3] <- "scaled_seed_set"
+
+seed_set_focal_mean <- dcast(Species  ~ ., value.var = "scaled_seed_set", fun.aggregate = mean, data = seed_set_focal, na.rm= TRUE)
+colnames(seed_set_focal_mean)[2] <- "mean"
+
+seed_set_focal_sd <- dcast(Species  ~ ., value.var = "scaled_seed_set", fun.aggregate = sd, data = seed_set_focal, na.rm= TRUE)
+colnames(seed_set_focal_sd)[2] <- "sd"
+
+seed_set_focal=merge(seed_set_focal_mean, seed_set_focal_sd, by="Species")
+#This is the average effect for the 10 spp as a recipient 
+# Make the graph with sd
+
+Recipient=ggplot(seed_set_focal, aes(x=Species, y=mean, group=1)) +
+  geom_line() +
+  geom_errorbar(width=.1, aes(ymin=mean-sd, ymax=mean+sd)) +
+  geom_point(shape=21, size=3, fill="white")+ggtitle("Recipient average effect")
+print(Recipient + labs(title= "Recipient average effect",
+                   y="Mean +/- sd", x = "Species"))
+mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (7)))
+print(Recipient +mynamestheme+ labs(title= "Donor average effect",
+                                y="Mean +/- sd", x = "Species"))
+
+seed_set_non_focal=subset(seed_set, Treatment!="Control"& Treatment!="Cross"& Treatment!="Self" & Treatment!="Flower control")
+
+seed_set_non_focal_mean <- dcast(Treatment  ~ ., value.var = "Scaled_seed_set", fun.aggregate = mean, data = seed_set_non_focal, na.rm= TRUE)
+colnames(seed_set_non_focal_mean)[2] <- "mean"
+
+seed_set_non_focal_sd <- dcast(Treatment  ~ ., value.var = "Scaled_seed_set", fun.aggregate = sd, data = seed_set_non_focal, na.rm= TRUE)
+colnames(seed_set_non_focal_sd)[2] <- "sd"
+
+seed_set_non_focal=merge(seed_set_non_focal_mean, seed_set_non_focal_sd, by="Treatment")
+
+Donor=ggplot(seed_set_non_focal, aes(x=Treatment, y=mean, group=1)) +
+  geom_line() +
+  geom_errorbar(width=.1, aes(ymin=mean-sd, ymax=mean+sd)) +
+  geom_point(shape=21, size=3, fill="white")+ggtitle("Donor average effect")
+mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (7)))
+print(Donor +mynamestheme+ labs(title= "Donor average effect",
+                      y="Mean +/- sd", x = "Species"))
