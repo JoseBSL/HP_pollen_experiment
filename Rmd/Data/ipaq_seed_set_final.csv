@@ -29,113 +29,113 @@
 "28","IPAQ","Capsicum annuum",8,0,"Solanaceae"
 "29","IPAQ","Capsicum annuum",9,0,"Solanaceae"
 "30","IPAQ","Capsicum annuum",10,0,"Solanaceae"
-"31","IPAQ","Eruca vesicaria",1,0,"Brassicaceae"
-"32","IPAQ","Eruca vesicaria",2,0,"Brassicaceae"
-"33","IPAQ","Eruca vesicaria",3,0,"Brassicaceae"
-"34","IPAQ","Eruca vesicaria",4,0,"Brassicaceae"
-"35","IPAQ","Eruca vesicaria",5,0,"Brassicaceae"
-"36","IPAQ","Eruca vesicaria",6,0,"Brassicaceae"
-"37","IPAQ","Eruca vesicaria",7,0,"Brassicaceae"
-"38","IPAQ","Eruca vesicaria",8,0,"Brassicaceae"
-"39","IPAQ","Eruca vesicaria",9,0,"Brassicaceae"
-"40","IPAQ","Eruca vesicaria",10,0,"Brassicaceae"
-"41","IPAQ","Ipomoea aquatica",1,0,"Convolvulaceae"
-"42","IPAQ","Ipomoea aquatica",2,0,"Convolvulaceae"
-"43","IPAQ","Ipomoea aquatica",3,0,"Convolvulaceae"
-"44","IPAQ","Ipomoea aquatica",4,0,"Convolvulaceae"
-"45","IPAQ","Ipomoea aquatica",5,0,"Convolvulaceae"
-"46","IPAQ","Ipomoea aquatica",6,0,"Convolvulaceae"
-"47","IPAQ","Ipomoea aquatica",7,0,"Convolvulaceae"
-"48","IPAQ","Ipomoea aquatica",8,0,"Convolvulaceae"
-"49","IPAQ","Ipomoea aquatica",9,0,"Convolvulaceae"
-"50","IPAQ","Ipomoea aquatica",10,0,"Convolvulaceae"
-"51","IPAQ","Ipomoea purpurea",1,0,"Convolvulaceae"
-"52","IPAQ","Ipomoea purpurea",2,0,"Convolvulaceae"
-"53","IPAQ","Ipomoea purpurea",3,0,"Convolvulaceae"
-"54","IPAQ","Ipomoea purpurea",4,0,"Convolvulaceae"
-"55","IPAQ","Ipomoea purpurea",5,0,"Convolvulaceae"
-"56","IPAQ","Ipomoea purpurea",6,0,"Convolvulaceae"
-"57","IPAQ","Ipomoea purpurea",7,0,"Convolvulaceae"
-"58","IPAQ","Ipomoea purpurea",8,0,"Convolvulaceae"
-"59","IPAQ","Ipomoea purpurea",9,0,"Convolvulaceae"
-"60","IPAQ","Ipomoea purpurea",10,0,"Convolvulaceae"
-"61","IPAQ","Petunia integrifolia",1,0,"Solanaceae"
-"62","IPAQ","Petunia integrifolia",2,3,"Solanaceae"
-"63","IPAQ","Petunia integrifolia",3,0,"Solanaceae"
-"64","IPAQ","Petunia integrifolia",4,0,"Solanaceae"
-"65","IPAQ","Petunia integrifolia",5,0,"Solanaceae"
-"66","IPAQ","Petunia integrifolia",6,0,"Solanaceae"
-"67","IPAQ","Petunia integrifolia",7,1,"Solanaceae"
-"68","IPAQ","Petunia integrifolia",8,0,"Solanaceae"
-"69","IPAQ","Petunia integrifolia",9,0,"Solanaceae"
-"70","IPAQ","Petunia integrifolia",10,0,"Solanaceae"
-"71","IPAQ","Sinapis alba",1,0,"Brassicaceae"
-"72","IPAQ","Sinapis alba",2,0,"Brassicaceae"
-"73","IPAQ","Sinapis alba",3,0,"Brassicaceae"
-"74","IPAQ","Sinapis alba",4,0,"Brassicaceae"
-"75","IPAQ","Sinapis alba",5,0,"Brassicaceae"
-"76","IPAQ","Sinapis alba",6,0,"Brassicaceae"
-"77","IPAQ","Sinapis alba",7,0,"Brassicaceae"
-"78","IPAQ","Sinapis alba",8,0,"Brassicaceae"
-"79","IPAQ","Sinapis alba",9,0,"Brassicaceae"
-"80","IPAQ","Sinapis alba",10,0,"Brassicaceae"
-"81","IPAQ","Solanum lycopersicum",1,0,"Solanaceae"
-"82","IPAQ","Solanum lycopersicum",2,2,"Solanaceae"
-"83","IPAQ","Solanum lycopersicum",3,0,"Solanaceae"
-"84","IPAQ","Solanum lycopersicum",4,0,"Solanaceae"
-"85","IPAQ","Solanum lycopersicum",5,0,"Solanaceae"
-"86","IPAQ","Solanum lycopersicum",6,0,"Solanaceae"
-"87","IPAQ","Solanum lycopersicum",7,0,"Solanaceae"
-"88","IPAQ","Solanum lycopersicum",8,0,"Solanaceae"
-"89","IPAQ","Solanum lycopersicum",9,0,"Solanaceae"
-"90","IPAQ","Solanum lycopersicum",10,0,"Solanaceae"
-"91","IPAQ","Solanum melongena",1,0,"Solanaceae"
-"92","IPAQ","Solanum melongena",2,0,"Solanaceae"
-"93","IPAQ","Solanum melongena",3,0,"Solanaceae"
-"94","IPAQ","Solanum melongena",4,0,"Solanaceae"
-"95","IPAQ","Solanum melongena",5,0,"Solanaceae"
-"96","IPAQ","Solanum melongena",6,0,"Solanaceae"
-"97","IPAQ","Solanum melongena",7,0,"Solanaceae"
-"98","IPAQ","Solanum melongena",8,0,"Solanaceae"
-"99","IPAQ","Solanum melongena",9,0,"Solanaceae"
-"100","IPAQ","Solanum melongena",10,0,"Solanaceae"
-"101","IPAQ","Cross",1,2,NA
-"102","IPAQ","Cross",2,3,NA
-"103","IPAQ","Cross",3,0,NA
-"104","IPAQ","Cross",4,0,NA
-"105","IPAQ","Cross",5,3,NA
-"106","IPAQ","Cross",6,1,NA
-"107","IPAQ","Cross",7,0,NA
-"108","IPAQ","Cross",8,1,NA
-"109","IPAQ","Cross",9,2,NA
-"110","IPAQ","Cross",10,4,NA
-"111","IPAQ","Self",1,0,NA
-"112","IPAQ","Self",2,3,NA
-"113","IPAQ","Self",3,1,NA
-"114","IPAQ","Self",4,3,NA
-"115","IPAQ","Self",5,0,NA
-"116","IPAQ","Self",6,2,NA
-"117","IPAQ","Self",7,2,NA
-"118","IPAQ","Self",8,1,NA
-"119","IPAQ","Self",9,0,NA
-"120","IPAQ","Self",10,0,NA
-"121","IPAQ","Control",1,0,NA
-"122","IPAQ","Control",2,0,NA
-"123","IPAQ","Control",3,0,NA
-"124","IPAQ","Control",4,0,NA
-"125","IPAQ","Control",5,0,NA
-"126","IPAQ","Control",6,0,NA
-"127","IPAQ","Control",7,0,NA
-"128","IPAQ","Control",8,0,NA
-"129","IPAQ","Control",9,0,NA
-"130","IPAQ","Control",10,0,NA
-"131","IPAQ","Flower control",1,0,NA
-"132","IPAQ","Flower control",2,0,NA
-"133","IPAQ","Flower control",3,0,NA
-"134","IPAQ","Flower control",4,3,NA
-"135","IPAQ","Flower control",5,0,NA
-"136","IPAQ","Flower control",6,0,NA
-"137","IPAQ","Flower control",7,0,NA
-"138","IPAQ","Flower control",8,1,NA
-"139","IPAQ","Flower control",9,4,NA
-"140","IPAQ","Flower control",10,0,NA
+"51","IPAQ","Eruca vesicaria",1,0,"Brassicaceae"
+"52","IPAQ","Eruca vesicaria",2,0,"Brassicaceae"
+"53","IPAQ","Eruca vesicaria",3,0,"Brassicaceae"
+"54","IPAQ","Eruca vesicaria",4,0,"Brassicaceae"
+"55","IPAQ","Eruca vesicaria",5,0,"Brassicaceae"
+"56","IPAQ","Eruca vesicaria",6,0,"Brassicaceae"
+"57","IPAQ","Eruca vesicaria",7,0,"Brassicaceae"
+"58","IPAQ","Eruca vesicaria",8,0,"Brassicaceae"
+"59","IPAQ","Eruca vesicaria",9,0,"Brassicaceae"
+"60","IPAQ","Eruca vesicaria",10,0,"Brassicaceae"
+"71","IPAQ","Ipomoea aquatica",1,0,"Convolvulaceae"
+"72","IPAQ","Ipomoea aquatica",2,0,"Convolvulaceae"
+"73","IPAQ","Ipomoea aquatica",3,0,"Convolvulaceae"
+"74","IPAQ","Ipomoea aquatica",4,0,"Convolvulaceae"
+"75","IPAQ","Ipomoea aquatica",5,0,"Convolvulaceae"
+"76","IPAQ","Ipomoea aquatica",6,0,"Convolvulaceae"
+"77","IPAQ","Ipomoea aquatica",7,0,"Convolvulaceae"
+"78","IPAQ","Ipomoea aquatica",8,0,"Convolvulaceae"
+"79","IPAQ","Ipomoea aquatica",9,0,"Convolvulaceae"
+"80","IPAQ","Ipomoea aquatica",10,0,"Convolvulaceae"
+"81","IPAQ","Ipomoea purpurea",1,0,"Convolvulaceae"
+"82","IPAQ","Ipomoea purpurea",2,0,"Convolvulaceae"
+"83","IPAQ","Ipomoea purpurea",3,0,"Convolvulaceae"
+"84","IPAQ","Ipomoea purpurea",4,0,"Convolvulaceae"
+"85","IPAQ","Ipomoea purpurea",5,0,"Convolvulaceae"
+"86","IPAQ","Ipomoea purpurea",6,0,"Convolvulaceae"
+"87","IPAQ","Ipomoea purpurea",7,0,"Convolvulaceae"
+"88","IPAQ","Ipomoea purpurea",8,0,"Convolvulaceae"
+"89","IPAQ","Ipomoea purpurea",9,0,"Convolvulaceae"
+"90","IPAQ","Ipomoea purpurea",10,0,"Convolvulaceae"
+"91","IPAQ","Petunia integrifolia",1,0,"Solanaceae"
+"92","IPAQ","Petunia integrifolia",2,3,"Solanaceae"
+"93","IPAQ","Petunia integrifolia",3,0,"Solanaceae"
+"94","IPAQ","Petunia integrifolia",4,0,"Solanaceae"
+"95","IPAQ","Petunia integrifolia",5,0,"Solanaceae"
+"96","IPAQ","Petunia integrifolia",6,0,"Solanaceae"
+"97","IPAQ","Petunia integrifolia",7,1,"Solanaceae"
+"98","IPAQ","Petunia integrifolia",8,0,"Solanaceae"
+"99","IPAQ","Petunia integrifolia",9,0,"Solanaceae"
+"100","IPAQ","Petunia integrifolia",10,0,"Solanaceae"
+"111","IPAQ","Sinapis alba",1,0,"Brassicaceae"
+"112","IPAQ","Sinapis alba",2,0,"Brassicaceae"
+"113","IPAQ","Sinapis alba",3,0,"Brassicaceae"
+"114","IPAQ","Sinapis alba",4,0,"Brassicaceae"
+"115","IPAQ","Sinapis alba",5,0,"Brassicaceae"
+"116","IPAQ","Sinapis alba",6,0,"Brassicaceae"
+"117","IPAQ","Sinapis alba",7,0,"Brassicaceae"
+"118","IPAQ","Sinapis alba",8,0,"Brassicaceae"
+"119","IPAQ","Sinapis alba",9,0,"Brassicaceae"
+"120","IPAQ","Sinapis alba",10,0,"Brassicaceae"
+"121","IPAQ","Solanum lycopersicum",1,0,"Solanaceae"
+"122","IPAQ","Solanum lycopersicum",2,2,"Solanaceae"
+"123","IPAQ","Solanum lycopersicum",3,0,"Solanaceae"
+"124","IPAQ","Solanum lycopersicum",4,0,"Solanaceae"
+"125","IPAQ","Solanum lycopersicum",5,0,"Solanaceae"
+"126","IPAQ","Solanum lycopersicum",6,0,"Solanaceae"
+"127","IPAQ","Solanum lycopersicum",7,0,"Solanaceae"
+"128","IPAQ","Solanum lycopersicum",8,0,"Solanaceae"
+"129","IPAQ","Solanum lycopersicum",9,0,"Solanaceae"
+"130","IPAQ","Solanum lycopersicum",10,0,"Solanaceae"
+"131","IPAQ","Solanum melongena",1,0,"Solanaceae"
+"132","IPAQ","Solanum melongena",2,0,"Solanaceae"
+"133","IPAQ","Solanum melongena",3,0,"Solanaceae"
+"134","IPAQ","Solanum melongena",4,0,"Solanaceae"
+"135","IPAQ","Solanum melongena",5,0,"Solanaceae"
+"136","IPAQ","Solanum melongena",6,0,"Solanaceae"
+"137","IPAQ","Solanum melongena",7,0,"Solanaceae"
+"138","IPAQ","Solanum melongena",8,0,"Solanaceae"
+"139","IPAQ","Solanum melongena",9,0,"Solanaceae"
+"140","IPAQ","Solanum melongena",10,0,"Solanaceae"
+"110","IPAQ","Cross",1,2,NA
+"210","IPAQ","Cross",2,3,NA
+"31","IPAQ","Cross",3,0,NA
+"41","IPAQ","Cross",4,0,NA
+"510","IPAQ","Cross",5,3,NA
+"61","IPAQ","Cross",6,1,NA
+"710","IPAQ","Cross",7,0,NA
+"810","IPAQ","Cross",8,1,NA
+"910","IPAQ","Cross",9,2,NA
+"101","IPAQ","Cross",10,4,NA
+"141","IPAQ","Self",1,0,NA
+"211","IPAQ","Self",2,3,NA
+"32","IPAQ","Self",3,1,NA
+"42","IPAQ","Self",4,3,NA
+"511","IPAQ","Self",5,0,NA
+"62","IPAQ","Self",6,2,NA
+"711","IPAQ","Self",7,2,NA
+"811","IPAQ","Self",8,1,NA
+"911","IPAQ","Self",9,0,NA
+"102","IPAQ","Self",10,0,NA
+"142","IPAQ","Control",1,0,NA
+"212","IPAQ","Control",2,0,NA
+"33","IPAQ","Control",3,0,NA
+"43","IPAQ","Control",4,0,NA
+"512","IPAQ","Control",5,0,NA
+"63","IPAQ","Control",6,0,NA
+"712","IPAQ","Control",7,0,NA
+"812","IPAQ","Control",8,0,NA
+"912","IPAQ","Control",9,0,NA
+"103","IPAQ","Control",10,0,NA
+"143","IPAQ","Flower control",1,0,NA
+"213","IPAQ","Flower control",2,0,NA
+"34","IPAQ","Flower control",3,0,NA
+"44","IPAQ","Flower control",4,3,NA
+"513","IPAQ","Flower control",5,0,NA
+"64","IPAQ","Flower control",6,0,NA
+"713","IPAQ","Flower control",7,0,NA
+"813","IPAQ","Flower control",8,1,NA
+"913","IPAQ","Flower control",9,4,NA
+"104","IPAQ","Flower control",10,0,NA
