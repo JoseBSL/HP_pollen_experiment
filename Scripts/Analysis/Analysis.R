@@ -4,6 +4,7 @@
 library(dplyr)
 library(nlme)
 library(lme4)
+library(reshape2)
 
 #50-50% pollen analysis respect cross. At the moment seed set is not scaled for this case.
 
@@ -207,3 +208,11 @@ library(nlme)
 model_1_1 <- lme(scaled~Treatment,random=~1|Treatment.number,data=scaled_seed)
 summary(model_1_1)
 anova(model_1_1)
+
+write.csv(scaled_seed, "scaled_seed.csv")
+
+#Let's try to approach in another way (Romina suggestion)
+
+
+
+
