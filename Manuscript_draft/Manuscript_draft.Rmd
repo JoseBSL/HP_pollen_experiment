@@ -158,6 +158,8 @@ We used the statistical language `R` `r citep(citation())` for all our analyses.
 
 Results of hand cross pollination, self hand pollination, natural selfing and apomixis are presented in **Table 2**. Heterospecific pollen reduced seet set signifcatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Across families we found a very similar effect but when species where look at species level they respond differently even within the same family [rephrase and maybe test statistically?](), for instance for two species of the Brassicaceae family *Brassica oleracea* and *Eruca versicaria* we found very contrasting effects of foreign pollen where for the first one, all donors reduce seed set significatively and for the second, just two species did out of nine. The 100% foreign pollen treatments barely produced seeds or fruits [and just for *Sinapis alba* we did not find significant differences between the hand cross pollination and one treatment with pollen from a confamilial- IB Unclear](). Solanaceae species with berry fruit type developed small fruits or even normal fruits in some cases [under which treatment](). *S. lycopersicum* seems to produced small fruits (35% of the treatments) independently of pollen and pollen donor due to also apomictic treatments did, never normal size. *C. annuum* produced some fruits (9%) of both small and normal size and finally *S. melongena* produced seedless normal fruits with just confamilial pollen (3%), for both species seems that fruit formation was induced by pollen on the stigma because of lack of fruit production with treatments that tested for apomixis.[clarify this descriptive statistics part- Also a figure with a summary of the treatments effect would be cool, or at least in the appendices]()
 
+\newpage
+
 **Table 2**. Perecentage of seeds produced per ovule for the ten species used in the experiment. The treatments presented are hand cross pollination, hand self pollination, natural selfing and apomixis (emasculated flowers). [turn into a figure somehow?]()
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 library(kableExtra)
@@ -171,24 +173,21 @@ table<- data.frame(Species, Cross, Self, Natural_selfing,Apomixis)
 kable(table, format="markdown")
 ```
 
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7, fig.cap="Barplot with the different treatments that provide information of the reproductive biology of the ten species. The y axis is the proportion of ovules converted to seed in percentage. The different, treatments which are presented in the legend are, hand cross pollination, hand self pollination, natural selfing and apomixis. More information about this treatments can be found in Methods and Appendices."}
+\newpage
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7, fig.cap="Barplot with the different treatments that provide information of the reproductive biology of the ten species. The y axis is the proportion of ovules converted to seed in percentage. The different treatments (N=10) which are presented in the legend are, hand cross pollination, hand self pollination, natural selfing and apomixis. More information about these treatments can be found in Methods and Appendices."}
 
 load("r_biology.RData")
 
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
-  theme_bw()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
-  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"))+
+  theme_minimal()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
+  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"), legend.text=element_text(size=7))+
   scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))
 
 ```
 
 
-
-
-
-
+\newpage
 
 Mantel test indicates that a possible?? [It exists!]() correlation exist between heterospecific pollen effect and the evolutive relative distances, for ITS and RBCL markers we had r coefficients of 0.29 and 0.25 respectively p<0.05 [think on a figure - maybe using NMDS](). Moreover, Mantel test indicates that also a possible?? correlation between stigma width and stigma type exist (stats??). Trait correlations were also explored with GLMM
 
