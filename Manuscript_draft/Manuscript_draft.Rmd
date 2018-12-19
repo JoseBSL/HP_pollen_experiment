@@ -181,7 +181,7 @@ load("r_biology.RData")
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
   theme_minimal()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
-  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"), legend.text=element_text(size=7))+
+  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"), legend.text=element_text(size=7), legend.title=element_text(size=8), axis.text.y  = element_text(size = 10))+
   scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))
 
 ```

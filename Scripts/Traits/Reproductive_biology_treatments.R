@@ -45,7 +45,7 @@ bio$variable <- factor(bio$variable, levels = c("Hand cross pollination","Hand s
 
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
-  theme_bw()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
+  theme_minimal()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
   theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"))+
   scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))
 
