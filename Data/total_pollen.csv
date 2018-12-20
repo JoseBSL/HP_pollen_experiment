@@ -1,41 +1,21 @@
-"","focal","non_focal","ratio","variable","spp"
-"6","Capsicum","Morning glory",258,"focal_pollen","Capsicum-Morning glory"
-"7","Rocket","Morning glory",1308,"focal_pollen","Rocket-Morning glory"
-"8","Wild cabbage","Morning glory",90,"focal_pollen","Wild cabbage-Morning glory"
-"10","Pak choi","Morning glory",193,"focal_pollen","Pak choi-Morning glory"
-"13","Eggplant","Water morning glory",64,"focal_pollen","Eggplant-Water morning glory"
-"14","Petunia","Water morning glory",23,"focal_pollen","Petunia-Water morning glory"
-"15","Tomato","Water morning glory",56,"focal_pollen","Tomato-Water morning glory"
-"19","White mustard","Water morning glory",1617,"focal_pollen","White mustard-Water morning glory"
-"21","Morning glory","Eggplant",138,"focal_pollen","Morning glory-Eggplant"
-"29","White mustard","Eggplant",3054,"focal_pollen","White mustard-Eggplant"
-"37","Rocket","Petunia",621,"focal_pollen","Rocket-Petunia"
-"50","Pak choi","Tomato",1114,"focal_pollen","Pak choi-Tomato"
-"52","Water morning glory","Capsicum",35,"focal_pollen","Water morning glory-Capsicum"
-"58","Wild cabbage","Capsicum",281,"focal_pollen","Wild cabbage-Capsicum"
-"61","Morning glory","Rocket",27,"focal_pollen","Morning glory-Rocket"
-"63","Eggplant","Rocket",1837,"focal_pollen","Eggplant-Rocket"
-"74","Petunia","Wild cabbage",332,"focal_pollen","Petunia-Wild cabbage"
-"82","Water morning glory","White mustard",42,"focal_pollen","Water morning glory-White mustard"
-"86","Capsicum","White mustard",304,"focal_pollen","Capsicum-White mustard"
-"95","Tomato","Pak choi",164,"focal_pollen","Tomato-Pak choi"
-"62","Capsicum","Morning glory",11,"non_focal_pollen","Capsicum-Morning glory"
-"71","Rocket","Morning glory",8,"non_focal_pollen","Rocket-Morning glory"
-"81","Wild cabbage","Morning glory",20,"non_focal_pollen","Wild cabbage-Morning glory"
-"101","Pak choi","Morning glory",2,"non_focal_pollen","Pak choi-Morning glory"
-"131","Eggplant","Water morning glory",26,"non_focal_pollen","Eggplant-Water morning glory"
-"141","Petunia","Water morning glory",20,"non_focal_pollen","Petunia-Water morning glory"
-"151","Tomato","Water morning glory",10,"non_focal_pollen","Tomato-Water morning glory"
-"191","White mustard","Water morning glory",19,"non_focal_pollen","White mustard-Water morning glory"
-"211","Morning glory","Eggplant",362,"non_focal_pollen","Morning glory-Eggplant"
-"291","White mustard","Eggplant",1096,"non_focal_pollen","White mustard-Eggplant"
-"371","Rocket","Petunia",321,"non_focal_pollen","Rocket-Petunia"
-"501","Pak choi","Tomato",246,"non_focal_pollen","Pak choi-Tomato"
-"521","Water morning glory","Capsicum",85,"non_focal_pollen","Water morning glory-Capsicum"
-"581","Wild cabbage","Capsicum",209,"non_focal_pollen","Wild cabbage-Capsicum"
-"611","Morning glory","Rocket",216,"non_focal_pollen","Morning glory-Rocket"
-"631","Eggplant","Rocket",2231,"non_focal_pollen","Eggplant-Rocket"
-"741","Petunia","Wild cabbage",376,"non_focal_pollen","Petunia-Wild cabbage"
-"821","Water morning glory","White mustard",170,"non_focal_pollen","Water morning glory-White mustard"
-"861","Capsicum","White mustard",450,"non_focal_pollen","Capsicum-White mustard"
-"951","Tomato","Pak choi",208,"non_focal_pollen","Tomato-Pak choi"
+"","focal","non_focal","."
+"1","Capsicum","Morning glory",269
+"2","Capsicum","White mustard",754
+"3","Eggplant","Rocket",4068
+"4","Eggplant","Water morning glory",90
+"5","Morning glory","Eggplant",500
+"6","Morning glory","Rocket",243
+"7","Pak choi","Morning glory",195
+"8","Pak choi","Tomato",1360
+"9","Petunia","Water morning glory",43
+"10","Petunia","Wild cabbage",708
+"11","Rocket","Morning glory",1316
+"12","Rocket","Petunia",942
+"13","Tomato","Pak choi",372
+"14","Tomato","Water morning glory",66
+"15","Water morning glory","Capsicum",120
+"16","Water morning glory","White mustard",212
+"17","White mustard","Eggplant",4150
+"18","White mustard","Water morning glory",1636
+"19","Wild cabbage","Capsicum",490
+"20","Wild cabbage","Morning glory",110

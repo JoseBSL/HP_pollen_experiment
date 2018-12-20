@@ -101,3 +101,13 @@ ggplot(total_pollen_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   theme(axis.text.x=element_text(angle=60,hjust=1))+
   scale_fill_manual(values=c("grey10", "grey60"))
 
+#Now I combine both focal and non focal for the same treatment
+#to create a data.frame where I will test for correlation with stigma size
+#library
+
+library(reshape2)
+
+total_pollen <- dcast(focal + non_focal  ~ ., value.var = "ratio", fun.aggregate = sum,
+      data = total_pollen, na.rm= TRUE)
+
+#write.csv(total_pollen, "Data/total_pollen.csv")

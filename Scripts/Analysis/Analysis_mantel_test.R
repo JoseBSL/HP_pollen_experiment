@@ -716,6 +716,9 @@ all_non_focal <- rbind(bra, sol, con)
 all_non_focal$close_related <-2
 
 all <- rbind(all, all_non_focal)
+
+#write.csv(all, "Data/all.csv")
+
 #Now I plot corsses between family and across families, to see if the cloud of point is different
 plot(all$value ~jitter(all$close_related, factor=1),xaxt='n',xlim=c(0,3), main="",
      xlab="Evolutive distance", ylab="Hp effect", pch=19, col=all$col_focal)
