@@ -14,6 +14,10 @@ stigma_area <- traits_all[,c(2,10)]
 str(stigma_area)
 
 stigma_area$species=as.character(stigma_area$species)
+stigma_width <- traits_all[,c(2,13)]
+stigma_width$species=as.character(stigma_width$species)
+
+
 
 str(total_pollen)
 total_pollen$focal=as.character(total_pollen$focal)
@@ -34,6 +38,9 @@ colnames(total_pollen)[1] <- "species"
 test <- merge(total_pollen, stigma_area, by="species")
 
 cor.test(test$total_pollen, test$stigma_area, method=c("pearson"))
+
+test <- merge(total_pollen, stigma_width, by="species")
+cor.test(test$total_pollen, test$stigma_width, method=c("pearson"))
 
 #No significant correlation was found
 #However, further corr should be explored
