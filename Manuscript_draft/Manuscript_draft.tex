@@ -398,24 +398,6 @@ pollination by hand cross pollination Lloyd and Schoen (1992).
 
 \textbf{Analysis}
 
-Moreover, Mantel test was also conducted between heterospecific pollen
-effect and the square root of the matrix of phylogenetic distance due to
-improvement in the statistical power (Letten \& Cornwell 2014).
-\href{}{all is here, but I would break it by questions and give a bit
-more detail, to avoid overwhelm the reader} We explored also the
-relations between traits and heterospecific pollen effect through
-generalized mixed models where the response variable was heterospecific
-pollen effect, the independent variable the different traits and the
-random effects the different treatments per species {[}Here I think you
-should think if this controls for the non independency of donors and
-recipients. I think not. Maybe look onto matrix regresions?). Moreover,
-pairwise evolutive distances were calculated with MEGA7 for two kinds of
-markers: 1) Internal transcribed spacer (ITS) and 2)
-ribulose-bisphosphate carboxylase (RBCL). The sequences of interest were
-downloaded from NCBI GenBank and the phylogenetic tree constructed by
-maximum likelihood with MEGA7.\href{}{Make a section on how you
-contrsucted phylogeny}.
-
 To evaluate heterospecific pollen effect on seed production we performed
 linear mixed models. The distinct heterospecific pollination treatments
 were compared thorugh relevelling each variable with the cross
@@ -424,7 +406,7 @@ for all the species. The different replicates of each treatment were
 considered as random effects. The changes of seed production across
 species were compared through scaling the seed production with mean 0
 and standard deviation of 1 prior to the analysis. All the analysis were
-conducted with the statistical language \texttt{R} (R Core Team 2018)
+conducted with the statistical language \texttt{R} (R Core Team 2018).
 
 In order to test the relative effect of traits on seed production with
 foreign pollen we performed mantel test between the assymetrical matrix
@@ -432,9 +414,24 @@ of heterospecific pollen effect (10 by 10 matrix) with the different
 distance matrices of traits (euclidean distances). Heterospecific pollen
 effect was considered as the subtraction of seed production by hand
 cross pollination minus seed production of the different heterospecific
-pollen treatments.
+pollen treatments. Moreover, to find a model with the best explanatory
+traits we used the function \textbf{bioenv} from R. Finally, we also
+conducted mantel test between the matrix of heterospecific pollen effect
+and the distance matrix from all the traits. Moreover, We explored also
+the relations between traits and heterospecific pollen effect through
+generalized mixed models where the response variable was heterospecific
+pollen effect (develop this bit).
 
-The
+We conducted mantel test to check for correlations between
+heterospecific pollen effect and phylogenetic distance. Due to
+improvents in statistical power we used the square root of the
+phylogenetic distance (Letten \& Cornwell 2014). Two different
+phylogenetic distances were used from two kinds of markers: 1) Internal
+transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase
+(RBCL). The sequences were obtained from GenBank
+(\url{https://www.ncbi.nlm.nih.gov/genbank/}, accessed 20 Oct. 2018).
+The sequences were aligned with clustal omega and the pairwise evolutive
+distances were calculated with MEGA7.
 
 \href{Jose}{Phylogenetic signal of traits?}
 
