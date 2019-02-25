@@ -400,19 +400,19 @@ pollination by hand cross pollination Lloyd and Schoen (1992).
 
 To evaluate heterospecific pollen effect on seed production we performed
 linear mixed models. The distinct heterospecific pollination treatments
-were compared thorugh relevelling each variable with the cross
+were compared through relevelling each variable with the cross
 pollination treatment which was our control for optimum seed production
 for all the species. The different replicates of each treatment were
-considered as random effects. The changes of seed production across
-species were compared through scaling the seed production with mean 0
-and standard deviation of 1 prior to the analysis. All the analysis were
-conducted with the statistical language \texttt{R} (R Core Team 2018).
+considered as random effects. Seed production was scaled for all the
+species with mean 0 and standard deviation of 1 prior to the analysis.
+All the analysis were conducted with the statistical language \texttt{R}
+(R Core Team 2018).
 
 In order to test the relative effect of traits on seed production with
 foreign pollen we performed Mantel test between the assymetrical matrix
 of heterospecific pollen effect (10 by 10 matrix) with the different
 distance matrices of traits (Euclidean distances). Heterospecific pollen
-effect was obtain through the subtraction of seed production by hand
+effect was obtained through the subtraction of seed production by hand
 cross pollination minus seed production of the different heterospecific
 pollen treatments. To find a model with the best explanatory traits we
 used the function \textbf{bioenv} from R. We also conducted Mantel test
@@ -437,16 +437,18 @@ distances calculated with MEGA7.
 
 \section{RESULTS}\label{results}
 
-Results of hand cross pollination, self hand pollination, natural
+Results of hand cross-pollination, self hand-pollination, natural
 selfing and apomixis are presented in \textbf{Table 2}. Heterospecific
 pollen reduced seet set signifcatively with the 50-50\% heterospecific
 pollen treatments for 65\% of the pairwise interactions
-p\textless{}0.05. Across families we found a very similar effect but
-when species where look at species level they respond differently even
-within the same family \href{}{rephrase and maybe test statistically?},
-for instance for two species of the Brassicaceae family \emph{Brassica
-oleracea} and \emph{Eruca versicaria} we found very contrasting effects
-of foreign pollen where for the first one, all donors reduce seed set
+p\textless{}0.05.
+
+Across families we found a very similar effect but when species where
+look at species level they respond differently even within the same
+family \href{}{rephrase and maybe test statistically?}, for instance for
+two species of the Brassicaceae family \emph{Brassica oleracea} and
+\emph{Eruca versicaria} we found very contrasting effects of foreign
+pollen where for the first one, all donors reduce seed set
 significatively and for the second, just two species did out of nine.
 The 100\% foreign pollen treatments barely produced seeds or fruits
 \href{}{and just for \emph{Sinapis alba} we did not find significant
