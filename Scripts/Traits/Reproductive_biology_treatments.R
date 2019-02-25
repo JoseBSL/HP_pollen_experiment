@@ -31,8 +31,8 @@ table_melt$variable[table_melt$variable=="Apomixis"] <- "Apomixis"
 library(extrafont)
 library(forcats)
 
-font_import()
-fonts()
+#font_import()
+#fonts()
 
 cross  <- subset(table_melt,variable=="Hand cross pollination"  )
 self  <- subset(table_melt, table_melt$variable=="Hand self pollination" )
@@ -42,6 +42,7 @@ bio$Species <- factor(bio$Species, levels = rev(unique(bio$Species)), ordered=TR
 bio$variable <- factor(bio$variable, levels = c("Hand cross pollination","Hand self pollination","Natural selfing","Apomixis"))
 
 #save.image("Manuscript_draft/r_biology.RData")
+load("Manuscript_draft/r_biology.RData")
 
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
@@ -49,3 +50,8 @@ ggplot(bio,aes(x=Species,y=value,fill=variable))+
   theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"))+
   scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))
 
+ggplot(bio,aes(x=Species,y=value,fill=variable))+
+  geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
+  theme_minimal()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
+  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"))+
+  scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))
