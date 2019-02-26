@@ -137,6 +137,11 @@ We conducted mantel test to check for correlations between heterospecific pollen
 
 [Phylogenetic signal of traits?](Jose)
 
+[Add pollen on stigma counts to methods](Jose)
+
+[Next bit to results, also divided it with ]
+Total pollen deposited on stigmas was significantly correlated with the stigmatic area, pearsons correlation=0.57 and p-value=0.008. Proportions of pollen talk about it to 50-50 mix? Talk aboout this in methods too.
+
 # RESULTS
 
 Results of hand cross-pollination, self hand-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seet set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. 
