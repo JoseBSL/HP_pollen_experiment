@@ -125,7 +125,7 @@ Foreign pollen effect was studied through two different treatments, one with 50%
 
 **Traits and evolutive distance**
 
-The traits measured for each species were pollen per anther, number of ovules and stigma, style, ovary width and length. For the stigma, the stigmatic area was also measured and moreover the stigmas were divided in wet/dry type. All the morphometrical measurements were performed with a stereophotomicroscope. Pollen was counted for 20 anthers of each species with 4 replicates per sample with an hemocytometer. Previously, anthers were squashed on a known solution with the pippete tip and homogeneize with a vortex for 30 seconds. Ovule number was counted with the help of an stereomicroscope and a small grid over a petri dish from 15 randomly selected flowers. Fruits per number of flowers treated were counted for Solanaceae species and for the rest, the number of seeds produced per average number of ovules of each species. Levels of self incompatibility were estimated by dividing the fruit set of hand self pollination by hand cross pollination @lloyd1992. 
+The traits measured for each species were pollen per anther, number of ovules and stigma, style, ovary width and length. For the stigma, the stigmatic area was also measured and moreover the stigmas were divided in wet/dry type. All the morphometrical measurements were performed with a stereophotomicroscope. Pollen was counted for 20 anthers of each species with 4 replicates per sample with an hemocytometer. Previously, anthers were squashed on a known solution with the pippete tip and homogeneize with a vortex for 30 seconds. Ovule number was counted with the help of a stereomicroscope and a small grid over a petri dish from 15 randomly selected flowers. Fruits per number of flowers treated were counted for Solanaceae species and for the rest, the number of seeds produced per average number of ovules of each species. Levels of self incompatibility were estimated by dividing the fruit set of hand self pollination by hand cross pollination @lloyd1992. 
 
 **Analysis**
 
@@ -139,7 +139,7 @@ We conducted mantel test to check for correlations between heterospecific pollen
 
 # RESULTS
 
-Results of hand cross-pollination, self hand-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for values). Heterospecific pollen reduced seet set signifcatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. 
+Results of hand cross-pollination, self hand-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seet set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. 
  
 
 Across families we found a very similar effect but when species where look at species level they respond differently even within the same family [rephrase and maybe test statistically?](), for instance for two species of the Brassicaceae family *Brassica oleracea* and *Eruca versicaria* we found very contrasting effects of foreign pollen where for the first one, all donors reduce seed set significatively and for the second, just two species did out of nine. The 100% foreign pollen treatments barely produced seeds or fruits [and just for *Sinapis alba* we did not find significant differences between the hand cross pollination and one treatment with pollen from a confamilial- IB Unclear](). Solanaceae species with berry fruit type developed small fruits or even normal fruits in some cases [under which treatment](). *S. lycopersicum* seems to produced small fruits (35% of the treatments) independently of pollen and pollen donor due to also apomictic treatments did, never normal size. *C. annuum* produced some fruits (9%) of both small and normal size and finally *S. melongena* produced seedless normal fruits with just confamilial pollen (3%), for both species seems that fruit formation was induced by pollen on the stigma because of lack of fruit production with treatments that tested for apomixis.[clarify this descriptive statistics part- Also a figure with a summary of the treatments effect would be cool, or at least in the appendices]()
@@ -152,7 +152,7 @@ load("r_biology.RData")
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
   theme_minimal()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
-  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"), legend.text=element_text(size=7), legend.title=element_text(size=8), axis.text.y  = element_text(size = 10))+
+  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = ""), legend.text=element_text(size=7), legend.title=element_text(size=8), axis.text.y  = element_text(size = 10))+
   scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))
 
 ```
