@@ -140,6 +140,7 @@ We conducted mantel test to check for correlations between heterospecific pollen
 [Add pollen on stigma counts to methods](Jose)
 
 [Next bit to results, also divided it with ]
+
 Total pollen deposited on stigmas was significantly correlated with the stigmatic area, pearsons correlation=0.57 and p-value=0.008. Proportions of pollen talk about it to 50-50 mix? Talk aboout this in methods too.
 
 # RESULTS
