@@ -21,30 +21,30 @@ pollen_ratios <- rbind(focal_pollen_percentage,non_focal_pollen_percentage)
 colnames(pollen_ratios) <- c("focal", "non_focal", "ratio", "variable")
 #Changes spp code to common names
 
-data.frame(pollen_ratios, stringsAsFactors = F)
+#data.frame(pollen_ratios, stringsAsFactors = F)
 pollen_ratios$focal <- as.character(pollen_ratios$focal)
-pollen_ratios$focal[pollen_ratios$focal=="CAAN"] <- "Capsicum"
-pollen_ratios$focal[pollen_ratios$focal=="SOLY"] <- "Tomato"
-pollen_ratios$focal[pollen_ratios$focal=="SOME"] <- "Eggplant"
-pollen_ratios$focal[pollen_ratios$focal=="PEIN"] <- "Petunia"
-pollen_ratios$focal[pollen_ratios$focal=="SIAL"] <- "White mustard"
-pollen_ratios$focal[pollen_ratios$focal=="ERSA"] <- "Rocket"
-pollen_ratios$focal[pollen_ratios$focal=="BROL"] <- "Wild cabbage"
-pollen_ratios$focal[pollen_ratios$focal=="BRRA"] <- "Pak choi"
-pollen_ratios$focal[pollen_ratios$focal=="IPAQ"] <- "Water morning glory"
-pollen_ratios$focal[pollen_ratios$focal=="IPPU"] <- "Morning glory"
+pollen_ratios$focal[pollen_ratios$focal=="CAAN"] <- "C. annuum"
+pollen_ratios$focal[pollen_ratios$focal=="SOLY"] <- "S. lycopersicum"
+pollen_ratios$focal[pollen_ratios$focal=="SOME"] <- "S. melongena"
+pollen_ratios$focal[pollen_ratios$focal=="PEIN"] <- "P. integrifolia"
+pollen_ratios$focal[pollen_ratios$focal=="SIAL"] <- "S. alba"
+pollen_ratios$focal[pollen_ratios$focal=="ERSA"] <- "E. sativa"
+pollen_ratios$focal[pollen_ratios$focal=="BROL"] <- "B. oleracea"
+pollen_ratios$focal[pollen_ratios$focal=="BRRA"] <- "B. rapa"
+pollen_ratios$focal[pollen_ratios$focal=="IPAQ"] <- "I. aquatica"
+pollen_ratios$focal[pollen_ratios$focal=="IPPU"] <- "I. purpurea"
 
 pollen_ratios$non_focal <- as.character(pollen_ratios$non_focal)
-pollen_ratios$non_focal[pollen_ratios$non_focal=="CAAN"] <- "Capsicum"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="SOLY"] <- "Tomato"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="SOME"] <- "Eggplant"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="PEIN"] <- "Petunia"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="SIAL"] <- "White mustard"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="ERSA"] <- "Rocket"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="BROL"] <- "Wild cabbage"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="BRRA"] <- "Pak choi"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="IPAQ"] <- "Water morning glory"
-pollen_ratios$non_focal[pollen_ratios$non_focal=="IPPU"] <- "Morning glory"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="CAAN"] <- "C. annuum"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="SOLY"] <- "S. lycopersicum"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="SOME"] <- "S. melongena"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="PEIN"] <- "P. integrifolia"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="SIAL"] <- "S. alba"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="ERSA"] <- "E. sativa"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="BROL"] <- "B. oleracea"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="BRRA"] <- "B. rapa"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="IPAQ"] <- "I. aquatica"
+pollen_ratios$non_focal[pollen_ratios$non_focal=="IPPU"] <- "I. purpurea"
 
 pollen_ratios$spp <- paste(pollen_ratios$focal,pollen_ratios$non_focal, sep="-")
 
@@ -72,8 +72,8 @@ ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
 #Solanaceae pollen ratio plot
 
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
-pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory" & pollen_ratios$focal!="Water morning glory"& pollen_ratios$focal!="Wild cabbage"&
-                                 pollen_ratios$focal!="Pak choi" & pollen_ratios$focal!="White mustard"& pollen_ratios$focal!="Rocket",  ]
+pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" & pollen_ratios$focal!="I. aquatica"& pollen_ratios$focal!="B. oleracea"&
+                                 pollen_ratios$focal!="B. rapa" & pollen_ratios$focal!="S. alba"& pollen_ratios$focal!="E. sativa",  ]
 
 #write.csv(pollen_ratios_solanaceae, "Rmd/Data/pollen_ratios_solanaceae.csv")
 
@@ -88,12 +88,12 @@ ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
 
 pollen_ratios$spp <- paste(pollen_ratios$focal,pollen_ratios$non_focal)
-pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="Capsicum" & pollen_ratios$focal!="Eggplant"& pollen_ratios$focal!="Wild cabbage"&
-                                 pollen_ratios$focal!="Pak choi" & pollen_ratios$focal!="White mustard"
-                               & pollen_ratios$focal!="Rocket"& pollen_ratios$focal!="Tomato"& pollen_ratios$focal!="Petunia",  ]
+pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="C annuum" & pollen_ratios$focal!="S. melongena"& pollen_ratios$focal!="B. oleracea"&
+                                 pollen_ratios$focal!="B. rapa" & pollen_ratios$focal!="S. alba"
+                               & pollen_ratios$focal!="E. sativa"& pollen_ratios$focal!="S. lycopersicum"& pollen_ratios$focal!="P. integrifolia",  ]
 
 #write.csv(pollen_ratios_convolvulaceae, "Rmd/Data/pollen_ratios_convolvulaceae.csv")
-#save.image("Manuscript_draft/pollen_ratio.RData")
+save.image("Manuscript_draft/pollen_ratio.RData")
 #Now the angle is right
 
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
