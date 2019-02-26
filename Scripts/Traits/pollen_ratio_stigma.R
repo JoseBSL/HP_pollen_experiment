@@ -91,6 +91,9 @@ pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="Capsicum" & 
 
 #write.csv(pollen_ratios_convolvulaceae, "Rmd/Data/pollen_ratios_convolvulaceae.csv")
 
+#Now the angle is right
+
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="Convolvulaceae") +
-  theme(axis.text.x=element_text(angle=60,hjust=1)) + scale_fill_grey() +  theme_classic() + geom_hline(yintercept = 50)
+  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey() + 
+  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
