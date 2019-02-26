@@ -63,10 +63,11 @@ pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory"
 
 #write.csv(pollen_ratios_brassicaceae, "Rmd/Data/pollen_ratios_brassicaceae.csv")
 
-
 ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="Brassicaceae") +
-  theme(axis.text.x=element_text(angle=60,hjust=1)) + scale_fill_grey() +  theme_classic() + geom_hline(yintercept = 50)
+  geom_bar(stat='identity', position='dodge') +labs(title="A) Brassicaceae") +
+  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+
 
 #Solanaceae pollen ratio plot
 
