@@ -58,8 +58,8 @@ ggplot(pollen_ratios, aes(x=spp, y=ratio, fill=variable)) +
 #Brassicaceae pollen ratio plot
 
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
-pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory" & pollen_ratios$focal!="Water morning glory"& pollen_ratios$focal!="Eggplant"&
-                               pollen_ratios$focal!="Tomato" & pollen_ratios$focal!="Petunia"& pollen_ratios$focal!="Capsicum",  ]
+pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" & pollen_ratios$focal!="I. aquatica"& pollen_ratios$focal!="S. melongena"&
+                               pollen_ratios$focal!="S. lycopersicum" & pollen_ratios$focal!="P. integrifolia"& pollen_ratios$focal!="C. annuum",  ]
 
 #write.csv(pollen_ratios_brassicaceae, "Rmd/Data/pollen_ratios_brassicaceae.csv")
 
@@ -93,7 +93,7 @@ pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="C annuum" & 
                                & pollen_ratios$focal!="E. sativa"& pollen_ratios$focal!="S. lycopersicum"& pollen_ratios$focal!="P. integrifolia",  ]
 
 #write.csv(pollen_ratios_convolvulaceae, "Rmd/Data/pollen_ratios_convolvulaceae.csv")
-save.image("Manuscript_draft/pollen_ratio.RData")
+#save.image("Manuscript_draft/pollen_ratio.RData")
 #Now the angle is right
 
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
