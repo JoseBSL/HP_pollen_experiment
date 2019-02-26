@@ -42,6 +42,4 @@ cor.test(test$total_pollen, test$stigma_area, method=c("pearson"))
 test <- merge(total_pollen, stigma_width, by="species")
 cor.test(test$total_pollen, test$stigma_width, method=c("pearson"))
 
-#No significant correlation was found
-#However, further corr should be explored
-#Small sample size and 
+ 

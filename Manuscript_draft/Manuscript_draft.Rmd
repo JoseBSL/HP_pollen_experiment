@@ -143,9 +143,7 @@ We conducted mantel test to check for correlations between heterospecific pollen
 
 Total pollen deposited on stigmas was significantly correlated with the stigmatic area, pearsons correlation=0.57 and p-value=0.008. Proportions of pollen talk about it to 50-50 mix? Talk aboout this in methods too.
 
-Add also plot with fruit production and pot it in appendix.
-
-
+Add also plot with fruit production and pot it in appendix.Also the plots of ratios to appendices.
 
 # RESULTS
 
