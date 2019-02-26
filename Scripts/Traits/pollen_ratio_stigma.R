@@ -77,8 +77,10 @@ pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="Morning glory" &
 #write.csv(pollen_ratios_solanaceae, "Rmd/Data/pollen_ratios_solanaceae.csv")
 
 ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="Solanaceae") +
-  theme(axis.text.x=element_text(angle=60,hjust=1)) + scale_fill_grey() +  theme_classic() + geom_hline(yintercept = 50)
+  geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
+  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+
 
 #Convolvulaceae
 
@@ -90,10 +92,10 @@ pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="Capsicum" & 
                                & pollen_ratios$focal!="Rocket"& pollen_ratios$focal!="Tomato"& pollen_ratios$focal!="Petunia",  ]
 
 #write.csv(pollen_ratios_convolvulaceae, "Rmd/Data/pollen_ratios_convolvulaceae.csv")
-
+#save.image("Manuscript_draft/pollen_ratio.RData")
 #Now the angle is right
 
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="Convolvulaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey() + 
+  geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
+  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
