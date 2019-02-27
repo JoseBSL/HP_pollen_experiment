@@ -293,7 +293,7 @@ kable(table, format="markdown")
 
 2.
 
-**Figure S1**. Pollen ratios separated by family A) Brassicaceae, B) Solanaceae, C) Convolvulaceae. All the species were crossed with a species of the other two families (N=3). To prepare these ratios all the pollen grains on the stigma were counted.
+**Figure S1**. Pollen ratios separated by family A) Brassicaceae, B) Solanaceae, C) Convolvulaceae. Pollen was counted for crosses with species of the other two families (N=3). To prepare these ratios all the pollen grains on the stigma were counted.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("pollen_ratio.RData")
