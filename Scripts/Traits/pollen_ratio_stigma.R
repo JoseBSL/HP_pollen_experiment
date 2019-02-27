@@ -65,7 +65,7 @@ pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" &
 
 ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="A) Brassicaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
 
@@ -79,7 +79,7 @@ pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" & p
 
 ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
 
@@ -98,5 +98,5 @@ save.image("Manuscript_draft/pollen_ratio.RData")
 
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")

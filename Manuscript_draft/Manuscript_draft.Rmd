@@ -293,23 +293,26 @@ kable(table, format="markdown")
 
 2.
 
+**Figure S1**. Pollen ratios separated by family A) Brassicaceae, B) Solanaceae, C) Convolvulaceae. All the species were crossed with a species of the other two families (N=3). To prepare these ratios all the pollen grains on the stigma were counted.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 load("pollen_ratio.RData")
 
 ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="A) Brassicaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
 ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+
 ```
 
 \eleft
