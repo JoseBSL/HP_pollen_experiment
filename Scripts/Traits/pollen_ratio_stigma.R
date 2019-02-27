@@ -87,13 +87,13 @@ ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
 
 pollen_ratios <- read.csv("Data/pollen_ratios.csv")
 
-pollen_ratios$spp <- paste(pollen_ratios$focal,pollen_ratios$non_focal)
-pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="C annuum" & pollen_ratios$focal!="S. melongena"& pollen_ratios$focal!="B. oleracea"&
+#pollen_ratios$spp <- paste(pollen_ratios$focal,pollen_ratios$non_focal)
+pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="C. annuum" & pollen_ratios$focal!="S. melongena"& pollen_ratios$focal!="B. oleracea"&
                                  pollen_ratios$focal!="B. rapa" & pollen_ratios$focal!="S. alba"
                                & pollen_ratios$focal!="E. sativa"& pollen_ratios$focal!="S. lycopersicum"& pollen_ratios$focal!="P. integrifolia",  ]
 
 #write.csv(pollen_ratios_convolvulaceae, "Rmd/Data/pollen_ratios_convolvulaceae.csv")
-#save.image("Manuscript_draft/pollen_ratio.RData")
+save.image("Manuscript_draft/pollen_ratio.RData")
 #Now the angle is right
 
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
