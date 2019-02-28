@@ -72,6 +72,9 @@ ipaq[3:5] <- lapply(ipaq[3:5], as.numeric)
 ippu[3:5] <- lapply(ippu[3:5], as.numeric)
 
 
+#save.image("seed_set&scaled_seed_set.RData")
+
+
 #Preparing for loop to clean dataframe and select columns of interest
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
@@ -100,6 +103,10 @@ y_mean_scale <- cbind(y_mean_scale, Treatment)
 y_mean_scale <- y_mean_scale[ , -2] 
 #Renaming SOME seems to have an space 
 y_mean_scale[81:89,1] <- "SOME"
+
+
+#save.image("seed_set&scaled_seed_set.RData")
+
 #Almost there, dataframe with mean scaled seed set per treatment
 #I convert it now to a matrix, and from now operate with matrices
 matrix_scale <- tapply(y_mean_scale$Scale_seed, y_mean_scale[c("Species", "Treatment")], mean)
