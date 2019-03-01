@@ -35,9 +35,10 @@ str(soly_seeds)
 
 #We order alphabetically to be able to replicate exactly the same for all the species
 soly_seeds <- soly_seeds[order(soly_seeds$Treatment, soly_seeds$Seed_set), ]
+#Subset cross for Cohen's d on the loop
+soly_cross <- subset(soly_seeds, Treatment=="CROSS")
 
 #Just checking a first example of how it would be
-soly_cross <- subset(soly_seeds, Treatment=="CROSS")
 soly_ippu <- subset(soly_seeds, Treatment=="IPPU 50%")
 soly_ipaq <- subset(soly_seeds, Treatment=="IPAQ 50%")
 a <- cohen.d(soly_ippu$Seed_set, soly_cross$Seed_set)
@@ -89,17 +90,16 @@ width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00
 
 pein_seeds <- subset(y, Species=="PEIN")
 
+#We order alphabetically to be able to replicate exactly the same for all the species
+pein_seeds <- pein_seeds[order(pein_seeds$Treatment, pein_seeds$Seed_set), ]
 pein_cross <- subset(pein_seeds, Treatment=="CROSS")
-pein_ippu <- subset(pein_seeds, Treatment=="IPPU 50%")
-pein_ipaq <- subset(pein_seeds, Treatment=="IPAQ 50%")
 
-a <- cohen.d(pein_ippu$Seed_set, pein_cross$Seed_set)
-b <- cohen.d(pein_ipaq$Seed_set, pein_cross$Seed_set)
-
-
-species<- unique(pein_seeds$Treatment)
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+species<- sort(unique(pein_seeds$Treatment))
 b <- NULL
 x <- NULL
+a <- NULL
 for (i in species){
   a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Treatment==i], pein_cross$Seed_set)
   b <- rbind(b, a[3])
@@ -115,9 +115,11 @@ cbind(lower, upper)
 cohen_d<- lapply(b, `[[`, 1)
 cohen_d<- as.data.frame(unlist(cohen_d))
 
-Species_1 <-c ("S. lycopersicum.", "I. purpurea", "S. alba", "C. annuum", "S. melongena", "B. oleracea",
-               "P. integrifolia", "B. rapa", "E. sativa", "I. aquatica")
-Family <- c("poll.", "C", "B", "S", "S", "B", "S", "B", "B", "C")
+#Adding species names and families (just initials)
+Species_1 <-c ("B. oleracea","B. rapa", "C. annuum", "P. integrifolia", "E. sativa", "I. aquatica", "I. purpurea",
+               "S. alba", "S. lycopersicum", "S. melongena")
+
+Family <- c("B", "B", "S", "P", "B", "C", "C", "S", "B", "S")
 pein_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
 
 colnames(pein_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
@@ -131,3 +133,4 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
