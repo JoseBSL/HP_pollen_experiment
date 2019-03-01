@@ -93,7 +93,6 @@ width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00
 #PEIN
 
 pein_seeds <- subset(y, Species=="PEIN")
-
 #We order alphabetically to be able to replicate exactly the same for all the species
 pein_seeds <- pein_seeds[order(pein_seeds$Treatment, pein_seeds$Seed_set), ]
 pein_cross <- subset(pein_seeds, Treatment=="CROSS")
