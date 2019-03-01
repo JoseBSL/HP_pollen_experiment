@@ -445,3 +445,102 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+####
+#CONVOLVULACEAE
+####
+
+
+#IPPU
+ippu_seeds <- subset(y, Species=="IPPU")
+
+#We order alphabetically to be able to replicate exactly the same for all the species
+ippu_seeds <- ippu_seeds[order(ippu_seeds$Treatment, ippu_seeds$Seed_set), ]
+ippu_cross <- subset(ippu_seeds, Treatment=="cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+species<- sort(unique(ippu_seeds$Treatment))
+b <- NULL
+x <- NULL
+a <- NULL
+for (i in species){
+  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Treatment==i], ippu_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+#Adding species names and families (just initials)
+Species_1 <-c ("B. oleracea","B. rapa","C. annuum","I. purpurea","E. sativa", "I. aquatica", "P. integrifolia","S. alba",
+               "S. lycopersicum","S. melongena")
+
+Family <- c("B", "B", "S", "P","B","C", "S","B","S", "S")
+ippu_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
+
+colnames(ippu_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
+str(ippu_effect_size)
+
+#Now I plot Cohen's d with lower and upper confidences intervals
+
+p2<- ggplot(ippu_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
+p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+                                                                              width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+#IPAQ
+ipaq_seeds <- subset(y, Species=="IPAQ")
+
+#We order alphabetically to be able to replicate exactly the same for all the species
+ipaq_seeds <- ipaq_seeds[order(ipaq_seeds$Treatment, ipaq_seeds$Seed_set), ]
+ipaq_cross <- subset(ipaq_seeds, Treatment=="cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+species<- sort(unique(ipaq_seeds$Treatment))
+b <- NULL
+x <- NULL
+a <- NULL
+for (i in species){
+  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Treatment==i], ipaq_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+#Adding species names and families (just initials)
+Species_1 <-c ("B. oleracea","B. rapa","C. annuum","I. aquatica","E. sativa", "I. purpurea", "P. integrifolia","S. alba",
+               "S. lycopersicum","S. melongena")
+
+Family <- c("B", "B", "S", "P","B","C", "S","B","S", "S")
+ipaq_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
+
+colnames(ipaq_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
+str(ipaq_effect_size)
+
+#Now I plot Cohen's d with lower and upper confidences intervals
+
+p2<- ggplot(ipaq_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
+p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+                                                                              width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
