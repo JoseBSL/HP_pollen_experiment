@@ -4,6 +4,9 @@
 #loadlibrary
 #install.packages("effsize")
 library(effsize)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
 
 load("seed_set&scaled_seed_set.RData")
 
@@ -43,5 +46,20 @@ for (i in species){
   x<- rbind(x, a[4])
 }
 
-soly_effect_size <- cbind(species,y,as.data.frame(x))
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
 
+cohen_d<- lapply(y, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+soly_effect_size <- cbind(species,cohen_d,cbind(lower, upper))
+colnames(soly_effect_size) <- c("Species", "Cohen_d", "Lower", "Upper")
+str(soly_effect_size)
+
+
+p2<- ggplot(soly_effect_size, aes(Species,Cohen_d, size=10)) + theme_bw(base_size=10)
+p2 + geom_point(show.legend = FALSE) +geom_errorbar(show.legend=FALSE,aes(x = Species, ymin = Lower, ymax = Upper, size=2),
+width = 0.2)  +xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)
