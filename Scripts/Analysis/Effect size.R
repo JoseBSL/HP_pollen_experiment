@@ -55,11 +55,20 @@ cbind(lower, upper)
 cohen_d<- lapply(y, `[[`, 1)
 cohen_d<- as.data.frame(unlist(cohen_d))
 
-soly_effect_size <- cbind(species,cohen_d,cbind(lower, upper))
-colnames(soly_effect_size) <- c("Species", "Cohen_d", "Lower", "Upper")
+Species_1 <-c ("Hand cross P.", "I. purpurea", "S. alba", "C. annuum", "S. melongena", "B. oleracea",
+            "P. integrifolia", "B. rapa", "E. sativa", "I. aquatica")
+
+soly_effect_size <- cbind(species, Species_1, cohen_d,cbind(lower, upper))
+
+
+colnames(soly_effect_size) <- c("Species","Species_1", "Cohen_d", "Lower", "Upper")
 str(soly_effect_size)
 
 
-p2<- ggplot(soly_effect_size, aes(Species,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE) +geom_errorbar(show.legend=FALSE,aes(x = Species, ymin = Lower, ymax = Upper, size=2),
-width = 0.2)  +xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)
+p2<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
+p2 + geom_point(show.legend = FALSE) +geom_errorbar(show.legend=FALSE,aes(x = Species_1, ymin = Lower, ymax = Upper, size=2),
+width = 0.2)  +xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+
