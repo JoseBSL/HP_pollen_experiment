@@ -27,6 +27,8 @@ for (i in species_list){
 
 #Now I prepare effect sizes for SOLY
 
+#SOLY
+
 soly_seeds <- subset(y, Species=="SOLY")
 
 soly_cross <- subset(soly_seeds, Treatment=="CROSS")
@@ -38,11 +40,11 @@ b <- cohen.d(soly_ipaq$Seed_set, soly_cross$Seed_set)
 
 
 species<- unique(soly_seeds$Treatment)
-y <- NULL
+b <- NULL
 x <- NULL
 for (i in species){
   a<-cohen.d(soly_seeds$Seed_set[soly_seeds$Treatment==i], soly_cross$Seed_set)
-  y <- rbind(y, a[3])
+  b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
 
@@ -52,7 +54,7 @@ upper<- lapply(x, `[[`, 2)
 upper<- as.data.frame(unlist(upper))
 cbind(lower, upper)
 
-cohen_d<- lapply(y, `[[`, 1)
+cohen_d<- lapply(b, `[[`, 1)
 cohen_d<- as.data.frame(unlist(cohen_d))
 
 Species_1 <-c ("S. lycopersicum.", "I. purpurea", "S. alba", "C. annuum", "S. melongena", "B. oleracea",
@@ -73,4 +75,49 @@ width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
+#PEIN
 
+pein_seeds <- subset(y, Species=="PEIN")
+
+pein_cross <- subset(pein_seeds, Treatment=="CROSS")
+pein_ippu <- subset(pein_seeds, Treatment=="IPPU 50%")
+pein_ipaq <- subset(pein_seeds, Treatment=="IPAQ 50%")
+
+a <- cohen.d(pein_ippu$Seed_set, pein_cross$Seed_set)
+b <- cohen.d(pein_ipaq$Seed_set, pein_cross$Seed_set)
+
+
+species<- unique(pein_seeds$Treatment)
+b <- NULL
+x <- NULL
+for (i in species){
+  a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Treatment==i], pein_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+Species_1 <-c ("S. lycopersicum.", "I. purpurea", "S. alba", "C. annuum", "S. melongena", "B. oleracea",
+               "P. integrifolia", "B. rapa", "E. sativa", "I. aquatica")
+Family <- c("poll.", "C", "B", "S", "S", "B", "S", "B", "B", "C")
+pein_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
+
+colnames(pein_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
+str(pein_effect_size)
+
+#Now I plot Cohen's d with lower and upper confidences intervals
+
+p2<- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
+p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+                                                                              width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
