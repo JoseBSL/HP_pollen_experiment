@@ -29,17 +29,24 @@ for (i in species_list){
 
 #SOLY
 
+#First we subset the long data frame for our species of interest
 soly_seeds <- subset(y, Species=="SOLY")
+str(soly_seeds)
 
+#We order alphabetically to be able to replicate exactly the same for all the species
+soly_seeds <- soly_seeds[order(soly_seeds$Treatment, soly_seeds$Seed_set), ]
+
+#Just checking a first example of how it would be
 soly_cross <- subset(soly_seeds, Treatment=="CROSS")
 soly_ippu <- subset(soly_seeds, Treatment=="IPPU 50%")
 soly_ipaq <- subset(soly_seeds, Treatment=="IPAQ 50%")
-
 a <- cohen.d(soly_ippu$Seed_set, soly_cross$Seed_set)
 b <- cohen.d(soly_ipaq$Seed_set, soly_cross$Seed_set)
 
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+species<- sort(unique(soly_seeds$Treatment))
 
-species<- unique(soly_seeds$Treatment)
 b <- NULL
 x <- NULL
 for (i in species){
@@ -48,6 +55,7 @@ for (i in species){
   x<- rbind(x, a[4])
 }
 
+#Now we convert the list to a data frame to plot it
 lower<- lapply(x, `[[`, 1)
 lower<- as.data.frame(unlist(lower))
 upper<- lapply(x, `[[`, 2)
@@ -57,9 +65,11 @@ cbind(lower, upper)
 cohen_d<- lapply(b, `[[`, 1)
 cohen_d<- as.data.frame(unlist(cohen_d))
 
-Species_1 <-c ("S. lycopersicum.", "I. purpurea", "S. alba", "C. annuum", "S. melongena", "B. oleracea",
-            "P. integrifolia", "B. rapa", "E. sativa", "I. aquatica")
-Family <- c("poll.", "C", "B", "S", "S", "B", "S", "B", "B", "C")
+#Adding species names and families (just initials)
+Species_1 <-c ("B. oleracea","B. rapa", "C. annuum", "S. lycopersicum.", "E. sativa", "I. aquatica", "I. purpurea",
+            "P. integrifolia", "S. alba", "S. melongena")
+
+Family <- c("B", "B", "S", "P", "B", "C", "C", "S", "B", "S")
 soly_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
 
 colnames(soly_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
