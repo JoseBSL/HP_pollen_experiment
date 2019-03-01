@@ -200,6 +200,7 @@ some_ippu <- subset(some_seeds, Treatment=="IPPU 50%")
 
 some_ippu$Treatment[some_ippu$Treatment=="IPPU 50%"] <- "IPAQ 50%"
 some_ipaq <- some_ippu[,1:5]
+some_ipaq$Seed_set <- NA
 some_seeds <- rbind(some_seeds, some_ipaq) 
 
 
@@ -289,6 +290,100 @@ str(brol_effect_size)
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(brol_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
+p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+                                                                              width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+#BRRA
+brra_seeds <- subset(y, Species=="BRRA")
+
+#We order alphabetically to be able to replicate exactly the same for all the species
+brra_seeds <- brra_seeds[order(brra_seeds$Treatment, brra_seeds$Seed_set), ]
+brra_cross <- subset(brra_seeds, Treatment=="Cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+species<- sort(unique(brra_seeds$Treatment))
+b <- NULL
+x <- NULL
+a <- NULL
+for (i in species){
+  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Treatment==i], brra_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+#Adding species names and families (just initials)
+Species_1 <-c ("B. oleracea","C. annuum","B. rapa", "E. sativa", "I. aquatica","I. purpurea", "P. integrifolia",
+               "S. alba", "S. lycopersicum","S. melongena")
+
+Family <- c("B", "S", "P", "B", "C","C", "S", "B","S", "S")
+brra_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
+
+colnames(brra_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
+str(brra_effect_size)
+
+#Now I plot Cohen's d with lower and upper confidences intervals
+
+p2<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
+p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+                                                                              width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+#SIAL
+sial_seeds <- subset(y, Species=="SIAL")
+
+#We order alphabetically to be able to replicate exactly the same for all the species
+sial_seeds <- sial_seeds[order(sial_seeds$Treatment, sial_seeds$Seed_set), ]
+sial_cross <- subset(sial_seeds, Treatment=="Cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+species<- sort(unique(sial_seeds$Treatment))
+b <- NULL
+x <- NULL
+a <- NULL
+for (i in species){
+  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Treatment==i], sial_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+#Adding species names and families (just initials)
+Species_1 <-c ("B. oleracea","C. annuum","B. rapa", "E. sativa", "I. aquatica","I. purpurea", "P. integrifolia",
+               "S. alba", "S. lycopersicum","S. melongena")
+
+Family <- c("B", "S", "P", "B", "C","C", "S", "B","S", "S")
+sial_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
+
+colnames(sial_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
+str(sial_effect_size)
+
+#Now I plot Cohen's d with lower and upper confidences intervals
+
+p2<- ggplot(sial_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
 p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
                                                                               width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
