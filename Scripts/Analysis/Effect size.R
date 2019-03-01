@@ -90,6 +90,9 @@ width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
+#save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
+
+
 #PEIN
 
 pein_seeds <- subset(y, Species=="PEIN")
@@ -136,6 +139,10 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+
+#save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
 
 
 #CAAN
@@ -185,6 +192,11 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+#save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
+
+
 
 #SOME
 
@@ -244,6 +256,9 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
+#save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
+
+
 ####
 #BRASSICACEAE
 ####
@@ -295,6 +310,10 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
+
+#save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
+
+
 #BRRA
 brra_seeds <- subset(y, Species=="BRRA")
 
@@ -341,6 +360,10 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+#save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
+
 
 #SIAL
 sial_seeds <- subset(y, Species=="SIAL")
@@ -398,6 +421,11 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
+
+
+#save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
+
+
 #ERSA
 ersa_seeds <- subset(y, Species=="ERSA")
 
@@ -444,6 +472,11 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+#save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
+
+
 
 ####
 #CONVOLVULACEAE
@@ -497,6 +530,10 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
+#save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
+
+
+
 #IPAQ
 ipaq_seeds <- subset(y, Species=="IPAQ")
 
@@ -543,3 +580,5 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+#save.image("Manuscript_draft/effect_size_species/ipaq_effect_size.RData")
