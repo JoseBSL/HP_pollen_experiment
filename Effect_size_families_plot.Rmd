@@ -1,0 +1,36 @@
+---
+title: "Effect_size_families"
+author: "Jose Barragan"
+date: "3 March 2019"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7}
+
+library(effsize)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(cowplot)
+library(gridExtra)
+library(egg)
+library(magrittr)
+library(multipanelfigure)
+library(grid)
+
+load("Manuscript_draft/effect_size_species/some_effect_size_family.RData")
+
+p1<- ggplot(soly_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+
+```
+
+
