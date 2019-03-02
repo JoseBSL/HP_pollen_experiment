@@ -23,31 +23,35 @@ load("Manuscript_draft/effect_size_species/soly_effect_size.RData")
 p1<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "A)")
+
 
 #SOME
 load("Manuscript_draft/effect_size_species/some_effect_size.RData")
 p5<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "B)")
+
 
 #CAAN
 load("Manuscript_draft/effect_size_species/caan_effect_size.RData")
 p3<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "C)")
 
 #PEIN
 load("Manuscript_draft/effect_size_species/pein_effect_size.RData")
 p4<- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "D)")
 
  #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
 
  grid.draw(arrangeGrob(cbind(ggplotGrob(p1),ggplotGrob(p5), size="last"),cbind(ggplotGrob(p3),ggplotGrob(p4), size="last"),nrow=2))
+ 
+
 ```
 
