@@ -301,5 +301,275 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
+####
+#BRASSICACEAE
+####
+#BROL
+
+#First we subset the long data frame for our species of interest
+brol_seeds <- subset(y, Species=="BROL")
+#Solanaceae
+brol_seeds$Family[brol_seeds$Treatment=="CAAN 50%"] <- "Solanaceae"
+brol_seeds$Family[brol_seeds$Treatment=="SOLY 50%"] <- "Solanaceae"
+brol_seeds$Family[brol_seeds$Treatment=="PEIN 50%"] <- "Solanaceae"
+brol_seeds$Family[brol_seeds$Treatment=="SOME 50%"] <- "Solanaceae"
+
+#Brassicaceae
+brol_seeds$Family[brol_seeds$Treatment=="BRRA 50%"] <- "Brassicaceae"
+brol_seeds$Family[brol_seeds$Treatment=="SIAL 50%"] <- "Brassicaceae"
+brol_seeds$Family[brol_seeds$Treatment=="ERSA 50%"] <- "Brassicaceae"
+brol_seeds$Family[brol_seeds$Treatment=="Cross"] <- "B. oleracea"
+
+#Convolvulaceae
+brol_seeds$Family[brol_seeds$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+brol_seeds$Family[brol_seeds$Treatment=="IPPU 50%"] <- "Convolvulaceae"
+
+brol_cross <- subset(brol_seeds, Treatment=="Cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+families<- sort(unique(brol_seeds$Family))
+
+b <- NULL
+x <- NULL
+for (i in families){
+  a<-cohen.d(brol_seeds$Seed_set[brol_seeds$Family==i], brol_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+#Now we convert the list to a data frame to plot it
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+brol_effect_size <- cbind( families, cohen_d,cbind(lower, upper))
+colnames(brol_effect_size) <- c("Family", "Cohen_d", "Lower", "Upper")
+
+brol_effect_size_cross <- subset(brol_effect_size, Family=="B. oleracea")
+brol_effect_size_b <-subset(brol_effect_size, Family=="Brassicaceae")
+brol_effect_size_c <- subset(brol_effect_size, Family=="Convolvulaceae")
+brol_effect_size_s <-subset(brol_effect_size, Family=="Solanaceae")
+
+brol_effect_size <- rbind(brol_effect_size_cross,brol_effect_size_b,
+                          brol_effect_size_c,brol_effect_size_s)
+
+brol_effect_size$Family <- factor(brol_effect_size$Family, levels = brol_effect_size$Family)
 
 
+p1<- ggplot(brol_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+#BRRA
+
+#First we subset the long data frame for our species of interest
+brra_seeds <- subset(y, Species=="BRRA")
+#Solanaceae
+brra_seeds$Family[brra_seeds$Treatment=="CAAN 50%"] <- "Solanaceae"
+brra_seeds$Family[brra_seeds$Treatment=="SOLY 50%"] <- "Solanaceae"
+brra_seeds$Family[brra_seeds$Treatment=="PEIN 50%"] <- "Solanaceae"
+brra_seeds$Family[brra_seeds$Treatment=="SOME 50%"] <- "Solanaceae"
+
+#Brassicaceae
+brra_seeds$Family[brra_seeds$Treatment=="Cross"] <- "B. rapa"
+brra_seeds$Family[brra_seeds$Treatment=="SIAL 50%"] <- "Brassicaceae"
+brra_seeds$Family[brra_seeds$Treatment=="ERSA 50%"] <- "Brassicaceae"
+brra_seeds$Family[brra_seeds$Treatment=="BROL 50%"] <- "Brassicaceae"
+
+#Convolvulaceae
+brra_seeds$Family[brra_seeds$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+brra_seeds$Family[brra_seeds$Treatment=="IPPU 50%"] <- "Convolvulaceae"
+
+brra_cross <- subset(brra_seeds, Treatment=="Cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+families<- sort(unique(brra_seeds$Family))
+
+b <- NULL
+x <- NULL
+for (i in families){
+  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Family==i], brra_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+#Now we convert the list to a data frame to plot it
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+brra_effect_size <- cbind( families, cohen_d,cbind(lower, upper))
+colnames(brra_effect_size) <- c("Family", "Cohen_d", "Lower", "Upper")
+
+brra_effect_size_cross <- subset(brra_effect_size, Family=="B. rapa")
+brra_effect_size_b <-subset(brra_effect_size, Family=="Brassicaceae")
+brra_effect_size_c <- subset(brra_effect_size, Family=="Convolvulaceae")
+brra_effect_size_s <-subset(brra_effect_size, Family=="Solanaceae")
+
+brra_effect_size <- rbind(brra_effect_size_cross,brra_effect_size_b,
+                          brra_effect_size_c,brra_effect_size_s)
+
+brra_effect_size$Family <- factor(brra_effect_size$Family, levels = brra_effect_size$Family)
+
+
+p1<- ggplot(brra_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+#SIAL
+
+#First we subset the long data frame for our species of interest
+sial_seeds <- subset(y, Species=="SIAL")
+#Solanaceae
+sial_seeds$Family[sial_seeds$Treatment=="CAAN 50%"] <- "Solanaceae"
+sial_seeds$Family[sial_seeds$Treatment=="SOLY 50%"] <- "Solanaceae"
+sial_seeds$Family[sial_seeds$Treatment=="PEIN 50%"] <- "Solanaceae"
+sial_seeds$Family[sial_seeds$Treatment=="SOME 50%"] <- "Solanaceae"
+
+#Brassicaceae
+sial_seeds$Family[sial_seeds$Treatment=="BRRA 50%"] <- "Brassicaceae"
+sial_seeds$Family[sial_seeds$Treatment=="Cross"] <- "S. alba"
+sial_seeds$Family[sial_seeds$Treatment=="ERSA 50%"] <- "Brassicaceae"
+sial_seeds$Family[sial_seeds$Treatment=="BROL 50%"] <- "Brassicaceae"
+
+#Convolvulaceae
+sial_seeds$Family[sial_seeds$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+sial_seeds$Family[sial_seeds$Treatment=="IPPU 50%"] <- "Convolvulaceae"
+
+sial_cross <- subset(sial_seeds, Treatment=="Cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+families<- sort(unique(sial_seeds$Family))
+
+b <- NULL
+x <- NULL
+for (i in families){
+  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Family==i], sial_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+#Now we convert the list to a data frame to plot it
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+sial_effect_size <- cbind( families, cohen_d,cbind(lower, upper))
+colnames(sial_effect_size) <- c("Family", "Cohen_d", "Lower", "Upper")
+
+sial_effect_size_cross <- subset(sial_effect_size, Family=="S. alba")
+sial_effect_size_b <-subset(sial_effect_size, Family=="Brassicaceae")
+sial_effect_size_c <- subset(sial_effect_size, Family=="Convolvulaceae")
+sial_effect_size_s <-subset(sial_effect_size, Family=="Solanaceae")
+
+sial_effect_size <- rbind(sial_effect_size_cross,sial_effect_size_b,
+                          sial_effect_size_c,sial_effect_size_s)
+
+sial_effect_size$Family <- factor(sial_effect_size$Family, levels = sial_effect_size$Family)
+
+
+p1<- ggplot(sial_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+#ERSA
+
+#First we subset the long data frame for our species of interest
+ersa_seeds <- subset(y, Species=="ERSA")
+#Solanaceae
+ersa_seeds$Family[ersa_seeds$Treatment=="CAAN 50%"] <- "Solanaceae"
+ersa_seeds$Family[ersa_seeds$Treatment=="SOLY 50%"] <- "Solanaceae"
+ersa_seeds$Family[ersa_seeds$Treatment=="PEIN 50%"] <- "Solanaceae"
+ersa_seeds$Family[ersa_seeds$Treatment=="SOME 50%"] <- "Solanaceae"
+
+#Brassicaceae
+ersa_seeds$Family[ersa_seeds$Treatment=="BRRA 50%"] <- "Brassicaceae"
+ersa_seeds$Family[ersa_seeds$Treatment=="SIAL 50%"] <- "Brassicaceae"
+ersa_seeds$Family[ersa_seeds$Treatment=="Cross"] <- "E. sativa"
+ersa_seeds$Family[ersa_seeds$Treatment=="BROL 50%"] <- "Brassicaceae"
+
+#Convolvulaceae
+ersa_seeds$Family[ersa_seeds$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+ersa_seeds$Family[ersa_seeds$Treatment=="IPPU 50%"] <- "Convolvulaceae"
+
+ersa_cross <- subset(ersa_seeds, Treatment=="Cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+families<- sort(unique(ersa_seeds$Family))
+
+b <- NULL
+x <- NULL
+for (i in families){
+  a<-cohen.d(ersa_seeds$Seed_set[ersa_seeds$Family==i], ersa_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+#Now we convert the list to a data frame to plot it
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+ersa_effect_size <- cbind( families, cohen_d,cbind(lower, upper))
+colnames(ersa_effect_size) <- c("Family", "Cohen_d", "Lower", "Upper")
+
+ersa_effect_size_cross <- subset(ersa_effect_size, Family=="E. sativa")
+ersa_effect_size_b <-subset(ersa_effect_size, Family=="Brassicaceae")
+ersa_effect_size_c <- subset(ersa_effect_size, Family=="Convolvulaceae")
+ersa_effect_size_s <-subset(ersa_effect_size, Family=="Solanaceae")
+
+ersa_effect_size <- rbind(ersa_effect_size_cross,ersa_effect_size_b,
+                          ersa_effect_size_c,ersa_effect_size_s)
+
+ersa_effect_size$Family <- factor(ersa_effect_size$Family, levels = ersa_effect_size$Family)
+
+
+p1<- ggplot(ersa_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
