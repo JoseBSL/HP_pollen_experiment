@@ -573,3 +573,139 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+#IPPU
+
+#First we subset the long data frame for our species of interest
+ippu_seeds <- subset(y, Species=="IPPU")
+#Solanaceae
+ippu_seeds$Family[ippu_seeds$Treatment=="CAAN 50%"] <- "Solanaceae"
+ippu_seeds$Family[ippu_seeds$Treatment=="SOLY 50%"] <- "Solanaceae"
+ippu_seeds$Family[ippu_seeds$Treatment=="PEIN 50%"] <- "Solanaceae"
+ippu_seeds$Family[ippu_seeds$Treatment=="SOME 50%"] <- "Solanaceae"
+
+#Brassicaceae
+ippu_seeds$Family[ippu_seeds$Treatment=="BRRA 50%"] <- "Brassicaceae"
+ippu_seeds$Family[ippu_seeds$Treatment=="SIAL 50%"] <- "Brassicaceae"
+ippu_seeds$Family[ippu_seeds$Treatment=="ERSA 50%"] <- "Brassicaceae"
+ippu_seeds$Family[ippu_seeds$Treatment=="BROL 50%"] <- "Brassicaceae"
+
+#Convolvulaceae
+ippu_seeds$Family[ippu_seeds$Treatment=="IPAQ 50%"] <- "Convolvulaceae"
+ippu_seeds$Family[ippu_seeds$Treatment=="cross"] <- "I. purpurea"
+
+ippu_cross <- subset(ippu_seeds, Treatment=="cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+families<- sort(unique(ippu_seeds$Family))
+
+b <- NULL
+x <- NULL
+for (i in families){
+  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Family==i], ippu_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+#Now we convert the list to a data frame to plot it
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+ippu_effect_size <- cbind( families, cohen_d,cbind(lower, upper))
+colnames(ippu_effect_size) <- c("Family", "Cohen_d", "Lower", "Upper")
+
+ippu_effect_size_cross <- subset(ippu_effect_size, Family=="I. purpurea")
+ippu_effect_size_b <-subset(ippu_effect_size, Family=="Brassicaceae")
+ippu_effect_size_c <- subset(ippu_effect_size, Family=="Convolvulaceae")
+ippu_effect_size_s <-subset(ippu_effect_size, Family=="Solanaceae")
+
+ippu_effect_size <- rbind(ippu_effect_size_cross,ippu_effect_size_b,
+                          ippu_effect_size_c,ippu_effect_size_s)
+
+ippu_effect_size$Family <- factor(ippu_effect_size$Family, levels = ippu_effect_size$Family)
+
+
+p1<- ggplot(ippu_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+#IPAQ
+
+#First we subset the long data frame for our species of interest
+ipaq_seeds <- subset(y, Species=="IPAQ")
+#Solanaceae
+ipaq_seeds$Family[ipaq_seeds$Treatment=="CAAN 50%"] <- "Solanaceae"
+ipaq_seeds$Family[ipaq_seeds$Treatment=="SOLY 50%"] <- "Solanaceae"
+ipaq_seeds$Family[ipaq_seeds$Treatment=="PEIN 50%"] <- "Solanaceae"
+ipaq_seeds$Family[ipaq_seeds$Treatment=="SOME 50%"] <- "Solanaceae"
+
+#Brassicaceae
+ipaq_seeds$Family[ipaq_seeds$Treatment=="BRRA 50%"] <- "Brassicaceae"
+ipaq_seeds$Family[ipaq_seeds$Treatment=="SIAL 50%"] <- "Brassicaceae"
+ipaq_seeds$Family[ipaq_seeds$Treatment=="ERSA 50%"] <- "Brassicaceae"
+ipaq_seeds$Family[ipaq_seeds$Treatment=="BROL 50%"] <- "Brassicaceae"
+
+#Convolvulaceae
+ipaq_seeds$Family[ipaq_seeds$Treatment=="cross"] <- "I. aquatica"
+ipaq_seeds$Family[ipaq_seeds$Treatment=="IPPU 50%"] <- "Convolvulaceae"
+
+ipaq_cross <- subset(ipaq_seeds, Treatment=="cross")
+
+#Now we prepare a loop to do it fast for all the species
+#Again we sort alphabetically
+families<- sort(unique(ipaq_seeds$Family))
+
+b <- NULL
+x <- NULL
+for (i in families){
+  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Family==i], ipaq_cross$Seed_set)
+  b <- rbind(b, a[3])
+  x<- rbind(x, a[4])
+}
+
+#Now we convert the list to a data frame to plot it
+lower<- lapply(x, `[[`, 1)
+lower<- as.data.frame(unlist(lower))
+upper<- lapply(x, `[[`, 2)
+upper<- as.data.frame(unlist(upper))
+cbind(lower, upper)
+
+cohen_d<- lapply(b, `[[`, 1)
+cohen_d<- as.data.frame(unlist(cohen_d))
+
+ipaq_effect_size <- cbind( families, cohen_d,cbind(lower, upper))
+colnames(ipaq_effect_size) <- c("Family", "Cohen_d", "Lower", "Upper")
+
+ipaq_effect_size_cross <- subset(ipaq_effect_size, Family=="I. aquatica")
+ipaq_effect_size_b <-subset(ipaq_effect_size, Family=="Brassicaceae")
+ipaq_effect_size_c <- subset(ipaq_effect_size, Family=="Convolvulaceae")
+ipaq_effect_size_s <-subset(ipaq_effect_size, Family=="Solanaceae")
+
+ipaq_effect_size <- rbind(ipaq_effect_size_cross,ipaq_effect_size_b,
+                          ipaq_effect_size_c,ipaq_effect_size_s)
+
+ipaq_effect_size$Family <- factor(ipaq_effect_size$Family, levels = ipaq_effect_size$Family)
+
+
+p1<- ggplot(ipaq_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
