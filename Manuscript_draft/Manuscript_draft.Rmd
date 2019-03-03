@@ -387,6 +387,7 @@ grid.newpage()
 ```
 
 
+Maybe for this plot I have to do hedges'g instead of cohean because of different sample sizes when I group the treatments per family. Check
 
 \newpage
 
