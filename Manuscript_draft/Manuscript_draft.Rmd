@@ -105,6 +105,7 @@ Heterospecific pollen studies in nature have the complexity added of great envir
 
 The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The experimental design had species from three different families: Solanaceae, Brassicaceae and Convolvulaceae (**Table 1**). The species of the study had different reproductive traits and different degree of relatedness where the reciprocal crosses between species allowed us to have multiple different scenarios of both traits and relatedness. Moreover, the species selected had fast life cycle and low structural flower complexity in order to perform the pollination treatments and grow the different species from seeds. For the purpose of the experiment all the species where considered as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14).
 
+\newpage
 **Table 1**
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 library(kableExtra)
@@ -116,6 +117,15 @@ Species <- c("Brassica rapa", "Brassica oleracea", "Eruca versicaria", "Sinapis 
 
 table<- data.frame(Family, Genus, Species)
 kable(table, format="markdown")
+```
+
+\newpage
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, fig.width=6,fig.height=5, fig.cap="A"}
+library(ape)
+library(phytools)
+pollen_tree=read.tree("Data/pollen_tree.nwk")
+plot(pollen_tree)
+add.scale.bar(x=0, y=1, length = 0.01)
 ```
 
 
