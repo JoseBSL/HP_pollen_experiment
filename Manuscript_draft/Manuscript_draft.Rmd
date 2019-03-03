@@ -145,9 +145,11 @@ Total pollen deposited on stigmas was significantly correlated with the stigmati
 
 Add also plot with fruit production and pot it in appendix.Also the plots of ratios to appendices.
 
+Add effect sizes to analysis!!
+
 # RESULTS
 
-Results of hand cross-pollination, self hand-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seet set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. 
+Results of hand cross-pollination, self hand-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seet set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Moreover, effect sizes differ across species, see **Figure 2** where species like *S. lycopersicum* had a large effect size and other's like *E. sativa* a small or null effect size.
  
 
 Across families we found a very similar effect but when species where look at species level they respond differently even within the same family [rephrase and maybe test statistically?](), for instance for two species of the Brassicaceae family *Brassica oleracea* and *Eruca versicaria* we found very contrasting effects of foreign pollen where for the first one, all donors reduce seed set significatively and for the second, just two species did out of nine. The 100% foreign pollen treatments barely produced seeds or fruits [and just for *Sinapis alba* we did not find significant differences between the hand cross pollination and one treatment with pollen from a confamilial- IB Unclear](). Solanaceae species with berry fruit type developed small fruits or even normal fruits in some cases [under which treatment](). *S. lycopersicum* seems to produced small fruits (35% of the treatments) independently of pollen and pollen donor due to also apomictic treatments did, never normal size. *C. annuum* produced some fruits (9%) of both small and normal size and finally *S. melongena* produced seedless normal fruits with just confamilial pollen (3%), for both species seems that fruit formation was induced by pollen on the stigma because of lack of fruit production with treatments that tested for apomixis.[clarify this descriptive statistics part- Also a figure with a summary of the treatments effect would be cool, or at least in the appendices]()
