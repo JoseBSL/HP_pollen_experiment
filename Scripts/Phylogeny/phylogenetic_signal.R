@@ -11,12 +11,17 @@ add.scale.bar(x=0, y=1, length = 0.01)
 
 
 library(png)
-a <- readPNG("images/solanum_colour.png")
-b <- readPNG("images/conv_colour.png")
+a <- readPNG("images/tomato.png")
+b <- readPNG("images/bra_colour.png")
+c <- readPNG("images/ipomoea.png")
 
-rasterImage(image=a, xleft=0.18,ybottom=1.5,
-            xright=0.2,ytop=3.1)
-rasterImage(image=b, xleft=0.18,ybottom=1,xright=3.5,ytop=4)
+rasterImage(image=a, xleft=0.15,ybottom=1,
+            xright=0.18,ytop=3.6)
+rasterImage(image=b, xleft=0.15,ybottom=7,xright=0.18,ytop=10)
+
+rasterImage(image=c, xleft=0.15,ybottom=4,xright=0.18,ytop=7)
+
+
 
 tree_10 <- read.newick("Data/pollen_tree_no_outgroup.nwk")
 tree_10=as.phylo(tree_10)
