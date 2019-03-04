@@ -120,7 +120,7 @@ kable(table, format="markdown")
 ```
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, out.width='100%', fig.cap="A"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, out.width='100%', fig.cap="Phylogenetic tree of the ten species used in the experiment from three different families from bottom to top: Solanaceae, Convolvulaceae and Brassicaceae."}
 knitr::include_graphics('images/phylo_image.png')
 ```
 

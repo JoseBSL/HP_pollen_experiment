@@ -3,6 +3,7 @@ library(phytools)
 pollen_tree=read.tree("Data/pollen_tree.nwk")
 #pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
 #pollen_tree=read.tree("Data/tree_neighbour.nwk")
+png("phylo_image.png", units="px", width=1600, height=1600, res=300)
 
 plot(pollen_tree)
 add.scale.bar(x=0, y=1, length = 0.01)
@@ -15,12 +16,13 @@ a <- readPNG("images/tomato.png")
 b <- readPNG("images/bra_colour.png")
 c <- readPNG("images/ipomoea.png")
 
-rasterImage(image=a, xleft=0.15,ybottom=1,
-            xright=0.18,ytop=3.6)
-rasterImage(image=b, xleft=0.15,ybottom=7,xright=0.18,ytop=10)
+rasterImage(image=a, xleft=0.14,ybottom=1,
+            xright=0.16,ytop=4.1)
+rasterImage(image=b, xleft=0.14,ybottom=7.1,xright=0.16,ytop=10.1)
 
-rasterImage(image=c, xleft=0.15,ybottom=4,xright=0.18,ytop=7)
+rasterImage(image=c, xleft=0.14,ybottom=4.2,xright=0.16,ytop=6.8)
 
+dev.off()
 
 
 tree_10 <- read.newick("Data/pollen_tree_no_outgroup.nwk")
