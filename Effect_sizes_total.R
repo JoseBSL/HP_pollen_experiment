@@ -232,7 +232,7 @@ colnames(pein_effect_size) <- c("Family", "Cohen_d", "Lower", "Upper")
 
 
 pein_effect_size <- subset(pein_effect_size, Family=="P. integrifolia")
-
+str(pein_effect_size)
 all <- rbind(all, pein_effect_size)
 #Effect sizes for solanaceae species done
 all_solanaceae <- all
@@ -568,9 +568,14 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
 
 
 #Now I order it alphabetically each data.frame
-all_brassicaceae <- all_brassicaceae[order(all_brassicaceae$Family, all_brassicaceae$Cohen_d), ]
-all_convolvulaceae <- all_convolvulaceae[order(all_convolvulaceae$Family, all_convolvulaceae$Cohen_d), ]
-all_solanaceae <- all_solanaceae[order(all_solanaceae$Family, all_solanaceae$Cohen_d), ]
+
+all_solanaceae$Family <- as.character(all_solanaceae$Family)
+all_convolvulaceae$Family <- as.character(all_convolvulaceae$Family)
+all_brassicaceae$Family <- as.character(all_brassicaceae$Family)
+
+all_solanaceae <- all_solanaceae %>% arrange(desc(Family))
+all_convolvulaceae <- all_convolvulaceae %>% arrange(desc(Family))
+all_brassicaceae <- all_brassicaceae %>% arrange(desc(Family))
 
 all<- rbind(all_solanaceae,all_convolvulaceae, all_brassicaceae)
 
@@ -578,6 +583,7 @@ all$Family_1 <- "S"
 all$Family_1[1:4]<- "B" 
 all$Family_1[5:6]<- "C"
 
+all$Family <- factor(all$Family, levels = all$Family)
 
 
 p1<- ggplot(all, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))
