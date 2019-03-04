@@ -584,8 +584,6 @@ all$Family_1[1:4]<- "B"
 all$Family_1[5:6]<- "C"
 
 all$Family <- factor(all$Family, levels = all$Family)
-
-
 p1<- ggplot(all, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))
 p1 + geom_point(show.legend = FALSE,aes(color=factor(Family_1))) +
   geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
