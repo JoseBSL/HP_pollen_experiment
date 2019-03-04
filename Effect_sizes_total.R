@@ -566,12 +566,16 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-all<- rbind(all_solanaceae,all_brassicaceae,all_convolvulaceae)
+
+
+
+
+all<- rbind(all_brassicaceae,all_convolvulaceae, all_solanaceae)
 
 all$Family_1 <- "S"
-all$Family_1[5:8]<- "B" 
-all$Family_1[9:10]<- "C"
-p1<- ggplot(all, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
+all$Family_1[1:4]<- "B" 
+all$Family_1[5:6]<- "C"
+p1<- ggplot(all, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))
 p1 + geom_point(show.legend = FALSE,aes(color=factor(Family_1))) +
   geom_errorbar(show.legend=FALSE, aes(x = Family, ymin = Lower, 
                                        ymax = Upper, size=2,color=factor(Family_1)), width = 0.2)+
@@ -579,3 +583,6 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family_1))) +
   scale_fill_manual("Family",values=c( "#0072B2", "#009E73", "#D55E00"))+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+
