@@ -1,14 +1,22 @@
 library(ape)
 library(phytools)
 pollen_tree=read.tree("Data/pollen_tree.nwk")
-pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
-pollen_tree=read.tree("Data/tree_neighbour.nwk")
+#pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
+#pollen_tree=read.tree("Data/tree_neighbour.nwk")
 
 plot(pollen_tree)
 add.scale.bar(x=0, y=1, length = 0.01)
 
-plot(tree_10)
+#plot(tree_10)
 
+
+library(png)
+a <- readPNG("images/solanum_colour.png")
+b <- readPNG("images/conv_colour.png")
+
+rasterImage(image=a, xleft=0.18,ybottom=1.5,
+            xright=0.2,ytop=3.1)
+rasterImage(image=b, xleft=0.18,ybottom=1,xright=3.5,ytop=4)
 
 tree_10 <- read.newick("Data/pollen_tree_no_outgroup.nwk")
 tree_10=as.phylo(tree_10)
