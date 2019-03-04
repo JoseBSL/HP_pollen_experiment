@@ -123,9 +123,24 @@ kable(table, format="markdown")
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, fig.width=6,fig.height=5, fig.cap="A"}
 library(ape)
 library(phytools)
+library(png)
+
 pollen_tree=read.tree("Data/pollen_tree.nwk")
+
 plot(pollen_tree)
 add.scale.bar(x=0, y=1, length = 0.01)
+
+a <- readPNG("images/tomato.png")
+b <- readPNG("images/bra_colour.png")
+c <- readPNG("images/ipomoea.png")
+
+rasterImage(image=a, xleft=0.08,ybottom=1,
+            xright=1.2,ytop=3.6)
+rasterImage(image=b, xleft=0.15,ybottom=7,xright=0.18,ytop=10)
+
+rasterImage(image=c, xleft=0.15,ybottom=4,xright=0.18,ytop=7)
+
+
 ```
 
 
