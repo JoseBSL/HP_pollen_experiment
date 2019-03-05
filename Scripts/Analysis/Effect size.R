@@ -90,7 +90,7 @@ width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
 
 
 #PEIN
@@ -142,7 +142,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
 
 
 
-#save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
 
 
 #CAAN
@@ -194,7 +194,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
 
 
 
@@ -256,7 +256,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
 
 
 ####
@@ -311,7 +311,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
 
 
 #BRRA
@@ -362,7 +362,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
 
 
 #SIAL
@@ -423,7 +423,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
 
 
 
-#save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
 
 
 #ERSA
@@ -474,7 +474,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
 
 
 
@@ -530,7 +530,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
 
 
 
@@ -581,4 +581,4 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(sh
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/ipaq_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/ipaq_effect_size.RData")
