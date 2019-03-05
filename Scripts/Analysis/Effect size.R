@@ -55,7 +55,7 @@ species<- sort(unique(soly_seeds$Treatment))
 b <- NULL
 x <- NULL
 for (i in species){
-  a<-cohen.d(soly_seeds$Seed_set[soly_seeds$Treatment==i], soly_cross$Seed_set)
+  a<-cohen.d(soly_seeds$Seed_set[soly_seeds$Treatment==i], soly_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -107,7 +107,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Treatment==i], pein_cross$Seed_set)
+  a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Treatment==i], pein_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -160,7 +160,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(caan_seeds$Seed_set[caan_seeds$Treatment==i], caan_cross$Seed_set)
+  a<-cohen.d(caan_seeds$Seed_set[caan_seeds$Treatment==i], caan_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -222,7 +222,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(some_seeds$Seed_set[some_seeds$Treatment==i], some_cross$Seed_set)
+  a<-cohen.d(some_seeds$Seed_set[some_seeds$Treatment==i], some_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -277,7 +277,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(brol_seeds$Seed_set[brol_seeds$Treatment==i], brol_cross$Seed_set)
+  a<-cohen.d(brol_seeds$Seed_set[brol_seeds$Treatment==i], brol_cross$Seed_set, hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -328,7 +328,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Treatment==i], brra_cross$Seed_set)
+  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Treatment==i], brra_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -388,7 +388,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Treatment==i], sial_cross$Seed_set)
+  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Treatment==i], sial_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -440,7 +440,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(ersa_seeds$Seed_set[ersa_seeds$Treatment==i], ersa_cross$Seed_set)
+  a<-cohen.d(ersa_seeds$Seed_set[ersa_seeds$Treatment==i], ersa_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -497,7 +497,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Treatment==i], ippu_cross$Seed_set)
+  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Treatment==i], ippu_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -548,7 +548,7 @@ b <- NULL
 x <- NULL
 a <- NULL
 for (i in species){
-  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Treatment==i], ipaq_cross$Seed_set)
+  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Treatment==i], ipaq_cross$Seed_set,hedges.correction = TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
