@@ -58,7 +58,7 @@ families<- sort(unique(soly_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(soly_seeds$Seed_set[soly_seeds$Family==i], soly_cross$Seed_set)
+  a<-cohen.d(soly_seeds$Seed_set[soly_seeds$Family==i], soly_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -108,7 +108,7 @@ families<- sort(unique(some_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(some_seeds$Seed_set[some_seeds$Family==i], some_cross$Seed_set)
+  a<-cohen.d(some_seeds$Seed_set[some_seeds$Family==i], some_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -160,7 +160,7 @@ families<- sort(unique(caan_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(caan_seeds$Seed_set[caan_seeds$Family==i], caan_cross$Seed_set)
+  a<-cohen.d(caan_seeds$Seed_set[caan_seeds$Family==i], caan_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -212,7 +212,7 @@ families<- sort(unique(pein_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Family==i], pein_cross$Seed_set)
+  a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Family==i], pein_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -275,7 +275,7 @@ families<- sort(unique(brol_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(brol_seeds$Seed_set[brol_seeds$Family==i], brol_cross$Seed_set)
+  a<-cohen.d(brol_seeds$Seed_set[brol_seeds$Family==i], brol_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -324,7 +324,7 @@ families<- sort(unique(brra_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Family==i], brra_cross$Seed_set)
+  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Family==i], brra_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -374,7 +374,7 @@ families<- sort(unique(sial_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Family==i], sial_cross$Seed_set)
+  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Family==i], sial_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -424,7 +424,7 @@ families<- sort(unique(ersa_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(ersa_seeds$Seed_set[ersa_seeds$Family==i], ersa_cross$Seed_set)
+  a<-cohen.d(ersa_seeds$Seed_set[ersa_seeds$Family==i], ersa_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -485,7 +485,7 @@ families<- sort(unique(ippu_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Family==i], ippu_cross$Seed_set)
+  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Family==i], ippu_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -534,7 +534,7 @@ families<- sort(unique(ipaq_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Family==i], ipaq_cross$Seed_set)
+  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Family==i], ipaq_cross$Seed_set,hedges.correction=TRUE)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }

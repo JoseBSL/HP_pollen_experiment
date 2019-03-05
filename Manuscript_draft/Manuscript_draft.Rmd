@@ -174,7 +174,7 @@ ggplot(bio,aes(x=Species,y=value,fill=variable))+
 ```
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6,fig.cap="Average effect size and confidence intervals (95%) of the 9 heterospecific treatments of 50% pollen to the different 10 focal species."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=3,fig.width=6,fig.cap="Average effect size and confidence intervals (95%) of the 9 heterospecific treatments of 50% pollen to the different 10 focal species coloured by family."}
 
 library(effsize)
 library(dplyr)
