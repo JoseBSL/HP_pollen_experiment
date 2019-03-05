@@ -542,7 +542,7 @@ sial_effect_size$Species_1 <- factor(sial_effect_size$Species_1, levels = sial_e
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(sial_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+p2 + geom_point(alpha=c(1,1,1,1,1,1,0.5,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,1,1,1,1,1,0.5,1,1,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
                                                                               width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
