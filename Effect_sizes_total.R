@@ -590,7 +590,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family_1))) +
                                        ymax = Upper, size=2,color=factor(Family_1)), width = 0.2)+
   scale_color_manual("Family",values=c( "#0072B2", "#009E73", "#D55E00"))+
   scale_fill_manual("Family",values=c( "#0072B2", "#009E73", "#D55E00"))+
-  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
+  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 save.image("Manuscript_draft/effect_size_species/effect_size_total.RData")

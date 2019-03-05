@@ -194,7 +194,7 @@ load("effect_size_species/effect_size_total.RData")
 ymax = Upper,colour=Family_1), width = 0.2, size=0.8)+
   scale_color_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
   scale_fill_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
-  xlab("") + ylab("Cohen's d") + rotate()+
+  xlab("") + ylab("Hedges' g") + rotate()+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+scale_alpha(guide = 'none')
 ```
 
