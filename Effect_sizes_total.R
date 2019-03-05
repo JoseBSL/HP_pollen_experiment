@@ -593,5 +593,6 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family_1))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
+save.image("Manuscript_draft/effect_size_species/effect_size_total.RData")
 
 

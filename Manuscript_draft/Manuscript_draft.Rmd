@@ -173,6 +173,32 @@ ggplot(bio,aes(x=Species,y=value,fill=variable))+
 
 ```
 
+\newpage
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6,fig.cap="A"}
+
+library(effsize)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(cowplot)
+library(gridExtra)
+library(egg)
+library(magrittr)
+library(multipanelfigure)
+library(grid)
+
+load("effect_size_species/effect_size_total.RData")
+
+ ggplot(all, aes(Family,Cohen_d,colour=Family_1), size=10) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))+ geom_point( aes(colour=Family_1),size=2) +
+  geom_errorbar(aes(x = Family, ymin = Lower, 
+ymax = Upper,colour=Family_1), width = 0.2, size=0.8)+
+  scale_color_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
+  scale_fill_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
+  xlab("") + ylab("Cohen's d") + rotate()+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+scale_alpha(guide = 'none')
+```
+
+
 
 \newpage
 ```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=8,fig.width=7,fig.cap="Effect sizes for the 10 different species. The different families appear with different colours, when a species was focal was coloured differently from its family."}
