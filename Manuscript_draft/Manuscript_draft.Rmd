@@ -191,7 +191,7 @@ load("effect_size_species/effect_size_total.RData")
 
  ggplot(all, aes(Family,Cohen_d,colour=Family_1), size=10) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))+ geom_point( aes(colour=Family_1),size=2) +
   geom_errorbar(aes(x = Family, ymin = Lower, 
-ymax = Upper,colour=Family_1), width = 0.2, size=0.8)+
+ymax = Upper,colour=Family_1), width = 0.2, size=0.8, alpha=0.5)+
   scale_color_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
   scale_fill_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
   xlab("") + ylab("Hedges' g") + rotate()+
