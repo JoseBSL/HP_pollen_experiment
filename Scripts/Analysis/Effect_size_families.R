@@ -80,10 +80,19 @@ soly_effect_size_b <-subset(soly_effect_size, Family=="Brassicaceae")
 soly_effect_size_c <- subset(soly_effect_size, Family=="Convolvulaceae")
 soly_effect_size_s <-subset(soly_effect_size, Family=="Solanaceae")
 
-soly_effect_size <- rbind(soly_effect_size_cross,soly_effect_size_b,
+soly_effect_size <- rbind(soly_effect_size_b,
                           soly_effect_size_c,soly_effect_size_s)
 
+soly_effect_size$Family <- as.character(soly_effect_size$Family)
+soly_effect_size <- soly_effect_size %>% arrange(desc(Family))
+soly_effect_size <- rbind(soly_effect_size_cross,soly_effect_size)
+
+
+
+
 soly_effect_size$Family <- factor(soly_effect_size$Family, levels = soly_effect_size$Family)
+
+
 
 
 p1<- ggplot(soly_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
