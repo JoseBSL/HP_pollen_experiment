@@ -100,7 +100,7 @@ str(soly_effect_size)
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+p2 + geom_point(alpha=c(1,0.5,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,0.5,1,1,1,1,1,1,1,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
 width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
@@ -108,7 +108,7 @@ width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2
   theme(axis.text.y = element_text(face = c('italic', 'bold', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-#save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
 
 
 #PEIN
@@ -171,16 +171,16 @@ pein_effect_size$Species_1 <- factor(pein_effect_size$Species_1, levels = pein_e
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+p2 + geom_point(alpha=c(1,1,0.5,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,1,0.5,1,1,1,1,1,1,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
                                                                               width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
+  xlab("") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'bold', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
 
-#save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
 
 
 #CAAN
@@ -243,7 +243,7 @@ caan_effect_size$Species_1 <- factor(caan_effect_size$Species_1, levels = caan_e
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+p2 + geom_point(alpha=c(1,1,1,0.5,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,1,1,0.5,1,1,1,1,1,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
                                                                               width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
@@ -251,7 +251,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(al
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'bold', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-#save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
 
 
 #SOME
@@ -322,7 +322,7 @@ some_effect_size$Species_1 <- factor(some_effect_size$Species_1, levels = some_e
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+p2 + geom_point(alpha=c(0.5,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(0.5,1,1,1,1,1,1,1,1,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
                                                                               width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
@@ -330,7 +330,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(al
   theme(axis.text.y = element_text(face = c('bold', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-#save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
 
 
 ####
@@ -395,7 +395,7 @@ brol_effect_size$Species_1 <- factor(brol_effect_size$Species_1, levels = brol_e
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(brol_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,1,0.5),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,1,1,1,1,1,1,1,1,0.5),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
                                                                               width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
@@ -403,7 +403,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(al
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'bold')))
 
-#save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
 
 
 #BRRA
@@ -463,7 +463,7 @@ brra_effect_size$Species_1 <- factor(brra_effect_size$Species_1, levels = brra_e
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,0.5,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,1,1,1,1,1,1,1,0.5,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
                                                                               width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
@@ -472,7 +472,7 @@ p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(al
                                             'italic','italic', 'italic', 'italic', 'bold', 'italic')))
 
 
-#save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
 
 
 #SIAL
@@ -552,7 +552,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,0.5,1,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-#save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
 
 
 #ERSA
@@ -622,7 +622,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,0.5,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-#save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
 
 
 
@@ -663,20 +663,38 @@ cohen_d<- as.data.frame(unlist(cohen_d))
 Species_1 <-c ("B. oleracea","B. rapa","C. annuum","I. purpurea","E. sativa", "I. aquatica", "P. integrifolia","S. alba",
                "S. lycopersicum","S. melongena")
 
-Family <- c("B", "B", "S", "P","B","C", "S","B","S", "S")
+Family <- c("B", "B", "S", "C","B","C", "S","B","S", "S")
 ippu_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
 
 colnames(ippu_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
 str(ippu_effect_size)
+ippu_effect_size_s <- subset(ippu_effect_size, Family == "S" )
+ippu_effect_size_b <- subset(ippu_effect_size, Family == "B" )
+ippu_effect_size_c <- subset(ippu_effect_size, Family == "C" )
+
+ippu_effect_size_s$Family <- as.character(ippu_effect_size_s$Family)
+ippu_effect_size_b$Family <- as.character(ippu_effect_size_b$Family)
+ippu_effect_size_c$Family <- as.character(ippu_effect_size_c$Family)
+
+ippu_effect_size_s <- ippu_effect_size_s %>% arrange(desc(Species_1))
+ippu_effect_size_b <- ippu_effect_size_b %>% arrange(desc(Species_1))
+ippu_effect_size_c <- ippu_effect_size_c %>% arrange(desc(Species_1))
+
+ippu_effect_size<- rbind(ippu_effect_size_s,ippu_effect_size_c, ippu_effect_size_b)
+ippu_effect_size$Species_1 <- factor(ippu_effect_size$Species_1, levels = ippu_effect_size$Species_1)
+
 
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(ippu_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
-                                                                              width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+p2 + geom_point(alpha=c(1,1,1,1,0.5,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,1,1,1,0.5,1,1,1,1,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+                                                                                                             width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")
+  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+
+  theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 
+                                            'bold','italic', 'italic', 'italic', 'italic', 'italic')))
+
 
 save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
 
@@ -714,19 +732,38 @@ cohen_d<- as.data.frame(unlist(cohen_d))
 Species_1 <-c ("B. oleracea","B. rapa","C. annuum","I. aquatica","E. sativa", "I. purpurea", "P. integrifolia","S. alba",
                "S. lycopersicum","S. melongena")
 
-Family <- c("B", "B", "S", "P","B","C", "S","B","S", "S")
+Family <- c("B", "B", "S", "C","B","C", "S","B","S", "S")
 ipaq_effect_size <- cbind(species, Species_1, Family, cohen_d,cbind(lower, upper))
 
 colnames(ipaq_effect_size) <- c("Species","Species_1","Family", "Cohen_d", "Lower", "Upper")
 str(ipaq_effect_size)
 
+ipaq_effect_size_s <- subset(ipaq_effect_size, Family == "S" )
+ipaq_effect_size_b <- subset(ipaq_effect_size, Family == "B" )
+ipaq_effect_size_c <- subset(ipaq_effect_size, Family == "C" )
+
+ipaq_effect_size_s$Family <- as.character(ipaq_effect_size_s$Family)
+ipaq_effect_size_b$Family <- as.character(ipaq_effect_size_b$Family)
+ipaq_effect_size_c$Family <- as.character(ipaq_effect_size_c$Family)
+
+ipaq_effect_size_s <- ipaq_effect_size_s %>% arrange(desc(Species_1))
+ipaq_effect_size_b <- ipaq_effect_size_b %>% arrange(desc(Species_1))
+ipaq_effect_size_c <- ipaq_effect_size_c %>% arrange(desc(Species_1))
+
+ipaq_effect_size<- rbind(ipaq_effect_size_s,ipaq_effect_size_c, ipaq_effect_size_b)
+ipaq_effect_size$Species_1 <- factor(ipaq_effect_size$Species_1, levels = ipaq_effect_size$Species_1)
+
+
 #Now I plot Cohen's d with lower and upper confidences intervals
 
 p2<- ggplot(ipaq_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)
-p2 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
-                                                                              width = 0.2)+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+p2 + geom_point(alpha=c(1,1,1,1,1,0.5,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(1,1,1,1,1,0.5,1,1,1,1),show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper, size=2,color=factor(Family)),
+                                                                                                             width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")
+  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+
+  theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 
+                                            'italic','bold', 'italic', 'italic', 'italic', 'italic')))
 
-save.image("Manuscript_draft/effect_size_species/ipaq_effect_size.RData")
+
+save.image("Manuscript_draft/effect_size_species/all_effect_size.RData")

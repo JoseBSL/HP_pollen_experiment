@@ -215,78 +215,80 @@ library(multipanelfigure)
 library(grid)
 
 #SOME
-load("effect_size_species/some_effect_size.RData")
-p1<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+load("effect_size_species/all_effect_size.RData")
+
+#BROL
+load("effect_size_species/brol_effect_size.RData")
+p1<- ggplot(brol_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'bold')),plot.margin = margin(t=0, l=0))+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,0.5),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5),size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "A)")
 
-#SOLY
-load("effect_size_species/soly_effect_size.RData")
-pp2<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+#BRRA
+load("effect_size_species/brra_effect_size.RData")
+pp2<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank())+ geom_point(alpha=c(1,1,1,1,1,1,1,1,0.5,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "B)")
+
+#ERSA
+load("effect_size_species/ersa_effect_size.RData")
+p3<- ggplot(ersa_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(alpha=c(1,1,1,1,1,1,1,0.5,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "B)")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "C)")+theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic','italic','italic', 'italic', 'bold', 'italic', 'italic')))
+
 
 #SIAL
 load("effect_size_species/sial_effect_size.RData")
-p3<- ggplot(sial_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+p4<- ggplot(sial_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank())+ geom_point(alpha=c(1,1,1,1,1,1,0.5,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "C)")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "D)")
 
-#PEIN
-load("effect_size_species/pein_effect_size.RData")
-p4<- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+#IPAQ
+load("effect_size_species/ipaq_effect_size.RData")
+p5<- ggplot(ipaq_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic','italic','bold', 'italic', 'italic', 'italic', 'italic')),plot.margin = margin(t=0, l=0))+geom_point(alpha=c(1,1,1,1,1,0.5,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "D)")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "E)")
 
 
 #IPPU
 load("effect_size_species/ippu_effect_size.RData")
-p5<- ggplot(ippu_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("Treatments") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "E)")
-
-
-#IPAQ
-load("effect_size_species/ipaq_effect_size.RData")
-p6<- ggplot(ipaq_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+p6<- ggplot(ippu_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+
+  theme(axis.text.y = element_blank())+geom_point(alpha=c(1,1,1,1,0.5,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "F)")
-
-
-#ERSA
-load("effect_size_species/ersa_effect_size.RData")
-p7<- ggplot(ersa_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "G)")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "F)")
 
 #CAAN
 load("effect_size_species/caan_effect_size.RData")
-p8<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
+p7<- ggplot(ersa_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'bold', 'italic','italic', 'italic', 'italic', 'italic', 'italic')))+ geom_point(alpha=c(1,1,1,0.5,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "G)")
+
+#PEIN
+load("effect_size_species/pein_effect_size.RData")
+p8<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+ geom_point(alpha=c(1,1,0.5,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "H)")
 
-#BRRA
-load("effect_size_species/brra_effect_size.RData")
-p9<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "I)")
+#SOLY
+load("effect_size_species/soly_effect_size.RData")
+p9<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'bold', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = margin(t=0, l=0))+ geom_point(alpha=c(1,0.5,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "I)")
 
-#BROL
-load("effect_size_species/brol_effect_size.RData")
-p10<- ggplot(brol_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = margin(t=0, l=0))+geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#0072B2", "#009E73", "#E69F00", "#D55E00"))+
-  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "J)")
+#SOME
+load("effect_size_species/some_effect_size.RData")
 
+p10<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank())+ geom_point(size=2,alpha=c(0.5,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
+  xlab("") + ylab("Hedges' g") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "J)")
 
  #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
 grid.newpage()
