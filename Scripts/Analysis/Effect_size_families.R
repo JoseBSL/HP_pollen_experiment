@@ -57,7 +57,7 @@ families<- sort(unique(soly_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(soly_seeds$Seed_set[soly_seeds$Family==i], soly_cross$Seed_set)
+  a<-cohen.d(soly_seeds$Seed_set[soly_seeds$Family==i], soly_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -135,7 +135,7 @@ families<- sort(unique(some_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(some_seeds$Seed_set[some_seeds$Family==i], some_cross$Seed_set)
+  a<-cohen.d(some_seeds$Seed_set[some_seeds$Family==i], some_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -158,8 +158,17 @@ some_effect_size_b <-subset(some_effect_size, Family=="Brassicaceae")
 some_effect_size_c <- subset(some_effect_size, Family=="Convolvulaceae")
 some_effect_size_s <-subset(some_effect_size, Family=="Solanaceae")
 
-some_effect_size <- rbind(some_effect_size_cross,some_effect_size_b,
+
+
+some_effect_size <- rbind(some_effect_size_b,
                           some_effect_size_c,some_effect_size_s)
+
+some_effect_size$Family <- as.character(some_effect_size$Family)
+some_effect_size <- some_effect_size %>% arrange(desc(Family))
+some_effect_size <- rbind(some_effect_size_cross,some_effect_size)
+
+
+
 
 some_effect_size$Family <- factor(some_effect_size$Family, levels = some_effect_size$Family)
 
@@ -205,7 +214,7 @@ families<- sort(unique(pein_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Family==i], pein_cross$Seed_set)
+  a<-cohen.d(pein_seeds$Seed_set[pein_seeds$Family==i], pein_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -228,8 +237,15 @@ pein_effect_size_b <-subset(pein_effect_size, Family=="Brassicaceae")
 pein_effect_size_c <- subset(pein_effect_size, Family=="Convolvulaceae")
 pein_effect_size_s <-subset(pein_effect_size, Family=="Solanaceae")
 
-pein_effect_size <- rbind(pein_effect_size_cross,pein_effect_size_b,
+pein_effect_size <- rbind(pein_effect_size_b,
                           pein_effect_size_c,pein_effect_size_s)
+
+pein_effect_size$Family <- as.character(pein_effect_size$Family)
+pein_effect_size <- pein_effect_size %>% arrange(desc(Family))
+pein_effect_size <- rbind(pein_effect_size_cross,pein_effect_size)
+
+
+
 
 pein_effect_size$Family <- factor(pein_effect_size$Family, levels = pein_effect_size$Family)
 
@@ -274,7 +290,7 @@ families<- sort(unique(caan_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(caan_seeds$Seed_set[caan_seeds$Family==i], caan_cross$Seed_set)
+  a<-cohen.d(caan_seeds$Seed_set[caan_seeds$Family==i], caan_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -297,8 +313,15 @@ caan_effect_size_b <-subset(caan_effect_size, Family=="Brassicaceae")
 caan_effect_size_c <- subset(caan_effect_size, Family=="Convolvulaceae")
 caan_effect_size_s <-subset(caan_effect_size, Family=="Solanaceae")
 
-caan_effect_size <- rbind(caan_effect_size_cross,caan_effect_size_b,
+caan_effect_size <- rbind(caan_effect_size_b,
                           caan_effect_size_c,caan_effect_size_s)
+
+caan_effect_size$Family <- as.character(caan_effect_size$Family)
+caan_effect_size <- caan_effect_size %>% arrange(desc(Family))
+caan_effect_size <- rbind(caan_effect_size_cross,caan_effect_size)
+
+
+
 
 caan_effect_size$Family <- factor(caan_effect_size$Family, levels = caan_effect_size$Family)
 
@@ -347,7 +370,7 @@ families<- sort(unique(brol_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(brol_seeds$Seed_set[brol_seeds$Family==i], brol_cross$Seed_set)
+  a<-cohen.d(brol_seeds$Seed_set[brol_seeds$Family==i], brol_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -370,8 +393,15 @@ brol_effect_size_b <-subset(brol_effect_size, Family=="Brassicaceae")
 brol_effect_size_c <- subset(brol_effect_size, Family=="Convolvulaceae")
 brol_effect_size_s <-subset(brol_effect_size, Family=="Solanaceae")
 
-brol_effect_size <- rbind(brol_effect_size_cross,brol_effect_size_b,
+brol_effect_size <- rbind(brol_effect_size_b,
                           brol_effect_size_c,brol_effect_size_s)
+
+brol_effect_size$Family <- as.character(brol_effect_size$Family)
+brol_effect_size <- brol_effect_size %>% arrange(desc(Family))
+brol_effect_size <- rbind(brol_effect_size_cross,brol_effect_size)
+
+
+
 
 brol_effect_size$Family <- factor(brol_effect_size$Family, levels = brol_effect_size$Family)
 
@@ -418,7 +448,7 @@ families<- sort(unique(brra_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Family==i], brra_cross$Seed_set)
+  a<-cohen.d(brra_seeds$Seed_set[brra_seeds$Family==i], brra_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -441,11 +471,17 @@ brra_effect_size_b <-subset(brra_effect_size, Family=="Brassicaceae")
 brra_effect_size_c <- subset(brra_effect_size, Family=="Convolvulaceae")
 brra_effect_size_s <-subset(brra_effect_size, Family=="Solanaceae")
 
-brra_effect_size <- rbind(brra_effect_size_cross,brra_effect_size_b,
+brra_effect_size <- rbind(brra_effect_size_b,
                           brra_effect_size_c,brra_effect_size_s)
 
-brra_effect_size$Family <- factor(brra_effect_size$Family, levels = brra_effect_size$Family)
+brra_effect_size$Family <- as.character(brra_effect_size$Family)
+brra_effect_size <- brra_effect_size %>% arrange(desc(Family))
+brra_effect_size <- rbind(brra_effect_size_cross,brra_effect_size)
 
+
+
+
+brra_effect_size$Family <- factor(brra_effect_size$Family, levels = brra_effect_size$Family)
 
 p1<- ggplot(brra_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
 p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
@@ -489,7 +525,7 @@ families<- sort(unique(sial_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Family==i], sial_cross$Seed_set)
+  a<-cohen.d(sial_seeds$Seed_set[sial_seeds$Family==i], sial_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -512,11 +548,17 @@ sial_effect_size_b <-subset(sial_effect_size, Family=="Brassicaceae")
 sial_effect_size_c <- subset(sial_effect_size, Family=="Convolvulaceae")
 sial_effect_size_s <-subset(sial_effect_size, Family=="Solanaceae")
 
-sial_effect_size <- rbind(sial_effect_size_cross,sial_effect_size_b,
+sial_effect_size <- rbind(sial_effect_size_b,
                           sial_effect_size_c,sial_effect_size_s)
 
-sial_effect_size$Family <- factor(sial_effect_size$Family, levels = sial_effect_size$Family)
+sial_effect_size$Family <- as.character(sial_effect_size$Family)
+sial_effect_size <- sial_effect_size %>% arrange(desc(Family))
+sial_effect_size <- rbind(sial_effect_size_cross,sial_effect_size)
 
+
+
+
+sial_effect_size$Family <- factor(sial_effect_size$Family, levels = sial_effect_size$Family)
 
 p1<- ggplot(sial_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
 p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
@@ -560,7 +602,7 @@ families<- sort(unique(ersa_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(ersa_seeds$Seed_set[ersa_seeds$Family==i], ersa_cross$Seed_set)
+  a<-cohen.d(ersa_seeds$Seed_set[ersa_seeds$Family==i], ersa_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -583,11 +625,17 @@ ersa_effect_size_b <-subset(ersa_effect_size, Family=="Brassicaceae")
 ersa_effect_size_c <- subset(ersa_effect_size, Family=="Convolvulaceae")
 ersa_effect_size_s <-subset(ersa_effect_size, Family=="Solanaceae")
 
-ersa_effect_size <- rbind(ersa_effect_size_cross,ersa_effect_size_b,
+ersa_effect_size <- rbind(ersa_effect_size_b,
                           ersa_effect_size_c,ersa_effect_size_s)
 
-ersa_effect_size$Family <- factor(ersa_effect_size$Family, levels = ersa_effect_size$Family)
+ersa_effect_size$Family <- as.character(ersa_effect_size$Family)
+ersa_effect_size <- ersa_effect_size %>% arrange(desc(Family))
+ersa_effect_size <- rbind(ersa_effect_size_cross,ersa_effect_size)
 
+
+
+
+ersa_effect_size$Family <- factor(ersa_effect_size$Family, levels = ersa_effect_size$Family)
 
 p1<- ggplot(ersa_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)
 p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
@@ -630,7 +678,7 @@ families<- sort(unique(ippu_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Family==i], ippu_cross$Seed_set)
+  a<-cohen.d(ippu_seeds$Seed_set[ippu_seeds$Family==i], ippu_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -653,8 +701,15 @@ ippu_effect_size_b <-subset(ippu_effect_size, Family=="Brassicaceae")
 ippu_effect_size_c <- subset(ippu_effect_size, Family=="Convolvulaceae")
 ippu_effect_size_s <-subset(ippu_effect_size, Family=="Solanaceae")
 
-ippu_effect_size <- rbind(ippu_effect_size_cross,ippu_effect_size_b,
+ippu_effect_size <- rbind(ippu_effect_size_b,
                           ippu_effect_size_c,ippu_effect_size_s)
+
+ippu_effect_size$Family <- as.character(ippu_effect_size$Family)
+ippu_effect_size <- ippu_effect_size %>% arrange(desc(Family))
+ippu_effect_size <- rbind(ippu_effect_size_cross,ippu_effect_size)
+
+
+
 
 ippu_effect_size$Family <- factor(ippu_effect_size$Family, levels = ippu_effect_size$Family)
 
@@ -700,7 +755,7 @@ families<- sort(unique(ipaq_seeds$Family))
 b <- NULL
 x <- NULL
 for (i in families){
-  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Family==i], ipaq_cross$Seed_set)
+  a<-cohen.d(ipaq_seeds$Seed_set[ipaq_seeds$Family==i], ipaq_cross$Seed_set, hedges.correction = T)
   b <- rbind(b, a[3])
   x<- rbind(x, a[4])
 }
@@ -723,8 +778,15 @@ ipaq_effect_size_b <-subset(ipaq_effect_size, Family=="Brassicaceae")
 ipaq_effect_size_c <- subset(ipaq_effect_size, Family=="Convolvulaceae")
 ipaq_effect_size_s <-subset(ipaq_effect_size, Family=="Solanaceae")
 
-ipaq_effect_size <- rbind(ipaq_effect_size_cross,ipaq_effect_size_b,
+ipaq_effect_size <- rbind(ipaq_effect_size_b,
                           ipaq_effect_size_c,ipaq_effect_size_s)
+
+ipaq_effect_size$Family <- as.character(ipaq_effect_size$Family)
+ipaq_effect_size <- ipaq_effect_size %>% arrange(desc(Family))
+ipaq_effect_size <- rbind(ipaq_effect_size_cross,ipaq_effect_size)
+
+
+
 
 ipaq_effect_size$Family <- factor(ipaq_effect_size$Family, levels = ipaq_effect_size$Family)
 
