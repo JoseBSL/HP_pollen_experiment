@@ -221,14 +221,14 @@ load("effect_size_species/all_effect_size.RData")
 load("effect_size_species/brol_effect_size.RData")
 p1<- ggplot(brol_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'bold')),plot.margin = margin(t=0, l=0))+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,0.5),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=c(0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5),size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
-  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "A)")
 
 #BRRA
 load("effect_size_species/brra_effect_size.RData")
 pp2<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank())+ geom_point(alpha=c(1,1,1,1,1,1,1,1,0.5,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
-  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "B)")
 
 #ERSA
@@ -279,7 +279,7 @@ p8<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_s
 #SOLY
 load("effect_size_species/soly_effect_size.RData")
 p9<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'bold', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = margin(t=0, l=0))+ geom_point(alpha=c(1,0.5,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
-  xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  xlab("") + ylab("Hedges' g") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ annotate("text", x=10, y=-6, label= "I)")
 
 #SOME
