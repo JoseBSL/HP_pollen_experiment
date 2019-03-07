@@ -12,12 +12,16 @@ traits_all <- read.csv("Data/traits_all.csv", sep=",")
 #I create a column with equal code of species in order to merge
 traits_all$species <- c("BROL", "BRRA", "CAAN", "ERSA", "IPAQ", "IPPU", 
                         "PEIN", "SIAL", "SOLY", "SOME") 
+
+#The column of selfing rate I'm going to add SI values
+
+
+
 #colname to merge
 colnames(traits_all)[2] <- "Species"
 
 #I use the mean effect for each treatment, later maybe I come back and use the other
 data <- merge(hp_mean, traits_all, by="Species")
 
-#The column is selfing rate I'm going to add SI values
 
 
