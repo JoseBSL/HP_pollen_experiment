@@ -99,8 +99,8 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_s
 y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y, na.rm= TRUE)
 #I save these two data.frame "y" and "y_mean_sacale" for analysis in other script
 
-write.csv()
-write.csv()
+write.csv(y,"Data/y.csv")
+write.csv(y_mean_scale, "Data/y_mean_scale.csv")
 
 
 colnames(y_mean_scale)[3] <- "Scale_seed"
