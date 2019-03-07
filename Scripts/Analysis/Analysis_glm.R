@@ -260,6 +260,26 @@ summary(model2)
 model2=lme(hp_effect~si_index, data=data, random=~1|indv)
 summary(model2)
 
+geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=si_index, y=hp_effect)) + 
+  geom_jitter(width=1.5,size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=si_index), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
+
+
+
+
+
+
 model2=lme(hp_effect~compatibility, data=data, random=~1|indv)
 summary(model2)
+
+
+#PLOT
+
+
+geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
+  geom_jitter(width=1.5,aes(colour = Focal),size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(model2))))+theme_cowplot()
 
