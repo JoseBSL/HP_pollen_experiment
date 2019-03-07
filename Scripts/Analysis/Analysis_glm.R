@@ -236,26 +236,79 @@ summary(model2)
 model2=lme(hp_effect~anthers, data=data, random=~1|indv)
 summary(model2)
 
+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=anthers, y=hp_effect)) + 
+  geom_point()+
+  geom_abline(aes(intercept=`(Intercept)`, slope=anthers), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
+
 model2=lme(hp_effect~stigma_area, data=data, random=~1|indv)
 summary(model2)
+
+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=stigma_area, y=hp_effect)) + 
+  geom_point()+
+  geom_abline(aes(intercept=`(Intercept)`, slope=stigma_area), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
 
 model2=lme(hp_effect~stigma_length, data=data, random=~1|indv)
 summary(model2)
 
+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=stigma_area, y=hp_effect)) + 
+  geom_point()+
+  geom_abline(aes(intercept=`(Intercept)`, slope=stigma_area), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
+
 model2=lme(hp_effect~stigma_surface, data=data, random=~1|indv)
 summary(model2)
+
+geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=stigma_surface, y=hp_effect)) + 
+  geom_jitter(width=1.5,size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=stigma_surface), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
+
+
+
 
 model2=lme(hp_effect~stigma_width, data=data, random=~1|indv)
 summary(model2)
 
+geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=stigma_width, y=hp_effect)) + 
+  geom_jitter(width=1.5,size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=stigma_width), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
+
+
+
+
+
 model2=lme(hp_effect~style_length, data=data, random=~1|indv)
 summary(model2)
+
+geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=style_length, y=hp_effect)) + 
+  geom_jitter(width=1.5,size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=style_length), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
 
 model2=lme(hp_effect~ovary_width, data=data, random=~1|indv)
 summary(model2)
 
+geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=ovary_width, y=hp_effect)) + 
+  geom_jitter(width=1.5,size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=ovary_width), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
 model2=lme(hp_effect~ovary_length, data=data, random=~1|indv)
 summary(model2)
+
+geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ggplot(data, aes(x=ovary_length, y=hp_effect)) + 
+  geom_jitter(width=1.5,size=4)+
+  geom_abline(aes(intercept=`(Intercept)`, slope=ovary_length), as.data.frame(t(fixef(model2))))+theme_cowplot()
 
 model2=lme(hp_effect~si_index, data=data, random=~1|indv)
 summary(model2)
