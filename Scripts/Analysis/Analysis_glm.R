@@ -8,10 +8,6 @@ diag(matrix_scale_effect) <- NA
 effect <- melt(matrix_scale_effect)
 effect=effect[complete.cases(effect), ]
 
-
-
-
-
 #Now I'm using the HP effect calculated in Analysis_mantel_test
 #But maybe I could use later effect sizes...
 
@@ -41,44 +37,44 @@ ipaq  <- read.csv("Data/species_seed_set/ipaq_seed_set.csv", sep=";", stringsAsF
 
 a_ippu<- mean(ippu[ippu$treatment=="self", "seed.set"])
 b_ippu<- mean(ippu[ippu$treatment=="cross", "seed.set"])
-z_ippu <- (a_ippu/b_ippu) #[1] -173.6842 This means that selfin produced 173% more seeds
+z_ippu <- (100-a_ippu/b_ippu*100) #[1] -173.6842 This means that selfin produced 173% more seeds
 
 a_ipaq<- mean(ipaq[ipaq$treatment=="self", "seed_set"])
 b_ipaq<- mean(ipaq[ipaq$treatment=="cross", "seed_set"])
-z_ipaq <- (a_ipaq/b_ipaq) #
+z_ipaq <- (100-a_ipaq/b_ipaq*100) #
 
 a_brol<- mean(brol[brol$Treatment=="Self", "Seed.production"])
 b_brol<- mean(brol[brol$Treatment=="Cross", "Seed.production"])
-z_brol <- (a_brol/b_brol) 
+z_brol <- (100-a_brol/b_brol*100) 
 
 a_brra<- mean(brra[brra$Treatment=="Self", "Seed.production"])
 b_brra<- mean(brra[brra$Treatment=="Cross", "Seed.production"])
-z_brra <- (a_brra/b_brra) 
+z_brra <- (100-a_brra/b_brra*100) 
 
 a_sial<- mean(sial[sial$Treatment=="Self", "Seed.production"])
 b_sial<- mean(sial[sial$Treatment=="Cross", "Seed.production"])
-z_sial <- (a_sial/b_sial) 
+z_sial <- (100-a_sial/b_sial*100) 
 
 a_ersa<- mean(ersa[ersa$Treatment=="Self", "seed.production"])
 b_ersa<- mean(ersa[ersa$Treatment=="Cross", "seed.production"])
-z_ersa <- (a_ersa/b_ersa) 
+z_ersa <- (100-a_ersa/b_ersa*100) 
 
 a_soly<- mean(soly[soly$Treatment=="SELF", "seed_set"])
 b_soly<- mean(soly[soly$Treatment=="CROSS", "seed_set"])
-z_soly <- (a_soly/b_soly) 
+z_soly <- (100-a_soly/b_soly*100) 
 
 a_some<- mean(some[some$Treatment=="SELF", "seed_set"])
 b_some<- mean(some[some$Treatment=="CROSS", "seed_set"])
-z_some <- (a_some/b_some)
+z_some <- (100-a_some/b_some*100)
 
 a_pein<- mean(pein[pein$Treatment=="SELF", "Seed.production"])
 b_pein<- mean(pein[pein$Treatment=="CROSS", "Seed.production"])
-z_pein <- (a_pein/b_pein)
+z_pein <- (100-a_pein/b_pein*100)
 
 
 a_caan<- mean(caan[caan$treatment=="SELF", "seed_set"])
 b_caan<- mean(caan[caan$treatment=="CROSS", "seed_set"])
-z_caan <- (a_caan/b_caan)
+z_caan <- (100-a_caan/b_caan*100)
 
 
 traits_all$si_index <- c(z_brol, z_brra, z_caan, z_ersa, z_ipaq, z_ippu, 
@@ -101,9 +97,6 @@ traits_all$compatibility[traits_all$Focal=="IPPU"] <- 100
 
 traits_all$compatibility=as.numeric(traits_all$compatibility)
 
-
-
-
 #I use the mean effect for each treatment, later maybe I come back and use the other
 hp_mean_sp <- dcast(Species ~ ., value.var = "value", fun.aggregate = mean, data = effect, na.rm= TRUE)
 colnames(hp_mean_sp) <- c("Species","hp_effect")
@@ -112,125 +105,161 @@ colnames(hp_mean_sp) <- c("Species","hp_effect")
 data <- merge(hp_mean_sp, traits_all, by="Species")
 data <- data[,-c(3)]
 
-model1=lm(Scale_seed~si_index, data=data)
+model1=lm(hp_effect~si_index, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~Selfing_rate, data=data)
+model1=lm(hp_effect~Selfing_rate, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~pollen_size, data=data)
+model1=lm(hp_effect~pollen_size, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~mean_pollen_anther, data=data)
+model1=lm(hp_effect~mean_pollen_anther, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~mean_ovules, data=data)
+model1=lm(hp_effect~mean_ovules, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~pollen_ovule_ratio, data=data)
+model1=lm(hp_effect~pollen_ovule_ratio, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_area, data=data)
+model1=lm(hp_effect~stigma_area, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_length, data=data)
+model1=lm(hp_effect~stigma_length, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_surface, data=data)
+model1=lm(hp_effect~stigma_surface, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_width, data=data)
+model1=lm(hp_effect~stigma_width, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~style_length, data=data)
+model1=lm(hp_effect~style_length, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~style_width, data=data)
+model1=lm(hp_effect~style_width, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~ovary_width, data=data)
+model1=lm(hp_effect~ovary_width, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~ovary_length, data=data)
+model1=lm(hp_effect~ovary_length, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~si_index, data=data)
+model1=lm(hp_effect~si_index, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~compatibility, data=data)
+model1=lm(hp_effect~compatibility, data=data)
 summary(model1)
 
 #Now let see what happens without groping
 
-data <- merge(hp_mean, traits_all, by="Species")
-data <- data[,-c(2,4)]
-
-model1=lm(Scale_seed~si_index, data=data)
+data <- merge(effect, traits_all, by="Species")
+data <- data[,-c(4)]
+colnames(data)[3] <- "hp_effect" 
+model1=lm(hp_effect~si_index, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~Selfing_rate, data=data)
+model1=lm(hp_effect~Selfing_rate, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~pollen_size, data=data)
+model1=lm(hp_effect~pollen_size, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~mean_pollen_anther, data=data)
+model1=lm(hp_effect~mean_pollen_anther, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~mean_ovules, data=data)
+model1=lm(hp_effect~mean_ovules, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~pollen_ovule_ratio, data=data)
+model1=lm(hp_effect~pollen_ovule_ratio, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_area, data=data)
+model1=lm(hp_effect~stigma_area, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_length, data=data)
+model1=lm(hp_effect~stigma_length, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_surface, data=data)
+model1=lm(hp_effect~stigma_surface, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~stigma_width, data=data)
+model1=lm(hp_effect~stigma_width, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~style_length, data=data)
+model1=lm(hp_effect~style_length, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~style_width, data=data)
+model1=lm(hp_effect~style_width, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~ovary_width, data=data)
+model1=lm(hp_effect~ovary_width, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~ovary_length, data=data)
+model1=lm(hp_effect~ovary_length, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~si_index, data=data)
+model1=lm(hp_effect~si_index, data=data)
 summary(model1)
 
-model1=lm(Scale_seed~compatibility, data=data)
+model1=lm(hp_effect~compatibility, data=data)
 summary(model1)
 
 #Same result
 #After simple linear models we add random effects
 
-a <- data[68,] 
-data <- rbind(data,a)
+
 summary(data$Species)
 data$indv<- seq.int(1:10)
 summary(data)
 #Analysis with random factor of individuals
-model2=lme(Scale_seed~Selfing_rate, data=data, random=~1|indv)
+
+model2=lme(hp_effect~stigma_type, data=data, random=~1|indv)
 summary(model2)
 
-model2=lme(Scale_seed~pollen_size, data=data, random=~1|indv)
+model2=lme(hp_effect~Selfing_rate, data=data, random=~1|indv)
 summary(model2)
 
-model2=lme(Scale_seed~si_index, data=data, random=~1|indv)
+model2=lme(hp_effect~pollen_size, data=data, random=~1|indv)
 summary(model2)
 
-model2=lme(Scale_seed~compatibility, data=data, random=~1|indv)
+model2=lme(hp_effect~mean_pollen_anther, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~mean_ovules, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~pollen_ovule_ratio, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~anthers, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~stigma_area, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~stigma_length, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~stigma_surface, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~stigma_width, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~style_length, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~ovary_width, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~ovary_length, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~si_index, data=data, random=~1|indv)
+summary(model2)
+
+model2=lme(hp_effect~compatibility, data=data, random=~1|indv)
 summary(model2)
 
