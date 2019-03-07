@@ -1,8 +1,16 @@
 #In this script I'm going to perform GLM between Hp effect and the traits
 
 #load data
-hp <- read.csv("Data/y.csv")
-hp_mean <- read.csv("Data/y_mean_scale.csv")
+matrix_scale_effect <- readRDS("Manuscript_draft/Data/matrix_scale_effect.Rda")
+diag(matrix_scale_effect) <- NA
+
+#(mean cross spp x1-mean HP effect spp x1)
+effect <- melt(matrix_scale_effect)
+effect=effect[complete.cases(effect), ]
+
+
+
+
 
 #Now I'm using the HP effect calculated in Analysis_mantel_test
 #But maybe I could use later effect sizes...
@@ -97,8 +105,8 @@ traits_all$compatibility=as.numeric(traits_all$compatibility)
 
 
 #I use the mean effect for each treatment, later maybe I come back and use the other
-hp_mean_sp <- dcast(Species ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = hp_mean, na.rm= TRUE)
-colnames(hp_mean_sp) <- c("Species","Scale_seed")
+hp_mean_sp <- dcast(Species ~ ., value.var = "value", fun.aggregate = mean, data = effect, na.rm= TRUE)
+colnames(hp_mean_sp) <- c("Species","hp_effect")
 
 
 data <- merge(hp_mean_sp, traits_all, by="Species")
