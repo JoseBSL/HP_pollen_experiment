@@ -280,6 +280,8 @@ protest(matrix_scale_effect, evo_distance_its_square_root)
 #From here I start working with the traits
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
 rownames(traits_all) <- rownames(matrix_scale_effect)
+si_index <- readRDS("Data/si_index.RData")
+traits_all$si_index <- si_index
 
 #I check Mantel between all the traits and the distance matrix of the effect of heterospecific pollen
 #IMPORTANT: P values of Mantel seems to be of one sided test 
@@ -319,6 +321,22 @@ traits_all_scaled=as.data.frame(traits_all_scaled)
 adonis(formula=matrix_scale_effect ~. ,data=traits_all_scaled)
 
 #Start trait by trait
+
+#0)si_index
+traits_all_scaled_stigma <- traits_all_scaled[,1]
+traits_all_scaled_stigma <- as.data.frame(traits_all_scaled_stigma)
+traits_all_scaled_stigma <- traits_all_scaled_stigma
+rownames(traits_all_scaled_stigma) <- rownames(traits_all_scaled_stigma)
+traits_stigma_dist <- dist(traits_all_scaled_stigma, diag=T, upper=T)
+
+traits_si_index_dist <- dist(traits_all$si_index, diag=T, upper=T)
+mantel(matrix_scale_effect, traits_si_index_dist)
+#significance=0.016, r=0.27
+protest(matrix_scale_effect, traits_si_index_dist)
+#significance=0.373, procustes correlation=0.3208
+bioenv(matrix_scale_effect~traits_all$si_index, method="pearson", trace=T)
+#corr=-0.16
+
 
 #1)Stigma type
 traits_all_scaled_stigma <- traits_all_scaled[,1]
