@@ -94,8 +94,15 @@ colnames(i)<- c("Species", "Treatment", "Treatment_number", "Seed_set", "Scale_s
 
 #Now we have a dataframe "y" with the scaled seed set for all the HP treatments
 
+
 #Now calculate mean seed set of Hp treatments
 y_mean_scale <- dcast(Species + Treatment ~ ., value.var = "Scale_seed", fun.aggregate = mean, data = y, na.rm= TRUE)
+#I save these two data.frame "y" and "y_mean_sacale" for analysis in other script
+
+write.csv()
+write.csv()
+
+
 colnames(y_mean_scale)[3] <- "Scale_seed"
 Treatment <- str_split_fixed(as.character(y_mean_scale$Treatment), " ", 2)
 Treatment <- Treatment[ , -2]
