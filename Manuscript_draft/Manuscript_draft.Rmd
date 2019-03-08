@@ -156,6 +156,8 @@ Add also plot with fruit production and pot it in appendix.Also the plots of rat
 
 Add effect sizes to analysis!!
 
+Mention that SI index is calculated (Schoen & Lloyd 1984)
+
 # RESULTS
 
 Results of hand cross-pollination, hand self-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seet set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Moreover, effect sizes differ across species, see **Figure 2** where species like *S. lycopersicum* had a large effect size and other's like *E. sativa* a small or null effect size.

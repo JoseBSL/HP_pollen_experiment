@@ -79,6 +79,10 @@ z_caan <- (100-a_caan/b_caan*100)
 
 traits_all$si_index <- c(z_brol, z_brra, z_caan, z_ersa, z_ipaq, z_ippu, 
                          z_pein, z_sial, z_soly, z_some) 
+si_index <- c(z_brol, z_brra, z_caan, z_ersa, z_ipaq, z_ippu, 
+              z_pein, z_sial, z_soly, z_some) 
+
+saveRDS(si_index, "Data/si_index.RData")
 
 #colname to merge
 colnames(traits_all)[2] <- "Species"

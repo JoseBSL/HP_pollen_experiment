@@ -66,6 +66,8 @@ style <-morphometry[grep("style", morphometry$measurement),]
 style_length <-style[grep("length", style$measurement),] 
 #Style width
 style_width <-style[grep("width", style$measurement),] 
+boxplot(style_width$um)
+style_width[style_width$um>1500,]<- NA
 
 
 #Ovary
@@ -73,10 +75,13 @@ ovary <-morphometry[grep("ovary", morphometry$measurement),]
 
 #Ovary width
 ovary_width <-ovary[grep("width", ovary$measurement),] 
+ovary_width[ovary_width$um>2000,]<- NA
+boxplot(ovary_width$um)
+ovary_width[ovary_width$um>2000,]<- NA
 #Ovary width
 ovary_length <-ovary[grep("legth", ovary$measurement),] 
 ovary_length$measurement <- gsub('ovary _ legth', 'ovary _ length', ovary_length$measurement)
-
+boxplot(ovary_length$um)
 #Ok now all the traits are ready!! Lets add it to traits_all.
 #dir.create("Data/Morpho_RData")
 
