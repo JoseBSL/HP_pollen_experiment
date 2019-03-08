@@ -605,10 +605,14 @@ boxplot(ovary_length_all$um~ovary_length_all$species)
 ####
 
 
-#mean(ovary_length_all$um)
-#[1] 3057.34
-
-
+stigma_area_all <- dcast(species  ~ ., value.var = "stigma_area", fun.aggregate = mean, data = stigma_area_all, na.rm= TRUE)
+stigma_length_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = stigma_length_all, na.rm= TRUE)
+stigma_width_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = stigma_width_all, na.rm= TRUE)
+stigma_surface_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = stigma_surface_all, na.rm= TRUE)
+style_length_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = style_length_all, na.rm= TRUE)
+style_width_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = style_width_all, na.rm= TRUE)
+ovary_width_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = ovary_width_all, na.rm= TRUE)
+ovary_length_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = ovary_length_all, na.rm= TRUE)
 
 
 
