@@ -187,10 +187,129 @@ boxplot(stigma_length_all$um~stigma_length_all$species)
 
 
 
-#Stigma surface
-stigma_surface <-stigma[grep("surface", stigma$measurement),] 
-#Stigma width
+#STIGMA WIDTH
 stigma_width <-stigma[grep("width", stigma$measurement),] 
+#SOLY
+stigma_width_soly <-stigma_soly[grep("width", stigma$measurement),] 
+boxplot(stigma_width_soly$um)
+stigma_width_soly <- stigma_width_soly[complete.cases(stigma_width_soly),]
+#SOME
+stigma_width_some <-stigma_some[grep("width", stigma$measurement),] 
+boxplot(stigma_width_some$um)
+stigma_width_some <- stigma_width_some[complete.cases(stigma_width_some),]
+#PEIN
+stigma_width_pein <-stigma_pein[grep("width", stigma$measurement),] 
+boxplot(stigma_width_pein$um)
+stigma_width_pein <- stigma_width_pein[complete.cases(stigma_width_pein),]
+#CAAN
+stigma_width_caan <-stigma_caan[grep("width", stigma$measurement),] 
+boxplot(stigma_width_caan$um)
+summary(stigma_width_caan$um)
+stigma_width_caan <- stigma_width_caan[complete.cases(stigma_width_caan),]
+#BROL
+stigma_width_brol <-stigma_brol[grep("width", stigma$measurement),] 
+boxplot(stigma_width_brol$um)
+summary(stigma_width_brol$um)
+stigma_width_brol <- stigma_width_brol[complete.cases(stigma_width_brol),]
+#BRRA
+stigma_width_brra <-stigma_brra[grep("width", stigma$measurement),] 
+boxplot(stigma_width_brra$um)
+summary(stigma_width_brra$um)
+stigma_width_brra <- stigma_width_brra[complete.cases(stigma_width_brra),]
+#SIAL
+stigma_width_sial <-stigma_sial[grep("width", stigma$measurement),] 
+boxplot(stigma_width_sial$um)
+summary(stigma_width_sial$um)
+stigma_width_sial <- stigma_width_sial[complete.cases(stigma_width_sial),]
+stigma_width_sial[stigma_width_sial$um>2000,]<- NA
+#ERSA
+stigma_width_ersa <-stigma_ersa[grep("width", stigma$measurement),] 
+boxplot(stigma_width_ersa$um)
+summary(stigma_width_ersa$um)
+stigma_width_ersa <- stigma_width_ersa[complete.cases(stigma_width_ersa),]
+#IPAQ
+stigma_width_ipaq <-stigma_ipaq[grep("width", stigma$measurement),] 
+boxplot(stigma_width_ipaq$um)
+summary(stigma_width_ipaq$um)
+stigma_width_ipaq <- stigma_width_ipaq[complete.cases(stigma_width_ipaq),]
+#IPPU
+stigma_width_ippu <-stigma_ippu[grep("width", stigma$measurement),] 
+boxplot(stigma_width_ippu$um)
+summary(stigma_width_ippu$um)
+stigma_width_ippu <- stigma_width_ippu[complete.cases(stigma_width_ippu),]
+
+
+stigma_width_all <- rbind(stigma_width_brol,stigma_width_brra,stigma_width_caan,stigma_width_ersa,stigma_width_ipaq,
+                           stigma_width_ippu,stigma_width_pein,stigma_width_sial,stigma_width_soly,stigma_width_some)
+stigma_width_all<- stigma_width_all[complete.cases(stigma_width_all), ]
+
+boxplot(stigma_width_all$um~stigma_width_all$species)
+
+
+#STIGMA SURFACE
+stigma_surface <-stigma[grep("surface", stigma$measurement),] 
+#SOLY
+stigma_surface_soly <-stigma_soly[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_soly$um)
+stigma_surface_soly <- stigma_surface_soly[complete.cases(stigma_surface_soly),]
+#SOME
+stigma_surface_some <-stigma_some[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_some$um)
+summary(stigma_surface_some$um)
+stigma_surface_some <- stigma_surface_some[complete.cases(stigma_surface_some),]
+#CAAN
+stigma_surface_caan <-stigma_caan[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_caan$um)
+summary(stigma_surface_caan$um)
+stigma_surface_caan <- stigma_surface_caan[complete.cases(stigma_surface_caan),]
+#PEIN
+stigma_surface_pein <-stigma_pein[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_pein$um)
+summary(stigma_surface_pein$um)
+stigma_surface_pein <- stigma_surface_pein[complete.cases(stigma_surface_pein),]
+#BROL
+stigma_surface_brol <-stigma_brol[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_brol$um)
+summary(stigma_surface_brol$um)
+stigma_surface_brol <- stigma_surface_brol[complete.cases(stigma_surface_brol),]
+#BRRA
+stigma_surface_brra <-stigma_brra[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_brra$um)
+summary(stigma_surface_brra$um)
+stigma_surface_brra <- stigma_surface_brra[complete.cases(stigma_surface_brra),]
+#SIAL
+stigma_surface_sial <-stigma_sial[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_sial$um)
+summary(stigma_surface_sial$um)
+stigma_surface_sial <- stigma_surface_sial[complete.cases(stigma_surface_sial),]
+#ERSA
+stigma_surface_ersa <-stigma_ersa[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_ersa$um)
+summary(stigma_surface_ersa$um)
+stigma_surface_ersa <- stigma_surface_ersa[complete.cases(stigma_surface_ersa),]
+#IPAQ
+stigma_surface_ipaq <-stigma_ipaq[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_ipaq$um)
+summary(stigma_surface_ipaq$um)
+stigma_surface_ipaq <- stigma_surface_ipaq[complete.cases(stigma_surface_ipaq),]
+#IPPU
+stigma_surface_ippu <-stigma_ippu[grep("surface", stigma$measurement),] 
+boxplot(stigma_surface_ippu$um)
+summary(stigma_surface_ippu$um)
+stigma_surface_ippu <- stigma_surface_ippu[complete.cases(stigma_surface_ippu),]
+
+
+
+stigma_width_all <- rbind(stigma_width_brol,stigma_width_brra,stigma_width_caan,stigma_width_ersa,stigma_width_ipaq,
+                          stigma_width_ippu,stigma_width_pein,stigma_width_sial,stigma_width_soly,stigma_width_some)
+stigma_width_all<- stigma_width_all[complete.cases(stigma_width_all), ]
+
+boxplot(stigma_width_all$um~stigma_width_all$species)
+
+
+
+
+
 
 
 #Style
