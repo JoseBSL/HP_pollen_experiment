@@ -175,7 +175,7 @@ stigma_length_ippu <- stigma_length_ippu[complete.cases(stigma_length_ippu),]
 stigma_length_ipaq <-stigma_ipaq[grep("length", stigma$measurement),] 
 boxplot(stigma_length_ipaq$um)
 stigma_length_ipaq <- stigma_length_ipaq[complete.cases(stigma_length_ipaq),]
-stigma_length_ipaq <- stigma_length_ipaq[stigma_length_ipaq$um>5000,]<- NA
+ stigma_length_ipaq[stigma_length_ipaq$um>5000,]<- NA
 
 stigma_length_all <- rbind(stigma_length_brol,stigma_length_brra,stigma_length_caan,stigma_length_ersa,stigma_length_ipaq,
                          stigma_length_ippu,stigma_length_pein,stigma_length_sial,stigma_length_soly,stigma_length_some)
@@ -614,19 +614,27 @@ style_width_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, d
 ovary_width_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = ovary_width_all, na.rm= TRUE)
 ovary_length_all <- dcast(species  ~ ., value.var = "um", fun.aggregate = mean, data = ovary_length_all, na.rm= TRUE)
 
+colnames(stigma_area_all)[2] <- "stigma_area_all" 
+colnames(stigma_length_all)[2] <- "stigma_length_all" 
+colnames(stigma_width_all)[2] <- "stigma_width_all" 
+colnames(stigma_surface_all)[2] <- "stigma_surface_all" 
+colnames(style_length_all)[2] <- "style_length_all"
+colnames(style_width_all)[2] <- "style_width_all"
+colnames(ovary_width_all)[2] <- "ovary_width_all"
+colnames(ovary_length_all)[2] <- "ovary_length_all"
 
 
 #Ok now all the traits are ready!! Lets add it to traits_all.
 #dir.create("Data/Morpho_RData")
 
-traits_all$stigma_area <- stigma_area$um
-traits_all$stigma_length <- stigma_length$um
-traits_all$stigma_surface <- stigma_surface$um
-traits_all$stigma_width <- stigma_width$um
-traits_all$style_length <- stigma_length$um
-traits_all$style_width <- style_width$um
-traits_all$ovary_width <- ovary_width$um
-traits_all$ovary_length <- ovary_length$um
+traits_all$stigma_area <- stigma_area_all$stigma_area_all
+traits_all$stigma_length <- stigma_length_all$stigma_length_all
+traits_all$stigma_width <- stigma_width_all$stigma_width_all
+traits_all$stigma_surface <- stigma_surface_all$stigma_surface_all
+traits_all$style_length <- style_length_all$style_length_all
+traits_all$style_width <- style_width_all$style_width_all
+traits_all$ovary_width <- ovary_width_all$ovary_width_all
+traits_all$ovary_length <- ovary_length_all$ovary_length_all
 
 
 #save.image("Data/Morpho_RData/traits.RData")
