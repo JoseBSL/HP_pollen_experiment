@@ -600,30 +600,18 @@ ovary_length_all<- ovary_length_all[complete.cases(ovary_length_all), ]
 boxplot(ovary_length_all$um~ovary_length_all$species)
 
 
+####
+####
+####
+
+
+#mean(ovary_length_all$um)
+#[1] 3057.34
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-#Ovary width
-ovary_width <-ovary[grep("width", ovary$measurement),] 
-ovary_width[ovary_width$um>2000,]<- NA
-boxplot(ovary_width$um)
-ovary_width[ovary_width$um>2000,]<- NA
-#Ovary width
-ovary_length <-ovary[grep("legth", ovary$measurement),] 
-ovary_length$measurement <- gsub('ovary _ legth', 'ovary _ length', ovary_length$measurement)
-boxplot(ovary_length$um)
 #Ok now all the traits are ready!! Lets add it to traits_all.
 #dir.create("Data/Morpho_RData")
 
