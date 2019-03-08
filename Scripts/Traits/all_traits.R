@@ -300,30 +300,250 @@ stigma_surface_ippu <- stigma_surface_ippu[complete.cases(stigma_surface_ippu),]
 
 
 
-stigma_width_all <- rbind(stigma_width_brol,stigma_width_brra,stigma_width_caan,stigma_width_ersa,stigma_width_ipaq,
-                          stigma_width_ippu,stigma_width_pein,stigma_width_sial,stigma_width_soly,stigma_width_some)
-stigma_width_all<- stigma_width_all[complete.cases(stigma_width_all), ]
+stigma_surface_all <- rbind(stigma_surface_brol,stigma_surface_brra,stigma_surface_caan,stigma_surface_ersa,stigma_surface_ipaq,
+                          stigma_surface_ippu,stigma_surface_pein,stigma_surface_sial,stigma_surface_soly,stigma_surface_some)
+stigma_surface_all<- stigma_surface_all[complete.cases(stigma_surface_all), ]
 
-boxplot(stigma_width_all$um~stigma_width_all$species)
-
-
-
-
-
+boxplot(stigma_surface_all$um~stigma_surface_all$species)
 
 
 #Style
 style <-morphometry[grep("style", morphometry$measurement),] 
-#Style length
+#STYLE LENGTH
 style_length <-style[grep("length", style$measurement),] 
+#SOLY
+style_length_soly <- subset(style, species=="SOLY")
+style_length_soly <-style_length_soly[grep("length", style$measurement),] 
+boxplot(style_length_soly$um)
+summary(style_length_soly$um)
+style_length_soly <- style_length_soly[complete.cases(style_length_soly),]
+#SOME
+style_length_some <- subset(style, species=="SOME")
+str(style_length_some)
+style_length_some <- subset(style_length_some, measurement=="style _ length")
+boxplot(style_length_some$um)
+summary(style_length_some$um)
+style_length_some <- style_length_some[complete.cases(style_length_some),]
+#PEIN
+style_length_pein <- subset(style, species=="PEIN")
+style_length_pein <- subset(style_length_pein, measurement=="style _ length")
+boxplot(style_length_pein$um)
+summary(style_length_pein$um)
+style_length_pein <- style_length_pein[complete.cases(style_length_pein),]
+#CAAN
+style_length_caan <- subset(style, species=="CAAN")
+style_length_caan <- subset(style_length_caan, measurement=="style _ length")
+boxplot(style_length_caan$um)
+summary(style_length_caan$um)
+style_length_caan <- style_length_caan[complete.cases(style_length_caan),]
+#BROL
+style_length_brol <- subset(style, species=="BROL")
+style_length_brol <- subset(style_length_brol, measurement=="style _ length")
+boxplot(style_length_brol$um)
+summary(style_length_brol$um)
+style_length_brol <- style_length_brol[complete.cases(style_length_brol),]
+#BRRA
+style_length_brra <- subset(style, species=="BRRA")
+style_length_brra <- subset(style_length_brra, measurement=="style _ length")
+boxplot(style_length_brra$um)
+summary(style_length_brra$um)
+style_length_brra <- style_length_brra[complete.cases(style_length_brra),]
+#SIAL
+style_length_sial <- subset(style, species=="SIAL")
+style_length_sial <- subset(style_length_sial, measurement=="style _ length")
+boxplot(style_length_sial$um)
+summary(style_length_sial$um)
+style_length_sial <- style_length_sial[complete.cases(style_length_sial),]
+#ERSA
+style_length_ersa <- subset(style, species=="ERSA")
+style_length_ersa <- subset(style_length_ersa, measurement=="style _ length")
+boxplot(style_length_ersa$um)
+summary(style_length_ersa$um)
+style_length_ersa <- style_length_ersa[complete.cases(style_length_ersa),]
+#IPAQ
+style_length_ipaq <- subset(style, species=="IPAQ")
+style_length_ipaq <- subset(style_length_ipaq, measurement=="style _ length")
+boxplot(style_length_ipaq$um)
+summary(style_length_ipaq$um)
+style_length_ipaq <- style_length_ipaq[complete.cases(style_length_ipaq),]
+#IPPU
+style_length_ippu <- subset(style, species=="IPPU")
+style_length_ippu <- subset(style_length_ippu, measurement=="style _ length")
+boxplot(style_length_ippu$um)
+summary(style_length_ippu$um)
+style_length_ippu <- style_length_ippu[complete.cases(style_length_ippu),]
+
+
+style_length_all <- rbind(style_length_brol,style_length_brra,style_length_caan,style_length_ersa,style_length_ipaq,
+                            style_length_ippu,style_length_pein,style_length_sial,style_length_soly,style_length_some)
+style_length_all<- style_length_all[complete.cases(style_length_all), ]
+
+boxplot(style_length_all$um~style_length_all$species)
+
+
 #Style width
 style_width <-style[grep("width", style$measurement),] 
-boxplot(style_width$um)
-style_width[style_width$um>1500,]<- NA
 
+#SOLY
+style_width_soly <- subset(style, species=="SOLY")
+style_width_soly <-style_width_soly[grep("width", style$measurement),] 
+boxplot(style_width_soly$um)
+summary(style_width_soly$um)
+style_width_soly <- style_width_soly[complete.cases(style_width_soly),]
+style_width_soly[style_width_soly$um>1000,]<- NA
+#SOME
+style_width_some <- subset(style, species=="SOME")
+str(style_width_some)
+style_width_some <- subset(style_width_some, measurement=="style _ width")
+boxplot(style_width_some$um)
+summary(style_width_some$um)
+style_width_some[style_width_some$um>1500,]<-NA
+style_width_some <- style_width_some[complete.cases(style_width_some),]
+#PEIN
+style_width_pein <- subset(style, species=="PEIN")
+style_width_pein <- subset(style_width_pein, measurement=="style _ width")
+boxplot(style_width_pein$um)
+summary(style_width_pein$um)
+style_width_pein <- style_width_pein[complete.cases(style_width_pein),]
+#CAAN
+style_width_caan <- subset(style, species=="CAAN")
+style_width_caan <- subset(style_width_caan, measurement=="style _ width")
+boxplot(style_width_caan$um)
+summary(style_width_caan$um)
+style_width_caan <- style_width_caan[complete.cases(style_width_caan),]
+#BROL
+style_width_brol <- subset(style, species=="BROL")
+style_width_brol <- subset(style_width_brol, measurement=="style _ width")
+boxplot(style_width_brol$um)
+summary(style_width_brol$um)
+style_width_brol <- style_width_brol[complete.cases(style_width_brol),]
+style_width_brol[style_width_brol$um>1500,]<- NA
+#BRRA
+style_width_brra <- subset(style, species=="BRRA")
+style_width_brra <- subset(style_width_brra, measurement=="style _ width")
+boxplot(style_width_brra$um)
+summary(style_width_brra$um)
+style_width_brra <- style_width_brra[complete.cases(style_width_brra),]
+#SIAL
+style_width_sial <- subset(style, species=="SIAL")
+style_width_sial <- subset(style_width_sial, measurement=="style _ width")
+boxplot(style_width_sial$um)
+summary(style_width_sial$um)
+style_width_sial <- style_width_sial[complete.cases(style_width_sial),]
+#ERSA
+style_width_ersa <- subset(style, species=="ERSA")
+style_width_ersa <- subset(style_width_ersa, measurement=="style _ width")
+boxplot(style_width_ersa$um)
+summary(style_width_ersa$um)
+style_width_ersa <- style_width_ersa[complete.cases(style_width_ersa),]
+#IPAQ
+style_width_ipaq <- subset(style, species=="IPAQ")
+style_width_ipaq <- subset(style_width_ipaq, measurement=="style _ width")
+boxplot(style_width_ipaq$um)
+summary(style_width_ipaq$um)
+style_width_ipaq <- style_width_ipaq[complete.cases(style_width_ipaq),]
+#IPPU
+style_width_ippu <- subset(style, species=="IPPU")
+style_width_ippu <- subset(style_width_ippu, measurement=="style _ width")
+boxplot(style_width_ippu$um)
+summary(style_width_ippu$um)
+style_width_ippu <- style_width_ippu[complete.cases(style_width_ippu),]
+style_width_ippu[style_width_ippu$um>5000,]<- NA
+
+style_width_all <- rbind(style_width_brol,style_width_brra,style_width_caan,style_width_ersa,style_width_ipaq,
+                            style_width_ippu,style_width_pein,style_width_sial,style_width_soly,style_width_some)
+style_width_all<- style_width_all[complete.cases(style_width_all), ]
+
+boxplot(style_width_all$um~style_width_all$species)
 
 #Ovary
 ovary <-morphometry[grep("ovary", morphometry$measurement),] 
+#SOLY
+ovary_width_soly <- subset(ovary, species=="SOLY")
+ovary_width_soly <-ovary_width_soly[grep("width", ovary$measurement),] 
+boxplot(ovary_width_soly$um)
+summary(ovary_width_soly$um)
+ovary_width_soly <- ovary_width_soly[complete.cases(ovary_width_soly),]
+#SOME
+ovary_width_some <- subset(ovary, species=="SOME")
+str(ovary_width_some)
+ovary_width_some <- subset(ovary_width_some, measurement=="ovary _ width")
+boxplot(ovary_width_some$um)
+summary(ovary_width_some$um)
+ovary_width_some <- ovary_width_some[complete.cases(ovary_width_some),]
+#PEIN
+ovary_width_pein <- subset(ovary, species=="PEIN")
+ovary_width_pein <- subset(ovary_width_pein, measurement=="ovary _ width")
+boxplot(ovary_width_pein$um)
+summary(ovary_width_pein$um)
+ovary_width_pein <- ovary_width_pein[complete.cases(ovary_width_pein),]
+#CAAN
+ovary_width_caan <- subset(ovary, species=="CAAN")
+ovary_width_caan <- subset(ovary_width_caan, measurement=="ovary _ width")
+boxplot(ovary_width_caan$um)
+summary(ovary_width_caan$um)
+ovary_width_caan <- ovary_width_caan[complete.cases(ovary_width_caan),]
+ovary_width_caan[ovary_width_caan$um<500,]<-NA
+#BROL
+ovary_width_brol <- subset(ovary, species=="BROL")
+ovary_width_brol <- subset(ovary_width_brol, measurement=="ovary _ width")
+boxplot(ovary_width_brol$um)
+summary(ovary_width_brol$um)
+ovary_width_brol <- ovary_width_brol[complete.cases(ovary_width_brol),]
+#BRRA
+ovary_width_brra <- subset(ovary, species=="BRRA")
+ovary_width_brra <- subset(ovary_width_brra, measurement=="ovary _ width")
+boxplot(ovary_width_brra$um)
+summary(ovary_width_brra$um)
+ovary_width_brra <- ovary_width_brra[complete.cases(ovary_width_brra),]
+#SIAL
+ovary_width_sial <- subset(ovary, species=="SIAL")
+ovary_width_sial <- subset(ovary_width_sial, measurement=="ovary _ width")
+boxplot(ovary_width_sial$um)
+summary(ovary_width_sial$um)
+ovary_width_sial <- ovary_width_sial[complete.cases(ovary_width_sial),]
+#ERSA
+ovary_width_ersa <- subset(ovary, species=="ERSA")
+ovary_width_ersa <- subset(ovary_width_ersa, measurement=="ovary _ width")
+boxplot(ovary_width_ersa$um)
+summary(ovary_width_ersa$um)
+ovary_width_ersa <- ovary_width_ersa[complete.cases(ovary_width_ersa),]
+#IPAQ
+ovary_width_ipaq <- subset(ovary, species=="IPAQ")
+ovary_width_ipaq <- subset(ovary_width_ipaq, measurement=="ovary _ width")
+boxplot(ovary_width_ipaq$um)
+summary(ovary_width_ipaq$um)
+ovary_width_ipaq <- ovary_width_ipaq[complete.cases(ovary_width_ipaq),]
+#IPPU
+ovary_width_ippu <- subset(ovary, species=="IPPU")
+ovary_width_ippu <- subset(ovary_width_ippu, measurement=="ovary _ width")
+boxplot(ovary_width_ippu$um)
+summary(ovary_width_ippu$um)
+ovary_width_ippu <- ovary_width_ippu[complete.cases(ovary_width_ippu),]
+
+ovary_width_all <- rbind(ovary_width_brol,ovary_width_brra,ovary_width_caan,ovary_width_ersa,ovary_width_ipaq,
+                         ovary_width_ippu,ovary_width_pein,ovary_width_sial,ovary_width_soly,ovary_width_some)
+ovary_width_all<- ovary_width_all[complete.cases(ovary_width_all), ]
+
+boxplot(ovary_width_all$um~ovary_width_all$species)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Ovary width
 ovary_width <-ovary[grep("width", ovary$measurement),] 
