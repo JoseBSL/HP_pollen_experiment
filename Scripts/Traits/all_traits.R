@@ -528,6 +528,76 @@ ovary_width_all<- ovary_width_all[complete.cases(ovary_width_all), ]
 boxplot(ovary_width_all$um~ovary_width_all$species)
 
 
+#OVARY WIDTH
+
+#SOLY
+ovary_width_soly <- subset(ovary, species=="SOLY")
+ovary_width_soly <-ovary_width_soly[grep("width", ovary$measurement),] 
+boxplot(ovary_width_soly$um)
+summary(ovary_width_soly$um)
+ovary_width_soly <- ovary_width_soly[complete.cases(ovary_width_soly),]
+#SOME
+ovary_width_some <- subset(ovary, species=="SOME")
+str(ovary_width_some)
+ovary_width_some <- subset(ovary_width_some, measurement=="ovary _ width")
+boxplot(ovary_width_some$um)
+summary(ovary_width_some$um)
+ovary_width_some <- ovary_width_some[complete.cases(ovary_width_some),]
+#PEIN
+ovary_width_pein <- subset(ovary, species=="PEIN")
+ovary_width_pein <- subset(ovary_width_pein, measurement=="ovary _ width")
+boxplot(ovary_width_pein$um)
+summary(ovary_width_pein$um)
+ovary_width_pein <- ovary_width_pein[complete.cases(ovary_width_pein),]
+#CAAN
+ovary_width_caan <- subset(ovary, species=="CAAN")
+ovary_width_caan <- subset(ovary_width_caan, measurement=="ovary _ width")
+boxplot(ovary_width_caan$um)
+summary(ovary_width_caan$um)
+ovary_width_caan <- ovary_width_caan[complete.cases(ovary_width_caan),]
+ovary_width_caan[ovary_width_caan$um<500,]<-NA
+#BROL
+ovary_width_brol <- subset(ovary, species=="BROL")
+ovary_width_brol <- subset(ovary_width_brol, measurement=="ovary _ width")
+boxplot(ovary_width_brol$um)
+summary(ovary_width_brol$um)
+ovary_width_brol <- ovary_width_brol[complete.cases(ovary_width_brol),]
+#BRRA
+ovary_width_brra <- subset(ovary, species=="BRRA")
+ovary_width_brra <- subset(ovary_width_brra, measurement=="ovary _ width")
+boxplot(ovary_width_brra$um)
+summary(ovary_width_brra$um)
+ovary_width_brra <- ovary_width_brra[complete.cases(ovary_width_brra),]
+#SIAL
+ovary_width_sial <- subset(ovary, species=="SIAL")
+ovary_width_sial <- subset(ovary_width_sial, measurement=="ovary _ width")
+boxplot(ovary_width_sial$um)
+summary(ovary_width_sial$um)
+ovary_width_sial <- ovary_width_sial[complete.cases(ovary_width_sial),]
+#ERSA
+ovary_width_ersa <- subset(ovary, species=="ERSA")
+ovary_width_ersa <- subset(ovary_width_ersa, measurement=="ovary _ width")
+boxplot(ovary_width_ersa$um)
+summary(ovary_width_ersa$um)
+ovary_width_ersa <- ovary_width_ersa[complete.cases(ovary_width_ersa),]
+#IPAQ
+ovary_width_ipaq <- subset(ovary, species=="IPAQ")
+ovary_width_ipaq <- subset(ovary_width_ipaq, measurement=="ovary _ width")
+boxplot(ovary_width_ipaq$um)
+summary(ovary_width_ipaq$um)
+ovary_width_ipaq <- ovary_width_ipaq[complete.cases(ovary_width_ipaq),]
+#IPPU
+ovary_width_ippu <- subset(ovary, species=="IPPU")
+ovary_width_ippu <- subset(ovary_width_ippu, measurement=="ovary _ width")
+boxplot(ovary_width_ippu$um)
+summary(ovary_width_ippu$um)
+ovary_width_ippu <- ovary_width_ippu[complete.cases(ovary_width_ippu),]
+
+ovary_width_all <- rbind(ovary_width_brol,ovary_width_brra,ovary_width_caan,ovary_width_ersa,ovary_width_ipaq,
+                         ovary_width_ippu,ovary_width_pein,ovary_width_sial,ovary_width_soly,ovary_width_some)
+ovary_width_all<- ovary_width_all[complete.cases(ovary_width_all), ]
+
+boxplot(ovary_width_all$um~ovary_width_all$species)
 
 
 
