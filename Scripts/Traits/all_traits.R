@@ -40,20 +40,153 @@ measurement <- as.data.frame(measurement)
 measurement$new <- paste(measurement$V1,"_", measurement$V2 )
 morphometry[,2] <- measurement[,4] 
 #Aggregate of different variables 
-morphometry <- dcast(species + measurement ~ ., value.var = "um", fun.aggregate = mean, data = morphometry, na.rm= TRUE)
+#morphometry <- dcast(species + measurement ~ ., value.var = "um", fun.aggregate = mean, data = morphometry, na.rm= TRUE)
 #Some grammar mistakes, at least they seem to be homogeneous among species
 
 #Fix colnames
 colnames(morphometry)[3] <- "um"
 
 #First I create the dataframes then I order and finally I insert them in the trait_all data.frame
-
+#Cleaning outliers too
 #Stigma
 stigma <-morphometry[grep("stigma", morphometry$measurement),] 
+#STIGMATIC AREA
+#SOLY
+stigma_soly <- subset(stigma, species=="SOLY")
 #Stigma area (square micrometers, only unit like this)
-stigma_area <-stigma[grep("area", stigma$measurement),] 
-#Stigma length
+stigma_area_soly <-stigma_soly[grep("area", stigma$measurement),] 
+boxplot(stigma_area_soly$um)
+stigma_area_soly<- stigma_area_soly[complete.cases(stigma_area_soly), ]
+
+#SOME
+stigma_some <- subset(stigma, species=="SOME")
+#Stigma area (square micrometers, only unit like this)
+stigma_area_some <-stigma_some[grep("area", stigma$measurement),] 
+boxplot(stigma_area_some$um)
+stigma_area_some<- stigma_area_some[complete.cases(stigma_area_some), ]
+str(stigma_area_some)
+stigma_area_some[stigma_area_some$um> 2000000,]<-NA
+#PEIN
+stigma_pein <- subset(stigma, species=="PEIN")
+stigma_area_pein <-stigma_pein[grep("area", stigma$measurement),] 
+stigma_area_pein<- stigma_area_pein[complete.cases(stigma_area_pein), ]
+
+boxplot(stigma_area_pein$um)
+#CAAN
+stigma_caan <- subset(stigma, species=="CAAN")
+stigma_area_caan <-stigma_caan[grep("area", stigma$measurement),] 
+boxplot(stigma_area_caan$um)
+stigma_area_caan<- stigma_area_caan[complete.cases(stigma_area_caan), ]
+str(stigma_area_caan)
+stigma_area_caan[stigma_area_caan$um> 1600000,]<-NA
+#BROL
+stigma_brol <- subset(stigma, species=="BROL")
+stigma_area_brol <-stigma_brol[grep("area", stigma$measurement),] 
+boxplot(stigma_area_brol$um)
+summary(stigma_area_brol$um)
+stigma_area_brol<- stigma_area_brol[complete.cases(stigma_area_brol), ]
+#BRRA
+stigma_brra <- subset(stigma, species=="BRRA")
+stigma_area_brra <-stigma_brra[grep("area", stigma$measurement),] 
+boxplot(stigma_area_brra$um)
+summary(stigma_area_brra$um)
+stigma_area_brra<- stigma_area_brra[complete.cases(stigma_area_brra), ]
+stigma_area_brra[stigma_area_brra$um> 500000,]<-NA
+#SIAL
+stigma_sial <- subset(stigma, species=="SIAL")
+stigma_area_sial <-stigma_sial[grep("area", stigma$measurement),] 
+boxplot(stigma_area_sial$um)
+summary(stigma_area_sial$um)
+stigma_area_sial<- stigma_area_sial[complete.cases(stigma_area_sial), ]
+stigma_area_sial[stigma_area_sial$um< 2000,]<-NA
+#ERSA
+stigma_ersa <- subset(stigma, species=="ERSA")
+stigma_area_ersa <-stigma_ersa[grep("area", stigma$measurement),] 
+boxplot(stigma_area_ersa$um)
+summary(stigma_area_ersa$um)
+stigma_area_ersa<- stigma_area_ersa[complete.cases(stigma_area_ersa), ]
+stigma_area_ersa[stigma_area_ersa$um< 3000,]<-NA
+#IPAQ
+stigma_ipaq <- subset(stigma, species=="IPAQ")
+stigma_area_ipaq <-stigma_ipaq[grep("area", stigma$measurement),] 
+boxplot(stigma_area_ipaq$um)
+summary(stigma_area_ipaq$um)
+stigma_area_ipaq<- stigma_area_ipaq[complete.cases(stigma_area_ipaq), ]
+#IPPU
+stigma_ippu <- subset(stigma, species=="IPPU")
+stigma_area_ippu <-stigma_ippu[grep("area", stigma$measurement),] 
+boxplot(stigma_area_ippu$um)
+summary(stigma_area_ippu$um)
+stigma_area_ippu<- stigma_area_ippu[complete.cases(stigma_area_ippu), ]
+stigma_area_ippu[stigma_area_ippu$um< 7000,]<-NA
+
+stigma_area_all <- rbind(stigma_area_brol,stigma_area_brra,stigma_area_caan,stigma_area_ersa,stigma_area_ipaq,
+      stigma_area_ippu,stigma_area_pein,stigma_area_sial,stigma_area_soly,stigma_area_some)
+stigma_area_all<- stigma_area_all[complete.cases(stigma_area_all), ]
+
+boxplot(stigma_area_all$um~stigma_area_all$species)
+
+
+stigma_area_all <- dcast(species + measurement ~ ., value.var = "um", fun.aggregate = mean, data = stigma_area_all, na.rm= TRUE)
+colnames(stigma_area_all)[3] <- "stigma_area" 
+
+#STIGMA LENGTH
 stigma_length <-stigma[grep("length", stigma$measurement),] 
+
+#SOLY
+stigma_length_soly <-stigma_soly[grep("length", stigma$measurement),] 
+boxplot(stigma_length_soly$um)
+stigma_length_soly <- stigma_length_soly[complete.cases(stigma_length_soly),]
+#SOME
+stigma_length_some <-stigma_some[grep("length", stigma$measurement),] 
+boxplot(stigma_length_some$um)
+stigma_length_some <- stigma_length_some[complete.cases(stigma_length_some),]
+#PEIN
+stigma_length_pein <-stigma_pein[grep("length", stigma$measurement),] 
+boxplot(stigma_length_pein$um)
+stigma_length_pein <- stigma_length_pein[complete.cases(stigma_length_pein),]
+#CAAN
+stigma_length_caan <-stigma_caan[grep("length", stigma$measurement),] 
+boxplot(stigma_length_caan$um)
+stigma_length_caan <- stigma_length_caan[complete.cases(stigma_length_caan),]
+stigma_length_caan[stigma_length_caan$um>3000,]<-NA
+#BROL
+stigma_length_brol <-stigma_brol[grep("length", stigma$measurement),] 
+boxplot(stigma_length_brol$um)
+stigma_length_brol <- stigma_length_brol[complete.cases(stigma_length_brol),]
+stigma_length_brol[stigma_length_brol$um>5000,]<-NA
+#BRRA
+stigma_length_brra <-stigma_brra[grep("length", stigma$measurement),] 
+boxplot(stigma_length_brra$um)
+stigma_length_brra <- stigma_length_brra[complete.cases(stigma_length_brra),]
+#SIAL
+stigma_length_sial <-stigma_sial[grep("length", stigma$measurement),] 
+boxplot(stigma_length_sial$um)
+stigma_length_sial <- stigma_length_sial[complete.cases(stigma_length_sial),]
+#ERSA
+stigma_length_ersa <-stigma_ersa[grep("length", stigma$measurement),] 
+boxplot(stigma_length_ersa$um)
+stigma_length_ersa <- stigma_length_ersa[complete.cases(stigma_length_ersa),]
+#IPPU
+stigma_length_ippu <-stigma_ippu[grep("length", stigma$measurement),] 
+boxplot(stigma_length_ippu$um)
+stigma_length_ippu <- stigma_length_ippu[complete.cases(stigma_length_ippu),]
+#IPAQ
+stigma_length_ipaq <-stigma_ipaq[grep("length", stigma$measurement),] 
+boxplot(stigma_length_ipaq$um)
+stigma_length_ipaq <- stigma_length_ipaq[complete.cases(stigma_length_ipaq),]
+stigma_length_ipaq <- stigma_length_ipaq[stigma_length_ipaq$um>5000,]<- NA
+
+stigma_length_all <- rbind(stigma_length_brol,stigma_length_brra,stigma_length_caan,stigma_length_ersa,stigma_length_ipaq,
+                         stigma_length_ippu,stigma_length_pein,stigma_length_sial,stigma_length_soly,stigma_length_some)
+stigma_length_all<- stigma_length_all[complete.cases(stigma_length_all), ]
+
+boxplot(stigma_length_all$um~stigma_length_all$species)
+
+
+
+
+
 #Stigma surface
 stigma_surface <-stigma[grep("surface", stigma$measurement),] 
 #Stigma width
