@@ -4,7 +4,9 @@ library(vegan)
 matrix_scale_effect <- readRDS("Data/matrix_scale_effect.Rda")
 
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
-si_index <- readRDS("Data/si_index.RData")
+#si_index <- readRDS("Data/si_index.RData")
+si_index <- readRDS("Data/si_index_1.RData")
+
 traits_all$si_index <- si_index
 traits_all <- traits_all[,-c(1,2)]
 
