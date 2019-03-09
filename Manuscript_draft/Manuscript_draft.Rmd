@@ -160,7 +160,7 @@ Mention that SI index is calculated (Schoen & Lloyd 1984)
 
 # RESULTS
 
-Results of hand cross-pollination, hand self-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seed set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Moreover, average effect sizes differed across species and families, see **Figure 2**. Despite some variability in the effect of the different pollen donors per species, in general terms the effect per species was homogeneous (see **Figure 3**). When the donors were groped by family not big differences were seen, just for one species 
+Results of hand cross-pollination, hand self-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seed set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Moreover, average effect sizes differed across species and  within families, see **Figure 2**. Despite some variability in the effect of the different pollen donors per species, in general terms the effect of heterospecific pollen from the distinct nine treatments  per species was homogeneous (see **Figure 3**). When the donors were groped by family not big differences were seen, just for *S. lycopersicum* the confidence intervals of Brassicaceae and Convolvulaceae did not overlap. 
 
 
 
