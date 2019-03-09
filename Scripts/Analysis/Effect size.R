@@ -108,7 +108,7 @@ width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2
   theme(axis.text.y = element_text(face = c('italic', 'bold', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
 
 
 #PEIN
@@ -180,7 +180,7 @@ p2 + geom_point(alpha=c(1,1,0.5,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
 
 
 #CAAN
@@ -251,7 +251,7 @@ p2 + geom_point(alpha=c(1,1,1,0.5,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'bold', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
 
 
 #SOME
@@ -330,7 +330,7 @@ p2 + geom_point(alpha=c(0.5,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
   theme(axis.text.y = element_text(face = c('bold', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
 
 
 ####
@@ -403,7 +403,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,1,0.5),show.legend = FALSE,aes(color=fac
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'bold')))
 
-save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
 
 
 #BRRA
@@ -472,7 +472,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,0.5,1),show.legend = FALSE,aes(color=fac
                                             'italic','italic', 'italic', 'italic', 'bold', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
 
 
 #SIAL
@@ -552,7 +552,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,0.5,1,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
 
 
 #ERSA
@@ -622,7 +622,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,0.5,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
 
 
 
@@ -696,7 +696,7 @@ p2 + geom_point(alpha=c(1,1,1,1,0.5,1,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'bold','italic', 'italic', 'italic', 'italic', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
 
 
 
@@ -766,4 +766,4 @@ p2 + geom_point(alpha=c(1,1,1,1,1,0.5,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'italic','bold', 'italic', 'italic', 'italic', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/all_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/all_effect_size.RData")
