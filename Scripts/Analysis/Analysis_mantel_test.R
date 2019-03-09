@@ -170,6 +170,7 @@ matrix_scale_effect <- matrix_cross_scale-matrix_scale
 matrix_scale_effect[matrix_scale_effect<0]<- 0
 
 #saveRDS(matrix_scale_effect, "Manuscript_draft/Data/matrix_scale_effect.Rda")
+#saveRDS(matrix_scale_effect, "Data/matrix_scale_effect.Rda")
 
 #There are some values that the effect is greater than the cross
 #Maybe fix that?
