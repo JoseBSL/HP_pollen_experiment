@@ -104,7 +104,7 @@ ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/soly_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/soly_effect_size_family.RData")
 
 #SOME
 
@@ -182,7 +182,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/some_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/some_effect_size_family.RData")
 
 
 #PEIN
@@ -259,7 +259,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/pein_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/pein_effect_size_family.RData")
 
 #CAAN
 
@@ -335,7 +335,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/caan_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/caan_effect_size_family.RData")
 
 
 ####
@@ -416,7 +416,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-save.image("Manuscript_draft/effect_size_species/brol_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/brol_effect_size_family.RData")
 
 
 #BRRA
@@ -493,7 +493,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-save.image("Manuscript_draft/effect_size_species/brra_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/brra_effect_size_family.RData")
 
 
 #SIAL
@@ -570,7 +570,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-save.image("Manuscript_draft/effect_size_species/sial_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/sial_effect_size_family.RData")
 
 
 #ERSA
@@ -646,7 +646,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/ersa_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/ersa_effect_size_family.RData")
 
 
 #IPPU
@@ -723,7 +723,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/ippu_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/ippu_effect_size_family.RData")
 
 
 #IPAQ
@@ -800,6 +800,6 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/ipaq_effect_size_family.RData")
+#save.image("Manuscript_draft/effect_size_species/ipaq_effect_size_family.RData")
 
 
