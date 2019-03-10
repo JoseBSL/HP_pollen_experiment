@@ -506,7 +506,7 @@ bioenv(matrix_scale_effect~traits_all$style_length, method="pearson", trace=T)
 #correlation=-0.1757
 
 #13)Style_width
-style_width <- traits_all_scaled[,12]
+style_width <- traits_all_scaled[,13]
 style_width <- as.data.frame(style_width)
 rownames(style_width) <- rownames(style_width)
 style_width_dist <- dist(style_width, diag=T, upper=T)
@@ -516,7 +516,7 @@ protest(matrix_scale_effect, style_width_dist)
 #significance=0.115, procustes correlation=0.4231
 
 #13)Ovary_width
-ovary_width <- traits_all_scaled[,12]
+ovary_width <- traits_all_scaled[,14]
 ovary_width <- as.data.frame(ovary_width)
 rownames(ovary_width) <- rownames(ovary_width)
 ovary_width_dist <- dist(ovary_width, diag=T, upper=T)
@@ -526,7 +526,7 @@ protest(matrix_scale_effect, ovary_width_dist)
 #significance=0.115, procustes correlation=0.4231
 
 #13)Ovary_length
-ovary_length <- traits_all_scaled[,12]
+ovary_length <- traits_all_scaled[,15]
 ovary_length <- as.data.frame(ovary_length)
 rownames(ovary_length) <- rownames(ovary_length)
 ovary_length_dist <- dist(ovary_length, diag=T, upper=T)
@@ -535,7 +535,15 @@ mantel(matrix_scale_effect, ovary_length_dist)
 protest(matrix_scale_effect, ovary_length_dist)
 #significance=0.115, procustes correlation=0.4231
 
-
+#13)Ovary_length
+si_index <- traits_all_scaled[,16]
+si_index <- as.data.frame(si_index)
+rownames(si_index) <- rownames(si_index)
+si_index <- dist(si_index, diag=T, upper=T)
+mantel(matrix_scale_effect, si_index)
+#significance=0.0787, r=0.07872
+protest(matrix_scale_effect, si_index)
+#significance=0.115, procustes correlation=0.4231
 #Save environment to load object in Markdown
 #save.image(file='Manuscript_draft/myEnvironment_mantel.RData')
 
