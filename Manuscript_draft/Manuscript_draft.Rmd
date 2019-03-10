@@ -5,13 +5,11 @@ author:
   name: Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman, Romina Rader
   email: barragansljose@gmail.com
 affiliation:
-- affil: US Environmental Protection Agency, Office of Research and Development, National
-    Health and Environmental Effects Research Laboratory, Atlantic Ecology Division,
-    27 Tarzwell Drive  Narragansett, RI, 02882, USA
+- affil: University of New England (Australia)
   affilnum: 1
-- affil: Big Name University, Department of R, City, BN, 01020, USA
-  affilnum: 2
 - affil: Estacion Biologica de Donana (EBD-CSIC), E-41092 Sevilla, Spain
+  affilnum: 2
+- affil: Department of Biological Sciences, University of Pittsburgh 4249 Fifth Avenue, Pittsburgh, Pennsylvania 15260-3929 USA
   affilnum: 3
 output:
   pdf_document:
