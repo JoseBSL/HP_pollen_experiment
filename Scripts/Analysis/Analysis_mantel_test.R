@@ -262,6 +262,8 @@ mantel(matrix_scale_effect, evo_distance_its)
 #Based on Letten & Cornwell 2014
 evo_distance_its_square_root <- sqrt(evo_distance_its)
 mantel(matrix_scale_effect, evo_distance_its_square_root)
+mantel(matrix_scale_effect, evo_distance_its_square_root, permutations = 10000)
+
 #significance=0.028, r=0.2764
 p <- mantel.correlog(matrix_scale_effect, evo_distance_its_square_root) 
 plot(p)
