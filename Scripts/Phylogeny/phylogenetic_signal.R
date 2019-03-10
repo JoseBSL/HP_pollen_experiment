@@ -36,6 +36,8 @@ readRDS("Manuscript_draft/Data/matrix_scale_effect.Rda")
 
 #From here I start working with the traits
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
+si_index <- readRDS("Data/si_index.RData")
+traits_all$si_index <- si_index
 rownames(traits_all) <- rownames(matrix_scale_effect)
 traits_all <- traits_all[,-c(1,2)]
 traits_all_scaled <- scale(traits_all)
@@ -59,8 +61,6 @@ selfing <- phylosig(tree=tree_10,x=selfing,method="lambda",test=TRUE)
 #a <- phylosig(tree=tree_10,x=selfing,method="lambda",test=TRUE)
 #a[1]
 #a[4]
-
-
 
 
 #Phylo signal for pollen size
@@ -92,33 +92,39 @@ pollen_ovule_ratio <- as.matrix((pollen_ovule_ratio))[,1]
 pollen_ovule_ratio <- phylosig(tree=tree_10,x=pollen_ovule_ratio,method="lambda",test=TRUE)
 #$`lambda`[1] 6.610696e-05
 
-#Phylo signal stigma area
+#Anthers
+anthers <-as.data.frame(traits_all[,c("anthers")])
+rownames(anthers) <- tree_10[[3]]
+anthers <- as.matrix((anthers))[,1]
+anthers <- phylosig(tree=tree_10,x=anthers,method="lambda",test=TRUE)
+
+#Stigma area
 stigma_area <-as.data.frame(traits_all[,c("stigma_area")])
 rownames(stigma_area) <- tree_10[[3]]
 stigma_area <- as.matrix((stigma_area))[,1]
 stigma_area <- phylosig(tree=tree_10,x=stigma_area,method="lambda",test=TRUE)
 #$`lambda`[1] 0.8597021
 
-#Phylo signal stigma length
+#Stigma length
 stigma_length <-as.data.frame(traits_all[,c("stigma_length")])
 rownames(stigma_length) <- tree_10[[3]]
 stigma_length <- as.matrix((stigma_length))[,1]
 stigma_length <- phylosig(tree=tree_10,x=stigma_length,method="lambda",test=TRUE)
-#$`lambda`[1] 6.610696e-05
+#$`lambda`[1] 0.6961634
 
-#Phylo signal stigma surface
+#Stigma_width
+stigma_width <-as.data.frame(traits_all[,c("stigma_width")])
+rownames(stigma_width) <- tree_10[[3]]
+stigma_width <- as.matrix((stigma_width))[,1]
+stigma_width <- phylosig(tree=tree_10,x=stigma_width,method="lambda",test=TRUE)
+#$`lambda`[1] 0.7292784
+
+#Stigma_surface
 stigma_surface <-as.data.frame(traits_all[,c("stigma_surface")])
 rownames(stigma_surface) <- tree_10[[3]]
 stigma_surface <- as.matrix((stigma_surface))[,1]
 stigma_surface <- phylosig(tree=tree_10,x=stigma_surface,method="lambda",test=TRUE)
 #$`lambda`[1] 0.7292784
-
-#Phylo signal stigma width
-stigma_width <-as.data.frame(traits_all[,c("stigma_width")])
-rownames(stigma_width) <- tree_10[[3]]
-stigma_width <- as.matrix((stigma_width))[,1]
-stigma_width <- phylosig(tree=tree_10,x=stigma_width,method="lambda",test=TRUE)
-#$`lambda`[1] 6.610696e-05
 
 #Phylo signal style length
 style_length <-as.data.frame(traits_all[,c("style_length")])
@@ -149,5 +155,12 @@ rownames(ovary_length) <- tree_10[[3]]
 ovary_length <- as.matrix((ovary_length))[,1]
 ovary_length <- phylosig(tree=tree_10,x=ovary_length,method="lambda",test=TRUE)
 #$`lambda`[1] 0.4881212
+
+#si_index
+si_index <-as.data.frame(traits_all[,c("si_index")])
+rownames(si_index) <- tree_10[[3]]
+si_index <- as.matrix((si_index))[,1]
+si_index <- phylosig(tree=tree_10,x=si_index,method="lambda",test=TRUE)
+#$`lambda`[1] 0.4917088
 
 #save.image("Manuscript_draft/Data/phylo_sign.RData")
