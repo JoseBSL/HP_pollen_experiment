@@ -1,9 +1,19 @@
 ---
 title: working title Compatibility system and stigma size are the main predictors of heterospecific pollen effect
 author:
-- affilnum: '1,2,3'
-  name: Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman, Romina Rader
-  email: barragansljose@gmail.com
+- name: Jose B. Lanuza
+  affilnum: 1
+  email: barragansljose@gmail.com    
+
+- name: Ignasi Bartomeus
+  affilnum: 2
+ 
+- name: Tia-Lynn Ashman  
+  affilnum: 3
+
+- name: Romina Rader
+  affilnum: 1
+  
 affiliation:
 - affil: University of New England (Australia)
   affilnum: 1
