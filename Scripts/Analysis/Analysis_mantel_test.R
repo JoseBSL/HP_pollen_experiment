@@ -299,6 +299,8 @@ apply(traits_all_scaled, 2, sd)
 #Now I apply Mantel
 traits_all_scaled_dist <- dist(traits_all_scaled)
 mantel(matrix_scale_effect, traits_all_scaled_dist)
+mantel(matrix_scale_effect, dist(traits_all))
+
 #significance=0.296, r=0.09
 protest(matrix_scale_effect, traits_all_scaled_dist)
 #significance=0.946, procustes correlation=0.5968
