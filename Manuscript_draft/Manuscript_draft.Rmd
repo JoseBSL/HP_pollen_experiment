@@ -162,10 +162,10 @@ Mention that SI index is calculated (Schoen & Lloyd 1984)
 
 Results of hand cross-pollination, hand self-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seed set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Moreover, average effect sizes differed across species and across families, see **Figure 2**. Despite some variability in the effect of the different pollen donors per species, in general terms the effect of heterospecific pollen from the distinct nine treatments per species was homogeneous (see **Figure 3**), just for four species out of ten, just one donor did not overlap the confidence intervals with other donors. Therefore, none of the donors had a clear stronger or weaker effect across species. When the donors were groped by family not big differences were seen, just for *S. lycopersicum* the confidence intervals of Brassicaceae and Convolvulaceae did not overlap (see **Figure 4**). In addition, for the 100% hetrospecific pollen treatments we did not find almost seed production. However, for just one species (*S. alba*) the control pollination and the heterospecific pollination with pollen from a confamilial had similar seed production. For both Solanaceae species *S. melongena* and *C. annuum* 100% pollen treatments produced few seedles fruits (3% and 9% respectively) and they did not for the apomictic treatments.
 
-Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a statistically clear correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. 
+Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a positive statistically clear correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. 
 
 
-
+add phylogenetic signal of traits...
 
 \newpage
 ```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7, fig.cap="Barplot with the different treatments that provide information of the reproductive biology of the ten species. The y axis is the proportion of ovules converted to seed in percentage. The different treatments (N=10) which are presented in the legend are, hand cross-pollination, hand self-pollination, natural selfing and apomixis. More information about these treatments can be found in Methods and Appendices."}
