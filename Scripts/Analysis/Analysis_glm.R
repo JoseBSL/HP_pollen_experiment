@@ -108,12 +108,13 @@ traits_all$compatibility[traits_all$Focal=="IPPU"] <- 100
 traits_all$compatibility=as.numeric(traits_all$compatibility)
 
 #I use the mean effect for each treatment, later maybe I come back and use the other
-hp_mean_sp <- dcast(Species ~ ., value.var = "value", fun.aggregate = mean, data = effect, na.rm= TRUE)
+#hp_mean_sp <- dcast(Species ~ ., value.var = "value", fun.aggregate = mean, data = effect, na.rm= TRUE)
 colnames(hp_mean_sp) <- c("Species","hp_effect")
 
-data <- merge(hp_mean_sp, traits_all, by="Species")
-data <- data[,-c(3)]
+data <- merge(effect, traits_all, by="Species")
+data <- data[,-c(4)]
 str(data)
+data$indv <- seq(1:9)
 geom_line(aes(y=predict(model2), group=hp_effect))
 ggplot(data, aes(x=anthers, y=hp_effect)) + 
   geom_point()+
@@ -125,6 +126,8 @@ geom_line(aes(y=predict(model2), group=hp_effect))
 ggplot(data, aes(x=stigma_area, y=hp_effect)) + 
   geom_point()+
   geom_abline(aes(intercept=`(Intercept)`, slope=stigma_area), as.data.frame(t(fixef(model2))))+theme_cowplot()
+
+colnames(data)[3] <- "hp_effect"
 
 #Stigma_type
 
@@ -314,3 +317,4 @@ colnames(maybe)[3] <- "cohen_d"
 aov_effect_size_stigma <- aov(cohen_d~stigma_type, data=maybe)
 summary(aov_effect_size_stigma)
 
+#Now glm's with effect sizes
