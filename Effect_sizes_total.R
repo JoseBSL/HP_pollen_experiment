@@ -1,13 +1,13 @@
 #In this script I'm going to calculate the effect sizes and plot them.
 #Moreover I will compare differences among species and among families
-dev.off()
-dev.off() 
+
 #loadlibrary
-#install.packages("effsize")
+#i#install.packages("effsize")
 library(effsize)
 library(dplyr)
 library(ggplot2)
 library(ggpubr)
+#install.packages("effsize")
 
 load("seed_set&scaled_seed_set.RData")
 
@@ -578,7 +578,7 @@ all_convolvulaceae <- all_convolvulaceae %>% arrange(desc(Family))
 all_brassicaceae <- all_brassicaceae %>% arrange(desc(Family))
 
 all<- rbind(all_solanaceae,all_convolvulaceae, all_brassicaceae)
-
+saveRDS(all, "Data/effect_size_all.RData")
 all$Family_1 <- "S"
 all$Family_1[1:4]<- "B" 
 all$Family_1[5:6]<- "C"
@@ -593,6 +593,55 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family_1))) +
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-save.image("Manuscript_draft/effect_size_species/effect_size_total.RData")
+#save.image("Manuscript_draft/effect_size_species/effect_size_total.RData")
+traits_all <- read.csv("Data/traits_all.csv", sep=",")
+traits_all$species <- c("BROL", "BRRA", "CAAN", "ERSA", "IPAQ", "IPPU", 
+                        "PEIN", "SIAL", "SOLY", "SOME") 
+colnames(traits_all)[2] <- "Species"
+traits_all=traits_all[,-1]
+all$Family <- c("SOME", "SOLY", "PEIN", "CAAN", "IPPU", "IPAQ", "SIAL","ERSA", "BRRA", "BROL")
+colnames(all)[1] <- "Species"
+all <- all[order(all$Species),]
+all_t <-merge(all, traits_all, by="Species")
+si_index <- readRDS("Data/si_index.RData")
+str(all_t)
+all_t$si_index <- si_index
+all_t$stigma_type <- as.character(all_t$stigma_type)
+p1<- ggplot(all_t, aes(Species,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))
+p1 + geom_point(show.legend = FALSE,aes(color=factor(stigma_type))) +
+  geom_errorbar(show.legend=FALSE, aes(x = Species, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(stigma_type)), width = 0.2)+
+  scale_color_manual("Family",values=c( "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c( "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+#Pollen size
+
+all_t_ordered <- all_t[order(all_t$mean_ovules),]
+all_t_ordered$Species <- factor(all_t_ordered$Species, levels = all_t_ordered$Species)
+p1<- ggplot(all_t_ordered, aes(mean_ovules,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))
+p1 + geom_point(show.legend = FALSE,aes(color=factor(stigma_type))) +
+  geom_errorbar(show.legend=FALSE, aes(x = mean_ovules, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(stigma_type)), width = 0.2)+
+  scale_color_manual("Family",values=c( "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c( "#0072B2", "#009E73", "#D55E00"))+
+  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+p1<- ggplot(all_t_ordered, aes(stigma_width,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))
+p1 + geom_point(show.legend = FALSE,aes(color=factor(stigma_width))) +
+  geom_errorbar(show.legend=FALSE, aes(x = stigma_width, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(stigma_width)), width = 0.2)+
+  scale_fill_manual("Family",values=c( ))+
+  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
+p1<- ggplot(all_t_ordered, aes(si_index,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))
+p1 + geom_point(show.legend = FALSE,aes(color=factor(si_index))) +
+  geom_errorbar(show.legend=FALSE, aes(x = si_index, ymin = Lower, 
+                                       ymax = Upper, size=2,color=factor(si_index)), width = 0.2)+
+  scale_fill_manual("Family",values=c( ))+
+  xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
