@@ -165,6 +165,8 @@ diag(matrix_scale) <- diag(matrix_cross_scale)
 
 #Creating matrix of effect (mean cross spp x1-mean HP effect spp x1)
 matrix_scale_effect <- matrix_cross_scale-matrix_scale
+matrix_scale_reverted <- matrix_scale-matrix_cross_scale
+
 #We set our lower bound to 0
 #Maximum theoretical value is our cross, "no treatments could be greater than it"
 matrix_scale_effect[matrix_scale_effect<0]<- 0
@@ -271,6 +273,12 @@ protest(matrix_scale_effect, evo_distance_its_square_root)
 #significance=0.765, procustes corr=0.5259
 
 
+#load Effect sizes
+matrix_effect_size <- readRDS("Data/matrix_effect_size.RData")
+mantel(matrix_effect_size, sqrt(evo_distance_its))
+mantel(abs(matrix_effect_size), sqrt(evo_distance_rbcl))
+mantel(abs(matrix_scale_reverted), sqrt(evo_distance_rbcl))
+
 #
 ##
 ###
@@ -300,9 +308,14 @@ apply(traits_all_scaled, 2, sd)
 traits_all_scaled_dist <- dist(traits_all_scaled)
 mantel(matrix_scale_effect, traits_all_scaled_dist)
 mantel(matrix_scale_effect, dist(traits_all))
+mantel(matrix_effect_size, dist(traits_all))
+mantel(abs(matrix_effect_size), dist(traits_all))
+mantel(abs(matrix_scale_reverted), dist(traits_all))
 
 #significance=0.296, r=0.09
 protest(matrix_scale_effect, traits_all_scaled_dist)
+protest(matrix_effect_size,  dist(traits_all))
+
 #significance=0.946, procustes correlation=0.5968
 protest(matrix_scale_effect, traits_all_scaled)
 
@@ -336,6 +349,10 @@ traits_stigma_dist <- dist(traits_all_scaled_stigma, diag=T, upper=T)
 
 traits_si_index_dist <- dist(traits_all$si_index, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_si_index_dist)
+mantel(matrix_effect_size, traits_si_index_dist)
+mantel(abs(matrix_effect_size), traits_si_index_dist)
+mantel(abs(matrix_scale_reverted), traits_si_index_dist)
+
 #significance=0.016, r=0.27
 protest(matrix_scale_effect, traits_si_index_dist)
 #significance=0.373, procustes correlation=0.3208
@@ -350,6 +367,10 @@ traits_all_scaled_stigma <- traits_all_scaled_stigma
 rownames(traits_all_scaled_stigma) <- rownames(traits_all_scaled_stigma)
 traits_stigma_dist <- dist(traits_all_scaled_stigma, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_stigma_dist)
+mantel(matrix_effect_size, traits_stigma_dist)
+mantel(abs(matrix_effect_size), traits_stigma_dist)
+mantel(abs(matrix_scale_reverted), traits_stigma_dist)
+
 #significance=0.016, r=0.27
 protest(matrix_scale_effect, traits_stigma_dist)
 #significance=0.373, procustes correlation=0.3208
@@ -363,6 +384,10 @@ traits_all_scaled_self <- traits_all_scaled_self
 rownames(traits_all_scaled_self) <- rownames(traits_all_scaled_self)
 traits_self_dist <- dist(traits_all_scaled_self, diag=T, upper=T)
 mantel(matrix_scale_effect, traits_self_dist)
+mantel(matrix_effect_size, traits_self_dist)
+mantel(abs(matrix_effect_size), traits_self_dist)
+mantel(abs(matrix_scale_reverted), traits_self_dist)
+
 #significance=0.424, r=0.03015
 protest(matrix_scale_effect, traits_self_dist)
 #significance=0597, procustes correlation=0.3609
@@ -383,6 +408,10 @@ pollen_size <- pollen_size
 rownames(pollen_size) <- rownames(pollen_size)
 pollen_size_dist <- dist(pollen_size, diag=T, upper=T)
 mantel(matrix_scale_effect, pollen_size_dist)
+mantel(matrix_effect_size, pollen_size_dist)
+mantel(abs(matrix_effect_size), pollen_size_dist)
+mantel(abs(matrix_scale_reverted), pollen_size_dist)
+
 #significance=0.233, r=0.1526
 protest(matrix_scale_effect, pollen_size_dist)
 #significance=0.519, procustes correlation=-0.05605
@@ -397,6 +426,10 @@ pollen <- pollen
 rownames(pollen) <- rownames(pollen)
 pollen_dist <- dist(pollen, diag=T, upper=T)
 mantel(matrix_scale_effect, pollen_dist) 
+mantel(matrix_effect_size, pollen_dist)
+mantel(abs(matrix_effect_size), pollen_dist)
+mantel(abs(matrix_scale_reverted), pollen_dist)
+
 #significance=0.491,r=-0.1097
 protest(matrix_scale_effect, pollen_dist)
 #significance=0.907, procustes correlation=0.3174
@@ -409,6 +442,10 @@ ovules <- as.data.frame(ovules)
 rownames(ovules) <- rownames(ovules)
 ovules_dist <- dist(ovules, diag=T, upper=T)
 mantel(matrix_scale_effect, ovules_dist)
+mantel(matrix_effect_size, ovules_dist)
+mantel(abs(matrix_effect_size), ovules_dist)
+mantel(abs(matrix_scale_reverted), ovules_dist)
+
 #significance=0.487, r=-0.08
 protest(matrix_scale_effect, ovules_dist)
 #0.884, procustes correlation=0.2985
@@ -421,6 +458,10 @@ p_o_ratio <- as.data.frame(p_o_ratio)
 rownames(p_o_ratio) <- rownames(p_o_ratio)
 p_o_ratio_dist <- dist(p_o_ratio, diag=T, upper=T)
 mantel(matrix_scale_effect, p_o_ratio_dist)
+mantel(matrix_effect_size, p_o_ratio_dist)
+mantel(abs(matrix_effect_size), p_o_ratio_dist)
+mantel(abs(matrix_scale_reverted), p_o_ratio_dist)
+
 #significance=0.752, r=-0.1533
 protest(matrix_scale_effect, p_o_ratio_dist)
 #significance=0.958, procustes correlation=0.2758
@@ -433,6 +474,10 @@ anthers <- as.data.frame(anthers)
 rownames(anthers) <- rownames(anthers)
 anthers_dist <- dist(anthers, diag=T, upper=T)
 mantel(matrix_scale_effect, anthers_dist)
+mantel(matrix_effect_size, anthers_dist)
+mantel(abs(matrix_effect_size), anthers_dist)
+mantel(abs(matrix_scale_reverted), anthers_dist)
+
 #significance=0.356, r=0.05802
 protest(matrix_scale_effect, anthers_dist)
 #significance=0.806, procustes corr=0.2352
@@ -446,6 +491,10 @@ stigma_area <- as.data.frame(stigma_area)
 rownames(stigma_area) <- rownames(stigma_area)
 stigma_area_dist <- dist(stigma_area, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_area_dist)
+mantel(matrix_effect_size, stigma_area_dist)
+mantel(abs(matrix_effect_size), stigma_area_dist)
+mantel(abs(matrix_scale_reverted), stigma_area_dist)
+
 #significance=0.025, r=0.4002
 protest(matrix_scale_effect, stigma_area_dist)
 #significance=0.657, procustes correlation=0.4041
@@ -459,11 +508,16 @@ stigma_length <- as.data.frame(stigma_length)
 rownames(stigma_length) <- rownames(stigma_length)
 stigma_length_dist <- dist(stigma_length, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_length_dist)
+mantel(matrix_effect_size, stigma_length_dist)
+mantel(abs(matrix_effect_size), stigma_length_dist)
+mantel(abs(matrix_scale_reverted), stigma_length_dist)
+
 #significance=0.179, r=0.07872
 protest(matrix_scale_effect, stigma_length_dist)
 protest(matrix_scale_effect, traits_all_scaled$stigma_length)
 #significance=0.111, procustes correlation 0.4231
 bioenv(matrix_scale_effect~traits_all$stigma_length, method="pearson", trace=T)
+
 #correlation=-0.167
 
 
@@ -473,6 +527,10 @@ stigma_surface <- as.data.frame(stigma_surface)
 rownames(stigma_surface) <- rownames(stigma_surface)
 stigma_surface_dist <- dist(stigma_surface, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_surface_dist)
+mantel(matrix_effect_size, stigma_surface_dist)
+mantel(abs(matrix_effect_size), stigma_surface_dist)
+mantel(abs(matrix_scale_reverted), stigma_surface_dist)
+
 #significance=0.007, r=0.4469
 protest(matrix_scale_effect, stigma_surface_dist)
 #significance=0.796, procustes correlation=0.4063
@@ -487,6 +545,10 @@ stigma_width <- stigma_width
 rownames(stigma_width) <- rownames(stigma_width)
 stigma_width_dist <- dist(stigma_width, diag=T, upper=T)
 mantel(matrix_scale_effect, stigma_width_dist)
+mantel(matrix_effect_size, stigma_width_dist)
+mantel(abs(matrix_effect_size), stigma_width_dist)
+mantel(abs(matrix_scale_reverted), stigma_width_dist)
+
 #significance=0.891, r=-0.24
 protest(matrix_scale_effect, stigma_width_dist)
 #significance=0.253, procustes correlation=0.3819
@@ -499,6 +561,11 @@ style_length <- as.data.frame(style_length)
 rownames(style_length) <- rownames(style_length)
 style_length_dist <- dist(style_length, diag=T, upper=T)
 mantel(matrix_scale_effect, style_length_dist)
+mantel(matrix_effect_size, style_length_dist)
+mantel(abs(matrix_effect_size), style_length_dist)
+mantel(abs(matrix_scale_reverted), style_length_dist)
+
+
 #significance=0.303, r=0.05021
 protest(matrix_scale_effect, style_length_dist)
 #significance=0.113, procustes correlation=0.3995
@@ -511,6 +578,10 @@ style_width <- as.data.frame(style_width)
 rownames(style_width) <- rownames(style_width)
 style_width_dist <- dist(style_width, diag=T, upper=T)
 mantel(matrix_scale_effect, style_width_dist)
+mantel(matrix_effect_size, style_width_dist)
+mantel(abs(matrix_effect_size), style_width_dist)
+mantel(abs(matrix_scale_reverted), style_width_dist)
+
 #significance=0.0787, r=0.07872
 protest(matrix_scale_effect, style_width_dist)
 #significance=0.115, procustes correlation=0.4231
@@ -521,6 +592,10 @@ ovary_width <- as.data.frame(ovary_width)
 rownames(ovary_width) <- rownames(ovary_width)
 ovary_width_dist <- dist(ovary_width, diag=T, upper=T)
 mantel(matrix_scale_effect, ovary_width_dist)
+mantel(matrix_effect_size, ovary_width_dist)
+mantel(abs(matrix_effect_size), ovary_width_dist)
+mantel(abs(matrix_scale_reverted), ovary_width_dist)
+
 #significance=0.0787, r=0.07872
 protest(matrix_scale_effect, ovary_width_dist)
 #significance=0.115, procustes correlation=0.4231
@@ -531,6 +606,10 @@ ovary_length <- as.data.frame(ovary_length)
 rownames(ovary_length) <- rownames(ovary_length)
 ovary_length_dist <- dist(ovary_length, diag=T, upper=T)
 mantel(matrix_scale_effect, ovary_length_dist)
+mantel(matrix_effect_size, ovary_length_dist)
+mantel(abs(matrix_effect_size), ovary_length_dist)
+mantel(abs(matrix_scale_reverted), ovary_length_dist)
+
 #significance=0.0787, r=0.07872
 protest(matrix_scale_effect, ovary_length_dist)
 #significance=0.115, procustes correlation=0.4231
@@ -541,6 +620,10 @@ si_index <- as.data.frame(si_index)
 rownames(si_index) <- rownames(si_index)
 si_index <- dist(si_index, diag=T, upper=T)
 mantel(matrix_scale_effect, si_index)
+mantel(matrix_effect_size, si_index)
+mantel(abs(matrix_effect_size), si_index)
+mantel(abs(matrix_scale_reverted), si_index)
+
 #significance=0.0787, r=0.07872
 protest(matrix_scale_effect, si_index)
 #significance=0.115, procustes correlation=0.4231
