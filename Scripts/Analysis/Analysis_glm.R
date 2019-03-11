@@ -135,8 +135,15 @@ geom_line(aes(y=predict(stigma_type), group=hp_effect))
 ggplot(data, aes(x=stigma_type, y=hp_effect)) + 
   geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=stigma_type), as.data.frame(t(fixef(stigma_type))))+theme_cowplot()
 
+aov_stigma<- aov(hp_effect ~ stigma_type, data = data)
+summary(aov_stigma)
+#Dry
+stigma_type_1 <- subset(data, stigma_type=="1")
+mean(stigma_type_1$hp_effect)
+#Wet
+stigma_type_0 <- subset(data, stigma_type=="0")
+mean(stigma_type_0$hp_effect)
 
-anova(data$hp_effect, data$stigma_type)
 #Selfing_rate
 
 Selfing_rate=lme(hp_effect~Selfing_rate, data=data, random=~1|indv)
@@ -284,4 +291,26 @@ ggplot(data, aes(x=si_index, y=hp_effect)) +
 
 #Now same things but instead with the Hp effect with effect sizes
 
+#m_effect <- readRDS("Data/matrix_effect_size.RData")
+#m_effect <- melt(m_effect)
+effect_size <- readRDS("Data/effect_size.RDS")
+colnames(effect_size)[1]<- "Non_focal"
+colnames(effect_size)[5]<- "Species"
+
+#colnames(m_effect) <- c("Species", "Non_focal", "hp_effect")
+#data_effect_size <- merge(m_effect, traits_all, by="Species")
+data_effect_size <- merge(effect_size, traits_all, by="Species")
+#Check different effect through anova with stigma type
+
+aov_effect_size_stigma <- aov(Cohen_d~stigma_type, data=data_effect_size)
+summary(aov_effect_size_stigma)
+stigma_type_1 <- subset(data_effect_size, stigma_type=="1")
+stigma_type_0 <- subset(data_effect_size, stigma_type=="0")
+mean(stigma_type_1$Cohen_d, na.rm=T)
+mean(stigma_type_0$Cohen_d, na.rm=T)
+
+maybe <- dcast(Species+stigma_type ~ ., value.var = "Cohen_d", fun.aggregate = mean, data = data_effect_size, na.rm= TRUE)
+colnames(maybe)[3] <- "cohen_d"
+aov_effect_size_stigma <- aov(cohen_d~stigma_type, data=maybe)
+summary(aov_effect_size_stigma)
 

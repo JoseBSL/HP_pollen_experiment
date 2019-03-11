@@ -34,10 +34,10 @@ ipaq_effect_size<- ipaq_effect_size[-6,]
 e_size <- rbind(soly_effect_size,some_effect_size,pein_effect_size, caan_effect_size, brol_effect_size, brra_effect_size,
       sial_effect_size, ersa_effect_size, ippu_effect_size, ipaq_effect_size)
 
-e_size <- e_size[,-c(2,3,5,6)]
+e_size <- e_size[,-c(2,3)]
 str(e_size)
 e_size$Species<- as.character(e_size$Species)
-
+saveRDS(e_size, "Data/effect_size.RDS")
 
 e_size$Species <- gsub("50%", "", e_size$Species)
 e_size$le <- seq(1:90)
@@ -49,4 +49,4 @@ diag(matrix_effect_size) <- 0
 matrix_effect_size[8,5]<- matrix_effect_size[8,6]
 matrix_effect_size[10,5]<- matrix_effect_size[10,6]
 
-saveRDS(matrix_effect_size, "Data/matrix_effect_size.RData")
+#saveRDS(matrix_effect_size, "Data/matrix_effect_size.RData")
