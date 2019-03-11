@@ -1,4 +1,9 @@
 #In this script I'm going to perform GLM between Hp effect and the traits
+library(vegan)
+library(lme4)
+library(nlme)
+library(cowplot)
+library(ggplot2)
 
 #load data
 matrix_scale_effect <- readRDS("Manuscript_draft/Data/matrix_scale_effect.Rda")
@@ -82,8 +87,8 @@ traits_all$si_index <- c(z_brol, z_brra, z_caan, z_ersa, z_ipaq, z_ippu,
 si_index <- c(z_brol, z_brra, z_caan, z_ersa, z_ipaq, z_ippu, 
               z_pein, z_sial, z_soly, z_some) 
 
-saveRDS(si_index, "Data/si_index.RData")
-saveRDS(si_index, "Data/si_index_1.RData")
+#saveRDS(si_index, "Data/si_index.RData")
+#saveRDS(si_index, "Data/si_index_1.RData")
 
 #colname to merge
 colnames(traits_all)[2] <- "Species"
@@ -106,147 +111,13 @@ traits_all$compatibility=as.numeric(traits_all$compatibility)
 hp_mean_sp <- dcast(Species ~ ., value.var = "value", fun.aggregate = mean, data = effect, na.rm= TRUE)
 colnames(hp_mean_sp) <- c("Species","hp_effect")
 
-
 data <- merge(hp_mean_sp, traits_all, by="Species")
 data <- data[,-c(3)]
-
-model1=lm(hp_effect~si_index, data=data)
-summary(model1)
-
-model1=lm(hp_effect~Selfing_rate, data=data)
-summary(model1)
-
-model1=lm(hp_effect~pollen_size, data=data)
-summary(model1)
-
-model1=lm(hp_effect~mean_pollen_anther, data=data)
-summary(model1)
-
-model1=lm(hp_effect~mean_ovules, data=data)
-summary(model1)
-
-model1=lm(hp_effect~pollen_ovule_ratio, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_area, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_length, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_surface, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_width, data=data)
-summary(model1)
-
-model1=lm(hp_effect~style_length, data=data)
-summary(model1)
-
-model1=lm(hp_effect~style_width, data=data)
-summary(model1)
-
-model1=lm(hp_effect~ovary_width, data=data)
-summary(model1)
-
-model1=lm(hp_effect~ovary_length, data=data)
-summary(model1)
-
-model1=lm(hp_effect~si_index, data=data)
-summary(model1)
-
-model1=lm(hp_effect~compatibility, data=data)
-summary(model1)
-
-#Now let see what happens without groping
-
-data <- merge(effect, traits_all, by="Species")
-data <- data[,-c(4)]
-colnames(data)[3] <- "hp_effect" 
-model1=lm(hp_effect~si_index, data=data)
-summary(model1)
-
-model1=lm(hp_effect~Selfing_rate, data=data)
-summary(model1)
-
-model1=lm(hp_effect~pollen_size, data=data)
-summary(model1)
-
-model1=lm(hp_effect~mean_pollen_anther, data=data)
-summary(model1)
-
-model1=lm(hp_effect~mean_ovules, data=data)
-summary(model1)
-
-model1=lm(hp_effect~pollen_ovule_ratio, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_area, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_length, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_surface, data=data)
-summary(model1)
-
-model1=lm(hp_effect~stigma_width, data=data)
-summary(model1)
-
-model1=lm(hp_effect~style_length, data=data)
-summary(model1)
-
-model1=lm(hp_effect~style_width, data=data)
-summary(model1)
-
-model1=lm(hp_effect~ovary_width, data=data)
-summary(model1)
-
-model1=lm(hp_effect~ovary_length, data=data)
-summary(model1)
-
-model1=lm(hp_effect~si_index, data=data)
-summary(model1)
-
-model1=lm(hp_effect~compatibility, data=data)
-summary(model1)
-
-#Same result
-#After simple linear models we add random effects
-
-
-summary(data$Species)
-data$indv<- seq.int(1:10)
-summary(data)
-#Analysis with random factor of individuals
-
-model2=lme(hp_effect~stigma_type, data=data, random=~1|indv)
-summary(model2)
-
-model2=lme(hp_effect~Selfing_rate, data=data, random=~1|indv)
-summary(model2)
-
-model2=lme(hp_effect~pollen_size, data=data, random=~1|indv)
-summary(model2)
-
-model2=lme(hp_effect~mean_pollen_anther, data=data, random=~1|indv)
-summary(model2)
-
-model2=lme(hp_effect~mean_ovules, data=data, random=~1|indv)
-summary(model2)
-
-model2=lme(hp_effect~pollen_ovule_ratio, data=data, random=~1|indv)
-summary(model2)
-
-model2=lme(hp_effect~anthers, data=data, random=~1|indv)
-summary(model2)
-
+str(data)
 geom_line(aes(y=predict(model2), group=hp_effect))
 ggplot(data, aes(x=anthers, y=hp_effect)) + 
   geom_point()+
   geom_abline(aes(intercept=`(Intercept)`, slope=anthers), as.data.frame(t(fixef(model2))))+theme_cowplot()
-
-
 model2=lme(hp_effect~stigma_area, data=data, random=~1|indv)
 summary(model2)
 
@@ -255,89 +126,162 @@ ggplot(data, aes(x=stigma_area, y=hp_effect)) +
   geom_point()+
   geom_abline(aes(intercept=`(Intercept)`, slope=stigma_area), as.data.frame(t(fixef(model2))))+theme_cowplot()
 
+#Stigma_type
 
-model2=lme(hp_effect~stigma_length, data=data, random=~1|indv)
-summary(model2)
+stigma_type=lme(hp_effect~stigma_type, data=data, random=~1|indv)
+summary(stigma_type)
 
-geom_line(aes(y=predict(model2), group=hp_effect))
+geom_line(aes(y=predict(stigma_type), group=hp_effect))
+ggplot(data, aes(x=stigma_type, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=stigma_type), as.data.frame(t(fixef(stigma_type))))+theme_cowplot()
+
+
+anova(data$hp_effect, data$stigma_type)
+#Selfing_rate
+
+Selfing_rate=lme(hp_effect~Selfing_rate, data=data, random=~1|indv)
+summary(Selfing_rate)
+
+geom_line(aes(y=predict(Selfing_rate), group=hp_effect))
+ggplot(data, aes(x=Selfing_rate, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=Selfing_rate), as.data.frame(t(fixef(Selfing_rate))))+theme_cowplot()
+
+
+#Pollen_size
+
+pollen_size=lme(hp_effect~pollen_size, data=data, random=~1|indv)
+summary(pollen_size)
+
+geom_line(aes(y=predict(pollen_size), group=hp_effect))
+ggplot(data, aes(x=pollen_size, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=pollen_size), as.data.frame(t(fixef(pollen_size))))+theme_cowplot()
+
+
+#Mean_pollen_anther
+
+mean_pollen_anther=lme(hp_effect~mean_pollen_anther, data=data, random=~1|indv)
+summary(mean_pollen_anther)
+
+geom_line(aes(y=predict(mean_pollen_anther), group=hp_effect))
+ggplot(data, aes(x=mean_pollen_anther, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=mean_pollen_anther), as.data.frame(t(fixef(mean_pollen_anther))))+theme_cowplot()
+
+
+str(data)
+
+#Mean_ovules
+
+mean_ovules=lme(hp_effect~mean_ovules, data=data, random=~1|indv)
+summary(mean_ovules)
+
+geom_line(aes(y=predict(mean_ovules), group=hp_effect))
+ggplot(data, aes(x=mean_ovules, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=mean_ovules), as.data.frame(t(fixef(mean_ovules))))+theme_cowplot()
+
+#pollen_ovule_ratio
+
+pollen_ovule_ratio=lme(hp_effect~pollen_ovule_ratio, data=data, random=~1|indv)
+summary(pollen_ovule_ratio)
+
+geom_line(aes(y=predict(pollen_ovule_ratio), group=hp_effect))
+ggplot(data, aes(x=pollen_ovule_ratio, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=pollen_ovule_ratio), as.data.frame(t(fixef(pollen_ovule_ratio))))+theme_cowplot()
+
+
+
+
+#stigma_area
+
+stigma_area=lme(hp_effect~stigma_area, data=data, random=~1|indv)
+summary(stigma_area)
+
+geom_line(aes(y=predict(stigma_area), group=hp_effect))
 ggplot(data, aes(x=stigma_area, y=hp_effect)) + 
-  geom_point()+
-  geom_abline(aes(intercept=`(Intercept)`, slope=stigma_area), as.data.frame(t(fixef(model2))))+theme_cowplot()
-
-
-model2=lme(hp_effect~stigma_surface, data=data, random=~1|indv)
-summary(model2)
-
-geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
-ggplot(data, aes(x=stigma_surface, y=hp_effect)) + 
-  geom_jitter(width=1.5,size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=stigma_surface), as.data.frame(t(fixef(model2))))+theme_cowplot()
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=stigma_area), as.data.frame(t(fixef(stigma_area))))+theme_cowplot()
 
 
 
+#stigma_length
+
+stigma_length=lme(hp_effect~stigma_length, data=data, random=~1|indv)
+summary(stigma_length)
+str(data)
+
+geom_line(aes(y=predict(stigma_length), group=hp_effect))
+ggplot(data, aes(x=stigma_length, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=stigma_length), as.data.frame(t(fixef(stigma_length))))+theme_cowplot()
 
 
-model2=lme(hp_effect~stigma_width, data=data, random=~1|indv)
-summary(model2)
 
-geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+
+#stigma_width
+
+stigma_width=lme(hp_effect~stigma_width, data=data, random=~1|indv)
+summary(stigma_width)
+geom_line(aes(y=predict(stigma_width), group=hp_effect))
 ggplot(data, aes(x=stigma_width, y=hp_effect)) + 
-  geom_jitter(width=1.5,size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=stigma_width), as.data.frame(t(fixef(model2))))+theme_cowplot()
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=stigma_width), as.data.frame(t(fixef(stigma_width))))+theme_cowplot()
 
 
+#stigma_surface
+
+stigma_surface=lme(hp_effect~stigma_surface, data=data, random=~1|indv)
+summary(stigma_surface)
+
+geom_line(aes(y=predict(stigma_surface), group=hp_effect))
+ggplot(data, aes(x=stigma_surface, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=stigma_surface), as.data.frame(t(fixef(stigma_surface))))+theme_cowplot()
 
 
+#style_length
 
+style_length=lme(hp_effect~style_length, data=data, random=~1|indv)
+summary(style_length)
 
-model2=lme(hp_effect~style_length, data=data, random=~1|indv)
-summary(model2)
-
-geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+geom_line(aes(y=predict(style_length), group=hp_effect))
 ggplot(data, aes(x=style_length, y=hp_effect)) + 
-  geom_jitter(width=1.5,size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=style_length), as.data.frame(t(fixef(model2))))+theme_cowplot()
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=style_length), as.data.frame(t(fixef(style_length))))+theme_cowplot()
+
+#style_width
+
+style_width=lme(hp_effect~style_width, data=data, random=~1|indv)
+summary(style_width)
+
+geom_line(aes(y=predict(style_width), group=hp_effect))
+ggplot(data, aes(x=style_width, y=hp_effect)) + 
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=style_width), as.data.frame(t(fixef(style_width))))+theme_cowplot()
 
 
-model2=lme(hp_effect~ovary_width, data=data, random=~1|indv)
-summary(model2)
+#ovary_width
 
-geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+ovary_width=lme(hp_effect~ovary_width, data=data, random=~1|indv)
+summary(ovary_width)
+
+geom_line(aes(y=predict(ovary_width), group=hp_effect))
 ggplot(data, aes(x=ovary_width, y=hp_effect)) + 
-  geom_jitter(width=1.5,size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=ovary_width), as.data.frame(t(fixef(model2))))+theme_cowplot()
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=ovary_width), as.data.frame(t(fixef(ovary_width))))+theme_cowplot()
 
-model2=lme(hp_effect~ovary_length, data=data, random=~1|indv)
-summary(model2)
 
-geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+#ovary_length
+
+ovary_length=lme(hp_effect~ovary_length, data=data, random=~1|indv)
+summary(ovary_length)
+
+geom_line(aes(y=predict(ovary_length), group=hp_effect))
 ggplot(data, aes(x=ovary_length, y=hp_effect)) + 
-  geom_jitter(width=1.5,size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=ovary_length), as.data.frame(t(fixef(model2))))+theme_cowplot()
+  geom_point()+geom_abline(aes(intercept=`(Intercept)`, slope=ovary_length), as.data.frame(t(fixef(ovary_length))))+theme_cowplot()
 
-model2=lme(hp_effect~si_index, data=data, random=~1|indv)
-summary(model2)
 
-geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
+#si_index
+
+si_index=lme(hp_effect~si_index, data=data, random=~1|indv)
+summary(si_index)
+
+geom_line(aes(y=predict(si_index), group=hp_effect))
 ggplot(data, aes(x=si_index, y=hp_effect)) + 
-  geom_jitter(width=1.5,size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=si_index), as.data.frame(t(fixef(model2))))+theme_cowplot()
+  geom_point()+
+  geom_abline(aes(intercept=`(Intercept)`, slope=si_index), as.data.frame(t(fixef(si_index))))+theme_cowplot()
 
+#Now same things but instead with the Hp effect with effect sizes
 
-
-
-
-
-
-model2=lme(hp_effect~compatibility, data=data, random=~1|indv)
-summary(model2)
-
-
-#PLOT
-
-
-geom_jitter(width=1.5,size=4)+geom_line(aes(y=predict(model2), group=hp_effect))
-ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
-  geom_jitter(width=1.5,aes(colour = Focal),size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(model2))))+theme_cowplot()
 

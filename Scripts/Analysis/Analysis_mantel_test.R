@@ -277,6 +277,8 @@ protest(matrix_scale_effect, evo_distance_its_square_root)
 matrix_effect_size <- readRDS("Data/matrix_effect_size.RData")
 mantel(matrix_effect_size, sqrt(evo_distance_its))
 mantel(abs(matrix_effect_size), sqrt(evo_distance_rbcl))
+mantel(abs(matrix_effect_size), sqrt(evo_distance_its))
+
 mantel(abs(matrix_scale_reverted), sqrt(evo_distance_rbcl))
 
 #
@@ -327,6 +329,10 @@ traits_all_bioenv <- traits_all
 traits_all_bioenv_scaled <- scale(traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
+bioenv(matrix_scale_effect,traits_all_bioenv_scaled[,-c(6,12,16)])
+
+
+
 bio_result <- bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
 save(bio_result, file="Manuscript_draft/bio_result.RData")
 bio_result[3]
@@ -337,6 +343,8 @@ traits_all_scaled=as.data.frame(traits_all_scaled)
 #Just seing how it goes and the output
 #Don´t know how appropiate it is...
 adonis(formula=matrix_scale_effect ~. ,data=traits_all_scaled)
+bioenv(matrix_scale_effect, traits_all[,-1])
+bioenv(matrix_scale_effect, traits_all[,-1])
 
 #Start trait by trait
 
@@ -358,6 +366,7 @@ protest(matrix_scale_effect, traits_si_index_dist)
 #significance=0.373, procustes correlation=0.3208
 bioenv(matrix_scale_effect~traits_all$si_index, method="pearson", trace=T)
 #corr=-0.16
+adonis(formula=matrix_scale_effect ~si_index ,data=traits_all)
 
 
 #1)Stigma type
@@ -376,6 +385,7 @@ protest(matrix_scale_effect, traits_stigma_dist)
 #significance=0.373, procustes correlation=0.3208
 bioenv(matrix_scale_effect~traits_all$stigma_type, method="pearson", trace=T)
 #corr=-0.16
+adonis(formula=matrix_scale_effect ~stigma_type ,data=traits_all)
 
 #2)Selfing rate
 traits_all_scaled_self <- traits_all_scaled[,2]
@@ -383,6 +393,7 @@ traits_all_scaled_self <- as.data.frame(traits_all_scaled_self)
 traits_all_scaled_self <- traits_all_scaled_self
 rownames(traits_all_scaled_self) <- rownames(traits_all_scaled_self)
 traits_self_dist <- dist(traits_all_scaled_self, diag=T, upper=T)
+
 mantel(matrix_scale_effect, traits_self_dist)
 mantel(matrix_effect_size, traits_self_dist)
 mantel(abs(matrix_effect_size), traits_self_dist)
@@ -391,11 +402,10 @@ mantel(abs(matrix_scale_reverted), traits_self_dist)
 #significance=0.424, r=0.03015
 protest(matrix_scale_effect, traits_self_dist)
 #significance=0597, procustes correlation=0.3609
-adonis(formula=matrix_scale_effect ~Selfing_rate ,data=traits_all_scaled)
+adonis(formula=matrix_scale_effect ~Selfing_rate ,data=traits_all)
 #R2=0.46, p=0.198
 #Mantel gives very low correlation between selfing rate 
 #and the effect distance matrix of seed set
-#This surprise me...
 bioenv(matrix_scale_effect~traits_all$Selfing_rate, method="pearson", trace=T)
 #correlation=0.14
 
@@ -417,6 +427,7 @@ protest(matrix_scale_effect, pollen_size_dist)
 #significance=0.519, procustes correlation=-0.05605
 bioenv(matrix_scale_effect~traits_all$pollen_size, method="pearson", trace=T)
 #correlation=0.11
+adonis(formula=matrix_scale_effect ~pollen_size ,data=traits_all)
 
 
 #4)Pollen per anther
@@ -435,6 +446,7 @@ protest(matrix_scale_effect, pollen_dist)
 #significance=0.907, procustes correlation=0.3174
 bioenv(matrix_scale_effect~traits_all$mean_pollen_anther, method="pearson", trace=T)
 #correlation=-0.13
+adonis(formula=matrix_scale_effect ~mean_pollen_anther ,data=traits_all)
 
 #5)Ovules
 ovules <- traits_all_scaled[,5]
@@ -451,6 +463,7 @@ protest(matrix_scale_effect, ovules_dist)
 #0.884, procustes correlation=0.2985
 bioenv(matrix_scale_effect~traits_all$mean_ovules, method="pearson", trace=T)
 #correlation=-0.14
+adonis(formula=matrix_scale_effect ~mean_ovules ,data=traits_all)
 
 #6)Pollen ovule ratio now
 p_o_ratio <- traits_all_scaled[,6]
@@ -467,6 +480,7 @@ protest(matrix_scale_effect, p_o_ratio_dist)
 #significance=0.958, procustes correlation=0.2758
 bioenv(matrix_scale_effect~traits_all$pollen_ovule_ratio, method="pearson", trace=T)
 #correlation=0.0439
+adonis(formula=matrix_scale_effect ~pollen_ovule_ratio ,data=traits_all)
 
 #7)Anthers
 anthers <- traits_all_scaled[,7]
@@ -483,6 +497,7 @@ protest(matrix_scale_effect, anthers_dist)
 #significance=0.806, procustes corr=0.2352
 bioenv(matrix_scale_effect~traits_all$anthers, method="pearson", trace=T)
 #correlation=-0.0406
+adonis(formula=matrix_scale_effect ~anthers ,data=traits_all)
 
 
 #8)Stigma_area
@@ -500,6 +515,7 @@ protest(matrix_scale_effect, stigma_area_dist)
 #significance=0.657, procustes correlation=0.4041
 bioenv(matrix_scale_effect~traits_all$stigma_area, method="pearson", trace=T)
 #correlation=-0.0859
+adonis(formula=matrix_scale_effect ~stigma_area ,data=traits_all)
 
 
 #9)Stigma_length
@@ -517,6 +533,7 @@ protest(matrix_scale_effect, stigma_length_dist)
 protest(matrix_scale_effect, traits_all_scaled$stigma_length)
 #significance=0.111, procustes correlation 0.4231
 bioenv(matrix_scale_effect~traits_all$stigma_length, method="pearson", trace=T)
+adonis(formula=matrix_scale_effect ~stigma_length ,data=traits_all)
 
 #correlation=-0.167
 
