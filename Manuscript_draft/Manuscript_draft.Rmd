@@ -438,8 +438,6 @@ grid.newpage()
 ```
 
 
-Maybe for this plot I have to do hedges'g instead of cohean because of different sample sizes when I group the treatments per family. Check
-
 \newpage
 
 Mantel test indicates that a possible?? [It exists!]() correlation exist between heterospecific pollen effect and the evolutive relative distances, for ITS and RBCL markers we had r coefficients of 0.29 and 0.25 respectively p<0.05 [think on a figure - maybe using NMDS](). Moreover, Mantel test indicates that also a possible?? correlation between stigma width and stigma type exist (stats??). Trait correlations were also explored with GLMM
