@@ -648,6 +648,26 @@ protest(matrix_scale_effect, si_index)
 #save.image(file='Manuscript_draft/myEnvironment_mantel.RData')
 
 
+#I'm going to try to remove both convolvulaceae spp
+#And redo analysis
+matrix_scale_effect=matrix_scale_effect[-c(5,6),-c(5,6)]
+evo_distance_its_square_root=evo_distance_its_square_root[-c(5,6),-c(5,6)]
+mantel(matrix_scale_effect,evo_distance_its_square_root)
+evo_distance_rbcl=evo_distance_rbcl[-c(5,6),-c(5,6)]
+mantel(matrix_scale_effect,sqrt(evo_distance_rbcl))
+
+traits_all=traits_all[-c(5,6),]
+mantel(matrix_scale_effect,dist(traits_all))
+mantel(matrix_scale_effect,dist(traits_all[,17]))
+traits_all=traits_all[,-c(1,2)]
+str(traits_all)
+#bioenv(matrix_scale_effect~dist(traits_all), method="pearson", trace=T)
+
+
+
+
+
+
 
 #After checking the correlations between the morphological traits, we clean some variables
 #For stigma we are going to use one measurement that is going to be the width seen from the top 
