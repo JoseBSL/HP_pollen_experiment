@@ -468,8 +468,7 @@ ggplot(ALL, aes(x=compatibility, y=hp_effect)) +
 
 # DISCUSSION
  
-Discussion
-
+Although we have found a positive correlation between phylogenetic distance and heterospecific pollen effect, this results have to be treated carefully. From our results we want to highlight that also far related species can affect negatively fitness but the effect from close related is species can also have important detrimental effects. Moreover, the effect of close related species can be masked by the possibility of hibridization as it occure between two of our species of Brassica. Moreover, although different effect between distinct donors can occur we want to note the importance on the traits of the recipient that determine an homogeneous effect between donors. These different traits will define how it will be the effect across the different species independently of the nature of the donor. Although traditionally the nature of the pollen donor have been very studied, the recipient...
 
 
 
