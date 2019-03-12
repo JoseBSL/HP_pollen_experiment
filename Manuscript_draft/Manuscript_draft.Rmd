@@ -450,65 +450,14 @@ Mantel test indicates that a possible?? [It exists!]() correlation exist between
 
 # DISCUSSION
  
-Although we have found a positive correlation between phylogenetic distance and heterospecific pollen effect, this results have to be treated carefully. From our results we want to highlight that also far related species can affect negatively fitness but the effect from close related is species can also have important detrimental effects. Moreover, the effect of close related species can be masked by the possibility of hibridization as it occure between two of our species of Brassica. Moreover, although different effect between distinct donors can occur we want to note the importance on the traits of the recipient that determine an homogeneous effect between donors. These different traits will define how it will be the effect across the different species independently of the nature of the donor. Although traditionally the nature of the pollen donor have been very studied, the recipient...
-
-
+ 
+Open with the main results...
+ 
+Although we have found a positive correlation between phylogenetic distance and heterospecific pollen effect, this results have to be treated carefully. From our results we want to highlight that also far related species can affect negatively fitness but the effect from close related is species can also have important detrimental effects. Moreover, the effect of close related species can be masked by the possibility of hibridization as it occure between two of our species of Brassica. Moreover, although different effect between distinct donors can occur we want to note the importance on the traits of the recipient that determine an homogeneous effect between donors as we have shown in figure xxx. These different traits will define how it will be the effect across the different species independently of the nature of the donor and also differently even between species of . Although traditionally the nature of the pollen donor have been very studied, the recipient...
 
 Herbs vs tress, annual vs perennial... Many flowers vs few flowered species; structural composition on a system
 
  What are the implications of the findings?
-
-
-
-
-
-
-
-
-
-
-Ideas about pollen size in heterospecific pollen effect. (still have to develop it more...)
-
-Let's classify pollen size in three groups in order to understand the interaction between pollen donor and recipient:
-1) Donor pollen size < Recipient pollen size
-2) Donor pollen size = Recipient pollen size
-3) Donor pollen size > Recipient pollen size
-
-Now I try to develop each part
-
-1) Donor pollen size < Recipient pollen size
-
-Effect:
-
-- Donor's pollen could clogg the stigma
-
-- Chemical inhibition
-
-Traits associated with bigger pollen of the recipient:
-
-- Recipient's pollen have faster pollen tube growth (example with my data)
-
-- Reduction in number of ovules (Also with my species)
-
-- Big differences in pollen size can be traduced in low relatednes therefore less likely of pollen germination on a far related stigma.
-
-
-2) Donor pollen size = Recipient pollen size
-
-- Very relatedness dependant this point
-
-- Similar probabilities of taken space on the stigma
-
-
-3) Donor pollen size > Recipient pollen size
-
-Effect: 
-
--In small stigmas big pollen grains can occupy great part of the stigmatic area.
-
--small pollen grains can get embeded
-
-IB: Think also on using tree analysis to test if hp effect depends on complex trait combinations. Tree analysis are great when two different strategies lead to the same outcome. This would never been pick up by GLMs. The r package is party{} . You can see an example applied to birds is Sol et al 2010 Science. Ask me if you want more details or code examples.
 
 
 # CONCLUSIONS

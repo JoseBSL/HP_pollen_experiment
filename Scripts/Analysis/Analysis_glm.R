@@ -98,12 +98,12 @@ traits_all$compatibility[traits_all$Species=="BROL"] <- 0
 traits_all$compatibility[traits_all$Species=="BRRA"] <- 0
 traits_all$compatibility[traits_all$Species=="SIAL"] <- 100
 traits_all$compatibility[traits_all$Species=="ERSA"] <- 2
-traits_all$compatibility[traits_all$Focal=="CAAN"] <- 64
-traits_all$compatibility[traits_all$Focal=="SOLY"] <- 48
-traits_all$compatibility[traits_all$Focal=="SOME"] <- 100
-traits_all$compatibility[traits_all$Focal=="PEIN"] <- 26
-traits_all$compatibility[traits_all$Focal=="IPAQ"] <- 75
-traits_all$compatibility[traits_all$Focal=="IPPU"] <- 100
+traits_all$compatibility[traits_all$Species=="CAAN"] <- 64
+traits_all$compatibility[traits_all$Species=="SOLY"] <- 48
+traits_all$compatibility[traits_all$Species=="SOME"] <- 100
+traits_all$compatibility[traits_all$Species=="PEIN"] <- 26
+traits_all$compatibility[traits_all$Species=="IPAQ"] <- 75
+traits_all$compatibility[traits_all$Species=="IPPU"] <- 100
 
 traits_all$compatibility=as.numeric(traits_all$compatibility)
 
