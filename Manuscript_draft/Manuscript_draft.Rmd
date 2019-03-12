@@ -447,24 +447,6 @@ Mantel test indicates that a possible?? [It exists!]() correlation exist between
 
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=5, fig.cap="The effect of heterospecific pollen (scaled see set) is represented in function of the compatibility system (self/cross*100) for the the different species. Each coulored dot represents the interaction of a focal species with a different pollen donor."}
-load("myEnv.RData")
-library(nlme)
-library(lme4)
-library(ggplot2)
-library(cowplot)
-model2=lme(hp_effect~compatibility, data=ALL, random=~1|indv) #I don't get the random here. I think you need a better analysis.
-ggplot(ALL, aes(x=compatibility, y=hp_effect)) + 
-  geom_jitter(width=1.5,aes(colour = Focal),size=4)+
-  geom_abline(aes(intercept=`(Intercept)`, slope=compatibility), as.data.frame(t(fixef(model2))))+theme_cowplot()
-
-```
-
-
-[Compatibility index don´t multiply per 100 from Lloyd](Jose)
-
-\newpage
-
 
 # DISCUSSION
  
