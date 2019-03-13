@@ -168,7 +168,7 @@ Results of hand cross-pollination, hand self-pollination, natural selfing and ap
 
 Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a positive statistically clear correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. We found a significant phylogenetic signal of traits for pollen size, stigma measurements and style length (p<0.05). Although with a lack of a significant correlation pagel's lambda values were also relatively high (>0.45) for incompatibility index, ovary length and levels of selfing. Moreover, Mantel test between heterospecific pollen effect and traits gave also a positive significant correlation with a  r value of 0.4. When the effect was look trait by trait with Mantel test, stigma type and stigma measurements (length, width and area) gave a significant positive correlation with heterospecific pollen effect.
 
-
+[explain ratios and total pollen](Jose)
 [add table with morphometrical traits to appendix]()
 
 \newpage
@@ -457,30 +457,20 @@ p4d <- phylo4d(pollen_tree, hp_mean_sp)
 barplot.phylo4d(p4d, center = TRUE , scale = FALSE,trait.labels="Hp effect",bar.col = c(rep("#0072B2",4), rep("#009E73",2), rep("#D55E00",4)))
 ```
 
-
-
-
-
-\newpage
-
-Mantel test indicates that a possible?? [It exists!]() correlation exist between heterospecific pollen effect and the evolutive relative distances, for ITS and RBCL markers we had r coefficients of 0.29 and 0.25 respectively p<0.05 [think on a figure - maybe using NMDS](). Moreover, Mantel test indicates that also a possible?? correlation between stigma width and stigma type exist (stats??). Trait correlations were also explored with GLMM
-
-[I have done it at the moment just for Compatibility system](Jose)
-[Also I have to fix from mixed linear model to GLMM, just realize that](Jose)
-
-
 \newpage
 
 # DISCUSSION
  
- 
-Open with the main results...
- 
+Interestingly the effect of the different donors per species were very homogeneous which lead us to think that the female reproductive traits of the pollen recipient are the main ones in explaining heterospecific pollen effect. Our main predictive trait of effect is stigma size, and because we found a correlation between the pollen quantity deposited on the stigma and stigma size, we argue that that the total load of pollen deposited per treatment can obscured what are the main traits in driving heterospecific pollen effect. 
+
+Curiously between the species with greater effect sizes, we found completely self incompatible species, species with the smallest stigma and the species with shortes style. Develop more...
+
+
 Although we have found a positive correlation between phylogenetic distance and heterospecific pollen effect, this results have to be treated carefully. From our results we want to highlight that also far related species can affect negatively fitness but the effect from close related is species can also have important detrimental effects. Moreover, the effect of close related species can be masked by the possibility of hibridization as it occure between two of our species of Brassica. Moreover, although different effect between distinct donors can occur we want to note the importance on the traits of the recipient that determine an homogeneous effect between donors as we have shown in figure xxx. These different traits will define how it will be the effect across the different species independently of the nature of the donor and also differently even between species of . Although traditionally the nature of the pollen donor have been very studied, the recipient...
 
 Herbs vs tress, annual vs perennial... Many flowers vs few flowered species; structural composition on a system
 
- What are the implications of the findings?
+What are the implications of the findings?
 
 
 # CONCLUSIONS
