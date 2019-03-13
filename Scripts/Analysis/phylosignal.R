@@ -44,11 +44,11 @@ rownames(hp_mean_sp) <- c("Brassica_oleracea","Brassica_rapa","Capsicum_annuum",
 str(hp_mean_sp)
 hp_mean_sp=hp_mean_sp[,-1]
 p4d <- phylo4d(pollen_tree, hp_mean_sp)
-barplot.phylo4d(p4d, tree.type = "phylo", tree.ladderize = TRUE)
+barplot.phylo4d(p4d, tree.type = "phylo", tree.ladderize = TRUE,  scale = FALSE)
 phyloSignal(p4d = p4d, method = "all")
 carni.lipa <- lipaMoran(p4d)
 carni.lipa.p4d <- lipaMoran(p4d, as.p4d = TRUE)
-barplot.phylo4d(p4d, bar.col=(carni.lipa$p.value < 0.05) + 1, center = FALSE , scale = FALSE)
+barplot.phylo4d(p4d, bar.col=(carni.lipa$p.value < 0.05) + 1, center = FALSE , scale = FALSE,trait.labels="Hp effect")
 barplot.phylo4d(carni.lipa.p4d, bar.col = (carni.lipa$p.value < 0.05) + 1, center = FALSE, scale = FALSE)
 dotplot(p4d)
 
@@ -81,34 +81,27 @@ dotplot(p4d)
 #Assessing the signal depth with correlograms
 mass.crlg <- phyloCorrelogram(p4d, trait = "dt")
 plot(mass.crlg)
-
-
 dotplot(p4d, tree.type = "cladogram")
 
-
-
-
 #Now I´m going to try to perform it with my data
+#Effect sizes phylo signal
 pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
-matrix_scale_effect <- readRDS("Data/matrix_effect_size.RData")
-as.data.frame(matrix_scale_effect)
-matrix_scale_effect <- melt(matrix_scale_effect)
-colnames(matrix_scale_effect)[3] <- "hp"
-str(matrix_scale_effect)
-matrix_scale_effect <- as.data.frame(matrix_scale_effect)
-hp_mean_sp=matrix_scale_effect
-hp_mean_sp <- dcast(Focal ~ ., value.var = "hp", fun.aggregate = mean, data = matrix_scale_effect, na.rm= TRUE)
-colnames(hp_mean_sp)[2] <- "hp"
-str(hp_mean_sp)
-hp_mean_sp=hp_mean_sp[,-1]
-hp_mean_sp[hp_mean_sp>0]<-0
-hp_mean_sp=abs(hp_mean_sp)
+effect_size_all <- readRDS( "Data/effect_size_all.RData")
+#Now rename species
+rownames(effect_size_all) <- c("Solanum_melongena","Solanum_lycopersicum","Petunia_integrifolia", "Capsicum_annuum",
+                          "Ipomoea_purpurea", "Ipomoea_aquatica", "Sinapis_alba", "Eruca_vesicaria",
+                          "Brassica_rapa", "Brassica_oleracea")
+
+hp_mean_sp=effect_size_all[,-c(1,3,4)]
+#hp_mean_sp[hp_mean_sp>0]<-0
+#hp_mean_sp=abs(hp_mean_sp)
 p4d <- phylo4d(pollen_tree, hp_mean_sp)
 barplot.phylo4d(p4d, tree.type = "phylo", tree.ladderize = TRUE)
 phyloSignal(p4d = p4d, method = "all")
 carni.lipa <- lipaMoran(p4d)
 carni.lipa.p4d <- lipaMoran(p4d, as.p4d = TRUE)
-barplot.phylo4d(p4d, bar.col=(carni.lipa$p.value < 0.05) + 1, center = FALSE , scale = FALSE)
+barplot.phylo4d(p4d, center = TRUE , scale = FALSE,trait.labels="Hp effect",bar.col = c(rep("#0072B2",4), rep("#009E73",2), rep("#D55E00",4)))
 barplot.phylo4d(carni.lipa.p4d, bar.col = (carni.lipa$p.value < 0.05) + 1, center = FALSE, scale = FALSE)
 dotplot(p4d)
 phyloSignal(p4d)
+

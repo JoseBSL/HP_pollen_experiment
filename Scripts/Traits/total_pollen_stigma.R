@@ -24,28 +24,28 @@ colnames(total_pollen) <- c("focal", "non_focal", "ratio", "variable")
 
 data.frame(total_pollen, stringsAsFactors = F)
 total_pollen$focal <- as.character(total_pollen$focal)
-total_pollen$focal[total_pollen$focal=="CAAN"] <- "Capsicum"
-total_pollen$focal[total_pollen$focal=="SOLY"] <- "Tomato"
-total_pollen$focal[total_pollen$focal=="SOME"] <- "Eggplant"
-total_pollen$focal[total_pollen$focal=="PEIN"] <- "Petunia"
-total_pollen$focal[total_pollen$focal=="SIAL"] <- "White mustard"
-total_pollen$focal[total_pollen$focal=="ERSA"] <- "Rocket"
-total_pollen$focal[total_pollen$focal=="BROL"] <- "Wild cabbage"
-total_pollen$focal[total_pollen$focal=="BRRA"] <- "Pak choi"
-total_pollen$focal[total_pollen$focal=="IPAQ"] <- "Water morning glory"
-total_pollen$focal[total_pollen$focal=="IPPU"] <- "Morning glory"
+total_pollen$focal[total_pollen$focal=="CAAN"] <- "C. annuum"
+total_pollen$focal[total_pollen$focal=="SOLY"] <- "S. lycopersicum"
+total_pollen$focal[total_pollen$focal=="SOME"] <- "S. melongena"
+total_pollen$focal[total_pollen$focal=="PEIN"] <- "P. integrifolia"
+total_pollen$focal[total_pollen$focal=="SIAL"] <- "S. alba"
+total_pollen$focal[total_pollen$focal=="ERSA"] <- "E. sativa"
+total_pollen$focal[total_pollen$focal=="BROL"] <- "B. oleracea"
+total_pollen$focal[total_pollen$focal=="BRRA"] <- "B. rapa"
+total_pollen$focal[total_pollen$focal=="IPAQ"] <- "I. aquatica"
+total_pollen$focal[total_pollen$focal=="IPPU"] <- "I. purpurea"
 
 total_pollen$non_focal <- as.character(total_pollen$non_focal)
-total_pollen$non_focal[total_pollen$non_focal=="CAAN"] <- "Capsicum"
-total_pollen$non_focal[total_pollen$non_focal=="SOLY"] <- "Tomato"
-total_pollen$non_focal[total_pollen$non_focal=="SOME"] <- "Eggplant"
-total_pollen$non_focal[total_pollen$non_focal=="PEIN"] <- "Petunia"
-total_pollen$non_focal[total_pollen$non_focal=="SIAL"] <- "White mustard"
-total_pollen$non_focal[total_pollen$non_focal=="ERSA"] <- "Rocket"
-total_pollen$non_focal[total_pollen$non_focal=="BROL"] <- "Wild cabbage"
-total_pollen$non_focal[total_pollen$non_focal=="BRRA"] <- "Pak choi"
-total_pollen$non_focal[total_pollen$non_focal=="IPAQ"] <- "Water morning glory"
-total_pollen$non_focal[total_pollen$non_focal=="IPPU"] <- "Morning glory"
+total_pollen$non_focal[total_pollen$non_focal=="CAAN"] <- "C. annuum"
+total_pollen$non_focal[total_pollen$non_focal=="SOLY"] <- "S. lycopersicum"
+total_pollen$non_focal[total_pollen$non_focal=="SOME"] <- "S. melongena"
+total_pollen$non_focal[total_pollen$non_focal=="PEIN"] <- "P. integrifolia"
+total_pollen$non_focal[total_pollen$non_focal=="SIAL"] <- "S. alba"
+total_pollen$non_focal[total_pollen$non_focal=="ERSA"] <- "E. sativa"
+total_pollen$non_focal[total_pollen$non_focal=="BROL"] <- "B. oleracea"
+total_pollen$non_focal[total_pollen$non_focal=="BRRA"] <- "B. rapa"
+total_pollen$non_focal[total_pollen$non_focal=="IPAQ"] <- "I. aquatica"
+total_pollen$non_focal[total_pollen$non_focal=="IPPU"] <- "I. purpurea"
 
 total_pollen$spp <- paste(total_pollen$focal,total_pollen$non_focal, sep="-")
 

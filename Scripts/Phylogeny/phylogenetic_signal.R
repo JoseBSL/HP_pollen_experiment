@@ -163,4 +163,14 @@ si_index <- as.matrix((si_index))[,1]
 si_index <- phylosig(tree=tree_10,x=si_index,method="lambda",test=TRUE)
 #$`lambda`[1] 0.4917088
 
-#save.image("Manuscript_draft/Data/phylo_sign.RData")
+effect_size_all <- readRDS( "Data/effect_size_all.RData")
+effect_size_all$species <- c("SOME","SOLY","PEIN", "CAAN",
+                               "IPPU", "IPAQ", "SIAL", "ERSA",
+                               "BRRA", "BROL")
+effect_size_all=effect_size_all[,-c(1,3,4)]
+traits_all$species <- rownames(traits_all)
+traits_all <- merge(effect_size_all, traits_all, by="species" )
+Cohen_d <-as.data.frame(traits_all[,c("Cohen_d")])
+rownames(Cohen_d) <- tree_10[[3]]
+Cohen_d <- as.matrix((Cohen_d))[,1]
+Cohen_d <- phylosig(tree=tree_10,x=Cohen_d,method="lambda",test=TRUE)
