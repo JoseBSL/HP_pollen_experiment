@@ -650,14 +650,18 @@ protest(matrix_scale_effect, si_index)
 
 #I'm going to try to remove both convolvulaceae spp
 #And redo analysis
-matrix_scale_effect=matrix_scale_effect[-c(5,6),-c(5,6)]
-evo_distance_its_square_root=evo_distance_its_square_root[-c(5,6),-c(5,6)]
-mantel(matrix_scale_effect,evo_distance_its_square_root)
+matrix_soly=matrix_scale_effect[c(3,7,9,10),c(3,7,9,10)]
+evo_distance_its_square_root=evo_distance_its_square_root[c(3,7,9,10),c(3,7,9,10)]
+mantel(matrix_soly,evo_distance_its_square_root)
 evo_distance_rbcl=evo_distance_rbcl[-c(5,6),-c(5,6)]
 mantel(matrix_scale_effect,sqrt(evo_distance_rbcl))
 
-traits_all=traits_all[-c(5,6),]
-mantel(matrix_scale_effect,dist(traits_all))
+traits_all=traits_all[c(3,7,9,10),]
+mantel(matrix_soly,dist(traits_all[,2]))
+traits_soly=traits_all[,-c(1,4,7,14,13,15)]
+bioenv(matrix_soly,traits_soly)
+
+
 mantel(matrix_scale_effect,dist(traits_all[,17]))
 traits_all=traits_all[,-c(1,2)]
 str(traits_all)
