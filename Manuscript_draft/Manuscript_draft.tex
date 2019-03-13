@@ -417,8 +417,8 @@ petri dish from 15 randomly selected flowers. Fruits per number of
 flowers treated were counted for just Solanaceae species with fleshy
 fruit. For all the species we counted the number of seeds produced per
 average number of ovules. Levels of self-incompatibility were estimated
-by dividing the fruit set of hand self-pollination by hand cross
-pollination Lloyd and Schoen (1992).
+by dividing the seed set of hand self-pollination by hand
+cross-pollination Lloyd and Schoen (1992).
 
 \textbf{Analysis}
 
@@ -434,27 +434,10 @@ All the analysis were conducted with the statistical language \texttt{R}
 
 To compare the magnitude of effect of heterospecific pollen across
 species we conducted standarized Hedges' d {[}(mean of mixed 50\% mix -
-mean of cross pollination)/pooled SD{]}. We did in three different ways:
-effect sizes of each donor per focal species; effect sizes per family of
-the different donors per focal species; effect sizes of all the donors
-grouped per focal species.
-
-In order to test the relative effect of traits on seed production with
-foreign pollen we performed Mantel test in R (Vegan package, Euclidean
-distance) between the assymetrical matrix of heterospecific pollen
-effect (10 by 10 matrix) with the different distance matrices of traits.
-Heterospecific pollen effect was obtained through the subtraction of
-seed production by hand cross-pollination minus seed production of the
-different heterospecific pollen treatments. To find a model with the
-best explanatory traits we used the function \textbf{bioenv} from R. We
-also conducted Mantel test between the matrix of heterospecific pollen
-effect and the distance matrix from all the traits. Moreover, we
-explored also the correlation between traits and heterospecific pollen
-effect through generalized mixed models where the response variable was
-heterospecific pollen effect and the explanatory variable the different
-traits. In addition, we tested the correlation between the total amount
-of pollen deposited on the stigma with heterospecific pollinations and
-the stigma size through Pearson's correlation.
+mean of cross pollination)/pooled SD{]} with \textbf{effsize} package.
+We did in three different ways: effect sizes of each donor per focal
+species; effect sizes per family of the different donors per focal
+species; effect sizes of all the donors grouped per focal species.
 
 We conducted mantel test to check for correlations between
 heterospecific pollen effect and phylogenetic distance. Due to
@@ -467,11 +450,25 @@ transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase
 The sequences were aligned with clustal omega and the pairwise evolutive
 distances calculated with MEGA7.
 
+In order to test the relative effect of traits on seed production with
+foreign pollen we performed Mantel test in R (\textbf{vegan} package,
+Euclidean distance) between the assymetrical matrix of heterospecific
+pollen effect (10 by 10 matrix) with the different distance matrices of
+traits. Heterospecific pollen effect was obtained through the
+subtraction of seed production by hand cross-pollination minus seed
+production of the different heterospecific pollen treatments. To find a
+model with the best explanatory traits we used the function
+\textbf{bioenv} from R. We also conducted Mantel test between the matrix
+of heterospecific pollen effect and the distance matrix from all the
+traits. Moreover, we explored also the correlation between traits and
+heterospecific pollen effect through generalized mixed models where the
+response variable was heterospecific pollen effect and the explanatory
+variable the different traits. In addition, we tested the correlation
+between the total amount of pollen deposited on the stigma with
+heterospecific pollinations and the stigma size through Pearson's
+correlation.
+
 \href{Jose}{Phylogenetic signal of traits?}
-
-\href{Jose}{Add pollen on stigma counts to methods}
-
-{[}Next bit to results, also divided it with {]}
 
 Total pollen deposited on stigmas was significantly correlated with the
 stigmatic area, pearsons correlation=0.57 and p-value=0.008. Proportions
@@ -479,10 +476,6 @@ of pollen talk about it to 50-50 mix? Talk aboout this in methods too.
 
 Add also plot with fruit production and pot it in appendix.Also the
 plots of ratios to appendices.
-
-Add effect sizes to analysis!!
-
-Mention that SI index is calculated (Schoen \& Lloyd 1984)
 
 \section{RESULTS}\label{results}
 
