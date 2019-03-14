@@ -185,7 +185,7 @@ ggplot(bio,aes(x=Species,y=value,fill=variable))+
 ```
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=2.5,fig.width=6,fig.cap="Average effect size and confidence intervals (95%) of the 9 heterospecific treatments of 50% pollen to the different 10 focal species coloured by family."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=2.5,fig.width=6,fig.cap="The impact of foreign pollen on recipient plant species. Effect sizes (with 95%confidence intervals) of 9 different donor species of heterospecific pollen upon all recipients."}
 
 library(effsize)
 library(dplyr)
@@ -212,7 +212,7 @@ ymax = Upper,colour=Family_1), width = 0.2, size=0.8, alpha=0.5)+
 
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE,fig.margin = TRUE,cache=FALSE,fig.height=9,fig.width=7,fig.cap="Effect sizes for the 10 different species. The different families appear with different colours, when a species was focal was coloured differently from its family."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,fig.margin = TRUE,cache=FALSE,fig.height=9,fig.width=7,fig.cap="The response of heterospecific pollen upon 10 recipient plant species.  Each panel represents one recipient plant species crossed with 50% mixes of the other 9 species."}
 
 library(effsize)
 library(dplyr)
