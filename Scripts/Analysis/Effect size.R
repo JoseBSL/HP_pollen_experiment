@@ -767,3 +767,15 @@ p2 + geom_point(alpha=c(1,1,1,1,1,0.5,1,1,1,1),show.legend = FALSE,aes(color=fac
 
 
 #save.image("Manuscript_draft/effect_size_species/all_effect_size.RData")
+
+
+#prepare plot with data frame for legend in Markdown
+
+sp_legend=ipaq_effect_size
+str(sp_legend)
+sp_legend$Family[sp_legend$Family=="S"]<- "Solanaceae"
+sp_legend$Family[sp_legend$Family=="C"]<- "Convolvulaceae"
+sp_legend$Family[sp_legend$Family=="B"]<- "Brassicaceae"
+sp_legend[1,3] <- "Focal species"
+#saveRDS(sp_legend, "Manuscript_draft/Data/sp_legend.RData")
+

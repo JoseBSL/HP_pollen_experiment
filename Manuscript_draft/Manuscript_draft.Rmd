@@ -229,14 +229,14 @@ load("effect_size_species/all_effect_size.RData")
 
 #BROL
 load("effect_size_species/brol_effect_size.RData")
-p1<- ggplot(brol_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title=element_text( hjust=0),title = element_text(vjust=2),axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = unit(c(0.3,0,0,0.5), "cm"))+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=c(0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5),size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",3),"#E69F00"))+
+p1<- ggplot(brol_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title=element_text(size=10),title = element_text(vjust=2),axis.text.y = element_text(size=5,face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = unit(c(0,0.3,0,1), "cm"))+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,aes(color=factor(Species_1))) +geom_errorbar(alpha=c(0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5),size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",3),"#E69F00"))+
   scale_fill_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",4)))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "")+ggtitle(substitute(paste("A)",italic(' B. oleracea')))) 
 
 #BRRA
 load("effect_size_species/brra_effect_size.RData")
-pp2<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_blank())+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",2),"#E69F00","#0072B2"))+
+pp2<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),plot.margin = unit(c(0,0,0,0), "cm"),axis.text.y = element_blank())+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",2),"#E69F00","#0072B2"))+
   scale_fill_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",4)))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+annotate("text", x=10, y=-6, label= "")+ggtitle(substitute(paste("B)",italic(' B. rapa')))) 
@@ -244,22 +244,22 @@ pp2<- ggplot(brra_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_
 
 #ERSA
 load("effect_size_species/ersa_effect_size.RData")
-p3<- ggplot(ersa_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",1),"#E69F00", rep("#0072B2",3)))+
+p3<- ggplot(ersa_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",1),"#E69F00", rep("#0072B2",3)))+
   scale_fill_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",4)))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic','italic','italic', 'italic', 'italic', 'italic', 'italic')))+ggtitle(substitute(paste("C)",italic(' E. sativa')))) 
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+theme(plot.title = element_text(size = 10),plot.margin = unit(c(0,0.3,0,1), "cm"),axis.text.y = element_text(size=5,face = c('italic', 'italic', 'italic', 'italic','italic','italic', 'italic', 'italic', 'italic', 'italic')))+ggtitle(substitute(paste("C)",italic(' E. sativa')))) 
 
 
 #SIAL
 load("effect_size_species/sial_effect_size.RData")
-p4<- ggplot(sial_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_blank())+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2),"#E69F00", rep("#0072B2",3)))+
+p4<- ggplot(sial_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),plot.margin = unit(c(0,0,0,0), "cm"),axis.text.y = element_blank())+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2),"#E69F00", rep("#0072B2",3)))+
   scale_fill_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",2), rep("#0072B2",4)))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("D)",italic(' S. alba')))) 
 
 #IPAQ
 load("effect_size_species/ipaq_effect_size.RData")
-p5<- ggplot(ipaq_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic','italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = unit(c(0.3,0,0,0.5), "cm"))+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",1),"#E69F00", rep("#0072B2",4)))+
+p5<- ggplot(ipaq_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),axis.text.y = element_text(size=5,face = c('italic', 'italic', 'italic', 'italic','italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = unit(c(0,0.3,0,1), "cm"))+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4), rep("#009E73",1),"#E69F00", rep("#0072B2",4)))+
   scale_fill_manual("Species_1",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("E)",italic(' I. aquatica')))) 
@@ -267,43 +267,55 @@ p5<- ggplot(ipaq_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_s
 #IPPU
 load("effect_size_species/ippu_effect_size.RData")
 p6<- ggplot(ippu_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+
-  theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_blank())+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4),"#E69F00", rep("#009E73",1), rep("#0072B2",4)))+
+  theme(plot.title = element_text(size = 10),plot.margin = unit(c(0,0,0,0), "cm"),axis.text.y = element_blank())+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",4),"#E69F00", rep("#009E73",1), rep("#0072B2",4)))+
   scale_fill_manual("Species_1",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("F)",italic(' I. purpurea')))) 
 
 #CAAN
 load("effect_size_species/caan_effect_size.RData")
-p7<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",3),"#E69F00", rep("#009E73",2), rep("#0072B2",4)))+
+p7<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),plot.margin = unit(c(0,0.3,0,1), "cm"),axis.text.y = element_text(size=5,face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",3),"#E69F00", rep("#009E73",2), rep("#0072B2",4)))+
   scale_fill_manual("Species_1",values=c(rep("#D55E00",3),"#E69F00", rep("#009E73",2), rep("#0072B2",4)))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("G)",italic(' C. annuum')))) 
 
 #PEIN
 load("effect_size_species/pein_effect_size.RData")
-p8<- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = unit(c(0.3,0,0,0.5), "cm"))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",2),"#E69F00","#D55E00", rep("#009E73",2), rep("#0072B2",4)))+
+p8<- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),axis.text.y = element_blank(),plot.margin = unit(c(0,0,0,0), "cm"))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",2),"#E69F00","#D55E00", rep("#009E73",2), rep("#0072B2",4)))+
   scale_fill_manual("Species_1",values=c(rep("#D55E00",2),"#E69F00","#D55E00", rep("#009E73",2), rep("#0072B2",4)))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("H)",italic(' P. integrifolia')))) 
 
 #SOLY
 load("effect_size_species/soly_effect_size.RData")
-p9<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = unit(c(0.3,0,0,0.5), "cm"))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",1),"#E69F00",rep("#D55E00",2), rep("#009E73",2), rep("#0072B2",4)))+scale_fill_manual("Species_1",values=c("#D55E00", "#009E73", "#0072B2"))+
+p9<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),axis.text.y = element_text(size=5,face = c('italic', 'italic', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = unit(c(0,0.3,0,1), "cm"))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",1),"#E69F00",rep("#D55E00",2), rep("#009E73",2), rep("#0072B2",4)))+scale_fill_manual("Species_1",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("Hedges' g") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("I)",italic(' S. lycopersicum')))) 
 
 #SOME
 load("effect_size_species/some_effect_size.RData")
 
-p10<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_blank())+ geom_point(size=2,alpha=c(1,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(size=0.6,alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c("#E69F00",rep("#D55E00",3), rep("#009E73",2), rep("#0072B2",4)))+
+p10<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),plot.margin = unit(c(0,0,0,0), "cm"),axis.text.y = element_blank())+ geom_point(size=1.5,alpha=c(1,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(size=0.6,alpha=0.4,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c("#E69F00",rep("#D55E00",3), rep("#009E73",2), rep("#0072B2",4)))+
   scale_fill_manual("Species_1",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("Hedges' g") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("J)",italic(' S. melongena')))) 
 
+sp_legend <- readRDS("Data/sp_legend.RData")
+p11<- ggplot(sp_legend, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(legend.title = element_blank(),plot.margin = unit(c(0,0,0,0.3), "cm"),axis.text.y = element_blank())+ geom_point(size=2,alpha=c(1,1,1,1,1,1,1,1,1,1),aes(color=factor(Family))) +geom_errorbar(size=0.6,alpha=0.5, aes(x = Family, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00","#009E73","#E69F00","#0072B2"))+ scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2","#0072B2"))+
+  xlab("") + ylab("Hedges' g") +geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("J)",italic(' S. melongena')))) 
  #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
 grid.newpage()
- grid.draw(arrangeGrob(cbind(ggplotGrob(p1),ggplotGrob(pp2), size="last"),cbind(ggplotGrob(p3),ggplotGrob(p4),size="last"),cbind(ggplotGrob(p5),ggplotGrob(p6), size="last"),cbind(ggplotGrob(p7),ggplotGrob(p8), size="last"),cbind(ggplotGrob(p9),ggplotGrob(p10), size="last"),nrow=5))
 
+g_legend<-function(a.gplot){
+  tmp <- ggplot_gtable(ggplot_build(a.gplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)}
+
+mylegend<-g_legend(p11)
+
+ grid.draw(arrangeGrob(cbind(ggplotGrob(p1+theme(legend.position="none")),ggplotGrob(pp2+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p3+theme(legend.position="none")),ggplotGrob(p4+theme(legend.position="none")),size="last"),cbind(ggplotGrob(p5+theme(legend.position="none")),ggplotGrob(p6+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p7+theme(legend.position="none")),ggplotGrob(p8+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p9+theme(legend.position="none")),ggplotGrob(p10+theme(legend.position="none")),size="last"),nrow=6))
+#mylegend
 ```
 
 \newpage
@@ -319,11 +331,12 @@ library(egg)
 library(magrittr)
 library(multipanelfigure)
 library(grid)
+library(tidyverse)
 
 
 load("effect_size_species/some_effect_size_family.RData")
 
-pp1<- ggplot(some_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+pp1<- ggplot(some_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,aes(color=factor(Family))) +
   geom_linerange(size=0.6,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
   scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
@@ -429,7 +442,17 @@ ymax = Upper,color=factor(Family)))+
 
  #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
 grid.newpage()
- grid.draw(arrangeGrob(cbind(ggplotGrob(pp1),ggplotGrob(pp2), size="last"),cbind(ggplotGrob(p3),ggplotGrob(p4),size="last"),cbind(ggplotGrob(p5),ggplotGrob(p6), size="last"),cbind(ggplotGrob(p7),ggplotGrob(p8), size="last"),cbind(ggplotGrob(p9),ggplotGrob(p10), size="last"),nrow=5))
+g_legend<-function(a.gplot){
+  tmp <- ggplot_gtable(ggplot_build(a.gplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)}
+
+mylegend<-g_legend(pp1)
+
+ grid.draw(arrangeGrob(cbind(ggplotGrob(pp1+theme(legend.position="none")),ggplotGrob(pp2+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p3+theme(legend.position="none")),ggplotGrob(p4+theme(legend.position="none")),size="last"),cbind(ggplotGrob(p5+theme(legend.position="none")),ggplotGrob(p6+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p7+theme(legend.position="none")),ggplotGrob(p8+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p9+theme(legend.position="none")),ggplotGrob(p10+theme(legend.position="none")), size="last"),mylegend,nrow=6))
+ 
+
 ```
 
 
