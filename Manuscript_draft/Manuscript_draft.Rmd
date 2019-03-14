@@ -270,27 +270,27 @@ p6<- ggplot(ippu_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_s
   theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_blank())+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle("F) I. purpurea") 
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("F)",italic('I. purpurea')))) 
 
 #CAAN
 load("effect_size_species/caan_effect_size.RData")
 p7<- ggplot(caan_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'bold', 'italic','italic', 'italic', 'italic', 'italic', 'italic')))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle("G) C. annuum") 
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("G)",italic('C. annuum')))) 
 
 #PEIN
 load("effect_size_species/pein_effect_size.RData")
 p8<- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_blank(),plot.margin = unit(c(0.3,0,0,0.5), "cm"))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle("H) P. integrifolia") 
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("H)",italic('P. integrifolia')))) 
 
 #SOLY
 load("effect_size_species/soly_effect_size.RData")
 p9<- ggplot(soly_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = c('italic', 'bold', 'italic', 'italic', 'italic','italic', 'italic', 'italic', 'italic', 'italic')),plot.margin = unit(c(0.3,0,0,0.5), "cm"))+ geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=2,show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(alpha=0.5,size=0.6,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("Hedges' g") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle("I) P. integrifolia")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("I)",italic('S. lycopersicum')))) 
 
 #SOME
 load("effect_size_species/some_effect_size.RData")
@@ -298,7 +298,7 @@ load("effect_size_species/some_effect_size.RData")
 p10<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.margin = unit(c(0.3,0,0,0.5), "cm"),axis.text.y = element_blank())+ geom_point(size=2,alpha=c(1,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=factor(Family))) +geom_errorbar(size=0.6,alpha=0.5,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2"))+
   xlab("") + ylab("Hedges' g") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle("J) P. integrifolia")
+  geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("J)",italic('S. melongena')))) 
 
  #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
 grid.newpage()
