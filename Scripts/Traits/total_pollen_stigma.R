@@ -60,8 +60,8 @@ ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable)) +
 #Brassicaceae pollen ratio plot
 
 total_pollen <- read.csv("Data/total_pollen.csv")
-total_pollen_brassicaceae <- total_pollen[total_pollen$focal!="Morning glory" & total_pollen$focal!="Water morning glory"& total_pollen$focal!="Eggplant"&
-                                            total_pollen$focal!="Tomato" & total_pollen$focal!="Petunia"& total_pollen$focal!="Capsicum",  ]
+total_pollen_brassicaceae <- total_pollen[total_pollen$focal!="I. purpurea" & total_pollen$focal!="I. aquatica"& total_pollen$focal!="S. melongena"&
+                                            total_pollen$focal!="S. lycopersicum" & total_pollen$focal!="P. integrifolia"& total_pollen$focal!="C. annuum",  ]
 
 write.csv(total_pollen_brassicaceae, "Rmd/Data/total_pollen_brassicaceae.csv")
 
@@ -72,8 +72,8 @@ ggplot(total_pollen_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
 #Solanaceae pollen ratio plot
 
 total_pollen <- read.csv("Data/total_pollen.csv")
-total_pollen_solanaceae <- total_pollen[total_pollen$focal!="Morning glory" & total_pollen$focal!="Water morning glory"& total_pollen$focal!="Wild cabbage"&
-                                          total_pollen$focal!="Pak choi" & total_pollen$focal!="White mustard"& total_pollen$focal!="Rocket",  ]
+total_pollen_solanaceae <- total_pollen[total_pollen$focal!="I. purpurea" & total_pollen$focal!="I. aquatica"& total_pollen$focal!="B. oleracea"&
+                                          total_pollen$focal!="B. rapa" & total_pollen$focal!="S. alba"& total_pollen$focal!="E. sativa",  ]
 
 #write.csv(total_pollen_solanaceae, "Rmd/Data/total_pollen_solanaceae.csv")
 ggplot(total_pollen_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
@@ -85,9 +85,9 @@ ggplot(total_pollen_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
 
 total_pollen <- read.csv("Data/total_pollen.csv")
 
-total_pollen_convolvulaceae <- total_pollen[total_pollen$focal!="Capsicum" & total_pollen$focal!="Eggplant"& total_pollen$focal!="Wild cabbage"&
-                                               total_pollen$focal!="Pak choi" & total_pollen$focal!="White mustard"
-                                              & total_pollen$focal!="Rocket"& total_pollen$focal!="Tomato"& total_pollen$focal!="Petunia",  ]
+total_pollen_convolvulaceae <- total_pollen[total_pollen$focal!="C. annuum" & total_pollen$focal!="S. melongena"& total_pollen$focal!="B. oleracea"&
+                                               total_pollen$focal!="B. rapa" & total_pollen$focal!="S. alba"
+                                              & total_pollen$focal!="E. sativa"& total_pollen$focal!="S. lycopersicum"& total_pollen$focal!="P. integrifolia",  ]
 
 
 
@@ -111,3 +111,4 @@ total_pollen <- dcast(focal + non_focal  ~ ., value.var = "ratio", fun.aggregate
       data = total_pollen, na.rm= TRUE)
 
 #write.csv(total_pollen, "Data/total_pollen.csv")
+save.image("Manuscript_draft/Data/total_pollen.RData")

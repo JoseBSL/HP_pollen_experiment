@@ -101,7 +101,7 @@ Results of hand cross-pollination, hand self-pollination, natural selfing and ap
 Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a positive statistically clear correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. We found a significant phylogenetic signal of traits for pollen size, stigma measurements and style length (p<0.05). Although with a lack of a significant correlation pagel's lambda values were also relatively high (>0.45) for incompatibility index, ovary length and levels of selfing. Moreover, Mantel test between heterospecific pollen effect and traits gave also a positive significant correlation with a  r value of 0.4. When the effect was look trait by trait with Mantel test, stigma type and stigma measurements (length, width and area) gave a significant positive correlation with heterospecific pollen effect.
 
 [explain ratios and total pollen](Jose)
-[add table with morphometrical traits to appendix]()
+[add table with morphometrical traits to appendix](Jose)
 
 
 I haven't add this to the draft yet but when I look just Solanaceae species, interestingly seems to be a negative trend with style length and heterospecific pollen effect. Curiously, Capsicum and tomato are the ones that are more affected by hp and both have the shortest stigma and style.
