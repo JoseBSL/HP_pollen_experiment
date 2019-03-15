@@ -342,7 +342,7 @@ temperature oscillations between day and night.
 
 \newpage
 
-\begin{figure}
+\begin{figure}[h]
 \includegraphics[width=1\linewidth]{images/phylo_image} \caption{Phylogenetic tree of the ten species used in the experiment from three different families from top to bottom: Brassicaceae, Convolvulaceae and Solanaceae}\label{fig:unnamed-chunk-1}
 \end{figure}
 
@@ -516,22 +516,9 @@ positive correlation with heterospecific pollen effect.
 \href{Jose}{explain ratios and total pollen} \href{}{add table with
 morphometrical traits to appendix}
 
-I haven't add this to the draft yet but when I look just Solanaceae
-species, interestingly seems to be a negative trend with style length
-and heterospecific pollen effect. Curiously, Capsicum and tomato are the
-ones that are more affected by hp and both have the shortest stigma and
-style. The stigma results of tomato are supported by the plot of effct
-sizes per family where convolvulaceae has a greater negative effect than
-the other two families (and they are the ones with bigger pollen size)
-
-Here I show the plot of just solanaceae and then with all the species. I
-have gouped all the treatments, if not I feel like we are doing p
-hacking with all the analysis, because is increasing the strength of
-each point 9 times.
-
 \newpage
 
-\begin{figure}
+\begin{figure}[h]
 
 {\centering \includegraphics{output/figures/unnamed-chunk-3-1} 
 
@@ -576,6 +563,30 @@ species. Each panel represents one recipient plant species crossed with
 \caption{Phylogenetic signal of the average heterospecific pollen effect
 size per species}
 \end{figure}
+
+\newpage
+
+\begin{figure}[h]
+
+{\centering \includegraphics{output/figures/unnamed-chunk-8-1} 
+
+}
+
+\caption{a}\label{fig:unnamed-chunk-8}
+\end{figure}
+
+I haven't add this to the draft yet but when I look just Solanaceae
+species, interestingly seems to be a negative trend with style length
+and heterospecific pollen effect. Curiously, Capsicum and tomato are the
+ones that are more affected by hp and both have the shortest stigma and
+style. The stigma results of tomato are supported by the plot of effct
+sizes per family where convolvulaceae has a greater negative effect than
+the other two families (and they are the ones with bigger pollen size)
+
+Here I show the plot of just solanaceae and then with all the species. I
+have gouped all the treatments, if not I feel like we are doing p
+hacking with all the analysis, because is increasing the strength of
+each point 9 times.
 
 \newpage
 
@@ -742,6 +753,8 @@ Williams, E., and J. Rouse. 1990. Relationships of pollen size, pistil
 length and pollen tube growth rates in rhododendron and their influence
 on hybridization. Sexual Plant Reproduction 3:7--17.
 
+\newpage
+
 \section{APPENDIX}\label{appendix}
 
 \begin{enumerate}
@@ -785,9 +798,14 @@ B) Solanaceae, C) Convolvulaceae. Pollen was counted for crosses with
 species of the other two families (N=3). To prepare these ratios all the
 pollen grains on the stigma were counted.
 
-\includegraphics{output/figures/unnamed-chunk-9-1.pdf}
-\includegraphics{output/figures/unnamed-chunk-9-2.pdf}
-\includegraphics{output/figures/unnamed-chunk-9-3.pdf}
+\begin{figure}
+\centering
+\includegraphics{output/figures/unnamed-chunk-10-1.pdf}
+\caption{Pollen ratios separated by family A) Brassicaceae, B)
+Solanaceae, C) Convolvulaceae. Pollen was counted for crosses with
+species of the other two families (N=3). To prepare these ratios all the
+pollen grains on the stigma were counted.}
+\end{figure}
 
 \eleft
 

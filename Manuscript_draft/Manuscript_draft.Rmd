@@ -38,6 +38,7 @@ classoption: a4paper
 csl: ecology.csl
 documentclass: article
 fontsize: 11pt
+header-includes: \usepackage{float}
 footerdate: yes
 geometry: margin=1in
 linenumbers: yes
@@ -47,7 +48,9 @@ bibliography:
 spacing: doublespacing
 abstract: no
 ---
-
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'h')
+```
 
 ```{r setup, include=FALSE, cache=FALSE, message = FALSE}
 
@@ -179,61 +182,16 @@ Results of Mantel test between heterospecific pollen effect and phylogenetic dis
 [explain ratios and total pollen](Jose)
 [add table with morphometrical traits to appendix]()
 
-
-I haven't add this to the draft yet but when I look just Solanaceae species, interestingly seems to be a negative trend with style length and heterospecific pollen effect. Curiously, Capsicum and tomato are the ones that are more affected by hp and both have the shortest stigma and style.
-The stigma results of tomato are supported by the plot of effct sizes per family where convolvulaceae has a greater negative effect than the other two families (and they are the ones with bigger pollen size)
-
-Here I show the plot of just solanaceae and then with all the species. I have gouped all the treatments, if not I feel like we are doing p hacking with all the analysis, because is increasing the strength of each point 9 times.
-```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE}
-#Here I'm going to perform the analysis per family
-#load libraries
-library(vegan)
-library(nlme)
-library(dplyr)
-library(reshape2)
-#load data
-matrix_scale_effect <- readRDS("Data/matrix_scale_effect.Rda")
-matrix_effect_size <- readRDS("Data/matrix_effect_size.RData")
-traits_all <- read.csv("Data/traits_all.csv", sep=",")
-rownames(traits_all) <- rownames(matrix_scale_effect)
-si_index <- readRDS("Data/si_index.RData")
-traits_all$si_index <- si_index
-load("Data/effect_size_all.RData")
-effect_size=melt(matrix_effect_size)
-####
-####SOLANACEAE####
-####
-matrix_soly=matrix_scale_effect[c(3,7,9,10),c(3,7,9,10)]
-matrix_soly=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
-
-traits_sola=traits_all[c(3,7,9,10),-c(1,2)]
-traits_sola_dist <- dist(traits_sola, diag = T)
-a <- mantel(matrix_soly,traits_sola_dist)
-summary(a)
-mantel(matrix_soly,dist(traits_sola[,2]))
-cor.test(sola$Cohen_d,sola$pollen_size)
-
-
-traits_sola$species <- c("CAAN", "PEIN","SOLY","SOME")
-effect_size_sola=effect_size_all[c(1:4),c(1,2)]
-effect_size_sola$species <- c("SOME", "SOLY","PEIN","CAAN")
-sola <- merge(effect_size_sola,traits_sola,by="species")
-sola$style_length<- sola$style_length/1000
-cor.test(sola$Cohen_d,sola$style_length)
-library("ggpubr")
-ggscatter(sola, x = "Cohen_d", y = "style_length", 
-          add = "reg.line", conf.int = TRUE, 
-          cor.coef = TRUE, cor.method = "pearson",
-          xlab = "Hedges' g", ylab = "Style length (mm)", main="A) Solanaceae")
-
-```
-
-
 \newpage
 ```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7, fig.cap="Barplot with the different treatments that provide information of the reproductive biology of the ten species. The y axis is the proportion of ovules converted to seed in percentage. The different treatments (N=10) which are presented in the legend are, hand cross-pollination, hand self-pollination, natural selfing and apomixis. More information about these treatments can be found in Methods and Appendices."}
-
 load("r_biology.RData")
-
+library(ggpubr)
+library(cowplot)
+library(gridExtra)
+library(egg)
+library(magrittr)
+library(multipanelfigure)
+library(grid)
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
   theme_minimal()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology test")+
@@ -539,7 +497,42 @@ p4d <- phylo4d(pollen_tree, hp_mean_sp)
 barplot.phylo4d(p4d, center = TRUE , scale = FALSE,trait.labels="Hp effect",bar.col = c(rep("#0072B2",4), rep("#009E73",2), rep("#D55E00",4)))
 ```
 
+
+
 \newpage
+
+
+```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE, fig.height=3,fig.width=5,fig.cap="a"}
+load("Data/family_cor.RData")
+library(ggpubr)
+library(ggplot2)
+library(gridExtra)
+library(grid)
+
+p1 <- ggscatter(sola, x = "Cohen_d", y = "style_length", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Hedges' g", ylab = "Style length (mm)", main="A) Solanaceae")
+
+p2<- ggscatter(a, x = "Cohen_d", y = "style_length", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Hedges' g", ylab = "Style length (mm)", main="A) All families")
+grid.arrange(p1, p2, nrow = 1, ncol=2)
+
+
+
+```
+
+
+
+I haven't add this to the draft yet but when I look just Solanaceae species, interestingly seems to be a negative trend with style length and heterospecific pollen effect. Curiously, Capsicum and tomato are the ones that are more affected by hp and both have the shortest stigma and style.
+The stigma results of tomato are supported by the plot of effct sizes per family where convolvulaceae has a greater negative effect than the other two families (and they are the ones with bigger pollen size)
+
+Here I show the plot of just solanaceae and then with all the species. I have gouped all the treatments, if not I feel like we are doing p hacking with all the analysis, because is increasing the strength of each point 9 times.
+
+\newpage
+
 
 # DISCUSSION
 
@@ -573,6 +566,7 @@ write.bibtex(file="knitcitations.bib")
 ```
 
 <div id = "refs"></div>
+\newpage
 
 # APPENDIX
 
@@ -595,23 +589,30 @@ kable(table, format="markdown")
 
 **Figure S1**. Pollen ratios separated by family A) Brassicaceae, B) Solanaceae, C) Convolvulaceae. Pollen was counted for crosses with species of the other two families (N=3). To prepare these ratios all the pollen grains on the stigma were counted.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+```{r, echo=FALSE, message=FALSE,fig.height=10,fig.width=5, warning=FALSE,fig.cap="Pollen ratios separated by family A) Brassicaceae, B) Solanaceae, C) Convolvulaceae. Pollen was counted for crosses with species of the other two families (N=3). To prepare these ratios all the pollen grains on the stigma were counted.", cache=FALSE}
 load("pollen_ratio.RData")
+library(ggpubr)
+library(ggplot2)
+library(gridExtra)
+library(grid)
 
-ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
+p1 <- ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="A) Brassicaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
-ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
+p2 <- ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
-ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
+p3 <-ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
-  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+grid.arrange(p1, p2,p3, nrow = 3, ncol=1)
+
+
 
 ```
 
