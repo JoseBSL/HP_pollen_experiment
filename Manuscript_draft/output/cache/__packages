@@ -21,3 +21,6 @@ lattice
 caret
 seqHMM
 reshape2
+permute
+vegan
+nlme

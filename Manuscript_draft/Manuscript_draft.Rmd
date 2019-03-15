@@ -179,6 +179,56 @@ Results of Mantel test between heterospecific pollen effect and phylogenetic dis
 [explain ratios and total pollen](Jose)
 [add table with morphometrical traits to appendix]()
 
+
+I haven't add this to the draft yet but when I look just Solanaceae species, interestingly seems to be a negative trend with style length and heterospecific pollen effect. Curiously, Capsicum and tomato are the ones that are more affected by hp and both have the shortest stigma and style.
+The stigma results of tomato are supported by the plot of effct sizes per family where convolvulaceae has a greater negative effect than the other two families (and they are the ones with bigger pollen size)
+
+Here I show the plot of just solanaceae and then with all the species. I have gouped all the treatments, if not I feel like we are doing p hacking with all the analysis, because is increasing the strength of each point 9 times.
+```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE}
+#Here I'm going to perform the analysis per family
+#load libraries
+library(vegan)
+library(nlme)
+library(dplyr)
+library(reshape2)
+#load data
+matrix_scale_effect <- readRDS("Data/matrix_scale_effect.Rda")
+matrix_effect_size <- readRDS("Data/matrix_effect_size.RData")
+traits_all <- read.csv("Data/traits_all.csv", sep=",")
+rownames(traits_all) <- rownames(matrix_scale_effect)
+si_index <- readRDS("Data/si_index.RData")
+traits_all$si_index <- si_index
+load("Data/effect_size_all.RData")
+effect_size=melt(matrix_effect_size)
+####
+####SOLANACEAE####
+####
+matrix_soly=matrix_scale_effect[c(3,7,9,10),c(3,7,9,10)]
+matrix_soly=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
+
+traits_sola=traits_all[c(3,7,9,10),-c(1,2)]
+traits_sola_dist <- dist(traits_sola, diag = T)
+a <- mantel(matrix_soly,traits_sola_dist)
+summary(a)
+mantel(matrix_soly,dist(traits_sola[,2]))
+cor.test(sola$Cohen_d,sola$pollen_size)
+
+
+traits_sola$species <- c("CAAN", "PEIN","SOLY","SOME")
+effect_size_sola=effect_size_all[c(1:4),c(1,2)]
+effect_size_sola$species <- c("SOME", "SOLY","PEIN","CAAN")
+sola <- merge(effect_size_sola,traits_sola,by="species")
+sola$style_length<- sola$style_length/1000
+cor.test(sola$Cohen_d,sola$style_length)
+library("ggpubr")
+ggscatter(sola, x = "Cohen_d", y = "style_length", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Hedges' g", ylab = "Style length (mm)", main="A) Solanaceae")
+
+```
+
+
 \newpage
 ```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7, fig.cap="Barplot with the different treatments that provide information of the reproductive biology of the ten species. The y axis is the proportion of ovules converted to seed in percentage. The different treatments (N=10) which are presented in the legend are, hand cross-pollination, hand self-pollination, natural selfing and apomixis. More information about these treatments can be found in Methods and Appendices."}
 
