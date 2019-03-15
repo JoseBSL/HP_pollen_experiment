@@ -1,54 +1,16 @@
 ---
-title: Recipient plant traits are important determinants of the impacts of heterospecific pollen upon plant reproduction
-author:
-- name: Jose B. Lanuza
-  affilnum: 1
-  email: barragansljose@gmail.com    
-
-- name: Ignasi Bartomeus
-  affilnum: 2
- 
-- name: Tia-Lynn Ashman  
-  affilnum: 3
-
-- name: Romina Rader
-  affilnum: 1
-  
-affiliation:
-- affil: University of New England (Australia)
-  affilnum: 1
-- affil: Estacion Biologica de Donana (EBD-CSIC), E-41092 Sevilla, Spain
-  affilnum: 2
-- affil: Department of Biological Sciences, University of Pittsburgh 4249 Fifth Avenue, Pittsburgh, Pennsylvania 15260-3929 USA
-  affilnum: 3
 output:
-  pdf_document:
-    fig_caption: yes
-    fig_height: 7
-    fig_width: 7
-    includes:
-      in_header: header.tex
-    keep_tex: yes
-    number_sections: no
-    template: manuscript.latex
-  word_document: null
-  html_document: null
-capsize: normalsize
-classoption: a4paper
-csl: ecology.csl
-documentclass: article
-fontsize: 11pt
-footerdate: yes
-geometry: margin=1in
-header-includes: 
-- \usepackage{longtable}
-linenumbers: yes
-bibliography:
-- references.bib
-- knitcitations.bib
-spacing: doublespacing
-abstract: no
+  pdf_document: default
+  html_document: default
+  fontsize: 11pt
+header-includes:
+  - \usepackage{leading}
+  - \leading{18pt}
 ---
+--
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = "h")
+```
 
 ```{r setup, include=FALSE, cache=FALSE, message = FALSE}
 
@@ -82,54 +44,7 @@ cleanbib()
 cite_options(citation_format = "pandoc")
 ```
 
-
-\singlespace
-
-\vspace{2mm}\hrule
-
-Pollinator sharing can have negative consequences for plant fitness with the arrival of foreign pollen. However, the mechanisms underlying the variation in outcomes as a result of pollen contribution by different plant species are not yet well understood. We conducted a glasshouse experiment to understand how plant traits and phylogenetic relatedness mediate the impacts of 15 heterospecific pollen transfer. We conducted 1800 reciprocal crosses by experimentally transferring pollen (50%  and 100% foreign pollen ratio) between 10 species belonging to three different families: Brassicaceae, Solanaceae and Convolvulaceae. Seed set was used as proxy of plant fitness. In the treatments of 100% foreign pollen, we found reduced seed set in X% of the treatments. In the treatments of 50% foreign pollen, we found reduced seed set in 65% of the treatments. Moreover, the reduction in seed set was dependent on the reproductive traits of the pollen recipient, but not the pollen donor or relatedness. Our results show that certain traits of recipient plants, particularly compatibility system, are critical in understanding the costs of heterospecific pollen.
- 
-\vspace{3mm}\hrule
-
-*Keywords*: heterospecific pollen, plant reproduction, fitness, interspecific competition, phylogenetic distance. 
-
-\doublespace
-
-\bleft
-
-# INTRODUCTION
-
-
-In most ecosystems, plant species normally coexist and share their floral visitors with other species @waser1996; @carvalheiro2014. From the plants’ perspective, pollinator sharing can be positive for some plants as an increasing number of visits often correlates with higher chances of fertilization @engel2003. Yet, among these possible flower visitors there are also nectar robbers, pollen thieves @inouye1980; @magrach2017, and inconstant pollinators that transfer foreign pollen from other plants @pauw2013. By visiting many plant species, many pollinators are responsible for conspecific pollen loss and the transport of foreign pollen, both of which can have important detrimental effects on species fitness @morales2008; @ashman2013; @arceo2016. Receiving both sufficient quantity and quality deposited on the stigma is thus highly relevant to the pollination success of the plant @aizen2007. Foreign pollen arrival can play an important role in plant species fitness but outcomes are variable and appear to be context dependent as there is not always a decrease in fitness @morales2008. Some of this variation is likely due to the enormous variability of foreign pollen transferred across systems ranging from 0 to 75 percent. However, most studies report ranges of heterospecific pollen between 0 and 20 percent of the total pollen load @bartomeus2008 @montgomery2012; @ashman2013; @fang2013, yet even these relatively low amounts of heterospecific pollen transferred can decrease fitness greatly @thomson1982. 
-
-While we have some understanding of the impacts of heterospecific pollen quantity, we have little knoweldge of the factors that could be driving the variation in pollen quality  upon fitness. Plant traits are crucial to understand heterospecific pollen effect but the multifactorial nature of the traits that are involved in the pollen-pistil interaction make difficult to unravel exactly which traits are driving the effect. @ashman2013 postulated the first predictive framework that identifies a need to understand how plant traits might mediate heterospecific pollen effect, whereby mating system and pollen size were  predicted to potentially mediate the impact of foreign pollen transfer on plant fitness. 
-
-The concept of trait driven mechanisms is not new and is supported by system specific studies.  Pollen size, pollen aperture number and pollen allelopathy are thought to be key components in understanding the outcome of foreign pollen arrival @murphy1995; @ashman2013. For example, small pollen is predicted to decrease plant fitness because XXXXXX. Yet, large pollen can outcompete smaller pollen grains due to faster pollen tube growth rate @williams1990. Hence, understanding the different mechanical or chemical effects of pollen requires knowledge of the female traits of the pollen recipient to also be considered @montgomery2012; @ashman2013; @tong2016. For example, greater stigmatic area is positively correlated with greater heterospecific pollen deposition @montgomery2012 and therefore likely to result in an greater negative effect upon plant fitness. Further, species that are self-incompatible are thought to be more resistant to the negative impacts of heterospecific pollen than self-compatible species @ashman2013.
-
-When both donor and recipient traits are considered together, other combinations of traits are also likely to impact plant fitness.  For example, large pollen grains could potentially clog small stigmas with fewer pollen grains, and larger stigmas are less likely to be clogged by small pollen grains. Yet, few studies have considered how effects might differ among donor and recipient species. @tong2016 demonstrate an asymmetrical effect in 6 species of Pedicularis whereby foreign pollen of long styled species was able to grow the full length of the style on short styled species but not vice versa. While this suggests that the impacts of  heterospecific pollen may differ among pollen donor and recipient, few studies have been conducted to ascertain whether this pattern is in fact a general trend or to identify the extent to which other plant traits are critical to heterospecific pollen impacts.
-
-It is challenging to identify general patterns with respect to the mechanisms driving foreign pollen impacts as results are often obscured by the variability within and among species. Closely related species are more likely to have similar  traits @letten2015. The similarity in traits between closely related species can lead tohigher chances of ovule usurpation/abortion @arceo2011 hence, greater negative effects of HP pollen are thought to be a associated with more closely related species @ashman2013; @arceo2016. Few studies however, have focused on the impacts of heterospecific pollen on fitness of distantly related species @galen1989; @neiland1999 and those that have, often report low sample sizes and a lack of significance. Therefore, there is a need to study the effect of heterospecific pollen of far and close related species at community level beyond single pairwise interactions. Given that pollen carried on many insects and stigmas has been found to carry multiple species of foreign pollen with little attention to degree of relatedness @arceo2016; @fang2013. understanding the role of foreign pollen from distantly related species thus deserves greater attention
-
-We investigated how floral reproductive traits and relatedness mediate the impact of heterospecific pollen by creating an artificial co-flowering community in a glasshouse with 10 species belonging to three different families with heterogeneous reproductive traits. Our study addressed the following questions:
-
-1.	To what extent does the amount of foreign pollen applied to stigmas impact plant reproductive fitness (i.e. 50% and 100% foreign pollen ratio.
-
-2.	How do floral reproductive traits and plant relatedness mediate the impacts of heterospecific pollen on seed set.
-
-
-
-# METHODS
-
-The study was conducted in a glasshouse at University of New England (Armidale, Australia) from November 2017 to March 2018. Rooms were temperature controlled depending on the requirements of the species with day and night temperature differences. The experimental design had species from three different families: Brassicaceae, Convolvulaceae and Solanaceae (**Table 1**). The species of the study had different reproductive traits and different degree of relatedness (see phylogenetic tree, **Figure 1**) where the reciprocal crosses between species allowed us to have multiple different scenarios of both traits and relatedness. Moreover, the species selected had fast life cycle and low structural flower complexity in order to perform the pollination treatments and grow the different species from seeds. For the purpose of the experiment all the species where considered as pollen recipient and as pollen donor (see interaction matrix, fig 2). Species were watered once or twice per day and fertilized weekly (NPK 23: 3.95: 14) and the rooms of the glasshouse were temperature controlled with temperature oscillations between day and night.
-
-\newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, out.width='100%', fig.cap="Phylogenetic tree of the ten species used in the experiment from three different families from top to bottom: Brassicaceae, Convolvulaceae and Solanaceae"}
-knitr::include_graphics('images/phylo_image.png')
-```
-
-\newpage
-
-**Table 1** Species list with family and genus.
+**Table 1**
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 library(kableExtra)
 Family <- c(rep("Brassicaceae",4), rep("Convolvulaceae", 2), rep("Solanaceae",4))
@@ -139,87 +54,15 @@ Genus <- c("Brassica", "Brassica", "Eruca", "Sinapis", "Ipomoea", "Ipomoea", "Ca
 Species <- c("Brassica rapa", "Brassica oleracea", "Eruca versicaria", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena")
 
 table<- data.frame(Family, Genus, Species)
-kable(table, format="markdown")
+kable(table, format="markdown", caption = "a")
 ```
-
 \newpage
-
-**Hand pollination**
-
-Foreign pollen effect was studied through two different treatments, one with 50% conspecific pollen and 50% heterospecific pollen and a second one with 100% foreign pollen in order to see if foreign pollen can trigger fruit production by itself or even seeds through ovule usurpation. Therefore, we perfomed 180 different heterospecific treatments (N=10). Seed set was the proxy of effect for all our treatments. Moreover, hand cross-pollination (between individuals of the same species), hand self-pollination, apomixis (bagged emasculated flowers) and natural selfing were tested for each species (N=10). For the treatments with foreign pollen and hand cross-pollination, flowers were emasculated the day prior anthesis and hand pollinated next day with a toothpick. Hand-pollination was conducted with 3-4 gentle touches on the stigma surface. For each species 20 anthers were collected and their pollen counted with a hemocytometer, each anther was counted 4 times and then an average of these counts was performed. Once, the average number of pollen grains per anther was known, the proportion of anthers per mix was calculated in order to achieve a 50-50% mix. To confirm that the treatments applied were the desire proportions, the total stigmatic load of pollen was counted and the proportions calculated between the two species of the mix. Because pollen from the same family was difficult to distinguish, and we expected similar properties in mixing, we counted pollen from just one randomly selected species within each donor family different to the focal's family (N=3).
-
-
-**Traits and evolutive distance**
-
-The traits measured for each species were pollen per anther, pollen size, number of ovules and stigma, style, ovary width and length. For the stigma, the stigmatic area was also measured and moreover the stigmas were divided in wet/dry type with the help of the stereomicroscope. All the morphometrical measurements were performed with a stereophotomicroscope with the exception of pollen size that was carried out with a light microscope. Pollen was counted for 20 anthers of each species with 4 replicates per sample with an hemocytometer. Previously, anthers were squashed on a known solution with the pippete tip and homogeneize with a vortex for 30 seconds. Ovule number was counted with the help of a stereomicroscope and a small grid over a petri dish from 15 randomly selected flowers. Fruits per number of flowers treated were counted for just Solanaceae species with fleshy fruit. For all the species we counted the number of seeds produced per average number of ovules. Levels of self-incompatibility were estimated by dividing the seed set of hand self-pollination by hand cross-pollination @lloyd1992. 
-
-**Analysis**
-
-To evaluate heterospecific pollen effect on seed production we performed linear mixed models. The distinct heterospecific pollination treatments were compared through relevelling each variable with the cross pollination treatment which was our control for optimum seed production for all the species. The different replicates of each treatment were considered as random effects. Seed production was scaled for all the species with mean 0 and standard deviation of 1 prior to the analysis. All the analysis were conducted with the statistical language `R` `r citep(citation())`.
-
-To compare the magnitude of effect of heterospecific pollen across species we conducted standarized Hedges' d [(mean of mixed 50% mix - mean of cross pollination)/pooled SD] with **effsize** package. We did in three different ways: effect sizes of each donor per focal species; effect sizes per family of the different donors per focal species; effect sizes of all the donors grouped per focal species.
-
-We conducted mantel test to check for correlations between heterospecific pollen effect and phylogenetic distance. Due to improvents in statistical power we used the square root of the phylogenetic distance (Letten & Cornwell 2014). Two different phylogenetic distances were used from two kinds of markers: 1) Internal transcribed spacer (ITS) and 2) ribulose-bisphosphate carboxylase (RBCL). The sequences were obtained from GenBank (https://www.ncbi.nlm.nih.gov/genbank/, accessed 20 Oct. 2018). The sequences were aligned with clustal omega and the pairwise evolutive distances calculated with MEGA7.
-
-In order to test the relative effect of traits on seed production with foreign pollen we performed Mantel test in R (**vegan** package, Euclidean distance) between the assymetrical matrix of heterospecific pollen effect (10 by 10 matrix) with the different distance matrices of traits. Heterospecific pollen effect was obtained through the subtraction of seed production by hand cross-pollination minus seed production of the different heterospecific pollen treatments. To find a model with the best explanatory traits we used the function **bioenv** from R. We also conducted Mantel test between the matrix of heterospecific pollen effect and the distance matrix from all the traits. Moreover, we explored also the correlation between traits and heterospecific pollen effect through generalized mixed models where the response variable was heterospecific pollen effect and the explanatory variable the different traits. In addition, we tested the correlation between the total amount of pollen deposited on the stigma with heterospecific pollinations and the stigma size through Pearson's correlation. 
-
-[Phylogenetic signal of traits?](Jose)
-
-Total pollen deposited on stigmas was significantly correlated with the stigmatic area, pearsons correlation=0.57 and p-value=0.008. Proportions of pollen talk about it to 50-50 mix? Talk aboout this in methods too.
-
-Also the plots of ratios to appendices.
-
-NMDS to appendix?
-
-# RESULTS
-
-Results of hand cross-pollination, hand self-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seed set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Moreover, average effect sizes differed across species and across families, see **Figure 2**. Despite some variability in the effect of the different pollen donors per species, in general terms the effect of heterospecific pollen from the distinct nine treatments per species was homogeneous (see **Figure 3**), just for four species out of ten, just one donor did not overlap the confidence intervals with other donors. Therefore, none of the donors had a clear stronger or weaker effect across species. When the donors were groped by family not big differences were seen, just for *S. lycopersicum* the confidence intervals of Brassicaceae and Convolvulaceae did not overlap (see **Figure 4**). In addition, for the 100% hetrospecific pollen treatments we did not find almost seed production. However, for just one species (*S. alba*) the control pollination and the heterospecific pollination with pollen from a confamilial had similar seed production. For two Solanaceae species *S. melongena* and *C. annuum* 100% pollen treatments produced few seedles fruits (3% and 9% respectively) and they did not for the apomictic treatments.
-
-Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a positive statistically clear correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. We found a significant phylogenetic signal of traits for pollen size, stigma measurements and style length (p<0.05). Although with a lack of a significant correlation pagel's lambda values were also relatively high (>0.45) for incompatibility index, ovary length and levels of selfing. Moreover, Mantel test between heterospecific pollen effect and traits gave also a positive significant correlation with a  r value of 0.4. When the effect was look trait by trait with Mantel test, stigma type and stigma measurements (length, width and area) gave a significant positive correlation with heterospecific pollen effect.
-
-[explain ratios and total pollen](Jose)
-[add table with morphometrical traits to appendix]()
-
-
-I haven't add this to the draft yet but when I look just Solanaceae species, interestingly seems to be a negative trend with style length and heterospecific pollen effect. Curiously, Capsicum and tomato are the ones that are more affected by hp and both have the shortest stigma and style.
-The stigma results of tomato are supported by the plot of effct sizes per family where convolvulaceae has a greater negative effect than the other two families (and they are the ones with bigger pollen size)
-
-Here I show the plot of just solanaceae and then with all the species. I have gouped all the treatments, if not I feel like we are doing p hacking with all the analysis, because is increasing the strength of each point 9 times.
-
-\newpage
-
-# DISCUSSION
-
-supporting ideas: 
-Species that are strong selfers or strong outcrossers have less variablity in mating systems and predictions of effect could be more realistic (see figure 1 from Whitehead et al. (2018)). 
- 
-Interestingly the effect of the different donors per species were very homogeneous which lead us to think that the female reproductive traits of the pollen recipient are the main ones in explaining heterospecific pollen effect. Our main predictive trait of effect is stigma size, and because we found a correlation between the pollen quantity deposited on the stigma and stigma size, we argue that that the total load of pollen deposited per treatment can obscured what are the main traits in driving heterospecific pollen effect. 
-
-Curiously between the species with greater effect sizes, we found completely self incompatible species, species with the smallest stigma and the species with shortes style. Develop more...
-
-Although we have found a positive correlation between phylogenetic distance and heterospecific pollen effect, this results have to be treated carefully. From our results we want to highlight that also far related species can affect negatively fitness but the effect from close related is species can also have important detrimental effects. Moreover, the effect of close related species can be masked by the possibility of hibridization as it occure between two of our species of Brassica. Moreover, although different effect between distinct donors can occur we want to note the importance on the traits of the recipient that determine an homogeneous effect between donors as we have shown in figure xxx. These different traits will define how it will be the effect across the different species independently of the nature of the donor and also differently even between species of . Although traditionally the nature of the pollen donor have been very studied, the recipient...
-
-Herbs vs tress, annual vs perennial... Many flowers vs few flowered species; structural composition on a system
-
-What are the implications of the findings?
-
-
-# CONCLUSIONS
-
-
-# ACKNOWLEDGEMENTS
-
-
-# REFERENCES
-
-```{r write_citations, cache=FALSE, include=FALSE}
-write.bibtex(file="knitcitations.bib")
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, out.width='100%'}
+knitr::include_graphics('images/phylo_image.png')
 ```
-
-<div id = "refs"></div>
-
+**Figure 1**
 \newpage
-```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7, fig.cap="Barplot with the different treatments that provide information of the reproductive biology of the ten species. The y axis is the proportion of ovules converted to seed in percentage. The different treatments (N=10) which are presented in the legend are, hand cross-pollination, hand self-pollination, natural selfing and apomixis. More information about these treatments can be found in Methods and Appendices."}
+```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7}
 load("r_biology.RData")
 library(ggpubr)
 library(cowplot)
@@ -235,10 +78,10 @@ ggplot(bio,aes(x=Species,y=value,fill=variable))+
   scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))
 
 ```
-
+**Figure 2**
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=2.5,fig.width=6,fig.cap="The impact of foreign pollen on recipient plant species. Effect sizes (with 95% confidence intervals) of 9 different donor species of heterospecific pollen upon all recipients."}
+```{r, echo=FALSE, message=FALSE,fig.align='center', warning=FALSE,cache=FALSE,fig.height=2.5,fig.width=6}
 
 library(effsize)
 library(dplyr)
@@ -261,11 +104,10 @@ ymax = Upper,colour=Family_1), width = 0.2, size=0.8, alpha=0.5)+
   xlab("") + ylab("Hedges' g") + rotate()+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+scale_alpha(guide = 'none')
 ```
-
-
+**Figure 3**
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE,fig.margin = TRUE,cache=FALSE,fig.height=9,fig.width=7,fig.cap="The response of heterospecific pollen upon 10 recipient plant species.  Each panel represents one recipient plant species crossed with 50% mixes of the other 9 species."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,fig.margin = TRUE,cache=FALSE,fig.height=9,fig.width=7}
 
 library(effsize)
 library(dplyr)
@@ -370,9 +212,10 @@ mylegend<-g_legend(p11)
  grid.draw(arrangeGrob(cbind(ggplotGrob(p1+theme(legend.position="none")),ggplotGrob(pp2+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p3+theme(legend.position="none")),ggplotGrob(p4+theme(legend.position="none")),size="last"),cbind(ggplotGrob(p5+theme(legend.position="none")),ggplotGrob(p6+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p7+theme(legend.position="none")),ggplotGrob(p8+theme(legend.position="none")), size="last"),cbind(ggplotGrob(p9+theme(legend.position="none")),ggplotGrob(p10+theme(legend.position="none")),size="last"),mylegend,nrow=6))
 #mylegend
 ```
+**Figure 4**
 
 \newpage
-```{r, echo=FALSE, message=FALSE,warning=FALSE,cache=FALSE,fig.height=8,fig.width=7,fig.cap="A"}
+```{r, echo=FALSE, message=FALSE,warning=FALSE,cache=FALSE,fig.height=8,fig.width=7}
 library(effsize)
 library(dplyr)
 library(ggplot2)
@@ -508,11 +351,10 @@ mylegend<-g_legend(p11)
  
 
 ```
-
-
+**Figure 5**
 
 \newpage
-```{r, echo=FALSE, message=FALSE,warning=FALSE,cache=FALSE,fig.cap="Phylogenetic signal of the average heterospecific pollen effect size per species"}
+```{r, echo=FALSE,fig.align='center', message=FALSE,warning=FALSE,cache=FALSE}
 library(ape)
 library(phylosignal)
 library(adephylo)
@@ -531,9 +373,11 @@ hp_mean_sp=effect_size_all[,-c(1,3,4)]
 p4d <- phylo4d(pollen_tree, hp_mean_sp)
 barplot.phylo4d(p4d, center = TRUE , scale = FALSE,trait.labels="Hp effect",bar.col = c(rep("#0072B2",4), rep("#009E73",2), rep("#D55E00",4)))
 ```
+**Figure 6**
+
 
 \newpage
-```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE, fig.height=3,fig.width=5,fig.cap="a"}
+```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE, fig.height=3,fig.width=5}
 load("Data/family_cor.RData")
 library(ggpubr)
 library(ggplot2)
@@ -554,29 +398,11 @@ grid.arrange(p1, p2, nrow = 1, ncol=2)
 
 
 ```
+**Figure 7**
+
+
 \newpage
-
-
-
-# APPENDIX
-
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
-library(kableExtra)
-load("table_treatments.RData")
-Species <- c("Brassica oleracea", "Brassica rapa", "Eruca versicaria", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena")
-Cross <- cross
-Self <- self
-Natural_selfing <- nat_self
-Apomixis <- apo
-table<- data.frame(Species, Cross, Self, Natural_selfing,Apomixis)
-kable(table, format="markdown", caption= "Perecentage of seeds produced per ovule for the ten species used in the experiment. The treatments presented are hand cross-pollination, hand self-pollination, natural selfing and apomixis (emasculated flowers).
-",longtable = TRUE)
-```
-
-
-
-```{r, echo=FALSE, message=FALSE,fig.height=10,fig.width=5, warning=FALSE,fig.cap="Pollen ratios separated by family A) Brassicaceae, B) Solanaceae, C) Convolvulaceae. Pollen was counted for crosses with species of the other two families (N=3). To prepare these ratios all the pollen grains on the stigma were counted.", cache=FALSE}
+```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=8,fig.width=5}
 load("pollen_ratio.RData")
 library(ggpubr)
 library(ggplot2)
@@ -602,32 +428,27 @@ grid.arrange(p1, p2,p3, nrow = 3, ncol=1)
 
 
 ```
-
-\eleft
-
-\clearpage
-
-
-\listoftables
-
+**Figure 8**
 
 \newpage
 
+# List of tables
 
-\newpage
+**Table 1** Species list with family and genus.
 
-\clearpage
+# List of figures
 
-\listoffigures
+**Figure 1** Phylogenetic tree of the species used in the experiment from three different families from top to bottom: Brassicaceae, Convolvulaceae and Solanaceae.
 
+**Figure 2** Barplot of the different tests of the reproductive biology of the species. The y axis is the percentage of ovules converted to seed. The different treatments are, hand cross-pollination, hand self-pollination, natural selfing and apomixis (N=10 for all of them).
 
-\newpage
+**Figure 3** The impact of foreign pollen on recipient plant species. Effect sizes (with 95% confidence intervals) of 9 different donor species of heterospecific pollen upon all recipients.
 
-\newpage
+**Figure 4** The response of heterospecific pollen upon 10 recipient plant species.  Each panel represents one recipient plant species crossed with 50% mixes of the other 9 species.
 
-\blandscape
+**Figure 5**
 
-\elandscape
+**Figure 6**
 
-\clearpage
+**Figure 7** (comment) Simple Pearson correlation in order to show a possible path to follow in the article showing that style length and stigma size could explain the effect in Solanaceae species.
 
