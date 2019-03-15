@@ -85,7 +85,7 @@ soly_effect_size <- rbind(soly_effect_size_b,
 
 soly_effect_size$Family <- as.character(soly_effect_size$Family)
 soly_effect_size <- soly_effect_size %>% arrange(desc(Family))
-soly_effect_size <- rbind(soly_effect_size_cross,soly_effect_size)
+soly_effect_size <- rbind(soly_effect_size, soly_effect_size_cross)
 
 
 
@@ -104,7 +104,7 @@ ymax = Upper, size=2,color=factor(Family)), width = 0.2)+
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/soly_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/soly_effect_size_family.RData")
 
 #SOME
 
@@ -165,7 +165,7 @@ some_effect_size <- rbind(some_effect_size_b,
 
 some_effect_size$Family <- as.character(some_effect_size$Family)
 some_effect_size <- some_effect_size %>% arrange(desc(Family))
-some_effect_size <- rbind(some_effect_size_cross,some_effect_size)
+some_effect_size <- rbind(some_effect_size, some_effect_size_cross)
 
 
 
@@ -182,7 +182,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/some_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/some_effect_size_family.RData")
 
 
 #PEIN
@@ -242,7 +242,7 @@ pein_effect_size <- rbind(pein_effect_size_b,
 
 pein_effect_size$Family <- as.character(pein_effect_size$Family)
 pein_effect_size <- pein_effect_size %>% arrange(desc(Family))
-pein_effect_size <- rbind(pein_effect_size_cross,pein_effect_size)
+pein_effect_size <- rbind(pein_effect_size,pein_effect_size_cross)
 
 
 
@@ -259,7 +259,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/pein_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/pein_effect_size_family.RData")
 
 #CAAN
 
@@ -318,7 +318,7 @@ caan_effect_size <- rbind(caan_effect_size_b,
 
 caan_effect_size$Family <- as.character(caan_effect_size$Family)
 caan_effect_size <- caan_effect_size %>% arrange(desc(Family))
-caan_effect_size <- rbind(caan_effect_size_cross,caan_effect_size)
+caan_effect_size <- rbind(caan_effect_size, caan_effect_size_cross)
 
 
 
@@ -335,7 +335,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/caan_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/caan_effect_size_family.RData")
 
 
 ####
@@ -398,7 +398,7 @@ brol_effect_size <- rbind(brol_effect_size_b,
 
 brol_effect_size$Family <- as.character(brol_effect_size$Family)
 brol_effect_size <- brol_effect_size %>% arrange(desc(Family))
-brol_effect_size <- rbind(brol_effect_size_cross,brol_effect_size)
+brol_effect_size <- rbind(brol_effect_size, brol_effect_size_cross)
 
 
 
@@ -416,7 +416,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/brol_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/brol_effect_size_family.RData")
 
 
 #BRRA
@@ -476,7 +476,7 @@ brra_effect_size <- rbind(brra_effect_size_b,
 
 brra_effect_size$Family <- as.character(brra_effect_size$Family)
 brra_effect_size <- brra_effect_size %>% arrange(desc(Family))
-brra_effect_size <- rbind(brra_effect_size_cross,brra_effect_size)
+brra_effect_size <- rbind(brra_effect_size, brra_effect_size_cross)
 
 
 
@@ -493,7 +493,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/brra_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/brra_effect_size_family.RData")
 
 
 #SIAL
@@ -553,7 +553,7 @@ sial_effect_size <- rbind(sial_effect_size_b,
 
 sial_effect_size$Family <- as.character(sial_effect_size$Family)
 sial_effect_size <- sial_effect_size %>% arrange(desc(Family))
-sial_effect_size <- rbind(sial_effect_size_cross,sial_effect_size)
+sial_effect_size <- rbind(sial_effect_size, sial_effect_size_cross)
 
 
 
@@ -570,7 +570,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
 
-#save.image("Manuscript_draft/effect_size_species/sial_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/sial_effect_size_family.RData")
 
 
 #ERSA
@@ -630,7 +630,7 @@ ersa_effect_size <- rbind(ersa_effect_size_b,
 
 ersa_effect_size$Family <- as.character(ersa_effect_size$Family)
 ersa_effect_size <- ersa_effect_size %>% arrange(desc(Family))
-ersa_effect_size <- rbind(ersa_effect_size_cross,ersa_effect_size)
+ersa_effect_size <- rbind(ersa_effect_size, ersa_effect_size_cross)
 
 
 
@@ -646,7 +646,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/ersa_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/ersa_effect_size_family.RData")
 
 
 #IPPU
@@ -706,7 +706,7 @@ ippu_effect_size <- rbind(ippu_effect_size_b,
 
 ippu_effect_size$Family <- as.character(ippu_effect_size$Family)
 ippu_effect_size <- ippu_effect_size %>% arrange(desc(Family))
-ippu_effect_size <- rbind(ippu_effect_size_cross,ippu_effect_size)
+ippu_effect_size <- rbind(ippu_effect_size, ippu_effect_size_cross)
 
 
 
@@ -723,7 +723,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/ippu_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/ippu_effect_size_family.RData")
 
 
 #IPAQ
@@ -783,7 +783,7 @@ ipaq_effect_size <- rbind(ipaq_effect_size_b,
 
 ipaq_effect_size$Family <- as.character(ipaq_effect_size$Family)
 ipaq_effect_size <- ipaq_effect_size %>% arrange(desc(Family))
-ipaq_effect_size <- rbind(ipaq_effect_size_cross,ipaq_effect_size)
+ipaq_effect_size <- rbind(ipaq_effect_size,ipaq_effect_size_cross)
 
 
 
@@ -800,6 +800,10 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family))) +
   xlab("Treatments") + ylab("Cohen's d") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/ipaq_effect_size_family.RData")
+save.image("Manuscript_draft/effect_size_species/ipaq_effect_size_family.RData")
 
-
+leg_family=ipaq_effect_size
+str(leg_family)
+leg_family$Family=as.character(leg_family$Family)
+leg_family$Family[leg_family$Family=="I. aquatica"]<- "Focal species"
+saveRDS(leg_family, "Manuscript_draft/data/leg_family.RData")
