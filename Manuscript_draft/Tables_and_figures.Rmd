@@ -402,7 +402,7 @@ grid.arrange(p1, p2, nrow = 1, ncol=2)
 
 
 \newpage
-```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=8,fig.width=5}
+```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=9,fig.width=5}
 load("pollen_ratio.RData")
 library(ggpubr)
 library(ggplot2)
@@ -431,7 +431,7 @@ grid.arrange(p1, p2,p3, nrow = 3, ncol=1)
 **Figure 8**
 
 \newpage
-```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=8,fig.width=5}
+```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=9,fig.width=5}
 load("Data/total_pollen.RData")
 library(ggpubr)
 library(ggplot2)
@@ -440,18 +440,15 @@ library(grid)
 
 p1 <- ggplot(total_pollen_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="A) Brassicaceae") +
-  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
-  geom_hline(yintercept = 50) + xlab("") + ylab("Total pollen")
+  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor"))+ xlab("") + ylab("Total pollen")
 
 p2 <- ggplot(total_pollen_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
-  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
-  geom_hline(yintercept = 50) + xlab("") + ylab("Total pollen")
+  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor"))+ xlab("") + ylab("Total pollen")
 
 p3 <-ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
-  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
-  geom_hline(yintercept = 50) + xlab("") + ylab("Total pollen")
+  theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor"))+ xlab("") + ylab("Total pollen")
 grid.arrange(p1, p2,p3, nrow = 3, ncol=1)
 
 
@@ -477,7 +474,10 @@ grid.arrange(p1, p2,p3, nrow = 3, ncol=1)
 
 **Figure 5**
 
-**Figure 6**
+**Figure 6** Phylogenetic signal of hterospecific pollen effect (hedges' g)
 
 **Figure 7** (comment) Simple Pearson correlation in order to show a possible path to follow in the article showing that style length and stigma size could explain the effect in Solanaceae species.
 
+**Figure 8** Pollen ratio counts on stigma after hand pollination with 50-50% mix. The panel is divided by family: A) Brassicaceae, B) Solanaceae and C) Convolvulaceae. The pollen recipient species is coloured in black and the donor species in grey.
+
+**Figure 9** Total pollen counts on stigma after hand pollination with 50-50% mix. The panel is divided by family: A) Brassicaceae, B) Solanaceae and C) Convolvulaceae. The pollen recipient species is coloured in black and the donor species in grey.
