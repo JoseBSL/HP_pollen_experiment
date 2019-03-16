@@ -100,3 +100,8 @@ ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
   theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+
+
+mean(pollen_ratios_brassicaceae$ratio[pollen_ratios_brassicaceae$variable=="non_focal_pollen"])
+mean(pollen_ratios_solanaceae$ratio[pollen_ratios_solanaceae$variable=="focal_pollen"])
+mean(pollen_ratios_convolvulaceae$ratio[pollen_ratios_convolvulaceae$variable=="focal_pollen"])
