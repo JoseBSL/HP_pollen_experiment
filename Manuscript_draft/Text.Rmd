@@ -96,36 +96,35 @@ NMDS to appendix?
 
 # RESULTS
 
-Results of hand cross-pollination, hand self-pollination, natural selfing and apomixis are presented in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seed set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. Moreover, average effect sizes differed across species and across families, see **Figure 2**. Despite some variability in the effect of the different pollen donors per species, in general terms the effect of heterospecific pollen from the distinct nine treatments per species was homogeneous (see **Figure 3**), just for four species out of ten, just one donor did not overlap the confidence intervals with other donors. Therefore, none of the donors had a clear stronger or weaker effect across species. When the donors were groped by family not big differences were seen, just for *S. lycopersicum* the confidence intervals of Brassicaceae and Convolvulaceae did not overlap (see **Figure 4**). In addition, for the 100% hetrospecific pollen treatments we did not find almost seed production. However, for just one species (*S. alba*) the control pollination and the heterospecific pollination with pollen from a confamilial had similar seed production. For two Solanaceae species *S. melongena* and *C. annuum* 100% pollen treatments produced few seedles fruits (3% and 9% respectively) and they did not for the apomictic treatments.
+Results of hand cross-pollination, hand self-pollination, natural selfing and apomixis are presented for all the species in **Figure 1** (see appendix 1 for table with values). Heterospecific pollen reduced seed set significatively with the 50-50% heterospecific pollen treatments for 65% of the pairwise interactions p<0.05. 
 
-Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a positive statistically clear correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. We found a significant phylogenetic signal of traits for pollen size, stigma measurements and style length (p<0.05). Although with a lack of a significant correlation pagel's lambda values were also relatively high (>0.45) for incompatibility index, ovary length and levels of selfing. Moreover, Mantel test between heterospecific pollen effect and traits gave also a positive significant correlation with a  r value of 0.4. When the effect was look trait by trait with Mantel test, stigma type and stigma measurements (length, width and area) gave a significant positive correlation with heterospecific pollen effect.
+[Add values of pollen counted](Jose)
+
+The grouped effect size of the nine donors per species differed across species and families (see **Figure 2**). Interestingly, despite some variability in the effect of the different pollen donors per species, in general terms the effect of heterospecific pollen from the distinct nine treatments per species was homogeneous (see **Figure 3**). Just for four species out of ten, just one donor in each did not overlap the confidence intervals with other donors. Therefore, none of the donors had a clear stronger or weaker effect across species. When the donors were grouped by family we found a similar effect too, just for *S. lycopersicum* the confidence intervals of Brassicaceae and Convolvulaceae did not overlap (see **Figure 4**). In addition, for the 100% hetrospecific pollen treatments we did not find almost seed production. However, for just one species (*S. alba*) the control pollination and the heterospecific pollination with pollen from a confamilial had similar seed production. For two Solanaceae species *S. melongena* and *C. annuum* 100% pollen treatments produced few seedles fruits (3% and 9% respectively) and they did not for the apomictic treatments.
+
+[add numeric values for 100% seed production](Jose)
+
+Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a positive statistically clear correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. We found a significant phylogenetic signal of traits for pollen size, stigma measurements and style length (p<0.05). Although with a lack of a significant correlation pagel's lambda values were also relatively high (>0.45) for incompatibility index, ovary length and levels of selfing. 
+
+
+Moreover, Mantel test between heterospecific pollen effect and the distance matrix of traits gave also a positive significant correlation with r value of 0.4. When the effect was look trait by trait with Mantel test, stigma type and stigma measurements (length, width and area) gave a significant positive correlation with heterospecific pollen effect. When the effect of heterospecific pollen was just looked at family level, for Solanaceae species we found a negative correlation between style length and heterospecific pollen effect (Figure 7). 
+
 
 [explain ratios and total pollen](Jose)
 [add table with morphometrical traits to appendix](Jose)
-
-
-I haven't add this to the draft yet but when I look just Solanaceae species, interestingly seems to be a negative trend with style length and heterospecific pollen effect. Curiously, Capsicum and tomato are the ones that are more affected by hp and both have the shortest stigma and style.
-The stigma results of tomato are supported by the plot of effct sizes per family where convolvulaceae has a greater negative effect than the other two families (and they are the ones with bigger pollen size)
-
-Here I show the plot of just solanaceae and then with all the species. I have gouped all the treatments, if not I feel like we are doing p hacking with all the analysis, because is increasing the strength of each point 9 times.
 
 \newpage
 
 # DISCUSSION
 
-supporting ideas: 
-Species that are strong selfers or strong outcrossers have less variablity in mating systems and predictions of effect could be more realistic (see figure 1 from Whitehead et al. (2018)). 
- 
-Interestingly the effect of the different donors per species were very homogeneous which lead us to think that the female reproductive traits of the pollen recipient are the main ones in explaining heterospecific pollen effect. Our main predictive trait of effect is stigma size, and because we found a correlation between the pollen quantity deposited on the stigma and stigma size, we argue that that the total load of pollen deposited per treatment can obscured what are the main traits in driving heterospecific pollen effect. 
+The uniform effect of the different donors across the ten different species is a novel result to highlight in the understanding of heterospecific pollen effect. Traditionally, the nature of the pollen donor has been considered highly relevant to understand the outcomes of the pairwise interaction. However, this result support the idea that the pollen recipient traits are the main determinats of the effect and not the donor ones. 
 
-Curiously between the species with greater effect sizes, we found completely self incompatible species, species with the smallest stigma and the species with shortes style. Develop more...
 
-Although we have found a positive correlation between phylogenetic distance and heterospecific pollen effect, this results have to be treated carefully. From our results we want to highlight that also far related species can affect negatively fitness but the effect from close related is species can also have important detrimental effects. Moreover, the effect of close related species can be masked by the possibility of hibridization as it occure between two of our species of Brassica. Moreover, although different effect between distinct donors can occur we want to note the importance on the traits of the recipient that determine an homogeneous effect between donors as we have shown in figure xxx. These different traits will define how it will be the effect across the different species independently of the nature of the donor and also differently even between species of . Although traditionally the nature of the pollen donor have been very studied, the recipient...
 
 Herbs vs tress, annual vs perennial... Many flowers vs few flowered species; structural composition on a system
 
-What are the implications of the findings?
-
+supporting ideas: 
+Species that are strong selfers or strong outcrossers have less variablity in mating systems and predictions of effect could be more realistic (see figure 1 from Whitehead et al. (2018)). 
 
 # CONCLUSIONS
 
