@@ -259,3 +259,6 @@ Donor=ggplot(seed_set_non_focal, aes(x=Treatment, y=mean, group=1)) +
 mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (6)))
 print(Donor +mynamestheme+ labs(title= "Donor average effect",
                       y="Mean +/- sd", x = "Species"))
+
+
+

@@ -57,6 +57,17 @@ table<- data.frame(Family, Genus, Species)
 kable(table, format="markdown", caption = "a")
 ```
 \newpage
+
+**Table 2**
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+dat_all <- readRDS("Data/dat_all.RData")
+kable(dat_all, format="markdown", caption = "a")
+
+```
+
+
+
+\newpage
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, out.width='100%'}
 knitr::include_graphics('images/phylo_image.png')
 ```
@@ -461,6 +472,8 @@ grid.arrange(p1, p3,p2, nrow = 3, ncol=1)
 # List of tables
 
 **Table 1** Species list with family and genus.
+
+**Table 2** Seed production of the different individual treatments of 100% foreign pollen.
 
 # List of figures
 
