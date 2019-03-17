@@ -443,12 +443,12 @@ p1 <- ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
 p2 <- ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
+  geom_bar(stat='identity', position='dodge') +labs(title="C) Solanaceae") +
   theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
 p3 <-ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
+  geom_bar(stat='identity', position='dodge') +labs(title="B) Convolvulaceae") +
   theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 grid.arrange(p1, p3,p2, nrow = 3, ncol=1)
@@ -471,11 +471,11 @@ p1 <- ggplot(total_pollen_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
   theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor"))+ xlab("") + ylab("Total pollen")
 
 p2 <- ggplot(total_pollen_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
+  geom_bar(stat='identity', position='dodge') +labs(title="C) Solanaceae") +
   theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor"))+ xlab("") + ylab("Total pollen")
 
 p3 <-ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
+  geom_bar(stat='identity', position='dodge') +labs(title="B) Convolvulaceae") +
   theme(axis.text.x=element_text(size = 8,angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor"))+ xlab("") + ylab("Total pollen")
 grid.arrange(p1, p3,p2, nrow = 3, ncol=1)
 
@@ -492,7 +492,7 @@ grid.arrange(p1, p3,p2, nrow = 3, ncol=1)
 
 **Table 2** Results of hand corss-pollination, hand self-pollination, natural selfing (unpollinated bagged flowers) and apomixis. The values are the average seed production per treatment (N=10) divided by the average number of ovules per species.
 
-**Table 3** Seed production for the treatments that produced seeds with 100% foeign pollen.
+**Table 3** Seed production for the treatments that produced seeds with 100% foreign pollen.
 
 # List of figures
 
