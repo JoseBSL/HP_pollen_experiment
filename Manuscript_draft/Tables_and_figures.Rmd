@@ -60,6 +60,23 @@ kable(table, format="markdown", caption = "a")
 
 **Table 2**
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+library(kableExtra)
+load("table_treatments.RData")
+Species <- c("Brassica oleracea", "Brassica rapa", "Eruca versicaria", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena")
+Cross <- cross
+Self <- self
+Natural_selfing <- nat_self
+Apomixis <- apo
+table<- data.frame(Species, Cross, Self, Natural_selfing,Apomixis)
+kable(table, format="markdown", caption= "Perecentage of seeds produced per ovule for the ten species used in the experiment. The treatments presented are hand cross-pollination, hand self-pollination, natural selfing and apomixis (emasculated flowers).
+",longtable = TRUE)
+```
+
+
+\newpage
+
+**Table 3**
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 dat_all <- readRDS("Data/dat_all.RData")
 kable(dat_all, format="markdown", caption = "a")
 
@@ -473,7 +490,9 @@ grid.arrange(p1, p3,p2, nrow = 3, ncol=1)
 
 **Table 1** Species list with family and genus.
 
-**Table 2** Seed production of the different individual treatments of 100% foreign pollen.
+**Table 2** Results of hand corss-pollination, hand self-pollination, natural selfing (unpollinated bagged flowers) and apomixis. The values are the average seed production per treatment (N=10) divided by the average number of ovules per species.
+
+**Table 3** Seed production for the treatments that produced seeds with 100% foeign pollen.
 
 # List of figures
 
