@@ -329,7 +329,7 @@ traits_all_bioenv <- traits_all
 traits_all_bioenv_scaled <- scale(traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv)
 bioenv(matrix_scale_effect,traits_all_bioenv_scaled)
-bioenv(matrix_scale_effect,traits_all_bioenv_scaled[,-c(6,12,16)])
+#bioenv(matrix_scale_effect,traits_all_bioenv_scaled[,-c(6,12,16)])
 
 
 
@@ -637,6 +637,7 @@ si_index <- as.data.frame(si_index)
 rownames(si_index) <- rownames(si_index)
 si_index <- dist(si_index, diag=T, upper=T)
 mantel(matrix_scale_effect, si_index)
+#protest(matrix_effect_size, si_index)
 mantel(matrix_effect_size, si_index)
 mantel(abs(matrix_effect_size), si_index)
 mantel(abs(matrix_scale_reverted), si_index)
