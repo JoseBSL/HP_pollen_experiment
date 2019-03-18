@@ -23,8 +23,15 @@ traits_sola=traits_all[c(3,7,9,10),-c(1,2)]
 traits_sola_dist <- dist(traits_sola, diag = T)
 a <- mantel(matrix_soly,traits_sola_dist)
 summary(a)
-mantel(matrix_soly,dist(traits_sola[,2]))
+mantel(matrix_soly,dist(traits_sola[,6]))
 cor.test(sola$Cohen_d,sola$pollen_size)
+
+#
+mantel(matrix_soly,dist(traits_sola[,6]))
+
+
+
+
 
 
 traits_sola$species <- c("CAAN", "PEIN","SOLY","SOME")
@@ -44,10 +51,41 @@ save.image("Manuscript_draft/")
 ####
 ####BRASSICACEAE####
 ####
-traits_brra=traits_all[c(4,8,9,10),-c(1,2)]
+matrix_brra=matrix_scale_effect[c(1,2,4,8),c(1,2,4,8)]
+traits_brra=traits_all[c(1,2,4,8),-c(1,2)]
 brra=effect_size_all[c(7:10),c(1,2)]
-
+mantel(matrix_brra,dist(traits_brra[,1]))
 cor.test(brra$Cohen_d,traits_brra$mean_ovules)
+
+#pollen size
+mantel(matrix_brra,dist(traits_brra[,1]))
+#mean_pollen_anther
+mantel(matrix_brra,dist(traits_brra[,2]))
+#mean_ovules
+mantel(matrix_brra,dist(traits_brra[,3]))
+#Mantel statistic r: 0.3997; 0.041667 
+#pollen_ovule_ratio
+mantel(matrix_brra,dist(traits_brra[,4]))
+#anthers
+mantel(matrix_brra,dist(traits_brra[,5]))
+#stigma_area
+mantel(matrix_brra,dist(traits_brra[,6]))
+#stigma_length
+mantel(matrix_brra,dist(traits_brra[,7]))
+#stigma_width
+mantel(matrix_brra,dist(traits_brra[,8]))
+#stigma_surface
+mantel(matrix_brra,dist(traits_brra[,9]))
+#style_length
+mantel(matrix_brra,dist(traits_brra[,10]))
+#style_width
+mantel(matrix_brra,dist(traits_brra[,11]))
+#ovary_width
+mantel(matrix_brra,dist(traits_brra[,12]))
+#ovary_length
+mantel(matrix_brra,dist(traits_brra[,13]))
+#si_index
+mantel(matrix_brra,dist(traits_brra[,14]))
 
 
 ####
@@ -62,3 +100,11 @@ ggscatter(a, x = "Cohen_d", y = "style_length",
 
 
 save.image("Manuscript_draft/Data/family_cor.RData")
+
+
+
+#BRRA and SOLY
+
+brra
+sola
+
