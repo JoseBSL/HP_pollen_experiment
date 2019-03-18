@@ -499,7 +499,7 @@ grid.arrange(p1, p3,p2, nrow = 3, ncol=1)
 
 **Figure 4** The response of heterospecific pollen upon 10 recipient plant species.  Each panel represents one recipient plant species crossed with 50% mixes of the other 9 species.
 
-**Figure 5**
+**Figure 5** The impact of foreign pollen on recipient plant species. Effect sizes (with 95% confidence intervals) of the species grouped per family upon all recipients.
 
 **Figure 6** Phylogenetic signal of hterospecific pollen effect (hedges' g)
 
