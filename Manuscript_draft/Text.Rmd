@@ -91,18 +91,14 @@ Results of hand cross-pollination, hand self-pollination, natural selfing and ap
 The grouped effect sizes of the nine donors per species differed across species and families (see **Figure 2**), having clear statistical differences for species within and across families with not overlapping confidence intervals. Interestingly, despite some variability in the effect of the different pollen donors per species, in general terms the effect of heterospecific pollen from the distinct nine treatments per species was homogeneous with unclear statistical differences (see **Figure 3**). Just for four species out of ten, just one donor in each did not have overlapping confidence intervals with the rest of the donors. Therefore, none of the donors had a clear stronger or weaker effect across species. When the donors were grouped by family we found a similar effect too, just for *S. lycopersicum* the confidence intervals of Brassicaceae and Convolvulaceae did not overlap (see **Figure 4**). 
 
 Matrices of heterospecifc pollen effect and traits (Distance matrix of traits, euclidean distance) are positively and significantly correlated (r=0.4, one-tailed Mantel test p<0.05).The variable/s with maximum rank correlation (thorugh *Bioenv* funtion) was incompatibility index by itself within a group of 16 variables calculated with euclidean distances. The same analysis of Mantel test between heterospecific pollen effect and the traits one by one gave a positive and significant correlation for stigma type and stigma measurements (length, width and area). When the effect of heterospecific pollen was looked at family level, for Solanaceae species we found a positive and significant correlation between heterospecific pollen effect and pollen-ovule ratio
-(r=0.74, one-tailed Mantel test p<0.05). Moreover, it seems to be a strong negative correlation between style length and heterospecific pollen effect although lack of significance (Pearson's correlation=0.93, p=0.07) (see **Figure 7**). For Brassicaceae species, the distance matrix of ovules and heterospecic pollen effect gave a positive and significant correlation (r=0.4, one-tailed Mantel test p<0.05). 
+(r=0.74, one-tailed Mantel test p<0.05). Moreover, it seems to be a strong negative correlation between style length and heterospecific pollen effect although lack of significance (Pearson's correlation=0.93, p=0.07) (see **Figure 7**). For Brassicaceae species, the distance matrix of ovules and heterospecic pollen effect gave a positive and significant correlation (r=0.4, one-tailed Mantel test p<0.05). Separate to this, the stigmatic area and pollen grain number per stigma were positively correlated, (pearson's correlation=0.57, p<0.01). 
 
 Results of Mantel test between heterospecific pollen effect and phylogenetic distance gave a low positive correlation for both markers (p<0.05). The correlations with ITS and RBCL markers was respectively of 0.29 and 0.25. We found a significant phylogenetic signal of traits for pollen size, stigma measurements and style length (p<0.05). Although with a lack of a significant correlation pagel's lambda values were also relatively high (>0.45) for incompatibility index, ovary length and levels of selfing. 
 
-[explain ratios and total pollen](Jose)
-[add table with morphometrical traits to appendix](Jose)
+add table with morphometrical traits to appendix (Jose)
+NMDS to appendix?
 
 \newpage
-
-Total pollen deposited on stigmas was significantly correlated with the stigmatic area, pearsons correlation=0.57 and p-value=0.008. Proportions of pollen talk about it to 50-50 mix? Talk aboout this in methods too.
-
-NMDS to appendix?
 
 # DISCUSSION
 
