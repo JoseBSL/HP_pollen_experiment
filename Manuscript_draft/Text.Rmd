@@ -1,13 +1,14 @@
 ---
 title: ''
+header-includes:
+- \usepackage{setspace}
+- \doublespacing
+- \usepackage{lineno}
+- \linenumbers
 output:
+  word_document: default
   pdf_document: default
   html_document: default
-header-includes:
-    - \usepackage{setspace}
-    - \doublespacing
-    - \usepackage{lineno}
-    - \linenumbers
 bibliography:
 - references.bib
 - knitcitations.bib

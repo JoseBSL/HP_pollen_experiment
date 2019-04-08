@@ -26,10 +26,38 @@ summary(a)
 mantel(matrix_soly,dist(traits_sola[,6]))
 cor.test(sola$Cohen_d,sola$pollen_size)
 
-#
+#stigma_type
+mantel(matrix_soly,dist(traits_sola[,1]))
+#Selfing_rate
+mantel(matrix_soly,dist(traits_sola[,2]))
+#pollen_size
+mantel(matrix_soly,dist(traits_sola[,3]))
+#mean_pollen_anther
+mantel(matrix_soly,dist(traits_sola[,4]))
+#mean_ovules
+mantel(matrix_soly,dist(traits_sola[,5]))
+#pollen_ovule_ratio
 mantel(matrix_soly,dist(traits_sola[,6]))
-
-
+#anthers
+mantel(matrix_soly,dist(traits_sola[,7]))
+#stigma_area
+mantel(matrix_soly,dist(traits_sola[,8]))
+#stigma_length
+mantel(matrix_soly,dist(traits_sola[,9]))
+#stigma_width
+mantel(matrix_soly,dist(traits_sola[,10]))
+#stigma_surface
+mantel(matrix_soly,dist(traits_sola[,11]))
+#style_length
+mantel(matrix_soly,dist(traits_sola[,12]))
+#style_width
+mantel(matrix_soly,dist(traits_sola[,13]))
+#ovary_width
+mantel(matrix_soly,dist(traits_sola[,14]))
+#ovary_length
+mantel(matrix_soly,dist(traits_sola[,15]))
+#si_index
+mantel(matrix_soly,dist(traits_sola[,16]))
 
 
 
