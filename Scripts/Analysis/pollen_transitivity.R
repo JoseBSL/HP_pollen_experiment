@@ -6,6 +6,7 @@ library(reshape2)
 matrix <- as.matrix(read.csv("Data/matrix_scale_effect.csv", header = T, row.names = 1))
 matrix<- as.matrix(matrix)
 str(matrix)
+d<- matrix
 #convert into dominance matrix
 int.to.dom=function(x){ ((x>t(x)) & (x+t(x)>0))+0}
 m <- int.to.dom(matrix)
@@ -74,13 +75,61 @@ g <- graph( c(0,1, 1,2, 2,3, 3,4), n=6, directed=TRUE )
 
  
 library(igraph)
-#import the sample_dw_adj.csv file:
-dat=read.csv(file.choose(),header=TRUE,row.names=1,check.names=FALSE) # read .csv file
-m=as.matrix(matrix)
 
-m[1,2]<-5
+d
+m
+
+m[3,1]<- d[3,1]
+m[1,2]<- d[1,2]
+m[3,2]<- d[3,2]
+m[5,2]<- d[5,2]
+m[9,3]<- d[9,3]
+m[1,4]<- d[1,4]
+m[2,4]<- d[2,4]
+m[3,4]<- d[3,4]
+m[5,4]<- d[5,4]
+m[6,4]<- d[6,4]
+m[7,4]<- d[7,4]
+m[8,4]<- d[8,4]
+m[9,4]<- d[9,4]
+m[10,4]<- d[10,4]
+m[1,5]<-d[1,5]
+m[3,5]<- d[3,5]
+m[9,5]<- d[9,5]
+m[1,6]<-d[1,6]
+m[2,6]<-d[2,6]
+m[3,6]<-d[3,6]
+m[5,6]<-d[5,6]
+m[7,6]<-d[7,6]
+m[8,6]<-d[8,6]
+m[9,6]<-d[9,6]
+m[10,6]<-d[10,6]
+m[1,7]<-d[1,7]
+m[2,7]<-d[2,7]
+m[3,7]<-d[3,7]
+m[5,7]<-d[5,7]
+m[9,7]<-d[9,7]
+m[1,8]<-d[1,8]
+m[2,8]<-d[2,8]
+m[3,8]<-d[3,8]
+m[5,8]<-d[5,8]
+m[7,8]<-d[7,8]
+m[9,8]<-d[9,8]
+m[10,8]<-d[10,8]
+m[1,9]<-d[1,9]
+m[2,9]<-d[2,9]
+m[1,10]<-d[1,10]
+m[2,10]<-d[2,10]
+m[3,10]<-d[3,10]
+m[5,10]<-d[5,10]
+m[7,10]<-d[7,10]
+m[9,10]<-d[9,10]
 
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
 #the only difference between this and the weighted network code is that mode="directed"
  
+plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
+m=m*2
+net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
+#the only difference between this and the weighted network code is that mode="directed"
 plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
