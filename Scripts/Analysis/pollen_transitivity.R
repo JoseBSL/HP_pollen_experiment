@@ -51,3 +51,36 @@ r.P.t=apply(r.triad,1,function(x) x[9]/(x[10]+x[9]))
 p=length(r.P.t[r.P.t>=Pt])/1000
 p 
 #So we have significant levels of transitivity? (Jose)
+
+
+#other possible ways to plot the tyransitivity network
+
+#install.packages("sna")
+library(sna)
+
+#Draw some random graphs
+g<-rgraph(5,10)
+g
+#Find transitivity scores
+gtrans(g)
+
+
+
+
+#other package
+install.packages(graph)
+g <- graph( c(0,1, 1,2, 2,3, 3,4), n=6, directed=TRUE )
+
+
+ 
+library(igraph)
+#import the sample_dw_adj.csv file:
+dat=read.csv(file.choose(),header=TRUE,row.names=1,check.names=FALSE) # read .csv file
+m=as.matrix(matrix)
+
+m[1,2]<-5
+
+net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
+#the only difference between this and the weighted network code is that mode="directed"
+ 
+plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
