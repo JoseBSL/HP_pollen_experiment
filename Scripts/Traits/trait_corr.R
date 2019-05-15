@@ -8,21 +8,31 @@ corrplot(M, method = "circle")
 #We can kill two birds with one stone, showing the correlation and all the traits
 
 
-a <- read.csv("Data/traits_all.csv")
-a=a[,-c(1,2)]
-a<- cor(a)
-str(a)
-a=a[-c(1,7,11),-c(1,7,11)]
+traits_all <- read.csv("Data/traits_all.csv")
+si_index <- readRDS("Data/si_index.RData")
+traits_all$si_index <- si_index
+traits_all=traits_all[,-c(1,2)]
+traits_all=traits_all[,-c(1,7,11)]
+#Change order of ovary width length I rename below in row and colname
+a<-traits_all[,11]
+b<-traits_all[,12]
+traits_all[,11] <-b
+traits_all[,12]<- a
+traits_all<- cor(traits_all)
 
-rownames(a)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Ovules", "Pollen-ovule ratio",
-                "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width",
-                "Ovary width", "Ovary length")
+rownames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio",
+                         "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width",
+                         "Ovary length", "Ovary width", "SI index")
 
-colnames(a)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Ovules", "Pollen-ovule ratio",
+colnames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio",
                 "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width",
-                "Ovary width", "Ovary length")
+                "Ovary length", "Ovary width", "SI index")
   
-corrplot(a, method = "circle")
-corrplot(a, type = "upper")
+corrplot(traits_all, method = "circle")
+corrplot(traits_all, type = "upper")
 
-corrplot(a, type = "lower",  tl.col = "black", tl.srt = 45)
+corrplot(traits_all, type = "lower",  tl.col = "black", tl.srt = 45)
+
+#Add Compatibility index!
+
+
