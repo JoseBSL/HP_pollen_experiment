@@ -17,27 +17,41 @@ effect_size=melt(matrix_effect_size)
 ####SOLANACEAE####
 ####
 matrix_soly=matrix_scale_effect[c(3,7,9,10),c(3,7,9,10)]
-matrix_soly=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
+matrix_soly_1=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
 
 traits_sola=traits_all[c(3,7,9,10),-c(1,2)]
 traits_sola_dist <- dist(traits_sola, diag = T)
 a <- mantel(matrix_soly,traits_sola_dist)
 summary(a)
 mantel(matrix_soly,dist(traits_sola[,6]))
+mantel(matrix_soly_1,dist(traits_sola[,6]))
+
 cor.test(sola$Cohen_d,sola$pollen_size)
 
 #stigma_type
 mantel(matrix_soly,dist(traits_sola[,1]))
+mantel(matrix_soly_1,dist(traits_sola[,1]))
+
 #Selfing_rate
 mantel(matrix_soly,dist(traits_sola[,2]))
+mantel(matrix_soly_1,dist(traits_sola[,2]))
+
 #pollen_size
 mantel(matrix_soly,dist(traits_sola[,3]))
+mantel(matrix_soly_1,dist(traits_sola[,3]))
+
 #mean_pollen_anther
 mantel(matrix_soly,dist(traits_sola[,4]))
+mantel(matrix_soly_1,dist(traits_sola[,4]))
+
 #mean_ovules
 mantel(matrix_soly,dist(traits_sola[,5]))
+mantel(matrix_soly_1,dist(traits_sola[,5]))
+
 #pollen_ovule_ratio
 mantel(matrix_soly,dist(traits_sola[,6]))
+mantel(matrix_soly_1,dist(traits_sola[,6]))
+
 #anthers
 mantel(matrix_soly,dist(traits_sola[,7]))
 #stigma_area

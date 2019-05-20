@@ -10,6 +10,7 @@ d<- matrix
 #convert into dominance matrix
 int.to.dom=function(x){ ((x>t(x)) & (x+t(x)>0))+0}
 m <- int.to.dom(matrix)
+x=m
 #In order to see the reverse matrix ploted
 # m[m==1]<-2
  #m[m==0]<-1
@@ -133,3 +134,23 @@ m=m*2
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
 #the only difference between this and the weighted network code is that mode="directed"
 plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
+
+library(sna)
+g<-rgraph(10,10)
+gtrans(g)
+#Find transitivity scores
+b<- rgraph(m)
+gtrans(m)
+gtrans(m, mode="digraph", measure="weak")
+
+a=m*0
+gtrans(x)
+
+triad.classify(m)
+triad.census(a)
+
+A<- matrix(1:9, nrow = 3, ncol = 3)
+gtrans(A)
+diag(A)<-0
+A[1,2:3]<- 1
+A[2:3,1]<-0
