@@ -64,9 +64,9 @@ pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" &
 #write.csv(pollen_ratios_brassicaceae, "Rmd/Data/pollen_ratios_brassicaceae.csv")
 
 ggplot(pollen_ratios_brassicaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="A) Brassicaceae") +
+  geom_bar(stat='identity', position='dodge',width=0.5) +labs(title="A) Brassicaceae") +
   theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
-  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")+ylim(0, 100)
 
 
 #Solanaceae pollen ratio plot
@@ -78,9 +78,9 @@ pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" & p
 #write.csv(pollen_ratios_solanaceae, "Rmd/Data/pollen_ratios_solanaceae.csv")
 
 ggplot(pollen_ratios_solanaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="B) Solanaceae") +
+  geom_bar(stat='identity', position='dodge',width=0.5) +labs(title="B) Solanaceae") +
   theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
-  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")+ylim(0, 100)
 
 
 #Convolvulaceae
@@ -97,11 +97,25 @@ save.image("Manuscript_draft/pollen_ratio.RData")
 #Now the angle is right
 
 ggplot(pollen_ratios_convolvulaceae, aes(x=spp, y=ratio, fill=variable)) +
-  geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
+  geom_bar(stat='identity', position='dodge',width=0.25) +labs(title="C) Convolvulaceae") +
   theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
-  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")+ylim(0, 100)
 
 
 mean(pollen_ratios_brassicaceae$ratio[pollen_ratios_brassicaceae$variable=="non_focal_pollen"])
 mean(pollen_ratios_solanaceae$ratio[pollen_ratios_solanaceae$variable=="focal_pollen"])
 mean(pollen_ratios_convolvulaceae$ratio[pollen_ratios_convolvulaceae$variable=="focal_pollen"])
+
+#Making Convolvulaceae plot same size
+
+a<- rbind(pollen_ratios_convolvulaceae,pollen_ratios_convolvulaceae)
+
+a[9:16,4]<-0
+str(a)
+a$spp=as.character(a$spp)
+a[9:16,6]<-" "
+ggplot(a, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge') +labs(title="C) Convolvulaceae") +
+  theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
+  geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
+
