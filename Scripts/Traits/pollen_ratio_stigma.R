@@ -119,3 +119,63 @@ ggplot(a, aes(x=spp, y=ratio, fill=variable)) +
   theme(axis.text.x=element_text(angle=45,hjust=1, face="italic"), legend.title = element_blank()) + scale_fill_grey(labels=c("Recipient","Donor")) + 
   geom_hline(yintercept = 50) + xlab("") + ylab("Pollen Ratio")
 
+
+#I'm going to prepare the data in another format so I can plot it nicely
+#Brassicaceae
+pollen_ratios <- read.csv("Data/pollen_ratios.csv")
+pollen_ratios_brassicaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" & pollen_ratios$focal!="I. aquatica"& pollen_ratios$focal!="S. melongena"&
+                                              pollen_ratios$focal!="S. lycopersicum" & pollen_ratios$focal!="P. integrifolia"& pollen_ratios$focal!="C. annuum",  ]
+ersa_ippu <- c(99,1)
+brol_ippu <- c(63,37)
+brra_ippu <- c(99,1)
+sial_ipaq <- c(99,1)
+sial_some <- c(73,27)
+ersa_pein <- c(67,33)
+brra_soly <- c(83,17)
+brol_caan <- c(57,43)
+
+a<- data.frame(ersa_ippu,brol_ippu,brra_ippu,sial_ipaq,sial_some,ersa_pein,brra_soly,brol_caan)
+a=as.matrix(a)
+rownames(a)<- c("Recipient","Donor")
+ratio_bra=a
+barplot(ratio_bra, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7)                                                                                              
+saveRDS(ratio_bra,"Rmd/Data/ratio_bra.RData")
+#Solanaceae
+pollen_ratios <- read.csv("Data/pollen_ratios.csv")
+pollen_ratios_solanaceae <- pollen_ratios[pollen_ratios$focal!="I. purpurea" & pollen_ratios$focal!="I. aquatica"& pollen_ratios$focal!="B. oleracea"&
+                                            pollen_ratios$focal!="B. rapa" & pollen_ratios$focal!="S. alba"& pollen_ratios$focal!="E. sativa",  ]
+
+caan_ippu <- c(95,5)
+some_ipaq <- c(74,26)
+pein_ipaq <- c(49,51)
+soly_ipaq <- c(84,16)
+some_ersa <- c(46,54)
+pein_ersa <- c(49,51)
+caan_sial <- c(38,62)
+soly_brra <- c(49,51)
+a<- data.frame(caan_ippu,some_ipaq,pein_ipaq,soly_ipaq,some_ersa,pein_ersa,caan_sial,soly_brra)
+a=as.matrix(a)
+row.names(a)<- c("Recipient", "Donor")
+ratio_sol=a
+barplot(ratio_sol, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7)                                                                                              
+saveRDS(ratio_sol,"Rmd/Data/ratio_sol.RData")
+
+#Convolvulaceae
+
+pollen_ratios <- read.csv("Data/pollen_ratios.csv")
+
+#pollen_ratios$spp <- paste(pollen_ratios$focal,pollen_ratios$non_focal)
+pollen_ratios_convolvulaceae <- pollen_ratios[pollen_ratios$focal!="C. annuum" & pollen_ratios$focal!="S. melongena"& pollen_ratios$focal!="B. oleracea"&
+                                                pollen_ratios$focal!="B. rapa" & pollen_ratios$focal!="S. alba"
+                                              & pollen_ratios$focal!="E. sativa"& pollen_ratios$focal!="S. lycopersicum"& pollen_ratios$focal!="P. integrifolia",  ]
+
+ippu_some<- c(33,67) 
+ipaq_caan<- c(31,69)
+ippu_ersa<- c(19,81)
+ipaq_sial<- c(29,71)
+a=data.frame(ippu_some,ipaq_caan,ippu_ersa,ipaq_sial)
+a=as.matrix(a)
+rownames(a) <- c("Recipient", "Donor")
+ratio_con=a
+barplot(ratio_con, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7)                                                                                              
+saveRDS(ratio_con,"Rmd/Data/ratio_con.RData")
