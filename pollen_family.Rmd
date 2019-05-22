@@ -67,3 +67,16 @@ legend(-1,-0.1,legend=c("Recipient","Donor"),bty="n",fill = coul)
 text(6.8,6.8,"C) Solanaceae")
 
 ```
+
+\newpage
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7}
+library(ggplot2)
+total_pollen <- read.csv("Rmd/Data/total_pollen.csv")
+ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable,width=.9)) +
+  geom_bar(stat='identity', position='dodge')+theme_minimal()+
+  theme(legend.title = element_blank(),axis.text.x=element_text(angle=60,hjust=1,face="italic"))+
+  scale_fill_manual(values=c("#999999","#779799"),labels = c("Recipient","Donor"))+labs(x = "",y="Pollen on stigma")
+
+```
+

@@ -52,7 +52,7 @@ total_pollen$spp <- paste(total_pollen$focal,total_pollen$non_focal, sep="-")
 write.csv(total_pollen, "Data/total_pollen.csv")
 write.csv(total_pollen, "Rmd/Data/total_pollen.csv")
 
-
+coul = c("#999999","#779799")
 ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable)) +
   geom_bar(stat='identity', position='dodge')+theme(axis.text.x=element_text(angle=60,hjust=1))
 
@@ -202,6 +202,9 @@ d<- data.frame(pollen,treatment,b)
 ggplot(d, aes(x = factor(treatment), fill = (pollen))) +
   geom_bar()
 
+barplot(d, col=coul , border="white", xlab="group",ylim=c(0,2000))
+
+
 #create color palette:
 library(RColorBrewer)
 coul = c("#999999","#779799")
@@ -222,8 +225,91 @@ data_percentage=apply(a, 2, function(x){x*100/sum(x,na.rm=T)})
 par(mar=c(7,10,2,5),xpd=T)
 
 saveRDS(data_percentage,"Rmd/Data/per.RData")
-barplot(data_percentage, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7,cex.names=0.6,names=c("Brassicaceae-Convolvulaceae",
+barplot(a, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7,cex.names=0.6,names=c("Brassicaceae-Convolvulaceae",
  "Brassicaceae-Solanaceae","Convolvulaceae-Brassicaceae","Convolvulaceae-Solanaceae","Solanaceae-Convolvulaceae","Solanaceae-Brassicaceae"))
 
 legend(legend=c("recipient","donor"),bty="n",fill = c("#999999","#779799"))
+
+#Prepare same style plot pollen ratios but with pollen quantities...
+
+#Brassicaceae
+total_pollen <- read.csv("Data/total_pollen.csv")
+total_pollen_brassicaceae <- total_pollen[total_pollen$focal!="I. purpurea" & total_pollen$focal!="I. aquatica"& total_pollen$focal!="S. melongena"&
+                                            total_pollen$focal!="S. lycopersicum" & total_pollen$focal!="P. integrifolia"& total_pollen$focal!="C. annuum",  ]
+
+ersa_ippu <- c(1308,8)
+brol_ippu <- c(90,20)
+brra_ippu <- c(193,2)
+sial_ipaq <- c(1617,19)
+sial_some <- c(3054,1096)
+ersa_pein <- c(621,321)
+brra_soly <- c(1114,246)
+brol_caan <- c(281,209)
+
+a<- data.frame(ersa_ippu,brol_ippu,brra_ippu,sial_ipaq,sial_some,ersa_pein,brra_soly,brol_caan)
+a=as.matrix(a)
+row.names(a) <- c("Recipient","Donor")
+total_brol <- a
+barplot(total_brol, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7)                                                                                              
+
+#Convolvulaceae
+
+total_pollen <- read.csv("Data/total_pollen.csv")
+
+total_pollen_convolvulaceae <- total_pollen[total_pollen$focal!="C. annuum" & total_pollen$focal!="S. melongena"& total_pollen$focal!="B. oleracea"&
+                                              total_pollen$focal!="B. rapa" & total_pollen$focal!="S. alba"
+                                            & total_pollen$focal!="E. sativa"& total_pollen$focal!="S. lycopersicum"& total_pollen$focal!="P. integrifolia",  ]
+ippu_some <- c(138,362)
+ipaq_caan <- c(35,85)
+ippu_ersa <- c(27,216)
+ipaq_sial <- c(42,170)
+
+a<- data.frame(ippu_some,ipaq_caan, ippu_ersa, ipaq_sial)
+a=as.matrix(a)
+row.names(a) <- c("Recipient","Donor")
+total_brol <- a
+barplot(total_brol, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7)                                                                                              
+
+#Solanaceae
+
+total_pollen <- read.csv("Data/total_pollen.csv")
+total_pollen_solanaceae <- total_pollen[total_pollen$focal!="I. purpurea" & total_pollen$focal!="I. aquatica"& total_pollen$focal!="B. oleracea"&
+                                          total_pollen$focal!="B. rapa" & total_pollen$focal!="S. alba"& total_pollen$focal!="E. sativa",  ]
+
+caan_ippu <- c(258,11)
+some_ipaq <- c(64,26)
+pein_ipaq <- c(23,20)
+soly_ipaq <- c(56,10)
+some_ersa <- c(1837,2231)
+pein_brol <- c(332,376)
+caan_sial <- c(304,450)
+soly_brra <- c(164,208)
+
+a<- data.frame(caan_ippu,some_ipaq,pein_ipaq,soly_ipaq,some_ersa,pein_brol,caan_sial,soly_brra)
+a=as.matrix(a)
+row.names(a) <- c("Recipient","Donor")
+total_brol <- a
+barplot(total_brol, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7)                                                                                              
+
+
+#Total pollen
+total_pollen <- read.csv("Data/total_pollen.csv")
+
+ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable)) +
+  geom_bar(stat='identity', position='dodge')+theme(legend.title = element_blank(),axis.text.x=element_text(angle=60,hjust=1))+
+  scale_fill_manual(values=c("#999999","#779799"),labels = c("Recipient","Donor"))
+
+
+
+ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable,width=.9)) +
+  geom_bar(stat='identity', position='dodge')+theme_minimal()+
+  theme(legend.title = element_blank(),axis.text.x=element_text(angle=60,hjust=1,face="italic"))+
+  scale_fill_manual(values=c("#999999","#779799"),labels = c("Recipient","Donor"))+labs(x = "",y="Pollen on stigma")
+
+
+
+
+
+
+
 
