@@ -204,7 +204,7 @@ ggplot(d, aes(x = factor(treatment), fill = (pollen))) +
 
 #create color palette:
 library(RColorBrewer)
-coul = brewer.pal(2, "Pastel2") 
+coul = c("#999999","#779799")
 
 sol_con <- c(sol_con_focal,sol_con_non_focal)
 sol_bra<- c(sol_bra_focal,sol_bra_non_focal)
@@ -213,11 +213,17 @@ con_bra<- c(con_bra_focal,con_bra_non_focal)
 bra_con<-c(bra_con_focal,bra_con_non_focal)
 bra_sol<-c(bra_sol_focal,bra_sol_non_focal)
 focal<- c("focal","non_focal")
-a<-data.frame(sol_con,sol_bra,con_sol,con_bra,bra_sol,bra_con)
 a<-data.frame(bra_con,bra_sol,con_bra,con_sol,sol_bra,sol_con)
 
 a=as.matrix(a)
 row.names(a)<- focal
-barplot(a, col=coul , border="white", xlab="group")
+barplot(a, col=coul , border="white", xlab="group",ylim=c(0,2000))
 data_percentage=apply(a, 2, function(x){x*100/sum(x,na.rm=T)})
-barplot(data_percentage, col=coul , border="white", xlab="group")
+par(mar=c(7,10,2,5),xpd=T)
+
+saveRDS(data_percentage,"Rmd/Data/per.RData")
+barplot(data_percentage, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.axis=0.7,cex.names=0.6,names=c("Brassicaceae-Convolvulaceae",
+ "Brassicaceae-Solanaceae","Convolvulaceae-Brassicaceae","Convolvulaceae-Solanaceae","Solanaceae-Convolvulaceae","Solanaceae-Brassicaceae"))
+
+legend(legend=c("recipient","donor"),bty="n",fill = c("#999999","#779799"))
+
