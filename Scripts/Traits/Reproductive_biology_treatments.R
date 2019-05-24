@@ -53,8 +53,13 @@ ggplot(bio,aes(x=Species,y=value,fill=variable))+
 cbp1 <- c("#999999","#0072B2", "#E69F00", "#009E73",
           "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
+str(bio)
+bio$Species=as.character(bio$Species)
+bio$Species[bio$Species=="Eruca versicaria"]<- "Eruca sativa"
+bio$Species <- factor(bio$Species, levels = rev(unique(bio$Species)), ordered=TRUE)
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
-  theme_minimal()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Reproductive biology tests")+
-  theme(axis.text.x = element_text(angle = 35, hjust = 1, face= "italic",family = "Arial Narrow"))+
-  scale_y_continuous(minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))+scale_fill_manual(values = cbp1,name = "Treatments")
+  theme_grey()+xlab("Species")+ylab("Seed-setting rate (%)")+labs(title="Spp Reproductive Biology")+
+  theme(axis.text.y = element_text(angle = 0, hjust = 1, face= "italic",family = "Arial Narrow"))+
+  scale_y_continuous(expand = c(0, 0),minor_breaks = seq(0 , 100, 5), breaks = seq(0, 100, 10))+
+  scale_fill_manual(values = cbp1,name = "Treatments")+coord_flip()

@@ -40,7 +40,7 @@ some_seed_set_final <- read.csv("Rmd/Data/some_seed_set_final.csv")
 some_seed_set_final=na.omit(some_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=some_seed_set_final, random=~1|Treatment.number)
 summary(model2)
-#SOLY, PEIN, IPPU,IPAQ, BROL p<0.05
+#SOLY, PEIN, IPPU,IPAQ, BROL p>0.05
 
 #CAAN
 caan_seed_set_final <- read.csv("Rmd/Data/caan_seed_set_final.csv")
