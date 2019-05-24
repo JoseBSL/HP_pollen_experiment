@@ -123,12 +123,17 @@ library(multipanelfigure)
 library(grid)
 
 load("effect_size_species/effect_size_total.RData")
+Family_1<-c("#D55E00","#009E73","#0072B2")
+all$Family_1=as.character(all$Family_1)
+all$Family_1[all$Family_1=="B"]<-"X"
+all$Family_1[all$Family_1=="S"]<-"B"
+all$Family_1[all$Family_1=="X"]<-"S"
 
  ggplot(all, aes(Family,Cohen_d,colour=Family_1), size=10) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))+ geom_point( aes(colour=Family_1),size=2) +
   geom_errorbar(aes(x = Family, ymin = Lower, 
 ymax = Upper,colour=Family_1), width = 0.2, size=0.8, alpha=0.5)+
-  scale_color_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
-  scale_fill_manual(name  ="Family",values=c( "#0072B2", "#009E73", "#D55E00"), labels=c("Solanaceae", "Convolvulaceae","Brassicaceae"))+
+  scale_color_manual(name  ="Family",values=c("#0072B2","#009E73","#D55E00"), labels=c("Brassicaceae","Convolvulaceae","Solanaceae"))+
+  scale_fill_manual()+
   xlab("") + ylab("Hedges' g") + rotate()+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+scale_alpha(guide = 'none')
 ```
@@ -224,7 +229,7 @@ p10<- ggplot(some_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("J)",italic(' S. melongena')))) 
 
 sp_legend <- readRDS("Data/sp_legend.RData")
-p11<- ggplot(sp_legend, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(legend.direction="horizontal",legend.title = element_blank(),plot.margin = unit(c(0,0,0,0.3), "cm"),axis.text.y = element_blank())+ geom_point(size=2,alpha=c(1,1,1,1,1,1,1,1,1,1),aes(color=factor(Family))) +geom_errorbar(size=0.6,alpha=0.5, aes(x = Family, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00","#009E73","#E69F00","#0072B2"))+ scale_fill_manual("Family",values=c("#D55E00", "#009E73", "#0072B2","#0072B2"))+
+p11<- ggplot(sp_legend, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(legend.direction="horizontal",legend.title = element_blank(),plot.margin = unit(c(0,0,0,0.3), "cm"),axis.text.y = element_blank())+ geom_point(size=2,alpha=c(1,1,1,1,1,1,1,1,1,1),aes(color=factor(Family))) +geom_errorbar(size=0.6,alpha=0.5, aes(x = Family, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#0072B2",  "#009E73", "#E69F00","#D55E00"))+ scale_fill_manual("Family",values=c("#0072B2",  "#009E73", "#E69F00","#D55E00"))+
   xlab("") + ylab("Hedges' g") +geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("J)",italic(' S. melongena')))) 
  #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
 grid.newpage()
@@ -366,7 +371,7 @@ g_legend<-function(a.gplot){
   legend <- tmp$grobs[[leg]]
   return(legend)}
 leg_family=readRDS("Data/leg_family.RData")
-p11<- ggplot(leg_family, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(legend.direction="horizontal",legend.title = element_blank(),axis.text.y = element_blank())+ geom_point(size=2,aes(color=factor(Family))) +geom_errorbar(size=0.6,alpha=0.5, aes(x = Family, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#D55E00","#009E73","#E69F00","#0072B2"))
+p11<- ggplot(leg_family, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(legend.direction="horizontal",legend.title = element_blank(),axis.text.y = element_blank())+ geom_point(size=2,aes(color=factor(Family))) +geom_errorbar(size=0.6,alpha=0.5, aes(x = Family, ymin = Lower, ymax = Upper,color=factor(Family)))+scale_color_manual("Family",values=c("#E69F00",  "#009E73", "#D55E00","#E69F00"))
  #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
 mylegend<-g_legend(p11)
 
