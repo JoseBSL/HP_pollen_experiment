@@ -29,3 +29,82 @@ table<- data.frame(r,p, Trait)
 kable(table, format="markdown", digits = 2)
 
 ```
+
+\newpage
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+library(vegan)
+library(kableExtra)
+load("Data/family_cor.Rdata")
+#solanaceae
+dist_selfing <- dist(traits_sola[,2])
+dist_pollen_size <- dist(traits_sola[,3])
+dist_pollen_anther <- dist(traits_sola[,4])
+dist_ovules <- dist(traits_sola[,5])
+dist_pollen_ovule <- dist(traits_sola[,6])
+dist_stigmatic_area <- dist(traits_sola[,8])
+dist_stigma_length <- dist(traits_sola[,9])
+dist_stigma_width <- dist(traits_sola[,10])
+dist_style_length <- dist(traits_sola[,12])
+dist_style_width <- dist(traits_sola[,13])
+dist_ovary_width <- dist(traits_sola[,14])
+dist_ovary_length <- dist(traits_sola[,15])
+dist_si_index <- dist(traits_sola[,16])
+
+
+b_1 <- mantel(matrix_soly, dist_selfing)
+b_2 <- mantel(matrix_soly, dist_pollen_size)
+b_3 <- mantel(matrix_soly, dist_pollen_anther)
+b_4 <- mantel(matrix_soly, dist_ovules)
+b_5 <- mantel(matrix_soly, dist_pollen_ovule)
+b_6 <- mantel(matrix_soly, dist_stigmatic_area)
+b_7 <- mantel(matrix_soly, dist_stigma_length)
+b_8 <- mantel(matrix_soly, dist_stigma_width)
+b_9 <- mantel(matrix_soly, dist_style_length)
+b_10 <- mantel(matrix_soly, dist_style_width)
+b_11 <- mantel(matrix_soly, dist_ovary_length)
+b_12 <- mantel(matrix_soly, dist_ovary_width)
+b_13 <- mantel(matrix_soly, dist_si_index)
+
+dist_selfing <- dist(traits_brra[,2])
+dist_pollen_size <- dist(traits_brra[,3])
+dist_pollen_anther <- dist(traits_brra[,4])
+dist_ovules <- dist(traits_brra[,5])
+dist_pollen_ovule <- dist(traits_brra[,6])
+dist_stigmatic_area <- dist(traits_brra[,8])
+dist_stigma_length <- dist(traits_brra[,9])
+dist_stigma_width <- dist(traits_brra[,10])
+dist_style_length <- dist(traits_brra[,12])
+dist_style_width <- dist(traits_brra[,13])
+dist_ovary_width <- dist(traits_brra[,14])
+dist_ovary_length <- dist(traits_brra[,15])
+dist_si_index <- dist(traits_brra[,16])
+
+c_1 <- mantel(matrix_brra, dist_selfing)
+c_2 <- mantel(matrix_brra, dist_pollen_size)
+c_3 <- mantel(matrix_brra, dist_pollen_anther)
+c_4 <- mantel(matrix_brra, dist_ovules)
+c_5 <- mantel(matrix_brra, dist_pollen_ovule)
+c_6 <- mantel(matrix_brra, dist_stigmatic_area)
+c_7 <- mantel(matrix_brra, dist_stigma_length)
+c_8 <- mantel(matrix_brra, dist_stigma_width)
+c_9 <- mantel(matrix_brra, dist_style_length)
+c_10 <- mantel(matrix_brra, dist_style_width)
+c_11 <- mantel(matrix_brra, dist_ovary_length)
+c_12 <- mantel(matrix_brra, dist_ovary_width)
+c_13 <- mantel(matrix_brra, dist_si_index)
+
+r <- c(as.numeric(b_1[3]),as.numeric(b_2[3]),as.numeric(b_3[3]),as.numeric(b_4[3]),as.numeric(b_5[3]),as.numeric(b_6[3]),as.numeric(b_7[3]),as.numeric(b_8[3]),as.numeric(b_9[3]),as.numeric(b_10[3]),as.numeric(b_11[3]),as.numeric(b_12[3]),as.numeric(b_13[3]),as.numeric(c_1[3]),as.numeric(c_2[3]),as.numeric(c_3[3]),as.numeric(c_4[3]),as.numeric(c_5[3]),as.numeric(c_6[3]),as.numeric(c_7[3]),as.numeric(c_8[3]),as.numeric(c_9[3]),as.numeric(c_10[3]),as.numeric(c_11[3]),as.numeric(c_12[3]),as.numeric(c_13[3]))
+
+
+
+p <- c(as.numeric(b_1[4]),as.numeric(b_2[4]),as.numeric(b_3[4]),as.numeric(b_4[4]),as.numeric(b_5[4]),as.numeric(b_6[4]),as.numeric(b_7[4]),as.numeric(b_8[4]),as.numeric(b_9[4]),as.numeric(b_10[4]),as.numeric(b_11[4]),as.numeric(b_12[4]),as.numeric(b_13[4]),as.numeric(c_1[4]),as.numeric(c_2[4]),as.numeric(c_3[4]),as.numeric(c_4[4]),as.numeric(c_5[4]),as.numeric(c_6[4]),as.numeric(c_7[4]),as.numeric(c_8[4]),as.numeric(c_9[4]),as.numeric(c_10[4]),as.numeric(c_11[4]),as.numeric(c_12[4]),as.numeric(c_13[4]))
+
+
+Trait <- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "**Pollen-ovule ratio**", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width", "Ovary length", "Ovary width", "Self incompatibility index","Selfing rate", "Pollen size", "Pollen per anther", "**Number of ovules**", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width", "Ovary length", "Ovary width", "Self incompatibility index")
+
+Family<- c(rep("Solanaceae",13),rep("Brassicaceae",13))
+
+table<- data.frame(r,p, Trait, Family)
+kable(table, format="markdown", digits = 2)
+
+```
