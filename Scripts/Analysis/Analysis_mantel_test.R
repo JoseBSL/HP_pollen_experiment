@@ -361,7 +361,7 @@ mantel(matrix_effect_size, traits_si_index_dist)
 mantel(abs(matrix_effect_size), traits_si_index_dist)
 mantel(abs(matrix_scale_reverted), traits_si_index_dist)
 
-#significance=0.016, r=0.27
+
 protest(matrix_scale_effect, traits_si_index_dist)
 #significance=0.373, procustes correlation=0.3208
 bioenv(matrix_scale_effect~traits_all$si_index, method="pearson", trace=T)
@@ -666,6 +666,7 @@ bioenv(matrix_soly,traits_soly)
 mantel(matrix_scale_effect,dist(traits_all[,17]))
 traits_all=traits_all[,-c(1,2)]
 str(traits_all)
+save.image("Manuscript_draft/img_for_traits.Rdata")
 #bioenv(matrix_scale_effect~dist(traits_all), method="pearson", trace=T)
 
 

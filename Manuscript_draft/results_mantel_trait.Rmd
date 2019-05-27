@@ -1,0 +1,31 @@
+---
+title: "Untitled"
+output: pdf_document
+---
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+library(vegan)
+library(kableExtra)
+load("img_for_traits.Rdata")
+a_1 <- mantel(matrix_scale_effect, traits_self_dist)
+a_2 <- mantel(matrix_scale_effect, pollen_size_dist)
+a_3 <- mantel(matrix_scale_effect, pollen_dist)
+a_4 <- mantel(matrix_scale_effect, ovules_dist)
+a_5 <- mantel(matrix_scale_effect, p_o_ratio_dist)
+a_6 <- mantel(matrix_scale_effect, stigma_area_dist)
+a_7 <- mantel(matrix_scale_effect, stigma_length_dist)
+a_8 <- mantel(matrix_scale_effect, stigma_width_dist)
+a_9 <- mantel(matrix_scale_effect, style_length_dist)
+a_10 <- mantel(matrix_scale_effect, style_width_dist)
+a_11 <- mantel(matrix_scale_effect, ovary_length_dist)
+a_12 <- mantel(matrix_scale_effect, ovary_width_dist)
+a_13 <- mantel(matrix_scale_effect, traits_si_index_dist)
+
+r <- c(as.numeric(a_1[3]),as.numeric(a_2[3]),as.numeric(a_3[3]),as.numeric(a_4[3]),as.numeric(a_5[3]),as.numeric(a_6[3]),as.numeric(a_7[3]),as.numeric(a_8[3]),as.numeric(a_9[3]),as.numeric(a_10[3]),as.numeric(a_11[3]),as.numeric(a_12[3]),as.numeric(a_13[3]))
+
+p <- c(as.numeric(a_1[4]),as.numeric(a_2[4]),as.numeric(a_3[4]),as.numeric(a_4[4]),as.numeric(a_5[4]),as.numeric(a_6[4]),as.numeric(a_7[4]),as.numeric(a_8[4]),as.numeric(a_9[4]),as.numeric(a_10[4]),as.numeric(a_11[4]),as.numeric(a_12[4]),as.numeric(a_13[4]))
+
+Trait<- c("Selfing rate", "Pollen size", "Pollen per anther", " Number of ovules", "Pollen-ovule ratio", "**Stigmatic area**", "**Stigma length**", "**Stigma width**", "Style length", "Style width", "Ovary length", "Ovary width", "Self incompatibility index")
+table<- data.frame(r,p, Trait)
+kable(table, format="markdown", digits = 2)
+
+```
