@@ -1,4 +1,5 @@
 #Here I'm going to perform the analysis per family
+#Just Solanaceae and Brassicaceae, Convolvulaceae has just two species
 #load libraries
 library(vegan)
 library(nlme)
@@ -16,6 +17,8 @@ effect_size=melt(matrix_effect_size)
 ####
 ####SOLANACEAE####
 ####
+#First Mantel between all traits and Hp effect
+#Also with effect sizes
 matrix_soly=matrix_scale_effect[c(3,7,9,10),c(3,7,9,10)]
 matrix_soly_1=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
 
@@ -28,6 +31,7 @@ mantel(matrix_soly_1,dist(traits_sola[,6]))
 
 cor.test(sola$Cohen_d,sola$pollen_size)
 
+#Now I perform Mantel test between Hp effect matrix and trait by trait
 #stigma_type
 mantel(matrix_soly,dist(traits_sola[,1]))
 mantel(matrix_soly_1,dist(traits_sola[,1]))
@@ -88,7 +92,18 @@ ggscatter(sola, x = "Cohen_d", y = "style_length",
           cor.coef = TRUE, cor.method = "pearson",
           xlab = "Hedges' g", ylab = "Style length (mm)", main="A) Solanaceae")
 
-save.image("Manuscript_draft/")
+#Doing it also with HP effect instead of effect sizes
+b=as.data.frame(matrix_soly)
+a<- rowMeans(b)
+a=stack(a)
+colnames(a)[2]<- "species"
+sola <- merge(a,traits_sola,by="species")
+cor.test(sola$values,sola$style_length)
+
+ggscatter(sola, x = "values", y = "style_length", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Hp effect", ylab = "Style length (mm)", main="A) Solanaceae")
 
 ####
 ####BRASSICACEAE####
@@ -97,6 +112,7 @@ matrix_brra=matrix_scale_effect[c(1,2,4,8),c(1,2,4,8)]
 traits_brra=traits_all[c(1,2,4,8),-c(1,2)]
 brra=effect_size_all[c(7:10),c(1,2)]
 mantel(matrix_brra,dist(traits_brra[,1]))
+cor.test(brra$Cohen_d,traits_brra$mean_ovules)
 cor.test(brra$Cohen_d,traits_brra$mean_ovules)
 
 #pollen size
