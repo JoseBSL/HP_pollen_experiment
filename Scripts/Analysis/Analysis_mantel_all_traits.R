@@ -155,7 +155,7 @@ protest(dist(matrix_scale_effect), pollen_ovule_ratio_dist)
 adonis(formula=matrix_scale_effect ~pollen_ovule_ratio ,data=traits_all)
 
 #6)Stigma_area
-stigma_area <- traits_all_bioenv_scaled[,8]
+stigma_area <- traits_all_bioenv_scaled[,6]
 stigma_area <- as.data.frame(stigma_area)
 rownames(stigma_area) <- rownames(stigma_area)
 stigma_area_dist <- dist(stigma_area, diag=T, upper=T)
@@ -170,7 +170,7 @@ adonis(formula=matrix_scale_effect ~stigma_area ,data=traits_all)
 
 
 #7)Stigma_length
-stigma_length <- traits_all_bioenv_scaled[,9]
+stigma_length <- traits_all_bioenv_scaled[,7]
 stigma_length <- as.data.frame(stigma_length)
 rownames(stigma_length) <- rownames(stigma_length)
 stigma_length_dist <- dist(stigma_length, diag=T, upper=T)
@@ -186,7 +186,7 @@ adonis(formula=matrix_scale_effect ~stigma_length ,data=traits_all)
 
 
 #8)Stigma width
-stigma_width <- traits_all_bioenv_scaled[,11]
+stigma_width <- traits_all_bioenv_scaled[,8]
 stigma_width <- as.data.frame(stigma_width)
 stigma_width <- stigma_width
 rownames(stigma_width) <- rownames(stigma_width)
@@ -199,7 +199,7 @@ protest(dist(matrix_scale_effect), stigma_width_dist)
 #significance=0.253, procustes correlation=0.3819
 
 #9)Style_length
-style_length <- traits_all_bioenv_scaled[,12]
+style_length <- traits_all_bioenv_scaled[,9]
 style_length <- as.data.frame(style_length)
 rownames(style_length) <- rownames(style_length)
 style_length_dist <- dist(style_length, diag=T, upper=T)
@@ -212,7 +212,7 @@ protest(dist(matrix_scale_effect), style_length_dist)
 #correlation=-0.1757
 
 #10)Style_width
-style_width <- traits_all_bioenv_scaled[,13]
+style_width <- traits_all_bioenv_scaled[,10]
 style_width <- as.data.frame(style_width)
 rownames(style_width) <- rownames(style_width)
 style_width_dist <- dist(style_width, diag=T, upper=T)
@@ -224,39 +224,41 @@ protest(dist(matrix_scale_effect), style_width_dist)
 #significance=0.115, procustes correlation=0.4231
 
 #11)Ovary_width
-ovary_width <- traits_all_bioenv_scaled[,14]
+ovary_width <- traits_all_bioenv_scaled[,11]
 ovary_width <- as.data.frame(ovary_width)
 rownames(ovary_width) <- rownames(ovary_width)
 ovary_width_dist <- dist(ovary_width, diag=T, upper=T)
 mantel(matrix_scale_effect, ovary_width_dist)
-mantel(matrix_effect_size, ovary_width_dist)
-mantel(abs(matrix_effect_size), ovary_width_dist)
-mantel(abs(matrix_scale_reverted), ovary_width_dist)
+
 
 #significance=0.0787, r=0.07872
 protest(matrix_scale_effect, ovary_width_dist)
+protest(dist(matrix_scale_effect), ovary_width_dist)
+
 #significance=0.115, procustes correlation=0.4231
 
 #12)Ovary_length
-ovary_length <- traits_all_bioenv_scaled[,15]
+ovary_length <- traits_all_bioenv_scaled[,12]
 ovary_length <- as.data.frame(ovary_length)
 rownames(ovary_length) <- rownames(ovary_length)
 ovary_length_dist <- dist(ovary_length, diag=T, upper=T)
 mantel(matrix_scale_effect, ovary_length_dist)
-mantel(matrix_effect_size, ovary_length_dist)
-mantel(abs(matrix_effect_size), ovary_length_dist)
-mantel(abs(matrix_scale_reverted), ovary_length_dist)
+
 
 #significance=0.0787, r=0.07872
 protest(matrix_scale_effect, ovary_length_dist)
+protest(dist(matrix_scale_effect), ovary_length_dist)
+
 #significance=0.115, procustes correlation=0.4231
 
 #13)self_i_index
-si_index <- traits_all_bioenv_scaled[,16]
+si_index <- traits_all_bioenv_scaled[,13]
 si_index <- as.data.frame(si_index)
 rownames(si_index) <- rownames(si_index)
-si_index <- dist(si_index, diag=T, upper=T)
-mantel(matrix_scale_effect, si_index)
+si_index_dist <- dist(si_index, diag=T, upper=T)
+mantel(matrix_scale_effect, si_index_dist)
+mantel(dist(matrix_scale_effect), si_index_dist)
+
 #significance=0.0787, r=0.07872
-protest(matrix_scale_effect, si_index)
-protest(dist(matrix_scale_effect), si_index)
+protest(matrix_scale_effect, si_index_dist)
+protest(dist(matrix_scale_effect), si_index_dist)
