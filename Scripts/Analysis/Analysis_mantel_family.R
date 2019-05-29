@@ -36,8 +36,10 @@ traits_sola=as.data.frame(traits_sola)
 bioenv(matrix_soly,traits_sola)
 #Best rank correlation: Mean pollen per anther, style length and si index
 #I select these 3 and run mantel with them
-best_rank=traits_sola[,c(3,10,14)]
+best_rank=traits_sola[,c(3,9,13)]
 mantel(matrix_soly,dist(best_rank))
+protest(dist(matrix_soly),dist(best_rank))
+
 #r=-0.79, p=1
 #looking for significance among the maximum rank variables
 str(traits_sola)
@@ -166,12 +168,15 @@ ggscatter(sola, x = "values", y = "style_length",
 ####
 ####BRASSICACEAE####
 ####
+
 matrix_brra=matrix_scale_effect[c(1,2,4,8),c(1,2,4,8)]
 traits_brra=traits_all[c(1,2,4,8),-c(1,2)]
 brra=effect_size_all[c(7:10),c(1,2)]
 #scale traits and removed unused variables (stigma, type, number of anthers)
 traits_brra=scale(traits_brra[,-c(1,7,11)])
 mantel(matrix_brra,dist(traits_brra))
+
+protest(dist(matrix_brra),dist(traits_brra))
 
 #
 cor.test(brra$Cohen_d,traits_brra$mean_ovules)
@@ -214,9 +219,11 @@ protest(dist(matrix_brra),dist(traits_brra[,8]))
 mantel(matrix_brra,dist(traits_brra[,9]))
 protest(dist(matrix_brra),dist(traits_brra[,9]))
 
+
 #style_width
 mantel(matrix_brra,dist(traits_brra[,10]))
 protest(dist(matrix_brra),dist(traits_brra[,10]))
+
 
 #ovary_width
 mantel(matrix_brra,dist(traits_brra[,11]))
@@ -234,6 +241,7 @@ protest(dist(matrix_brra),dist(traits_brra[,13]))
 
 ####
 effect_size_all$Family<- c("SOME","SOLY","PEIN", "CAAN", "IPPU", "IPAQ", "SIAL", "ERSA", "BRRA", "BROL")
+
 traits_all$Family <- rownames(traits_all)
 a<-merge(effect_size_all,traits_all, by="Family")
 cor.test(a$Cohen_d,a[,18])
