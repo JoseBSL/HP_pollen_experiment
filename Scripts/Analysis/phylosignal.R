@@ -66,6 +66,7 @@ si_index <- readRDS("Data/si_index_1.RData")
 traits_all$si_index <- si_index
 traits_all=traits_all[,-c(1,2)]
 traits_all_subset=traits_all[,8:16]
+traits_all_subset=traits_all[,2:4]
 
 #traits_all_subset=traits_all[,1:4]
 

@@ -7,23 +7,7 @@ png("phylo_image.png", units="px", width=1600, height=1600, res=300)
 
 plot(pollen_tree)
 add.scale.bar(x=0, y=1, length = 0.01)
-
 #plot(tree_10)
-
-
-library(png)
-a <- readPNG("images/tomato.png")
-b <- readPNG("images/bra_colour.png")
-c <- readPNG("images/ipomoea.png")
-
-rasterImage(image=a, xleft=0.14,ybottom=1,
-            xright=0.16,ytop=4.1)
-rasterImage(image=b, xleft=0.14,ybottom=7.1,xright=0.16,ytop=10.1)
-
-rasterImage(image=c, xleft=0.14,ybottom=4.2,xright=0.16,ytop=6.8)
-
-dev.off()
-
 
 tree_10 <- read.newick("Data/pollen_tree_no_outgroup.nwk")
 tree_10=as.phylo(tree_10)
@@ -33,22 +17,13 @@ add.scale.bar(x=0, y=9)
 #For row names of traits all
 readRDS("Manuscript_draft/Data/matrix_scale_effect.Rda")
 
-
 #From here I start working with the traits
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
 si_index <- readRDS("Data/si_index.RData")
 traits_all$si_index <- si_index
 rownames(traits_all) <- rownames(matrix_scale_effect)
-traits_all <- traits_all[,-c(1,2)]
+traits_all <- traits_all[,-c(1:3,9,13)]
 traits_all_scaled <- scale(traits_all)
-
-
-
-#Phylo signal for stigma type
-stigma_type <-as.data.frame(traits_all[,c("stigma_type")])
-rownames(stigma_type) <- tree_10[[3]]
-stigma_type <- as.matrix((stigma_type))[,1]
-stigma_type <- phylosig(tree=tree_10,x=stigma_type,method="lambda",test=TRUE)
 
 
 #Phylo signal for selfing rate
@@ -162,7 +137,7 @@ rownames(si_index) <- tree_10[[3]]
 si_index <- as.matrix((si_index))[,1]
 si_index <- phylosig(tree=tree_10,x=si_index,method="lambda",test=TRUE)
 #$`lambda`[1] 0.4917088
-
+#save.image("Manuscript_draft/Data/img_phylo.RData")
 effect_size_all <- readRDS( "Data/effect_size_all.RData")
 effect_size_all$species <- c("SOME","SOLY","PEIN", "CAAN",
                                "IPPU", "IPAQ", "SIAL", "ERSA",
