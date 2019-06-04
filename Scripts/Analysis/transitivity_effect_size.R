@@ -81,6 +81,11 @@ d[6,10] <- effect[10,6]-effect[6,10]
 d[8,10] <- effect[10,8]-effect[8,10]
 #load modified matrix and raw matrix to compare if I have done it well
 d
+gtrans(d)
+#Draw some random graphs
+g<-rgraph(5,10)
+#Find transitivity scores
+gtrans(g)
 z
 a=d*0.5
 #checked no mistakes
@@ -89,3 +94,7 @@ plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, ver
 b=d*1.5
 net=graph.adjacency(b,mode="directed",weighted=TRUE,diag=FALSE) 
 plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("pink",2),"grey","pink", rep("skyblue",2),"grey","pink", rep("grey",2)), vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
+#try other colours? like the ones of effect sizes plots?
+#"#0072B2", "#009E73", "#D55E00","#E69F00"
+plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)), vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge.arrow.size=0.3)
+

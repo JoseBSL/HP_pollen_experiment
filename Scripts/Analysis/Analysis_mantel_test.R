@@ -227,6 +227,7 @@ mantel(matrix_scale_effect, evo_distance_rbcl)
 #Now with the square root of the evolutive distances
 #Based on Letten & Cornwell 2014
 mantel(matrix_scale_effect, sqrt(evo_distance_rbcl))
+saveRDS(evo_distance_rbcl, "Data/evo_distance_rbcl.RData")
 #significance=0.017, r=0.32
 #When we make our negative values to 0 we reduce a bit the r here
 #How do I interpret this?

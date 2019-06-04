@@ -20,6 +20,7 @@ matrix_scale_effect <- readRDS("Data/matrix_scale_effect.Rda")
 #IMPORTANT: P values of Mantel seems to be of one sided test 
 #For that, first I standarize the values of the different columns
 traits_all <- traits_all[,-c(1,2)]
+traits_all<- traits_all[,-c(1,7,11)]
 #For mantel I scale the dat.frame
 traits_all_scaled <- scale(traits_all)
 #Check if the columns are well scaled mean 0 and sd 1
@@ -262,3 +263,11 @@ mantel(dist(matrix_scale_effect), si_index_dist)
 #significance=0.0787, r=0.07872
 protest(matrix_scale_effect, si_index_dist)
 protest(dist(matrix_scale_effect), si_index_dist)
+
+
+readRDS("Data/evo_distance_rbcl.RData")
+mantel(sqrt(evo_distance_rbcl), traits_all_scaled_dist)
+evo_distance_rbcl=evo_distance_rbcl[-c(5,6),-c(5,6)]
+traits_all_scaled_dist <- dist(traits_all_scaled[-c(5,6),])
+mantel(sqrt(evo_distance_rbcl), traits_all_scaled_dist)
+
