@@ -15,6 +15,8 @@ traits_all <- read.csv("Data/traits_all.csv", sep=",")
 rownames(traits_all) <- rownames(matrix_scale_effect)
 si_index <- readRDS("Data/si_index.RData")
 traits_all$si_index <- si_index
+write.csv(traits_all, "Data/traits_scinames.csv")
+
 matrix_scale_effect <- readRDS("Data/matrix_scale_effect.Rda")
 #I check Mantel between all the traits and the distance matrix of the effect of heterospecific pollen
 #IMPORTANT: P values of Mantel seems to be of one sided test 
