@@ -19,6 +19,7 @@ traits <- read.csv("Data/traits_scinames.csv")
 traits=traits[,-c(1,2,4,10,14)]
 #Now change spp name to code to be able to merge
 spp <- c("BROL", "BRRA", "CAAN", "ERSA", "IPAQ", "IPPU", "PEIN", "SIAL", "SOLY", "SOME")
+traits[,c(2:14)]=scale(traits[,c(2:14)])
 traits$species<- spp
 traits_recipient=traits
 traits_donor=traits
@@ -45,50 +46,30 @@ effect_recipient$Donor[effect_recipient$Donor=="SIAL "] <-"SIAL"
 effect_recipient$Donor[effect_recipient$Donor=="SOLY "] <-"SOLY"
 effect_recipient$Donor[effect_recipient$Donor=="SOME "] <-"SOME"
 
-
-new <- merge(effect_recipient, traits_donor, by="Donor")
-
-str(traits_recipient)
-e_size$Donor=as.factor(e_size$Donor)
-new <- merge(effect_recipient, traits_donor, by="Donor", all=TRUE)
-
-
-
-
-# For the Donor is not working, when I check the levels there are some space that give uses
-levels(e_size$Donor)
-#Fix BRRA, CAAN, ERSA, IPAQ, IPPU, PEIN, SIAL, SOLY, SOME
-# I fix them here
-e_size$Donor=as.character(e_size$Donor)
-e_size$Donor[e_size$Donor=="BROL "] <-"BROL"
-e_size$Donor[e_size$Donor=="BRRA "] <-"BRRA"
-e_size$Donor[e_size$Donor=="CAAN "] <-"CAAN"
-e_size$Donor[e_size$Donor=="ERSA "] <-"ERSA"
-e_size$Donor[e_size$Donor=="IPAQ "] <-"IPAQ"
-e_size$Donor[e_size$Donor=="IPPU "] <-"IPPU"
-e_size$Donor[e_size$Donor=="PEIN "] <-"PEIN"
-e_size$Donor[e_size$Donor=="SIAL "] <-"SIAL"
-e_size$Donor[e_size$Donor=="SOLY "] <-"SOLY"
-e_size$Donor[e_size$Donor=="SOME "] <-"SOME"
-effect_recipient <- merge(e_size, traits_recipient, by="Recipient")
-e_size$Donor=as.factor(e_size$Donor)
-effect_donor <- merge(e_size, traits_donor, by="Donor")
-merge(effect_recipient, effect_donor, by="Recipient")
-#Ok, now I'm able to merge
-#Now 
-all <- cbind(effect_recipient,effect_donor)
+mydata<- merge(effect_recipient, traits_donor, by="Donor")
+mydata$D <- rep(1:10, each=10)
+colnames(data)[3] <- "effect_size"
+#ANALYSE
+fit <- glm(value~Donor_pollen_size,data=mydata,family=gaussian)
+summary(fit)
+confint(fit)
+exp(coef(fit))
+predict(fit, type="response")
+residuals(fit, type="deviance")
 
 
-#Simplistic model to apply
-owls.lmer <- lmer(SiblingNegotiation ~ FoodTreatment * SexParent + 
-                    BroodSize + (1 | Nest), family = gaussian, data = owls)
+plot(Oats)
+#following an example
 
-#check residuals, homogeinity of the variance
-plot(residuals(owls.lmer) ~ fitted(owls.lmer))
-#check for non-normality
-eblups <- as.vector(unlist(ranef(owls.lmer)))
-qqnorm(eblups)
-abline(0, sd(eblups))
+model1<-lmer(value~1 + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model3<-lmer(value~Recipient_si_index + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 
+model2<-lmer(value~Recipient_stigma_area*Donor_stigma_area+Recipient_style_length*Donor_style_length + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+#How to obtain a p-value by comparing with a "null" model...
+summary(model1)
+summary(model2)
+summary(model3)
+anova(model1,model2)
+anova(model1,model3)
 
-
+coef(model1)
