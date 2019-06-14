@@ -57,15 +57,20 @@ exp(coef(fit))
 predict(fit, type="response")
 residuals(fit, type="deviance")
 
-
+str(mydata)
+mydata$Donor=as.factor(mydata$Donor)
 plot(Oats)
 #following an example
 
-model1<-lmer(value~1 + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model1<-lmer(value~1 + (1|D),data=mydata,REML=FALSE)
 model3<-lmer(value~Recipient_si_index + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 
-model2<-lmer(value~Recipient_stigma_area*Donor_stigma_area+Recipient_style_length*Donor_style_length + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model2<-lmer(value~Recipient_stigma_area*Donor_pollen_size+Recipient_style_length*Donor_style_length + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 #How to obtain a p-value by comparing with a "null" model...
+
+plot(model2)
+qqnorm(residuals(model2))
+
 summary(model1)
 summary(model2)
 summary(model3)
@@ -73,3 +78,14 @@ anova(model1,model2)
 anova(model1,model3)
 
 coef(model1)
+
+ggplot(data.frame(eta=predict(model2,type="link"),pearson=residuals(model2,type="pearson")),
+       aes(x=eta,y=pearson)) +
+  geom_point() +
+  theme_bw()
+
+
+ggplot(data.frame(x1=model2$x1,pearson=residuals(model2,type="pearson")),
+       aes(x=x1,y=pearson)) +
+  geom_point() +
+  theme_bw()
