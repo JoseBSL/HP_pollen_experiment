@@ -39,39 +39,14 @@ gtrans(m)
 #[1] 0.9285714
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#find out winners and losers
-int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
-d <- int.to.dom(effect)
-m=d
+#TRANSITIVITY MEASUREMENT
+#ANALYSIS of Shikuza and Mcdonald 2012
+#Detach in order to run statnet
 detach("package:igraph") 
-
 library(statnet) 
 
-effect <- readRDS("Data/matrix_effect_size.RData")
-#Now I convert the few values over 0 to maximum 0 (control)
-effect[effect>0]<-0
-#absolute values so less confusing without negative values
-#So now greater values involve greater effect
-#(opposite way in comparison with negative values as before)
-effect=abs(effect)
-#find out winners and losers
-int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
-d <- int.to.dom(effect)
-g=network(d,directed=TRUE)
-gtrans(d)
-detach("package:igraph") 
+g=network(m,directed=TRUE)
+gtrans(m)
 
 # We calculate P.t and t.tri for this empirical network.
 
@@ -105,19 +80,17 @@ while(j<1001){
 p=length(r.p.t[r.p.t>=Pt])/1000
 p
 
-triad.census(rgraph(15,5,tprob=c(0.1,0.25,0.5,0.75,0.9)))
 
 
-#Plotting
-
-
+#PLOTTING
 #Plot the pollen network effect
+library(igraph)
 net=network(m,matrix.type="adjacency",directed=T)
 quartz()
 a <- rownames(m)
 gplot(net, label = a)
 
-net=graph.adjacency(a,mode="directed",weighted=TRUE,diag=FALSE) 
+net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
 plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
 b=d*1.5
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
