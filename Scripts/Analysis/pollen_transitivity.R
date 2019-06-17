@@ -1,31 +1,54 @@
-#Analysis of transitivity of pollen effect
+#SCRIPT FOR:
 
-library(statnet)
+#Measurements of Transitivity of heterospecific pollen competition network
+#Plotting its structure
+
+
+#LOAD LIBRARIES
+#Remember statnet and igraph doesnt like each other so dettach 
+#library(statnet)
 library(reshape2)
-#load our matrix
-matrix <- as.matrix(read.csv("Data/matrix_scale_effect.csv", header = T, row.names = 1))
+library(igraph)
+library(sna)
+
+#LOAD MATRIX
+#Effect sizes matrix
+matrix <- as.matrix(read.csv("Data/effect.csv", header = T, row.names = 1))
 matrix<- as.matrix(matrix)
 str(matrix)
 d<- matrix
 #convert into dominance matrix
-int.to.dom=function(x){ ((x>t(x)) & (x+t(x)>0))+0}
-m <- int.to.dom(matrix)
-x=m
-#In order to see the reverse matrix ploted
-# m[m==1]<-2
- #m[m==0]<-1
- #m[m==2]<-0
- #diag(m)<- 0
+int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
+m <- int.to.dom(d)
+#Making equal col and rownames
+colnames(m)<-rownames(m)
+m
+#For plotting purposes spp that are losers have 1 and winners 0
+#Doesn't change the analysis with gtrans (checked)
 
-#Plot the pollen network effect
-net=network(m,matrix.type="adjacency",directed=T)
-quartz()
-a <- rownames(m)
-gplot(net, label = a)
+#GTRANS from library sna
+#To understand how it works
+#First we calculate random the transitivity of random dominance matrices
+g<-rgraph(3,3)
+g
+#The output will vary each time we run it
+#Values between 0 and 1 where 0 means intransitive and 1 transitive
+gtrans(g)
+#Now we calculate it for our data
+gtrans(m)
+#[1] 0.9285714
+
+
 
 #Numerical calculation, don't trust myself here too much (Jose)
 #I just modified the values in vector from the output of triad.census (Jose)
-g=network(m,directed=TRUE)
+
+m<-as.matrix(m)
+m<-rgraph(5,10)
+
+m=network(m,directed=TRUE)
+
+str(m)
 # We calculate P.t and t.tri for this empirical network.
 tri=triad.census(g) #The full triad census as an 16-element vector
 w=as.vector(c(0,0,0,0,0,0,0,0,117,3,0,0,0,0,0,0)) # The weighting
@@ -42,16 +65,16 @@ t.tri
 #dominance matrix. We calculate Pt from each of these simulated
 #networks (r.P.t).
 dyads=dyad.census(g)
-r=rguman(1000,nv=nrow(m),mut=dyads[1],asym=dyads[2],null=dyads[3])
-r.triad=triad.census(r)
-r.P.t=apply(r.triad,1,function(x) x[9]/(x[10]+x[9]))
-# Finally, we conduct a one-tailed test of the null hypothesis that
-#P.t of the empirical network is not significantly different from P.t
-#of the simulated random networks (r.P.t). The P-value is the number
-#of times r.P.t is greater or equal to the empirical P.t value. By
-#convention, we reject the null hypothesis if P < 0.05
-p=length(r.P.t[r.P.t>=Pt])/1000
-p 
+r.p.t=vector(length=1000)
+j=1
+while(j<1001){
+  r=rguman(1, nv=nrow(m), mut=dyads[1], asym=dyads[2], null=dyads[3])
+  r.triad=triad.census(r)
+  r.p.t[j]=r.triad[9]/(r.triad[10]+r.triad[9])
+  if(is.na(r.p.t[j])) next else j=j+1
+}
+p=length(r.p.t[r.p.t>=Pt])/1000
+p
 #So we have significant levels of transitivity? (Jose)
 
 
@@ -60,11 +83,7 @@ p
 #install.packages("sna")
 library(sna)
 
-#Draw some random graphs
-g<-rgraph(5,10)
-g
-#Find transitivity scores
-gtrans(g)
+
 
 
 
@@ -80,51 +99,6 @@ library(igraph)
 d
 m
 
-m[3,1]<- d[3,1]
-m[1,2]<- d[1,2]
-m[3,2]<- d[3,2]
-m[5,2]<- d[5,2]
-m[9,3]<- d[9,3]
-m[1,4]<- d[1,4]
-m[2,4]<- d[2,4]
-m[3,4]<- d[3,4]
-m[5,4]<- d[5,4]
-m[6,4]<- d[6,4]
-m[7,4]<- d[7,4]
-m[8,4]<- d[8,4]
-m[9,4]<- d[9,4]
-m[10,4]<- d[10,4]
-m[1,5]<-d[1,5]
-m[3,5]<- d[3,5]
-m[9,5]<- d[9,5]
-m[1,6]<-d[1,6]
-m[2,6]<-d[2,6]
-m[3,6]<-d[3,6]
-m[5,6]<-d[5,6]
-m[7,6]<-d[7,6]
-m[8,6]<-d[8,6]
-m[9,6]<-d[9,6]
-m[10,6]<-d[10,6]
-m[1,7]<-d[1,7]
-m[2,7]<-d[2,7]
-m[3,7]<-d[3,7]
-m[5,7]<-d[5,7]
-m[9,7]<-d[9,7]
-m[1,8]<-d[1,8]
-m[2,8]<-d[2,8]
-m[3,8]<-d[3,8]
-m[5,8]<-d[5,8]
-m[7,8]<-d[7,8]
-m[9,8]<-d[9,8]
-m[10,8]<-d[10,8]
-m[1,9]<-d[1,9]
-m[2,9]<-d[2,9]
-m[1,10]<-d[1,10]
-m[2,10]<-d[2,10]
-m[3,10]<-d[3,10]
-m[5,10]<-d[5,10]
-m[7,10]<-d[7,10]
-m[9,10]<-d[9,10]
 
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
 #the only difference between this and the weighted network code is that mode="directed"
@@ -154,3 +128,91 @@ gtrans(A)
 diag(A)<-0
 A[1,2:3]<- 1
 A[2:3,1]<-0
+
+
+
+#R code
+
+effect <- readRDS("Data/matrix_effect_size.RData")
+write.csv(effect, "Data/effect.csv")
+#Now I convert the few values over 0 to maximum 0 (control)
+effect[effect>0]<-0
+#absolute values so less confusing without negative values
+#So now greater values involve greater effect
+#(opposite way in comparison with negative values as before)
+effect=abs(effect)
+#find out winners and losers
+int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
+d <- int.to.dom(effect)
+m=d
+detach("package:igraph") 
+
+library(statnet) 
+
+effect <- readRDS("Data/matrix_effect_size.RData")
+#Now I convert the few values over 0 to maximum 0 (control)
+effect[effect>0]<-0
+#absolute values so less confusing without negative values
+#So now greater values involve greater effect
+#(opposite way in comparison with negative values as before)
+effect=abs(effect)
+#find out winners and losers
+int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
+d <- int.to.dom(effect)
+g=network(d,directed=TRUE)
+gtrans(d)
+detach("package:igraph") 
+
+# We calculate P.t and t.tri for this empirical network.
+
+tri=triad.census(g) #The full triad census as an 16-element vector 
+
+w=as.vector(c(0,0,0,0,0,0,0,0,1,0,0,1,1,0.5,0.75,0.75)) # The weighting vector for transitivity 
+
+N.triangle=sum(tri*as.vector(c(0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0))) #Count and sum the number of triangles
+
+Pt=sum(tri*w)/N.triangle 
+
+t.tri=4*(Pt-0.75) 
+
+Pt 
+
+t.tri
+
+## We now conduct 1,000 simulations of random networks with the same number of mutual,
+#asymmetric and null dyads as the empirical dominance matrix. 
+#We calculate Pt from each of these simulated networks (r.P.t). I use a while() loop because randomizations of some sparse matrices will produce networks with no triangles. For simplicity, we just throw these out. 
+
+dyads=dyad.census(g)
+r.p.t=vector(length=1000)
+j=1
+while(j<1001){
+  r=rguman(1, nv=nrow(m), mut=dyads[1], asym=dyads[2], null=dyads[3])
+  r.triad=triad.census(r)
+  r.p.t[j]=r.triad[9]/(r.triad[10]+r.triad[9])
+  if(is.na(r.p.t[j])) next else j=j+1
+}
+p=length(r.p.t[r.p.t>=Pt])/1000
+p
+
+triad.census(rgraph(15,5,tprob=c(0.1,0.25,0.5,0.75,0.9)))
+
+
+
+
+
+#Plot the pollen network effect
+net=network(m,matrix.type="adjacency",directed=T)
+quartz()
+a <- rownames(m)
+gplot(net, label = a)
+
+net=graph.adjacency(a,mode="directed",weighted=TRUE,diag=FALSE) 
+plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
+b=d*1.5
+net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
+plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("pink",2),"grey","pink", rep("skyblue",2),"grey","pink", rep("grey",2)), vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
+#try other colours? like the ones of effect sizes plots?
+#"#0072B2", "#009E73", "#D55E00","#E69F00"
+plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)), vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge.arrow.size=0.3)
+
