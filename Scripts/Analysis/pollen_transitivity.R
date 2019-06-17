@@ -46,22 +46,13 @@ detach("package:igraph")
 library(statnet) 
 
 g=network(m,directed=TRUE)
-gtrans(m)
-
 # We calculate P.t and t.tri for this empirical network.
-
 tri=triad.census(g) #The full triad census as an 16-element vector 
-
 w=as.vector(c(0,0,0,0,0,0,0,0,1,0,0,1,1,0.5,0.75,0.75)) # The weighting vector for transitivity 
-
 N.triangle=sum(tri*as.vector(c(0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0))) #Count and sum the number of triangles
-
 Pt=sum(tri*w)/N.triangle 
-
 t.tri=4*(Pt-0.75) 
-
 Pt 
-
 t.tri
 
 ## We now conduct 1,000 simulations of random networks with the same number of mutual,
@@ -81,17 +72,15 @@ p=length(r.p.t[r.p.t>=Pt])/1000
 p
 
 
-
 #PLOTTING
 #Plot the pollen network effect
 library(igraph)
 net=network(m,matrix.type="adjacency",directed=T)
+#create window for plotting
 quartz()
-a <- rownames(m)
-gplot(net, label = a)
-
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
 plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
+#Fixing arrow size
 b=d*1.5
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
 plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("pink",2),"grey","pink", rep("skyblue",2),"grey","pink", rep("grey",2)), vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
