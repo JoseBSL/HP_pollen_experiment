@@ -6,9 +6,10 @@
 #load library
 library(ggplot2)
 library(datasets)
+library(reshape2)
 
 #load data
-load("Manuscript_draft/table_treatments.RData")
+load("Manuscript_draft/Data/table_treatments.RData")
 
 Species <- c("Brassica oleracea", "Brassica rapa", "Eruca versicaria", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena")
 Hand_cross_pollination <- cross
@@ -42,7 +43,7 @@ bio$Species <- factor(bio$Species, levels = rev(unique(bio$Species)), ordered=TR
 bio$variable <- factor(bio$variable, levels = c("Hand cross pollination","Hand self pollination","Natural selfing","Apomixis"))
 
 #save.image("Manuscript_draft/r_biology.RData")
-load("Manuscript_draft/r_biology.RData")
+load("Manuscript_draft/Data/r_biology.RData")
 
 ggplot(bio,aes(x=Species,y=value,fill=variable))+
   geom_bar(stat="identity",position="dodge")+scale_fill_grey(start = 0, end = 0.85,name="Treatments") + 
