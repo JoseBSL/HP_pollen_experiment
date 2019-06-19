@@ -12,7 +12,7 @@ brol_cross=brol_seed_set_final[brol_seed_set_final$Treatment=="Cross",]
 brol_cross$Seed.production=as.numeric(brol_cross$Seed.production)
 brol_cross$Seed.production=brol_cross$Seed.production/traits_all[traits_all$species=="Brassica oleracea","mean_ovules"]
 brol_cross_mean=mean(brol_cross$Seed.production)
-brol_cross_sd=mean(brol_cross$Seed.production)
+brol_cross_sd=sd(brol_cross$Seed.production)
 
 
 brol_self=brol_seed_set_final[brol_seed_set_final$Treatment=="Self",]
@@ -299,7 +299,7 @@ cross_mean <- cross_mean*100
 
 cross_mean=replace(cross_mean, cross_mean>100, 100)
 
-cross_mean <- c(brol_cross_sd, brra_cross_sd, ersa_cross_sd, 
+cross_sd <- c(brol_cross_sd, brra_cross_sd, ersa_cross_sd, 
                 sial_cross_sd, ipaq_cross_sd, ippu_cross_sd, 
                 caan_cross_sd, pein_cross_sd,soly_cross_sd, some_cross_sd)
 cross_sd <- cross_sd*100
@@ -334,7 +334,7 @@ apo_sd <- c(brol_control_sd, brra_control_sd, ersa_control_sd,
 
 apo_sd <-apo_sd*100
 
-#save.image(file='Manuscript_draft/table_treatments.RData')
+save.image(file='Manuscript_draft/table_treatments.RData')
 
 
 
