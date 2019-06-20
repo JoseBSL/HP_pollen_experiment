@@ -267,6 +267,10 @@ evo_distance_its_square_root <- sqrt(evo_distance_its)
 mantel(matrix_scale_effect, evo_distance_its_square_root)
 mantel(matrix_scale_effect, evo_distance_its_square_root, permutations = 10000)
 
+#saveRDS(evo_distance_its, "Data/evo_distance_its.RDS")
+#saveRDS(evo_distance_rbcl, "Data/evo_distance_rbcl.RDS")
+
+
 #significance=0.028, r=0.2764
 p <- mantel.correlog(matrix_scale_effect, evo_distance_its_square_root) 
 plot(p)
