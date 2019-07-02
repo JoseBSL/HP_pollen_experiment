@@ -246,5 +246,10 @@ protest(matrix_brra,dist(traits_brra[,11]))
 protest(matrix_brra,dist(traits_brra[,12]))
 #SI index
 protest(matrix_brra,dist(traits_brra[,13]))
-
-
+cor(matrix_brra,dist(traits_brra[,13]), method="pearson" ) 
+ protest(matrix_brra, dist(traits_brra[,13]),  symmetric = FALSE)
+ a<- protest(matrix_brra, dist(traits_brra[,13]))
+ 
+plot(a, kind = "2")
+summary(a)
+residuals(a)
