@@ -17,6 +17,11 @@ traits_all_scaled=scale(traits_all)
 evo_distance_its <- readRDS("Data/evo_distance_its.RDS")
 evo_distance_rbcl <- readRDS("Data/evo_distance_rbcl.RDS")
 
+combined_distance<- evo_distance_its+evo_distance_rbcl
+mean_distance<-combined_distance/2
+
+
+
 #
 ##ANALYSIS
 #
@@ -235,4 +240,5 @@ protest(matrix_brra,dist(traits_brra[,11]))
 protest(matrix_brra,dist(traits_brra[,12]))
 #SI index
 protest(matrix_brra,dist(traits_brra[,13]))
+
 

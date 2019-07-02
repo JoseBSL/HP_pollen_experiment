@@ -67,7 +67,7 @@ colnames(data)[3] <- "effect_size"
 
 #Perform a Gaussian glmm-> lmer
 #Random effects are Donor and recipientdue due to they where not alway the same individuals
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model1)
 
 model2<-lmer(value~Recipient_style_length*Donor_pollen_size+Recipient_pollen_ovule_ratio+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
@@ -82,7 +82,7 @@ summary(model3)
 model3<-lmer(value~ Donor_pollen_size*Recipient_style_length+  (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model3)
 
-model3<-lmer(value~Donor+ (1|Recipient),data=mydata,REML=FALSE)
+model3<-lmer(value~Recipient_si_index+Recipient_stigma_area+ (1|Recipient)+ (1|Donor),data=mydata,REML=FALSE)
 summary(model3)
 
 #Interpreting outputs:

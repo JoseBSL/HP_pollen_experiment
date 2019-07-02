@@ -95,8 +95,9 @@ ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) +
                dotsize=0.3,position = position_jitterdodge(jitter.width = 0.1))+
   theme_minimal()+scale_fill_brewer(palette="RdBu")
 
+
 ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
-  geom_violin(position_dodge(1.5),scale = "width",width=0.5,draw_quantiles = c(0.5))+ggtitle("Species reproductive biology")+
-  geom_dotplot(binaxis='y', stackdir='center', 
-               dotsize=0.2,position = position_jitterdodge(jitter.width = 0.05))+scale_fill_manual(values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+
-  scale_y_continuous(name="Seed set")+theme(legend.title = element_blank(),plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
+  geom_violin(scale = "width",draw_quantiles = c(0.5))+
+  geom_dotplot(binaxis='y', 
+               dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
+  theme_minimal()+labs(y="Seed set")+scale_fill_manual(values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(legend.title = element_blank(),plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))

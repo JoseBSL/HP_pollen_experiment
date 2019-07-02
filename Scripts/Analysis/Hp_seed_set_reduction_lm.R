@@ -95,7 +95,7 @@ ipaq_seed_set_final=na.omit(ipaq_seed_set_final)
 
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=ipaq_seed_set_final, random=~1|Treatment.number)
 summary(model2)
-#SOME, BRRA, PEIN, IPAQ, SIAL, BROL
+#ALL
 
 #100% heterospecific pollen analysis respect cross
 
