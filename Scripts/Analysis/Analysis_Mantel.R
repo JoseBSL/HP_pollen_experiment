@@ -27,40 +27,45 @@ mean_distance<-combined_distance/2
 #
 
 #Effect size~traits
-
 #First all the traits
 mantel(matrix_effect_size,dist(traits_all_scaled))
 #Now trait by trait
 #Selfing rate
-mantel(matrix_effect_size,dist(traits_all_scaled[,1]))
+selfing <- mantel(matrix_effect_size,dist(traits_all_scaled[,1]))
+
+selfing[4]
 #Pollen size
-mantel(matrix_effect_size,dist(traits_all_scaled[,2]))
+pollen_size <- mantel(matrix_effect_size,dist(traits_all_scaled[,2]))
 #Pollen per anther
-mantel(matrix_effect_size,dist(traits_all_scaled[,3]))
+mean_pollen_anther<-mantel(matrix_effect_size,dist(traits_all_scaled[,3]))
 #Ovules
-mantel(matrix_effect_size,dist(traits_all_scaled[,4]))
+mean_ovules <- mantel(matrix_effect_size,dist(traits_all_scaled[,4]))
 #Pollen ovule ratio
-mantel(matrix_effect_size,dist(traits_all_scaled[,5]))
+pollen_ovule_ratio <- mantel(matrix_effect_size,dist(traits_all_scaled[,5]))
 #Stigmatic area
-mantel(matrix_effect_size,dist(traits_all_scaled[,6]))
+stigma_area <- mantel(matrix_effect_size,dist(traits_all_scaled[,6]))
 #Stigma length
-mantel(matrix_effect_size,dist(traits_all_scaled[,7]))
+stigma_length <- mantel(matrix_effect_size,dist(traits_all_scaled[,7]))
 #Stigma width
-mantel(matrix_effect_size,dist(traits_all_scaled[,8]))
+stigma_width <- mantel(matrix_effect_size,dist(traits_all_scaled[,8]))
 #Style length
-mantel(matrix_effect_size,dist(traits_all_scaled[,9]))
+style_length <- mantel(matrix_effect_size,dist(traits_all_scaled[,9]))
 #Style width
-mantel(matrix_effect_size,dist(traits_all_scaled[,10]))
+style_width <- mantel(matrix_effect_size,dist(traits_all_scaled[,10]))
 #Ovary width
-mantel(matrix_effect_size,dist(traits_all_scaled[,11]))
+ovary_width <- mantel(matrix_effect_size,dist(traits_all_scaled[,11]))
 #Ovary length
-mantel(matrix_effect_size,dist(traits_all_scaled[,12]))
+ovary_length <- mantel(matrix_effect_size,dist(traits_all_scaled[,12]))
 #SI index
-mantel(matrix_effect_size,dist(traits_all_scaled[,13]))
+si_index <- mantel(matrix_effect_size,dist(traits_all_scaled[,13]))
+
+save.image("Manuscript_draft/Data/table_s4.RData")
+
 
 #Effect size~phylogenetic distance
 mantel(matrix_effect_size,evo_distance_its)
 mantel(matrix_effect_size,evo_distance_rbcl)
+mantel(matrix_effect_size,mean_distance)
 #Now by family 
 matrix_soly=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
 traits_soly=traits_all_scaled[c(3,7,9,10),]
@@ -68,31 +73,31 @@ traits_soly=traits_all_scaled[c(3,7,9,10),]
 #SOLANACEAE
 mantel(matrix_soly,traits_soly)
 #Selfing rate
-mantel(matrix_soly,dist(traits_soly[,1]))
+selfing_soly <- mantel(matrix_soly,dist(traits_soly[,1]))
 #Pollen size
-mantel(matrix_soly,dist(traits_soly[,2]))
+pollen_size_soly <- mantel(matrix_soly,dist(traits_soly[,2]))
 #Pollen per anther
-mantel(matrix_soly,dist(traits_soly[,3]))
+mean_pollen_anther_soly <- mantel(matrix_soly,dist(traits_soly[,3]))
 #Ovules
-mantel(matrix_soly,dist(traits_soly[,4]))
+mean_ovules_soly <- mantel(matrix_soly,dist(traits_soly[,4]))
 #Pollen ovule ratio
-mantel(matrix_soly,dist(traits_soly[,5]))
+pollen_ovule_ratio_soly <- mantel(matrix_soly,dist(traits_soly[,5]))
 #Stigmatic area
-mantel(matrix_soly,dist(traits_soly[,6]))
+stigma_area_soly <- mantel(matrix_soly,dist(traits_soly[,6]))
 #Stigma length
-mantel(matrix_soly,dist(traits_soly[,7]))
+stigma_length_soly <- mantel(matrix_soly,dist(traits_soly[,7]))
 #Stigma width
-mantel(matrix_soly,dist(traits_soly[,8]))
+stigma_width_soly <- mantel(matrix_soly,dist(traits_soly[,8]))
 #Style length
-mantel(matrix_soly,dist(traits_soly[,9]))
+style_length_soly <- mantel(matrix_soly,dist(traits_soly[,9]))
 #Style width
-mantel(matrix_soly,dist(traits_soly[,10]))
+style_width_soly <- mantel(matrix_soly,dist(traits_soly[,10]))
 #Ovary width
-mantel(matrix_soly,dist(traits_soly[,11]))
+ovary_width_soly <- mantel(matrix_soly,dist(traits_soly[,11]))
 #Ovary length
-mantel(matrix_soly,dist(traits_soly[,12]))
+ovary_length_soly <- mantel(matrix_soly,dist(traits_soly[,12]))
 #SI index
-mantel(matrix_soly,dist(traits_soly[,13]))  
+si_index_soly <- mantel(matrix_soly,dist(traits_soly[,13]))  
 
 #BRASSICACEAE
 matrix_brra=matrix_effect_size[c(1,2,4,8),c(1,2,4,8)]
@@ -103,32 +108,33 @@ mantel(matrix_brra,traits_brra)
 mantel(matrix_brra,matrix_brra_its) 
 
 #Selfing rate
-mantel(matrix_brra,dist(traits_brra[,1]))
+selfing_bras <- mantel(matrix_brra,dist(traits_brra[,1]))
 #Pollen size
-mantel(matrix_brra,dist(traits_brra[,2]))
+pollen_size_bras <- mantel(matrix_brra,dist(traits_brra[,2]))
 #Pollen per anther
-mantel(matrix_brra,dist(traits_brra[,3]))
+mean_pollen_anther_bras <- mantel(matrix_brra,dist(traits_brra[,3]))
 #Ovules
-mantel(matrix_brra,dist(traits_brra[,4]))
+mean_ovules_bras <- mantel(matrix_brra,dist(traits_brra[,4]))
 #Pollen ovule ratio
-mantel(matrix_brra,dist(traits_brra[,5]))
+pollen_ovule_ratio_bras <- mantel(matrix_brra,dist(traits_brra[,5]))
 #Stigmatic area
-mantel(matrix_brra,dist(traits_brra[,6]))
+stigma_area_bras <- mantel(matrix_brra,dist(traits_brra[,6]))
 #Stigma length
-mantel(matrix_brra,dist(traits_brra[,7]))
+stigma_length_bras <- mantel(matrix_brra,dist(traits_brra[,7]))
 #Stigma width
-mantel(matrix_brra,dist(traits_brra[,8]))
+stigma_width_bras <- mantel(matrix_brra,dist(traits_brra[,8]))
 #Style length
-mantel(matrix_brra,dist(traits_brra[,9]))
+style_length_bras <- mantel(matrix_brra,dist(traits_brra[,9]))
 #Style width
-mantel(matrix_brra,dist(traits_brra[,10]))
+style_width_bras <- mantel(matrix_brra,dist(traits_brra[,10]))
 #Ovary width
-mantel(matrix_brra,dist(traits_brra[,11]))
+ovary_width_bras <- mantel(matrix_brra,dist(traits_brra[,11]))
 #Ovary length
-mantel(matrix_brra,dist(traits_brra[,12]))
+ovary_length_bras <- mantel(matrix_brra,dist(traits_brra[,12]))
 #SI index
-mantel(matrix_brra,dist(traits_brra[,13]))
+si_index_bras <- mantel(matrix_brra,dist(traits_brra[,13]))
 
+save.image("Manuscript_draft/Data/table_s5.RData")
 
 #
 #
