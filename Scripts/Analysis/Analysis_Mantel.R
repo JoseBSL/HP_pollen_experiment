@@ -173,10 +173,12 @@ style_width_pro <- protest(matrix_effect_size,dist(traits_all_scaled[,10]))
 #Ovary width
 ovary_width_pro <- protest(matrix_effect_size,dist(traits_all_scaled[,11]))
 #Ovary length
-ovary_width_pro <- protest(matrix_effect_size,dist(traits_all_scaled[,12]))
+ovary_length_pro <- protest(matrix_effect_size,dist(traits_all_scaled[,12]))
 #SI index
 si_index_pro <- protest(matrix_effect_size,dist(traits_all_scaled[,13]))
-
+si_index_pro[3]#sum squares
+si_index_pro[6]#correlation
+si_index_pro[13]#significance
 #Effect size~phylogenetic distance
 protest(matrix_effect_size,evo_distance_its)
 protest(matrix_effect_size,evo_distance_rbcl)
@@ -246,6 +248,8 @@ ovary_width_pro_bra <- protest(matrix_brra,dist(traits_brra[,11]))
 ovary_length_pro_bra <- protest(matrix_brra,dist(traits_brra[,12]))
 #SI index
 si_index_pro_bra <- protest(matrix_brra,dist(traits_brra[,13]))
+save.image("Manuscript_draft/Data/table_s4.RData")
+
 cor(matrix_brra,dist(traits_brra[,13]), method="pearson" ) 
  protest(matrix_brra, dist(traits_brra[,13]),  symmetric = FALSE)
  a<- protest(matrix_brra, dist(traits_brra[,13]))
