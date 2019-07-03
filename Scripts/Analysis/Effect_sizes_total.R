@@ -9,7 +9,7 @@ library(ggplot2)
 library(ggpubr)
 #install.packages("effsize")
 
-load("seed_set&scaled_seed_set.RData")
+load("Data/seed_set&scaled_seed_set.RData")
 
 #Preparing for loop to clean dataframe and select columns of interest
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
