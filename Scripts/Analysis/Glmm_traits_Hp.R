@@ -7,6 +7,7 @@ library(lme4)
 library(ggplot2)
 library(fBasics)
 library(lmerTest)
+library(jtools)
 #
 ##
 ###DATA PREPARATION FOR ANALYSES
@@ -67,29 +68,62 @@ colnames(data)[3] <- "effect_size"
 
 #Perform a Gaussian glmm-> lmer
 #Random effects are Donor and recipientdue due to they where not alway the same individuals
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+
+#MODEL 1
+#DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH
+model1<-lmer(value~Donor_pollen_size+Recipient_style_length+Recipient_style_length*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model1)
-
-model2<-lmer(value~Recipient_style_length*Donor_pollen_size+Recipient_pollen_ovule_ratio+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+summ(model1, confint = TRUE, digits = 3)
+effect_plot(model1, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
+effect_plot(model1, pred = Recipient_style_length, interval = TRUE, plot.points = TRUE)
+#Analysing residuals
+plot(model1)
+qqnorm(residuals(model1))
+jarqueberaTest(model1$df.resid)
+#MODEL 2
+#DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH+
+# + POLLEN_OVULE RATIO
+model2<-lmer(value~Donor_pollen_size+Recipient_style_length+Recipient_style_length*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model2)
-
-model3<-lmer(value~Donor_pollen_size*Recipient_pollen_size+Recipient_style_length+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+summ(model2, confint = TRUE, digits = 3)
+effect_plot(model2, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
+effect_plot(model2, pred = Recipient_style_length, interval = TRUE, plot.points = TRUE)
+effect_plot(model2, pred = Recipient_pollen_ovule_ratio, interval = TRUE, plot.points = TRUE)
+plot(model2)
+qqnorm(residuals(model2))
+#MODEL 3
+#DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH+
+# + RECIPIENT SELF INCOMPATIBILITY INDEX
+model3<-lmer(value~Donor_pollen_size+Recipient_style_length+Recipient_style_length*Donor_pollen_size+ Recipient_si_index+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model3)
+summ(model3, confint = TRUE, digits = 3)
+effect_plot(model3, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
+effect_plot(model3, pred = Recipient_style_length, interval = TRUE, plot.points = TRUE)
+effect_plot(model3, pred = Recipient_si_index, interval = TRUE, plot.points = TRUE)
+plot(model3)
+qqnorm(residuals(model3))
+#MODEL 4
+#DONOR SELF INCOMPATIBILITY INDEX+RECIPIENT SELF INCOMPATIBILITY INDEX
+model4<-lmer(value~Donor_si_index*Recipient_si_index+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+summary(model4)
+summ(model4,  digits = 3)
+effect_plot(model4, pred = Donor_si_index, interval = TRUE, plot.points = TRUE)
+effect_plot(model4, pred = Recipient_si_index, interval = TRUE, plot.points = TRUE)
+plot(model4)
+qqnorm(residuals(model4))
 
-model3<-lmer(value~Donor_si_index+Recipient_ovary_width+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
-summary(model3)
+model4<-lmer(value~Recipient_style_length*Donor_si_index+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+summary(model4)
+summ(model4,  digits = 3)
+effect_plot(model4, pred = Donor_si_index, interval = TRUE, plot.points = TRUE)
+effect_plot(model4, pred = Recipient_si_index, interval = TRUE, plot.points = TRUE)
+plot(model4)
+qqnorm(residuals(model4))
 
-model3<-lmer(value~ Donor_pollen_size*Recipient_style_length+  (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
-summary(model3)
-
-model3<-lmer(value~Recipient_si_index+Recipient_stigma_area+ (1|Recipient)+ (1|Donor),data=mydata,REML=FALSE)
-summary(model3)
 
 #Interpreting outputs:
 #Random effects, Recipient have a big standard deviation which means that great part of variability
 #of our model can be explained by them. 
-
-
 model1<-lmer(value~1 + (1|D),data=mydata,REML=FALSE)
 model3<-lmer(value~Recipient_si_index + (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 
@@ -108,8 +142,11 @@ filter_data <- filter(mydata, Recipient != "IPPU" & Recipient != "IPAQ")
 filter_data <- filter(filter_data, Donor != "IPPU" & Donor != "IPAQ")
 
 
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+ (1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+(1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
 summary(model1)
+
+model1.1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
+summary(model1.1)
 
 model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+ (1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
 summary(model1)
