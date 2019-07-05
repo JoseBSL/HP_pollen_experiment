@@ -183,6 +183,11 @@ si_index_pro[13]#significance
 protest(matrix_effect_size,evo_distance_its)
 protest(matrix_effect_size,evo_distance_rbcl)
 
+protest(matrix_effect_size,dist((traits_all_scaled[,4]/traits_all_scaled[,6])))
+protest(matrix_effect_size,dist((traits_all_scaled[,9]/traits_all_scaled[,6])))
+protest(matrix_effect_size,dist((traits_all_scaled[,6]/traits_all_scaled[,9])))
+
+
 
 
 #SOLANACEAE
@@ -213,6 +218,13 @@ ovary_width_pro_sol <- protest(matrix_soly,dist(traits_soly[,11]))
 ovary_length_pro_sol <- protest(matrix_soly,dist(traits_soly[,12]))
 #SI index
 si_index_pro_sol <- protest(matrix_soly,dist(traits_soly[,13]))  
+
+
+protest(matrix_soly,dist(scale(traits_soly[,4]/traits_soly[,6])))
+mantel(matrix_soly,dist(scale(traits_soly[,4]/traits_soly[,6])))
+protest(matrix_soly,dist(scale(traits_soly[,4]/traits_soly[,9])))
+protest(matrix_soly,dist((traits_soly[,6]/traits_soly[,9])))
+
 
 #BRASSICACEAE
 matrix_brra=matrix_effect_size[c(1,2,4,8),c(1,2,4,8)]
@@ -250,6 +262,11 @@ ovary_length_pro_bra <- protest(matrix_brra,dist(traits_brra[,12]))
 si_index_pro_bra <- protest(matrix_brra,dist(traits_brra[,13]))
 save.image("Manuscript_draft/Data/table_s4.RData")
 
+mantel(matrix_brra,dist(scale(traits_brra[,4]/traits_brra[,9])))
+
+protest(matrix_brra,dist(scale(traits_brra[,4]/traits_brra[,9])))
+protest(matrix_brra,dist((traits_brra[,6]/traits_brra[,9])))
+
 cor(matrix_brra,dist(traits_brra[,13]), method="pearson" ) 
  protest(matrix_brra, dist(traits_brra[,13]),  symmetric = FALSE)
  a<- protest(matrix_brra, dist(traits_brra[,13]))
@@ -257,3 +274,5 @@ cor(matrix_brra,dist(traits_brra[,13]), method="pearson" )
 plot(a, kind = "2")
 summary(a)
 residuals(a)
+
+
