@@ -16,15 +16,15 @@ library(grid)
 library(lattice)
 pro_dat<-readRDS("Data/pro_dat.RData")
 
-p1<-ggplot(pro_dat,aes(x=traits,y=pro_cor))+
+p1<-ggplot(pro_dat,aes(x=traits,y=pro_cor))+labs(title="All species",x="", y = "Correlation")+
   geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())
-p2<-ggplot(pro_dat,aes(x=traits,y=sum_squ))+
+p2<-ggplot(pro_dat,aes(x=traits,y=sum_squ))+labs(title="",x="", y = "Sum of squares")+
   geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())
-p3<-ggplot(pro_dat,aes(x=traits,y=signif))+
+p3<-ggplot(pro_dat,aes(x=traits,y=signif))+labs(title="",x="Traits", y = "Significance")+
   geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
 
 grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
@@ -50,7 +50,7 @@ p2<-ggplot(pro_dat_sol,aes(x=traits_sol,y=sum_squ_sol))+labs(title="",x="", y = 
   geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank())
-p3<-ggplot(pro_dat_sol,aes(x=traits_sol,y=signif_sol))+labs(title="",x="", y = "Sum of squares")+
+p3<-ggplot(pro_dat_sol,aes(x=traits_sol,y=signif_sol))+labs(title="",x="Traits", y = "Significance")+
   geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
 
 grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
