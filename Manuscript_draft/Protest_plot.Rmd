@@ -1,0 +1,85 @@
+---
+title: "Untitled"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+library(ggplot2)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+pro_dat<-readRDS("Data/pro_dat.RData")
+
+p1<-ggplot(pro_dat,aes(x=traits,y=pro_cor))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p2<-ggplot(pro_dat,aes(x=traits,y=sum_squ))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p3<-ggplot(pro_dat,aes(x=traits,y=signif))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
+
+grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
+
+
+```
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+library(ggplot2)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+pro_dat_sol<-readRDS("Data/pro_dat_sol.RData")
+
+p1<-ggplot(pro_dat_sol,aes(x=traits_sol,y=pro_cor_sol))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p2<-ggplot(pro_dat_sol,aes(x=traits_sol,y=sum_squ_sol))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p3<-ggplot(pro_dat_sol,aes(x=traits_sol,y=signif_sol))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
+
+grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
+
+
+```
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+library(ggplot2)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+pro_dat_sol<-readRDS("Data/pro_dat_sol.RData")
+
+p1<-ggplot(pro_dat_sol,aes(x=traits_sol,y=pro_cor_sol))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p2<-ggplot(pro_dat_sol,aes(x=traits_sol,y=sum_squ_sol))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p3<-ggplot(pro_dat_sol,aes(x=traits_sol,y=signif_sol))+
+  geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
+
+grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
+
+```
