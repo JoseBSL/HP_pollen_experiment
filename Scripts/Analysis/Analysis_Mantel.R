@@ -29,10 +29,10 @@ mean_distance<-combined_distance/2
 #Effect size~traits
 #First all the traits
 mantel(matrix_effect_size,dist(traits_all_scaled))
+protest(matrix_effect_size,dist(traits_all_scaled))
 #Now trait by trait
 #Selfing rate
 selfing <- mantel(matrix_effect_size,dist(traits_all_scaled[,1]))
-
 selfing[4]
 #Pollen size
 pollen_size <- mantel(matrix_effect_size,dist(traits_all_scaled[,2]))
@@ -72,7 +72,9 @@ matrix_soly=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
 traits_soly=traits_all_scaled[c(3,7,9,10),]
 
 #SOLANACEAE
-mantel(matrix_soly,traits_soly)
+mantel(matrix_soly,dist(traits_soly))
+protest(matrix_soly,dist(traits_soly))
+
 #Selfing rate
 selfing_soly <- mantel(matrix_soly,dist(traits_soly[,1]))
 #Pollen size
@@ -105,7 +107,7 @@ matrix_brra=matrix_effect_size[c(1,2,4,8),c(1,2,4,8)]
 matrix_brra_its=evo_distance_its[c(1,2,4,8),c(1,2,4,8)]
 traits_brra=traits_all_scaled[c(1,2,4,8),]
 
-mantel(matrix_brra,traits_brra) 
+mantel(matrix_brra,dist(traits_brra)) 
 mantel(matrix_brra,matrix_brra_its) 
 
 #Selfing rate
@@ -252,7 +254,8 @@ stigma_length_pro_bra <- protest(matrix_brra,dist(traits_brra[,7]))
 #Stigma width
 stigma_width_pro_bra <- protest(matrix_brra,dist(traits_brra[,8]))
 #Style length
-style_length_pro_bra <- protest(matrix_brra,dist(traits_brra[,9]))
+style_length_pro_bra <- protest(matrix_brra,traits_brra[,9])
+plot(style_length_pro_bra)
 #Style width
 style_width_pro_bra <- protest(matrix_brra,dist(traits_brra[,10]))
 #Ovary width
@@ -365,3 +368,6 @@ ggplot(pro_dat_sol,aes(x=traits_sol,y=signif_sol))+
 saveRDS(pro_dat, "Manuscript_draft/Data/pro_dat.RData")
 saveRDS(pro_dat_sol, "Manuscript_draft/Data/pro_dat_sol.RData")
 saveRDS(pro_dat_bra, "Manuscript_draft/Data/pro_dat_bra.RData")
+
+
+

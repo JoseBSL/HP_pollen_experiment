@@ -8,6 +8,7 @@ library(ggplot2)
 library(fBasics)
 library(lmerTest)
 library(jtools)
+
 #
 ##
 ###DATA PREPARATION FOR ANALYSES
@@ -154,5 +155,4 @@ summary(model1)
 model2<-lmer(value~Recipient_style_length*Donor_pollen_size+Recipient_pollen_ovule_ratio+ (1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
 summary(model2)
 
-model3<-lmer(value~Donor_pollen_size*Recipient_pollen_size+Recipient_style_length+ (1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
-summary(model3)
+
