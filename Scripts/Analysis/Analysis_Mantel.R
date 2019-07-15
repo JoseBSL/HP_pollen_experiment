@@ -371,3 +371,9 @@ saveRDS(pro_dat_bra, "Manuscript_draft/Data/pro_dat_bra.RData")
 
 
 
+a<-melt(matrix_soly)
+b<-melt(traits_soly[,9])
+Focal<-c("CAAN","PEIN","SOLY","SOME")
+d<-data.frame(b,Focal)
+z<-merge(a,d,by="Focal")
+a<- cor.test(z$value.x,z$value.y)
