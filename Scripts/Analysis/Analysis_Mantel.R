@@ -267,9 +267,11 @@ si_index_pro_bra <- protest(matrix_brra,dist(traits_brra[,13]))
 save.image("Manuscript_draft/Data/table_s4.RData")
 
 mantel(matrix_brra,dist(scale(traits_brra[,4]/traits_brra[,9])))
+mantel(matrix_brra,dist(scale(traits_brra[,6]/traits_brra[,9])))
 
 protest(matrix_brra,dist(scale(traits_brra[,4]/traits_brra[,9])))
-protest(matrix_brra,dist((traits_brra[,6]/traits_brra[,9])))
+protest(matrix_effect_size,dist((traits_all[,9]/traits_all[,6])))
+
 
 cor(matrix_brra,dist(traits_brra[,13]), method="pearson" ) 
  protest(matrix_brra, dist(traits_brra[,13]),  symmetric = FALSE)

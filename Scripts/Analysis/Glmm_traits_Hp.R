@@ -29,7 +29,8 @@ traits <- read.csv("Data/traits_scinames.csv")
 traits=traits[,-c(1,2,4,10,14)]
 #Now change spp name to code to be able to merge
 spp <- c("BROL", "BRRA", "CAAN", "ERSA", "IPAQ", "IPPU", "PEIN", "SIAL", "SOLY", "SOME")
-traits[,c(2:14)]=scale(traits[,c(2:14)])
+#traits[,c(2:14)]=scale(traits[,c(2:14)])
+
 traits$species<- spp
 traits_recipient=traits
 traits_donor=traits
@@ -72,16 +73,23 @@ colnames(data)[3] <- "effect_size"
 #Random effects are Donor and recipientdue due to they where not alway the same individuals
 #MODEL 1
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model1<-lmer(value~Stigmatic_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model1)
 summ(model1, confint = TRUE, digits = 3)
 effect_plot(model1, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
 effect_plot(model1, pred = Recipient_stigma_area, interval = TRUE, plot.points = TRUE)
-plot(allEffects(model1), ask=FALSE)
+plot(allEffects(model1), ask=FALSE, ticks=list(at=c(.5,.50,.95)))
 #Analysing residuals
 plot(model1)
 qqnorm(residuals(model1))
 jarqueberaTest(model1$df.resid)
+predict(model1, newdata=mydata, type="response")
+max(mydata$Donor_pollen_size)
+
+
+plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
+ terms = c(Recipient_stigma_area,Donor_pollen_size), mdrt.values="minmax")
+
 #MODEL 2
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH+
 # + POLLEN_OVULE RATIO
@@ -94,6 +102,8 @@ effect_plot(model2, pred = Recipient_style_length, interval = TRUE, plot.points 
 effect_plot(model2, pred = Recipient_pollen_ovule_ratio, interval = TRUE, plot.points = TRUE)
 plot(model2)
 qqnorm(residuals(model2))
+
+
 #MODEL 3
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH+
 # + RECIPIENT SELF INCOMPATIBILITY INDEX
@@ -115,6 +125,9 @@ effect_plot(model4, pred = Recipient_si_index, interval = TRUE, plot.points = TR
 plot(model4)
 qqnorm(residuals(model4))
 plot(allEffects(model4), ask=FALSE)
+allEffects(model4)
+
+
 
 model4<-lmer(value~Recipient_style_length*Donor_si_index+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model4)
@@ -124,7 +137,13 @@ effect_plot(model4, pred = Recipient_si_index, interval = TRUE, plot.points = TR
 plot(model4)
 qqnorm(residuals(model4))
 
+eff.p1 <- effect("Recipient_style_length*Donor_si_index", model4, KR=T)
+plot(eff.p1)
 
+install.packages(sjPlot)
+library(sjPlot)
+plot_model(model4, type = "int", terms = c(Recipient_style_length,Donor_si_index), mdrt.values="quart"
+,ci.lvl = 0.95)
 #Interpreting outputs:
 #Random effects, Recipient have a big standard deviation which means that great part of variability
 #of our model can be explained by them. 
