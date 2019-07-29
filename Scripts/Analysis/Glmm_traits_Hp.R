@@ -73,7 +73,7 @@ colnames(data)[3] <- "effect_size"
 #Random effects are Donor and recipientdue due to they where not alway the same individuals
 #MODEL 1
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH
-model1<-lmer(value~Stigmatic_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model1)
 summ(model1, confint = TRUE, digits = 3)
 effect_plot(model1, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
