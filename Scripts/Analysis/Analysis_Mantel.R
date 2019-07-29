@@ -63,10 +63,10 @@ save.image("Manuscript_draft/Data/table_s4.RData")
 
 
 #Effect size~phylogenetic distance
-mantel(matrix_effect_size,evo_distance_its)
-mantel(matrix_effect_size,evo_distance_rbcl)
-mantel(matrix_effect_size,mean_distance)
-protest(matrix_effect_size,mean_distance)
+mantel(matrix_effect_size,sqrt(evo_distance_its))
+mantel(matrix_effect_size,sqrt(evo_distance_rbcl))
+mantel(matrix_effect_size,sqrt(mean_distance))
+protest(matrix_effect_size,sqrt(mean_distance))
 #Now by family 
 matrix_soly=matrix_effect_size[c(3,7,9,10),c(3,7,9,10)]
 traits_soly=traits_all_scaled[c(3,7,9,10),]
