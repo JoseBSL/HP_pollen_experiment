@@ -58,19 +58,6 @@ kable(table, format="markdown", caption = "a")
 ```
 \newpage
 
-**Table 2**
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
-library(kableExtra)
-load("table_treatments.RData")
-Species <- c("Brassica oleracea", "Brassica rapa", "Eruca versicaria", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena")
-Cross <- cross
-Self <- self
-Natural_selfing <- nat_self
-Apomixis <- apo
-table<- data.frame(Species, Cross, Self, Natural_selfing,Apomixis)
-kable(table, format="markdown", caption= "Perecentage of seeds produced per ovule for the ten species used in the experiment. The treatments presented are hand cross-pollination, hand self-pollination, natural selfing and apomixis (emasculated flowers).
-",longtable = TRUE)
-```
 
 
 \newpage
@@ -91,7 +78,7 @@ knitr::include_graphics('images/phylo_image.png')
 **Figure 1**
 \newpage
 ```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=4,fig.width=7}
-load("r_biology.RData")
+load("Data/r_biology.RData")
 library(ggpubr)
 library(cowplot)
 library(gridExtra)
@@ -268,7 +255,7 @@ pp1<- ggplot(brol_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_siz
   geom_linerange(size=0.6,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
   scale_color_manual("Family",values=c("#0072B2",  "#009E73", "#D55E00","#E69F00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#0072B2",  "#009E73", "#D55E00","#E69F00"))+
   xlab("") + ylab("Hedges' g") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("A)",italic(' B. oleracea'))))
 
@@ -404,34 +391,12 @@ barplot.phylo4d(p4d, center = TRUE , scale = FALSE,trait.labels="Hp effect",bar.
 **Figure 6**
 
 
-\newpage
-```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE, fig.height=3,fig.width=5}
-load("Data/family_cor.RData")
-library(ggpubr)
-library(ggplot2)
-library(gridExtra)
-library(grid)
 
-p1 <- ggscatter(sola, x = "Cohen_d", y = "style_length", 
-          add = "reg.line", conf.int = TRUE, 
-          cor.coef = TRUE, cor.method = "pearson",
-          xlab = "Hedges' g", ylab = "Style length (mm)", main="A) Solanaceae")
-
-p2<- ggscatter(a, x = "Cohen_d", y = "style_length", 
-          add = "reg.line", conf.int = TRUE, 
-          cor.coef = TRUE, cor.method = "pearson",
-          xlab = "Hedges' g", ylab = "Style length (mm)", main="A) All families")
-grid.arrange(p1, p2, nrow = 1, ncol=2)
-
-
-
-```
-**Figure 7**
 
 
 \newpage
 ```{r, echo=FALSE,fig.align='center',message=FALSE, warning=FALSE, cache=FALSE,fig.height=9,fig.width=5}
-load("pollen_ratio.RData")
+load("Data/pollen_ratio.RData")
 library(ggpubr)
 library(ggplot2)
 library(gridExtra)
