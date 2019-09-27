@@ -86,6 +86,8 @@ jarqueberaTest(model1$df.resid)
 predict(model1, newdata=mydata, type="response")
 max(mydata$Donor_pollen_size)
 
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1+Donor|Recipient),data=mydata,REML=FALSE)
+
 
 plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
  terms = c(Recipient_stigma_area,Donor_pollen_size), mdrt.values="minmax")

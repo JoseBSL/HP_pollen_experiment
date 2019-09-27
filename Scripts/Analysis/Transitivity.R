@@ -79,12 +79,31 @@ net=network(m,matrix.type="adjacency",directed=T)
 #create window for plotting
 quartz()
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
-plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
+plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net_1)$weight/2, edge.arrow.size=0.3)
 #Fixing arrow size
 b=d*1.5
 net=graph.adjacency(m,mode="directed",weighted=TRUE,diag=FALSE) 
 plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("pink",2),"grey","pink", rep("skyblue",2),"grey","pink", rep("grey",2)), vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
 #try other colours? like the ones of effect sizes plots?
 #"#0072B2", "#009E73", "#D55E00","#E69F00"
-plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)), vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge.arrow.size=0.3)
+plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)), vertex.label.color="black",edge.color="grey4",edge.width=E(net_2)$weight/1.8, edge.arrow.size=0.3)
 
+#I'm going to create an example of transitivity and intrantive competition
+#First I create a matrix
+
+x <- matrix(1:9, nrow = 3, dimnames = list(c("A","B","C"), c("A","B","C")))
+x[1,] <- c(0,1,1) 
+x[2,] <- c(0,0,1) 
+x[3,] <- c(0,0,0)  
+net_1=graph.adjacency(x,mode="directed",weighted=TRUE,diag=FALSE) 
+plot.igraph(net_1,vertex.label=V(net_1)$name,vertex.label.cex=.8,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/0.5, edge.arrow.size=0.8)
+
+z <- matrix(1:9, nrow = 3, dimnames = list(c("A","B","C"), c("A","B","C")))
+z[1,] <- c(0,1,0) 
+z[2,] <- c(0,0,1) 
+z[3,] <- c(1,0,0)  
+net_2=graph.adjacency(z,mode="directed",weighted=TRUE,diag=FALSE) 
+plot.igraph(net_2,vertex.label=V(net_2)$name,vertex.label.cex=1.5,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/0.5, edge.arrow.size=0.8)
+
+y <- tkplot(net_2)
+tk_rotate(y, degree = 180)
