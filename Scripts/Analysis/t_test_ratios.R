@@ -18,9 +18,14 @@ c_pollen <- subset(d_pollen, family_non_focal=="C")
 s_b_pollen <- subset(d_pollen, family_non_focal=="B"|family_non_focal=="S")
 s_pollen <- subset(d_pollen, family_non_focal=="S")
 b_pollen <- subset(d_pollen, family_non_focal=="B")
+hist(c_pollen$ratio)
+hist(s_b_pollen$ratio)
 
-t.test(c_pollen$ratio,s_b_pollen$ratio)
+t.test(c_pollen$ratio,s_b_pollen$ratio,alternative = "two.sided", var.equal = FALSE)
 #Showing differences between big pollen size and small pollen size families 
 #Convolvulacea compared with solanaceae and brassicaceae
-t.test(s_pollen$ratio,b_pollen$ratio)
+t.test(s_pollen$ratio,b_pollen$ratio,alternative = "two.sided", var.equal = FALSE)
+t.test(c_pollen$ratio,b_pollen$ratio,alternative = "two.sided", var.equal = FALSE)
+t.test(c_pollen$ratio,s_pollen$ratio,alternative = "two.sided", var.equal = FALSE)
 
+t.test(s_b_pollen$ratio,c_pollen$ratio,alternative = "two.sided", var.equal = FALSE)
