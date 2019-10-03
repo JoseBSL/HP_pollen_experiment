@@ -259,10 +259,6 @@ si_index <- phylosig(tree=tree_10,x=si_index,method="lambda",test=TRUE)
 
 
 
-
-
-
-
 #save.image("Manuscript_draft/Data/img_phylo_no_conv.RData")
 effect_size_all <- readRDS( "Data/effect_size_all.RData")
 effect_size_all$species <- c("SOME","SOLY","PEIN", "CAAN",
@@ -275,3 +271,12 @@ Cohen_d <-as.data.frame(traits_all[,c("Cohen_d")])
 rownames(Cohen_d) <- tree_10[[3]]
 Cohen_d <- as.matrix((Cohen_d))[,1]
 Cohen_d <- phylosig(tree=tree_10,x=Cohen_d,method="lambda",test=TRUE)
+
+
+
+#Now no Solanaceae
+tree_no_sol <- read.newick("Data/no_sol.nwk")
+
+#Now no Brassicaceae
+
+tree_no_sol <- read.newick("Data/no_bra.nwk")
