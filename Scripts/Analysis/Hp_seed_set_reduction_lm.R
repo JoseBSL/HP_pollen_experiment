@@ -6,7 +6,7 @@ library(nlme)
 library(lme4)
 library(reshape2)
 library(ggplot2)
-
+library(jtools)
 #50-50% pollen analysis respect cross. At the moment seed set is not scaled for this case.
 #I do it for each species separately
 #PEIN
@@ -21,10 +21,9 @@ summary(mod1)
 par(mfrow=c(2,2))
 plot(mod1)
 TukeyHSD(aov(mod1))
-
 pein_seed_set_final=na.omit(pein_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="CROSS"), data=pein_seed_set_final, random=~1|Treatment.number)
-summary(model2)
+pein <- summary(model2)$tTable
 #For Petunia BRRA, CAAN  and ERSA didn´t reduce seed set significatively 
 
 #SOLY
@@ -32,7 +31,7 @@ soly_seed_set_final <- read.csv("Rmd/Data/soly_seed_set_final.csv")
 soly_seed_set_final=na.omit(soly_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=soly_seed_set_final, random=~1|Treatment.number)
 summary(model2)
-
+soly <- summary(model2)$tTable
 #For tomato just BROL don´t produce a significant decrease in seed set p<0.05
 
 #SOME
@@ -40,6 +39,8 @@ some_seed_set_final <- read.csv("Rmd/Data/some_seed_set_final.csv")
 some_seed_set_final=na.omit(some_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=some_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+some <- summary(model2)$tTable
+
 #SOLY, PEIN, IPPU,IPAQ, BROL p>0.05
 
 #CAAN
@@ -47,6 +48,8 @@ caan_seed_set_final <- read.csv("Rmd/Data/caan_seed_set_final.csv")
 caan_seed_set_final=na.omit(caan_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="CROSS"), data=caan_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+caan <- summary(model2)$tTable
+
 #Eruca versicaria is the only species that didn't reduce seed set p<0.05
 
 #BROL
@@ -54,6 +57,8 @@ brol_seed_set_final <- read.csv("Rmd/Data/brol_seed_set_final.csv")
 brol_seed_set_final=na.omit(brol_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=brol_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+brol <- summary(model2)$tTable
+
 #All different from cross p<0.05
 
 #BRRA
@@ -61,6 +66,8 @@ brra_seed_set_final <- read.csv("Rmd/Data/brra_seed_set_final.csv")
 brra_seed_set_final=na.omit(brra_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=brra_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+brra <- summary(model2)$tTable
+
 #al different from cross p<0.05
 
 #SIAL
@@ -68,6 +75,8 @@ sial_seed_set_final <- read.csv("Rmd/Data/sial_seed_set_final.csv")
 sial_seed_set_final=na.omit(sial_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=sial_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+sial <- summary(model2)$tTable
+
 #BROL, ERSA, PEIN, SOLY, SOME
 
 #ERSA
@@ -75,16 +84,19 @@ ersa_seed_set_final <- read.csv("Rmd/Data/ersa_seed_set_final.csv")
 ersa_seed_set_final=na.omit(ersa_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=ersa_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+ersa <- summary(model2)$tTable
+
 #BRRA, CAAN, PEIN, IPPU, SIAL, SOLY, SOME
 
 #IPPU
 ippu_seed_set_final <- read.csv("Rmd/Data/ippu_seed_set_final.csv")
 str(ippu_seed_set_final)
 ippu_seed_set_final$Family<- "family"
-
 ippu_seed_set_final=na.omit(ippu_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=ippu_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+ippu <- summary(model2)$tTable
+
 #SOME,BRRA, PEIN,IPAQ,SIAL,BROL
 
 #IPAQ
@@ -95,6 +107,28 @@ ipaq_seed_set_final=na.omit(ipaq_seed_set_final)
 
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=ipaq_seed_set_final, random=~1|Treatment.number)
 summary(model2)
+ipaq <- summary(model2)$tTable
+
+#saverds files to load them in other script
+
+saveRDS(pein, "Data/pein.RData")
+saveRDS(soly, "Data/soly.RData")
+saveRDS(caan, "Data/caan.RData")
+saveRDS(some, "Data/some.RData")
+saveRDS(brol, "Data/brol.RData")
+saveRDS(brra, "Data/brra.RData")
+saveRDS(ersa, "Data/ersa.RData")
+saveRDS(sial, "Data/sial.RData")
+saveRDS(ippu, "Data/ippu.RData")
+saveRDS(ipaq, "Data/ipaq.RData")
+
+
+
+
+
+
+
+
 #ALL
 
 #100% heterospecific pollen analysis respect cross
@@ -175,6 +209,7 @@ mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=ipaq_seed_set
 summary(mod1)
 #significant differences for all
 #No seeds produced with 100% treatments
+
 
 #I'm going to compile now the fruit information.
 
