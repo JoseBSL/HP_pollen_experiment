@@ -29,6 +29,9 @@ junk.glmer = lm(hp_ratio ~ fam_non, data = pollen_non)
 lsm = lsmeans(junk.glmer, "fam_non", type = "response")
 pairs(lsm)
 
+
+saveRDS(pollen_non, "Data/pollen_non.RData")
+
 library(reshape2)
 
 hp_pollen_mean <- dcast(fam_non ~ ., value.var = "hp_pollen", 
@@ -42,4 +45,11 @@ colnames(hp_pollen_mean)[2] <- "total_pollen_mean"
 
 
 prop.test(x = hp_pollen_mean[1,2], n = total_pollen_mean[1,2], p = 0.5, 
+          correct = FALSE)
+
+
+prop.test(x = hp_pollen_mean[2,2], n = total_pollen_mean[1,2], p = 0.5, 
+          correct = FALSE)
+
+prop.test(x = hp_pollen_mean[3,2], n = total_pollen_mean[1,2], p = 0.5, 
           correct = FALSE)

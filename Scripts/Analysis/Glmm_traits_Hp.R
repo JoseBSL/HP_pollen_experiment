@@ -29,7 +29,7 @@ traits <- read.csv("Data/traits_scinames.csv")
 traits=traits[,-c(1,2,4,10,14)]
 #Now change spp name to code to be able to merge
 spp <- c("BROL", "BRRA", "CAAN", "ERSA", "IPAQ", "IPPU", "PEIN", "SIAL", "SOLY", "SOME")
-#traits[,c(2:14)]=scale(traits[,c(2:14)])
+traits[,c(2:14)]=scale(traits[,c(2:14)])
 
 traits$species<- spp
 traits_recipient=traits
@@ -60,6 +60,7 @@ effect_recipient$Donor[effect_recipient$Donor=="SOME "] <-"SOME"
 mydata<- merge(effect_recipient, traits_donor, by="Donor")
 mydata$D <- rep(1:10, each=10)
 colnames(data)[3] <- "effect_size"
+mydata$id_number <- seq(length(mydata$Recipient))
 
 #Now the data is ready for analysis
 
@@ -73,7 +74,7 @@ colnames(data)[3] <- "effect_size"
 #Random effects are Donor and recipientdue due to they where not alway the same individuals
 #MODEL 1
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Recipient),data=mydata,REML=FALSE)
 summary(model1)
 summ(model1, confint = TRUE, digits = 3)
 effect_plot(model1, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
@@ -86,8 +87,6 @@ jarqueberaTest(model1$df.resid)
 predict(model1, newdata=mydata, type="response")
 max(mydata$Donor_pollen_size)
 
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1+Donor|Recipient),data=mydata,REML=FALSE)
-
 
 plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
  terms = c(Recipient_stigma_area,Donor_pollen_size), mdrt.values="minmax")
@@ -95,7 +94,7 @@ plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicte
 #MODEL 2
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH+
 # + POLLEN_OVULE RATIO
-model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model2)
 summ(model2, confint = TRUE, digits = 3)
 effect_plot(model1, pred = c("Recipient_stigma_area"* "Donor_pollen_size"),interval = TRUE, plot.points = TRUE)
@@ -109,7 +108,7 @@ qqnorm(residuals(model2))
 #MODEL 3
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH+
 # + RECIPIENT SELF INCOMPATIBILITY INDEX
-model3<-lmer(value~Donor_pollen_size+Recipient_style_length+Recipient_style_length*Donor_pollen_size+ Recipient_si_index+(1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model3<-lmer(value~Donor_pollen_size+Recipient_style_length+Recipient_style_length*Donor_pollen_size+ Recipient_si_index+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model3)
 summ(model3, confint = TRUE, digits = 3)
 effect_plot(model3, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
@@ -119,7 +118,7 @@ plot(model3)
 qqnorm(residuals(model3))
 #MODEL 4
 #DONOR SELF INCOMPATIBILITY INDEX+RECIPIENT SELF INCOMPATIBILITY INDEX
-model4<-lmer(value~Donor_si_index*Recipient_si_index+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model4<-lmer(value~Donor_si_index*Recipient_si_index+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model4)
 summ(model4,  digits = 3)
 effect_plot(model4, pred = Donor_si_index, interval = TRUE, plot.points = TRUE)
@@ -131,7 +130,7 @@ allEffects(model4)
 
 
 
-model4<-lmer(value~Recipient_style_length*Donor_si_index+ (1|Donor)+ (1|Recipient),data=mydata,REML=FALSE)
+model4<-lmer(value~Recipient_style_length*Donor_si_index+ (1|Recipient),data=mydata,REML=FALSE)
 summary(model4)
 summ(model4,  digits = 3)
 effect_plot(model4, pred = Donor_si_index, interval = TRUE, plot.points = TRUE)
@@ -159,24 +158,27 @@ plot(model2)
 qqnorm(residuals(model2))
 jarqueberaTest(model2$df.resid)
 
-#Same analysis without Convolvulaceae
+#Merge data with pollen
+#Read data
+p_data <-readRDS("Data/pollen_non.RData")
 
-mydata
-library(dplyr)
-filter_data <- filter(mydata, Recipient != "IPPU" & Recipient != "IPAQ")
-filter_data <- filter(filter_data, Donor != "IPPU" & Donor != "IPAQ")
+p_data$donor <- c("IPPU", "IPPU", "IPPU", "IPPU", "IPAQ", "IPAQ", "IPAQ", "IPAQ",
+                  "SOME", "SOME", "PEIN", "SOLY", "CAAN", "CAAN", "ERSA", "ERSA",
+                  "BROL", "SIAL", "SIAL", "BRRA") 
 
+p_data$recipient <- c("CAAN", "ERSA", "BROL", "BRRA", "SOME", "PEIN", "SOLY", "SIAL",
+                      "IPPU", "SIAL", "ERSA", "BRRA", "IPAQ", "BROL", "IPPU", "SOME", 
+                      "PEIN", "IPAQ", "CAAN", "SOLY")
 
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+(1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
+#Recipient_donor paste in order to merge with the other datset
+p_data$donor_recipient <- paste(p_data$recipient, p_data$donor,sep="_")
+mydata$donor_recipient <- paste(mydata$Recipient, mydata$Donor,sep="_")
+
+donor_recipient <- merge(p_data,mydata, by="donor_recipient")
+
+model1<-lmer(value~hp_ratio*Recipient_stigma_area+ (1|Recipient),data=donor_recipient,REML=FALSE)
 summary(model1)
+model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Recipient),data=mydata,REML=FALSE)
 
-model1.1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
-summary(model1.1)
-
-model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+ (1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
-summary(model1)
-
-model2<-lmer(value~Recipient_style_length*Donor_pollen_size+Recipient_pollen_ovule_ratio+ (1|Donor)+ (1|Recipient),data=filter_data,REML=FALSE)
-summary(model2)
-
+model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Recipient),data=mydata,REML=FALSE)
 
