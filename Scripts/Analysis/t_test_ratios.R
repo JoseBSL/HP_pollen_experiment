@@ -67,11 +67,19 @@ res <- prop.test(x = 110, n = 1106, p = 0.5,
                  correct = FALSE)
 
 
+
+
+
  prop.test(x = s_pollen, n = (s_pollen+s_pollen_other), p = 0.5, 
                  correct = FALSE)
      
- prop.test(x = b_pollen_other, n = (b_pollen+b_pollen_other), p = 0.5, 
-           correct = FALSE,alternative = "less")
+
+ 
  
              
  #alternative = "less"
+ 
+ prop.test(c(45,66),c(100,110))
+ 
+ 
+ 
