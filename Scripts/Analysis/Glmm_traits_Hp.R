@@ -70,8 +70,32 @@ mydata$id_number <- seq(length(mydata$Recipient))
 ##
 #
 
+#Trying a very simple model
+model1<-lm(value~Recipient_stigma_area*Donor_pollen_size,data=mydata)
+plot(model1)
+#Residuals vs fitted
+#We do not have homogeinity of the variance
+#Approximately normally distributed, see qqplot. 
+#residual vs fitted, not homogeneous variance. Also shown by stand. residuals.
+
+#Seems I have a better fit when I onsider an interaction in glm
+
+#Before I compare the effect of donor and recipient on the effect sizes
+#Recipient as fixed effect 
+model1<-lm(value~Recipient,data=mydata)
+anova(model1)
+#check fit 
+plot(model1)
+#Donor as fixed effect
+model1<-lm(value~Donor,data=mydata)
+plot(model1)
+anova(model1)
+#Donors does not produce a significant change in effect sizes 
+#Recipients do
+
+
 #Perform a Gaussian glmm-> lmer
-#Random effects are Donor and recipientdue due to they where not alway the same individuals
+#Random effect recipient, due to a just consider few traits
 #MODEL 1
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH
 model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Recipient),data=mydata,REML=FALSE)
@@ -80,13 +104,14 @@ summ(model1, confint = TRUE, digits = 3)
 effect_plot(model1, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
 effect_plot(model1, pred = Recipient_stigma_area, interval = TRUE, plot.points = TRUE)
 plot(allEffects(model1), ask=FALSE, ticks=list(at=c(.5,.50,.95)))
+par(mfrow = c(1,1))
+plot(model1)
 #Analysing residuals
 plot(model1)
 qqnorm(residuals(model1))
 jarqueberaTest(model1$df.resid)
 predict(model1, newdata=mydata, type="response")
 max(mydata$Donor_pollen_size)
-
 
 plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
  terms = c(Recipient_stigma_area,Donor_pollen_size), mdrt.values="minmax")
@@ -178,6 +203,7 @@ donor_recipient <- merge(p_data,mydata, by="donor_recipient")
 
 model1<-lmer(value~hp_ratio*Recipient_stigma_area+ (1|Recipient),data=donor_recipient,REML=FALSE)
 summary(model1)
+plot(model1)
 model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Recipient),data=mydata,REML=FALSE)
 
 model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Recipient),data=mydata,REML=FALSE)
