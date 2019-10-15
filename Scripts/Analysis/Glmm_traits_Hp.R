@@ -82,14 +82,15 @@ plot(model1)
 
 #Before I compare the effect of donor and recipient on the effect sizes
 #Recipient as fixed effect 
-model1<-lm(value~Recipient,data=mydata)
+model1<-lm(value~factor(Recipient),data=mydata)
+summary(model1)
 anova(model1)
 #check fit 
 plot(model1)
 #Donor as fixed effect
-model1<-lm(value~Donor,data=mydata)
+model2<-lm(value~factor(Donor),data=mydata)
 plot(model1)
-anova(model1)
+anova(model2) 
 #Donors does not produce a significant change in effect sizes 
 #Recipients do
 
