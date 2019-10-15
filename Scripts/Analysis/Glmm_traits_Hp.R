@@ -115,7 +115,7 @@ predict(model1, newdata=mydata, type="response")
 max(mydata$Donor_pollen_size)
 
 plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
- terms = c(Recipient_stigma_area,Donor_pollen_size), mdrt.values="minmax")
+ terms = c(Recipient_stigma_area,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
 
 #MODEL 2
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH+
@@ -169,8 +169,8 @@ plot(eff.p1)
 
 install.packages(sjPlot)
 library(sjPlot)
-plot_model(model4, type = "int", terms = c(Recipient_style_length,Donor_si_index), mdrt.values="quart"
-,ci.lvl = 0.95)
+plot_model(model4, type = "int", terms = c(Recipient_style_length,Donor_si_index), legend.title = "Condition",mdrt.values="quart"
+,ci.lvl = 0.95)+theme_sjplot()
 #Interpreting outputs:
 #Random effects, Recipient have a big standard deviation which means that great part of variability
 #of our model can be explained by them. 
