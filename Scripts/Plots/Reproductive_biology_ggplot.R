@@ -95,9 +95,17 @@ ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) +
                dotsize=0.3,position = position_jitterdodge(jitter.width = 0.1))+
   theme_minimal()+scale_fill_brewer(palette="RdBu")
 
-
-ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
+tiff("test.tiff", units="in", width=10, height=5, res=2000)
+pdf("test.pdf", units="in", width=10, height=5, res=500)
+ ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
   geom_violin(scale = "width",draw_quantiles = c(0.5))+
   geom_dotplot(binaxis='y', 
                dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
   theme_minimal()+labs(y="Seed set")+scale_fill_manual(values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(legend.title = element_blank(),plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
+ 
+ ggsave("Images_publication/Figure2.png", width = 12, height = 5,dpi = 1200)
+ 
+#ggsave(filename = "rep_bio.pdf", rep_bio, width = 12, height = 5, units = "in",dpi = 1000)
+
+# insert ggplot code
+dev.off()
