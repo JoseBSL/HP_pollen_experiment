@@ -91,6 +91,12 @@ plot(model1)
 model2<-lm(value~factor(Donor),data=mydata)
 plot(model1)
 anova(model2) 
+
+
+model2<-lm(value~factor(Donor)+factor(Recipient),data=mydata)
+summary(model2)
+anova(model2)
+
 #Donors does not produce a significant change in effect sizes 
 #Recipients do
 
@@ -100,6 +106,11 @@ anova(model2)
 #MODEL 1
 #DONOR POLLEN SIZE+RECIPIENT STYLE LENGTH+DONOR POLLEN SIZE * RECIPIENT STYLE LENGTH
 model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Recipient),data=mydata,REML=FALSE)
+
+model1<-lm(value~Recipient_stigma_area*Donor_pollen_size,data=mydata)
+summary(model1)
+#
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Recipient),data=mydata)
 summary(model1)
 summ(model1, confint = TRUE, digits = 3)
 effect_plot(model1, pred = Donor_pollen_size, interval = TRUE, plot.points = TRUE)
@@ -202,8 +213,14 @@ mydata$donor_recipient <- paste(mydata$Recipient, mydata$Donor,sep="_")
 
 donor_recipient <- merge(p_data,mydata, by="donor_recipient")
 
-model1<-lmer(value~hp_ratio*Recipient_stigma_area+ (1|Recipient),data=donor_recipient,REML=FALSE)
+model1<-lmer(value~hp_ratio*Recipient_stigma_area+ (1|Recipient),data=donor_recipient)
 summary(model1)
+plot(model1)
+model2<-lm(value~hp_ratio*Recipient_stigma_area,data=donor_recipient)
+summary(model2)
+plot(model2)
+
+
 plot(model1)
 model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Recipient),data=mydata,REML=FALSE)
 
