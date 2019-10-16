@@ -87,6 +87,10 @@ plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruch
 #try other colours? like the ones of effect sizes plots?
 #"#0072B2", "#009E73", "#D55E00","#E69F00"
 plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)), vertex.label.color="black",edge.color="grey4",edge.width=E(net_2)$weight/1.8, edge.arrow.size=0.3)
+plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6, 
+layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),
+"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)),
+vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge.arrow.size=0.3)
 
 #I'm going to create an example of transitivity and intrantive competition
 #First I create a matrix
