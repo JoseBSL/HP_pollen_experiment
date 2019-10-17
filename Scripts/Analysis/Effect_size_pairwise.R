@@ -1,5 +1,4 @@
 #In this script I'm going to calculate the effect sizes and plot them.
-#Moreover I will compare differences among species and among families
 
 #loadlibrary
 #install.packages("effsize")
@@ -8,11 +7,16 @@ library(dplyr)
 library(ggplot2)
 library(ggpubr)
 
+#LOAD DATA
 load("Data/seed_set&scaled_seed_set.RData")
-#Reading correct file of SIAL is lacking one Treatment in the other
+#Reading correct file of SIAL and SOME is lacking one Treatment for both in the old file
 sial <- read.csv("Data/species_seed_set/SIAL_seed_set.csv", sep=";")
 sial$Scale_seed <- scale(sial$Seed.production)
+some <- read.csv("Data/species_seed_set/SOME_seed_set.csv", sep=";")
+some$Scale_seed <- scale(some$seed_set)
+some<- some[,-4]
 
+#FILTER COLUMNS AND ROWS OF INTEREST
 #Preparing for loop to clean dataframe and select columns of interest
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
 i <- NULL
@@ -28,9 +32,8 @@ for (i in species_list){
   y <- rbind(y, i)
 }
 
-#Now I prepare effect sizes for SOLY
 
-
+#Start with Solanaceae
 ####
 #SOLANACEAE
 ####
@@ -111,7 +114,7 @@ width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2
   theme(axis.text.y = element_text(face = c('italic', 'bold', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-#save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
 
 
 #PEIN
@@ -183,7 +186,7 @@ p2 + geom_point(alpha=c(1,1,0.5,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
 
-#save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
 
 
 #CAAN
@@ -253,8 +256,7 @@ p2 + geom_point(alpha=c(1,1,1,0.5,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
   geom_hline(yintercept=0, linetype="dashed", color = "black")+
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'bold', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
-
-#save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
 
 
 #SOME
@@ -264,14 +266,6 @@ some_seeds <- subset(y, Species=="SOME")
 #We order alphabetically to be able to replicate exactly the same for all the species
 some_seeds <- some_seeds[order(some_seeds$Treatment, some_seeds$Seed_set), ]
 some_cross <- subset(some_seeds, Treatment=="CROSS")
-#We lack a treatment I duplicate with one spp of the same family
-#I decide what to do later, probably best leave it in blank as I have done
-some_ippu <- subset(some_seeds, Treatment=="IPPU 50%")
-
-some_ippu$Treatment[some_ippu$Treatment=="IPPU 50%"] <- "IPAQ 50%"
-some_ipaq <- some_ippu[,1:5]
-some_ipaq$Seed_set <- NA
-some_seeds <- rbind(some_seeds, some_ipaq) 
 
 
 #Now we prepare a loop to do it fast for all the species
@@ -333,7 +327,7 @@ p2 + geom_point(alpha=c(0.5,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
   theme(axis.text.y = element_text(face = c('bold', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-#save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
 
 
 ####
@@ -406,7 +400,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,1,0.5),show.legend = FALSE,aes(color=fac
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'bold')))
 
-#save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
 
 
 #BRRA
@@ -475,7 +469,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,0.5,1),show.legend = FALSE,aes(color=fac
                                             'italic','italic', 'italic', 'italic', 'bold', 'italic')))
 
 
-#save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
 
 
 #SIAL
@@ -484,15 +478,6 @@ sial_seeds <- subset(y, Species=="SIAL")
 #We order alphabetically to be able to replicate exactly the same for all the species
 sial_seeds <- sial_seeds[order(sial_seeds$Treatment, sial_seeds$Seed_set), ]
 sial_cross <- subset(sial_seeds, Treatment=="Cross")
-
-#We lack a treatment I duplicate with one spp of the same family
-#I decide what to do later, probably best leave it in blank as I have done
-#sial_ippu <- subset(sial_seeds, Treatment=="IPPU 50%")
-
-#sial_ippu$Treatment[sial_ippu$Treatment=="IPPU 50%"] <- "IPAQ 50%"
-#sial_ipaq <- sial_ippu[,1:5]
-#sial_ipaq$Seed_set <- NA
-#sial_seeds <- rbind(sial_seeds, sial_ipaq) 
 
 #Now we prepare a loop to do it fast for all the species
 #Again we sort alphabetically
@@ -555,7 +540,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,0.5,1,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-#save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
 
 
 #ERSA
@@ -625,7 +610,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,0.5,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-#save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
 
 
 
@@ -699,7 +684,7 @@ p2 + geom_point(alpha=c(1,1,1,1,0.5,1,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'bold','italic', 'italic', 'italic', 'italic', 'italic')))
 
 
-#save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
 
 
 
@@ -769,7 +754,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,0.5,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'italic','bold', 'italic', 'italic', 'italic', 'italic')))
 
 
-#save.image("Manuscript_draft/effect_size_species/all_effect_size.RData")
+save.image("Manuscript_draft/effect_size_species/all_effect_size.RData")
 
 
 #prepare plot with data frame for legend in Markdown
