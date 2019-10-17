@@ -10,6 +10,12 @@ library(ggpubr)
 #install.packages("effsize")
 
 load("Data/seed_set&scaled_seed_set.RData")
+#Reading correct file of SIAL and SOME is lacking one Treatment for both in the old file
+sial <- read.csv("Data/species_seed_set/SIAL_seed_set.csv", sep=";")
+sial$Scale_seed <- scale(sial$Seed.production)
+some <- read.csv("Data/species_seed_set/SOME_seed_set.csv", sep=";")
+some$Scale_seed <- scale(some$seed_set)
+some<- some[,-4]
 
 #Preparing for loop to clean dataframe and select columns of interest
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
