@@ -8,7 +8,10 @@ library(dplyr)
 library(ggplot2)
 library(ggpubr)
 
-load("seed_set&scaled_seed_set.RData")
+load("Data/seed_set&scaled_seed_set.RData")
+#Reading correct file of SIAL is lacking one Treatment in the other
+sial <- read.csv("Data/species_seed_set/SIAL_seed_set.csv", sep=";")
+sial$Scale_seed <- scale(sial$Seed.production)
 
 #Preparing for loop to clean dataframe and select columns of interest
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
@@ -484,12 +487,12 @@ sial_cross <- subset(sial_seeds, Treatment=="Cross")
 
 #We lack a treatment I duplicate with one spp of the same family
 #I decide what to do later, probably best leave it in blank as I have done
-sial_ippu <- subset(sial_seeds, Treatment=="IPPU 50%")
+#sial_ippu <- subset(sial_seeds, Treatment=="IPPU 50%")
 
-sial_ippu$Treatment[sial_ippu$Treatment=="IPPU 50%"] <- "IPAQ 50%"
-sial_ipaq <- sial_ippu[,1:5]
-sial_ipaq$Seed_set <- NA
-sial_seeds <- rbind(sial_seeds, sial_ipaq) 
+#sial_ippu$Treatment[sial_ippu$Treatment=="IPPU 50%"] <- "IPAQ 50%"
+#sial_ipaq <- sial_ippu[,1:5]
+#sial_ipaq$Seed_set <- NA
+#sial_seeds <- rbind(sial_seeds, sial_ipaq) 
 
 #Now we prepare a loop to do it fast for all the species
 #Again we sort alphabetically
