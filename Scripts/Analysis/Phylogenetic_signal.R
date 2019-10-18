@@ -3,7 +3,18 @@ library(phytools)
 pollen_tree=read.tree("Data/pollen_tree.nwk")
 #pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
 #pollen_tree=read.tree("Data/tree_neighbour.nwk")
-png("phylo_image.png", units="px", width=1600, height=1600, res=300)
+png("phylo.png", units="px", width=8000, height=10000, res=2000)
+plot(pollen_tree, font= 3)
+add.scale.bar(x=0, y=1, length = 0.01)
+
+
+pollen_tree=read.tree("Data/phylo_all_correct_names.nwk")
+
+png("Figure1.png", units="px", width=12000, height=12000, res=2500)
+plot(pollen_tree, font= 3)
+add.scale.bar(x=0, y=1, length = 0.01)
+
+dev.off()
 
 plot(pollen_tree)
 add.scale.bar(x=0, y=1, length = 0.01)

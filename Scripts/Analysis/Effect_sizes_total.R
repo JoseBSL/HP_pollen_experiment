@@ -585,6 +585,8 @@ all_brassicaceae <- all_brassicaceae %>% arrange(desc(Family))
 
 all<- rbind(all_solanaceae,all_convolvulaceae, all_brassicaceae)
 saveRDS(all, "Data/effect_size_all.RData")
+saveRDS(all, "Manuscript_draft/Data/effect_size_all.RData")
+
 all$Family_1 <- "S"
 all$Family_1[1:4]<- "B" 
 all$Family_1[5:6]<- "C"
