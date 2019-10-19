@@ -10,6 +10,7 @@ library(lmerTest)
 library(jtools)
 library(ggplot2)
 library(effects)
+library(MASS)
 #
 ##
 ###DATA PREPARATION FOR ANALYSES
@@ -100,7 +101,52 @@ anova(model2)
 #Donors does not produce a significant change in effect sizes 
 #Recipients do
 
+scope <- stepAIC(full, scope)
 
+full<-lm(value~. -Recipient - Donor,data=mydata)
+summary(full)
+step<- stepAIC(full, trace=FALSE)
+step$anova
+
+m1 <- lm(value ~ Recipient_Selfing_rate + Recipient_pollen_size + Recipient_mean_pollen_anther + 
+     Recipient_mean_ovules + Recipient_pollen_ovule_ratio + Recipient_stigma_area + 
+     Recipient_stigma_length + Recipient_stigma_width + Recipient_style_length + 
+     Donor_pollen_size, data=mydata)
+summary(m1)
+anova(m1)
+plot(m1)
+
+m1 <- lm(value ~ Recipient_Selfing_rate + Recipient_pollen_size + 
+           Recipient_mean_ovules + Recipient_pollen_ovule_ratio + Recipient_stigma_area + 
+           Recipient_stigma_length + Recipient_stigma_width + Recipient_style_length + 
+           Donor_pollen_size, data=mydata)
+summary(m1)
+anova(m1)
+
+m2<- lm(value~Donor_pollen_size+Recipient_style_length+Recipient_pollen_ovule_ratio, data=mydata)
+
+m2<- lm(value~Recipient_stigma_width+Recipient_mean_ovules+Recipient_Selfing_rate, data=mydata)
+summary(m2)
+anova(m2)
+cor.test(mydata$Recipient_Selfing_rate,mydata$Recipient_mean_ovules)
+cor.test(mydata$Recipient_stigma_area,mydata$Recipient_style_length)
+cor.test(mydata$Recipient_pollen_ovule_ratio,mydata$Recipient_stigma_area)
+cor.test(mydata$Recipient_mean_ovules,mydata$Recipient_Selfing_rate)
+
+
+model1<-lm(value~Recipient_stigma_area*Donor_pollen_size+Recipient_Selfing_rate+Recipient_mean_ovules,data=mydata)
+
+
+
+summary(model1)
+anova(model1)
+
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+(1|Recipient),data=mydata,REML=FALSE)
+
+
+model1<-lmer(value~Recipient_stigma_area*Donor_pollen_size+Recipient_Selfing_rate+Recipient_mean_ovules+(1|Recipient),data=mydata)
+summary(model1)
+anova(model1)
 #Perform a Gaussian glmm-> lmer
 #Random effect recipient, due to a just consider few traits
 #MODEL 1

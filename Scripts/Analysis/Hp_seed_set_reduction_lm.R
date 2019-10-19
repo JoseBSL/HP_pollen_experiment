@@ -7,6 +7,12 @@ library(lme4)
 library(reshape2)
 library(ggplot2)
 library(jtools)
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled)
+
+
+
 #50-50% pollen analysis respect cross. At the moment seed set is not scaled for this case.
 #I do it for each species separately
 #PEIN
@@ -23,6 +29,7 @@ plot(mod1)
 TukeyHSD(aov(mod1))
 pein_seed_set_final=na.omit(pein_seed_set_final)
 model2=lme(log(1+Seed.production)~relevel(Treatment,ref="CROSS"), data=pein_seed_set_final, random=~1|Treatment.number)
+a<-tab_model(model2)
 pein <- summary(model2)$tTable
 #For Petunia BRRA, CAAN  and ERSA didn´t reduce seed set significatively 
 
