@@ -3,7 +3,7 @@
 
 #Authors: Jose B. Lanuza, Ignasi Bartomeus, Tia Lynn Ashman, Romina Rader
 
-Here is available the raw data and code for data preparation and analysis.
+Code and raw data.
 
 Zenodo: xxx
 
