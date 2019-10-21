@@ -1,0 +1,86 @@
+---
+title: "Untitled"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+library(ggplot2)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+pro_dat<-readRDS("Data/pro_dat.RData")
+
+p1<-ggplot(pro_dat,aes(x=traits,y=pro_cor))+labs(title="All species",x="", y = "Correlation")+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p2<-ggplot(pro_dat,aes(x=traits,y=sum_squ))+labs(title="",x="", y = "Sum of squares")+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p3<-ggplot(pro_dat,aes(x=traits,y=signif))+labs(title="",x="Traits", y = "Significance")+
+  geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
+
+grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
+
+
+```
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+library(ggplot2)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+pro_dat_sol<-readRDS("Data/pro_dat_sol.RData")
+
+p1<-ggplot(pro_dat_sol,aes(x=traits_sol,y=pro_cor_sol))+labs(title="Solanaceae",x="Traits", y = "Correlation")+geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p2<-ggplot(pro_dat_sol,aes(x=traits_sol,y=sum_squ_sol))+labs(title="",x="", y = "Sum of squares")+
+  geom_bar(stat="identity",position="dodge")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p3<-ggplot(pro_dat_sol,aes(x=traits_sol,y=signif_sol))+labs(title="",x="Traits", y = "Significance")+
+  geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
+
+grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
+
+```
+
+
+
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE, cache=FALSE, fig.height=6}
+library(ggplot2)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+pro_dat_bra<-readRDS("Data/pro_dat_bra.RData")
+
+p1<-ggplot(pro_dat_bra,aes(x=traits_bra,y=pro_cor_bra))+
+  geom_bar(stat="identity",position="dodge")+labs(title="Brassicaceae",x="Traits", y = "Correlation")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p2<-ggplot(pro_dat_bra,aes(x=traits_bra,y=sum_squ_bra))+
+  geom_bar(stat="identity",position="dodge")+labs(title="",x="", y = "Sum of squares")+theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+p3<-ggplot(pro_dat_bra,aes(x=traits_bra,y=signif_bra))+labs(title="",x="Traits", y = "Significance")+
+  geom_bar(stat="identity",position="dodge")+theme(axis.text.x=element_text(angle=60,hjust=1))
+
+grid.draw(rbind(ggplotGrob(p1),ggplotGrob(p2), ggplotGrob(p3), size="last"))
+
+```

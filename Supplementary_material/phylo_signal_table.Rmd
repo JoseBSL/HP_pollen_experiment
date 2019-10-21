@@ -1,0 +1,68 @@
+---
+title: "Untitled"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+
+library(kableExtra)
+load("Data/img_phylo.RData")
+
+lambda <- c( selfing[1], pollen_size[1], mean_pollen_anther[1], mean_ovules[1], pollen_ovule_ratio[1], stigma_area[1], stigma_length[1], stigma_width[1], style_length[1], style_width[1], ovary_length[1], ovary_width[1],si_index[1])
+lambda<- as.numeric(lambda)
+p <- c(selfing[4], pollen_size[4], mean_pollen_anther[4], mean_ovules[4], pollen_ovule_ratio[4], stigma_area[4], stigma_length[4], stigma_width[4], style_length[4], style_width[4], ovary_length[4], ovary_width[4], si_index[4])
+p <- as.numeric(p)
+trait <- c("Selfing rate", "**Pollen size**", "Pollen anther", "Ovule number", "Pollen-ovule ratio", "**Stigmatic area**", "Stigma length", "**Stigma width**", "**Style length**", "Style width", "Ovary length", "Ovary width", "**SI index**")
+table<- data.frame(lambda,p, trait)
+colnames(table) <- c("Lambda", "P-value", "Traits")
+kable(table, format="markdown", digits = 2)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+
+library(kableExtra)
+load("Data/img_phylo_no_conv.RData")
+
+lambda <- c( selfing[1], pollen_size[1], mean_pollen_anther[1], mean_ovules[1], pollen_ovule_ratio[1], stigma_area[1], stigma_length[1], stigma_width[1], style_length[1], style_width[1], ovary_length[1], ovary_width[1],si_index[1])
+lambda<- as.numeric(lambda)
+p <- c(selfing[4], pollen_size[4], mean_pollen_anther[4], mean_ovules[4], pollen_ovule_ratio[4], stigma_area[4], stigma_length[4], stigma_width[4], style_length[4], style_width[4], ovary_length[4], ovary_width[4], si_index[4])
+p <- as.numeric(p)
+trait <- c("Selfing rate", "Pollen size", "Pollen anther", "Ovule number", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width", "Ovary length", "Ovary width", "SI index")
+table<- data.frame(lambda,p, trait)
+colnames(table) <- c("Lambda", "P-value", "Traits")
+kable(table, format="markdown", digits = 2)
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+
+library(kableExtra)
+load("Data/img_phylo_no_sol.RData")
+
+lambda <- c( selfing[1], pollen_size[1], mean_pollen_anther[1], mean_ovules[1], pollen_ovule_ratio[1], stigma_area[1], stigma_length[1], stigma_width[1], style_length[1], style_width[1], ovary_length[1], ovary_width[1],si_index[1])
+lambda<- as.numeric(lambda)
+p <- c(selfing[4], pollen_size[4], mean_pollen_anther[4], mean_ovules[4], pollen_ovule_ratio[4], stigma_area[4], stigma_length[4], stigma_width[4], style_length[4], style_width[4], ovary_length[4], ovary_width[4], si_index[4])
+p <- as.numeric(p)
+trait <- c("Selfing rate", "Pollen size", "Pollen anther", "Ovule number", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width", "Ovary length", "Ovary width", "SI index")
+table<- data.frame(lambda,p, trait)
+colnames(table) <- c("Lambda", "P-value", "Traits")
+kable(table, format="markdown", digits = 2)
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+
+library(kableExtra)
+load("Data/img_phylo_no_bra.RData")
+
+lambda <- c( selfing[1], pollen_size[1], mean_pollen_anther[1], mean_ovules[1], pollen_ovule_ratio[1], stigma_area[1], stigma_length[1], stigma_width[1], style_length[1], style_width[1], ovary_length[1], ovary_width[1],si_index[1])
+lambda<- as.numeric(lambda)
+p <- c(selfing[4], pollen_size[4], mean_pollen_anther[4], mean_ovules[4], pollen_ovule_ratio[4], stigma_area[4], stigma_length[4], stigma_width[4], style_length[4], style_width[4], ovary_length[4], ovary_width[4], si_index[4])
+p <- as.numeric(p)
+trait <- c("Selfing rate", "Pollen size", "Pollen anther", "Ovule number", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width", "Ovary length", "Ovary width", "SI index")
+table<- data.frame(lambda,p, trait)
+colnames(table) <- c("Lambda", "P-value", "Traits")
+kable(table, format="markdown", digits = 2)
+```
