@@ -4,117 +4,136 @@
 library(dplyr)
 library(nlme)
 library(lme4)
-library(reshape2)
-library(ggplot2)
-library(jtools)
-library(sjPlot)
-library(sjmisc)
-library(sjlabelled)
+library(forcats)
 
 
+#50-50% pollen analysis respect cross. Log transform seed set to make it closer to normality
+#I do it for each species separately and compare with all the treatments
 
-#50-50% pollen analysis respect cross. At the moment seed set is not scaled for this case.
-#I do it for each species separately
+#
+#
+#SOLANACEAE 1st
+#
+#
+
+
 #PEIN
-pein_seed_set_final <- read.csv("Rmd/Data/pein_seed_set_final.csv")
-pein_seed_set_final_TEST <- subset(pein_seed_set_final, Treatment==c("CROSS") | Treatment==("Brassica oleracea"))
-
-t.test(Seed.production~Treatment, data=pein_seed_set_final_TEST)
-str(pein_seed_set_final)
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="CROSS"),data=pein_seed_set_final)
-mod1
-summary(mod1)
-par(mfrow=c(2,2))
-plot(mod1)
-TukeyHSD(aov(mod1))
+pein_seed_set_final <- read.csv("Rmd/Data/pein_seed_set_final.csv", stringsAsFactors = T)
+pein_seed_set_final <- subset(pein_seed_set_final, Treatment!="FLOWER CONTROL" & Treatment!="CONTROL" & Treatment!="SELF")
 pein_seed_set_final=na.omit(pein_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="CROSS"), data=pein_seed_set_final, random=~1|Treatment.number)
-a<-tab_model(model2)
-pein <- summary(model2)$tTable
-#For Petunia BRRA, CAAN  and ERSA didn´t reduce seed set significatively 
+pein_seed_set_final$Treatment <- factor(pein_seed_set_final$Treatment)
+levels(pein_seed_set_final$Treatment)
+pein_seed_set_final$Treatment <- relevel(pein_seed_set_final$Treatment, ref="CROSS")
+model1=lm(log(1+Seed.production)~Treatment, data=pein_seed_set_final)
+summary(model1)
+
 
 #SOLY
-soly_seed_set_final <- read.csv("Rmd/Data/soly_seed_set_final.csv")
+soly_seed_set_final <- read.csv("Rmd/Data/soly_seed_set_final.csv", stringsAsFactors = T)
+soly_seed_set_final <- subset(soly_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 soly_seed_set_final=na.omit(soly_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=soly_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-soly <- summary(model2)$tTable
-#For tomato just BROL don´t produce a significant decrease in seed set p<0.05
+soly_seed_set_final$Treatment <- factor(soly_seed_set_final$Treatment)
+levels(soly_seed_set_final$Treatment)
+soly_seed_set_final$Treatment <- relevel(soly_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=soly_seed_set_final)
+summary(model1)
 
 #SOME
-some_seed_set_final <- read.csv("Rmd/Data/some_seed_set_final.csv")
+some_seed_set_final <- read.csv("Rmd/Data/some_seed_set_final.csv", stringsAsFactors = T)
+some_seed_set_final <- subset(some_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 some_seed_set_final=na.omit(some_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=some_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-some <- summary(model2)$tTable
-
-#SOLY, PEIN, IPPU,IPAQ, BROL p>0.05
+some_seed_set_final$Treatment <- factor(some_seed_set_final$Treatment)
+levels(some_seed_set_final$Treatment)
+some_seed_set_final$Treatment <- relevel(some_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=some_seed_set_final)
+summary(model1)
 
 #CAAN
-caan_seed_set_final <- read.csv("Rmd/Data/caan_seed_set_final.csv")
+caan_seed_set_final <- read.csv("Rmd/Data/caan_seed_set_final.csv", stringsAsFactors = T)
+caan_seed_set_final <- subset(caan_seed_set_final, Treatment!="FLOWER CONTROL" & Treatment!="CONTROL" & Treatment!="SELF")
 caan_seed_set_final=na.omit(caan_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="CROSS"), data=caan_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-caan <- summary(model2)$tTable
+caan_seed_set_final$Treatment <- factor(caan_seed_set_final$Treatment)
+levels(caan_seed_set_final$Treatment)
+caan_seed_set_final$Treatment <- relevel(caan_seed_set_final$Treatment, ref="CROSS")
+model1=lm(log(1+Seed.production)~Treatment, data=caan_seed_set_final)
+summary(model1)
 
-#Eruca versicaria is the only species that didn't reduce seed set p<0.05
+
+#
+#
+#BRASSICACEAE 2nd
+#
+#
+
 
 #BROL
-brol_seed_set_final <- read.csv("Rmd/Data/brol_seed_set_final.csv")
+brol_seed_set_final <- read.csv("Rmd/Data/brol_seed_set_final.csv", stringsAsFactors = T)
+brol_seed_set_final <- subset(brol_seed_set_final, Treatment!="FC" & Treatment!="Control" & Treatment!="Self")
 brol_seed_set_final=na.omit(brol_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=brol_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-brol <- summary(model2)$tTable
-
-#All different from cross p<0.05
+brol_seed_set_final$Treatment <- factor(brol_seed_set_final$Treatment)
+levels(brol_seed_set_final$Treatment)
+brol_seed_set_final$Treatment <- relevel(brol_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=brol_seed_set_final)
+summary(model1)
 
 #BRRA
-brra_seed_set_final <- read.csv("Rmd/Data/brra_seed_set_final.csv")
+brra_seed_set_final <- read.csv("Rmd/Data/brra_seed_set_final.csv", stringsAsFactors = T)
+brra_seed_set_final <- subset(brra_seed_set_final, Treatment!="Flower Control" & Treatment!="Control" & Treatment!="Self")
 brra_seed_set_final=na.omit(brra_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=brra_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-brra <- summary(model2)$tTable
+brra_seed_set_final$Treatment <- factor(brra_seed_set_final$Treatment)
+levels(brra_seed_set_final$Treatment)
+brra_seed_set_final$Treatment <- relevel(brra_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=brra_seed_set_final)
+summary(model1)
 
-#al different from cross p<0.05
 
 #SIAL
-sial_seed_set_final <- read.csv("Rmd/Data/sial_seed_set_final.csv")
+sial_seed_set_final <- read.csv("Rmd/Data/sial_seed_set_final.csv", stringsAsFactors = T)
+sial_seed_set_final <- subset(sial_seed_set_final, Treatment!="Flower Control" & Treatment!="Control" & Treatment!="Self")
 sial_seed_set_final=na.omit(sial_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=sial_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-sial <- summary(model2)$tTable
-
-#BROL, ERSA, PEIN, SOLY, SOME
+sial_seed_set_final$Treatment <- factor(sial_seed_set_final$Treatment)
+levels(sial_seed_set_final$Treatment)
+sial_seed_set_final$Treatment <- relevel(sial_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=sial_seed_set_final)
+summary(model1)
 
 #ERSA
-ersa_seed_set_final <- read.csv("Rmd/Data/ersa_seed_set_final.csv")
+ersa_seed_set_final <- read.csv("Rmd/Data/ersa_seed_set_final.csv", stringsAsFactors = T)
+ersa_seed_set_final <- subset(ersa_seed_set_final, Treatment!="Flower Control" & Treatment!="Control" & Treatment!="Self")
 ersa_seed_set_final=na.omit(ersa_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=ersa_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-ersa <- summary(model2)$tTable
+ersa_seed_set_final$Treatment <- factor(ersa_seed_set_final$Treatment)
+levels(ersa_seed_set_final$Treatment)
+ersa_seed_set_final$Treatment <- relevel(ersa_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=ersa_seed_set_final)
+summary(model1)
 
-#BRRA, CAAN, PEIN, IPPU, SIAL, SOLY, SOME
+
+#
+#
+#CONVOLVULACEAE 3rd
+#
+#
 
 #IPPU
-ippu_seed_set_final <- read.csv("Rmd/Data/ippu_seed_set_final.csv")
-str(ippu_seed_set_final)
-ippu_seed_set_final$Family<- "family"
+ippu_seed_set_final <- read.csv("Rmd/Data/ippu_seed_set_final.csv", stringsAsFactors = T)
+ippu_seed_set_final <- subset(ippu_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 ippu_seed_set_final=na.omit(ippu_seed_set_final)
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=ippu_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-ippu <- summary(model2)$tTable
-
-#SOME,BRRA, PEIN,IPAQ,SIAL,BROL
+ippu_seed_set_final$Treatment <- factor(ippu_seed_set_final$Treatment)
+levels(ippu_seed_set_final$Treatment)
+ippu_seed_set_final$Treatment <- relevel(ippu_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=ippu_seed_set_final)
+summary(model1)
 
 #IPAQ
-ipaq_seed_set_final <- read.csv("Rmd/Data/ipaq_seed_set_final.csv")
-ipaq_seed_set_final$Family<- "family"
-
+ipaq_seed_set_final <- read.csv("Rmd/Data/ipaq_seed_set_final.csv", stringsAsFactors = T)
+ipaq_seed_set_final <- subset(ipaq_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 ipaq_seed_set_final=na.omit(ipaq_seed_set_final)
+ipaq_seed_set_final$Treatment <- factor(ipaq_seed_set_final$Treatment)
+levels(ipaq_seed_set_final$Treatment)
+ipaq_seed_set_final$Treatment <- relevel(ipaq_seed_set_final$Treatment, ref="Cross")
+model1=lm(log(1+Seed.production)~Treatment, data=ipaq_seed_set_final)
+summary(model1)
 
-model2=lme(log(1+Seed.production)~relevel(Treatment,ref="Cross"), data=ipaq_seed_set_final, random=~1|Treatment.number)
-summary(model2)
-ipaq <- summary(model2)$tTable
 
 #saverds files to load them in other script
 
@@ -131,14 +150,13 @@ saveRDS(ipaq, "Data/ipaq.RData")
 
 
 
-
-
-
-
-
-#ALL
-
-#100% heterospecific pollen analysis respect cross
+#
+##
+####
+#####NOW I ANALYSYS 100% POLLEN TREATMENTS
+####
+##
+#
 
 #SOLANACEAE
 #PEIN
@@ -232,75 +250,6 @@ brra_seed_set_final$scaled <- scale(brra_seed_set_final$Seed.production)
 brol_seed_set_final$scaled <- scale(brol_seed_set_final$Seed.production)
 ipaq_seed_set_final$scaled <- scale(ipaq_seed_set_final$Seed.production)
 ippu_seed_set_final$scaled <- scale(ippu_seed_set_final$Seed.production)
-
-scaled_seed <- rbind(pein_seed_set_final,soly_seed_set_final)
-str(scaled_seed)
-scaled_seed$Family=as.character(scaled_seed$Family)
-scaled_seed<- subset(scaled_seed, Family!="other")
-
-library(lme4)
-
-hist(scaled_seed$scaled)
-
-model_1<- lmer(scaled ~ Treatment + (1|Treatment.number),data=scaled_seed)
-summary(model_1)
-print(model_1, corr=F)
-
-
-library(nlme)
-model_1_1 <- lme(scaled~Treatment,random=~1|Treatment.number,data=scaled_seed)
-summary(model_1_1)
-anova(model_1_1)
-
-#Let's try to approach in another way (Romina suggestion)
-
-seed_set <- read.csv("Data/species_seed_set.csv")
-head(seed_set)
-seed_set=na.omit(seed_set)
-model_1_1 <- lme(Scaled_seed_set~Treatment,random=~1|Treatment.number,data=seed_set)
-summary(model_1_1)
-
-seed_set_focal <- dcast(Species + Treatment ~ ., value.var = "Scaled_seed_set", fun.aggregate = mean, data = seed_set, na.rm= TRUE)
-seed_set_focal=subset(seed_set_focal, Treatment!="Control"& Treatment!="Cross"& Treatment!="Self" & Treatment!="Flower control")
-colnames(seed_set_focal)[3] <- "scaled_seed_set"
-
-seed_set_focal_mean <- dcast(Species  ~ ., value.var = "scaled_seed_set", fun.aggregate = mean, data = seed_set_focal, na.rm= TRUE)
-colnames(seed_set_focal_mean)[2] <- "mean"
-
-seed_set_focal_sd <- dcast(Species  ~ ., value.var = "scaled_seed_set", fun.aggregate = sd, data = seed_set_focal, na.rm= TRUE)
-colnames(seed_set_focal_sd)[2] <- "sd"
-
-seed_set_focal=merge(seed_set_focal_mean, seed_set_focal_sd, by="Species")
-#This is the average effect for the 10 spp as a recipient 
-# Make the graph with sd
-
-Recipient=ggplot(seed_set_focal, aes(x=Species, y=mean, group=1)) +
-  geom_line() +
-  geom_errorbar(width=.1, aes(ymin=mean-sd, ymax=mean+sd)) +
-  geom_point(shape=21, size=3, fill="white")+ggtitle("Recipient average effect")
-print(Recipient + labs(title= "Recipient average effect",
-                   y="Mean +/- sd", x = "Species"))
-mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (6)))
-print(Recipient +mynamestheme+ labs(title= "Recipient average seed set",
-                                y="Mean +/- sd", x = "Species"))
-
-seed_set_non_focal=subset(seed_set, Treatment!="Control"& Treatment!="Cross"& Treatment!="Self" & Treatment!="Flower control")
-
-seed_set_non_focal_mean <- dcast(Treatment  ~ ., value.var = "Scaled_seed_set", fun.aggregate = mean, data = seed_set_non_focal, na.rm= TRUE)
-colnames(seed_set_non_focal_mean)[2] <- "mean"
-
-seed_set_non_focal_sd <- dcast(Treatment  ~ ., value.var = "Scaled_seed_set", fun.aggregate = sd, data = seed_set_non_focal, na.rm= TRUE)
-colnames(seed_set_non_focal_sd)[2] <- "sd"
-
-seed_set_non_focal=merge(seed_set_non_focal_mean, seed_set_non_focal_sd, by="Treatment")
-
-Donor=ggplot(seed_set_non_focal, aes(x=Treatment, y=mean, group=1)) +
-  geom_line() +
-  geom_errorbar(width=.1, aes(ymin=mean-sd, ymax=mean+sd)) +
-  geom_point(shape=21, size=3, fill="white")+ggtitle("Donor average seed set")
-mynamestheme <- theme(axis.text = element_text(family = "Courier", colour = "black", size = (6)))
-print(Donor +mynamestheme+ labs(title= "Donor average effect",
-                      y="Mean +/- sd", x = "Species"))
 
 
 
