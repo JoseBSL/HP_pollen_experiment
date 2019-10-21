@@ -1,13 +1,14 @@
 
-#Statistical differences between seed set with treatment
+#Statistical differences between seed set with the different treatment
 
+#load libraries
 library(dplyr)
 library(nlme)
 library(lme4)
 library(forcats)
 
 
-#50-50% pollen analysis respect cross. Log transform seed set to make it closer to normality
+#50-50% pollen analysis treatments vs cross (control). Log transform seed set to make it closer to normality
 #I do it for each species separately and compare with all the treatments
 
 #
@@ -137,16 +138,16 @@ summary(model1)
 
 #saverds files to load them in other script
 
-saveRDS(pein, "Data/pein.RData")
-saveRDS(soly, "Data/soly.RData")
-saveRDS(caan, "Data/caan.RData")
-saveRDS(some, "Data/some.RData")
-saveRDS(brol, "Data/brol.RData")
-saveRDS(brra, "Data/brra.RData")
-saveRDS(ersa, "Data/ersa.RData")
-saveRDS(sial, "Data/sial.RData")
-saveRDS(ippu, "Data/ippu.RData")
-saveRDS(ipaq, "Data/ipaq.RData")
+#saveRDS(pein, "Data/pein.RData")
+#saveRDS(soly, "Data/soly.RData")
+#saveRDS(caan, "Data/caan.RData")
+#saveRDS(some, "Data/some.RData")
+#saveRDS(brol, "Data/brol.RData")
+#saveRDS(brra, "Data/brra.RData")
+#saveRDS(ersa, "Data/ersa.RData")
+#saveRDS(sial, "Data/sial.RData")
+#saveRDS(ippu, "Data/ippu.RData")
+#saveRDS(ipaq, "Data/ipaq.RData")
 
 
 
