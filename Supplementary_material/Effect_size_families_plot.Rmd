@@ -1,0 +1,132 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7}
+
+library(effsize)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(cowplot)
+library(gridExtra)
+library(egg)
+library(magrittr)
+library(multipanelfigure)
+library(grid)
+
+
+load("Manuscript_draft/effect_size_species/some_effect_size_family.RData")
+
+pp1<- ggplot(some_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+
+load("Manuscript_draft/effect_size_species/soly_effect_size_family.RData")
+
+pp2<- ggplot(soly_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+load("Manuscript_draft/effect_size_species/sial_effect_size_family.RData")
+
+p3<- ggplot(sial_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+load("Manuscript_draft/effect_size_species/pein_effect_size_family.RData")
+
+p4<- ggplot(pein_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+load("Manuscript_draft/effect_size_species/ippu_effect_size_family.RData")
+
+p5<- ggplot(ippu_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+load("Manuscript_draft/effect_size_species/ipaq_effect_size_family.RData")
+
+p6<- ggplot(ipaq_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+load("Manuscript_draft/effect_size_species/ersa_effect_size_family.RData")
+
+p7<- ggplot(ersa_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+load("Manuscript_draft/effect_size_species/caan_effect_size_family.RData")
+
+p8<- ggplot(caan_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+load("Manuscript_draft/effect_size_species/brra_effect_size_family.RData")
+
+p9<- ggplot(brra_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+
+load("Manuscript_draft/effect_size_species/brol_effect_size_family.RData")
+
+p10<- ggplot(brol_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
+  geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
+ymax = Upper,color=factor(Family)))+
+  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+ #grid.arrange(p1, p5, p3, p4, nrow=2,ncol=2,top="Solanaceae")
+grid.newpage()
+ grid.draw(arrangeGrob(cbind(ggplotGrob(pp1),ggplotGrob(pp2), size="last"),cbind(ggplotGrob(p3),ggplotGrob(p4),size="last"),cbind(ggplotGrob(p5),ggplotGrob(p6), size="last"),cbind(ggplotGrob(p7),ggplotGrob(p8), size="last"),cbind(ggplotGrob(p9),ggplotGrob(p10), size="last"),nrow=5))
+```
+
+

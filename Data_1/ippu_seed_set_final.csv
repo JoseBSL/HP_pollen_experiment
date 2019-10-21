@@ -1,0 +1,141 @@
+,Species,Treatment,Treatment.number,Seed.production,Family
+1,IPPU,Brassica oleracea,1,6,Brassicaceae
+2,IPPU,Brassica oleracea,2,4,Brassicaceae
+3,IPPU,Brassica oleracea,3,3,Brassicaceae
+4,IPPU,Brassica oleracea,4,4,Brassicaceae
+5,IPPU,Brassica oleracea,5,0,Brassicaceae
+6,IPPU,Brassica oleracea,6,0,Brassicaceae
+7,IPPU,Brassica oleracea,7,5,Brassicaceae
+8,IPPU,Brassica oleracea,8,0,Brassicaceae
+9,IPPU,Brassica oleracea,9,6,Brassicaceae
+10,IPPU,Brassica oleracea,10,4,Brassicaceae
+11,IPPU,Brassica rapa,1,0,Brassicaceae
+12,IPPU,Brassica rapa,2,2,Brassicaceae
+13,IPPU,Brassica rapa,3,1,Brassicaceae
+14,IPPU,Brassica rapa,4,1,Brassicaceae
+15,IPPU,Brassica rapa,5,0,Brassicaceae
+16,IPPU,Brassica rapa,6,0,Brassicaceae
+17,IPPU,Brassica rapa,7,4,Brassicaceae
+18,IPPU,Brassica rapa,8,0,Brassicaceae
+19,IPPU,Brassica rapa,9,0,Brassicaceae
+20,IPPU,Brassica rapa,10,0,Brassicaceae
+21,IPPU,Capsicum annuum,1,0,Solanaceae
+22,IPPU,Capsicum annuum,2,0,Solanaceae
+23,IPPU,Capsicum annuum,3,0,Solanaceae
+24,IPPU,Capsicum annuum,4,0,Solanaceae
+25,IPPU,Capsicum annuum,5,0,Solanaceae
+26,IPPU,Capsicum annuum,6,0,Solanaceae
+27,IPPU,Capsicum annuum,7,0,Solanaceae
+28,IPPU,Capsicum annuum,8,0,Solanaceae
+29,IPPU,Capsicum annuum,9,0,Solanaceae
+30,IPPU,Capsicum annuum,10,0,Solanaceae
+51,IPPU,Eruca vesicaria,1,1,Brassicaceae
+52,IPPU,Eruca vesicaria,2,0,Brassicaceae
+53,IPPU,Eruca vesicaria,3,0,Brassicaceae
+54,IPPU,Eruca vesicaria,4,0,Brassicaceae
+55,IPPU,Eruca vesicaria,5,0,Brassicaceae
+56,IPPU,Eruca vesicaria,6,0,Brassicaceae
+57,IPPU,Eruca vesicaria,7,0,Brassicaceae
+58,IPPU,Eruca vesicaria,8,0,Brassicaceae
+59,IPPU,Eruca vesicaria,9,0,Brassicaceae
+60,IPPU,Eruca vesicaria,10,0,Brassicaceae
+71,IPPU,Ipomoea aquatica,1,0,Convolvulaceae
+72,IPPU,Ipomoea aquatica,2,0,Convolvulaceae
+73,IPPU,Ipomoea aquatica,3,6,Convolvulaceae
+74,IPPU,Ipomoea aquatica,4,4,Convolvulaceae
+75,IPPU,Ipomoea aquatica,5,0,Convolvulaceae
+76,IPPU,Ipomoea aquatica,6,3,Convolvulaceae
+77,IPPU,Ipomoea aquatica,7,5,Convolvulaceae
+78,IPPU,Ipomoea aquatica,8,5,Convolvulaceae
+79,IPPU,Ipomoea aquatica,9,5,Convolvulaceae
+80,IPPU,Ipomoea aquatica,10,6,Convolvulaceae
+81,IPPU,Ipomoea purpurea,1,NA,Convolvulaceae
+82,IPPU,Ipomoea purpurea,2,NA,Convolvulaceae
+83,IPPU,Ipomoea purpurea,3,NA,Convolvulaceae
+84,IPPU,Ipomoea purpurea,4,NA,Convolvulaceae
+85,IPPU,Ipomoea purpurea,5,NA,Convolvulaceae
+86,IPPU,Ipomoea purpurea,6,NA,Convolvulaceae
+87,IPPU,Ipomoea purpurea,7,NA,Convolvulaceae
+88,IPPU,Ipomoea purpurea,8,NA,Convolvulaceae
+89,IPPU,Ipomoea purpurea,9,NA,Convolvulaceae
+90,IPPU,Ipomoea purpurea,10,NA,Convolvulaceae
+91,IPPU,Petunia integrifolia,1,0,Solanaceae
+92,IPPU,Petunia integrifolia,2,0,Solanaceae
+93,IPPU,Petunia integrifolia,3,0,Solanaceae
+94,IPPU,Petunia integrifolia,4,0,Solanaceae
+95,IPPU,Petunia integrifolia,5,0,Solanaceae
+96,IPPU,Petunia integrifolia,6,5,Solanaceae
+97,IPPU,Petunia integrifolia,7,6,Solanaceae
+98,IPPU,Petunia integrifolia,8,0,Solanaceae
+99,IPPU,Petunia integrifolia,9,1,Solanaceae
+100,IPPU,Petunia integrifolia,10,0,Solanaceae
+111,IPPU,Sinapis alba,1,0,Brassicaceae
+112,IPPU,Sinapis alba,2,0,Brassicaceae
+113,IPPU,Sinapis alba,3,0,Brassicaceae
+114,IPPU,Sinapis alba,4,2,Brassicaceae
+115,IPPU,Sinapis alba,5,2,Brassicaceae
+116,IPPU,Sinapis alba,6,4,Brassicaceae
+117,IPPU,Sinapis alba,7,2,Brassicaceae
+118,IPPU,Sinapis alba,8,0,Brassicaceae
+119,IPPU,Sinapis alba,9,0,Brassicaceae
+120,IPPU,Sinapis alba,10,0,Brassicaceae
+121,IPPU,Solanum lycopersicum,1,0,Solanaceae
+122,IPPU,Solanum lycopersicum,2,0,Solanaceae
+123,IPPU,Solanum lycopersicum,3,0,Solanaceae
+124,IPPU,Solanum lycopersicum,4,0,Solanaceae
+125,IPPU,Solanum lycopersicum,5,0,Solanaceae
+126,IPPU,Solanum lycopersicum,6,0,Solanaceae
+127,IPPU,Solanum lycopersicum,7,0,Solanaceae
+128,IPPU,Solanum lycopersicum,8,0,Solanaceae
+129,IPPU,Solanum lycopersicum,9,0,Solanaceae
+130,IPPU,Solanum lycopersicum,10,0,Solanaceae
+131,IPPU,Solanum melongena,1,3,Solanaceae
+132,IPPU,Solanum melongena,2,0,Solanaceae
+133,IPPU,Solanum melongena,3,0,Solanaceae
+134,IPPU,Solanum melongena,4,6,Solanaceae
+135,IPPU,Solanum melongena,5,0,Solanaceae
+136,IPPU,Solanum melongena,6,0,Solanaceae
+137,IPPU,Solanum melongena,7,5,Solanaceae
+138,IPPU,Solanum melongena,8,0,Solanaceae
+139,IPPU,Solanum melongena,9,1,Solanaceae
+140,IPPU,Solanum melongena,10,0,Solanaceae
+110,IPPU,Cross,1,1,other
+210,IPPU,Cross,2,2,other
+31,IPPU,Cross,3,1,other
+41,IPPU,Cross,4,2,other
+510,IPPU,Cross,5,1,other
+61,IPPU,Cross,6,6,other
+710,IPPU,Cross,7,0,other
+810,IPPU,Cross,8,0,other
+910,IPPU,Cross,9,0,other
+101,IPPU,Cross,10,6,other
+141,IPPU,Self,1,5,other
+211,IPPU,Self,2,4,other
+32,IPPU,Self,3,5,other
+42,IPPU,Self,4,5,other
+511,IPPU,Self,5,6,other
+62,IPPU,Self,6,6,other
+711,IPPU,Self,7,5,other
+811,IPPU,Self,8,6,other
+911,IPPU,Self,9,6,other
+102,IPPU,Self,10,4,other
+142,IPPU,Control,1,0,other
+212,IPPU,Control,2,0,other
+33,IPPU,Control,3,0,other
+43,IPPU,Control,4,0,other
+512,IPPU,Control,5,0,other
+63,IPPU,Control,6,0,other
+712,IPPU,Control,7,0,other
+812,IPPU,Control,8,0,other
+912,IPPU,Control,9,0,other
+103,IPPU,Control,10,0,other
+143,IPPU,Flower control,1,3,other
+213,IPPU,Flower control,2,2,other
+34,IPPU,Flower control,3,3,other
+44,IPPU,Flower control,4,0,other
+513,IPPU,Flower control,5,0,other
+64,IPPU,Flower control,6,0,other
+713,IPPU,Flower control,7,0,other
+813,IPPU,Flower control,8,0,other
+913,IPPU,Flower control,9,5,other
+104,IPPU,Flower control,10,6,other
