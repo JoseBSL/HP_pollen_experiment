@@ -11,6 +11,8 @@ library(jtools)
 library(ggplot2)
 library(effects)
 library(MASS)
+library(snakecase)
+library(sjPlot)
 #
 ##
 ###DATA PREPARATION FOR ANALYSES
@@ -94,9 +96,11 @@ plot(model1)
 anova(model2) 
 
 
-model2<-lm(value~factor(Donor)+factor(Recipient),data=mydata)
+model2<-lm(value~Donor+Recipient,data=mydata)
 summary(model2)
 anova(model2)
+plot_model(model2)
+plot_model(model2, show.values = TRUE, value.offset = .3)
 
 #Donors does not produce a significant change in effect sizes 
 #Recipients do
