@@ -18,14 +18,14 @@ library(MASS)
 #
 
 #load effect sizes
-matrix_effect_size <- readRDS("Data/matrix_effect_size.RData")
+matrix_effect_size <- readRDS("Data/RData/matrix_effect_size.RData")
 e_size <- melt(matrix_effect_size)
 e_size <- as.data.frame(e_size, stringsAsFactors=FALSE)
 #Structure of our data
 ggplot(e_size, aes(x = value)) + geom_density() 
 #seems that a poisson could fit nicely
 #load traits
-traits <- read.csv("Data/traits_scinames.csv")
+traits <- read.csv("Data/Csv/traits_scinames.csv")
 #Remove unuseful columns
 traits=traits[,-c(1,2,4,10,14)]
 #Now change spp name to code to be able to merge

@@ -1,6 +1,6 @@
 library(ape)
 library(phytools)
-pollen_tree=read.tree("Data/pollen_tree.nwk")
+pollen_tree=read.tree("Data/Nwk/pollen_tree.nwk")
 #pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
 #pollen_tree=read.tree("Data/tree_neighbour.nwk")
 png("phylo.png", units="px", width=8000, height=10000, res=2000)
@@ -8,7 +8,7 @@ plot(pollen_tree, font= 3)
 add.scale.bar(x=0, y=1, length = 0.01)
 
 
-pollen_tree=read.tree("Data/phylo_all_correct_names.nwk")
+pollen_tree=read.tree("Data/Nwk/phylo_all_correct_names.nwk")
 
 png("Figure1.png", units="px", width=12000, height=12000, res=2500)
 plot(pollen_tree, font= 3)
@@ -20,18 +20,18 @@ plot(pollen_tree)
 add.scale.bar(x=0, y=1, length = 0.01)
 #plot(tree_10)
 
-tree_10 <- read.newick("Data/pollen_tree_no_outgroup.nwk")
+tree_10 <- read.newick("Data/Nwk/pollen_tree_no_outgroup.nwk")
 tree_10=as.phylo(tree_10)
 plot.phylo(tree_10)
 add.scale.bar(x=0, y=9)
 
 #For row names of traits all
-readRDS("Manuscript_draft/Data/matrix_scale_effect.Rda")
+readRDS("Data/RData/matrix_scale_effect.Rda")
 
 #From here I start working with the traits
-traits_all <- read.csv("Data/traits_all.csv", sep=",")
-si_index <- readRDS("Data/si_index.RData")
-matrix_scale_effect <- readRDS("Data/matrix_scale_effect.RDa")
+traits_all <- read.csv("Data/Csv/traits_all.csv", sep=",")
+si_index <- readRDS("Data/Csv/si_index.RData")
+matrix_scale_effect <- readRDS("Data/RData/matrix_scale_effect.RDa")
 traits_all$si_index <- si_index
 rownames(traits_all) <- rownames(matrix_scale_effect)
 traits_all <- traits_all[,-c(1:3,9,13)]
