@@ -13,7 +13,7 @@ library(sna)
 
 #LOAD MATRIX
 #Effect sizes matrix
-matrix <- as.matrix(read.csv("Data/effect.csv", header = T, row.names = 1))
+matrix <- as.matrix(read.csv("Data/Csv/effect.csv", header = T, row.names = 1))
 matrix<- as.matrix(matrix)
 str(matrix)
 d<- matrix

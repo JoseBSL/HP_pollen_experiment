@@ -9,7 +9,7 @@ library(lsmeans)
 library(multcomp)
 library(ggplot2)
 
-total_pollen <- read.csv("Data/total_pollen.csv")
+total_pollen <- read.csv("Data/Csv/total_pollen.csv")
 
 total_pollen=total_pollen[,-1]
 colnames(total_pollen)[3] <- "pollen"
