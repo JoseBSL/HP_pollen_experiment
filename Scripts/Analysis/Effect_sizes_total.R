@@ -9,13 +9,28 @@ library(ggplot2)
 library(ggpubr)
 #install.packages("effsize")
 
-load("Data/seed_set&scaled_seed_set.RData")
+#LOAD DATA
+load("Data/RData/seed_set&scaled_seed_set.RData")
+colnames(ersa) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(brra) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(brol) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(ipaq) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(ippu) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(soly) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(some) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(caan) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(ersa) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+
 #Reading correct file of SIAL and SOME is lacking one Treatment for both in the old file
-sial <- read.csv("Data/species_seed_set/SIAL_seed_set.csv", sep=";")
-sial$Scale_seed <- scale(sial$Seed.production)
-some <- read.csv("Data/species_seed_set/SOME_seed_set.csv", sep=";")
-some$Scale_seed <- scale(some$seed_set)
-some<- some[,-4]
+sial <- read.csv("Raw_data/SIAL_seed_set_final.csv")
+sial<- sial[,-c(1,6)]
+colnames(sial) <- c("Species","Treatment", "Treatment_number", "Seed_set")
+sial$Scale_seed <- scale(sial$Seed_set)
+
+some <- read.csv("Raw_data/SOME_seed_set_final.csv")
+some<- some[,-c(1,6)]
+colnames(some) <- c("Species","Treatment", "Treatment_number", "Seed_set")
+some$Scale_seed <- scale(some$Seed_set)
 
 #Preparing for loop to clean dataframe and select columns of interest
 species_list <- list(soly, some, pein, caan, ersa, brra, sial, brol, ippu, ipaq)
@@ -584,8 +599,8 @@ all_convolvulaceae <- all_convolvulaceae %>% arrange(desc(Family))
 all_brassicaceae <- all_brassicaceae %>% arrange(desc(Family))
 
 all<- rbind(all_solanaceae,all_convolvulaceae, all_brassicaceae)
-saveRDS(all, "Data/effect_size_all.RData")
-saveRDS(all, "Manuscript_draft/Data/effect_size_all.RData")
+#####saveRDS(all, "Data/effect_size_all.RData")
+#####saveRDS(all, "Manuscript_draft/Data/effect_size_all.RData")
 
 all$Family_1 <- "S"
 all$Family_1[1:4]<- "B" 
@@ -601,7 +616,7 @@ p1 + geom_point(show.legend = FALSE,aes(color=factor(Family_1))) +
   xlab("Treatments") + ylab("Hedges' g") + rotate()+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
-#save.image("Manuscript_draft/effect_size_species/effect_size_total.RData")
+######save.image("Manuscript_draft/effect_size_species/effect_size_total.RData")
 traits_all <- read.csv("Data/traits_all.csv", sep=",")
 traits_all$species <- c("BROL", "BRRA", "CAAN", "ERSA", "IPAQ", "IPPU", 
                         "PEIN", "SIAL", "SOLY", "SOME") 
