@@ -1,6 +1,6 @@
 #Here I test for correlation between stigma size and total pollen deposited on the stigma
 
-total_pollen <- read.csv("Data/total_pollen.csv")
+total_pollen <- read.csv("Data/Csv/total_pollen.csv")
 
 total_pollen=total_pollen[,-1]
 colnames(total_pollen)[3] <- "total_pollen"
@@ -8,7 +8,7 @@ head(total_pollen)
 
 #Now I load the trait table to add stigma size
 
-traits_all <- read.csv("Data/traits_all.csv", sep=",")
+traits_all <- read.csv("Data/Csv/traits_all.csv", sep=",")
 
 stigma_area <- traits_all[,c(2,10)]
 str(stigma_area)

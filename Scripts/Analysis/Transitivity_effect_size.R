@@ -5,7 +5,7 @@ library(igraph)
 
 #In this script I'm going to plot the transitivity of the effect oh HP pollen with effect sizes
 
-effect <- readRDS("Data/matrix_effect_size.RData")
+effect <- readRDS("Data/RData/matrix_effect_size.RData")
 #Now I convert the few values over 0 to maximum 0 (control)
 effect[effect>0]<-0
 #absolute values so less confusing without negative values

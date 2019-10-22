@@ -1,6 +1,6 @@
 #'m going to compare the pollen proportions among families
 #Read data
-d <- read.csv("Data/pollen_ratios.csv")
+d <- read.csv("Data/Csv/pollen_ratios.csv")
 
 d_pollen <- subset(d, variable=="non_focal_pollen")
 #length(d_pollen$X)
