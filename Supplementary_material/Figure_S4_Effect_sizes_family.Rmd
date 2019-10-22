@@ -18,8 +18,8 @@ library(multipanelfigure)
 library(grid)
 library(tidyverse)
 
-
-load("effect_size_species/brol_effect_size_family.RData")
+setwd("Hp_pollen_experiment/")
+load("Hp_pollen_experiment/Data/Rdata/effect_size_species/brol_effect_size_family.RData")
 
 pp1<- ggplot(brol_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
