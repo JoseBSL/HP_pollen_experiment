@@ -8,13 +8,29 @@ library(ggplot2)
 library(ggpubr)
 
 #LOAD DATA
-load("Data/seed_set&scaled_seed_set.RData")
+load("Data/RData/seed_set&scaled_seed_set.RData")
+colnames(ersa) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(brra) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(brol) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(ipaq) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(ippu) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(soly) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(some) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(caan) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+colnames(ersa) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+
 #Reading correct file of SIAL and SOME is lacking one Treatment for both in the old file
-sial <- read.csv("Data/species_seed_set/SIAL_seed_set.csv", sep=";")
-sial$Scale_seed <- scale(sial$Seed.production)
-some <- read.csv("Data/species_seed_set/SOME_seed_set.csv", sep=";")
-some$Scale_seed <- scale(some$seed_set)
-some<- some[,-4]
+sial <- read.csv("Raw_data/SIAL_seed_set_final.csv")
+sial<- sial[,-c(1,6)]
+colnames(sial) <- c("Species","Treatment", "Treatment_number", "Seed_set")
+sial$Scale_seed <- scale(sial$Seed_set)
+
+some <- read.csv("Raw_data/SOME_seed_set_final.csv")
+some<- some[,-c(1,6)]
+colnames(some) <- c("Species","Treatment", "Treatment_number", "Seed_set")
+some$Scale_seed <- scale(some$Seed_set)
+
+
 
 #FILTER COLUMNS AND ROWS OF INTEREST
 #Preparing for loop to clean dataframe and select columns of interest
@@ -114,7 +130,7 @@ width = 0.2)+scale_color_manual("Family",values=c("#D55E00", "#009E73", "#0072B2
   theme(axis.text.y = element_text(face = c('italic', 'bold', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/soly_effect_size.RData")
 
 
 #PEIN
@@ -186,7 +202,7 @@ p2 + geom_point(alpha=c(1,1,0.5,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/pein_effect_size.RData")
 
 
 #CAAN
@@ -256,7 +272,7 @@ p2 + geom_point(alpha=c(1,1,1,0.5,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
   geom_hline(yintercept=0, linetype="dashed", color = "black")+
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'bold', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
-save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/caan_effect_size.RData")
 
 
 #SOME
@@ -327,7 +343,7 @@ p2 + geom_point(alpha=c(0.5,1,1,1,1,1,1,1,1,1),show.legend = FALSE,aes(color=fac
   theme(axis.text.y = element_text(face = c('bold', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'italic')))
 
-save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/some_effect_size.RData")
 
 
 ####
@@ -400,7 +416,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,1,0.5),show.legend = FALSE,aes(color=fac
   theme(axis.text.y = element_text(face = c('italic', 'italic', 'italic', 'italic', 
                                             'italic','italic', 'italic', 'italic', 'italic', 'bold')))
 
-save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/brol_effect_size.RData")
 
 
 #BRRA
@@ -469,7 +485,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,1,0.5,1),show.legend = FALSE,aes(color=fac
                                             'italic','italic', 'italic', 'italic', 'bold', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/brra_effect_size.RData")
 
 
 #SIAL
@@ -540,7 +556,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,0.5,1,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/sial_effect_size.RData")
 
 
 #ERSA
@@ -610,7 +626,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,1,1,0.5,1,1),show.legend = FALSE,aes(color=fac
 
 
 
-save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/ersa_effect_size.RData")
 
 
 
@@ -684,7 +700,7 @@ p2 + geom_point(alpha=c(1,1,1,1,0.5,1,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'bold','italic', 'italic', 'italic', 'italic', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/ippu_effect_size.RData")
 
 
 
@@ -754,7 +770,7 @@ p2 + geom_point(alpha=c(1,1,1,1,1,0.5,1,1,1,1),show.legend = FALSE,aes(color=fac
                                             'italic','bold', 'italic', 'italic', 'italic', 'italic')))
 
 
-save.image("Manuscript_draft/effect_size_species/ipaq_effect_size.RData")
+#save.image("Manuscript_draft/effect_size_species/ipaq_effect_size.RData")
 
 
 #prepare plot with data frame for legend in Markdown
