@@ -19,7 +19,7 @@ library(forcats)
 
 
 #PEIN
-pein_seed_set_final <- read.csv("Rmd/Data/pein_seed_set_final.csv", stringsAsFactors = T)
+pein_seed_set_final <- read.csv("Raw_data/pein_seed_set_final.csv", stringsAsFactors = T)
 pein_seed_set_final <- subset(pein_seed_set_final, Treatment!="FLOWER CONTROL" & Treatment!="CONTROL" & Treatment!="SELF")
 pein_seed_set_final=na.omit(pein_seed_set_final)
 pein_seed_set_final$Treatment <- factor(pein_seed_set_final$Treatment)
@@ -30,7 +30,7 @@ summary(model1)
 
 
 #SOLY
-soly_seed_set_final <- read.csv("Rmd/Data/soly_seed_set_final.csv", stringsAsFactors = T)
+soly_seed_set_final <- read.csv("Raw_data/soly_seed_set_final.csv", stringsAsFactors = T)
 soly_seed_set_final <- subset(soly_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 soly_seed_set_final=na.omit(soly_seed_set_final)
 soly_seed_set_final$Treatment <- factor(soly_seed_set_final$Treatment)
@@ -40,7 +40,7 @@ model1=lm(log(1+Seed.production)~Treatment, data=soly_seed_set_final)
 summary(model1)
 
 #SOME
-some_seed_set_final <- read.csv("Rmd/Data/some_seed_set_final.csv", stringsAsFactors = T)
+some_seed_set_final <- read.csv("Raw_data/some_seed_set_final.csv", stringsAsFactors = T)
 some_seed_set_final <- subset(some_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 some_seed_set_final=na.omit(some_seed_set_final)
 some_seed_set_final$Treatment <- factor(some_seed_set_final$Treatment)
@@ -50,7 +50,7 @@ model1=lm(log(1+Seed.production)~Treatment, data=some_seed_set_final)
 summary(model1)
 
 #CAAN
-caan_seed_set_final <- read.csv("Rmd/Data/caan_seed_set_final.csv", stringsAsFactors = T)
+caan_seed_set_final <- read.csv("Raw_data/caan_seed_set_final.csv", stringsAsFactors = T)
 caan_seed_set_final <- subset(caan_seed_set_final, Treatment!="FLOWER CONTROL" & Treatment!="CONTROL" & Treatment!="SELF")
 caan_seed_set_final=na.omit(caan_seed_set_final)
 caan_seed_set_final$Treatment <- factor(caan_seed_set_final$Treatment)
@@ -68,7 +68,7 @@ summary(model1)
 
 
 #BROL
-brol_seed_set_final <- read.csv("Rmd/Data/brol_seed_set_final.csv", stringsAsFactors = T)
+brol_seed_set_final <- read.csv("Raw_data/brol_seed_set_final.csv", stringsAsFactors = T)
 brol_seed_set_final <- subset(brol_seed_set_final, Treatment!="FC" & Treatment!="Control" & Treatment!="Self")
 brol_seed_set_final=na.omit(brol_seed_set_final)
 brol_seed_set_final$Treatment <- factor(brol_seed_set_final$Treatment)
@@ -78,7 +78,7 @@ model1=lm(log(1+Seed.production)~Treatment, data=brol_seed_set_final)
 summary(model1)
 
 #BRRA
-brra_seed_set_final <- read.csv("Rmd/Data/brra_seed_set_final.csv", stringsAsFactors = T)
+brra_seed_set_final <- read.csv("Raw_data/brra_seed_set_final.csv", stringsAsFactors = T)
 brra_seed_set_final <- subset(brra_seed_set_final, Treatment!="Flower Control" & Treatment!="Control" & Treatment!="Self")
 brra_seed_set_final=na.omit(brra_seed_set_final)
 brra_seed_set_final$Treatment <- factor(brra_seed_set_final$Treatment)
@@ -89,7 +89,7 @@ summary(model1)
 
 
 #SIAL
-sial_seed_set_final <- read.csv("Rmd/Data/sial_seed_set_final.csv", stringsAsFactors = T)
+sial_seed_set_final <- read.csv("Raw_data/sial_seed_set_final.csv", stringsAsFactors = T)
 sial_seed_set_final <- subset(sial_seed_set_final, Treatment!="Flower Control" & Treatment!="Control" & Treatment!="Self")
 sial_seed_set_final=na.omit(sial_seed_set_final)
 sial_seed_set_final$Treatment <- factor(sial_seed_set_final$Treatment)
@@ -99,7 +99,7 @@ model1=lm(log(1+Seed.production)~Treatment, data=sial_seed_set_final)
 summary(model1)
 
 #ERSA
-ersa_seed_set_final <- read.csv("Rmd/Data/ersa_seed_set_final.csv", stringsAsFactors = T)
+ersa_seed_set_final <- read.csv("Raw_data/ersa_seed_set_final.csv", stringsAsFactors = T)
 ersa_seed_set_final <- subset(ersa_seed_set_final, Treatment!="Flower Control" & Treatment!="Control" & Treatment!="Self")
 ersa_seed_set_final=na.omit(ersa_seed_set_final)
 ersa_seed_set_final$Treatment <- factor(ersa_seed_set_final$Treatment)
@@ -116,7 +116,7 @@ summary(model1)
 #
 
 #IPPU
-ippu_seed_set_final <- read.csv("Rmd/Data/ippu_seed_set_final.csv", stringsAsFactors = T)
+ippu_seed_set_final <- read.csv("Raw_data/ippu_seed_set_final.csv", stringsAsFactors = T)
 ippu_seed_set_final <- subset(ippu_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 ippu_seed_set_final=na.omit(ippu_seed_set_final)
 ippu_seed_set_final$Treatment <- factor(ippu_seed_set_final$Treatment)
@@ -126,7 +126,7 @@ model1=lm(log(1+Seed.production)~Treatment, data=ippu_seed_set_final)
 summary(model1)
 
 #IPAQ
-ipaq_seed_set_final <- read.csv("Rmd/Data/ipaq_seed_set_final.csv", stringsAsFactors = T)
+ipaq_seed_set_final <- read.csv("Raw_data/ipaq_seed_set_final.csv", stringsAsFactors = T)
 ipaq_seed_set_final <- subset(ipaq_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
 ipaq_seed_set_final=na.omit(ipaq_seed_set_final)
 ipaq_seed_set_final$Treatment <- factor(ipaq_seed_set_final$Treatment)
