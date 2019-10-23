@@ -73,9 +73,86 @@ mydata$id_number <- seq(length(mydata$Recipient))
 ##
 #
 
+#First filter of variables
+scope <- stepAIC(full, scope)
+full<-lm(value~. -Recipient - Donor,data=mydata)
+summary(full)
+step<- stepAIC(full, trace=FALSE)
+step$anova
+#Almost all traits of donor drop as expected
+
 #Trying a very simple model
-model1<-lm(value~Recipient_stigma_area*Donor_pollen_size,data=mydata)
+model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_mean_ovules+Recipient_Selfing_rate,data=mydata)
+summary(model1)
+anova(model1)
+plot_model(fit, type = "pred", terms = c("Recipient_stigma_length", "Donor_pollen_size"))
+
+
+effect_plot(model1, pred = Recipient_stigma_length, interval = TRUE, plot.points = TRUE)
+plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
+           terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
+
+
+model1<-lm(value~Recipient_style_length^2,data=mydata)
 plot(model1)
+model1<-lm(log(value+20)~Recipient_stigma_length,data=mydata)
+effect_plot(model1, pred = Recipient_stigma_length, interval = TRUE, plot.points = TRUE)
+
+effect_plot(model1, pred = Recipient_style_length, interval = TRUE, plot.points = TRUE)
+plot_model(model1, type = "pred", terms = c("Recipient_style_length"))
+model1<-lm(value~Recipient_stigma_width,data=mydata)
+effect_plot(model1, pred = Recipient_stigma_width, interval = TRUE, plot.points = TRUE)
+
+model1<-lm(value~Recipient_Selfing_rate,data=mydata)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ggplot(mydata, aes(x = Recipient_style_length, y = value)) + 
+  geom_point() +
+  stat_smooth(method = "lm", col = "red")
+
+ggplot(mydata, aes(x = Recipient_stigma_width, y = log(value+20))) + 
+  geom_point() +
+  stat_smooth(method = "lm", col = "red")
+
+fit<-lm(value~Recipient,data=mydata)
+
+ggplotRegression <- function (fit, jit=FALSE) {
+  
+  require(ggplot2)
+  
+  if(jit){
+    fit$model[,1] <- jitter(fit$model[,1])
+    fit$model[,2] <- jitter(fit$model[,2])
+  }
+  
+  ggplot(fit$model, aes_string(x = names(fit$model)[2], y = names(fit$model)[1])) +
+    geom_point() +
+    stat_smooth(method = "lm", col = "red") +
+    labs(title = paste("Adj R2 = ",signif(summary(fit)$adj.r.squared, 5),
+                       "Intercept =",signif(fit$coef[[1]],5 ),
+                       " Slope =",signif(fit$coef[[2]], 5),
+                       " P =",signif(anova(fit))))
+}
+
+
+
+
+anova(model1)
+#plot(model1)
+plot_model(model1, show.values = TRUE, value.offset = .3)
 #Residuals vs fitted
 #We do not have homogeinity of the variance
 #Approximately normally distributed, see qqplot. 
@@ -101,6 +178,7 @@ summary(model2)
 anova(model2)
 plot_model(model2)
 plot_model(model2, show.values = TRUE, value.offset = .3)
+effect_plot(model2, pred = Recipient_style_length, interval = TRUE, plot.points = TRUE)
 
 #Donors does not produce a significant change in effect sizes 
 #Recipients do
@@ -247,7 +325,7 @@ jarqueberaTest(model2$df.resid)
 
 #Merge data with pollen
 #Read data
-p_data <-readRDS("Data/pollen_non.RData")
+p_data <-readRDS("Data/RData/pollen_non.RData")
 
 p_data$donor <- c("IPPU", "IPPU", "IPPU", "IPPU", "IPAQ", "IPAQ", "IPAQ", "IPAQ",
                   "SOME", "SOME", "PEIN", "SOLY", "CAAN", "CAAN", "ERSA", "ERSA",
@@ -266,10 +344,10 @@ donor_recipient <- merge(p_data,mydata, by="donor_recipient")
 model1<-lmer(value~hp_ratio*Recipient_stigma_area+ (1|Recipient),data=donor_recipient)
 summary(model1)
 plot(model1)
-model2<-lm(value~hp_ratio*Recipient_stigma_area,data=donor_recipient)
+model2<-lm(value~hp_ratio,data=donor_recipient)
 summary(model2)
 plot(model2)
-
+anova(model2)
 
 plot(model1)
 model2<-lmer(value~Donor_pollen_size+Recipient_stigma_area+Recipient_stigma_area*Donor_pollen_size+ Recipient_pollen_ovule_ratio+ (1|Recipient),data=mydata,REML=FALSE)
