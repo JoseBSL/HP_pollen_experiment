@@ -82,13 +82,14 @@ step$anova
 #Almost all traits of donor drop as expected
 
 #Trying a very simple model
-model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_mean_ovules+Recipient_Selfing_rate,data=mydata)
+model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=mydata)
 summary(model1)
 anova(model1)
 plot_model(fit, type = "pred", terms = c("Recipient_stigma_length", "Donor_pollen_size"))
 
+cor.test(mydata$Recipient_pollen_ovule_ratio,mydata$Recipient_si_index)
 
-effect_plot(model1, pred = Recipient_stigma_length, interval = TRUE, plot.points = TRUE)
+effect_plot(model1, pred = Recipient_pollen_ovule_ratio, interval = TRUE, plot.points = TRUE)
 plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
            terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
 

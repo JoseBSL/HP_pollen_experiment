@@ -30,11 +30,11 @@ readRDS("Data/RData/matrix_scale_effect.Rda")
 
 #From here I start working with the traits
 traits_all <- read.csv("Data/Csv/traits_all.csv", sep=",")
-si_index <- readRDS("Data/Csv/si_index.RData")
+si_index <- readRDS("Data/RData/si_index.RData")
 matrix_scale_effect <- readRDS("Data/RData/matrix_scale_effect.RDa")
 traits_all$si_index <- si_index
 rownames(traits_all) <- rownames(matrix_scale_effect)
-traits_all <- traits_all[,-c(1:3,9,13)]
+traits_all <- traits_all[,-c(1:3,9,12)]
 traits_all_scaled <- scale(traits_all)
 
 
@@ -154,7 +154,7 @@ si_index <- phylosig(tree=tree_10,x=si_index,method="lambda",test=TRUE)
 #Without Convolvulaceae
 ##
 #
-tree_10 <- read.newick("Data/no_conv.nwk")
+tree_10 <- read.newick("Data/nwk/no_conv.nwk")
 
 traits_all_no_conv=traits_all[-c(5,6),]
 #Phylo signal for selfing rate
@@ -272,7 +272,7 @@ si_index <- phylosig(tree=tree_10,x=si_index,method="lambda",test=TRUE)
 
 
 #save.image("Manuscript_draft/Data/img_phylo_no_conv.RData")
-effect_size_all <- readRDS( "Data/effect_size_all.RData")
+effect_size_all <- readRDS( "Data/RData/effect_size_all.RData")
 effect_size_all$species <- c("SOME","SOLY","PEIN", "CAAN",
                                "IPPU", "IPAQ", "SIAL", "ERSA",
                                "BRRA", "BROL")
@@ -292,9 +292,16 @@ Cohen_d <- phylosig(tree=tree_10,x=Cohen_d,method="lambda",test=TRUE)
 ##
 #
 
-tree_no_sol <- read.newick("Data/no_sol.nwk")
+tree_no_sol <- read.newick("Data/Nwk/no_sol.nwk")
+
+traits_all <- read.csv("Data/Csv/traits_all.csv", sep=",")
+si_index <- readRDS("Data/RData/si_index.RData")
+matrix_scale_effect <- readRDS("Data/RData/matrix_scale_effect.RDa")
+traits_all$si_index <- si_index
+rownames(traits_all) <- rownames(matrix_scale_effect)
+traits_all <- traits_all[,-c(1:3,9,12)]
 traits_all_no_sol <- traits_all[,]
-traits_all_no_sol <- traits_all_no_sol[-c(3,7,9,10),-c(1:3,9,13)]
+traits_all_no_sol <- traits_all_no_sol[-c(3,7,9,10),]
 
 #Phylo signal for selfing rate
 selfing <-as.data.frame(traits_all_no_sol[,c("Selfing_rate")])
@@ -394,8 +401,15 @@ si_index <- phylosig(tree=tree_no_sol,x=si_index,method="lambda",test=TRUE)
 
 #Now no Brassicaceae
 
-tree_no_bra <- read.newick("Data/no_bra.nwk")
-traits_all_no_bra <- traits_all[-c(1:2,4,8),-c(1:3,9,13)]
+tree_no_bra <- read.newick("Data/Nwk/no_bra.nwk")
+traits_all <- read.csv("Data/Csv/traits_all.csv", sep=",")
+si_index <- readRDS("Data/RData/si_index.RData")
+matrix_scale_effect <- readRDS("Data/RData/matrix_scale_effect.RDa")
+traits_all$si_index <- si_index
+rownames(traits_all) <- rownames(matrix_scale_effect)
+traits_all <- traits_all[,-c(1:3,9,12)]
+traits_all_no_sol <- traits_all[,]
+traits_all_no_bra <- traits_all[-c(1:2,4,8),]
 traits_all_no_bra <- scale(traits_all_no_bra)
 
 
