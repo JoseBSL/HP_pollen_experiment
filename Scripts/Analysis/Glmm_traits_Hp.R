@@ -94,6 +94,35 @@ plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicte
            terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
 
 
+
+#Add phylogetic distance to the model
+
+evo_distance_its <- readRDS("Data/RDS/evo_distance_its.RDS")
+evo_distance_rbcl <- readRDS("Data/RDS/evo_distance_rbcl.RDS")
+
+combined_distance<- evo_distance_its+evo_distance_rbcl
+mean_distance<-combined_distance/2
+str(mean_distance)
+mean_distance<- as.matrix(mean_distance)
+library(reshape2)
+mean_distance <- data.frame(rows=rownames(mean_distance)[row(mean_distance)], vars=colnames(mean_distance)[col(mean_distance)],
+           values=c(mean_distance))
+
+colnames(mean_distance) <-  c("Recipient", "Donor", "Distance")
+
+mydata1 <- merge(mean_distance, mydata)
+
+model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio+Distance,data=mydata1)
+summary(model1)
+anova(model1)
+plot(model1)
+effect_plot(model1, pred = Distance, interval = TRUE, plot.points = TRUE)
+
+
+
+
+
+
 model1<-lm(value~Recipient_style_length^2,data=mydata)
 plot(model1)
 model1<-lm(log(value+20)~Recipient_stigma_length,data=mydata)
