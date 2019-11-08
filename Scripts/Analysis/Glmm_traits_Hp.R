@@ -88,9 +88,9 @@ anova(model1)
 plot_model(fit, type = "pred", terms = c("Recipient_stigma_length", "Donor_pollen_size"))
 
 cor.test(mydata$Recipient_pollen_ovule_ratio,mydata$Recipient_si_index)
-
+model1<-lm(value~Recipient_stigma_width*Donor_pollen_size,data=mydata)
 effect_plot(model1, pred = Recipient_pollen_ovule_ratio, interval = TRUE, plot.points = TRUE)
-plot_model(model1, type = "int",title="",axis.title=c("Stigmatic area","Predicted effect size"), legend.title="Donor pollen size",
+plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
            terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
 
 
@@ -118,8 +118,10 @@ anova(model1)
 plot(model1)
 effect_plot(model1, pred = Distance, interval = TRUE, plot.points = TRUE)
 
+cor.test(mydata1$Recipient_pollen_ovule_ratio,mydata1$Distance)
 
-
+model1<-lm(value~Distance,data=mydata1)
+effect_plot(model1, pred = Distance, interval = TRUE, plot.points = TRUE)
 
 
 
