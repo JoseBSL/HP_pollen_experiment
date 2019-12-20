@@ -32,7 +32,7 @@ traits <- read.csv("Data/Csv/traits_scinames.csv")
 traits=traits[,-c(1,2,4,10,14)]
 #Now change spp name to code to be able to merge
 spp <- c("BROL", "BRRA", "CAAN", "ERSA", "IPAQ", "IPPU", "PEIN", "SIAL", "SOLY", "SOME")
-traits[,c(2:14)]=scale(traits[,c(2:14)])
+#traits[,c(2:14)]=scale(traits[,c(2:14)])
 
 traits$species<- spp
 traits_recipient=traits
@@ -85,14 +85,19 @@ step$anova
 model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=mydata)
 summary(model1)
 anova(model1)
-plot_model(fit, type = "pred", terms = c("Recipient_stigma_length", "Donor_pollen_size"))
+plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
+           terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
 
 cor.test(mydata$Recipient_pollen_ovule_ratio,mydata$Recipient_si_index)
 model1<-lm(value~Recipient_stigma_width*Donor_pollen_size,data=mydata)
 effect_plot(model1, pred = Recipient_pollen_ovule_ratio, interval = TRUE, plot.points = TRUE)
-plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
-           terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
 
+ggsave(filename = "rep_bio.pdf", rep_bio, width = 12, height = 5, units = "in",dpi = 1000)
+
+rep_bio <- plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
+           terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot2()
+
+ggsave(filename = "rep_bio.pdf", rep_bio, width = 10, height = 5, units = "in",dpi = 1000)
 
 
 #Add phylogetic distance to the model
