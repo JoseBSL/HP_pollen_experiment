@@ -78,3 +78,6 @@ kable(t, "latex", booktabs = T) %>%
 kable_styling(font_size = 7)
 ```
 
+\begin{landscape}
+TABLE
+\end{landscape}
