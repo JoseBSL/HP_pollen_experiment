@@ -1,0 +1,49 @@
+---
+title: "__Supporting Information:__"
+output: 
+  pdf_document:
+    keep_tex: yes
+    fig_caption: yes
+    toc: false
+---
+
+# Recipient and donor characteristics govern hierarchical structure in a heterospecific pollen competition network of co-flowering plants
+
+__Authors:__ Jose B. Lanuza, Ignasi Bartomeus, Tia Lynn Ashman, Romina Rader
+
+The following Supporting Information is available for this article:
+
+__Table S1.__ Species names, common names, varieties and sources of the different seeds.
+
+__Table S2.__ Numerical values of all the traits measured for each species.
+
+__Table S3.__ Seed set in percentage for hand cross-pollination, hand self-pollination, natural selfing and apomixis for all species.
+
+__Table S4.__ Species x species matrix with the significance of effect “yes” or “no” of the different donors on the seed set of the different recipient species.
+
+__Table S5.__ Estimates, standard error, t-value and P-value of the effect of the different 9 donors on each recipient species.
+
+__Table S6.__ Number of seeds produced with 100% foreign pollen treatments for the different recipient species. 
+
+__Table S7.__ Phylogenetic signal and significance for all the different traits
+
+__Table S8.__ Procrustes analysis results.
+
+__Figure S1.__ Correlation matrix for all the different traits.
+
+__Figure S2.__ Total amount of pollen found for the different treatments.
+
+__Figure S3.__ Pollen ratios for the different recipient species.
+
+__Figure S4.__ Pollen ratios for the different recipient species by family.
+
+__Figure S5.__ Statistical comparison of pollen ratios by family as pollen donor and recipient.
+ 
+__Figure S6.__ Violin plot of the reproductive biology of the species.
+
+__Figure S7.__ Grouped effect sizes by family for each recipient species.
+
+
+
+
+
