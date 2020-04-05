@@ -79,5 +79,7 @@ kable_styling(font_size = 7)
 ```
 
 \begin{landscape}
-TABLE
+```{r}
+
+```
 \end{landscape}
