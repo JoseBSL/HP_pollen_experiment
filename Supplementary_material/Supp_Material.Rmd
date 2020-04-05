@@ -49,7 +49,32 @@ __Figure S6.__ Violin plot of the reproductive biology of the species.
 
 __Figure S7.__ Grouped effect sizes by family for each recipient species.
 
+\newpage
 
 
+```{r, echo=FALSE, warning=FALSE, fig.align="center", out.width='80%'}
+library(knitr)
+library(kableExtra)
 
+Species <- c("Brassica oleracea", "Brassica rapa", "Eruca sativa", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena")
+
+Species <- as.character(Species)
+  
+Common_names <- c("Wild cabbage", "Pak choi", "Rocket", "White mustard", "Water spinach", "Morning glory", "Capsicum", "Petunia", "Tomato", "Eggplant")
+
+Common_names <- as.character(Common_names)
+
+Variety <- c("Capitata", "Chinensis", "", "", "", "", "California Wonder", "", "Tommy Toe", "Little Fingers") 
+
+Variety <- as.character(Variety)
+
+Source <- c("https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.theseedcollection.com.au/", "http://www.shaman-australis.com.au", "https://www.edenseeds.com.au", "https://www.dianeseeds.com/", "https://www.mrfothergills.com.au/", "https://www.4seasonsseeds.com.au/")
+
+Source <- as.character(Source)
+
+t <- data.frame(Species, Common_names, Variety, Source)
+
+kable(t, "latex", booktabs = T) %>%
+kable_styling(font_size = 7)
+```
 
