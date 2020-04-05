@@ -1,11 +1,17 @@
 ---
-title: "__Supporting Information:__"
 output: 
   pdf_document:
     keep_tex: yes
     fig_caption: yes
     toc: false
+fontsize: 12pt
+header-includes:
+    - \usepackage{setspace}\doublespacing
+    - \usepackage{float}
+
 ---
+
+# Supporting information:
 
 # Recipient and donor characteristics govern hierarchical structure in a heterospecific pollen competition network of co-flowering plants
 

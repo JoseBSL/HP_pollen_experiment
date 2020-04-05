@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[12pt,]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -24,7 +24,6 @@
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={Supporting Information:},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -63,13 +62,15 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage{setspace}\doublespacing
+\usepackage{float}
 
-\title{\textbf{Supporting Information:}}
 \author{}
 \date{\vspace{-2.5em}}
 
 \begin{document}
-\maketitle
+
+\section{Supporting Information:}\label{supporting-information}
 
 \section{Recipient and donor characteristics govern hierarchical
 structure in a heterospecific pollen competition network of co-flowering
@@ -120,6 +121,7 @@ pollen donor and recipient.
 \textbf{Figure S6.} Violin plot of the reproductive biology of the
 species.
 
-Figure S7. Grouped effect sizes by family for each recipient species.
+\textbf{Figure S7.} Grouped effect sizes by family for each recipient
+species.
 
 \end{document}
