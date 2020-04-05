@@ -1,4 +1,4 @@
-#**Article**: *Recipient and donor characteristics govern hierarchical structure in a heterospecific pollen competition network of co-flowering plants*
+#**Article**: *Recipient and donor characteristics govern hierarchical structure in a heterospecific pollen competition network*
 
 
 #**Authors**: Jose B. Lanuza 1, Ignasi Bartomeus, Tia Lynn Ashman, Romina Rader
@@ -7,8 +7,6 @@
 
 Code and raw data.
 
-Zenodo: xxx
 
-Unpublished
 
 
