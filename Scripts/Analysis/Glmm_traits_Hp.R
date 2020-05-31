@@ -236,7 +236,7 @@ ggplotRegression(lm(value ~ hp_pollen, data = donor_recipient))
 
 # 3rd model, total cp pollen
 
-total_cp_pollen <-lm(value~scale(total_pollen) +scale(Recipient_stigma_width) ,data=donor_recipient)
+total_cp_pollen <-lm(value~total_pollen, data=donor_recipient)
 summary(total_cp_pollen)
 ggplotRegression(lm(value ~ total_pollen, data = donor_recipient))
 ggplotRegression(lm(value ~ Recipient_stigma_area, data = donor_recipient))
@@ -251,10 +251,13 @@ cor.test(donor_recipient$total_pollen, donor_recipient$hp_pollen)
 
 
 
+
+#FIX VALUES
+
 a <- as.data.frame(donor_recipient$hp_pollen)
 a$type<- "d"
 colnames(a)[1]<-"p"
-b <- as.data.frame(donor_recipient$total_pollen)
+b <- as.data.frame(donor_recipient$cp_pollen)
 b$type<- "t"
 colnames(b)[1]<-"p"
 
