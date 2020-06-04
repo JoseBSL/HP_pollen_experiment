@@ -225,61 +225,26 @@ donor_recipient$cp_pollen<- cp_pollen
 # MODEL EFFECT SIZES ~ HP POLLEN RATIO
 pollen_ratio <-lm(value~scale(hp_ratio),data=donor_recipient)
 summary(pollen_ratio)
+anova(pollen_ratio)
+
 ggplotRegression(lm(value ~ hp_ratio, data = donor_recipient))
 
 
 # MODEL EFFECT SIZES ~ HP POLLEN QUANTITY
 
+#heterospecific pollen
 total_hp_pollen <-lm(value~scale(hp_pollen),data=donor_recipient)
 summary(total_hp_pollen)
+anova(total_hp_pollen)
+
 ggplotRegression(lm(value ~ hp_pollen, data = donor_recipient))
 
-# 3rd model, total cp pollen
+#conspecific pollen
+
 
 total_cp_pollen <-lm(value~total_pollen, data=donor_recipient)
 summary(total_cp_pollen)
-ggplotRegression(lm(value ~ total_pollen, data = donor_recipient))
-ggplotRegression(lm(value ~ Recipient_stigma_area, data = donor_recipient))
+anova(total_cp_pollen)
+#total pollen
 
-
-#Correlation test between cp pollen, with hp pollen and stigma type
-cor.test(donor_recipient$hp_pollen, donor_recipient$total_pollen)
-cor.test(donor_recipient$hp_pollen, donor_recipient$Recipient_stigma_width)
-cor.test(donor_recipient$total_pollen, donor_recipient$Recipient_stigma_width)
-cor.test(donor_recipient$total_pollen, donor_recipient$Recipient_stigma_area)
-cor.test(donor_recipient$total_pollen, donor_recipient$hp_pollen)
-
-
-
-
-#FIX VALUES
-
-a <- as.data.frame(donor_recipient$hp_pollen)
-a$type<- "d"
-colnames(a)[1]<-"p"
-b <- as.data.frame(donor_recipient$cp_pollen)
-b$type<- "t"
-colnames(b)[1]<-"p"
-
-ab <-rbind(a,b)
-library(dplyr)
-mu <- ab %>% 
-  group_by(type) %>%
-  summarise(grp.mean = mean(p))
-mu
-
-
-ggplot(ab, aes(x = p)) + geom_density(aes(fill = type), alpha=0.5) + theme_light()+
-  scale_color_manual(values = c("#EFC000FF", "lightblue"))+geom_vline(aes(xintercept = grp.mean, color = type),
-data = mu, linetype = "dashed")+scale_fill_manual(values = c("#EFC000FF", "lightblue"))+ xlab("Pollen")
-
-  geom_vline(aes(xintercept = mean(hp_pollen)), 
-             linetype = "dashed", size = 0.6,
-             color = "#EFC000FF")+geom_density(data = donor_recipient, aes(x = total_pollen, y = ..count..), fill = "lightblue",color="lightblue3", alpha = 0.4)+
-  geom_vline(aes(xintercept = mean(total_pollen)), 
-             linetype = "dashed", size = 0.6,
-             color = "lightblue", alpha=0.8)+ 
-scale_fill_manual(values = c('#e1b582', '#a2b285')) + 
-  scale_color_manual(values = c('#e1b582', '#a2b285'))
-
-  
+cor.test(mydata1$Recipient_mean_pollen_anther, mydata1$Recipient_stigma_width)

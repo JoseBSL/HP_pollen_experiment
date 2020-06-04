@@ -100,3 +100,84 @@ vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge
 dev.off()
 
 
+#Example
+library("igraph")
+adj <- matrix(c(
+  0,2,3,
+  0.7,0,1,
+  8,0.5,0),3,3,byrow=TRUE)
+
+rownames(adj) <- c("CAAN","BRRA", "PEIN")
+colnames(adj) <- c("CAAN","BRRA", "PEIN")
+G <- graph.adjacency(adj,weighted=TRUE,diag=FALSE)
+E <- t(apply(get.edgelist(G),1,sort))
+
+E(G)$curved <- 0
+E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
+
+plot(G)
+
+
+
+
+
+
+library("igraph")
+G <- graph.adjacency(adj)
+
+plot(G)
+E <- t(apply(get.edgelist(G),1,sort))
+
+E(G)$curved <- 0
+E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
+
+plot(G)
+
+a_1 <- a[1:4,1:4]
+net=graph.adjacency(a_1,mode="directed",weighted=TRUE,diag=FALSE) 
+
+plot(net)
+E <- t(apply(get.edgelist(net),1,sort))
+
+E(net)$curved <- 0
+E(net)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 10
+plot(net, layout=layout.circle)
+
+plot.igraph(net)
+
+
+require(igraph)
+
+e <-  c(1,2, 2,3, 3,1, 3,4 , 4,1 , 2,1)
+g <- graph(e, n=5, directed = TRUE)
+
+
+curve.reciprocal.edges <- function(net, curve=.3){
+  # Return a graph where the edge-attribute $curved is reset to highlight reciprocal edges
+  el <- t(apply(get.edgelist(net),1,sort))
+  E(net)$curved <- 0
+  E(net)[duplicated(el) | duplicated(el,fromLast =TRUE)]$curved <- curve
+  (net)
+}
+
+plot(net, layout=layout.circle, edge.curved=.2)
+
+plot(curve.reciprocal.edges(net))
+
+
+curve.reciprocal.edges <- function(net, curve=.8){
+  # Return a graph where the edge-attribute $curved is reset to highlight reciprocal edges
+  el <- t(apply(get.edgelist(net),1,sort))
+  E(net)$curved <- 0
+  E(net)[duplicated(el) | duplicated(el,fromLast =TRUE)]$curved <- curve
+  (net)
+}
+
+plot.igraph(curve.reciprocal.edges(net)
+,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
+
+curve.reciprocal.edges(net)
+
+a_1[1:4,1:2] <-0
+net=graph.adjacency(a_1,mode="directed"v) 
+plot.igraph(net, layout=layout.circle)
