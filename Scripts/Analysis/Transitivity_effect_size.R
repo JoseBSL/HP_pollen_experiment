@@ -103,9 +103,9 @@ dev.off()
 #Example
 library("igraph")
 adj <- matrix(c(
-  0,2,3,
-  0.7,0,1,
-  8,0.5,0),3,3,byrow=TRUE)
+  0,0,0.46,
+  0.19,0,0.44,
+  0,0,0),3,3,byrow=TRUE)
 
 rownames(adj) <- c("CAAN","BRRA", "PEIN")
 colnames(adj) <- c("CAAN","BRRA", "PEIN")
@@ -115,15 +115,32 @@ E <- t(apply(get.edgelist(G),1,sort))
 E(G)$curved <- 0
 E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
 
-plot(G)
+plot(G, edge.width=E(G)$weight/2)
 
 
+str(a)
+str(adj)
+a_1 <- a[1:4,1:4]
+
+adj <- matrix(c(
+  0,0,0,0,
+  1,1,1,0,
+  1,1,1,1.5),4,4,byrow=TRUE)
+G <- graph.adjacency(adj,weighted=TRUE,diag=FALSE)
+E <- t(apply(get.edgelist(G),1,sort))
 
 
+E(G)$curved <- 0
+E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
 
+plot(G, edge.width=E(G)$weight/2)
+
+transitivity(G)
 
 library("igraph")
-G <- graph.adjacency(adj)
+G <- graph.adjacency(t(effect),weighted=TRUE,diag=FALSE)
+
+
 
 plot(G)
 E <- t(apply(get.edgelist(G),1,sort))
@@ -131,53 +148,29 @@ E <- t(apply(get.edgelist(G),1,sort))
 E(G)$curved <- 0
 E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
 
-plot(G)
+plot(G, edge.width=E(G)$weight/0.8,  edge.arrow.size=0.3,edge.color="black")
 
-a_1 <- a[1:4,1:4]
-net=graph.adjacency(a_1,mode="directed",weighted=TRUE,diag=FALSE) 
+transitivity(G,type="weighted")
+transitivity(G)
+transitivity(net,type="weighted")
 
-plot(net)
-E <- t(apply(get.edgelist(net),1,sort))
+g <- make_ring(10)
+transitivity(g, type="barrat")
+g2 <- sample_gnp(1000, 10/1000)
+transitivity(g2)   # this is about 10/1000
 
-E(net)$curved <- 0
-E(net)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 10
-plot(net, layout=layout.circle)
+# Weighted version, the figure from the Barrat paper
+gw <- graph_from_literal(A-B:C:D:E, B-C:D, C-D)
+E(gw)$weight <- 1
+plot(gw)
+E(gw)[ V(gw)[name == "A"] %--% V(gw)[name == "E" ] ]$weight <- 5
+transitivity(gw, vids=c("A","C"), type="local")
+transitivity(gw, vids="A", type="weighted")
+# Weighted reduces to "local" if weights are the same
+gw2 <- sample_gnp(1000, 10/1000)
+E(gw2)$weight <- 1
+t1 <- transitivity(gw2, type="local")
+t2 <- transitivity(gw2, type="weighted")
+all(is.na(t1) == is.na(t2))
+all(na.omit(t1 == t2))
 
-plot.igraph(net)
-
-
-require(igraph)
-
-e <-  c(1,2, 2,3, 3,1, 3,4 , 4,1 , 2,1)
-g <- graph(e, n=5, directed = TRUE)
-
-
-curve.reciprocal.edges <- function(net, curve=.3){
-  # Return a graph where the edge-attribute $curved is reset to highlight reciprocal edges
-  el <- t(apply(get.edgelist(net),1,sort))
-  E(net)$curved <- 0
-  E(net)[duplicated(el) | duplicated(el,fromLast =TRUE)]$curved <- curve
-  (net)
-}
-
-plot(net, layout=layout.circle, edge.curved=.2)
-
-plot(curve.reciprocal.edges(net))
-
-
-curve.reciprocal.edges <- function(net, curve=.8){
-  # Return a graph where the edge-attribute $curved is reset to highlight reciprocal edges
-  el <- t(apply(get.edgelist(net),1,sort))
-  E(net)$curved <- 0
-  E(net)[duplicated(el) | duplicated(el,fromLast =TRUE)]$curved <- curve
-  (net)
-}
-
-plot.igraph(curve.reciprocal.edges(net)
-,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
-
-curve.reciprocal.edges(net)
-
-a_1[1:4,1:2] <-0
-net=graph.adjacency(a_1,mode="directed"v) 
-plot.igraph(net, layout=layout.circle)
