@@ -132,7 +132,10 @@ model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovul
 summary(model1)
 anova(model1)
 plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
-           terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot()
+           terms = c(Recipient_stigma_length,Donor_pollen_size), show.data = T,
+mdrt.values="minmax")+theme_sjplot()
+
+
 
 
 #Model with just the iteraction between stigma size and pollen size
@@ -144,6 +147,13 @@ rep_bio <- plot_model(model1, type = "int",title="",axis.title=c(expression(past
 #ggsave(filename = "rep_bio.pdf", rep_bio, width = 10, height = 5, units = "in",dpi = 1000)
 
 
+#library
+library(ggeffects)
+mydf <- ggpredict(model1,  terms = "c12hour")
+library(ggplot2)
+ggplot(mydf, aes(x, predicted)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = .1)
 
 
 #Add phylogetic distance to the model
