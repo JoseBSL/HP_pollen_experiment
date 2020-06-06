@@ -132,10 +132,10 @@ model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovul
 summary(model1)
 anova(model1)
 plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
-           terms = c(Recipient_stigma_length,Donor_pollen_size), show.data = T,
+           terms = c("Recipient_stigma_length","Donor_pollen_size"), show.data= T,
 mdrt.values="minmax")+theme_sjplot()
 
-
+plot_model(model1, type = "int", mdrt.values="zeromax")
 
 
 #Model with just the iteraction between stigma size and pollen size
