@@ -127,15 +127,27 @@ step$anova
 #Almost all traits of donor drop as expected
 
 
+library(ggeffects)
+library(jtools)
+library(interactions)
+
+mydata2 <- subset(mydata, Donor_pollen_size==22|Donor_pollen_size==97.59)
+
+interact_plot(model1,   colors = c("red","blue"),
+pred = Recipient_stigma_length, modx = Donor_pollen_size,modx.values = c(22
+,97.59),partial.residuals = TRUE, jitter = 0.1, point.shape = TRUE,data=mydata)
+
+interact_plot(model1, pred = Recipient_stigma_length, modx = Donor_pollen_size,modx.values = "terciles", data=mydata)
+
 #Model with interaction between a donor and a recipient trait + trait
 model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=mydata)
 summary(model1)
 anova(model1)
 plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
            terms = c("Recipient_stigma_length","Donor_pollen_size"), show.data= T,
-mdrt.values="minmax")+theme_sjplot()
+mdrt.values="all")+theme_sjplot()
 
-plot_model(model1, type = "int", mdrt.values="zeromax")
+plot_model(model1, type = "int", mdrt.values="meansd",show.data = T)
 
 
 #Model with just the iteraction between stigma size and pollen size
