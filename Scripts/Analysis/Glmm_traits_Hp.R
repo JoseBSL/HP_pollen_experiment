@@ -126,18 +126,39 @@ step<- stepAIC(full, trace=FALSE)
 step$anova
 #Almost all traits of donor drop as expected
 
+#Maybe...
 
-library(ggeffects)
-library(jtools)
-library(interactions)
+a <- subset(mydata, Donor_pollen_size==22)
+Donor_pollen_size <- a$Donor_pollen_size
+
+b <- subset(mydata, Donor_pollen_size==22)
+Recipient_stigma_width <- b$Recipient_stigma_width
+
+ab <- as.data.frame(cbind(Recipient_stigma_width,Donor_pollen_size))
+value <- predict(model1,ab,interval = "confidence")
+ab <- cbind(ab,value)
+colnames(ab)[3] <- "value"
+
+a <- subset(mydata, Donor_pollen_size==97.59)
+Donor_pollen_size <- a$Donor_pollen_size
+
+b <- subset(mydata, Donor_pollen_size==97.59)
+Recipient_stigma_width <- b$Recipient_stigma_width
+
+ab_1 <- as.data.frame(cbind(Recipient_stigma_width,Donor_pollen_size))
+value <- predict(model1,ab_1,interval = "confidence")
+ab_1 <- cbind(ab_1,value)
+colnames(ab_1)[3] <- "value"
+
 
 mydata2 <- subset(mydata, Donor_pollen_size==22|Donor_pollen_size==97.59)
+ggplot(mydata2,aes(y=value,x=Recipient_stigma_width,color=factor(Donor_pollen_size)))+geom_point()+
+geom_line(data=ab) + geom_ribbon(data=ab,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA)+
+  geom_ribbon(data=ab_1,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA) + geom_line(data=ab_1)
 
-interact_plot(model1,   colors = c("red","blue"),
-pred = Recipient_stigma_length, modx = Donor_pollen_size,modx.values = c(22
-,97.59),partial.residuals = TRUE, jitter = 0.1, point.shape = TRUE,data=mydata)
 
-interact_plot(model1, pred = Recipient_stigma_length, modx = Donor_pollen_size,modx.values = "terciles", data=mydata)
+
+
 
 #Model with interaction between a donor and a recipient trait + trait
 model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=mydata)
@@ -148,6 +169,7 @@ plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmati
 mdrt.values="all")+theme_sjplot()
 
 plot_model(model1, type = "int", mdrt.values="meansd",show.data = T)
+plot_model(model1, type = "int", terms = c("Recipient_stigma_length", "Donor_pollen_size [30,50,70]"))
 
 
 #Model with just the iteraction between stigma size and pollen size
@@ -157,15 +179,6 @@ effect_plot(model1, pred = Recipient_pollen_ovule_ratio, interval = TRUE, plot.p
 rep_bio <- plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
            terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot2()
 #ggsave(filename = "rep_bio.pdf", rep_bio, width = 10, height = 5, units = "in",dpi = 1000)
-
-
-#library
-library(ggeffects)
-mydf <- ggpredict(model1,  terms = "c12hour")
-library(ggplot2)
-ggplot(mydf, aes(x, predicted)) +
-  geom_line() +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = .1)
 
 
 #Add phylogetic distance to the model
