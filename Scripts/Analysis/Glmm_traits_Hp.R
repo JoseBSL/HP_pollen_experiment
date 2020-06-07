@@ -13,6 +13,7 @@ library(effects)
 library(MASS)
 library(snakecase)
 library(sjPlot)
+library(ggthemes)
 
 #Funtion to plot lm
 ggplotRegression <- function (fit, jit=FALSE) {
@@ -34,6 +35,22 @@ ggplotRegression <- function (fit, jit=FALSE) {
 }
 #end of function
 
+#
+theme_ms <- function(base_size=12, base_family="Helvetica") {
+  library(grid)
+  (theme_bw(base_size = base_size, base_family = base_family)+
+      theme(text=element_text(color="black"),
+            axis.title=element_text( size = rel(1.3)),
+            axis.text=element_text(size = rel(1), color = "black"),
+            legend.title=element_text(face="bold"),
+            legend.text=element_text(),
+            legend.background=element_rect(fill="transparent"),
+            legend.key.size = unit(0.8, 'lines'),
+            panel.border=element_rect(color="black",size=1),
+            panel.grid.minor.x =element_line(),
+            panel.grid.minor.y= element_blank()
+      ))
+}
 
 
 #
@@ -151,12 +168,39 @@ ab_1 <- cbind(ab_1,value)
 colnames(ab_1)[3] <- "value"
 
 
-mydata2 <- subset(mydata, Donor_pollen_size==22|Donor_pollen_size==97.59)
-ggplot(mydata2,aes(y=value,x=Recipient_stigma_width,color=factor(Donor_pollen_size)))+geom_point()+
-geom_line(data=ab) + geom_ribbon(data=ab,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA)+
-  geom_ribbon(data=ab_1,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA) + geom_line(data=ab_1)
+
+a <- subset(mydata, Donor_pollen_size==70.10)
+Donor_pollen_size <- a$Donor_pollen_size
+
+b <- subset(mydata, Donor_pollen_size==70.10)
+Recipient_stigma_width <- b$Recipient_stigma_width
+
+ab_2 <- as.data.frame(cbind(Recipient_stigma_width,Donor_pollen_size))
+value <- predict(model1,ab_2,interval = "confidence")
+ab_2 <- cbind(ab_2,value)
+colnames(ab_2)[3] <- "value"
 
 
+a <- subset(mydata, Donor_pollen_size==33.59)
+Donor_pollen_size <- a$Donor_pollen_size
+
+b <- subset(mydata, Donor_pollen_size==33.59)
+Recipient_stigma_width <- b$Recipient_stigma_width
+
+ab_3 <- as.data.frame(cbind(Recipient_stigma_width,Donor_pollen_size))
+value <- predict(model1,ab_3,interval = "confidence")
+ab_3 <- cbind(ab_3,value)
+colnames(ab_3)[3] <- "value"
+
+library(ggsci)
+
+mydata2 <- subset(mydata, Donor_pollen_size==22|Donor_pollen_size==97.59|Donor_pollen_size==70.10|Donor_pollen_size==33.59)
+ggplot(mydata2,aes(y=value,x=Recipient_stigma_width,color=factor(Donor_pollen_size)))+geom_jitter(width = 0.3, height = 0.3)+
+geom_line(data=ab) + geom_ribbon(data=ab,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,fill="#D43F3AFF", colour=NA)+
+  geom_ribbon(data=ab_1,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#EEA236FF") + geom_line(data=ab_1) + 
+   labs(color='Pollen size',y= "Predicted effect size",  x= c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size")) +
+  geom_line(data=ab_2) +  geom_line(data=ab_3) + theme_ms() +  scale_color_locuszoom() + geom_ribbon(data=ab_2,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#5CB85CFF") +
+   geom_ribbon(data=ab_3,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#46B8DAFF")
 
 
 
