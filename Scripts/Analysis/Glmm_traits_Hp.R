@@ -14,6 +14,7 @@ library(MASS)
 library(snakecase)
 library(sjPlot)
 library(ggthemes)
+library(ggsci)
 
 #Funtion to plot lm
 ggplotRegression <- function (fit, jit=FALSE) {
@@ -35,7 +36,7 @@ ggplotRegression <- function (fit, jit=FALSE) {
 }
 #end of function
 
-#
+# Theme for publication
 theme_ms <- function(base_size=12, base_family="Helvetica") {
   library(grid)
   (theme_bw(base_size = base_size, base_family = base_family)+
@@ -143,8 +144,12 @@ step<- stepAIC(full, trace=FALSE)
 step$anova
 #Almost all traits of donor drop as expected
 
-#Maybe...
+#Interaction model Pollen size * Stigmatic area
 
+model1<-lm(value~Recipient_stigma_width*Donor_pollen_size,data=mydata)
+
+#Prepare data for plotting
+#create 4 different dataframes for each pollen size (ab, ab_1,ab_2,ab_3)
 a <- subset(mydata, Donor_pollen_size==22)
 Donor_pollen_size <- a$Donor_pollen_size
 
@@ -166,8 +171,6 @@ ab_1 <- as.data.frame(cbind(Recipient_stigma_width,Donor_pollen_size))
 value <- predict(model1,ab_1,interval = "confidence")
 ab_1 <- cbind(ab_1,value)
 colnames(ab_1)[3] <- "value"
-
-
 
 a <- subset(mydata, Donor_pollen_size==70.10)
 Donor_pollen_size <- a$Donor_pollen_size
@@ -192,16 +195,22 @@ value <- predict(model1,ab_3,interval = "confidence")
 ab_3 <- cbind(ab_3,value)
 colnames(ab_3)[3] <- "value"
 
-library(ggsci)
-
+#Prepare dataframe for adding dots
 mydata2 <- subset(mydata, Donor_pollen_size==22|Donor_pollen_size==97.59|Donor_pollen_size==70.10|Donor_pollen_size==33.59)
-ggplot(mydata2,aes(y=value,x=Recipient_stigma_width,color=factor(Donor_pollen_size)))+geom_jitter(width = 0.3, height = 0.3)+
+
+#Add two decimals to pollen size on the legend
+#function from:
+#https://stackoverflow.com/questions/38722202/how-do-i-change-the-number-of-decimal-places-on-axis-labels-in-ggplot2
+scaleFUN <- function(x) sprintf("%.2f", x)
+
+#Create ggplot for publication
+int_plot <- ggplot(mydata2,aes(y=value,x=Recipient_stigma_width,color=factor(scaleFUN(Donor_pollen_size)),label=sprintf("%0.2f", round(Donor_pollen_size, digits = 2))))+geom_jitter(width = 0.3, height = 0.3)+
 geom_line(data=ab) + geom_ribbon(data=ab,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,fill="#D43F3AFF", colour=NA)+
   geom_ribbon(data=ab_1,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#EEA236FF") + geom_line(data=ab_1) + 
    labs(color='Pollen size',y= "Predicted effect size",  x= c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size")) +
   geom_line(data=ab_2) +  geom_line(data=ab_3) + theme_ms() +  scale_color_locuszoom() + geom_ribbon(data=ab_2,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#5CB85CFF") +
    geom_ribbon(data=ab_3,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#46B8DAFF")
-
+ggsave(filename = "int.pdf", int_plot, width = 12, height = 5, units = "in",dpi = 1000)
 
 
 #Model with interaction between a donor and a recipient trait + trait
