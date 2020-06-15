@@ -207,10 +207,10 @@ scaleFUN <- function(x) sprintf("%.2f", x)
 int_plot <- ggplot(mydata2,aes(y=value,x=Recipient_stigma_width,color=factor(scaleFUN(Donor_pollen_size)),label=sprintf("%0.2f", round(Donor_pollen_size, digits = 2))))+geom_jitter(width = 0.3, height = 0.3)+
 geom_line(data=ab) + geom_ribbon(data=ab,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,fill="#D43F3AFF", colour=NA)+
   geom_ribbon(data=ab_1,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#EEA236FF") + geom_line(data=ab_1) + 
-   labs(color='Pollen size',y= "Predicted effect size",  x= c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size")) +
+   labs(color=c(expression(paste("Pollen size (", mu,"m",")"))),y= "Predicted effect size",  x= c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size")) +
   geom_line(data=ab_2) +  geom_line(data=ab_3) + theme_ms() +  scale_color_locuszoom() + geom_ribbon(data=ab_2,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#5CB85CFF") +
    geom_ribbon(data=ab_3,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#46B8DAFF")
-ggsave(filename = "int.pdf", int_plot, width = 12, height = 5, units = "in",dpi = 1000)
+ggsave(filename = "Fig_5.pdf", int_plot, width = 10, height = 5, units = "in",dpi = 1000)
 
 
 #Model with interaction between a donor and a recipient trait + trait
