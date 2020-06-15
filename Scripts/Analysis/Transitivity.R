@@ -37,7 +37,7 @@ gtrans(g)
 #Now we calculate it for our data
 gtrans(m)
 #[1] 0.9285714
-
+gtrans(matrix)
 
 #TRANSITIVITY MEASUREMENT
 #ANALYSIS of Shikuza and Mcdonald 2012
@@ -45,11 +45,17 @@ gtrans(m)
 detach("package:igraph") 
 library(statnet) 
 
-g=network(m,directed=TRUE)
+m_1 = ceiling(d*2) / 2
+int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
+m_1 <- int.to.dom(m_1)
+
+g=network(m_1,directed=TRUE)
 # We calculate P.t and t.tri for this empirical network.
 tri=triad.census(g) #The full triad census as an 16-element vector 
 w=as.vector(c(0,0,0,0,0,0,0,0,1,0,0,1,1,0.5,0.75,0.75)) # The weighting vector for transitivity 
-N.triangle=sum(tri*as.vector(c(0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0))) #Count and sum the number of triangles
+N.triangle=sum(tri*as.vector(c(0,1,0,1,1,1,0,0,1,1,0,0,0,0,0,0))) #Count and sum the number of triangles
+#N.triangle=sum(tri*as.vector(c(0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0))) #Count and sum the number of triangles
+
 Pt=sum(tri*w)/N.triangle 
 t.tri=4*(Pt-0.75) 
 Pt 

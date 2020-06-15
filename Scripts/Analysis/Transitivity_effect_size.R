@@ -138,9 +138,10 @@ plot(G, edge.width=E(G)$weight/2)
 transitivity(G)
 
 library("igraph")
+
+
+
 G <- graph.adjacency(t(effect),weighted=TRUE,diag=FALSE)
-
-
 
 plot(G)
 E <- t(apply(get.edgelist(G),1,sort))
@@ -148,24 +149,47 @@ E <- t(apply(get.edgelist(G),1,sort))
 E(G)$curved <- 0
 E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
 
-plot(G, edge.width=E(G)$weight/0.8,  edge.arrow.size=0.3,edge.color="black")
+plot(G, edge.width=E(G)$weight/0.6,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.3,edge.color=adjustcolor("SkyBlue2", alpha.f = .5))
 
-transitivity(G,type="weighted")
-transitivity(G)
-transitivity(net,type="weighted")
+plot(G, edge.width=E(G)$weight/1.2,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),
+              "#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.5,edge.color=adjustcolor(c(rep("#0072B2",8),rep("#0072B2",8), rep("#D55E00",7), 
+              rep("#0072B2",9),rep("#009E73",7),rep("#009E73",9),rep("#D55E00",7),rep("#0072B2",8), rep("#D55E00",8), rep("#D55E00",7)), alpha.f = .5))
+
+
+effect_1 <- effect
+effect_1[effect_1<1] <-0
+G <- graph.adjacency(t(effect_1),weighted=TRUE,diag=FALSE)
+
+plot(G)
+E <- t(apply(get.edgelist(G),1,sort))
+
+E(G)$curved <- 0
+E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
+
+plot(G, edge.width=E(G)$weight/0.6,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.3,edge.color=adjustcolor("SkyBlue2", alpha.f = .5))
+
+plot(G, vertex.label.cex = 0.6,edge.width=E(G)$weight/0.7,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),
+                                                    "#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.5,edge.color=adjustcolor(c(rep("#0072B2",6),rep("#0072B2",5), rep("#D55E00",5), 
+                                                                                                                                        rep("#0072B2",6),rep("#009E73",6),rep("#009E73",9),rep("#D55E00",4),rep("#0072B2",6), rep("#D55E00",6), rep("#D55E00",6)), alpha.f = .5))
+
+
+
+
+
+
 
 g <- make_ring(10)
-transitivity(g, type="barrat")
+transitivity(g)
 g2 <- sample_gnp(1000, 10/1000)
 transitivity(g2)   # this is about 10/1000
 
 # Weighted version, the figure from the Barrat paper
 gw <- graph_from_literal(A-B:C:D:E, B-C:D, C-D)
 E(gw)$weight <- 1
-plot(gw)
 E(gw)[ V(gw)[name == "A"] %--% V(gw)[name == "E" ] ]$weight <- 5
-transitivity(gw, vids=c("A","C"), type="local")
+transitivity(gw, vids="A", type="local")
 transitivity(gw, vids="A", type="weighted")
+
 # Weighted reduces to "local" if weights are the same
 gw2 <- sample_gnp(1000, 10/1000)
 E(gw2)$weight <- 1
