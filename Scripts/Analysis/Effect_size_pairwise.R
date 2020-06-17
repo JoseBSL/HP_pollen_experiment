@@ -18,6 +18,11 @@ colnames(soly) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scal
 colnames(some) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
 colnames(caan) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
 colnames(ersa) <- c("Species","Treatment", "Treatment_number", "Seed_set", "Scale_seed")
+#The proxy of effect is the seed production/average number of ovules
+#In this script is not divided by the average number of ovules but is important to note that
+#it won´t change the outcome of the effect sizes because basically we will divide everything by the 
+#same number
+#On this way we save some extra steps
 
 #Reading correct file of SIAL and SOME is lacking one Treatment for both in the old file
 sial <- read.csv("Raw_data/SIAL_seed_set_final.csv")
