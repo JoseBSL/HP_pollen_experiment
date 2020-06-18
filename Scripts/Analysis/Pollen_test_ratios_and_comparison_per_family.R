@@ -8,6 +8,7 @@ library(multcompView)
 library(lsmeans)
 library(multcomp)
 library(ggplot2)
+library(DHARMa)
 
 total_pollen <- read.csv("Data/Csv/total_pollen.csv")
 
@@ -46,8 +47,15 @@ colnames(pollen_foc)[1] <-"hp_pollen"
 pollen_foc$hp_ratio <- as.numeric(pollen_foc$hp_pollen)/as.numeric(pollen_foc$total_pollen)
 hist(pollen_foc$hp_ratio)
 
+
 #Analyse data and plot it
+
 junk.glmer = lm(hp_ratio ~ fam_non, data = pollen_non)
+plot(junk.glmer)
+#goodness of fit of the model
+testDispersion(junk.glmer)
+simulationOutput <- simulateResiduals(fittedModel = junk.glmer, plot = T)
+
 lsm = lsmeans(junk.glmer, "fam_non", type = "response")
 pairs(lsm)
 CLD <- CLD(lsm,alpha=0.05,adjust="tukey")
