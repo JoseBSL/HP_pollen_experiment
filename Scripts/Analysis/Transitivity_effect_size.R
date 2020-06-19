@@ -99,8 +99,30 @@ vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge
 
 dev.off()
 
-
+(d+t(d)>0)
 #Example
+int.to.dom=function(x){ ((x<=(t(x)+0.2)) & ((x<=t(x)-0.2)) & (x+t(x)>0))+0}
+
+d <- int.to.dom(effect)
+z=d
+
+5+0.5<=5
+
+#Plot nicely already
+net=graph.adjacency(d,mode="directed",weighted=TRUE,diag=FALSE) 
+plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
+
+#I have to remember that I select just absolute values
+int.to.dom=function(x){((x<t(x)) & (x+t(x)>0))+0}
+
+int.to.dom=function(x){((x<t(x)) & (x+t(x)>0))+0}
+
+
+int.to.dom=function(x){((x<t((x)+0.2) & (x<(t(x)-0.2))))+0}
+d <- int.to.dom(effect)
+
+
+
 library("igraph")
 adj <- matrix(c(
   0,0,0.46,

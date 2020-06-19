@@ -49,7 +49,7 @@ m_1 = ceiling(d*2) / 2
 int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
 m_1 <- int.to.dom(m_1)
 
-g=network(m_1,directed=TRUE)
+g=network(d,directed=TRUE)
 # We calculate P.t and t.tri for this empirical network.
 tri=triad.census(g) #The full triad census as an 16-element vector 
 w=as.vector(c(0,0,0,0,0,0,0,0,1,0,0,1,1,0.5,0.75,0.75)) # The weighting vector for transitivity 
@@ -68,8 +68,9 @@ t.tri
 dyads=dyad.census(g)
 r.p.t=vector(length=1000)
 j=1
+
 while(j<1001){
-  r=rguman(1, nv=nrow(m), mut=dyads[1], asym=dyads[2], null=dyads[3])
+  r=rguman(1, nv=nrow(d), mut=dyads[1], asym=dyads[2], null=dyads[3])
   r.triad=triad.census(r)
   r.p.t[j]=r.triad[9]/(r.triad[10]+r.triad[9])
   if(is.na(r.p.t[j])) next else j=j+1

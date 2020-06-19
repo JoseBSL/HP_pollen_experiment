@@ -7,6 +7,10 @@ library(nlme)
 library(lme4)
 library(forcats)
 
+#Read ovule number data 
+ovule_number <- readRDS("Data/RData/ovule_number.RData")
+#Following the advice of a rviewer we are going to use seed/ovule as proxy of effect
+#and analyse it with a binomial distribution
 
 #50-50% pollen analysis treatments vs cross (control). Log transform seed set to make it closer to normality
 #I do it for each species separately and compare with all the treatments
@@ -28,7 +32,25 @@ pein_seed_set_final$Treatment <- relevel(pein_seed_set_final$Treatment, ref="CRO
 model1=lm(log(1+Seed.production)~Treatment, data=pein_seed_set_final)
 summary(model1)
 
+library(fitdistrplus)
+descdist((log(1+pein_seed_set_final$Seed.production/220)), discrete = FALSE)
 
+hist(log(1+pein_seed_set_final$Seed.production/220))
+model1=lm(log(1+Seed.production)~Treatment, data=pein_seed_set_final)
+
+range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+
+pein_seed_set_final$seed_ovule_ratio <- range01(pein_seed_set_final$Seed.production)
+
+ model1 <- glm(seed_ovule_ratio ~ Treatment, binomial, data = pein_seed_set_final)
+summary(model1)
+
+fit<- simulateResiduals(fittedModel = model1, plot = T)
+
+hist(log(1+pein_seed_set_final$Seed.production))
+df$x1 <- relevel(df$x1, ref='c')
+model1 <- glm(Seed.production/300~Treatment,data=pein_seed_set_final)
+summary(model1)
 #SOLY
 soly_seed_set_final <- read.csv("Raw_data/soly_seed_set_final.csv", stringsAsFactors = T)
 soly_seed_set_final <- subset(soly_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")

@@ -106,6 +106,9 @@ mydata$D <- rep(1:10, each=10)
 colnames(data)[3] <- "effect_size"
 mydata$id_number <- seq(length(mydata$Recipient))
 
+ovule_number <- unique(mydata[,c(2,7)])
+saveRDS(ovule_number, "Data/RData/ovule_number.RData")
+
 #Now the data is ready for analysis
 
 
@@ -336,3 +339,15 @@ anova(total_cp_pollen)
 #total pollen
 
 cor.test(mydata1$Recipient_mean_pollen_anther, mydata1$Recipient_stigma_width)
+total_hp_pollen <-lm(value~hp_pollen * cp_pollen,data=donor_recipient)
+
+summary(total_hp_pollen)
+ggplotRegression(lm(value ~ total_pollen, data = donor_recipient))
+
+
+
+b <- subset(donor_recipient, fam_foc=="Brassicaceae")
+
+mean(b$hp_pollen/b$total_pollen*100)
+mean(b$cp_pollen/b$total_pollen*100)
+
