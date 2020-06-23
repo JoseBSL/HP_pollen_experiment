@@ -213,13 +213,39 @@ geom_line(data=ab) + geom_ribbon(data=ab,aes(x = Recipient_stigma_width,ymin = l
    labs(color=c(expression(paste("Pollen size (", mu,"m",")"))),y= "Predicted effect size",  x= c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size")) +
   geom_line(data=ab_2) +  geom_line(data=ab_3) + theme_ms() +  scale_color_locuszoom() + geom_ribbon(data=ab_2,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#5CB85CFF") +
    geom_ribbon(data=ab_3,aes(x = Recipient_stigma_width,ymin = lwr, ymax = upr),alpha = 0.1,colour=NA, fill="#46B8DAFF")
-ggsave(filename = "Fig_5.pdf", int_plot, width = 10, height = 5, units = "in",dpi = 1000)
+#ggsave(filename = "Fig_5.pdf", int_plot, width = 10, height = 5, units = "in",dpi = 1000)
 
-
+#sacaling data
+z <-mydata1
+z[,c(4:31)] <- scale(mydata[,c(4:31)])
 #Model with interaction between a donor and a recipient trait + trait
-model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=mydata)
+model1<-lmer(value~Recipient_stigma_width*Donor_pollen_size+Recipient_mean_ovules+Recipient_style_length+(1|Recipient),data=z)
 summary(model1)
 anova(model1)
+vif(model1)
+r.squaredGLMM(model1)
+
+model1<-lmer(value~Recipient_stigma_length*Donor_pollen_size+(1|Recipient),data=z)
+summary(model1)
+anova(model1)
+vif(model1)
+
+
+
+model1<-lm(value~Recipient_stigma_width+Recipient_mean_ovules+Recipient_style_length,data=z)
+
+model1 <- lm(value~Recipient_stigma_width*Donor_pollen_size,data=mydata)
+summary(model1)
+plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
+           terms = c("Recipient_stigma_length","Donor_pollen_size"), show.data= T,
+           mdrt.values="all")+theme_sjplot()
+library(car)
+vif(model1)
+library(DHARMa)
+simulationOutput <- simulateResiduals(fittedModel = model1, plot = T)
+
+
+
 plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
            terms = c("Recipient_stigma_length","Donor_pollen_size"), show.data= T,
 mdrt.values="all")+theme_sjplot()
@@ -235,7 +261,8 @@ effect_plot(model1, pred = Recipient_pollen_ovule_ratio, interval = TRUE, plot.p
 rep_bio <- plot_model(model1, type = "int",title="",axis.title=c(expression(paste("Stigmatic area (", mu,"m"^"2",")")),"Predicted effect size"), legend.title=expression(paste("Donor pollen size (", mu,"m)")),
            terms = c(Recipient_stigma_length,Donor_pollen_size), mdrt.values="minmax")+theme_sjplot2()
 #ggsave(filename = "rep_bio.pdf", rep_bio, width = 10, height = 5, units = "in",dpi = 1000)
-
+library(DHARMa)
+citation("DHARMa")
 
 #Add phylogetic distance to the model
 evo_distance_its <- readRDS("Data/RDS/evo_distance_its.RDS")
@@ -250,6 +277,7 @@ colnames(mean_distance) <-  c("Recipient", "Donor", "Distance")
 mydata1 <- merge(mean_distance, mydata)
 
 
+#plot(model1)
 #Same model but with phylogenetic distance included
 model1<-lm(value~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio+Distance,data=mydata1)
 summary(model1)
