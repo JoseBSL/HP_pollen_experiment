@@ -1,10 +1,25 @@
+#################################################################################
+#################################################################################
+#################################################################################
+##################### UNIPARTITE BIDIRECTIONAL NETWORK ############################
+#################################################################################
+#################################################################################
+#################################################################################
+
+####################################
+############ load libraries ########
+####################################
+
 library(statnet)
 library(reshape2)
 library(sna)
 library(igraph)
 
-#In this script I'm going to plot the transitivity of the effect oh HP pollen with effect sizes
+#######################################
+############ Data preparataion ########
+#######################################
 
+#In this script I'm going to plot the transitivity of the effect oh HP pollen with effect sizes
 effect <- readRDS("Data/RData/matrix_effect_size.RData")
 #Now I convert the few values over 0 to maximum 0 (control)
 effect[effect>0]<-0
@@ -81,7 +96,12 @@ d[8,10] <- effect[10,8]-effect[8,10]
 d
 z
 a=d*0.45
-#checked no mistakes
+#checked, seems correct
+
+#######################################
+############ PLOT NETWORK #############
+#######################################
+
 net=graph.adjacency(a,mode="directed",weighted=TRUE,diag=FALSE) 
 plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
 b=d*1
@@ -89,24 +109,21 @@ net=graph.adjacency(b,mode="directed",weighted=TRUE,diag=FALSE)
 plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.6,layout=layout.fruchterman.reingold, vertex.color=c(rep("pink",2),"grey","pink", rep("skyblue",2),"grey","pink", rep("grey",2)), vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.3)
 
 set.seed(32)
-png("Figure5.png", width = 9000, height = 9000, res = 1500)
-
-pdf("Figure5.pdf")
+#png("Figure5.png", width = 9000, height = 9000, res = 1500)
+#pdf("Figure5.pdf")
 
 plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.55,
 layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)), 
 vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge.arrow.size=0.65)
+#dev.off()
 
-dev.off()
 
 (d+t(d)>0)
 #Example
 int.to.dom=function(x){ ((x<=(t(x)+0.2)) & ((x<=t(x)-0.2)) & (x+t(x)>0))+0}
-
 d <- int.to.dom(effect)
 z=d
 
-5+0.5<=5
 
 #Plot nicely already
 net=graph.adjacency(d,mode="directed",weighted=TRUE,diag=FALSE) 
@@ -120,103 +137,24 @@ int.to.dom=function(x){((x<t(x)) & (x+t(x)>0))+0}
 
 int.to.dom=function(x){((x<t((x)+0.2) & (x<(t(x)-0.2))))+0}
 d <- int.to.dom(effect)
+net=graph.adjacency(d,mode="directed",weighted=TRUE,diag=FALSE) 
+plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
 
 
 
+#UNIPARTITE DOUBLE ASSYMETRICAL EFFECT
 library("igraph")
-adj <- matrix(c(
-  0,0,0.46,
-  0.19,0,0.44,
-  0,0,0),3,3,byrow=TRUE)
-
-rownames(adj) <- c("CAAN","BRRA", "PEIN")
-colnames(adj) <- c("CAAN","BRRA", "PEIN")
-G <- graph.adjacency(adj,weighted=TRUE,diag=FALSE)
-E <- t(apply(get.edgelist(G),1,sort))
-
-E(G)$curved <- 0
-E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
-
-plot(G, edge.width=E(G)$weight/2)
-
-
-str(a)
-str(adj)
-a_1 <- a[1:4,1:4]
-
-adj <- matrix(c(
-  0,0,0,0,
-  1,1,1,0,
-  1,1,1,1.5),4,4,byrow=TRUE)
-G <- graph.adjacency(adj,weighted=TRUE,diag=FALSE)
-E <- t(apply(get.edgelist(G),1,sort))
-
-
-E(G)$curved <- 0
-E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
-
-plot(G, edge.width=E(G)$weight/2)
-
-transitivity(G)
-
-library("igraph")
-
-
-
 G <- graph.adjacency(t(effect),weighted=TRUE,diag=FALSE)
-
 plot(G)
 E <- t(apply(get.edgelist(G),1,sort))
-
 E(G)$curved <- 0
 E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
-
-plot(G, edge.width=E(G)$weight/0.6,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.3,edge.color=adjustcolor("SkyBlue2", alpha.f = .5))
-
-plot(G, edge.width=E(G)$weight/1.2,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),
+plot(G, edge.width=E(G)$weight/0.8,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),
               "#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.5,edge.color=adjustcolor(c(rep("#0072B2",8),rep("#0072B2",8), rep("#D55E00",7), 
               rep("#0072B2",9),rep("#009E73",7),rep("#009E73",9),rep("#D55E00",7),rep("#0072B2",8), rep("#D55E00",8), rep("#D55E00",7)), alpha.f = .5))
 
 
-effect_1 <- effect
-effect_1[effect_1<1] <-0
-G <- graph.adjacency(t(effect_1),weighted=TRUE,diag=FALSE)
-
-plot(G)
-E <- t(apply(get.edgelist(G),1,sort))
-
-E(G)$curved <- 0
-E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
-
-plot(G, edge.width=E(G)$weight/0.6,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.3,edge.color=adjustcolor("SkyBlue2", alpha.f = .5))
-
-plot(G, vertex.label.cex = 0.6,edge.width=E(G)$weight/0.7,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),
-                                                    "#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.5,edge.color=adjustcolor(c(rep("#0072B2",6),rep("#0072B2",5), rep("#D55E00",5), 
-                                                                                                                                        rep("#0072B2",6),rep("#009E73",6),rep("#009E73",9),rep("#D55E00",4),rep("#0072B2",6), rep("#D55E00",6), rep("#D55E00",6)), alpha.f = .5))
 
 
 
-
-
-
-
-g <- make_ring(10)
-transitivity(g)
-g2 <- sample_gnp(1000, 10/1000)
-transitivity(g2)   # this is about 10/1000
-
-# Weighted version, the figure from the Barrat paper
-gw <- graph_from_literal(A-B:C:D:E, B-C:D, C-D)
-E(gw)$weight <- 1
-E(gw)[ V(gw)[name == "A"] %--% V(gw)[name == "E" ] ]$weight <- 5
-transitivity(gw, vids="A", type="local")
-transitivity(gw, vids="A", type="weighted")
-
-# Weighted reduces to "local" if weights are the same
-gw2 <- sample_gnp(1000, 10/1000)
-E(gw2)$weight <- 1
-t1 <- transitivity(gw2, type="local")
-t2 <- transitivity(gw2, type="weighted")
-all(is.na(t1) == is.na(t2))
-all(na.omit(t1 == t2))
 
