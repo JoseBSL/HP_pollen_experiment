@@ -28,14 +28,20 @@ effect[effect>0]<-0
 #(opposite way in comparison with negative values as before)
 effect=abs(effect)
 #find out winners and losers
-int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
+#int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
+#old way
+#Now we conduct on this way
+#0.2 as critical value based on cohens classification of effect sizes
+int.to.dom=function(x){((x<t((x)+0.2) & (x<(t(x)-0.2))))+0}
+
 d <- int.to.dom(effect)
-z=d
 #Plot nicely already
 net=graph.adjacency(d,mode="directed",weighted=TRUE,diag=FALSE) 
 plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
 #Now just add the differeces of effect sizes for intensity of the directional arrow
 #do it manually no time to think for a better way
+
+#OLD
 #1st column
 d[2,1] <- effect[1,2]-effect[2,1]
 d[4,1] <- effect[1,4]-effect[4,1]
@@ -66,7 +72,6 @@ d[10,3] <- effect[3,10]-effect[10,3]
 d[4,5] <- effect[5,4]-effect[4,5]
 d[6,5] <- effect[5,6]-effect[6,5]
 d[8,5] <- effect[5,8]-effect[8,5]
-d[10,5] <- effect[5,10]-effect[10,5]
 #6th column
 d[4,6] <- effect[6,4]-effect[4,6]
 #7th column
@@ -123,22 +128,6 @@ vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge
 int.to.dom=function(x){ ((x<=(t(x)+0.2)) & ((x<=t(x)-0.2)) & (x+t(x)>0))+0}
 d <- int.to.dom(effect)
 z=d
-
-
-#Plot nicely already
-net=graph.adjacency(d,mode="directed",weighted=TRUE,diag=FALSE) 
-plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
-
-#I have to remember that I select just absolute values
-int.to.dom=function(x){((x<t(x)) & (x+t(x)>0))+0}
-
-int.to.dom=function(x){((x<t(x)) & (x+t(x)>0))+0}
-
-
-int.to.dom=function(x){((x<t((x)+0.2) & (x<(t(x)-0.2))))+0}
-d <- int.to.dom(effect)
-net=graph.adjacency(d,mode="directed",weighted=TRUE,diag=FALSE) 
-plot.igraph(net,vertex.label=V(net)$name,layout=layout.fruchterman.reingold, vertex.label.color="black",edge.color="black",edge.width=E(net)$weight/2, edge.arrow.size=0.5)
 
 
 

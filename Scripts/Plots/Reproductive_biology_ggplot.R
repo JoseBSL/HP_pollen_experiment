@@ -1,22 +1,22 @@
 #Script to plot the reproductive biology tests
 #load libraries
 library(ggplot2)
-install.packages("devtools")
+#install.packages("devtools")
 library(devtools)
-install_github("easyGgplot2", "kassambara")
+#install_github("easyGgplot2", "kassambara")
 
-brol <- read.csv("Rmd/Data/brol_seed_set_final.csv")
-brra <- read.csv("Rmd/Data/brra_seed_set_final.csv")
-ersa <- read.csv("Rmd/Data/ersa_seed_set_final.csv")
-sial <- read.csv("Rmd/Data/sial_seed_set_final.csv")
-ipaq <- read.csv("Rmd/Data/ipaq_seed_set_final.csv")
-ippu <- read.csv("Rmd/Data/ippu_seed_set_final.csv")
-caan <- read.csv("Rmd/Data/caan_seed_set_final.csv")
-pein <- read.csv("Rmd/Data/pein_seed_set_final.csv")
-soly <- read.csv("Rmd/Data/soly_seed_set_final.csv")
-some <- read.csv("Rmd/Data/some_seed_set_final.csv")
+brol <- read.csv("Raw_data/brol_seed_set_final.csv")
+brra <- read.csv("Raw_data/brra_seed_set_final.csv")
+ersa <- read.csv("Raw_data/ersa_seed_set_final.csv")
+sial <- read.csv("Raw_data/sial_seed_set_final.csv")
+ipaq <- read.csv("Raw_data/ipaq_seed_set_final.csv")
+ippu <- read.csv("Raw_data/ippu_seed_set_final.csv")
+caan <- read.csv("Raw_data/caan_seed_set_final.csv")
+pein <- read.csv("Raw_data/pein_seed_set_final.csv")
+soly <- read.csv("Raw_data/soly_seed_set_final.csv")
+some <- read.csv("Raw_data/some_seed_set_final.csv")
 #loading traits to divide by number of ovules the seed set 
-traits <- read.csv("Data/traits_scinames.csv")
+traits <- read.csv("Data/Csv/traits_scinames.csv")
 
 
 brol_r <- subset(brol, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="FC")
@@ -52,10 +52,10 @@ d$Treatment[d$Treatment=="SELF"]<-"Hand self-pollination"
 d$Treatment[d$Treatment=="SELF"]<-"Hand self-pollination"
 d$Treatment[d$Treatment=="Control"]<-"Apomixis"
 d$Treatment[d$Treatment=="CONTROL"]<-"Apomixis"
-d$Treatment[d$Treatment=="FC"]<-"Natural selfing"
-d$Treatment[d$Treatment=="Flower control"]<-"Natural selfing"
-d$Treatment[d$Treatment=="FLOWER CONTROL"]<-"Natural selfing"
-d$Treatment[d$Treatment=="Flower Control"]<-"Natural selfing"
+d$Treatment[d$Treatment=="FC"]<-"Spontaneous selfing"
+d$Treatment[d$Treatment=="Flower control"]<-"Spontaneous selfing"
+d$Treatment[d$Treatment=="FLOWER CONTROL"]<-"Spontaneous selfing"
+d$Treatment[d$Treatment=="Flower Control"]<-"Spontaneous selfing"
 
 d$Species=as.character(d$Species)
 d$Species[d$Family=="BROL"]<-"B"
@@ -95,19 +95,19 @@ ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) +
                dotsize=0.3,position = position_jitterdodge(jitter.width = 0.1))+
   theme_minimal()+scale_fill_brewer(palette="RdBu")
 
-tiff("test.tiff", units="in", width=10, height=5, res=2000)
+#tiff("test.tiff", units="in", width=10, height=5, res=2000)
  
-ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
+rep_bio <- ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
   geom_violin(scale = "width",draw_quantiles = c(0.5))+
   geom_dotplot(binaxis='y', 
                dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
-  theme_minimal()+labs(y="Seed set")+scale_fill_manual(values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(legend.title = element_blank(),plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
+  theme_minimal()+labs(y="Seed:ovule ratio")+scale_fill_manual(values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(legend.title = element_blank(),plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
  
- pdf("test.pdf", width = 12, height = 5,dpi = 1200)
+ #pdf("test.pdf", width = 12, height = 5)
  
- ggsave("Images_publication/Figure2.png", width = 12, height = 5,dpi = 1200)
+ #ggsave("Images_publication/Figure2.png", width = 12, height = 5,dpi = 1200)
  
-#ggsave(filename = "rep_bio.pdf", rep_bio, width = 12, height = 5, units = "in",dpi = 1000)
+ggsave(filename = "rep_bio.pdf", rep_bio, width = 12, height = 5, units = "in",dpi = 1000)
 
 # insert ggplot code
 dev.off()
