@@ -1,37 +1,45 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[12pt,]{article}
+\documentclass[
+  12pt,
+]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\usepackage{hyperref}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -42,33 +50,119 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% set default figure placement to htbp
+% Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{setspace}\doublespacing
 \usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 \author{}
 \date{\vspace{-2.5em}}
 
 \begin{document}
 
+\hypertarget{supporting-information}{%
+\section{Supporting information:}\label{supporting-information}}
 
+\hypertarget{recipient-and-donor-characteristics-govern-hierarchical-structure-in-a-heterospecific-pollen-competition-network-of-co-flowering-plants}{%
+\section{Recipient and donor characteristics govern hierarchical
+structure in a heterospecific pollen competition network of co-flowering
+plants}\label{recipient-and-donor-characteristics-govern-hierarchical-structure-in-a-heterospecific-pollen-competition-network-of-co-flowering-plants}}
+
+\textbf{Authors:} Jose B. Lanuza, Ignasi Bartomeus, Tia Lynn Ashman,
+Romina Rader
+
+The following Supporting Information is available for this article:
+
+\textbf{Table S1.} Species names, common names, varieties and sources of
+the different seeds.
+
+\textbf{Table S2.} Numerical values of all the traits measured for each
+species.
+
+\textbf{Table S3.} Seed set in percentage for hand cross-pollination,
+hand self-pollination, natural selfing and apomixis for all species.
+
+\textbf{Table S4.} Species x species matrix with the significance of
+effect ``yes'' or ``no'' of the different donors on the seed set of the
+different recipient species.
+
+\textbf{Table S5.} Estimates, standard error, t-value and P-value of the
+effect of the different 9 donors on each recipient species.
+
+\textbf{Table S6.} Number of seeds produced with 100\% foreign pollen
+treatments for the different recipient species.
+
+\textbf{Table S7.} Phylogenetic signal and significance for all the
+different traits
+
+\textbf{Table S8.} Procrustes analysis results.
+
+\textbf{Figure S1.} Correlation matrix for all the different traits.
+
+\textbf{Figure S2.} Total amount of pollen found for the different
+treatments.
+
+\textbf{Figure S3.} Pollen ratios for the different recipient species.
+
+\textbf{Figure S4.} Pollen ratios for the different recipient species by
+family.
+
+\textbf{Figure S5.} Statistical comparison of pollen ratios by family as
+pollen donor and recipient.
+
+\textbf{Figure S6.} Violin plot of the reproductive biology of the
+species.
+
+\textbf{Figure S7.} Grouped effect sizes by family for each recipient
+species.
+
+\newpage
+
+\begin{table}[H]
+\centering\begingroup\fontsize{7}{9}\selectfont
+
+\begin{tabular}{llll}
+\toprule
+Species & Common\_names & Variety & Source\\
+\midrule
+Brassica oleracea & Wild cabbage & Capitata & https://www.mrfothergills.com.au/\\
+Brassica rapa & Pak choi & Chinensis & https://www.mrfothergills.com.au/\\
+Eruca sativa & Rocket &  & https://www.mrfothergills.com.au/\\
+Sinapis alba & White mustard &  & https://www.mrfothergills.com.au/\\
+Ipomoea aquatica & Water spinach &  & https://www.theseedcollection.com.au/\\
+\addlinespace
+Ipomoea purpurea & Morning glory &  & http://www.shaman-australis.com.au\\
+Capsicum annuum & Capsicum & California Wonder & https://www.edenseeds.com.au\\
+Petunia integrifolia & Petunia &  & https://www.dianeseeds.com/\\
+Solanum lycopersicum & Tomato & Tommy Toe & https://www.mrfothergills.com.au/\\
+Solanum melongena & Eggplant & Little Fingers & https://www.4seasonsseeds.com.au/\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\begin{landscape}
+
+\end{landscape}
 
 \end{document}
