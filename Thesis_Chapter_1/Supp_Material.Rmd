@@ -70,6 +70,12 @@ kable_styling(font_size = 7)
 ```
 
 \begin{landscape}
-```{r}
+
+```{r, echo=FALSE, warning=FALSE, fig.align="center", out.width='80%'}
+t <- readRDS("Tables/traits_supplementary.rds")
+kable(t, "latex", longtable = T, digits=2,booktabs = T,linesep = "\\addlinespace") %>%
+  kable_styling(latex_options = c("repeat_header","striped"), font_size = 7, full_width=T)
 ```
+
+
 \end{landscape}
