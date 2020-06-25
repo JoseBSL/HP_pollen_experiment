@@ -27,8 +27,9 @@ library(sna)
 effect <- readRDS("Data/RData/matrix_effect_size.RData")
 #Now I convert the few values over 0 to maximum 0 (control)
 effect[effect>0]<-0
+effect=abs(effect)
 #convert into dominance matrix
-int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
+#int.to.dom=function(x){ ((x<t(x)) & (x+t(x)>0))+0}
 #This is now an old step
 #after reviewers comments we have decided to allow more cyclic triads
 #therefore the new function is as follows

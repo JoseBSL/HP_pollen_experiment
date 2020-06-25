@@ -113,12 +113,15 @@ mydata1 <- merge(mean_distance, mydata)
 z <-mydata1
 z[,c(5:31)] <- scale(mydata1[,c(5:31)])
 #Model with interaction between a donor and a recipient trait + trait
-model1<-lmer(effect_size~Recipient_stigma_width*Donor_pollen_size+Recipient_pollen_ovule_ratio+Recipient_style_length+(1|Recipient),data=z)
+model1<-lm(effect_size~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=z)
 summary(model1)
 vif(model1)
 r.squaredGLMM(model1)
 simulationOutput <- simulateResiduals(fittedModel = model1, plot = T)
 
+model1<-lm(effect_size~Recipient_style_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=z)
+summary(model1)
+cor.test(mydata$Recipient_stigma_length, mydata$Recipient_style_length)
 
 #HERE I RUN THE MODEL WITHOUT SCALING VARIABLES
 #IN ORDERT TO PLOT THE INTERACTION BETWEEN POLLEN SIZE AND STIGMATIC AREA

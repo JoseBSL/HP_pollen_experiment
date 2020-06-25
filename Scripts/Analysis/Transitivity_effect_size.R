@@ -119,11 +119,15 @@ set.seed(32)
 
 plot.igraph(net,vertex.label=V(net)$name,vertex.label.cex=.55,
 layout=layout.fruchterman.reingold, vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),"#D55E00","#0072B2", rep("#D55E00",2)), 
-vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.8, edge.arrow.size=0.65)
+vertex.label.color="black",edge.color="grey4",edge.width=E(net)$weight/1.4, edge.arrow.size=0.5)
 #dev.off()
+plot(net, edge.width=E(G)$weight/0.8,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),
+                                                    "#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.5,edge.arrow.color=(alpha.f = .5),edge.color=adjustcolor(c(rep("#0072B2",5),"#D55E00",rep("#0072B2",9), rep("#009E73",13),
+                                                                                                                                        rep("#D55E00",4),rep("#0072B2",7),rep("#D55E00",5),alpha.f = .5)))
 
 
-(d+t(d)>0)
+
+
 #Example
 int.to.dom=function(x){ ((x<=(t(x)+0.2)) & ((x<=t(x)-0.2)) & (x+t(x)>0))+0}
 d <- int.to.dom(effect)
