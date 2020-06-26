@@ -8,8 +8,8 @@ corrplot(M, method = "circle")
 #We can kill two birds with one stone, showing the correlation and all the traits
 
 
-traits_all <- read.csv("Data/traits_all.csv")
-si_index <- readRDS("Data/si_index.RData")
+traits_all <- read.csv("Data/Csv/traits_all.csv")
+si_index <- readRDS("Data/RData/si_index.RData")
 traits_all$si_index <- si_index
 traits_all=traits_all[,-c(1,2)]
 traits_all=traits_all[,-c(1,7,11)]
