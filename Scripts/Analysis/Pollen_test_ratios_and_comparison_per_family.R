@@ -77,7 +77,8 @@ CLD <- CLD(lsm,alpha=0.05,adjust="tukey")
 par(mfrow=c(2,2))
 ggplot(CLD,aes(x= fam_foc,y= lsmean,
                label = .group)) +theme_minimal()+
-  geom_point(shape  = 15,size   = 4) +ggtitle("A) Comparison of ratios as recipient")+
+  geom_point(data = CLD, aes(x = fam_foc, y = lsmean, color = fam_foc),shape  = 15,size   = 4) +
+scale_color_manual(values = c("Convolvulaceae" = "black", "Solanaceae" = "red", "Brassicaceae" = "red"))+ggtitle("A) Comparison of ratios as recipient")+
   geom_errorbar(aes(ymin  =  lower.CL,ymax  =  upper.CL),
                 width =  0.2,size =  0.7)+ylab("Least square mean")+xlab("Families")+
   geom_text(nudge_x = c(0, 0, 0), nudge_y = c(0.8, 0.8, 0.8),color   = "black")

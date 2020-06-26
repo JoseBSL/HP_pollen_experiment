@@ -50,11 +50,14 @@ __Figure S3.__ Pollen ratios for the different recipient species.
 
 __Figure S4.__ Pollen ratios for the different recipient species by family.
 
-__Figure S5.__ Statistical comparison of pollen ratios by family as pollen donor and recipient.
+__Figure S5.__ Unipartite bidirectional network with asymmetrical effect
 
-__Figure S6.__ Violin plot of the reproductive biology of the species.
+__Figure S6.__ Statistical comparison of pollen ratios by family as pollen donor and recipient.
 
-__Figure S7.__ Grouped effect sizes by family for each recipient species.
+__Figure S7.__ Violin plot of the reproductive biology of the species.
+
+__Figure S8.__ Grouped effect sizes by family for each recipient species.
+
 
 \newpage
 
@@ -106,7 +109,9 @@ kable(dat, "latex", longtable = F, escape = FALSE,digits=2,booktabs = T,linesep 
 
 \newpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7}
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="Fig S2"}
 library(ggplot2)
 setwd("~/R_projects/Hp_pollen_experiment")
 total_pollen <- read.csv("Data/Csv/total_pollen.csv")
@@ -119,7 +124,7 @@ ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable,width=.9)) +
 
 \newpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7,  fig.cap="Fig S3"}
 par(mar=c(30,13,2,4),xpd=F)
 setwd("~/R_projects/Hp_pollen_experiment")
 data_percentage <-readRDS("Data/RData/per.RData")
@@ -135,7 +140,7 @@ abline(v=50,col="black")
 
 
 \newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="Fig S4"}
 par(mar=c(2,13,2,4),xpd=F)
 par(mfrow=c(3,1))
 setwd("~/R_projects/Hp_pollen_experiment")
@@ -158,9 +163,13 @@ text(6.8,6.8,"C) Solanaceae")
 
 ```
 
-\newpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12, fig.align='center', fig.cap="Fig S5"}
+
+\clearpage
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S4** Pollen ratios comparisons between the different pollen recipient families where the boxes represent least square means, the error bars, confidence intervals 95%, and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen), and then compared by family (N=20)."}
+
 
 #Here I try to compare the different proportions of pollen between the different groups
 #I use Tukey method
@@ -256,8 +265,6 @@ theme_ms <- function(base_size=12, base_family="Helvetica") {
       ))
 }
 
-
-par(mfrow=c(2,2))
 ggplot(CLD,aes(x= fam_foc,y= lsmean,
                label = .group)) +theme_ms()+
   geom_point(shape  = 15,size   = 4) +ggtitle("")+
@@ -270,8 +277,85 @@ ggplot(CLD,aes(x= fam_foc,y= lsmean,
 
 \newpage
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=12,fig.width=12,  fig.cap="**Fig. S5** Unipartite bidirectional network with asymmetrical effect. The lines with the arrow heads connect the impact of foreign pollen (effect size) of each pollen donor species on each recipient species. All the arrow heads point to the recipient species of the reciprocal interaction. Lines of species that did not have a negative impact are not represented. The different nodes and the donor species appear coloured by family: Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green). The intensity of the effect is represented by the line´s size where a larger effect size corresponds to a thicker line and a thinner line to a smaller effect size. Species code: BROL: Brassica oleracea, BRRA: Brassica rapa, ERSA: Eruca sativa, SIAL: Sinapis alba, IPAQ: Ipomoea aquatica, IPPU: Ipomoea purpurea, CAAN: Capsicum annuum, PEIN: Petunia integrifolia, SOLY: Solanum lycopersicum, SOME: Solanum melongena."}
+library(statnet)
+library(reshape2)
+library(sna)
+library(igraph)
+setwd("~/R_projects/Hp_pollen_experiment")
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12, out.width = "100%", fig.align='center', fig.cap="Fig S6"}
+#######################################
+############ Data preparataion ########
+#######################################
+
+#In this script I'm going to plot the transitivity of the effect oh HP pollen with effect sizes
+effect <- readRDS("Data/RData/matrix_effect_size.RData")
+#Now I convert the few values over 0 to maximum 0 (control)
+effect[effect>0]<-0
+#absolute values so less confusing without negative values
+#So now greater values involve greater effect
+#(opposite way in comparison with negative values as before)
+effect=abs(effect)
+#UNIPARTITE DOUBLE ASSYMETRICAL EFFECT
+G <- graph.adjacency(t(effect),weighted=TRUE,diag=FALSE)
+#plot(G)
+E <- t(apply(get.edgelist(G),1,sort))
+E(G)$curved <- 0
+E(G)[duplicated(E) | duplicated(E,fromLast =TRUE)]$curved <- 0.2
+plot(G, edge.width=E(G)$weight/0.5,  vertex.color=c(rep("#0072B2",2),"#D55E00","#0072B2", rep("#009E73",2),
+              "#D55E00","#0072B2", rep("#D55E00",2)),edge.arrow.size=0.8,edge.color=adjustcolor(c(rep("#0072B2",8),rep("#0072B2",8), rep("#D55E00",7), 
+              rep("#0072B2",9),rep("#009E73",7),rep("#009E73",9),rep("#D55E00",7),rep("#0072B2",8), rep("#D55E00",8), rep("#D55E00",7)), alpha.f = .5))
+
+
+```
+
+
+\clearpage
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6, fig.cap="**Fig S6** Graphical representation of the correlation matrix of the different reproductive traits considered in the experiment. Positive correlations are displayed in blue and negative in red. The intensity, size and colour of the circles are proportional to the correlation coefficient from Pearson’s r."}
+#install.packages("corrplot")
+library(corrplot)
+setwd("~/R_projects/Hp_pollen_experiment")
+#Example
+#I'm going to try to show our traits on this way
+#M <- cor(mtcars)
+#corrplot(M, method = "circle")
+#We can kill two birds with one stone, showing the correlation and all the traits
+traits_all <- read.csv("Data/Csv/traits_all.csv")
+si_index <- readRDS("Data/RData/si_index.RData")
+traits_all$si_index <- si_index
+traits_all=traits_all[,-c(1,2)]
+traits_all=traits_all[,-c(1,7,11)]
+#Change order of ovary width length I rename below in row and colname
+a<-traits_all[,11]
+b<-traits_all[,12]
+traits_all[,11] <-b
+traits_all[,12]<- a
+traits_all<- cor(traits_all)
+
+rownames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio",
+                         "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width",
+                         "Ovary length", "Ovary width", "SI index")
+
+colnames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio",
+                "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width",
+                "Ovary length", "Ovary width", "SI index")
+  
+#corrplot(traits_all, method = "circle")
+#corrplot(traits_all, type = "upper")
+par(mar=c(0,4.1,4.1,2.1))
+corrplot(traits_all, type = "lower", tl.cex = 0.8, cl.cex = 0.8, tl.col = "black", tl.srt = 45)
+
+#Add Compatibility index!
+
+```
+
+
+\clearpage
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S7** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments (apomixis, hand cross pollination, hand self pollination and spontaneous selfing). The coloured dots, represent the different values of seed set for each treatment."}
+
 setwd("~/R_projects/Hp_pollen_experiment")
 
 #Script to plot the reproductive biology tests
@@ -280,6 +364,16 @@ library(ggplot2)
 #install.packages("devtools")
 library(devtools)
 #install_github("easyGgplot2", "kassambara")
+library(effsize)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(cowplot)
+library(gridExtra)
+library(egg)
+library(magrittr)
+library(multipanelfigure)
+library(grid)
 
 brol <- read.csv("Raw_data/brol_seed_set_final.csv")
 brra <- read.csv("Raw_data/brra_seed_set_final.csv")
@@ -358,30 +452,18 @@ d$Species[d$Species=="CAAN"]<-"C. annuum"
 
 cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 
-rep_bio <- ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
+ ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
   geom_violin(scale = "width",draw_quantiles = c(0.5))+
   geom_dotplot(binaxis='y', 
                dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
   theme_minimal()+labs(y="Seed:ovule ratio")+scale_fill_manual(values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(legend.title = element_blank(),plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
- 
-rep_bio
- #pdf("test.pdf", width = 12, height = 5)
- 
- #ggsave("Images_publication/Figure2.png", width = 12, height = 5,dpi = 1200)
- 
-ggsave(filename = "rep_bio.pdf", rep_bio, width = 12, height = 5, units = "in",dpi = 1000)
-
-# insert ggplot code
-dev.off()
-
-
 
 ```
 
 \newpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="S7"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="**Fig. S8** Effect sizes (95% confidence intervals) of the different families on each focal species (recipient) and a hand cross-pollination treatment (control). For each species the control treatment appears in yellow and the grouped effect per family in blue for Brassicaceae, green for Convolvulaceae and orange for Solanaceae."}
 
 library(effsize)
 library(dplyr)
