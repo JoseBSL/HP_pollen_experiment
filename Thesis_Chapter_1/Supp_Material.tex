@@ -60,6 +60,7 @@
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{setspace}\doublespacing
 \usepackage{float}
+\usepackage{caption}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -79,6 +80,11 @@
 \date{\vspace{-2.5em}}
 
 \begin{document}
+
+\captionsetup[figure]{labelformat=empty}
+
+\captionsetup[table]{labelformat=empty}
+\renewcommand{\figurename}{}
 
 \hypertarget{supporting-information}{%
 \section{Supporting information:}\label{supporting-information}}
@@ -138,70 +144,124 @@ species.
 
 \newpage
 
-\begin{table}[H]
-\centering\begingroup\fontsize{7}{9}\selectfont
+\#TABLE S1 \begingroup\fontsize{7}{9}\selectfont
 
-\begin{tabular}{llll}
+\begin{longtabu} to \linewidth {>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X}
 \toprule
-Species & Common\_names & Variety & Source\\
-\midrule
-Brassica oleracea & Wild cabbage & Capitata & https://www.mrfothergills.com.au/\\
-Brassica rapa & Pak choi & Chinensis & https://www.mrfothergills.com.au/\\
-Eruca sativa & Rocket &  & https://www.mrfothergills.com.au/\\
-Sinapis alba & White mustard &  & https://www.mrfothergills.com.au/\\
-Ipomoea aquatica & Water spinach &  & https://www.theseedcollection.com.au/\\
-\addlinespace
-Ipomoea purpurea & Morning glory &  & http://www.shaman-australis.com.au\\
-Capsicum annuum & Capsicum & California Wonder & https://www.edenseeds.com.au\\
-Petunia integrifolia & Petunia &  & https://www.dianeseeds.com/\\
-Solanum lycopersicum & Tomato & Tommy Toe & https://www.mrfothergills.com.au/\\
-Solanum melongena & Eggplant & Little Fingers & https://www.4seasonsseeds.com.au/\\
-\bottomrule
-\end{tabular}
-\endgroup{}
-\end{table}
-
-\begin{landscape}
-
-\begingroup\fontsize{7}{9}\selectfont
-
-\begin{longtabu} to \linewidth {>{\raggedright}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
-\toprule
-species & pollen\_size & mean\_pollen\_anther & mean\_ovules & pollen\_ovule\_ratio & stigma\_area & stigma\_length & stigma\_width & style\_length & style\_width & ovary\_length & ovary\_width & Selfing\_rate & si\_index\\
+\textbf{Species} & \textbf{Common\_names} & \textbf{Variety} & \textbf{Source}\\
 \midrule
 \endfirsthead
-\multicolumn{14}{@{}l}{\textit{(continued)}}\\
+\multicolumn{4}{@{}l}{\textit{(continued)}}\\
 \toprule
-species & pollen\_size & mean\_pollen\_anther & mean\_ovules & pollen\_ovule\_ratio & stigma\_area & stigma\_length & stigma\_width & style\_length & style\_width & ovary\_length & ovary\_width & Selfing\_rate & si\_index\\
+Species & Common\_names & Variety & Source\\
 \midrule
 \endhead
 \
 \endfoot
 \bottomrule
 \endlastfoot
-\rowcolor{gray!6}  Brassica oleracea & 27.72 & 42033 & 29 & 8696.48 & 622167.06 & 527.81 & 884.88 & 2324.53 & 650.95 & 5927.46 & 1112.20 & 0.0 & 0.00\\
+\rowcolor{gray!6}  Brassica oleracea & Wild cabbage & Capitata & https://www.mrfothergills.com.au/\\
 \addlinespace
-Brassica rapa & 25.35 & 7133 & 26 & 1646.08 & 356582.77 & 372.34 & 733.96 & 1080.80 & 517.28 & 3531.94 & 877.76 & 0.0 & 0.00\\
+Brassica rapa & Pak choi & Chinensis & https://www.mrfothergills.com.au/\\
 \addlinespace
-\rowcolor{gray!6}  Capsicum annuum & 32.46 & 30761 & 241 & 765.83 & 1060683.56 & 724.84 & 1177.27 & 3237.91 & 1057.23 & 3148.37 & 5797.99 & 0.8 & 0.64\\
+\rowcolor{gray!6}  Eruca sativa & Rocket &  & https://www.mrfothergills.com.au/\\
 \addlinespace
-Eruca versicaria & 24.95 & 22151 & 24 & 5537.75 & 345791.76 & 733.24 & 668.01 & 6595.94 & 730.84 & 4423.42 & 937.49 & 0.1 & 0.02\\
+Sinapis alba & White mustard &  & https://www.mrfothergills.com.au/\\
 \addlinespace
-\rowcolor{gray!6}  Ipomoea aquatica & 70.10 & 858 & 4 & 1072.50 & 3255360.52 & 1430.34 & 2251.70 & 19441.30 & 453.06 & 2384.95 & 1416.57 & 0.6 & 0.75\\
+\rowcolor{gray!6}  Ipomoea aquatica & Water spinach &  & https://www.theseedcollection.com.au/\\
 \addlinespace
-Ipomoea purpurea & 97.59 & 654 & 6 & 545.00 & 2271922.21 & 1238.40 & 1878.23 & 28230.08 & 579.81 & 1056.54 & 1573.48 & 1.0 & 2.74\\
+Ipomoea purpurea & Morning glory &  & http://www.shaman-australis.com.au\\
 \addlinespace
-\rowcolor{gray!6}  Petunia integrifolia & 24.74 & 34657 & 220 & 787.66 & 1168415.58 & 799.76 & 1322.44 & 14645.14 & 449.18 & 3128.93 & 1771.59 & 0.9 & 0.26\\
+\rowcolor{gray!6}  Capsicum annuum & Capsicum & California Wonder & https://www.edenseeds.com.au\\
 \addlinespace
-Sinapis alba & 33.59 & 3507 & 6 & 3507.00 & 548562.10 & 631.04 & 906.31 & 3624.95 & 773.86 & 1981.32 & 1073.18 & 0.7 & 1.12\\
+Petunia integrifolia & Petunia &  & https://www.dianeseeds.com/\\
 \addlinespace
-\rowcolor{gray!6}  Solanum lycopersicum & 22.00 & 28915 & 92 & 1885.76 & 91567.14 & 190.22 & 351.60 & 6466.81 & 310.19 & 1161.33 & 1133.40 & 0.7 & 0.48\\
+\rowcolor{gray!6}  Solanum lycopersicum & Tomato & Tommy Toe & https://www.mrfothergills.com.au/\\
 \addlinespace
-Solanum melongena & 25.18 & 166989 & 1010 & 992.01 & 1137294.13 & 961.83 & 1332.16 & 11329.30 & 936.53 & 4020.49 & 3554.43 & 1.0 & 1.45\\*
+Solanum melongena & Eggplant & Little Fingers & https://www.4seasonsseeds.com.au/\\*
 \end{longtabu}
 \endgroup{}
 
+\begin{landscape}
+
+TABLE S2
+\begingroup\fontsize{6}{8}\selectfont
+
+\resizebox{\linewidth}{!}{
+\begin{tabu} to \linewidth {>{\raggedright\arraybackslash}p{2cm}>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\toprule
+\textbf{Species} & \textbf{Pollen size $\mu$m} & \textbf{Pollen grains per anther} & \textbf{Ovule number} & \textbf{Pollen:ovule ratio} & \textbf{Stigma area $\mu$m$^{2}$} & \textbf{Stigma length (mm)} & \textbf{Stigma width (mm)} & \textbf{Style length (mm)} & \textbf{Style width (mm)} & \textbf{Ovary length (mm)} & \textbf{Ovary width (mm)} & \textbf{Selfing rate} & \textbf{SI index}\\
+\midrule
+\rowcolor{gray!6}  Brassica oleracea & 27.72 & 42033 & 29 & 8696.48 & 0.62 & 0.53 & 0.88 & 2.32 & 0.65 & 5.93 & 1.11 & 0.0 & 0.00\\
+\addlinespace
+Brassica rapa & 25.35 & 7133 & 26 & 1646.08 & 0.36 & 0.37 & 0.73 & 1.08 & 0.52 & 3.53 & 0.88 & 0.0 & 0.00\\
+\addlinespace
+\rowcolor{gray!6}  Capsicum annuum & 32.46 & 30761 & 241 & 765.83 & 1.06 & 0.72 & 1.18 & 3.24 & 1.06 & 3.15 & 5.80 & 0.8 & 0.64\\
+\addlinespace
+Eruca versicaria & 24.95 & 22151 & 24 & 5537.75 & 0.35 & 0.73 & 0.67 & 6.60 & 0.73 & 4.42 & 0.94 & 0.1 & 0.02\\
+\addlinespace
+\rowcolor{gray!6}  Ipomoea aquatica & 70.10 & 858 & 4 & 1072.50 & 3.26 & 1.43 & 2.25 & 19.44 & 0.45 & 2.38 & 1.42 & 0.6 & 0.75\\
+\addlinespace
+Ipomoea purpurea & 97.59 & 654 & 6 & 545.00 & 2.27 & 1.24 & 1.88 & 28.23 & 0.58 & 1.06 & 1.57 & 1.0 & 2.74\\
+\addlinespace
+\rowcolor{gray!6}  Petunia integrifolia & 24.74 & 34657 & 220 & 787.66 & 1.17 & 0.80 & 1.32 & 14.65 & 0.45 & 3.13 & 1.77 & 0.9 & 0.26\\
+\addlinespace
+Sinapis alba & 33.59 & 3507 & 6 & 3507.00 & 0.55 & 0.63 & 0.91 & 3.62 & 0.77 & 1.98 & 1.07 & 0.7 & 1.12\\
+\addlinespace
+\rowcolor{gray!6}  Solanum lycopersicum & 22.00 & 28915 & 92 & 1885.76 & 0.09 & 0.19 & 0.35 & 6.47 & 0.31 & 1.16 & 1.13 & 0.7 & 0.48\\
+\addlinespace
+Solanum melongena & 25.18 & 166989 & 1010 & 992.01 & 1.14 & 0.96 & 1.33 & 11.33 & 0.94 & 4.02 & 3.55 & 1.0 & 1.45\\
+\bottomrule
+\end{tabu}}
+\endgroup{}
 
 \end{landscape}
+
+TABLE S3 \begingroup\fontsize{6}{8}\selectfont
+
+\resizebox{\linewidth}{!}{
+\begin{tabu} to \linewidth {>{\raggedright\arraybackslash}p{2cm}>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\toprule
+\textbf{Species} & \textbf{Hand cross-pollination} & \textbf{Hand self-pollination} & \textbf{Spontaneous selfing} & \textbf{Apomixis}\\
+\midrule
+\rowcolor{gray!6}  Brassica oleracea & 32.07 & 0.00 & 0.00 & 0\\
+\addlinespace
+Brassica rapa & 44.97 & 0.00 & 0.00 & 0\\
+\addlinespace
+\rowcolor{gray!6}  Capsicum annuum & 80.00 & 56.47 & 19.34 & 0\\
+\addlinespace
+Eruca sativa & 23.75 & 0.42 & 0.00 & 0\\
+\addlinespace
+\rowcolor{gray!6}  Ipomoea aquatica & 40.00 & 30.00 & 20.00 & 0\\
+\addlinespace
+Ipomoea purpurea & 31.67 & 86.67 & 31.67 & 0\\
+\addlinespace
+\rowcolor{gray!6}  Petunia integrifolia & 80.16 & 24.77 & 0.00 & 0\\
+\addlinespace
+Sinapis alba & 41.67 & 48.33 & 5.00 & 15\\
+\addlinespace
+\rowcolor{gray!6}  Solanum lycopersium & 85.65 & 41.20 & 68.48 & 0\\
+\addlinespace
+Solanum melongena & 60.48 & 74.87 & 21.56 & 0\\
+\bottomrule
+\end{tabu}}
+\endgroup{}
+
+\newpage
+
+\begin{center}\includegraphics[width=1\linewidth]{Supp_Material_files/figure-latex/unnamed-chunk-4-1} \end{center}
+
+\begin{verbatim}
+## null device 
+##           1
+\end{verbatim}
+
+\newpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-5-1.pdf}
+\caption{S7}
+\end{figure}
 
 \end{document}
