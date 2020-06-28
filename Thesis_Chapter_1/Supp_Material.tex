@@ -1,45 +1,32 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[
-  12pt,
-]{article}
+\documentclass[12pt,]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
 \hypersetup{
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -50,14 +37,31 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
 \usepackage{setspace}\doublespacing
 \usepackage{float}
 \usepackage{caption}
@@ -82,16 +86,13 @@
 \begin{document}
 
 \captionsetup[figure]{labelformat=empty}
-\captionsetup[table]{labelformat=empty}
-\renewcommand{\figurename}{}
+\captionsetup[table]{labelformat=empty} \renewcommand{\figurename}{}
 
-\hypertarget{supporting-information}{%
-\section{Supporting information:}\label{supporting-information}}
+\section{Supporting information:}\label{supporting-information}
 
-\hypertarget{recipient-and-donor-characteristics-govern-hierarchical-structure-in-a-heterospecific-pollen-competition-network-of-co-flowering-plants}{%
 \section{Recipient and donor characteristics govern hierarchical
 structure in a heterospecific pollen competition network of co-flowering
-plants}\label{recipient-and-donor-characteristics-govern-hierarchical-structure-in-a-heterospecific-pollen-competition-network-of-co-flowering-plants}}
+plants}\label{recipient-and-donor-characteristics-govern-hierarchical-structure-in-a-heterospecific-pollen-competition-network-of-co-flowering-plants}
 
 \textbf{Authors:} Jose B. Lanuza, Ignasi Bartomeus, Tia Lynn Ashman,
 Romina Rader
@@ -146,7 +147,9 @@ species.
 
 \newpage
 
-\#TABLE S1 \begingroup\fontsize{7}{9}\selectfont
+\section{TABLE S1}\label{table-s1}
+
+\begingroup\fontsize{7}{9}\selectfont
 
 \begin{longtabu} to \linewidth {>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X}
 \toprule
@@ -158,7 +161,7 @@ species.
 Species & Common\_names & Variety & Source\\
 \midrule
 \endhead
-\
+
 \endfoot
 \bottomrule
 \endlastfoot
@@ -182,6 +185,7 @@ Petunia integrifolia & Petunia &  & https://www.dianeseeds.com/\\
 \addlinespace
 Solanum melongena & Eggplant & Little Fingers & https://www.4seasonsseeds.com.au/\\*
 \end{longtabu}
+
 \endgroup{}
 
 \begin{landscape}
@@ -246,32 +250,34 @@ Sinapis alba & 41.67 & 48.33 & 5.00 & 15\\
 \addlinespace
 Solanum melongena & 60.48 & 74.87 & 21.56 & 0\\
 \bottomrule
-\end{tabu}}
-\endgroup{}
+\end{tabu}} \endgroup{}
 
 \newpage
 
 \begin{figure}
 \centering
 \includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-4-1.pdf}
-\caption{Fig S2}
+\caption{Fig S1}
 \end{figure}
 
-\newpage
+\clearpage
 
 \begin{figure}
 \centering
 \includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-5-1.pdf}
-\caption{Fig S3}
+\caption{\textbf{Fig S3} Average proportion of heterospecific pollen per
+family for the different 20 treatments counted. On the label of the
+y-axis, the first family is the pollen recipient family, and the second,
+the pollen donor family. These pollen ratios are the number of
+heterospecific pollen grains divided by the total pollen grains per
+stigma (conspecific and heterospecific pollen) and then averaged by
+family (N=20). The vertical bar on intercept 50, represents equal
+proportions of both recipient (grey) and donor (light blue) pollen.}
 \end{figure}
 
-\newpage
+\clearpage
 
-\begin{figure}
-\centering
 \includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-6-1.pdf}
-\caption{Fig S4}
-\end{figure}
 
 \clearpage
 
@@ -293,7 +299,7 @@ family (N=20).}
 \begin{figure}
 \centering
 \includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-8-1.pdf}
-\caption{\textbf{Fig S5} Unipartite bidirectional network with
+\caption{\textbf{Fig. S5} Unipartite bidirectional network with
 asymmetrical effect. The lines with the arrow heads connect the impact
 of foreign pollen (effect size) of each pollen donor species on each
 recipient species. All the arrow heads point to the recipient species of

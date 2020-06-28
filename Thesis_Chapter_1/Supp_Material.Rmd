@@ -111,7 +111,7 @@ kable(dat, "latex", longtable = F, escape = FALSE,digits=2,booktabs = T,linesep 
 
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="Fig S2"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="Fig S1"}
 library(ggplot2)
 setwd("~/R_projects/Hp_pollen_experiment")
 total_pollen <- read.csv("Data/Csv/total_pollen.csv")
@@ -122,9 +122,9 @@ ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable,width=.9)) +
 
 ```
 
-\newpage
+\clearpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7,  fig.cap="Fig S3"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7,  fig.cap="**Fig S3** Average proportion of heterospecific pollen per family for the different 20 treatments counted. On the label of the y-axis, the first family is the pollen recipient family, and the second, the pollen donor family. These pollen ratios are the number of heterospecific pollen grains divided by the total pollen grains per stigma (conspecific and heterospecific pollen) and then averaged by family (N=20). The vertical bar on intercept 50, represents equal proportions of both recipient (grey) and donor (light blue) pollen."}
 par(mar=c(30,13,2,4),xpd=F)
 setwd("~/R_projects/Hp_pollen_experiment")
 data_percentage <-readRDS("Data/RData/per.RData")
@@ -139,8 +139,10 @@ abline(v=50,col="black")
 ```
 
 
-\newpage
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="Fig S4"}
+\clearpage
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=7,fig.width=7, fig.cap=""}
+
 par(mar=c(2,13,2,4),xpd=F)
 par(mfrow=c(3,1))
 setwd("~/R_projects/Hp_pollen_experiment")
