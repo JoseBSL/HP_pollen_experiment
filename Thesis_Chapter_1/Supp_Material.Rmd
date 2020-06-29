@@ -20,7 +20,7 @@ header-includes:
 
 # Supporting information:
 
-# Recipient and donor characteristics govern hierarchical structure in a heterospecific pollen competition network of co-flowering plants
+# Recipient and donor characteristics govern the hierarchical structure of heterospecific pollen competition networks
 
 __Authors:__ Jose B. Lanuza, Ignasi Bartomeus, Tia Lynn Ashman, Romina Rader
 
@@ -42,21 +42,22 @@ __Table S7.__ Phylogenetic signal and significance for all the different traits
 
 __Table S8.__ Procrustes analysis results.
 
-__Figure S1.__ Correlation matrix for all the different traits.
+__Figure S1__. Total amount of pollen deposited per stigma.
 
-__Figure S2.__ Total amount of pollen found for the different treatments.
+__Figure S2__. Pollen ratios for the different recipient species.
 
-__Figure S3.__ Pollen ratios for the different recipient species.
+__Figure S3__. Pollen ratios for the different recipient species by family.
 
-__Figure S4.__ Pollen ratios for the different recipient species by family.
+__Figure S4__. Statistical comparison of the pollen ratios by family.
 
-__Figure S5.__ Unipartite bidirectional network with asymmetrical effect
+__Figure S5__. Unipartite bidirectional network with asymmetrical effect.
 
-__Figure S6.__ Statistical comparison of pollen ratios by family as pollen donor and recipient.
+__Figure S6__. Correlation matrix for all the different traits.
 
-__Figure S7.__ Violin plot of the reproductive biology of the species.
+__Figure S7__. Species reproductive biology.
 
-__Figure S8.__ Grouped effect sizes by family for each recipient species.
+__Figure S8__. Grouped effect sizes by family for each recipient species.
+
 
 
 \newpage
@@ -111,28 +112,61 @@ kable(dat, "latex", longtable = F, escape = FALSE,digits=2,booktabs = T,linesep 
 
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="Fig S1"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6 ,fig.width=7, fig.cap="**Fig. S1** Average number of pollen grains per stigma for 20 different treatments (3 replicates per tratment). For each treatment, we show the average number of conspecific pollen grains (grey) and heterospecific pollen grains (light blue) per stigma. For each pair of species on the x-axis, the first species is the recipient species, and the second, the donor species."}
+
 library(ggplot2)
+
 setwd("~/R_projects/Hp_pollen_experiment")
 total_pollen <- read.csv("Data/Csv/total_pollen.csv")
 ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable,width=.9)) +
-  geom_bar(stat='identity', position='dodge')+theme_minimal()+
+  geom_bar(stat='identity', position='dodge')+theme_light()+ 
   theme(legend.title = element_blank(),axis.text.x=element_text(angle=60,hjust=1,face="italic"))+
-  scale_fill_manual(values=c("#999999","#779799"),labels = c("Recipient","Donor"))+labs(x = "",y="Pollen on stigma")
+  scale_fill_manual(values=c("#999999","#779799"),labels = c("Conspecific pollen","Heterospecific pollen"))+labs(x = "",y="Pollen grains per stigma")
+
+```
+
+
+\clearpage
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=7,fig.width=7, fig.cap="**Fig. S2** Average proportion of conspecific and heterospecific pollen per stigma grouped by family, A) Brassicaceae, B) Solanaceae and C) Convolvulaceae. These proportions (%) are the number of conspecific pollen grains or heterospecific pollen grains divided by the total number of pollen grains per stigma for 20 different treatments. We conducted 3 count replicates per treatment and then we calculated the average number of pollen grains for these treatments. The proportion of conspecific and heterospecific pollen are shown in grey and light blue respectively. For each pair of species on the y-axis, the first species is the pollen recipient and the second the pollen donor. The vertical black line represents 50% pollen of both donor and recipient."}
+
+par(mar=c(2,13,2,4),xpd=F)
+par(mfrow=c(3,1))
+setwd("~/R_projects/Hp_pollen_experiment")
+ratio_bra <-readRDS("Data/RData/ratio_bra.RData")
+coul = c("#999999","#779799")
+barplot(ratio_bra,hor=T, xlim=c(-1,100),ylim=c(-2,7),width = 0.5,col=coul ,space=0.5,border="white",srt=80,las=1,cex.axis=1,cex.names=1,font=3,names=c("E. sativa-I. purpurea", "B. oleracea-I. purpurea","B. rapa-I. purpurea", "S. alba-I. aquatica", "S. alba-S. melongena", "E. sativa-P. integrifolia", "B. rapa-S. lycopersicum", "B. oleracea-C. annuum"))
+abline(v=50,col="black")
+legend(-1,-0.1,legend=c("Conspecific pollen","Heterospecific pollen"),bty="n",fill = coul)
+text(8.3,6.8,"A) Brassicaceae")
+ratio_con <-readRDS("Data/RData/ratio_con.RData")
+barplot(ratio_con,hor=T, xlim=c(-1,100),ylim=c(-2,5),width = 0.5,col=coul ,space=0.5,border="white",srt=80,las=1,cex.axis=1,cex.names=1,font=3,names=c("I. purpurea-S. melongena","I. aquatica-C. annuum","I. purpurea-E. sativa","I. aquatica-S. alba"))
+abline(v=50,col="black")
+legend(-1,-0.5,legend=c("Conspecific pollen","Heterospecific pollen"),bty="n",fill = coul)
+text(9,3.5,"B) Convolvulaceae")
+
+ratio_sol <-readRDS("Data/RData/ratio_sol.RData")
+barplot(ratio_sol,hor=T, xlim=c(-1,100),ylim=c(-2,7),width = 0.5,col=coul ,space=0.5,border="white",srt=80,las=1,cex.axis=1,cex.names=1,font=3,names=c("C. annuum-I. purpurea", "S. melongena-I. aquatica", "P. integrifolia-I. aquatica", "S. lycopersicum-I aquatica","S. melongena-E. sativa", "P. integrifolia-E. sativa", "C. annuum-S. alba", "S. lycopersicum-B. rapa"))
+abline(v=50,col="black")
+legend(-1,-0.1,legend=c("Conspecific pollen","Heterospecific pollen"),bty="n",fill = coul)
+text(6.8,6.8,"C) Solanaceae")
 
 ```
 
 \clearpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7,  fig.cap="**Fig S3** Average proportion of heterospecific pollen per family for the different 20 treatments counted. On the label of the y-axis, the first family is the pollen recipient family, and the second, the pollen donor family. These pollen ratios are the number of heterospecific pollen grains divided by the total pollen grains per stigma (conspecific and heterospecific pollen) and then averaged by family (N=20). The vertical bar on intercept 50, represents equal proportions of both recipient (grey) and donor (light blue) pollen."}
-par(mar=c(30,13,2,4),xpd=F)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=4.5,fig.width=5,  fig.cap="**Fig. S3** Average proportion (%) of heterospecific and conspecific pollen per family for the different 20 treatments counted. We conducted 3 count replicates per treatment and then we calculated the average number of pollen grains for these different 20 treatments. Finally, we grouped by family these treatments in order to see general tendencies across families as pollen donor and as pollen recipient. Pollen ratios were considered as the number of conspecific or heterospecific pollen grains divided by the total number of pollen grains per stigma. On the y-axis, the first family on each pair of plant families is the recipient one, and the second, the family of the donor. The vertical bar on intercept 50, represents equal proportions of both recipient (grey) and donor (light blue) pollen."}
+
+par(mar=c(2,8.7,2,2),xpd=F)
 setwd("~/R_projects/Hp_pollen_experiment")
 data_percentage <-readRDS("Data/RData/per.RData")
 data_percentage=as.matrix(data_percentage)
 coul = c("#999999","#779799")
-barplot(data_percentage,hor=T, xlim=c(-1,100),ylim=c(-2,5),width = 0.5,col=coul ,space=0.5, border="white",srt=80,las=1,cex.axis=1,cex.names=1,names=c("Brassicaceae-Convolvulaceae",
+barplot(data_percentage,hor=T, xlim=c(-1,100),ylim=c(-2,5),width = 0.5,col=coul ,space=0.5, border="white",srt=80,las=1,cex.axis=0.85,cex.names=0.65,names=c("Brassicaceae-Convolvulaceae",
  "Brassicaceae-Solanaceae","Convolvulaceae-Brassicaceae","Convolvulaceae-Solanaceae","Solanaceae-Convolvulaceae","Solanaceae-Brassicaceae"))
-legend(-5,-0.5,legend=c("Recipient","Donor"),bty="n",fill = coul)
+legend(0,-0.5,legend=c("Conspecific pollen","Heterospecific pollen"),bty="n",fill = coul, cex = 0.65)
 abline(v=50,col="black")
 
 #lines(c(0,10),50,col="red")
@@ -141,36 +175,8 @@ abline(v=50,col="black")
 
 \clearpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=7,fig.width=7, fig.cap=""}
 
-par(mar=c(2,13,2,4),xpd=F)
-par(mfrow=c(3,1))
-setwd("~/R_projects/Hp_pollen_experiment")
-ratio_bra <-readRDS("Data/RData/ratio_bra.RData")
-barplot(ratio_bra,hor=T, xlim=c(-1,100),ylim=c(-2,7),width = 0.5,col=coul ,space=0.5,border="white",srt=80,las=1,cex.axis=1,cex.names=1,font=3,names=c("E. sativa-I. purpurea", "B. oleracea-I. purpurea","B. rapa-I. purpurea", "S. alba-I. aquatica", "S. alba-S. melongena", "E. sativa-P. integrifolia", "B. rapa-S. lycopersicum", "B. oleracea-C. annuum"))
-abline(v=50,col="black")
-legend(-1,-0.1,legend=c("Recipient","Donor"),bty="n",fill = coul)
-text(8.3,6.8,"A) Brassicaceae")
-ratio_con <-readRDS("Data/RData/ratio_con.RData")
-barplot(ratio_con,hor=T, xlim=c(-1,100),ylim=c(-2,5),width = 0.5,col=coul ,space=0.5,border="white",srt=80,las=1,cex.axis=1,cex.names=1,font=3,names=c("I. purpurea-S. melongena","I. aquatica-C. annuum","I. purpurea-E. sativa","I. aquatica-S. alba"))
-abline(v=50,col="black")
-legend(-1,-0.5,legend=c("Recipient","Donor"),bty="n",fill = coul)
-text(9,3.5,"B) Convolvulaceae")
-
-ratio_sol <-readRDS("Data/RData/ratio_sol.RData")
-barplot(ratio_sol,hor=T, xlim=c(-1,100),ylim=c(-2,7),width = 0.5,col=coul ,space=0.5,border="white",srt=80,las=1,cex.axis=1,cex.names=1,font=3,names=c("C. annuum-I. purpurea", "S. melongena-I. aquatica", "P. integrifolia-I. aquatica", "S. lycopersicum-I aquatica","S. melongena-E. sativa", "P. integrifolia-E. sativa", "C. annuum-S. alba", "S. lycopersicum-B. rapa"))
-abline(v=50,col="black")
-legend(-1,-0.1,legend=c("Recipient","Donor"),bty="n",fill = coul)
-text(6.8,6.8,"C) Solanaceae")
-
-```
-
-
-
-\clearpage
-
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S4** Pollen ratios comparisons between the different pollen recipient families where the boxes represent least square means, the error bars, confidence intervals 95%, and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen), and then compared by family (N=20)."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S4** Pollen ratios comparisons between the different pollen recipient families where the boxes represent least square means, the error bars, confidence intervals 95%, and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios (%) are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen), and then compared by family (N=20). Brassicacea family is coloured in blue, Convolvulaceae in green and Solanaceae in orange."}
 
 
 #Here I try to compare the different proportions of pollen between the different groups
@@ -269,9 +275,13 @@ theme_ms <- function(base_size=12, base_family="Helvetica") {
 
 ggplot(CLD,aes(x= fam_foc,y= lsmean,
                label = .group)) +theme_ms()+
-  geom_point(shape  = 15,size   = 4) +ggtitle("")+
-  geom_errorbar(aes(ymin  =  lower.CL,ymax  =  upper.CL),
-                width =  0.2,size =  0.7)+ylab("Least square mean")+xlab("Families")+ geom_text(nudge_x = c(0, 0, 0), nudge_y = c(0.8, 0.8, 0.8),color   = "black") + theme(axis.text.x = element_text(size=14, face="bold"))
+  geom_point(data = CLD, aes(x = fam_foc, y = lsmean, color = fam_foc),shape  = 15,size   = 4) +
+scale_color_manual(name = "Families",values = c("Convolvulaceae" = "#009E73", "Solanaceae" = "#D55E00", "Brassicaceae" = "#0072B2"))+ggtitle("")+
+  geom_errorbar(aes(ymin  =  lower.CL,ymax  =  upper.CL,  color = fam_foc),
+                width =  0.2,size =  0.9)+ylab("Least square mean")+xlab("Families")+
+  geom_text(nudge_x = c(0, 0, 0), nudge_y = c(0.8, 0.8, 0.8),color   = "black") + theme(legend.position = "none")
+
+
 
 
 ```
@@ -279,7 +289,8 @@ ggplot(CLD,aes(x= fam_foc,y= lsmean,
 
 \newpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=12,fig.width=12,  fig.cap="**Fig. S5** Unipartite bidirectional network with asymmetrical effect. The lines with the arrow heads connect the impact of foreign pollen (effect size) of each pollen donor species on each recipient species. All the arrow heads point to the recipient species of the reciprocal interaction. Lines of species that did not have a negative impact are not represented. The different nodes and the donor species appear coloured by family: Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green). The intensity of the effect is represented by the line´s size where a larger effect size corresponds to a thicker line and a thinner line to a smaller effect size. Species code: BROL: Brassica oleracea, BRRA: Brassica rapa, ERSA: Eruca sativa, SIAL: Sinapis alba, IPAQ: Ipomoea aquatica, IPPU: Ipomoea purpurea, CAAN: Capsicum annuum, PEIN: Petunia integrifolia, SOLY: Solanum lycopersicum, SOME: Solanum melongena."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=12,fig.width=12,  fig.cap="**Fig. S5** Unipartite bidirectional network with asymmetrical effect. The lines with the arrow heads connect the impact of foreign pollen (effect size) of each pollen donor species on each recipient species. All the arrow heads point to the recipient species of the reciprocal interaction. Lines of species that did not have a negative impact are not represented. The different nodes and the effect of the donor species on the recipient species appear coloured by family: Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green). The intensity of the effect is represented by the line´s size where a larger effect size corresponds to a thicker line and a thinner line to a smaller effect size. Species code: BROL: Brassica oleracea, BRRA: Brassica rapa, ERSA: Eruca sativa, SIAL: Sinapis alba, IPAQ: Ipomoea aquatica, IPPU: Ipomoea purpurea, CAAN: Capsicum annuum, PEIN: Petunia integrifolia, SOLY: Solanum lycopersicum, SOME: Solanum melongena."}
+
 library(statnet)
 library(reshape2)
 library(sna)
@@ -315,7 +326,7 @@ plot(G, edge.width=E(G)$weight/0.5,  vertex.color=c(rep("#0072B2",2),"#D55E00","
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6, fig.cap="**Fig S6** Graphical representation of the correlation matrix of the different reproductive traits considered in the experiment. Positive correlations are displayed in blue and negative in red. The intensity, size and colour of the circles are proportional to the correlation coefficient from Pearson’s r."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6, fig.cap="**Fig. S6** Graphical representation of the correlation matrix of the different reproductive traits considered in the experiment. Positive correlations are displayed in blue and negative in red. The intensity, size and colour of the circles are proportional to the correlation coefficient from Pearson’s r."}
 #install.packages("corrplot")
 library(corrplot)
 setwd("~/R_projects/Hp_pollen_experiment")
@@ -336,11 +347,11 @@ traits_all[,11] <-b
 traits_all[,12]<- a
 traits_all<- cor(traits_all)
 
-rownames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio",
+rownames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen grains/anther", "Number of ovules", "Pollen-ovule ratio",
                          "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width",
                          "Ovary length", "Ovary width", "SI index")
 
-colnames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio",
+colnames(traits_all)<- c("Selfing rate", "Pollen size", "Pollen grains/anther", "Number of ovules", "Pollen-ovule ratio",
                 "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width",
                 "Ovary length", "Ovary width", "SI index")
   
@@ -356,7 +367,7 @@ corrplot(traits_all, type = "lower", tl.cex = 0.8, cl.cex = 0.8, tl.col = "black
 
 \clearpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S7** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments (apomixis, hand cross pollination, hand self pollination and spontaneous selfing). The coloured dots, represent the different values of seed set for each treatment."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S7** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments: apomixis (orange), hand cross pollination (green), hand self pollination (blue) and spontaneous selfing (yellow). The coloured dots, represent the different values of seed set for each treatment."}
 
 setwd("~/R_projects/Hp_pollen_experiment")
 
@@ -458,14 +469,14 @@ cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
   geom_violin(scale = "width",draw_quantiles = c(0.5))+
   geom_dotplot(binaxis='y', 
                dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
-  theme_minimal()+labs(y="Seed:ovule ratio")+scale_fill_manual(values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(legend.title = element_blank(),plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
+  theme_minimal()+labs(y="Seed:ovule ratio")+scale_fill_manual(name="Treatments",values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
 
 ```
 
 \newpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=9,fig.width=7, fig.cap="**Fig. S8** Effect sizes (95% confidence intervals) of the different families on each focal species (recipient) and a hand cross-pollination treatment (control). For each species the control treatment appears in yellow and the grouped effect per family in blue for Brassicaceae, green for Convolvulaceae and orange for Solanaceae."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=8,fig.width=7, fig.cap="**Fig. S8** Grouped effect sizes (95% confidence intervals) of the different families on each focal species. For each species, the grouped effect by family is compared with the control treatment of hand cross pollination with conspecific pollen. The control treatment is represented in yellow and vertically intersected with a dashed line through the mean effect size in order to help the visual interpretation of the effect sizes. Any value to the left of the vertical dashed line represents a negative impact of foreign pollen. The different effect sizes and confidence intervals are coloured by family: Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green)."}
 
 library(effsize)
 library(dplyr)
@@ -484,8 +495,8 @@ load("Data/RData/some_effect_size_family.RData")
 pp1<- ggplot(some_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -496,8 +507,8 @@ load("Data/RData/soly_effect_size_family.RData")
 pp2<- ggplot(soly_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -507,8 +518,8 @@ load("Data/RData/sial_effect_size_family.RData")
 p3<- ggplot(sial_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -518,8 +529,8 @@ load("Data/RData/pein_effect_size_family.RData")
 p4<- ggplot(pein_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -529,8 +540,8 @@ load("Data/RData/ippu_effect_size_family.RData")
 p5<- ggplot(ippu_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -539,8 +550,8 @@ load("Data/RData/ipaq_effect_size_family.RData")
 p6<- ggplot(ipaq_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -549,8 +560,8 @@ load("Data/RData/ersa_effect_size_family.RData")
 p7<- ggplot(ersa_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -559,8 +570,8 @@ load("Data/RData/caan_effect_size_family.RData")
 p8<- ggplot(caan_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -569,8 +580,8 @@ load("Data/RData/brra_effect_size_family.RData")
 p9<- ggplot(brra_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
@@ -580,8 +591,8 @@ load("Data/RData/brol_effect_size_family.RData")
 p10<- ggplot(brol_effect_size, aes(Family,Cohen_d, size=10)) + theme_bw(base_size=10)+ geom_point(size=2,show.legend = FALSE,aes(color=factor(Family))) +
   geom_linerange(size=0.6,shape=3,linetype=1,show.legend=FALSE, aes(x = Family, ymin = Lower, 
 ymax = Upper,color=factor(Family)))+
-  scale_color_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
-  scale_fill_manual("Family",values=c("#E69F00", "#0072B2", "#009E73", "#D55E00"))+
+  scale_color_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
+  scale_fill_manual("Family",values=c("#D55E00",  "#009E73","#0072B2", "#E69F00"))+
   xlab("") + ylab("Cohen's d") + rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
   geom_hline(yintercept=0, linetype="dashed", color = "black")
 
