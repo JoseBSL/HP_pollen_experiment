@@ -1,0 +1,12 @@
+,B. oleracea,B. rapa,E. sativa,S. alba,I. aquatica,I. purpurea,C. annuum,P. integrifolia,S. lycopersicum ,S. melongena,S Significant effect of donors,% donors with significant effect
+B. oleracea,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,9,100
+B. rapa,No,,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,8,88.9
+E. sativa,Yes,No,,No,Yes,No,No,No,No,No,1,22.2
+S. alba,No,Yes,No,,Yes,Yes,Yes,No,No,No,4,44.4
+I. aquatica,Yes,Yes,Yes,Yes,,Yes,Yes,Yes,Yes,Yes,9,100
+I. purpurea,No,No,Yes,No,No,,Yes,No,Yes,No,3,33.3
+C. annuum,Yes,Yes,No,Yes,No,Yes,,Yes,Yes1,Yes,7,77.8
+P. integrifolia,Yes,No,No,Yes,Yes,Yes,No,,Yes,Yes,6,67.7
+S. lycopersicum,No,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,Yes,8,88.9
+S. melongena,No,Yes,Yes,No,Yes,Yes,Yes,No,No,,5,55.6
+,,,,,,,,,,,60,66.7

@@ -1,0 +1,37 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+library(kableExtra)
+setwd("~/R_projects/Hp_pollen_experiment")
+
+load("Data/RData/Table_s4.RData")
+
+Correlation <- c(selfing_pro[6], pollen_size_pro[6], mean_pollen_anther_pro[6], mean_ovules_pro[6], pollen_ovule_ratio_pro[6], stigma_area_pro[6], stigma_length_pro[6], stigma_width_pro[6], style_length_pro[6], style_width_pro[6], ovary_width_pro[6], ovary_length_pro[6], si_index_pro[6],selfing_pro_sol[6], pollen_size_pro_sol[6], mean_pollen_anther_pro_sol[6], mean_ovules_pro_sol[6], pollen_ovule_ratio_pro_sol[6], stigma_area_pro_sol[6], stigma_length_pro_sol[6], stigma_width_pro_sol[6], style_length_pro_sol[6], style_width_pro_sol[6], ovary_width_pro_sol[6], ovary_length_pro_sol[6], si_index_pro_sol[6],selfing_pro_bra[6], pollen_size_pro_bra[6], mean_pollen_anther_pro_bra[6], mean_ovules_pro_bra[6], pollen_ovule_ratio_pro_bra[6], stigma_area_pro_bra[6], stigma_length_pro_bra[6], stigma_width_pro_bra[6], style_length_pro_bra[6], style_width_pro_bra[6], ovary_width_pro_bra[6], ovary_length_pro_bra[6], si_index_pro_bra[6])
+
+
+
+Correlation<- as.numeric(Correlation)
+
+
+Sum_squares <- c(selfing_pro[3], pollen_size_pro[3], mean_pollen_anther_pro[3], mean_ovules_pro[3], pollen_ovule_ratio_pro[3], stigma_area_pro[3], stigma_length_pro[3], stigma_width_pro[3], style_length_pro[3], style_width_pro[3], ovary_width_pro[3], ovary_length_pro[3],si_index_pro[3], selfing_pro_sol[3], pollen_size_pro_sol[3], mean_pollen_anther_pro_sol[3], mean_ovules_pro_sol[3], pollen_ovule_ratio_pro_sol[3], stigma_area_pro_sol[3], stigma_length_pro_sol[3], stigma_width_pro_sol[3], style_length_pro_sol[3], style_width_pro_sol[3], ovary_width_pro_sol[3], ovary_length_pro_sol[3],si_index_pro_sol[3], selfing_pro_bra[3], pollen_size_pro_bra[3], mean_pollen_anther_pro_bra[3], mean_ovules_pro_bra[3], pollen_ovule_ratio_pro_bra[3], stigma_area_pro_bra[3], stigma_length_pro_bra[3], stigma_width_pro_bra[3], style_length_pro_bra[3], style_width_pro_bra[3], ovary_width_pro_bra[3], ovary_length_pro_bra[3],si_index_pro_bra[3])
+
+
+Sum_squares<- as.numeric(Sum_squares)
+
+Significance <- c(selfing_pro[13], pollen_size_pro[13], mean_pollen_anther_pro[13], mean_ovules_pro[13], pollen_ovule_ratio_pro[13], stigma_area_pro[13], stigma_length_pro[13], stigma_width_pro[13], style_length_pro[13], style_width_pro[13], ovary_width_pro[13], ovary_length_pro[13],si_index_pro[13],selfing_pro_sol[13], pollen_size_pro_sol[13], mean_pollen_anther_pro_sol[13], mean_ovules_pro_sol[13], pollen_ovule_ratio_pro_sol[13], stigma_area_pro_sol[13], stigma_length_pro_sol[13], stigma_width_pro_sol[13], style_length_pro_sol[13], style_width_pro_sol[13], ovary_width_pro_sol[13], ovary_length_pro_sol[13],si_index_pro_sol[13], selfing_pro_bra[13], pollen_size_pro_bra[13], mean_pollen_anther_pro_bra[13], mean_ovules_pro_bra[13], pollen_ovule_ratio_pro_bra[13], stigma_area_pro_bra[13], stigma_length_pro_bra[13], stigma_width_pro_bra[13], style_length_pro_bra[13], style_width_pro_bra[13], ovary_width_pro_bra[13], ovary_length_pro_bra[13],si_index_pro_bra[13])
+
+
+Significance <- as.numeric(Significance)
+
+
+Trait <- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width","Ovary length","Ovary width", "Self-incompatibility index", "Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width","Ovary length","Ovary width", "Self-incompatibility index", "Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width","Ovary length","Ovary width", "Self-incompatibility index")
+
+Family <- c(rep("All",13),rep("Solanaceae",13),rep("Brassicaceae",13))
+
+table<- data.frame(Correlation,Sum_squares, Significance,Trait,Family)
+colnames(table) <- c("Correlation (r)","Sum of squares", "_P_-value", "Traits", "Family")
+kable(table, format="markdown", digits = 2)
+```

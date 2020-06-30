@@ -6,6 +6,8 @@ library(dplyr)
 library(nlme)
 library(lme4)
 library(forcats)
+library(jtools)
+library(fitdistrplus)
 
 #Read ovule number data 
 ovule_number <- readRDS("Data/RData/ovule_number.RData")
@@ -31,26 +33,11 @@ levels(pein_seed_set_final$Treatment)
 pein_seed_set_final$Treatment <- relevel(pein_seed_set_final$Treatment, ref="CROSS")
 model1=lm(log(1+Seed.production)~Treatment, data=pein_seed_set_final)
 summary(model1)
+pein <- summ(model1, model.info=FALSE, model.fit=FALSE)
+pein <- as.data.frame(pein$coeftable)
+rownames(pein) <- gsub("Treatment", "", rownames(pein))
+rownames(pein) <- paste("Petunia integrifolia", rownames(pein), sep=" - ")
 
-library(fitdistrplus)
-descdist((log(1+pein_seed_set_final$Seed.production/220)), discrete = FALSE)
-
-hist(log(1+pein_seed_set_final$Seed.production/220))
-model1=lm(log(1+Seed.production)~Treatment, data=pein_seed_set_final)
-
-range01 <- function(x){(x-min(x))/(max(x)-min(x))}
-
-pein_seed_set_final$seed_ovule_ratio <- range01(pein_seed_set_final$Seed.production)
-
- model1 <- glm(seed_ovule_ratio ~ Treatment, binomial, data = pein_seed_set_final)
-summary(model1)
-
-fit<- simulateResiduals(fittedModel = model1, plot = T)
-
-hist(log(1+pein_seed_set_final$Seed.production))
-df$x1 <- relevel(df$x1, ref='c')
-model1 <- glm(Seed.production/300~Treatment,data=pein_seed_set_final)
-summary(model1)
 #SOLY
 soly_seed_set_final <- read.csv("Raw_data/soly_seed_set_final.csv", stringsAsFactors = T)
 soly_seed_set_final <- subset(soly_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
@@ -60,6 +47,11 @@ levels(soly_seed_set_final$Treatment)
 soly_seed_set_final$Treatment <- relevel(soly_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=soly_seed_set_final)
 summary(model1)
+soly <- summ(model1, model.info=FALSE, model.fit=FALSE)
+soly <- as.data.frame(soly$coeftable)
+rownames(soly) <- gsub("Treatment", "", rownames(soly))
+rownames(soly) <- paste("Solanum lycopersicum", rownames(soly), sep=" - ")
+
 
 #SOME
 some_seed_set_final <- read.csv("Raw_data/some_seed_set_final.csv", stringsAsFactors = T)
@@ -70,7 +62,10 @@ levels(some_seed_set_final$Treatment)
 some_seed_set_final$Treatment <- relevel(some_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=some_seed_set_final)
 summary(model1)
-
+some <- summ(model1, model.info=FALSE, model.fit=FALSE)
+some <- as.data.frame(some$coeftable)
+rownames(some) <- gsub("Treatment", "", rownames(some))
+rownames(some) <- paste("Solanum melongena", rownames(some), sep=" - ")
 #CAAN
 caan_seed_set_final <- read.csv("Raw_data/caan_seed_set_final.csv", stringsAsFactors = T)
 caan_seed_set_final <- subset(caan_seed_set_final, Treatment!="FLOWER CONTROL" & Treatment!="CONTROL" & Treatment!="SELF")
@@ -80,7 +75,10 @@ levels(caan_seed_set_final$Treatment)
 caan_seed_set_final$Treatment <- relevel(caan_seed_set_final$Treatment, ref="CROSS")
 model1=lm(log(1+Seed.production)~Treatment, data=caan_seed_set_final)
 summary(model1)
-
+caan <- summ(model1, model.info=FALSE, model.fit=FALSE)
+caan <- as.data.frame(caan$coeftable)
+rownames(caan) <- gsub("Treatment", "", rownames(caan))
+rownames(caan) <- paste("Capsicum annuum", rownames(caan), sep=" - ")
 
 #
 #
@@ -98,6 +96,10 @@ levels(brol_seed_set_final$Treatment)
 brol_seed_set_final$Treatment <- relevel(brol_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=brol_seed_set_final)
 summary(model1)
+brol <- summ(model1, model.info=FALSE, model.fit=FALSE)
+brol <- as.data.frame(brol$coeftable)
+rownames(brol) <- gsub("Treatment", "", rownames(brol))
+rownames(brol) <- paste("Brassica oleracea", rownames(brol), sep=" - ")
 
 #BRRA
 brra_seed_set_final <- read.csv("Raw_data/brra_seed_set_final.csv", stringsAsFactors = T)
@@ -108,6 +110,10 @@ levels(brra_seed_set_final$Treatment)
 brra_seed_set_final$Treatment <- relevel(brra_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=brra_seed_set_final)
 summary(model1)
+brra <- summ(model1, model.info=FALSE, model.fit=FALSE)
+brra <- as.data.frame(brra$coeftable)
+rownames(brra) <- gsub("Treatment", "", rownames(brra))
+rownames(brra) <- paste("Brassica rapa", rownames(brra), sep=" - ")
 
 
 #SIAL
@@ -119,6 +125,11 @@ levels(sial_seed_set_final$Treatment)
 sial_seed_set_final$Treatment <- relevel(sial_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=sial_seed_set_final)
 summary(model1)
+sial <- summ(model1, model.info=FALSE, model.fit=FALSE)
+sial<- as.data.frame(sial$coeftable)
+rownames(sial) <- gsub("Treatment", "", rownames(sial))
+rownames(sial) <- paste("Sinapis alba", rownames(sial), sep=" - ")
+
 
 #ERSA
 ersa_seed_set_final <- read.csv("Raw_data/ersa_seed_set_final.csv", stringsAsFactors = T)
@@ -129,7 +140,10 @@ levels(ersa_seed_set_final$Treatment)
 ersa_seed_set_final$Treatment <- relevel(ersa_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=ersa_seed_set_final)
 summary(model1)
-
+ersa <- summ(model1, model.info=FALSE, model.fit=FALSE)
+ersa <- as.data.frame(ersa$coeftable)
+rownames(ersa) <- gsub("Treatment", "", rownames(ersa))
+rownames(ersa) <- paste("Eruca sativa", rownames(ersa), sep=" - ")
 
 #
 #
@@ -146,16 +160,36 @@ levels(ippu_seed_set_final$Treatment)
 ippu_seed_set_final$Treatment <- relevel(ippu_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=ippu_seed_set_final)
 summary(model1)
+ippu <- summ(model1, model.info=FALSE, model.fit=FALSE)
+ippu <- as.data.frame(ippu$coeftable)
+rownames(ippu) <- gsub("Treatment", "", rownames(ippu))
+rownames(ippu) <- paste("Ipomoea purpurea", rownames(ippu), sep=" - ")
 
 #IPAQ
 ipaq_seed_set_final <- read.csv("Raw_data/ipaq_seed_set_final.csv", stringsAsFactors = T)
-ipaq_seed_set_final <- subset(ipaq_seed_set_final, Treatment!="Flower control" & Treatment!="Control" & Treatment!="Self")
+ipaq_seed_set_final <- subset(ipaq_seed_set_final, Treatment!="Flower control" & Treatment!="Ipomoea aquatica" & Treatment!="Control" & Treatment!="Self")
 ipaq_seed_set_final=na.omit(ipaq_seed_set_final)
 ipaq_seed_set_final$Treatment <- factor(ipaq_seed_set_final$Treatment)
 levels(ipaq_seed_set_final$Treatment)
 ipaq_seed_set_final$Treatment <- relevel(ipaq_seed_set_final$Treatment, ref="Cross")
 model1=lm(log(1+Seed.production)~Treatment, data=ipaq_seed_set_final)
 summary(model1)
+ipaq <- summ(model1, model.info=FALSE, model.fit=FALSE)
+ipaq <- as.data.frame(ipaq$coeftable)
+rownames(ipaq) <- gsub("Treatment", "", rownames(ipaq))
+rownames(ipaq) <- paste("Ipomoea aquatica", rownames(ipaq), sep=" - ")
+
+table <- rbind(pein, soly, some , caan, brol, brra, ersa, ippu, ipaq)
+saveRDS(table, "Data/RData/lm_table.RData")
+
+
+
+#rownames(table) <- c(rownames(pein), rownames(soly),  rownames(some),  rownames(caan), 
+#rownames(brol),  rownames(brra),  rownames(ersa),  rownames(ippu),
+#rownames(ipaq))
+
+
+
 
 
 #saverds files to load them in other script
@@ -276,3 +310,6 @@ ippu_seed_set_final$scaled <- scale(ippu_seed_set_final$Seed.production)
 
 
 
+
+
+       

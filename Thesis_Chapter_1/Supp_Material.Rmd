@@ -22,7 +22,7 @@ header-includes:
 
 # Recipient and donor characteristics govern the hierarchical structure of heterospecific pollen competition networks
 
-__Authors:__ Jose B. Lanuza, Ignasi Bartomeus, Tia Lynn Ashman, Romina Rader
+__Authors:__ Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman, Romina Rader
 
 The following Supporting Information is available for this article:
 
@@ -32,15 +32,13 @@ __Table S2.__ Numerical values of all the traits measured for each species.
 
 __Table S3.__ Seed set in percentage for hand cross-pollination, hand self-pollination, natural selfing and apomixis for all species.
 
-__Table S4.__ Species x species matrix with the significance of effect “yes” or “no” of the different donors on the seed set of the different recipient species.
+__Table S4.__ Estimates, standard error, t-value and P-value of the effect of the different 9 donors on each recipient species.
 
-__Table S5.__ Estimates, standard error, t-value and P-value of the effect of the different 9 donors on each recipient species.
+__Table S5.__ Number of seeds produced with 100% foreign pollen treatments for the different recipient species. 
 
-__Table S6.__ Number of seeds produced with 100% foreign pollen treatments for the different recipient species. 
+__Table S6.__ Phylogenetic signal and significance for all the different traits
 
-__Table S7.__ Phylogenetic signal and significance for all the different traits
-
-__Table S8.__ Procrustes analysis results.
+__Table S7.__ Procrustes analysis results.
 
 __Figure S1__. Total amount of pollen deposited per stigma.
 
@@ -62,7 +60,6 @@ __Figure S8__. Grouped effect sizes by family for each recipient species.
 
 \newpage
 
-#TABLE S1
 ```{r, echo=FALSE, warning=FALSE, fig.align="center", out.width='80%'}
 library(knitr)
 library(kableExtra)
@@ -76,13 +73,14 @@ Variety <- as.character(Variety)
 Source <- c("https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.theseedcollection.com.au/", "http://www.shaman-australis.com.au", "https://www.edenseeds.com.au", "https://www.dianeseeds.com/", "https://www.mrfothergills.com.au/", "https://www.4seasonsseeds.com.au/")
 Source <- as.character(Source)
 t <- data.frame(Species, Common_names, Variety, Source)
-kable(t, format = "latex", longtable = T, booktabs = T,linesep = "\\addlinespace") %>%
+kable(t, format = "latex", longtable = T, booktabs = T,linesep = "\\addlinespace",
+             caption = "\\textbf{Table S1.} Species names, common names, varieties and sources of the different seeds.") %>%
   kable_styling(latex_options = c("repeat_header","striped"), font_size = 7, full_width=T) %>% row_spec(0,bold=TRUE)  
 ```
 
 \begin{landscape}
 
-TABLE S2
+
 ```{r, echo=FALSE, warning=FALSE, fig.align="center", out.width='80%'}
 library(kableExtra)
 
@@ -95,16 +93,151 @@ colnames(dat) <- c("Species", "Pollen size $\\mu$m", "Pollen grains per anther",
 
 
 
-kable(dat, "latex", longtable = F, escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "2cm")
+kable(dat, "latex", longtable = F, caption = "\\textbf{Table S2.} Measurements ($\\bar{X}$ ± SD) for all the 13 different traits for all plant species.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "2cm")
 ```
 
 \end{landscape}
 
-TABLE S3
 ```{r, echo=FALSE, warning=FALSE, fig.align="center", out.width='80%'}
 library(kableExtra)
 dat <- readRDS("Tables/rep_biology_supplementary.rds")
-kable(dat, "latex", longtable = F, escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "2cm")
+kable(dat, format="markdown", caption= "\\textbf{Table S3.} Seed:ovule ratio in percentage for hand cross-pollination, hand self-pollination, spontaneous selfing and apomixis for all species.",digits = 2, longtable = F, escape = FALSE,dbooktabs = T,linesep = "\\addlinespace") %>%   row_spec(0,bold=TRUE)  %>% column_spec(1, width = "6cm")
+```
+
+
+\newpage
+
+
+\begin{landscape}
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+setwd("~/R_projects/Hp_pollen_experiment")
+d <- read.csv("Data/Csv/Significant_Effect_50_50.csv")
+#Unfortunately this table is not built through clean reproducible code
+#Our collaborators do not work with markdown and some plots were made directly in word
+#I have converted that table to csv and exported in R
+#To reproduce it, the file hp_seed_set_reduction in the folder analysis has everything
+#that is needed to make this table
+
+d <- as.data.frame(d)
+
+kable(d, "latex", longtable = F, caption= "\\textbf{Table S4.} Species x species matrix with the significance of effect “yes” or “no” of the different donors on seed set from the linear mixed effect models. The category of “yes” represents significant effect of the donors (columns) on the different recipient species (rows) and “no” lack of significant reduction of seed set from the control. Significance was tested for all species by comparing with a control of hand cross-pollination with conspecific pollen.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "2cm")
+```
+
+\end{landscape}
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+setwd("~/R_projects/Hp_pollen_experiment")
+d <- readRDS("Data/RData/lm_table.RData")
+kable(d, format="markdown",caption= "\\textbf{Table S5.} Output of linear models of the effect of the different donors on the seed set of each recipient species.", digits = 2)
+
+```
+\newpage
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+setwd("~/R_projects/Hp_pollen_experiment")
+
+#Preparing seed set with 100% pollen
+pein_seed_set_100 <- read.csv("Raw_data/pein_seed_set_100.csv")
+soly_seed_set_100 <- read.csv("Raw_data/soly_seed_set_100.csv")
+some_seed_set_100 <- read.csv("Raw_data/some_seed_set_100.csv")
+caan_seed_set_100 <- read.csv("Raw_data/caan_seed_set_100.csv")
+brol_seed_set_100 <- read.csv("Raw_data/brol_seed_set_100.csv")
+brra_seed_set_100 <- read.csv("Raw_data/brra_seed_set_100.csv")
+sial_seed_set_100 <- read.csv("Raw_data/sial_seed_set_100.csv")
+ersa_seed_set_100 <- read.csv("Raw_data/ersa_seed_set_100.csv")
+ippu_seed_set_100 <- read.csv("Raw_data/ippu_seed_set_100.csv")
+ipaq_seed_set_100 <- read.csv("Raw_data/ipaq_seed_set_100.csv")
+
+
+all_100 <- rbind(pein_seed_set_100,soly_seed_set_100,some_seed_set_100,caan_seed_set_100,
+      brol_seed_set_100,brra_seed_set_100,sial_seed_set_100,ersa_seed_set_100,
+      ippu_seed_set_100,ipaq_seed_set_100)
+
+all_100_subset <- all_100[grepl("100", all_100$Treatment), , drop = FALSE]
+
+seed_100 <- subset(all_100_subset, all_100_subset$Seed.production>0)
+#str(seed_100)
+seed_100$Species <- as.character(seed_100$Species)
+seed_100$Species[seed_100$Species=="SOLY"] <- "Solnamum lycopersicum"
+seed_100$Species[seed_100$Species=="SOME"] <- "Solnamum melongena"
+seed_100$Species[seed_100$Species=="CAAN"] <- "Capsicum annuum"
+seed_100$Species[seed_100$Species=="BRRA"] <- "Brassica rapa"
+seed_100$Species[seed_100$Species=="SIAL"] <- "Sinapis alba"
+seed_100$Species[seed_100$Species=="ERSA"] <- "Eruca sativa"
+
+seed_100$Treatment <- as.character(seed_100$Treatment)
+
+seed_100$Treatment[seed_100$Treatment=="SIAL 100%"] <- "Sinapis alba"
+seed_100$Treatment[seed_100$Treatment=="ERSA 100%"] <- "Eruca sativa"
+seed_100$Treatment[seed_100$Treatment=="PEIN 100%"] <- "Petunia integrifolia"
+seed_100$Treatment[seed_100$Treatment=="BROL 100%"] <- "Brassica oleracea"
+seed_100$Treatment[seed_100$Treatment=="CAAN 100%"] <- "Capsicum annuum"
+seed_100$Treatment[seed_100$Treatment=="SOLY 100%"] <- "Solanum lycopersicum"
+
+seed_100 <- seed_100[,-c(1,4,6)]
+colnames(seed_100) <- c("Recipient", "Donor (100% foreign pollen)", "Seed number")
+rownames(seed_100) <- NULL
+
+kable(seed_100, format="markdown", caption= "\\textbf{Table S6.} Number of seeds produced with 100% foreign pollen (N=900). From 900 pollination events we found seed production in just 13 specific cases and 0 seed production in the other 887 pollination events. In this table we show just the treatments that lead to seed production. ", digits = 2)
+
+```
+
+
+\newpage
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+
+library(kableExtra)
+setwd("~/R_projects/Hp_pollen_experiment")
+load("Data/RData/img_phylo.RData")
+lambda <- c( selfing[1], pollen_size[1], mean_pollen_anther[1], mean_ovules[1], pollen_ovule_ratio[1], stigma_area[1], stigma_length[1], stigma_width[1], style_length[1], style_width[1], ovary_length[1], ovary_width[1],si_index[1])
+lambda<- as.numeric(lambda)
+p <- c(selfing[4], pollen_size[4], mean_pollen_anther[4], mean_ovules[4], pollen_ovule_ratio[4], stigma_area[4], stigma_length[4], stigma_width[4], style_length[4], style_width[4], ovary_length[4], ovary_width[4], si_index[4])
+p <- as.numeric(p)
+trait <- c("Selfing rate", "**Pollen size**", "Pollen anther", "Ovule number", "Pollen-ovule ratio", "**Stigmatic area**", "Stigma length", "**Stigma width**", "**Style length**", "Style width", "Ovary length", "Ovary width", "**SI index**")
+table<- data.frame(lambda,p, trait)
+colnames(table) <- c("Lambda", "_P_-value", "Traits")
+kable(table, format="markdown",caption= "\\textbf{Table S7.} Phylogenetic signal and significance for all the different traits.", digits = 2)
+```
+
+
+\newpage
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+library(kableExtra)
+setwd("~/R_projects/Hp_pollen_experiment")
+
+load("Data/RData/Table_s4.RData")
+
+Correlation <- c(selfing_pro[6], pollen_size_pro[6], mean_pollen_anther_pro[6], mean_ovules_pro[6], pollen_ovule_ratio_pro[6], stigma_area_pro[6], stigma_length_pro[6], stigma_width_pro[6], style_length_pro[6], style_width_pro[6], ovary_width_pro[6], ovary_length_pro[6], si_index_pro[6],selfing_pro_sol[6], pollen_size_pro_sol[6], mean_pollen_anther_pro_sol[6], mean_ovules_pro_sol[6], pollen_ovule_ratio_pro_sol[6], stigma_area_pro_sol[6], stigma_length_pro_sol[6], stigma_width_pro_sol[6], style_length_pro_sol[6], style_width_pro_sol[6], ovary_width_pro_sol[6], ovary_length_pro_sol[6], si_index_pro_sol[6],selfing_pro_bra[6], pollen_size_pro_bra[6], mean_pollen_anther_pro_bra[6], mean_ovules_pro_bra[6], pollen_ovule_ratio_pro_bra[6], stigma_area_pro_bra[6], stigma_length_pro_bra[6], stigma_width_pro_bra[6], style_length_pro_bra[6], style_width_pro_bra[6], ovary_width_pro_bra[6], ovary_length_pro_bra[6], si_index_pro_bra[6])
+
+
+
+Correlation<- as.numeric(Correlation)
+
+
+Sum_squares <- c(selfing_pro[3], pollen_size_pro[3], mean_pollen_anther_pro[3], mean_ovules_pro[3], pollen_ovule_ratio_pro[3], stigma_area_pro[3], stigma_length_pro[3], stigma_width_pro[3], style_length_pro[3], style_width_pro[3], ovary_width_pro[3], ovary_length_pro[3],si_index_pro[3], selfing_pro_sol[3], pollen_size_pro_sol[3], mean_pollen_anther_pro_sol[3], mean_ovules_pro_sol[3], pollen_ovule_ratio_pro_sol[3], stigma_area_pro_sol[3], stigma_length_pro_sol[3], stigma_width_pro_sol[3], style_length_pro_sol[3], style_width_pro_sol[3], ovary_width_pro_sol[3], ovary_length_pro_sol[3],si_index_pro_sol[3], selfing_pro_bra[3], pollen_size_pro_bra[3], mean_pollen_anther_pro_bra[3], mean_ovules_pro_bra[3], pollen_ovule_ratio_pro_bra[3], stigma_area_pro_bra[3], stigma_length_pro_bra[3], stigma_width_pro_bra[3], style_length_pro_bra[3], style_width_pro_bra[3], ovary_width_pro_bra[3], ovary_length_pro_bra[3],si_index_pro_bra[3])
+
+
+Sum_squares<- as.numeric(Sum_squares)
+
+Significance <- c(selfing_pro[13], pollen_size_pro[13], mean_pollen_anther_pro[13], mean_ovules_pro[13], pollen_ovule_ratio_pro[13], stigma_area_pro[13], stigma_length_pro[13], stigma_width_pro[13], style_length_pro[13], style_width_pro[13], ovary_width_pro[13], ovary_length_pro[13],si_index_pro[13],selfing_pro_sol[13], pollen_size_pro_sol[13], mean_pollen_anther_pro_sol[13], mean_ovules_pro_sol[13], pollen_ovule_ratio_pro_sol[13], stigma_area_pro_sol[13], stigma_length_pro_sol[13], stigma_width_pro_sol[13], style_length_pro_sol[13], style_width_pro_sol[13], ovary_width_pro_sol[13], ovary_length_pro_sol[13],si_index_pro_sol[13], selfing_pro_bra[13], pollen_size_pro_bra[13], mean_pollen_anther_pro_bra[13], mean_ovules_pro_bra[13], pollen_ovule_ratio_pro_bra[13], stigma_area_pro_bra[13], stigma_length_pro_bra[13], stigma_width_pro_bra[13], style_length_pro_bra[13], style_width_pro_bra[13], ovary_width_pro_bra[13], ovary_length_pro_bra[13],si_index_pro_bra[13])
+
+
+Significance <- as.numeric(Significance)
+
+
+Trait <- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width","Ovary length","Ovary width", "Self-incompatibility index", "Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width","Ovary length","Ovary width", "Self-incompatibility index", "Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width","Ovary length","Ovary width", "Self-incompatibility index")
+
+Family <- c(rep("All",13),rep("Solanaceae",13),rep("Brassicaceae",13))
+
+table<- data.frame(Correlation,Sum_squares, Significance,Trait,Family)
+colnames(table) <- c("Correlation (r)","Sum of squares", "_P_-value", "Traits", "Family")
+kable(table, caption= "\\textbf{Table S8.} Procrustes correlation, sum of squares and significance from Procrustes analysis between the matrix of effect sizes (species x species matrix) and the distance matrix of each trait for all families, just Solanaceae and just Brassicaceae.",format="markdown", digits = 2)
 ```
 
 
