@@ -32,13 +32,15 @@ __Table S2.__ Numerical values of all the traits measured for each species.
 
 __Table S3.__ Seed set in percentage for hand cross-pollination, hand self-pollination, natural selfing and apomixis for all species.
 
-__Table S4.__ Estimates, standard error, t-value and P-value of the effect of the different 9 donors on each recipient species.
+__Table S4.__ Species x species matrix with the significance of effect “yes” or “no” of the different donors on the seed set of the different recipient species.
 
-__Table S5.__ Number of seeds produced with 100% foreign pollen treatments for the different recipient species. 
+__Table S5.__ Estimates, standard error, t-value and P-value of the effect of the different 9 donors on each recipient species.
 
-__Table S6.__ Phylogenetic signal and significance for all the different traits
+__Table S6.__ Number of seeds produced with 100% foreign pollen treatments for the different recipient species. 
 
-__Table S7.__ Procrustes analysis results.
+__Table S7.__ Phylogenetic signal and significance for all the different traits
+
+__Table S8.__ Procrustes analysis results.
 
 __Figure S1__. Total amount of pollen deposited per stigma.
 
@@ -73,9 +75,11 @@ Variety <- as.character(Variety)
 Source <- c("https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.mrfothergills.com.au/", "https://www.theseedcollection.com.au/", "http://www.shaman-australis.com.au", "https://www.edenseeds.com.au", "https://www.dianeseeds.com/", "https://www.mrfothergills.com.au/", "https://www.4seasonsseeds.com.au/")
 Source <- as.character(Source)
 t <- data.frame(Species, Common_names, Variety, Source)
+colnames(t) <- c("Species", "Common names", "Varieties", "Source")
 kable(t, format = "latex", longtable = T, booktabs = T,linesep = "\\addlinespace",
              caption = "\\textbf{Table S1.} Species names, common names, varieties and sources of the different seeds.") %>%
-  kable_styling(latex_options = c("repeat_header","striped"), font_size = 7, full_width=T) %>% row_spec(0,bold=TRUE)  
+  kable_styling(latex_options = c("repeat_header","striped"), font_size = 10, full_width=T) %>% row_spec(0,bold=TRUE)  %>%
+  column_spec(1,italic =T)
 ```
 
 \begin{landscape}
@@ -93,7 +97,7 @@ colnames(dat) <- c("Species", "Pollen size $\\mu$m", "Pollen grains per anther",
 
 
 
-kable(dat, "latex", longtable = F, caption = "\\textbf{Table S2.} Measurements ($\\bar{X}$ ± SD) for all the 13 different traits for all plant species.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "2cm")
+kable(dat, "latex", longtable = F, caption = "\\textbf{Table S2.} Trait measurements ($\\bar{X}$ ± SD) for the 13 different traits measured for each plant species. Detailed information of how pollen:ovule ratio, selfing rate and SI index were calculated is available in the plant functional traits section from the methods. ", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "2cm")%>%column_spec(1,italic =T)
 ```
 
 \end{landscape}
@@ -101,7 +105,10 @@ kable(dat, "latex", longtable = F, caption = "\\textbf{Table S2.} Measurements (
 ```{r, echo=FALSE, warning=FALSE, fig.align="center", out.width='80%'}
 library(kableExtra)
 dat <- readRDS("Tables/rep_biology_supplementary.rds")
-kable(dat, format="markdown", caption= "\\textbf{Table S3.} Seed:ovule ratio in percentage for hand cross-pollination, hand self-pollination, spontaneous selfing and apomixis for all species.",digits = 2, longtable = F, escape = FALSE,dbooktabs = T,linesep = "\\addlinespace") %>%   row_spec(0,bold=TRUE)  %>% column_spec(1, width = "6cm")
+
+kable(dat, "latex", longtable = F, caption = "\\textbf{Table S3.} Results of the test of hand cross-pollination, hand self-pollination, spontaneous selfing and apomixis for all species. The values provided are the seed:ovule ratios in percentage.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 10, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "3cm")%>%column_spec(1,italic =T)
+
+
 ```
 
 
@@ -121,23 +128,36 @@ d <- read.csv("Data/Csv/Significant_Effect_50_50.csv")
 #that is needed to make this table
 
 d <- as.data.frame(d)
+d <- d[,-12]
+d[11,12] <- "$\\bar{X}=67.8$"
+colnames(d) <- c("", "Brassica oleracea", "Brassica rapa", "Eruca sativa", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena", "$\\%$ of significant effect")
 
-kable(d, "latex", longtable = F, caption= "\\textbf{Table S4.} Species x species matrix with the significance of effect “yes” or “no” of the different donors on seed set from the linear mixed effect models. The category of “yes” represents significant effect of the donors (columns) on the different recipient species (rows) and “no” lack of significant reduction of seed set from the control. Significance was tested for all species by comparing with a control of hand cross-pollination with conspecific pollen.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>% column_spec(1, width = "2cm")
+kable(d, "latex", longtable = F, caption= "\\textbf{Table S4.} Species x species matrix with the significance of effect “yes” or “no” of the different donors on seed set from the linear models. The category of “yes” represents a significant effect of the pollen donor (columns) on the recipient species (rows) and the category of “no” represents a lack of significant seed set reduction in comparison with the control. Significance was tested for all species by comparing the different 50-50 CP-HP pollen treatments with the control treatment of hand cross-pollination with conspecific pollen.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=FALSE)  %>% column_spec(1, width = "2cm")%>% column_spec(10, width = "1.5cm")%>%column_spec(1,italic =T) %>% row_spec(0,italic =T)
 ```
 
 \end{landscape}
 
+\clearpage
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+library(kableExtra)
 setwd("~/R_projects/Hp_pollen_experiment")
 d <- readRDS("Data/RData/lm_table.RData")
-kable(d, format="markdown",caption= "\\textbf{Table S5.} Output of linear models of the effect of the different donors on the seed set of each recipient species.", digits = 2)
+#kable(d, format="latex",caption= "\\textbf{Table S5.} Output of linear models of the effect of the different donors on the seed set of each recipient species.", digits = 2)
 
+colnames(d) <- c("Estimates", "Standard error", "t-value", "{\\textit{P}}-value")
+
+kable(d, "latex", longtable = T, digits=2, escape=F,booktabs = T,linesep = "\\addlinespace",caption= "\\textbf{Table S5.} Results of the linear models conducted to test heterospecific pollen effect with the 50-50 CP-HP pollen treatments. We conducted 10 different linear models (M1, M2, M3, M4, M5, M6, M7 M8, M9 and M10) where the effect of the different 9 pollen donors was compared with the control treatment of hand cross pollination with conspecific pollen for each recipient species (intercept). The first species on the row names are the pollen recipient species and the second species the pollen donor species. Each treatment is compared with the control or reference treatment that is indicated with the recipient species names and the intercept term between parentheses") %>%
+  kable_styling(latex_options = c("striped"), font_size = 7, full_width=F)%>%column_spec(1,italic =T)%>% row_spec(0,bold=TRUE)
 ```
-\newpage
+
+\clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+```{r, echo=FALSE, warning=FALSE, fig.align="center", out.width='80%'}
 setwd("~/R_projects/Hp_pollen_experiment")
+
+library(kableExtra)
 
 #Preparing seed set with 100% pollen
 pein_seed_set_100 <- read.csv("Raw_data/pein_seed_set_100.csv")
@@ -181,15 +201,20 @@ seed_100 <- seed_100[,-c(1,4,6)]
 colnames(seed_100) <- c("Recipient", "Donor (100% foreign pollen)", "Seed number")
 rownames(seed_100) <- NULL
 
-kable(seed_100, format="markdown", caption= "\\textbf{Table S6.} Number of seeds produced with 100% foreign pollen (N=900). From 900 pollination events we found seed production in just 13 specific cases and 0 seed production in the other 887 pollination events. In this table we show just the treatments that lead to seed production. ", digits = 2)
+seed_100 <- as.data.frame(seed_100)
+
+kable(seed_100, "latex", longtable = F,digits=2,booktabs = T, linesep = "\\addlinespace", caption= "\\textbf{Table S6.} Number of seeds produced with 100\\% foreign pollen (N=900). From 900 pollination events we found seed production in just 13 specific cases and 0 seed production in the other 887 pollination events. In this table we show just the treatments that lead to seed production.") %>% kable_styling(font_size = 10,position="left",full_width=F,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>%
+   add_footnote("*            Note: There are some specific cases that we think that hybridization did not occur and that the recipient species were pollen contaminated, like the one of C. annuum with S. alba with 127 seeds. This seems to be the case for 5 other crosses that had very low seed production when they were pollinated with 100% foreign pollen with species of other family members. This represents very few isolated cases (0.67% of all the 100% foreign pollen crosses conducted) and we think that our results are not compromised by this fact. ", notation = "none") %>% column_spec(1,italic =T)%>% column_spec(2,italic =T)
+
 
 ```
 
 
-\newpage
+
+\clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE,  out.width='40%'}
 
 library(kableExtra)
 setwd("~/R_projects/Hp_pollen_experiment")
@@ -198,14 +223,19 @@ lambda <- c( selfing[1], pollen_size[1], mean_pollen_anther[1], mean_ovules[1], 
 lambda<- as.numeric(lambda)
 p <- c(selfing[4], pollen_size[4], mean_pollen_anther[4], mean_ovules[4], pollen_ovule_ratio[4], stigma_area[4], stigma_length[4], stigma_width[4], style_length[4], style_width[4], ovary_length[4], ovary_width[4], si_index[4])
 p <- as.numeric(p)
-trait <- c("Selfing rate", "**Pollen size**", "Pollen anther", "Ovule number", "Pollen-ovule ratio", "**Stigmatic area**", "Stigma length", "**Stigma width**", "**Style length**", "Style width", "Ovary length", "Ovary width", "**SI index**")
+trait <- c("Selfing rate", "Pollen size", "Pollen anther", "Ovule number", "Pollen-ovule ratio", "Stigmatic area", "Stigma length", "Stigma width", "Style length", "Style width", "Ovary length", "Ovary width", "SI index")
 table<- data.frame(lambda,p, trait)
-colnames(table) <- c("Lambda", "_P_-value", "Traits")
-kable(table, format="markdown",caption= "\\textbf{Table S7.} Phylogenetic signal and significance for all the different traits.", digits = 2)
+colnames(table) <- c("Lambda", "P-value", "Traits")
+#kable(table, format="latex",caption= "\\textbf{Table S7.} Phylogenetic signal and significance for all the different traits.", digits = 2)
+
+
+kable(table, format="latex",escape=F,digits=2, longtable = F,booktabs = T,linesep = "\\addlinespace", caption= "\\textbf{Table S7.} Phylogenetic signal and significance for the 13 different reproductive traits measured for all species.") %>% kable_styling(font_size = 10, full_width=F,latex_options = c("striped")) %>% row_spec(0,bold=TRUE)  
+
+
 ```
 
+\clearpage
 
-\newpage
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 library(kableExtra)
@@ -236,12 +266,16 @@ Trait <- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules
 Family <- c(rep("All",13),rep("Solanaceae",13),rep("Brassicaceae",13))
 
 table<- data.frame(Correlation,Sum_squares, Significance,Trait,Family)
-colnames(table) <- c("Correlation (r)","Sum of squares", "_P_-value", "Traits", "Family")
-kable(table, caption= "\\textbf{Table S8.} Procrustes correlation, sum of squares and significance from Procrustes analysis between the matrix of effect sizes (species x species matrix) and the distance matrix of each trait for all families, just Solanaceae and just Brassicaceae.",format="markdown", digits = 2)
+
+colnames(table) <- c("Correlation (r)","Sum of squares", "P-value", "Traits", "Family")
+
+kable(table, "latex", longtable = T, digits=2, escape=F,booktabs = T,linesep = "\\addlinespace",caption= "\\textbf{Table S8.} Procrustes correlation, sum of squares and significance from Procrustes analysis between the matrix of effect sizes (species x species matrix) and the distance matrix of each trait for all families, just Solanaceae family and just Brassicaceae family.") %>%
+  kable_styling(latex_options = c("striped"), font_size = 7, full_width=F)%>% row_spec(0,bold=TRUE)
+
 ```
 
 
-\newpage
+\clearpage
 
 
 

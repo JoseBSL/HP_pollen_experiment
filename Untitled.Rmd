@@ -1,8 +1,22 @@
 ---
 title: "Untitled"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+  header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage[table]{xcolor}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage[normalem]{ulem}
 ---
-
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
 library(kableExtra)
 setwd("~/R_projects/Hp_pollen_experiment")
@@ -32,6 +46,11 @@ Trait <- c("Selfing rate", "Pollen size", "Pollen per anther", "Number of ovules
 Family <- c(rep("All",13),rep("Solanaceae",13),rep("Brassicaceae",13))
 
 table<- data.frame(Correlation,Sum_squares, Significance,Trait,Family)
-colnames(table) <- c("Correlation (r)","Sum of squares", "_P_-value", "Traits", "Family")
-kable(table, format="markdown", digits = 2)
+colnames(table) <- c("Correlation (r)","Sum of squares", "P-value", "Traits", "Family")
+
+kable(table, "latex", longtable = T, digits=2, escape=F,booktabs = T,linesep = "\\addlinespace",caption= "\\textbf{Table S8.} Procrustes correlation, sum of squares and significance from Procrustes analysis between the matrix of effect sizes (species x species matrix) and the distance matrix of each trait for all families, just Solanaceae and just Brassicaceae.") %>%
+  kable_styling(latex_options = c("striped"), font_size = 7, full_width=F)%>% row_spec(0,bold=TRUE)
+
+
 ```
+
