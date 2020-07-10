@@ -38,23 +38,23 @@ __Table S5.__ Estimates, standard error, t-value and P-value of the effect of th
 
 __Table S6.__ Number of seeds produced with 100% foreign pollen treatments for the different recipient species. 
 
-__Table S7.__ Phylogenetic signal and significance for all the different traits
+__Table S7.__ Procrustes analysis results.
 
-__Table S8.__ Procrustes analysis results.
+__Table S8.__ Phylogenetic signal and significance for all the different traits
 
-__Figure S1__. Total amount of pollen deposited per stigma.
+__Figure S1__. Species reproductive biology.
 
-__Figure S2__. Pollen ratios for the different recipient species.
+__Figure S2__. Total amount of pollen deposited per stigma.
 
-__Figure S3__. Pollen ratios for the different recipient species by family.
+__Figure S3__. Pollen ratios for the different recipient species.
 
-__Figure S4__. Statistical comparison of the pollen ratios by family.
+__Figure S4__. Pollen ratios for the different recipient species by family.
 
-__Figure S5__. Unipartite bidirectional network with asymmetrical effect.
+__Figure S5__. Statistical comparison of the pollen ratios by family.
 
-__Figure S6__. Correlation matrix for all the different traits.
+__Figure S6__. Unipartite bidirectional network with asymmetrical effect.
 
-__Figure S7__. Species reproductive biology.
+__Figure S7__. Correlation matrix for all the different traits.
 
 __Figure S8__. Grouped effect sizes by family for each recipient species.
 
@@ -132,7 +132,7 @@ d <- d[,-12]
 d[11,12] <- "$\\bar{X}=67.8$"
 colnames(d) <- c("", "Brassica oleracea", "Brassica rapa", "Eruca sativa", "Sinapis alba", "Ipomoea aquatica", "Ipomoea purpurea", "Capsicum annuum", "Petunia integrifolia", "Solanum lycopersicum", "Solanum melongena", "$\\%$ of significant effect")
 
-kable(d, "latex", longtable = F, caption= "\\textbf{Table S4.} Species x species matrix with the significance of effect “yes” or “no” of the different donors on seed set from the linear models. The category of “yes” represents a significant effect of the pollen donor (columns) on the recipient species (rows) and the category of “no” represents a lack of significant seed set reduction in comparison with the control. Significance was tested for all species by comparing the different 50-50 CP-HP pollen treatments with the control treatment of hand cross-pollination with conspecific pollen.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=FALSE)  %>% column_spec(1, width = "2cm")%>% column_spec(10, width = "1.5cm")%>%column_spec(1,italic =T) %>% row_spec(0,italic =T)
+kable(d, "latex", longtable = F, caption= "\\textbf{Table S4.} Species x species matrix with the significance of effect “yes” or “no” of the different donors on seed set from the linear models. The category of “yes” represents a significant effect of the pollen donor (columns) on the recipient species (rows) and the category of “no” represents a lack of significant seed set reduction in comparison with the control. Significance was tested for each species by comparing the different 50-50 CP-HP pollen treatments with the control treatment of hand cross-pollination with conspecific pollen.", escape = FALSE,digits=2,booktabs = T,linesep = "\\addlinespace") %>% kable_styling(font_size = 6, full_width=T,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=FALSE)  %>% column_spec(1, width = "2cm")%>% column_spec(10, width = "1.5cm")%>%column_spec(1,italic =T) %>% row_spec(0,italic =T)
 ```
 
 \end{landscape}
@@ -278,8 +278,115 @@ kable(table, "latex", longtable = T, digits=2, escape=F,booktabs = T,linesep = "
 \clearpage
 
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S1** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments: apomixis (orange), hand cross pollination (green), hand self pollination (blue) and spontaneous selfing (yellow). The coloured dots, represent the different values of seed set for each treatment."}
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6 ,fig.width=7, fig.cap="**Fig. S1** Average number of pollen grains per stigma for 20 different treatments (3 replicates per tratment). For each treatment, we show the average number of conspecific pollen grains (grey) and heterospecific pollen grains (light blue) per stigma. For each pair of species on the x-axis, the first species is the recipient species, and the second, the donor species."}
+setwd("~/R_projects/Hp_pollen_experiment")
+
+#Script to plot the reproductive biology tests
+#load libraries
+library(ggplot2)
+#install.packages("devtools")
+library(devtools)
+#install_github("easyGgplot2", "kassambara")
+library(effsize)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(cowplot)
+library(gridExtra)
+library(egg)
+library(magrittr)
+library(multipanelfigure)
+library(grid)
+
+brol <- read.csv("Raw_data/brol_seed_set_final.csv")
+brra <- read.csv("Raw_data/brra_seed_set_final.csv")
+ersa <- read.csv("Raw_data/ersa_seed_set_final.csv")
+sial <- read.csv("Raw_data/sial_seed_set_final.csv")
+ipaq <- read.csv("Raw_data/ipaq_seed_set_final.csv")
+ippu <- read.csv("Raw_data/ippu_seed_set_final.csv")
+caan <- read.csv("Raw_data/caan_seed_set_final.csv")
+pein <- read.csv("Raw_data/pein_seed_set_final.csv")
+soly <- read.csv("Raw_data/soly_seed_set_final.csv")
+some <- read.csv("Raw_data/some_seed_set_final.csv")
+#loading traits to divide by number of ovules the seed set 
+traits <- read.csv("Data/Csv/traits_scinames.csv")
+
+
+brol_r <- subset(brol, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="FC")
+brol_r$Seed_set <- brol_r$Seed.production/traits[1,8]*100
+brra_r <- subset(brra, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower Control")
+brra_r$Seed_set <- brra_r$Seed.production/traits[2,8]*100
+ersa_r <- subset(ersa, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower Control")
+ersa_r$Seed_set <- ersa_r$Seed.production/traits[4,8]*100
+sial_r <- subset(sial, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower Control")
+sial_r$Seed_set <- sial_r$Seed.production/traits[8,8]*100
+ipaq_r <- subset(ipaq, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
+ipaq_r$Seed_set <- ipaq_r$Seed.production/traits[5,8]*100
+ippu_r <- subset(ippu, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
+ippu_r$Seed_set <- ippu_r$Seed.production/traits[6,8]*100
+caan_r <- subset(caan, Treatment=="CROSS"|Treatment=="SELF"|Treatment=="CONTROL"|Treatment=="FLOWER CONTROL")
+caan_r$Seed_set <- caan_r$Seed.production/traits[3,8]*100
+pein_r <- subset(pein, Treatment=="CROSS"|Treatment=="SELF"|Treatment=="CONTROL"|Treatment=="FLOWER CONTROL")
+pein_r$Seed_set <- pein_r$Seed.production/traits[7,8]*100
+soly_r <- subset(soly, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
+soly_r$Seed_set <- soly_r$Seed.production/traits[9,8]*100
+some_r <- subset(some, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
+some_r$Seed_set <- some_r$Seed.production/traits[10,8]*100
+
+d <- rbind(brol_r,brra_r,ersa_r,sial_r,ipaq_r,ippu_r,caan_r,pein_r,soly_r,some_r)
+d$Seed_set[d$Seed_set>100]<-100
+
+#levels(d$Treatment)
+d$Treatment=as.character(d$Treatment)
+d$Treatment[d$Treatment=="Cross"]<-"Hand cross-pollination"
+d$Treatment[d$Treatment=="CROSS"]<-"Hand cross-pollination"
+d$Treatment[d$Treatment=="Self"]<-"Hand self-pollination"
+d$Treatment[d$Treatment=="SELF"]<-"Hand self-pollination"
+d$Treatment[d$Treatment=="SELF"]<-"Hand self-pollination"
+d$Treatment[d$Treatment=="Control"]<-"Apomixis"
+d$Treatment[d$Treatment=="CONTROL"]<-"Apomixis"
+d$Treatment[d$Treatment=="FC"]<-"Spontaneous selfing"
+d$Treatment[d$Treatment=="Flower control"]<-"Spontaneous selfing"
+d$Treatment[d$Treatment=="FLOWER CONTROL"]<-"Spontaneous selfing"
+d$Treatment[d$Treatment=="Flower Control"]<-"Spontaneous selfing"
+
+d$Species=as.character(d$Species)
+d$Species[d$Family=="BROL"]<-"B"
+d$Species[d$Family=="BRRA"]<-"B"
+d$Species[d$Family=="ERSA"]<-"B"
+d$Species[d$Family=="SIAL"]<-"B"
+d$Species[d$Family=="IPPU"]<-"C"
+d$Species[d$Family=="IPAQ"]<-"C"
+d$Species[d$Family=="SOME"]<-"S"
+d$Species[d$Family=="SOLY"]<-"S"
+d$Species[d$Family=="PEIN"]<-"S"
+d$Species[d$Family=="CAAN"]<-"S"
+
+d$Species[d$Species=="BROL"]<-"B. oleracea"
+d$Species[d$Species=="BRRA"]<-"B. rapa"
+d$Species[d$Species=="SIAL"]<-"S. alba"
+d$Species[d$Species=="ERSA"]<-"E. sativa"
+d$Species[d$Species=="IPPU"]<-"I. purpurea"
+d$Species[d$Species=="IPAQ"]<-"I. aquatica"
+d$Species[d$Species=="SOLY"]<-"S. lycopersicum"
+d$Species[d$Species=="SOME"]<-"S. melongena"
+d$Species[d$Species=="PEIN"]<-"P. integrifolia"
+d$Species[d$Species=="CAAN"]<-"C. annuum"
+
+cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
+
+ ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
+  geom_violin(scale = "width",draw_quantiles = c(0.5))+
+  geom_dotplot(binaxis='y', 
+               dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
+  theme_minimal()+labs(y="Seed:ovule ratio")+scale_fill_manual(name="Treatments",values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
+
+```
+
+\clearpage
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6 ,fig.width=7, fig.cap="**Fig. S2** Average number of pollen grains per stigma for 20 different treatments (3 replicates per tratment). For each treatment, we show the average number of conspecific pollen grains (grey) and heterospecific pollen grains (light blue) per stigma. For each pair of species on the x-axis, the first species is the recipient species, and the second, the donor species."}
 
 library(ggplot2)
 
@@ -296,7 +403,7 @@ ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable,width=.9)) +
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=7,fig.width=7, fig.cap="**Fig. S2** Average proportion of conspecific and heterospecific pollen per stigma grouped by family, A) Brassicaceae, B) Solanaceae and C) Convolvulaceae. These proportions (%) are the number of conspecific pollen grains or heterospecific pollen grains divided by the total number of pollen grains per stigma for 20 different treatments. We conducted 3 count replicates per treatment and then we calculated the average number of pollen grains for these treatments. The proportion of conspecific and heterospecific pollen are shown in grey and light blue respectively. For each pair of species on the y-axis, the first species is the pollen recipient and the second the pollen donor. The vertical black line represents 50% pollen of both donor and recipient."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=7,fig.width=7, fig.cap="**Fig. S3** Average proportion of conspecific and heterospecific pollen per stigma grouped by family, A) Brassicaceae, B) Solanaceae and C) Convolvulaceae. These proportions (%) are the number of conspecific pollen grains or heterospecific pollen grains divided by the total number of pollen grains per stigma for 20 different treatments. We conducted 3 count replicates per treatment and then we calculated the average number of pollen grains for these treatments. The proportion of conspecific and heterospecific pollen are shown in grey and light blue respectively. For each pair of species on the y-axis, the first species is the pollen recipient and the second the pollen donor. The vertical black line represents 50% pollen of both donor and recipient."}
 
 par(mar=c(2,13,2,4),xpd=F)
 par(mfrow=c(3,1))
@@ -324,7 +431,7 @@ text(6.8,6.8,"C) Solanaceae")
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=4.5,fig.width=5,  fig.cap="**Fig. S3** Average proportion (%) of heterospecific and conspecific pollen per family for the different 20 treatments counted. We conducted 3 count replicates per treatment and then we calculated the average number of pollen grains for these different 20 treatments. Finally, we grouped by family these treatments in order to see general tendencies across families as pollen donor and as pollen recipient. Pollen ratios were considered as the number of conspecific or heterospecific pollen grains divided by the total number of pollen grains per stigma. On the y-axis, the first family on each pair of plant families is the recipient one, and the second, the family of the donor. The vertical bar on intercept 50, represents equal proportions of both recipient (grey) and donor (light blue) pollen."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=4.5,fig.width=5,  fig.cap="**Fig. S4** Average proportion (%) of heterospecific and conspecific pollen per family for the different 20 treatments counted. We conducted 3 count replicates per treatment and then we calculated the average number of pollen grains for these different 20 treatments. Finally, we grouped by family these treatments in order to see general tendencies across families as pollen donor and as pollen recipient. Pollen ratios were considered as the number of conspecific or heterospecific pollen grains divided by the total number of pollen grains per stigma. On the y-axis, the first family on each pair of plant families is the recipient one, and the second, the family of the donor. The vertical bar on intercept 50, represents equal proportions of both recipient (grey) and donor (light blue) pollen."}
 
 par(mar=c(2,8.7,2,2),xpd=F)
 setwd("~/R_projects/Hp_pollen_experiment")
@@ -343,7 +450,7 @@ abline(v=50,col="black")
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S4** Pollen ratios comparisons between the different pollen recipient families where the boxes represent least square means, the error bars, confidence intervals 95%, and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios (%) are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen), and then compared by family (N=20). Brassicacea family is coloured in blue, Convolvulaceae in green and Solanaceae in orange."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S5** Pollen ratios comparisons between the different pollen recipient families where the boxes represent least square means, the error bars, confidence intervals 95%, and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios (%) are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen), and then compared by family (N=20). Brassicacea family is coloured in blue, Convolvulaceae in green and Solanaceae in orange."}
 
 
 #Here I try to compare the different proportions of pollen between the different groups
@@ -456,7 +563,7 @@ scale_color_manual(name = "Families",values = c("Convolvulaceae" = "#009E73", "S
 
 \newpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=12,fig.width=12,  fig.cap="**Fig. S5** Unipartite bidirectional network with asymmetrical effect. The lines with the arrow heads connect the impact of foreign pollen (effect size) of each pollen donor species on each recipient species. All the arrow heads point to the recipient species of the reciprocal interaction. Lines of species that did not have a negative impact are not represented. The different nodes and the effect of the donor species on the recipient species appear coloured by family: Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green). The intensity of the effect is represented by the line´s size where a larger effect size corresponds to a thicker line and a thinner line to a smaller effect size. Species code: BROL: Brassica oleracea, BRRA: Brassica rapa, ERSA: Eruca sativa, SIAL: Sinapis alba, IPAQ: Ipomoea aquatica, IPPU: Ipomoea purpurea, CAAN: Capsicum annuum, PEIN: Petunia integrifolia, SOLY: Solanum lycopersicum, SOME: Solanum melongena."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=12,fig.width=12,  fig.cap="**Fig. S6** Unipartite bidirectional network with asymmetrical effect. The lines with the arrow heads connect the impact of foreign pollen (effect size) of each pollen donor species on each recipient species. All the arrow heads point to the recipient species of the reciprocal interaction. Lines of species that did not have a negative impact are not represented. The different nodes and the effect of the donor species on the recipient species appear coloured by family: Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green). The intensity of the effect is represented by the line´s size where a larger effect size corresponds to a thicker line and a thinner line to a smaller effect size. Species code: BROL: Brassica oleracea, BRRA: Brassica rapa, ERSA: Eruca sativa, SIAL: Sinapis alba, IPAQ: Ipomoea aquatica, IPPU: Ipomoea purpurea, CAAN: Capsicum annuum, PEIN: Petunia integrifolia, SOLY: Solanum lycopersicum, SOME: Solanum melongena."}
 
 library(statnet)
 library(reshape2)
@@ -493,7 +600,7 @@ plot(G, edge.width=E(G)$weight/0.5,  vertex.color=c(rep("#0072B2",2),"#D55E00","
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6, fig.cap="**Fig. S6** Graphical representation of the correlation matrix of the different reproductive traits considered in the experiment. Positive correlations are displayed in blue and negative in red. The intensity, size and colour of the circles are proportional to the correlation coefficient from Pearson’s r."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6, fig.cap="**Fig. S7** Graphical representation of the correlation matrix of the different reproductive traits considered in the experiment. Positive correlations are displayed in blue and negative in red. The intensity, size and colour of the circles are proportional to the correlation coefficient from Pearson’s r."}
 #install.packages("corrplot")
 library(corrplot)
 setwd("~/R_projects/Hp_pollen_experiment")
@@ -534,113 +641,6 @@ corrplot(traits_all, type = "lower", tl.cex = 0.8, cl.cex = 0.8, tl.col = "black
 
 \clearpage
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S7** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments: apomixis (orange), hand cross pollination (green), hand self pollination (blue) and spontaneous selfing (yellow). The coloured dots, represent the different values of seed set for each treatment."}
-
-setwd("~/R_projects/Hp_pollen_experiment")
-
-#Script to plot the reproductive biology tests
-#load libraries
-library(ggplot2)
-#install.packages("devtools")
-library(devtools)
-#install_github("easyGgplot2", "kassambara")
-library(effsize)
-library(dplyr)
-library(ggplot2)
-library(ggpubr)
-library(cowplot)
-library(gridExtra)
-library(egg)
-library(magrittr)
-library(multipanelfigure)
-library(grid)
-
-brol <- read.csv("Raw_data/brol_seed_set_final.csv")
-brra <- read.csv("Raw_data/brra_seed_set_final.csv")
-ersa <- read.csv("Raw_data/ersa_seed_set_final.csv")
-sial <- read.csv("Raw_data/sial_seed_set_final.csv")
-ipaq <- read.csv("Raw_data/ipaq_seed_set_final.csv")
-ippu <- read.csv("Raw_data/ippu_seed_set_final.csv")
-caan <- read.csv("Raw_data/caan_seed_set_final.csv")
-pein <- read.csv("Raw_data/pein_seed_set_final.csv")
-soly <- read.csv("Raw_data/soly_seed_set_final.csv")
-some <- read.csv("Raw_data/some_seed_set_final.csv")
-#loading traits to divide by number of ovules the seed set 
-traits <- read.csv("Data/Csv/traits_scinames.csv")
-
-
-brol_r <- subset(brol, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="FC")
-brol_r$Seed_set <- brol_r$Seed.production/traits[1,8]*100
-brra_r <- subset(brra, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower Control")
-brra_r$Seed_set <- brra_r$Seed.production/traits[2,8]*100
-ersa_r <- subset(ersa, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower Control")
-ersa_r$Seed_set <- ersa_r$Seed.production/traits[4,8]*100
-sial_r <- subset(sial, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower Control")
-sial_r$Seed_set <- sial_r$Seed.production/traits[8,8]*100
-ipaq_r <- subset(ipaq, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
-ipaq_r$Seed_set <- ipaq_r$Seed.production/traits[5,8]*100
-ippu_r <- subset(ippu, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
-ippu_r$Seed_set <- ippu_r$Seed.production/traits[6,8]*100
-caan_r <- subset(caan, Treatment=="CROSS"|Treatment=="SELF"|Treatment=="CONTROL"|Treatment=="FLOWER CONTROL")
-caan_r$Seed_set <- caan_r$Seed.production/traits[3,8]*100
-pein_r <- subset(pein, Treatment=="CROSS"|Treatment=="SELF"|Treatment=="CONTROL"|Treatment=="FLOWER CONTROL")
-pein_r$Seed_set <- pein_r$Seed.production/traits[7,8]*100
-soly_r <- subset(soly, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
-soly_r$Seed_set <- soly_r$Seed.production/traits[9,8]*100
-some_r <- subset(some, Treatment=="Cross"|Treatment=="Self"|Treatment=="Control"|Treatment=="Flower control")
-some_r$Seed_set <- some_r$Seed.production/traits[10,8]*100
-
-d <- rbind(brol_r,brra_r,ersa_r,sial_r,ipaq_r,ippu_r,caan_r,pein_r,soly_r,some_r)
-d$Seed_set[d$Seed_set>100]<-100
-
-#levels(d$Treatment)
-d$Treatment=as.character(d$Treatment)
-d$Treatment[d$Treatment=="Cross"]<-"Hand cross-pollination"
-d$Treatment[d$Treatment=="CROSS"]<-"Hand cross-pollination"
-d$Treatment[d$Treatment=="Self"]<-"Hand self-pollination"
-d$Treatment[d$Treatment=="SELF"]<-"Hand self-pollination"
-d$Treatment[d$Treatment=="SELF"]<-"Hand self-pollination"
-d$Treatment[d$Treatment=="Control"]<-"Apomixis"
-d$Treatment[d$Treatment=="CONTROL"]<-"Apomixis"
-d$Treatment[d$Treatment=="FC"]<-"Spontaneous selfing"
-d$Treatment[d$Treatment=="Flower control"]<-"Spontaneous selfing"
-d$Treatment[d$Treatment=="FLOWER CONTROL"]<-"Spontaneous selfing"
-d$Treatment[d$Treatment=="Flower Control"]<-"Spontaneous selfing"
-
-d$Species=as.character(d$Species)
-d$Species[d$Family=="BROL"]<-"B"
-d$Species[d$Family=="BRRA"]<-"B"
-d$Species[d$Family=="ERSA"]<-"B"
-d$Species[d$Family=="SIAL"]<-"B"
-d$Species[d$Family=="IPPU"]<-"C"
-d$Species[d$Family=="IPAQ"]<-"C"
-d$Species[d$Family=="SOME"]<-"S"
-d$Species[d$Family=="SOLY"]<-"S"
-d$Species[d$Family=="PEIN"]<-"S"
-d$Species[d$Family=="CAAN"]<-"S"
-
-d$Species[d$Species=="BROL"]<-"B. oleracea"
-d$Species[d$Species=="BRRA"]<-"B. rapa"
-d$Species[d$Species=="SIAL"]<-"S. alba"
-d$Species[d$Species=="ERSA"]<-"E. sativa"
-d$Species[d$Species=="IPPU"]<-"I. purpurea"
-d$Species[d$Species=="IPAQ"]<-"I. aquatica"
-d$Species[d$Species=="SOLY"]<-"S. lycopersicum"
-d$Species[d$Species=="SOME"]<-"S. melongena"
-d$Species[d$Species=="PEIN"]<-"P. integrifolia"
-d$Species[d$Species=="CAAN"]<-"C. annuum"
-
-cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
-
- ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
-  geom_violin(scale = "width",draw_quantiles = c(0.5))+
-  geom_dotplot(binaxis='y', 
-               dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
-  theme_minimal()+labs(y="Seed:ovule ratio")+scale_fill_manual(name="Treatments",values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
-
-```
-
-\newpage
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=8,fig.width=7, fig.cap="**Fig. S8** Grouped effect sizes (95% confidence intervals) of the different families on each focal species. For each species, the grouped effect by family is compared with the control treatment of hand cross pollination with conspecific pollen. The control treatment is represented in yellow and vertically intersected with a dashed line through the mean effect size in order to help the visual interpretation of the effect sizes. Any value to the left of the vertical dashed line represents a negative impact of foreign pollen. The different effect sizes and confidence intervals are coloured by family: Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green)."}
