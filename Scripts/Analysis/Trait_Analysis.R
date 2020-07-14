@@ -86,7 +86,11 @@ mean_distance <- data.frame(rows=rownames(mean_distance)[row(mean_distance)], va
                             values=c(mean_distance))
 colnames(mean_distance) <-  c("Recipient", "Donor", "Distance")
 mydata1 <- merge(mean_distance, mydata)
-
+model1<-lm(effect_size~Distance,data=mydata1)
+summary(model1)
+anova(model1)
+library(sjPlot)
+plot_model(model1)
 
 #
 ##
@@ -257,29 +261,30 @@ donor_recipient$cp_pollen<- cp_pollen
 
 
 # MODEL EFFECT SIZES ~ HP POLLEN RATIO
-pollen_ratio <-lm(effect_size~scale(hp_ratio),data=donor_recipient)
-summary(pollen_ratio)
-anova(pollen_ratio)
+m1 <-lm(effect_size~hp_ratio,data=donor_recipient)
+summary(m1)
+anova(m1)
 #PLOT REGRESSION
 ggplotRegression(lm(effect_size ~ hp_ratio, data = donor_recipient))
+testDispersion(m1)
+simulationOutput <- simulateResiduals(fittedModel = m1, plot = T)
 
-# MODEL EFFECT SIZES ~ HP POLLEN QUANTITY
-#heterospecific pollen
-total_hp_pollen <-lm(effect_size~scale(hp_pollen),data=donor_recipient)
-summary(total_hp_pollen)
-anova(total_hp_pollen)
-#PLOT REGRESSION
-ggplotRegression(lm(effect_size ~ hp_pollen, data = donor_recipient))
 
-#conspecific pollen
-total_cp_pollen <-lm(effect_size~total_pollen, data=donor_recipient)
-summary(total_cp_pollen)
-anova(total_cp_pollen)
+# MODEL EFFECT SIZES ~ TOTAL POLLEN
+m2 <-lm(effect_size~total_pollen, data=donor_recipient)
+summary(m2)
+anova(m2)
 #total pollen
-cor.test(mydata1$Recipient_mean_pollen_anther, mydata1$Recipient_stigma_width)
-total_hp_pollen <-lm(effect_size~hp_pollen * cp_pollen,data=donor_recipient)
-#PLOT REGRESSION
-summary(total_hp_pollen)
-ggplotRegression(lm(effect_size ~ total_pollen, data = donor_recipient))
+##PREPARE MODELS ACCORDINGLY AND ADD GOODNESS OF FIT TO THE MS
+testDispersion(m2)
+simulationOutput <- simulateResiduals(fittedModel = m2, plot = T)
 
-
+# MODEL EFFECT SIZES ~ TOTAL POLLEN/STIGMA AREA
+donor_recipient$pollen_per_area <- donor_recipient$total_pollen/donor_recipient$Recipient_stigma_area
+m3 <-lm(effect_size~pollen_per_area, data=donor_recipient)
+summary(m3)
+anova(m3)
+#total pollen
+##PREPARE MODELS ACCORDINGLY AND ADD GOODNESS OF FIT TO THE MS
+testDispersion(m3)
+simulationOutput <- simulateResiduals(fittedModel = m3, plot = T)

@@ -50,13 +50,13 @@ hist(pollen_foc$hp_ratio)
 
 #Analyse data and plot it
 
-junk.glmer = lm(hp_ratio ~ fam_non, data = pollen_non)
-plot(junk.glmer)
+m1 = lm(hp_ratio ~ fam_non, data = pollen_non)
+plot(m1)
 #goodness of fit of the model
-testDispersion(junk.glmer)
-simulationOutput <- simulateResiduals(fittedModel = junk.glmer, plot = T)
+testDispersion(m1)
+simulationOutput <- simulateResiduals(fittedModel = m1, plot = T)
 
-lsm = lsmeans(junk.glmer, "fam_non", type = "response")
+lsm = lsmeans(m1, "fam_non", type = "response")
 pairs(lsm)
 CLD <- CLD(lsm,alpha=0.05,adjust="tukey")
 
@@ -69,8 +69,8 @@ geom_text(nudge_x = c(0, 0, 0), nudge_y = c(0.8, 0.8, 0.8),color   = "black")
 
 
 #Analyse data and plot it
-junk.glmer = lm(hp_ratio ~ fam_foc, data = pollen_foc)
-lsm = lsmeans(junk.glmer, "fam_foc", type = "response")
+m2 = lm(hp_ratio ~ fam_foc, data = pollen_foc)
+lsm = lsmeans(m2, "fam_foc", type = "response")
 pairs(lsm)
 CLD <- CLD(lsm,alpha=0.05,adjust="tukey")
 
