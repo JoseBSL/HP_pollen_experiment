@@ -294,22 +294,33 @@ barplot(total_brol, hor=T,col=coul ,space=0.8, border="white",srt=80,las=1,cex.a
 
 #Total pollen
 total_pollen <- read.csv("Data/total_pollen.csv")
+total_pollen <- total_pollen[,-1]
+colnames(total_pollen)[2] <- "non_focal"
+colnames(total_pollen)[3] <- "pollen_per_stigma"
 
-ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable)) +
+
+ggplot(total_pollen, aes(x=spp, y=pollen_per_stigma, fill=variable)) +
   geom_bar(stat='identity', position='dodge')+theme(legend.title = element_blank(),axis.text.x=element_text(angle=60,hjust=1))+
   scale_fill_manual(values=c("#999999","#779799"),labels = c("Recipient","Donor"))
 
 
 
-ggplot(total_pollen, aes(x=spp, y=ratio, fill=variable,width=.9)) +
+ggplot(total_pollen, aes(x=spp, y=pollen_per_stigma, fill=variable,width=.9)) +
   geom_bar(stat='identity', position='dodge')+theme_minimal()+
   theme(legend.title = element_blank(),axis.text.x=element_text(angle=60,hjust=1,face="italic"))+
   scale_fill_manual(values=c("#999999","#779799"),labels = c("Recipient","Donor"))+labs(x = "",y="Pollen on stigma")
 
 
 
+total_pollen <- write.csv(total_pollen, "Data/total_pollen.csv")
 
+a <- total_pollen[1:20,]
+b <- total_pollen[21:40,]
 
-
-
-
+ab <- cbind(a,b)
+colnames(ab)[3] <- "focal_pollen"
+ab <- ab[,-c(4,5,6,7,8,10,11)]
+colnames(ab)[4] <- "non_focal_pollen"
+colnames(ab)[5] <- "focal_non_focal_pollen"
+write.csv(ab, "Data/total_pollen_table_supp_mat.csv")
+saveRDS(ab, "Thesis_Chapter_1/Tables/total_pollen.rds")

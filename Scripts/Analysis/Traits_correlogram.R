@@ -35,4 +35,6 @@ corrplot(traits_all, type = "lower",  tl.col = "black", tl.srt = 45)
 
 #Add Compatibility index!
 
+traits_all_filtered <- traits_all[-c(1,4,6,7,8,10:13),-c(1,4,6,7,8,10:13)]
+corrplot(traits_all_filtered, type = "lower",  tl.col = "black", tl.srt = 45)
 
