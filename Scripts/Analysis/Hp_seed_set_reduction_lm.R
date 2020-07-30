@@ -36,7 +36,7 @@ summary(model1)
 pein <- summ(model1, model.info=FALSE, model.fit=FALSE)
 pein <- as.data.frame(pein$coeftable)
 rownames(pein) <- gsub("Treatment", "", rownames(pein))
-rownames(pein) <- paste("Petunia integrifolia", rownames(pein), sep=" - ")
+rownames(pein) <- paste("M1 Petunia integrifolia", rownames(pein), sep=" - ")
 
 #SOLY
 soly_seed_set_final <- read.csv("Raw_data/soly_seed_set_final.csv", stringsAsFactors = T)
@@ -50,7 +50,7 @@ summary(model1)
 soly <- summ(model1, model.info=FALSE, model.fit=FALSE)
 soly <- as.data.frame(soly$coeftable)
 rownames(soly) <- gsub("Treatment", "", rownames(soly))
-rownames(soly) <- paste("Solanum lycopersicum", rownames(soly), sep=" - ")
+rownames(soly) <- paste("M2 Solanum lycopersicum", rownames(soly), sep=" - ")
 
 
 #SOME
@@ -65,7 +65,7 @@ summary(model1)
 some <- summ(model1, model.info=FALSE, model.fit=FALSE)
 some <- as.data.frame(some$coeftable)
 rownames(some) <- gsub("Treatment", "", rownames(some))
-rownames(some) <- paste("Solanum melongena", rownames(some), sep=" - ")
+rownames(some) <- paste("M3 Solanum melongena", rownames(some), sep=" - ")
 #CAAN
 caan_seed_set_final <- read.csv("Raw_data/caan_seed_set_final.csv", stringsAsFactors = T)
 caan_seed_set_final <- subset(caan_seed_set_final, Treatment!="FLOWER CONTROL" & Treatment!="CONTROL" & Treatment!="SELF")
@@ -78,7 +78,7 @@ summary(model1)
 caan <- summ(model1, model.info=FALSE, model.fit=FALSE)
 caan <- as.data.frame(caan$coeftable)
 rownames(caan) <- gsub("Treatment", "", rownames(caan))
-rownames(caan) <- paste("Capsicum annuum", rownames(caan), sep=" - ")
+rownames(caan) <- paste("M4 Capsicum annuum", rownames(caan), sep=" - ")
 
 #
 #
@@ -99,7 +99,7 @@ summary(model1)
 brol <- summ(model1, model.info=FALSE, model.fit=FALSE)
 brol <- as.data.frame(brol$coeftable)
 rownames(brol) <- gsub("Treatment", "", rownames(brol))
-rownames(brol) <- paste("Brassica oleracea", rownames(brol), sep=" - ")
+rownames(brol) <- paste("M5 Brassica oleracea", rownames(brol), sep=" - ")
 
 #BRRA
 brra_seed_set_final <- read.csv("Raw_data/brra_seed_set_final.csv", stringsAsFactors = T)
@@ -113,7 +113,7 @@ summary(model1)
 brra <- summ(model1, model.info=FALSE, model.fit=FALSE)
 brra <- as.data.frame(brra$coeftable)
 rownames(brra) <- gsub("Treatment", "", rownames(brra))
-rownames(brra) <- paste("Brassica rapa", rownames(brra), sep=" - ")
+rownames(brra) <- paste("M6 Brassica rapa", rownames(brra), sep=" - ")
 
 
 #SIAL
@@ -128,7 +128,7 @@ summary(model1)
 sial <- summ(model1, model.info=FALSE, model.fit=FALSE)
 sial<- as.data.frame(sial$coeftable)
 rownames(sial) <- gsub("Treatment", "", rownames(sial))
-rownames(sial) <- paste("Sinapis alba", rownames(sial), sep=" - ")
+rownames(sial) <- paste("M7 Sinapis alba", rownames(sial), sep=" - ")
 
 
 #ERSA
@@ -143,7 +143,7 @@ summary(model1)
 ersa <- summ(model1, model.info=FALSE, model.fit=FALSE)
 ersa <- as.data.frame(ersa$coeftable)
 rownames(ersa) <- gsub("Treatment", "", rownames(ersa))
-rownames(ersa) <- paste("Eruca sativa", rownames(ersa), sep=" - ")
+rownames(ersa) <- paste("M8 Eruca sativa", rownames(ersa), sep=" - ")
 
 #
 #
@@ -163,7 +163,7 @@ summary(model1)
 ippu <- summ(model1, model.info=FALSE, model.fit=FALSE)
 ippu <- as.data.frame(ippu$coeftable)
 rownames(ippu) <- gsub("Treatment", "", rownames(ippu))
-rownames(ippu) <- paste("Ipomoea purpurea", rownames(ippu), sep=" - ")
+rownames(ippu) <- paste("M9 Ipomoea purpurea", rownames(ippu), sep=" - ")
 
 #IPAQ
 ipaq_seed_set_final <- read.csv("Raw_data/ipaq_seed_set_final.csv", stringsAsFactors = T)
@@ -177,7 +177,7 @@ summary(model1)
 ipaq <- summ(model1, model.info=FALSE, model.fit=FALSE)
 ipaq <- as.data.frame(ipaq$coeftable)
 rownames(ipaq) <- gsub("Treatment", "", rownames(ipaq))
-rownames(ipaq) <- paste("Ipomoea aquatica", rownames(ipaq), sep=" - ")
+rownames(ipaq) <- paste("M10 Ipomoea aquatica", rownames(ipaq), sep=" - ")
 
 table <- rbind(pein, soly, some , caan, brol, brra, ersa, ippu, ipaq)
 saveRDS(table, "Data/RData/lm_table.RData")
