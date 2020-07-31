@@ -160,7 +160,7 @@ d <- readRDS("Data/RData/lm_table.RData")
 
 colnames(d) <- c("Estimates", "Standard error", "t-value", "{\\textit{P}}-value")
 
-kable(d, "latex", longtable = T, digits=2, escape=F,booktabs = T,linesep = "\\addlinespace",caption= "\\textbf{Table S6.} Results of the linear models conducted to test the effect of heterospecific pollen with the 50-50 CP-HP pollen treatments. We conducted 10 different linear models (M1, M2, M3, M4, M5, M6, M7 M8, M9 and M10) where the effect of the different 9 pollen donors was compared with the control treatment of hand cross pollination with conspecific pollen for each recipient species (intercept). The first species on the row names are the pollen recipient species and the second species the pollen donor species. Each treatment is compared with the control or reference treatment that is indicated with the recipient species names and the intercept term between parentheses") %>%
+kable(d, "latex", longtable = T, digits=2, escape=F,booktabs = T,linesep = "\\addlinespace",caption= "\\textbf{Table S6.} Results of the linear models conducted to test the effect of heterospecific pollen with the 50-50 CP-HP pollen treatments. We conducted 10 different linear models (M1, M2, M3, M4, M5, M6, M7 M8, M9 and M10) where the effect of the different 9 pollen donors was compared with the control treatment of hand cross pollination with conspecific pollen for each recipient species (intercept). The first species on the row names are the pollen recipient species and the second species the pollen donor species. Each treatment is compared with the control or reference treatment that is indicated with the recipient species names and the intercept term between parentheses.") %>%
   kable_styling(latex_options = c("striped"), font_size = 7, full_width=F)%>%column_spec(1,italic =T)%>% row_spec(0,bold=TRUE)
 ```
 
@@ -216,7 +216,7 @@ rownames(seed_100) <- NULL
 
 seed_100 <- as.data.frame(seed_100)
 
-kable(seed_100, "latex", longtable = F,digits=2,booktabs = T, linesep = "\\addlinespace", caption= "\\textbf{Table S7.} Number of seeds produced with 100\\% foreign pollen treatments (N=900). From 900 pollination events we found seed production in just 13 specific cases and 0 seed production in the other 887 pollination events. In this table we show just the treatments that lead to seed production.") %>% kable_styling(font_size = 10,position="left",full_width=F,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>%
+kable(seed_100, "latex", longtable = F,digits=2,booktabs = T, linesep = "\\addlinespace", caption= "\\textbf{Table S7.} Number of seeds produced with the 100\\% foreign pollen treatments (N=900). From 900 pollination events we found seed production in just 13 specific cases and 0 seed production in the other 887 pollination events. In this table we show just the treatments that lead to seed production.") %>% kable_styling(font_size = 10,position="left",full_width=F,latex_options = c("striped","scale_down")) %>% row_spec(0,bold=TRUE)  %>%
    add_footnote("*            Note: There are some specific cases that we think that hybridization did not occur and that the recipient species were pollen contaminated, like the one of C. annuum with S. alba with 127 seeds. This seems to be the case for 5 other crosses that had very low seed production when they were pollinated with 100% foreign pollen with species of other family members. This represents very few isolated cases (0.67% of all the 100% foreign pollen crosses conducted) and we think that our results are not compromised by this fact. ", notation = "none") %>% column_spec(1,italic =T)%>% column_spec(2,italic =T)
 
 
@@ -291,7 +291,7 @@ kable(table, "latex", longtable = T, digits=2, escape=F,booktabs = T,linesep = "
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S1** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments: apomixis (orange), hand cross pollination (green), hand self pollination (blue) and spontaneous selfing (yellow). The coloured dots, represent the different values of seed set for each treatment."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S1** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments: apomixis (orange), hand cross pollination (green), hand self pollination (blue) and spontaneous selfing (yellow). The coloured dots, represent the different values of seed:ovule ratio for each treatment."}
 
 setwd("~/R_projects/Hp_pollen_experiment")
 
@@ -463,7 +463,7 @@ abline(v=50,col="black")
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S5** Pollen ratios comparisons between the different pollen recipient families where the boxes represent least square means, the error bars, confidence intervals 95%, and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios (%) are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen), and then compared by family (N=20). Brassicacea family is coloured in blue, Convolvulaceae in green and Solanaceae in orange."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S5** Pollen ratios comparisons between the different pollen recipient families The boxes represent least square means, the error bars confidence intervals 95% and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios (%) are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen). Brassicacea family is coloured in blue, Convolvulaceae in green and Solanaceae in orange."}
 
 
 #Here I try to compare the different proportions of pollen between the different groups
@@ -613,7 +613,7 @@ plot(G, edge.width=E(G)$weight/0.5,  vertex.color=c(rep("#0072B2",2),"#D55E00","
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6, fig.cap="**Fig. S7** Graphical representation of the correlation matrix of the different reproductive traits considered in the experiment. Positive correlations are displayed in blue and negative in red. The intensity, size and colour of the circles are proportional to the correlation coefficient from Pearson’s r."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=6, fig.cap="**Fig. S7** Graphical representation of the correlation matrix of all the traits measured. Positive correlations are displayed in blue and negative in red. The intensity, size and colour of the circles are proportional to the correlation coefficient from Pearson’s r."}
 #install.packages("corrplot")
 library(corrplot)
 setwd("~/R_projects/Hp_pollen_experiment")
