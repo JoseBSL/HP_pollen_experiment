@@ -1,8 +1,11 @@
 #In this script I´m going to prepare the full data.frame of traits for analyses
 #First I load an existing table of traits and then I complete it
 
+#load library
+library(stringr)
+
 #load data
-traits_all <- read.csv("Data/tab.csv", sep="", stringsAsFactors = F)
+traits_all <- read.csv("Data/Csv/tab.csv", sep="", stringsAsFactors = F)
 #remove useless columns 
 traits_all <- traits_all[ ,-c(1,2,4,7,10,12)]
 
@@ -16,7 +19,7 @@ traits_all[1:4,2] <- 0
 
 #Load csv with selfing rates (It was done on the script "Analysis_mantel_test)
 
-selfing <- read.csv("Data/selfing_rate.csv")
+selfing <- read.csv("Data/Csv/selfing_rate.csv")
 
 selfing=selfing[,-1]
 colnames(selfing)[2]<- "Selfing_rate"
@@ -30,7 +33,7 @@ traits_all[,3] <- selfing[,2]
 colnames(traits_all)[3]<- "Selfing_rate"
 
 #Add other numerical trais
-morphometry <- read.csv("Data/species_traits.csv")
+morphometry <- read.csv("Data/Csv/species_traits.csv")
 morphometry <- morphometry[, -c(4:15)]
 
 #Now I have to remove the numbers after "_" 
@@ -532,7 +535,7 @@ boxplot(ovary_width_all$um~ovary_width_all$species)
 
 #SOLY
 ovary_length_soly <- subset(ovary, species=="SOLY")
-ovary_length_soly <- subset(ovary_length_soly, measurement=="ovary _ legth")
+ovary_length_soly_1 <- subset(ovary_length_soly, measurement=="ovary_legth_1")
 boxplot(ovary_length_soly$um)
 summary(ovary_length_soly$um)
 ovary_length_soly <- ovary_length_soly[complete.cases(ovary_length_soly),]

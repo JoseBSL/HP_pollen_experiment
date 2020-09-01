@@ -5,7 +5,7 @@ output:
 ---
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=2.5,fig.width=6}
-
+#Load libraries
 library(effsize)
 library(dplyr)
 library(ggplot2)
@@ -17,8 +17,14 @@ library(magrittr)
 library(multipanelfigure)
 library(grid)
 
-load("effect_size_species/effect_size_total.RData")
-png("Figure4.png", width = 11000, height = 5000, res = 1500)
+#Load data
+#This data is generated in analysis in the "Effect sizes_total.R" file
+#Please see Script-->Analysis
+#Now figure 3 in main text
+setwd("~/R_projects/Hp_pollen_experiment")
+load("Data/RData/effect_size_total.RData")
+#save image
+#png("Figure4.png", width = 11000, height = 5000, res = 1500)
 
  ggplot(all, aes(Family,Cohen_d,colour=Family_1), size=10) + theme_bw(base_size=10)+theme(axis.text.y = element_text(face = "italic"))+ geom_point( aes(colour=Family_1),size=2) +
   geom_errorbar(aes(x = Family, ymin = Lower, 

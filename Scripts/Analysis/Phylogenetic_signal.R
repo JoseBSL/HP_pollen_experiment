@@ -1,23 +1,16 @@
 library(ape)
 library(phytools)
-pollen_tree=read.tree("Data/Nwk/pollen_tree.nwk")
-#pollen_tree=read.tree("Data/pollen_tree_no_outgroup.nwk")
-#pollen_tree=read.tree("Data/tree_neighbour.nwk")
-png("phylo.png", units="px", width=8000, height=10000, res=2000)
-plot(pollen_tree, font= 3)
-add.scale.bar(x=0, y=1, length = 0.01)
 
-
+#Load data
 pollen_tree=read.tree("Data/Nwk/phylo_all_correct_names.nwk")
 
-png("Figure1.png", units="px", width=12000, height=12000, res=2500)
-plot(pollen_tree, font= 3)
-add.scale.bar(x=0, y=1, length = 0.01)
-
-dev.off()
-
-plot(pollen_tree)
-add.scale.bar(x=0, y=1, length = 0.01)
+#plot phylogenetic tree
+#png("Figure1.png", units="px", width=12000, height=12000, res=2500)
+#plot(pollen_tree, font= 3)
+#add.scale.bar(x=0, y=1, length = 0.01)
+#dev.off()
+#plot(pollen_tree)
+#add.scale.bar(x=0, y=1, length = 0.01)
 #plot(tree_10)
 
 tree_10 <- read.newick("Data/Nwk/pollen_tree_no_outgroup.nwk")
