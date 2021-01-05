@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.26)  5 AUG 2020 14:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.26)  5 JAN 2021 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -782,47 +782,47 @@ atex/lm/omslmsy.fd) (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omxlmex.fd
 exlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg) (/usr/local/texlive/2018
 /texmf-dist/tex/latex/amsfonts/umsb.fd) (/usr/local/texlive/2018/texmf-dist/tex
 /latex/microtype/mt-msb.cfg)
-Overfull \hbox (43.73239pt too wide) in paragraph at lines 188--188
+Overfull \hbox (42.53981pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.mrfothergills.com.au/|  
  []
 
 
-Overfull \hbox (43.73239pt too wide) in paragraph at lines 188--188
+Overfull \hbox (42.53981pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.mrfothergills.com.au/|  
  []
 
 
-Overfull \hbox (43.73239pt too wide) in paragraph at lines 188--188
+Overfull \hbox (42.53981pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.mrfothergills.com.au/|  
  []
 
 
-Overfull \hbox (43.73239pt too wide) in paragraph at lines 188--188
+Overfull \hbox (42.53981pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.mrfothergills.com.au/|  
  []
 
 
-Overfull \hbox (61.37311pt too wide) in paragraph at lines 188--188
+Overfull \hbox (60.18053pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.theseedcollection.com.au/|  
  []
 
 
-Overfull \hbox (26.03842pt too wide) in paragraph at lines 188--188
+Overfull \hbox (24.84584pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.edenseeds.com.au|  
  []
 
 
-Overfull \hbox (21.13841pt too wide) in paragraph at lines 188--188
+Overfull \hbox (19.94583pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.dianeseeds.com/|  
  []
 
 
-Overfull \hbox (43.73239pt too wide) in paragraph at lines 188--188
+Overfull \hbox (42.53981pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.mrfothergills.com.au/|  
  []
 
 
-Overfull \hbox (47.4352pt too wide) in paragraph at lines 188--188
+Overfull \hbox (46.24261pt too wide) in paragraph at lines 188--188
 []\T1/lmr/m/n/10 (-20) https://www.4seasonsseeds.com.au/|  
  []
 
@@ -830,7 +830,7 @@ Overfull \hbox (47.4352pt too wide) in paragraph at lines 188--188
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 225.
 
-Overfull \hbox (12.49872pt too wide) in paragraph at lines 225--225
+Overfull \hbox (12.30165pt too wide) in paragraph at lines 225--225
  []\T1/lmr/bx/n/6 Pollen:ovule
  []
 
@@ -851,7 +851,7 @@ File: Supp_Material_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-10-1.pd
-f  used on input line 736.
+f  used on input line 735.
 (pdftex.def)             Requested size: 469.75291pt x 388.59642pt.
 [16
 
@@ -863,7 +863,7 @@ File: Supp_Material_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-11-1.pd
-f  used on input line 749.
+f  used on input line 748.
 (pdftex.def)             Requested size: 457.7089pt x 485.81381pt.
 [17 <./Supp_Material_files/figure-latex/unnamed-chunk-11-1.pdf>]
 <Supp_Material_files/figure-latex/unnamed-chunk-12-1.pdf, id=127, 339.2675pt x 
@@ -872,7 +872,7 @@ File: Supp_Material_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-12-1.pd
-f  used on input line 768.
+f  used on input line 767.
 (pdftex.def)             Requested size: 339.27184pt x 295.10626pt.
 [18
 
@@ -884,7 +884,7 @@ File: Supp_Material_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-13-1.pd
-f  used on input line 787.
+f  used on input line 786.
 (pdftex.def)             Requested size: 469.74937pt x 218.923pt.
 [19
 
@@ -895,32 +895,32 @@ File: Supp_Material_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-14-1.pd
-f  used on input line 802.
+f  used on input line 801.
 (pdftex.def)             Requested size: 469.75784pt x 469.75784pt.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 816.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 815.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [20 <./Supp_Material_files/figure-latex/unnamed-chunk-14-1.pdf>]
-<Supp_Material_files/figure-latex/unnamed-chunk-15-1.pdf, id=173, 362.35374pt x
- 319.1925pt>
+<Supp_Material_files/figure-latex/unnamed-chunk-15-1.pdf, id=173, 384.43625pt x
+ 346.29375pt>
 File: Supp_Material_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-15-1.pd
-f  used on input line 823.
-(pdftex.def)             Requested size: 362.35286pt x 319.19171pt.
+f  used on input line 822.
+(pdftex.def)             Requested size: 384.44702pt x 346.30345pt.
 [21
 
  <./Supp_Material_files/figure-latex/unnamed-chunk-15-1.pdf>]
 <Supp_Material_files/figure-latex/unnamed-chunk-16-1.pdf, id=186, 855.195pt x 4
-23.5825pt>
+59.7175pt>
 File: Supp_Material_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-16-1.pd
-f  used on input line 835.
-(pdftex.def)             Requested size: 469.7454pt x 232.66731pt.
+f  used on input line 834.
+(pdftex.def)             Requested size: 469.7454pt x 252.5157pt.
 [22
 
  <./Supp_Material_files/figure-latex/unnamed-chunk-16-1.pdf>]
@@ -930,27 +930,27 @@ File: Supp_Material_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (typ
 e pdf)
 <use Supp_Material_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: Supp_Material_files/figure-latex/unnamed-chunk-17-1.pd
-f  used on input line 848.
+f  used on input line 849.
 (pdftex.def)             Requested size: 469.77809pt x 552.45128pt.
 
-LaTeX Warning: Float too large for page by 28.02126pt on input line 859.
+LaTeX Warning: Float too large for page by 28.02126pt on input line 860.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 861.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 862.
 [23 <./Supp_Material_files/figure-latex/unnamed-chunk-17-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 861.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 862.
 (./Supp_Material.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 861.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 861.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 862.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 862.
 Package rerunfilecheck Info: File `Supp_Material.out' has not changed.
 (rerunfilecheck)             Checksum: 5C5DF2B5D472320872B2AADBDCCE327F;817.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 861.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 862.
  ) 
 Here is how much of TeX's memory you used:
- 15089 strings out of 492649
- 224671 string characters out of 6129621
+ 15081 strings out of 492649
+ 224553 string characters out of 6129621
  371186 words of memory out of 5000000
- 18619 multiletter control sequences out of 15000+600000
- 84763 words of font info for 93 fonts, out of 8000000 for 9000
+ 18615 multiletter control sequences out of 15000+600000
+ 76039 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,20n,49p,1131b,672s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
@@ -969,7 +969,7 @@ ype1/public/lm/lmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
 /texlive/2018/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2018/texmf-
 dist/fonts/type1/public/lm/lmri7.pfb>
-Output written on Supp_Material.pdf (23 pages, 556400 bytes).
+Output written on Supp_Material.pdf (23 pages, 547295 bytes).
 PDF statistics:
  278 PDF objects out of 1000 (max. 8388607)
  212 compressed objects within 3 object streams

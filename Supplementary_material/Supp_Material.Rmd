@@ -362,7 +362,7 @@ abline(v=50,col="black")
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S4** Pollen ratios comparisons between the different pollen recipient families The boxes represent least square means, the error bars confidence intervals 95% and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios (%) are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen). Brassicacea family is coloured in blue, Convolvulaceae in green and Solanaceae in orange."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S4** Pollen ratios comparisons between the different pollen recipient families. The boxes represent least square means, the error bars confidence intervals 95% and sharing numbers indicate no significant differences between groups (Tukey adjusted comparisons). These pollen ratios (%) are the total number of heterospecific pollen grains divided by the total quantity of pollen (conspecific pollen + heterospecific pollen). Brassicacea family is coloured in blue, Convolvulaceae in green and Solanaceae in orange."}
 
 
 #Here I try to compare the different proportions of pollen between the different groups
@@ -440,7 +440,7 @@ junk.glmer = lm(hp_ratio ~ fam_non, data = pollen_non)
 junk.glmer = lm(hp_ratio ~ fam_foc, data = pollen_foc)
 lsm = lsmeans(junk.glmer, "fam_foc", type = "response")
 #pairs(lsm)
-CLD <- CLD(lsm,alpha=0.05,adjust="tukey")
+CLD <-  multcomp::cld(lsm,alpha=0.05,adjust="tukey")
 
 #theme
 theme_ms <- function(base_size=12, base_family="Helvetica") {
@@ -555,10 +555,9 @@ corrplot(traits_all, type = "lower", tl.cex = 0.8, cl.cex = 0.8, tl.col = "black
 \clearpage
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6,fig.width=12,  fig.cap="**Fig. S7** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments: apomixis (orange), hand cross pollination (green), hand self pollination (blue) and spontaneous selfing (yellow). The coloured dots, represent the different values of seed:ovule ratio for each treatment."}
+```{r, echo=FALSE, message=FALSE, warning=FALSE,cache=FALSE,fig.height=6.5,fig.width=12,  fig.cap="**Fig. S7** Violin plot of the proportion of seeds coverted to ovule (%) for all species with four different hand-pollination treatments: apomixis (orange), hand cross pollination (green), hand self pollination (blue) and spontaneous selfing (yellow). The species are grouped by family in three different panels that are named with the corresponding family names (Brassicaceae, Convolvulaceae and Solanaceae). The coloured dots, represent the different values of seed:ovule ratio for each treatment."}
 
 setwd("~/R_projects/Hp_pollen_experiment")
-
 #Script to plot the reproductive biology tests
 #load libraries
 library(ggplot2)
@@ -628,18 +627,19 @@ d$Treatment[d$Treatment=="Flower control"]<-"Spontaneous selfing"
 d$Treatment[d$Treatment=="FLOWER CONTROL"]<-"Spontaneous selfing"
 d$Treatment[d$Treatment=="Flower Control"]<-"Spontaneous selfing"
 
-d$Species=as.character(d$Species)
-d$Species[d$Family=="BROL"]<-"B"
-d$Species[d$Family=="BRRA"]<-"B"
-d$Species[d$Family=="ERSA"]<-"B"
-d$Species[d$Family=="SIAL"]<-"B"
-d$Species[d$Family=="IPPU"]<-"C"
-d$Species[d$Family=="IPAQ"]<-"C"
-d$Species[d$Family=="SOME"]<-"S"
-d$Species[d$Family=="SOLY"]<-"S"
-d$Species[d$Family=="PEIN"]<-"S"
-d$Species[d$Family=="CAAN"]<-"S"
+d$Family=as.character(d$Family)
+d$Family[d$Species=="BROL"]<-"Brassicaceae"
+d$Family[d$Species=="BRRA"]<-"Brassicaceae"
+d$Family[d$Species=="ERSA"]<-"Brassicaceae"
+d$Family[d$Species=="SIAL"]<-"Brassicaceae"
+d$Family[d$Species=="IPPU"]<-"Convolvulaceae"
+d$Family[d$Species=="IPAQ"]<-"Convolvulaceae"
+d$Family[d$Species=="SOME"]<-"Solanaceae"
+d$Family[d$Species=="SOLY"]<-"Solanaceae"
+d$Family[d$Species=="PEIN"]<-"Solanaceae"
+d$Family[d$Species=="CAAN"]<-"Solanaceae"
 
+d$Species=as.character(d$Species)
 d$Species[d$Species=="BROL"]<-"B. oleracea"
 d$Species[d$Species=="BRRA"]<-"B. rapa"
 d$Species[d$Species=="SIAL"]<-"S. alba"
@@ -653,11 +653,16 @@ d$Species[d$Species=="CAAN"]<-"C. annuum"
 
 cbPalette <- c( "#56B4E9","#E69F00", "#999999", "#009E73")
 
- ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
+ggplot(d, aes(x=Species, y=Seed_set, fill=Treatment)) + 
   geom_violin(scale = "width",draw_quantiles = c(0.5))+
   geom_dotplot(binaxis='y', 
-               dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+
-  theme_minimal()+labs(y="Seed:ovule ratio")+scale_fill_manual(name="Treatments",values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(plot.title = element_text(face = "bold"),axis.text.x = element_text(face = "italic"))
+               dotsize=0.15,stackdir='center',position = position_jitterdodge(jitter.width = 0.01))+ facet_grid(. ~ Family,scales="free", space="free")+
+  theme_bw()+labs(y="Seed:ovule ratio")+scale_fill_manual(name="Treatments",values=c( "#D55E00","#009E73","#0072B2", "#E69F00"))+theme(plot.title = element_text(face = "bold"),
+                                                                                                                                       axis.text.x = element_text(face = "italic"),strip.background = element_rect(color = "black", size = 0.5))
+
+
+                                         
+
 
 ```
 
