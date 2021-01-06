@@ -1,0 +1,1432 @@
+"","Species","Treatment","Treatment.number","Seed.production","Family","Scaled_seed_set"
+"1","Petunia integrifolia","Brassica oleracea",1,73,"Brassicaceae",-0.0843100261209798
+"2","Petunia integrifolia","Brassica oleracea",2,0,"Brassicaceae",-0.75350413027647
+"3","Petunia integrifolia","Brassica oleracea",3,0,"Brassicaceae",-0.75350413027647
+"4","Petunia integrifolia","Brassica oleracea",4,0,"Brassicaceae",-0.75350413027647
+"5","Petunia integrifolia","Brassica oleracea",5,86,"Brassicaceae",0.0348615266738337
+"6","Petunia integrifolia","Brassica oleracea",6,330,"Brassicaceae",2.27161990220725
+"7","Petunia integrifolia","Brassica oleracea",7,109,"Brassicaceae",0.245703504695427
+"8","Petunia integrifolia","Brassica oleracea",8,81,"Brassicaceae",-0.0109736859395561
+"9","Petunia integrifolia","Brassica oleracea",9,62,"Brassicaceae",-0.185147493870437
+"10","Petunia integrifolia","Brassica oleracea",10,0,"Brassicaceae",-0.75350413027647
+"11","Petunia integrifolia","Brassica rapa",1,85,"Brassicaceae",0.0256944841511557
+"12","Petunia integrifolia","Brassica rapa",2,163,"Brassicaceae",0.740723800920036
+"13","Petunia integrifolia","Brassica rapa",3,0,"Brassicaceae",-0.75350413027647
+"14","Petunia integrifolia","Brassica rapa",4,79,"Brassicaceae",-0.029307770984912
+"15","Petunia integrifolia","Brassica rapa",5,85,"Brassicaceae",0.0256944841511557
+"16","Petunia integrifolia","Brassica rapa",6,217,"Brassicaceae",1.23574409714465
+"17","Petunia integrifolia","Brassica rapa",7,255,"Brassicaceae",1.58409171300641
+"18","Petunia integrifolia","Brassica rapa",8,0,"Brassicaceae",-0.75350413027647
+"19","Petunia integrifolia","Brassica rapa",9,33,"Brassicaceae",-0.450991727028098
+"20","Petunia integrifolia","Brassica rapa",10,42,"Brassicaceae",-0.368488344323996
+"21","Petunia integrifolia","Eruca vesicaria",1,38,"Brassicaceae",-0.405156514414708
+"22","Petunia integrifolia","Eruca vesicaria",2,155,"Brassicaceae",0.667387460738613
+"23","Petunia integrifolia","Eruca vesicaria",3,128,"Brassicaceae",0.419877312626308
+"24","Petunia integrifolia","Eruca vesicaria",4,111,"Brassicaceae",0.264037589740783
+"25","Petunia integrifolia","Eruca vesicaria",5,167,"Brassicaceae",0.777391971010748
+"26","Petunia integrifolia","Eruca vesicaria",6,0,"Brassicaceae",-0.75350413027647
+"27","Petunia integrifolia","Eruca vesicaria",7,0,"Brassicaceae",-0.75350413027647
+"28","Petunia integrifolia","Eruca vesicaria",8,78,"Brassicaceae",-0.03847481350759
+"29","Petunia integrifolia","Eruca vesicaria",9,59,"Brassicaceae",-0.212648621438471
+"30","Petunia integrifolia","Eruca vesicaria",10,193,"Brassicaceae",1.01573507660037
+"31","Petunia integrifolia","Sinapis alba",1,21,"Brassicaceae",-0.560996237300233
+"32","Petunia integrifolia","Sinapis alba",2,0,"Brassicaceae",-0.75350413027647
+"33","Petunia integrifolia","Sinapis alba",3,61,"Brassicaceae",-0.194314536393115
+"34","Petunia integrifolia","Sinapis alba",4,17,"Brassicaceae",-0.597664407390945
+"35","Petunia integrifolia","Sinapis alba",5,20,"Brassicaceae",-0.570163279822911
+"36","Petunia integrifolia","Sinapis alba",6,0,"Brassicaceae",-0.75350413027647
+"37","Petunia integrifolia","Sinapis alba",7,0,"Brassicaceae",-0.75350413027647
+"38","Petunia integrifolia","Sinapis alba",8,0,"Brassicaceae",-0.75350413027647
+"39","Petunia integrifolia","Sinapis alba",9,23,"Brassicaceae",-0.542662152254877
+"40","Petunia integrifolia","Sinapis alba",10,0,"Brassicaceae",-0.75350413027647
+"41","Petunia integrifolia","Ipomoea aquatica",1,0,"Convolvulaceae",-0.75350413027647
+"42","Petunia integrifolia","Ipomoea aquatica",2,37,"Convolvulaceae",-0.414323556937386
+"43","Petunia integrifolia","Ipomoea aquatica",3,0,"Convolvulaceae",-0.75350413027647
+"44","Petunia integrifolia","Ipomoea aquatica",4,0,"Convolvulaceae",-0.75350413027647
+"45","Petunia integrifolia","Ipomoea aquatica",5,0,"Convolvulaceae",-0.75350413027647
+"46","Petunia integrifolia","Ipomoea aquatica",6,0,"Convolvulaceae",-0.75350413027647
+"47","Petunia integrifolia","Ipomoea aquatica",7,0,"Convolvulaceae",-0.75350413027647
+"48","Petunia integrifolia","Ipomoea aquatica",8,0,"Convolvulaceae",-0.75350413027647
+"49","Petunia integrifolia","Ipomoea aquatica",9,299,"Convolvulaceae",1.98744158400424
+"50","Petunia integrifolia","Ipomoea aquatica",10,164,"Convolvulaceae",0.749890843442714
+"51","Petunia integrifolia","Ipomoea purpurea",1,0,"Convolvulaceae",-0.75350413027647
+"52","Petunia integrifolia","Ipomoea purpurea",2,0,"Convolvulaceae",-0.75350413027647
+"53","Petunia integrifolia","Ipomoea purpurea",3,0,"Convolvulaceae",-0.75350413027647
+"54","Petunia integrifolia","Ipomoea purpurea",4,0,"Convolvulaceae",-0.75350413027647
+"55","Petunia integrifolia","Ipomoea purpurea",5,0,"Convolvulaceae",-0.75350413027647
+"56","Petunia integrifolia","Ipomoea purpurea",6,0,"Convolvulaceae",-0.75350413027647
+"57","Petunia integrifolia","Ipomoea purpurea",7,0,"Convolvulaceae",-0.75350413027647
+"58","Petunia integrifolia","Ipomoea purpurea",8,0,"Convolvulaceae",-0.75350413027647
+"59","Petunia integrifolia","Ipomoea purpurea",9,61,"Convolvulaceae",-0.194314536393115
+"60","Petunia integrifolia","Ipomoea purpurea",10,0,"Convolvulaceae",-0.75350413027647
+"61","Petunia integrifolia","Capsicum annuum",1,298,"Solanaceae",1.97827454148156
+"62","Petunia integrifolia","Capsicum annuum",2,234,"Solanaceae",1.39158382003017
+"63","Petunia integrifolia","Capsicum annuum",3,341,"Solanaceae",2.37245736995671
+"64","Petunia integrifolia","Capsicum annuum",4,274,"Solanaceae",1.75826552093729
+"65","Petunia integrifolia","Capsicum annuum",5,244,"Solanaceae",1.48325424525695
+"66","Petunia integrifolia","Capsicum annuum",6,196,"Solanaceae",1.04323620416841
+"67","Petunia integrifolia","Capsicum annuum",7,182,"Solanaceae",0.914897608850917
+"68","Petunia integrifolia","Capsicum annuum",8,199,"Solanaceae",1.07073733173644
+"69","Petunia integrifolia","Capsicum annuum",9,196,"Solanaceae",1.04323620416841
+"70","Petunia integrifolia","Capsicum annuum",10,134,"Solanaceae",0.474879567762375
+"71","Petunia integrifolia","Petunia integrifolia",1,NA,"Solanaceae",NA
+"72","Petunia integrifolia","Petunia integrifolia",2,NA,"Solanaceae",NA
+"73","Petunia integrifolia","Petunia integrifolia",3,NA,"Solanaceae",NA
+"74","Petunia integrifolia","Petunia integrifolia",4,NA,"Solanaceae",NA
+"75","Petunia integrifolia","Petunia integrifolia",5,NA,"Solanaceae",NA
+"76","Petunia integrifolia","Petunia integrifolia",6,NA,"Solanaceae",NA
+"77","Petunia integrifolia","Petunia integrifolia",7,NA,"Solanaceae",NA
+"78","Petunia integrifolia","Petunia integrifolia",8,NA,"Solanaceae",NA
+"79","Petunia integrifolia","Petunia integrifolia",9,NA,"Solanaceae",NA
+"80","Petunia integrifolia","Petunia integrifolia",10,NA,"Solanaceae",NA
+"81","Petunia integrifolia","Solanum lycopersicum",1,0,"Solanaceae",-0.75350413027647
+"82","Petunia integrifolia","Solanum lycopersicum",2,0,"Solanaceae",-0.75350413027647
+"83","Petunia integrifolia","Solanum lycopersicum",3,0,"Solanaceae",-0.75350413027647
+"84","Petunia integrifolia","Solanum lycopersicum",4,94,"Solanaceae",0.108197866855257
+"85","Petunia integrifolia","Solanum lycopersicum",5,12,"Solanaceae",-0.643499620004335
+"86","Petunia integrifolia","Solanum lycopersicum",6,0,"Solanaceae",-0.75350413027647
+"87","Petunia integrifolia","Solanum lycopersicum",7,81,"Solanaceae",-0.0109736859395561
+"88","Petunia integrifolia","Solanum lycopersicum",8,0,"Solanaceae",-0.75350413027647
+"89","Petunia integrifolia","Solanum lycopersicum",9,241,"Solanaceae",1.45575311768892
+"90","Petunia integrifolia","Solanum lycopersicum",10,184,"Solanaceae",0.933231693896273
+"91","Petunia integrifolia","Solanum melongena",1,24,"Solanaceae",-0.533495109732199
+"92","Petunia integrifolia","Solanum melongena",2,0,"Solanaceae",-0.75350413027647
+"93","Petunia integrifolia","Solanum melongena",3,11,"Solanaceae",-0.652666662527013
+"94","Petunia integrifolia","Solanum melongena",4,0,"Solanaceae",-0.75350413027647
+"95","Petunia integrifolia","Solanum melongena",5,0,"Solanaceae",-0.75350413027647
+"96","Petunia integrifolia","Solanum melongena",6,0,"Solanaceae",-0.75350413027647
+"97","Petunia integrifolia","Solanum melongena",7,259,"Solanaceae",1.62075988309712
+"98","Petunia integrifolia","Solanum melongena",8,17,"Solanaceae",-0.597664407390945
+"99","Petunia integrifolia","Solanum melongena",9,250,"Solanaceae",1.53825650039302
+"100","Petunia integrifolia","Solanum melongena",10,0,"Solanaceae",-0.75350413027647
+"101","Petunia integrifolia","Cross",1,189,"other",0.979066906509663
+"102","Petunia integrifolia","Cross",3,169,"other",0.795726056056104
+"103","Petunia integrifolia","Cross",4,283,"other",1.84076890364139
+"104","Petunia integrifolia","Cross",5,294,"other",1.94160637139085
+"105","Petunia integrifolia","Cross",6,277,"other",1.78576664850532
+"106","Petunia integrifolia","Cross",8,325,"other",2.22578468959387
+"107","Petunia integrifolia","Cross",10,310,"other",2.0882790517537
+"108","Petunia integrifolia","Cross",11,278,"other",1.794933691028
+"109","Petunia integrifolia","Cross",12,0,"other",-0.75350413027647
+"110","Petunia integrifolia","Cross",13,0,"other",-0.75350413027647
+"111","Petunia integrifolia","Cross",14,362,"other",2.56496526293295
+"112","Petunia integrifolia","Cross",15,321,"other",2.18911651950315
+"113","Petunia integrifolia","Cross",16,231,"other",1.36408269246214
+"114","Petunia integrifolia","Cross",17,0,"other",-0.75350413027647
+"115","Petunia integrifolia","Cross",18,318,"other",2.16161539193512
+"116","Petunia integrifolia","Cross",19,257,"other",1.60242579805176
+"117","Petunia integrifolia","Cross",20,299,"other",1.98744158400424
+"118","Petunia integrifolia","Self",1,107,"other",0.227369419650071
+"119","Petunia integrifolia","Self",2,144,"other",0.566549992989155
+"120","Petunia integrifolia","Self",3,10,"other",-0.661833705049691
+"121","Petunia integrifolia","Self",4,0,"other",-0.75350413027647
+"122","Petunia integrifolia","Self",5,54,"other",-0.258483834051861
+"123","Petunia integrifolia","Self",6,13,"other",-0.634332577481657
+"124","Petunia integrifolia","Self",7,32,"other",-0.460158769550776
+"125","Petunia integrifolia","Self",8,74,"other",-0.0751429835983018
+"126","Petunia integrifolia","Self",9,13,"other",-0.634332577481657
+"127","Petunia integrifolia","Self",10,98,"other",0.144866036945969
+"128","Petunia integrifolia","Control",1,0,"other",-0.75350413027647
+"129","Petunia integrifolia","Control",2,0,"other",-0.75350413027647
+"130","Petunia integrifolia","Control",3,0,"other",-0.75350413027647
+"131","Petunia integrifolia","Control",4,0,"other",-0.75350413027647
+"132","Petunia integrifolia","Control",5,0,"other",-0.75350413027647
+"133","Petunia integrifolia","Control",6,0,"other",-0.75350413027647
+"134","Petunia integrifolia","Control",7,0,"other",-0.75350413027647
+"135","Petunia integrifolia","Control",8,0,"other",-0.75350413027647
+"136","Petunia integrifolia","Control",9,0,"other",-0.75350413027647
+"137","Petunia integrifolia","Control",10,0,"other",-0.75350413027647
+"138","Petunia integrifolia","Flower control",1,0,"other",-0.75350413027647
+"139","Petunia integrifolia","Flower control",2,0,"other",-0.75350413027647
+"140","Petunia integrifolia","Flower control",3,0,"other",-0.75350413027647
+"141","Petunia integrifolia","Flower control",4,0,"other",-0.75350413027647
+"142","Petunia integrifolia","Flower control",5,0,"other",-0.75350413027647
+"143","Petunia integrifolia","Flower control",6,0,"other",-0.75350413027647
+"144","Petunia integrifolia","Flower control",7,0,"other",-0.75350413027647
+"145","Petunia integrifolia","Flower control",8,0,"other",-0.75350413027647
+"146","Petunia integrifolia","Flower control",9,0,"other",-0.75350413027647
+"147","Petunia integrifolia","Flower control",10,0,"other",-0.75350413027647
+"148","Solanum lycopersicum","Brassica oleracea",1,64,"Brassicaceae",0.963915239238818
+"149","Solanum lycopersicum","Brassica oleracea",2,67,"Brassicaceae",1.04623628632099
+"150","Solanum lycopersicum","Brassica oleracea",3,75,"Brassicaceae",1.26575907854013
+"151","Solanum lycopersicum","Brassica oleracea",4,28,"Brassicaceae",-0.0239373257472995
+"152","Solanum lycopersicum","Brassica oleracea",5,73,"Brassicaceae",1.21087838048535
+"153","Solanum lycopersicum","Brassica oleracea",6,73,"Brassicaceae",1.21087838048535
+"154","Solanum lycopersicum","Brassica oleracea",7,72,"Brassicaceae",1.18343803145796
+"155","Solanum lycopersicum","Brassica oleracea",8,14,"Brassicaceae",-0.40810221213079
+"156","Solanum lycopersicum","Brassica oleracea",9,44,"Brassicaceae",0.415108258690975
+"157","Solanum lycopersicum","Brassica oleracea",10,41,"Brassicaceae",0.332787211608799
+"158","Solanum lycopersicum","Brassica rapa",1,39,"Brassicaceae",0.277906513554014
+"159","Solanum lycopersicum","Brassica rapa",2,64,"Brassicaceae",0.963915239238818
+"160","Solanum lycopersicum","Brassica rapa",3,13,"Brassicaceae",-0.435542561158182
+"161","Solanum lycopersicum","Brassica rapa",4,5,"Brassicaceae",-0.655065353377319
+"162","Solanum lycopersicum","Brassica rapa",5,4,"Brassicaceae",-0.682505702404711
+"163","Solanum lycopersicum","Brassica rapa",6,13,"Brassicaceae",-0.435542561158182
+"164","Solanum lycopersicum","Brassica rapa",7,0,"Brassicaceae",-0.79226709851428
+"165","Solanum lycopersicum","Brassica rapa",8,0,"Brassicaceae",-0.79226709851428
+"166","Solanum lycopersicum","Brassica rapa",9,0,"Brassicaceae",-0.79226709851428
+"167","Solanum lycopersicum","Brassica rapa",10,0,"Brassicaceae",-0.79226709851428
+"168","Solanum lycopersicum","Eruca vesicaria",1,0,"Brassicaceae",-0.79226709851428
+"169","Solanum lycopersicum","Eruca vesicaria",2,0,"Brassicaceae",-0.79226709851428
+"170","Solanum lycopersicum","Eruca vesicaria",3,7,"Brassicaceae",-0.600184655322535
+"171","Solanum lycopersicum","Eruca vesicaria",4,34,"Brassicaceae",0.140704768417053
+"172","Solanum lycopersicum","Eruca vesicaria",5,16,"Brassicaceae",-0.353221514076005
+"173","Solanum lycopersicum","Eruca vesicaria",6,22,"Brassicaceae",-0.188579419911652
+"174","Solanum lycopersicum","Eruca vesicaria",7,12,"Brassicaceae",-0.462982910185574
+"175","Solanum lycopersicum","Eruca vesicaria",8,0,"Brassicaceae",-0.79226709851428
+"176","Solanum lycopersicum","Eruca vesicaria",9,0,"Brassicaceae",-0.79226709851428
+"177","Solanum lycopersicum","Eruca vesicaria",10,0,"Brassicaceae",-0.79226709851428
+"178","Solanum lycopersicum","Sinapis alba",1,0,"Brassicaceae",-0.79226709851428
+"179","Solanum lycopersicum","Sinapis alba",2,1,"Brassicaceae",-0.764826749486888
+"180","Solanum lycopersicum","Sinapis alba",3,3,"Brassicaceae",-0.709946051432103
+"181","Solanum lycopersicum","Sinapis alba",4,3,"Brassicaceae",-0.709946051432103
+"182","Solanum lycopersicum","Sinapis alba",5,0,"Brassicaceae",-0.79226709851428
+"183","Solanum lycopersicum","Sinapis alba",6,0,"Brassicaceae",-0.79226709851428
+"184","Solanum lycopersicum","Sinapis alba",7,0,"Brassicaceae",-0.79226709851428
+"185","Solanum lycopersicum","Sinapis alba",8,0,"Brassicaceae",-0.79226709851428
+"186","Solanum lycopersicum","Sinapis alba",9,24,"Brassicaceae",-0.133698721856868
+"187","Solanum lycopersicum","Sinapis alba",10,0,"Brassicaceae",-0.79226709851428
+"188","Solanum lycopersicum","Ipomoea aquatica",1,0,"Convolvulaceae",-0.79226709851428
+"189","Solanum lycopersicum","Ipomoea aquatica",2,0,"Convolvulaceae",-0.79226709851428
+"190","Solanum lycopersicum","Ipomoea aquatica",3,13,"Convolvulaceae",-0.435542561158182
+"191","Solanum lycopersicum","Ipomoea aquatica",4,0,"Convolvulaceae",-0.79226709851428
+"192","Solanum lycopersicum","Ipomoea aquatica",5,0,"Convolvulaceae",-0.79226709851428
+"193","Solanum lycopersicum","Ipomoea aquatica",6,0,"Convolvulaceae",-0.79226709851428
+"194","Solanum lycopersicum","Ipomoea aquatica",7,0,"Convolvulaceae",-0.79226709851428
+"195","Solanum lycopersicum","Ipomoea aquatica",8,0,"Convolvulaceae",-0.79226709851428
+"196","Solanum lycopersicum","Ipomoea aquatica",9,0,"Convolvulaceae",-0.79226709851428
+"197","Solanum lycopersicum","Ipomoea aquatica",10,0,"Convolvulaceae",-0.79226709851428
+"198","Solanum lycopersicum","Ipomoea purpurea",1,0,"Convolvulaceae",-0.79226709851428
+"199","Solanum lycopersicum","Ipomoea purpurea",2,0,"Convolvulaceae",-0.79226709851428
+"200","Solanum lycopersicum","Ipomoea purpurea",3,0,"Convolvulaceae",-0.79226709851428
+"201","Solanum lycopersicum","Ipomoea purpurea",4,0,"Convolvulaceae",-0.79226709851428
+"202","Solanum lycopersicum","Ipomoea purpurea",5,5,"Convolvulaceae",-0.655065353377319
+"203","Solanum lycopersicum","Ipomoea purpurea",6,2,"Convolvulaceae",-0.737386400459496
+"204","Solanum lycopersicum","Ipomoea purpurea",7,0,"Convolvulaceae",-0.79226709851428
+"205","Solanum lycopersicum","Ipomoea purpurea",8,4,"Convolvulaceae",-0.682505702404711
+"206","Solanum lycopersicum","Ipomoea purpurea",9,3,"Convolvulaceae",-0.709946051432103
+"207","Solanum lycopersicum","Ipomoea purpurea",10,0,"Convolvulaceae",-0.79226709851428
+"208","Solanum lycopersicum","Capsicum annuum",1,0,"Solanaceae",-0.79226709851428
+"209","Solanum lycopersicum","Capsicum annuum",2,0,"Solanaceae",-0.79226709851428
+"210","Solanum lycopersicum","Capsicum annuum",3,0,"Solanaceae",-0.79226709851428
+"211","Solanum lycopersicum","Capsicum annuum",4,0,"Solanaceae",-0.79226709851428
+"212","Solanum lycopersicum","Capsicum annuum",5,0,"Solanaceae",-0.79226709851428
+"213","Solanum lycopersicum","Capsicum annuum",6,0,"Solanaceae",-0.79226709851428
+"214","Solanum lycopersicum","Capsicum annuum",7,0,"Solanaceae",-0.79226709851428
+"215","Solanum lycopersicum","Capsicum annuum",8,0,"Solanaceae",-0.79226709851428
+"216","Solanum lycopersicum","Capsicum annuum",9,0,"Solanaceae",-0.79226709851428
+"217","Solanum lycopersicum","Capsicum annuum",10,0,"Solanaceae",-0.79226709851428
+"218","Solanum lycopersicum","Petunia integrifolia",1,61,"Solanaceae",0.881594192156642
+"219","Solanum lycopersicum","Petunia integrifolia",2,49,"Solanaceae",0.552310003827936
+"220","Solanum lycopersicum","Petunia integrifolia",3,69,"Solanaceae",1.10111698437578
+"221","Solanum lycopersicum","Petunia integrifolia",4,5,"Solanaceae",-0.655065353377319
+"222","Solanum lycopersicum","Petunia integrifolia",5,0,"Solanaceae",-0.79226709851428
+"223","Solanum lycopersicum","Petunia integrifolia",6,31,"Solanaceae",0.058383721334877
+"224","Solanum lycopersicum","Petunia integrifolia",7,20,"Solanaceae",-0.243460117966437
+"225","Solanum lycopersicum","Petunia integrifolia",8,17,"Solanaceae",-0.325781165048613
+"226","Solanum lycopersicum","Petunia integrifolia",9,8,"Solanaceae",-0.572744306295143
+"227","Solanum lycopersicum","Petunia integrifolia",10,0,"Solanaceae",-0.79226709851428
+"228","Solanum lycopersicum","Solanum lycopersicum",1,NA,"Solanaceae",NA
+"229","Solanum lycopersicum","Solanum lycopersicum",2,NA,"Solanaceae",NA
+"230","Solanum lycopersicum","Solanum lycopersicum",3,NA,"Solanaceae",NA
+"231","Solanum lycopersicum","Solanum lycopersicum",4,NA,"Solanaceae",NA
+"232","Solanum lycopersicum","Solanum lycopersicum",5,NA,"Solanaceae",NA
+"233","Solanum lycopersicum","Solanum lycopersicum",6,NA,"Solanaceae",NA
+"234","Solanum lycopersicum","Solanum lycopersicum",7,NA,"Solanaceae",NA
+"235","Solanum lycopersicum","Solanum lycopersicum",8,NA,"Solanaceae",NA
+"236","Solanum lycopersicum","Solanum lycopersicum",9,NA,"Solanaceae",NA
+"237","Solanum lycopersicum","Solanum lycopersicum",10,NA,"Solanaceae",NA
+"238","Solanum lycopersicum","Solanum melongena",1,36,"Solanaceae",0.195585466471838
+"239","Solanum lycopersicum","Solanum melongena",2,38,"Solanaceae",0.250466164526622
+"240","Solanum lycopersicum","Solanum melongena",3,0,"Solanaceae",-0.79226709851428
+"241","Solanum lycopersicum","Solanum melongena",4,5,"Solanaceae",-0.655065353377319
+"242","Solanum lycopersicum","Solanum melongena",5,64,"Solanaceae",0.963915239238818
+"243","Solanum lycopersicum","Solanum melongena",6,11,"Solanaceae",-0.490423259212966
+"244","Solanum lycopersicum","Solanum melongena",7,5,"Solanaceae",-0.655065353377319
+"245","Solanum lycopersicum","Solanum melongena",8,9,"Solanaceae",-0.54530395726775
+"246","Solanum lycopersicum","Solanum melongena",9,2,"Solanaceae",-0.737386400459496
+"247","Solanum lycopersicum","Solanum melongena",10,96,"Solanaceae",1.84200640811537
+"248","Solanum lycopersicum","Cross",1,107,"other",2.14385024741668
+"249","Solanum lycopersicum","Cross",2,92,"other",1.7322450120058
+"250","Solanum lycopersicum","Cross",3,92,"other",1.7322450120058
+"251","Solanum lycopersicum","Cross",4,92,"other",1.7322450120058
+"252","Solanum lycopersicum","Cross",5,96,"other",1.84200640811537
+"253","Solanum lycopersicum","Cross",6,59,"other",0.826713494101857
+"254","Solanum lycopersicum","Cross",7,71,"other",1.15599768243056
+"255","Solanum lycopersicum","Cross",8,79,"other",1.3755204746497
+"256","Solanum lycopersicum","Cross",9,66,"other",1.0187959372936
+"257","Solanum lycopersicum","Cross",10,107,"other",2.14385024741668
+"258","Solanum lycopersicum","Cross",11,93,"other",1.75968536103319
+"259","Solanum lycopersicum","Cross",12,38,"other",0.250466164526622
+"260","Solanum lycopersicum","Cross",13,121,"other",2.52801513380017
+"261","Solanum lycopersicum","Cross",14,44,"other",0.415108258690975
+"262","Solanum lycopersicum","Cross",15,90,"other",1.67736431395101
+"263","Solanum lycopersicum","Cross",16,64,"other",0.963915239238818
+"264","Solanum lycopersicum","Cross",17,53,"other",0.662071399937504
+"265","Solanum lycopersicum","Cross",18,98,"other",1.89688710617015
+"266","Solanum lycopersicum","Cross",19,108,"other",2.17129059644407
+"267","Solanum lycopersicum","Cross",20,93,"other",1.75968536103319
+"268","Solanum lycopersicum","Self",1,0,"other",-0.79226709851428
+"269","Solanum lycopersicum","Self",2,6,"other",-0.627625004349927
+"270","Solanum lycopersicum","Self",3,0,"other",-0.79226709851428
+"271","Solanum lycopersicum","Self",4,81,"other",1.43040117270448
+"272","Solanum lycopersicum","Self",5,4,"other",-0.682505702404711
+"273","Solanum lycopersicum","Self",6,44,"other",0.415108258690975
+"274","Solanum lycopersicum","Self",7,113,"other",2.30849234158103
+"275","Solanum lycopersicum","Self",8,64,"other",0.963915239238818
+"276","Solanum lycopersicum","Self",9,0,"other",-0.79226709851428
+"277","Solanum lycopersicum","Self",10,88,"other",1.62248361589623
+"278","Solanum lycopersicum","Control",1,0,"other",-0.79226709851428
+"279","Solanum lycopersicum","Control",2,0,"other",-0.79226709851428
+"280","Solanum lycopersicum","Control",3,0,"other",-0.79226709851428
+"281","Solanum lycopersicum","Control",4,0,"other",-0.79226709851428
+"282","Solanum lycopersicum","Control",5,0,"other",-0.79226709851428
+"283","Solanum lycopersicum","Control",6,0,"other",-0.79226709851428
+"284","Solanum lycopersicum","Control",7,0,"other",-0.79226709851428
+"285","Solanum lycopersicum","Control",8,0,"other",-0.79226709851428
+"286","Solanum lycopersicum","Control",9,0,"other",-0.79226709851428
+"287","Solanum lycopersicum","Control",10,0,"other",-0.79226709851428
+"288","Solanum lycopersicum","Control",11,0,"other",-0.79226709851428
+"289","Solanum lycopersicum","Flower control",1,66,"other",1.0187959372936
+"290","Solanum lycopersicum","Flower control",2,72,"other",1.18343803145796
+"291","Solanum lycopersicum","Flower control",3,33,"other",0.113264419389661
+"292","Solanum lycopersicum","Flower control",4,81,"other",1.43040117270448
+"293","Solanum lycopersicum","Flower control",5,64,"other",0.963915239238818
+"294","Solanum lycopersicum","Flower control",6,85,"other",1.54016256881405
+"295","Solanum lycopersicum","Flower control",7,0,"other",-0.79226709851428
+"296","Solanum lycopersicum","Flower control",8,84,"other",1.51272221978666
+"297","Solanum lycopersicum","Flower control",9,53,"other",0.662071399937504
+"298","Solanum lycopersicum","Flower control",10,106,"other",2.11640989838929
+"299","Solanum melongena","Brassica oleracea",1,363,"Brassicaceae",0.108372376409283
+"300","Solanum melongena","Brassica oleracea",1,250,"Brassicaceae",-0.212270163258867
+"301","Solanum melongena","Brassica oleracea",1,459,"Brassicaceae",0.380776657897269
+"302","Solanum melongena","Brassica oleracea",1,404,"Brassicaceae",0.224711704961444
+"303","Solanum melongena","Brassica oleracea",1,132,"Brassicaceae",-0.547100425921184
+"304","Solanum melongena","Brassica oleracea",1,55,"Brassicaceae",-0.765591360031339
+"305","Solanum melongena","Brassica oleracea",1,451,"Brassicaceae",0.358076301106603
+"306","Solanum melongena","Brassica oleracea",1,319,"Brassicaceae",-0.0164795859393774
+"307","Solanum melongena","Brassica oleracea",1,439,"Brassicaceae",0.324025765920605
+"308","Solanum melongena","Brassica oleracea",1,554,"Brassicaceae",0.650343394786422
+"309","Solanum melongena","Brassica rapa",0,0,"Brassicaceae",-0.921656312967164
+"310","Solanum melongena","Brassica rapa",1,200,"Brassicaceae",-0.354147393200527
+"311","Solanum melongena","Brassica rapa",1,169,"Brassicaceae",-0.442111275764356
+"312","Solanum melongena","Brassica rapa",0,0,"Brassicaceae",-0.921656312967164
+"313","Solanum melongena","Brassica rapa",0,0,"Brassicaceae",-0.921656312967164
+"314","Solanum melongena","Brassica rapa",1,184,"Brassicaceae",-0.399548106781858
+"315","Solanum melongena","Brassica rapa",0,0,"Brassicaceae",-0.921656312967164
+"316","Solanum melongena","Brassica rapa",1,83,"Brassicaceae",-0.68614011126401
+"317","Solanum melongena","Brassica rapa",0,0,"Brassicaceae",-0.921656312967164
+"318","Solanum melongena","Brassica rapa",0,0,"Brassicaceae",-0.921656312967164
+"319","Solanum melongena","Eruca vesicaria",1,583,"Brassicaceae",0.732632188152584
+"320","Solanum melongena","Eruca vesicaria",0,0,"Brassicaceae",-0.921656312967164
+"321","Solanum melongena","Eruca vesicaria",0,0,"Brassicaceae",-0.921656312967164
+"322","Solanum melongena","Eruca vesicaria",0,0,"Brassicaceae",-0.921656312967164
+"323","Solanum melongena","Eruca vesicaria",0,0,"Brassicaceae",-0.921656312967164
+"324","Solanum melongena","Eruca vesicaria",1,787,"Brassicaceae",1.31149128631455
+"325","Solanum melongena","Eruca vesicaria",1,385,"Brassicaceae",0.170798357583613
+"326","Solanum melongena","Eruca vesicaria",1,0,"Brassicaceae",-0.921656312967164
+"327","Solanum melongena","Eruca vesicaria",1,520,"Brassicaceae",0.553866878426093
+"328","Solanum melongena","Eruca vesicaria",1,1068,"Brassicaceae",2.10884131858668
+"329","Solanum melongena","Sinapis alba",1,227,"Brassicaceae",-0.277533689032031
+"330","Solanum melongena","Sinapis alba",1,43,"Brassicaceae",-0.799641895217337
+"331","Solanum melongena","Sinapis alba",1,38,"Brassicaceae",-0.813829618211503
+"332","Solanum melongena","Sinapis alba",1,28,"Brassicaceae",-0.842205064199835
+"333","Solanum melongena","Sinapis alba",1,30,"Brassicaceae",-0.836529975002169
+"334","Solanum melongena","Sinapis alba",1,459,"Brassicaceae",0.380776657897269
+"335","Solanum melongena","Sinapis alba",1,1048,"Brassicaceae",2.05209042661002
+"336","Solanum melongena","Sinapis alba",1,565,"Brassicaceae",0.681556385373587
+"337","Solanum melongena","Sinapis alba",1,655,"Brassicaceae",0.936935399268574
+"338","Solanum melongena","Sinapis alba",1,860,"Brassicaceae",1.51863204202938
+"339","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"340","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"341","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"342","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"343","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"344","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"345","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"346","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"347","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"348","Solanum melongena","Ipomoea aquatica",0,0,"Convolvulaceae",-0.921656312967164
+"349","Solanum melongena","Ipomoea purpurea",1,282,"Convolvulaceae",-0.121468736096205
+"350","Solanum melongena","Ipomoea purpurea",1,275,"Convolvulaceae",-0.141331548288038
+"351","Solanum melongena","Ipomoea purpurea",0,0,"Convolvulaceae",-0.921656312967164
+"352","Solanum melongena","Ipomoea purpurea",0,0,"Convolvulaceae",-0.921656312967164
+"353","Solanum melongena","Ipomoea purpurea",0,0,"Convolvulaceae",-0.921656312967164
+"354","Solanum melongena","Ipomoea purpurea",1,466,"Convolvulaceae",0.400639470089101
+"355","Solanum melongena","Ipomoea purpurea",1,469,"Convolvulaceae",0.409152103885601
+"356","Solanum melongena","Ipomoea purpurea",0,0,"Convolvulaceae",-0.921656312967164
+"357","Solanum melongena","Ipomoea purpurea",1,499,"Convolvulaceae",0.494278441850596
+"358","Solanum melongena","Ipomoea purpurea",1,722,"Convolvulaceae",1.1270508873904
+"359","Solanum melongena","Capsicum annuum",0,0,"Solanaceae",-0.921656312967164
+"360","Solanum melongena","Capsicum annuum",1,243,"Solanaceae",-0.2321329754507
+"361","Solanum melongena","Capsicum annuum",0,0,"Solanaceae",-0.921656312967164
+"362","Solanum melongena","Capsicum annuum",1,323,"Solanaceae",-0.00512940754404465
+"363","Solanum melongena","Capsicum annuum",1,472,"Solanaceae",0.4176647376821
+"364","Solanum melongena","Capsicum annuum",1,337,"Solanaceae",0.03459621683962
+"365","Solanum melongena","Capsicum annuum",1,12,"Solanaceae",-0.887605777781166
+"366","Solanum melongena","Capsicum annuum",1,512,"Solanaceae",0.531166521635428
+"367","Solanum melongena","Capsicum annuum",1,355,"Solanaceae",0.0856720196186174
+"368","Solanum melongena","Capsicum annuum",1,8,"Solanaceae",-0.898955956176499
+"369","Solanum melongena","Petunia integrifolia",1,477,"Solanaceae",0.431852460676266
+"370","Solanum melongena","Petunia integrifolia",1,608,"Solanaceae",0.803570803123414
+"371","Solanum melongena","Petunia integrifolia",1,196,"Solanaceae",-0.365497571595859
+"372","Solanum melongena","Petunia integrifolia",1,210,"Solanaceae",-0.325771947212195
+"373","Solanum melongena","Petunia integrifolia",1,347,"Solanaceae",0.0629716628279519
+"374","Solanum melongena","Petunia integrifolia",1,540,"Solanaceae",0.610617770402757
+"375","Solanum melongena","Petunia integrifolia",1,1104,"Solanaceae",2.21099292414468
+"376","Solanum melongena","Petunia integrifolia",0,0,"Solanaceae",-0.921656312967164
+"377","Solanum melongena","Petunia integrifolia",1,868,"Solanaceae",1.54133239882004
+"378","Solanum melongena","Petunia integrifolia",0,0,"Solanaceae",-0.921656312967164
+"379","Solanum melongena","Solanum lycopersicum",0,0,"Solanaceae",-0.921656312967164
+"380","Solanum melongena","Solanum lycopersicum",1,255,"Solanaceae",-0.198082440264701
+"381","Solanum melongena","Solanum lycopersicum",1,355,"Solanaceae",0.0856720196186174
+"382","Solanum melongena","Solanum lycopersicum",1,252,"Solanaceae",-0.206595074061201
+"383","Solanum melongena","Solanum lycopersicum",1,350,"Solanaceae",0.0714842966244514
+"384","Solanum melongena","Solanum lycopersicum",1,633,"Solanaceae",0.874509418094244
+"385","Solanum melongena","Solanum lycopersicum",1,581,"Solanaceae",0.726957098954918
+"386","Solanum melongena","Solanum lycopersicum",1,454,"Solanaceae",0.366588934903103
+"387","Solanum melongena","Solanum lycopersicum",1,805,"Solanaceae",1.36256708909355
+"388","Solanum melongena","Solanum lycopersicum",1,686,"Solanaceae",1.0248992818324
+"389","Solanum melongena","Solanum melongena",1,NA,"Solanaceae",NA
+"390","Solanum melongena","Solanum melongena",2,NA,"Solanaceae",NA
+"391","Solanum melongena","Solanum melongena",3,NA,"Solanaceae",NA
+"392","Solanum melongena","Solanum melongena",4,NA,"Solanaceae",NA
+"393","Solanum melongena","Solanum melongena",5,NA,"Solanaceae",NA
+"394","Solanum melongena","Solanum melongena",6,NA,"Solanaceae",NA
+"395","Solanum melongena","Solanum melongena",7,NA,"Solanaceae",NA
+"396","Solanum melongena","Solanum melongena",8,NA,"Solanaceae",NA
+"397","Solanum melongena","Solanum melongena",9,NA,"Solanaceae",NA
+"398","Solanum melongena","Solanum melongena",10,NA,"Solanaceae",NA
+"399","Solanum melongena","Cross",1,231,"other",-0.266183510636698
+"400","Solanum melongena","Cross",1,676,"other",0.996523835844071
+"401","Solanum melongena","Cross",1,741,"other",1.18096423476823
+"402","Solanum melongena","Cross",1,524,"other",0.565217056821426
+"403","Solanum melongena","Cross",1,370,"other",0.128235188601115
+"404","Solanum melongena","Cross",1,409,"other",0.23889942795561
+"405","Solanum melongena","Cross",1,629,"other",0.863159239698911
+"406","Solanum melongena","Cross",1,805,"other",1.36256708909355
+"407","Solanum melongena","Cross",1,803,"other",1.35689199989589
+"408","Solanum melongena","Cross",1,920,"other",1.68888471795937
+"409","Solanum melongena","Self",1,718,"other",1.11570070899506
+"410","Solanum melongena","Self",1,753,"other",1.21501476995423
+"411","Solanum melongena","Self",1,1026,"other",1.98966444543569
+"412","Solanum melongena","Self",1,914,"other",1.67185945036637
+"413","Solanum melongena","Self",1,479,"other",0.437527549873933
+"414","Solanum melongena","Self",1,499,"other",0.494278441850596
+"415","Solanum melongena","Self",1,570,"other",0.695744108367753
+"416","Solanum melongena","Self",1,599,"other",0.778032901733915
+"417","Solanum melongena","Self",1,1720,"other",3.95892039702592
+"418","Solanum melongena","Self",1,1607,"other",3.63827785735777
+"419","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"420","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"421","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"422","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"423","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"424","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"425","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"426","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"427","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"428","Solanum melongena","Control",0,0,"other",-0.921656312967164
+"429","Solanum melongena","Flower control",1,844,"other",1.47323132844805
+"430","Solanum melongena","Flower control",1,552,"other",0.644668305588755
+"431","Solanum melongena","Flower control",1,85,"other",-0.680465022066343
+"432","Solanum melongena","Flower control",1,376,"other",0.145260456194114
+"433","Solanum melongena","Flower control",0,0,"other",-0.921656312967164
+"434","Solanum melongena","Flower control",1,308,"other",-0.0476925765265425
+"435","Solanum melongena","Flower control",0,0,"other",-0.921656312967164
+"436","Solanum melongena","Flower control",0,0,"other",-0.921656312967164
+"437","Solanum melongena","Flower control",0,0,"other",-0.921656312967164
+"438","Solanum melongena","Flower control",1,13,"other",-0.884768233182333
+"439","Capsicum annuum","Brassica oleracea",1,0,"Brassicaceae",-0.580482834655613
+"440","Capsicum annuum","Brassica oleracea",2,53,"Brassicaceae",-0.0539521960593552
+"441","Capsicum annuum","Brassica oleracea",3,28,"Brassicaceae",-0.302315704831175
+"442","Capsicum annuum","Brassica oleracea",4,39,"Brassicaceae",-0.193035760971574
+"443","Capsicum annuum","Brassica oleracea",5,7,"Brassicaceae",-0.510941052199503
+"444","Capsicum annuum","Brassica oleracea",6,26,"Brassicaceae",-0.32218478553292
+"445","Capsicum annuum","Brassica oleracea",7,15,"Brassicaceae",-0.431464729392521
+"446","Capsicum annuum","Brassica oleracea",8,121,"Brassicaceae",0.621596547799994
+"447","Capsicum annuum","Brassica oleracea",9,49,"Brassicaceae",-0.0936903574628464
+"448","Capsicum annuum","Brassica oleracea",10,0,"Brassicaceae",-0.580482834655613
+"449","Capsicum annuum","Brassica rapa",1,0,"Brassicaceae",-0.580482834655613
+"450","Capsicum annuum","Brassica rapa",2,58,"Brassicaceae",-0.00427949430499134
+"451","Capsicum annuum","Brassica rapa",3,93,"Brassicaceae",0.343429417975556
+"452","Capsicum annuum","Brassica rapa",4,13,"Brassicaceae",-0.451333810094266
+"453","Capsicum annuum","Brassica rapa",5,0,"Brassicaceae",-0.580482834655613
+"454","Capsicum annuum","Brassica rapa",6,0,"Brassicaceae",-0.580482834655613
+"455","Capsicum annuum","Brassica rapa",7,19,"Brassicaceae",-0.39172656798903
+"456","Capsicum annuum","Brassica rapa",8,25,"Brassicaceae",-0.332119325883793
+"457","Capsicum annuum","Brassica rapa",9,27,"Brassicaceae",-0.312250245182048
+"458","Capsicum annuum","Brassica rapa",10,0,"Brassicaceae",-0.580482834655613
+"459","Capsicum annuum","Eruca vesicaria",1,167,"Brassicaceae",1.07858540394014
+"460","Capsicum annuum","Eruca vesicaria",2,29,"Brassicaceae",-0.292381164480302
+"461","Capsicum annuum","Eruca vesicaria",3,132,"Brassicaceae",0.730876491659594
+"462","Capsicum annuum","Eruca vesicaria",4,201,"Brassicaceae",1.41635977586982
+"463","Capsicum annuum","Eruca vesicaria",5,239,"Brassicaceae",1.79387230920298
+"464","Capsicum annuum","Eruca vesicaria",6,118,"Brassicaceae",0.591792926747376
+"465","Capsicum annuum","Eruca vesicaria",7,0,"Brassicaceae",-0.580482834655613
+"466","Capsicum annuum","Eruca vesicaria",8,14,"Brassicaceae",-0.441399269743394
+"467","Capsicum annuum","Eruca vesicaria",9,153,"Brassicaceae",0.939501839027923
+"468","Capsicum annuum","Eruca vesicaria",10,17,"Brassicaceae",-0.411595648690775
+"469","Capsicum annuum","Sinapis alba",1,289,"Brassicaceae",2.29059932674662
+"470","Capsicum annuum","Sinapis alba",2,0,"Brassicaceae",-0.580482834655613
+"471","Capsicum annuum","Sinapis alba",3,0,"Brassicaceae",-0.580482834655613
+"472","Capsicum annuum","Sinapis alba",4,0,"Brassicaceae",-0.580482834655613
+"473","Capsicum annuum","Sinapis alba",5,0,"Brassicaceae",-0.580482834655613
+"474","Capsicum annuum","Sinapis alba",6,0,"Brassicaceae",-0.580482834655613
+"475","Capsicum annuum","Sinapis alba",7,0,"Brassicaceae",-0.580482834655613
+"476","Capsicum annuum","Sinapis alba",8,0,"Brassicaceae",-0.580482834655613
+"477","Capsicum annuum","Sinapis alba",9,0,"Brassicaceae",-0.580482834655613
+"478","Capsicum annuum","Sinapis alba",10,48,"Brassicaceae",-0.103624897813719
+"479","Capsicum annuum","Ipomoea aquatica",1,30,"Convolvulaceae",-0.282446624129429
+"480","Capsicum annuum","Ipomoea aquatica",2,24,"Convolvulaceae",-0.342053866234666
+"481","Capsicum annuum","Ipomoea aquatica",3,9,"Convolvulaceae",-0.491071971497758
+"482","Capsicum annuum","Ipomoea aquatica",4,86,"Convolvulaceae",0.273887635519447
+"483","Capsicum annuum","Ipomoea aquatica",5,85,"Convolvulaceae",0.263953095168574
+"484","Capsicum annuum","Ipomoea aquatica",6,9,"Convolvulaceae",-0.491071971497758
+"485","Capsicum annuum","Ipomoea aquatica",7,94,"Convolvulaceae",0.353363958326429
+"486","Capsicum annuum","Ipomoea aquatica",8,10,"Convolvulaceae",-0.481137431146885
+"487","Capsicum annuum","Ipomoea aquatica",9,4,"Convolvulaceae",-0.540744673252121
+"488","Capsicum annuum","Ipomoea aquatica",10,33,"Convolvulaceae",-0.252643003076811
+"489","Capsicum annuum","Ipomoea purpurea",1,0,"Convolvulaceae",-0.580482834655613
+"490","Capsicum annuum","Ipomoea purpurea",2,0,"Convolvulaceae",-0.580482834655613
+"491","Capsicum annuum","Ipomoea purpurea",3,18,"Convolvulaceae",-0.401661108339903
+"492","Capsicum annuum","Ipomoea purpurea",4,0,"Convolvulaceae",-0.580482834655613
+"493","Capsicum annuum","Ipomoea purpurea",5,0,"Convolvulaceae",-0.580482834655613
+"494","Capsicum annuum","Ipomoea purpurea",6,0,"Convolvulaceae",-0.580482834655613
+"495","Capsicum annuum","Ipomoea purpurea",7,3,"Convolvulaceae",-0.550679213602994
+"496","Capsicum annuum","Ipomoea purpurea",8,0,"Convolvulaceae",-0.580482834655613
+"497","Capsicum annuum","Ipomoea purpurea",9,0,"Convolvulaceae",-0.580482834655613
+"498","Capsicum annuum","Ipomoea purpurea",10,4,"Convolvulaceae",-0.540744673252121
+"499","Capsicum annuum","Capsicum annuum",1,NA,"Solanaceae",NA
+"500","Capsicum annuum","Capsicum annuum",2,NA,"Solanaceae",NA
+"501","Capsicum annuum","Capsicum annuum",3,NA,"Solanaceae",NA
+"502","Capsicum annuum","Capsicum annuum",4,NA,"Solanaceae",NA
+"503","Capsicum annuum","Capsicum annuum",5,NA,"Solanaceae",NA
+"504","Capsicum annuum","Capsicum annuum",6,NA,"Solanaceae",NA
+"505","Capsicum annuum","Capsicum annuum",7,NA,"Solanaceae",NA
+"506","Capsicum annuum","Capsicum annuum",8,NA,"Solanaceae",NA
+"507","Capsicum annuum","Capsicum annuum",9,NA,"Solanaceae",NA
+"508","Capsicum annuum","Capsicum annuum",10,NA,"Solanaceae",NA
+"509","Capsicum annuum","Petunia integrifolia",1,0,"Solanaceae",-0.580482834655613
+"510","Capsicum annuum","Petunia integrifolia",2,0,"Solanaceae",-0.580482834655613
+"511","Capsicum annuum","Petunia integrifolia",3,0,"Solanaceae",-0.580482834655613
+"512","Capsicum annuum","Petunia integrifolia",4,0,"Solanaceae",-0.580482834655613
+"513","Capsicum annuum","Petunia integrifolia",5,0,"Solanaceae",-0.580482834655613
+"514","Capsicum annuum","Petunia integrifolia",6,0,"Solanaceae",-0.580482834655613
+"515","Capsicum annuum","Petunia integrifolia",7,0,"Solanaceae",-0.580482834655613
+"516","Capsicum annuum","Petunia integrifolia",8,0,"Solanaceae",-0.580482834655613
+"517","Capsicum annuum","Petunia integrifolia",9,0,"Solanaceae",-0.580482834655613
+"518","Capsicum annuum","Petunia integrifolia",10,0,"Solanaceae",-0.580482834655613
+"519","Capsicum annuum","Solanum lycopersicum",1,0,"Solanaceae",-0.580482834655613
+"520","Capsicum annuum","Solanum lycopersicum",2,44,"Solanaceae",-0.14336305921721
+"521","Capsicum annuum","Solanum lycopersicum",3,55,"Solanaceae",-0.0340831153576097
+"522","Capsicum annuum","Solanum lycopersicum",4,101,"Solanaceae",0.422905740782538
+"523","Capsicum annuum","Solanum lycopersicum",5,69,"Solanaceae",0.105000449554609
+"524","Capsicum annuum","Solanum lycopersicum",6,57,"Solanaceae",-0.0142140346558641
+"525","Capsicum annuum","Solanum lycopersicum",7,0,"Solanaceae",-0.580482834655613
+"526","Capsicum annuum","Solanum lycopersicum",8,70,"Solanaceae",0.114934989905482
+"527","Capsicum annuum","Solanum lycopersicum",9,21,"Solanaceae",-0.371857487287284
+"528","Capsicum annuum","Solanum lycopersicum",10,12,"Solanaceae",-0.461268350445139
+"529","Capsicum annuum","Solanum melongena",1,33,"Solanaceae",-0.252643003076811
+"530","Capsicum annuum","Solanum melongena",2,0,"Solanaceae",-0.580482834655613
+"531","Capsicum annuum","Solanum melongena",3,15,"Solanaceae",-0.431464729392521
+"532","Capsicum annuum","Solanum melongena",4,0,"Solanaceae",-0.580482834655613
+"533","Capsicum annuum","Solanum melongena",5,17,"Solanaceae",-0.411595648690775
+"534","Capsicum annuum","Solanum melongena",6,42,"Solanaceae",-0.163232139918956
+"535","Capsicum annuum","Solanum melongena",7,0,"Solanaceae",-0.580482834655613
+"536","Capsicum annuum","Solanum melongena",8,0,"Solanaceae",-0.580482834655613
+"537","Capsicum annuum","Solanum melongena",9,0,"Solanaceae",-0.580482834655613
+"538","Capsicum annuum","Solanum melongena",10,0,"Solanaceae",-0.580482834655613
+"539","Capsicum annuum","Cross",1,0,"other",-0.580482834655613
+"540","Capsicum annuum","Cross",2,361,"other",3.00588623200946
+"541","Capsicum annuum","Cross",3,247,"other",1.87334863200996
+"542","Capsicum annuum","Cross",4,314,"other",2.53896283551844
+"543","Capsicum annuum","Cross",5,321,"other",2.60850461797455
+"544","Capsicum annuum","Cross",6,366,"other",3.05555893376383
+"545","Capsicum annuum","Cross",7,244,"other",1.84354501095735
+"546","Capsicum annuum","Cross",8,388,"other",3.27411882148303
+"547","Capsicum annuum","Cross",9,268,"other",2.08197397937829
+"548","Capsicum annuum","Cross",10,0,"other",-0.580482834655613
+"549","Capsicum annuum","Self",1,176,"other",1.167996267098
+"550","Capsicum annuum","Self",2,101,"other",0.422905740782538
+"551","Capsicum annuum","Self",3,358,"other",2.97608261095684
+"552","Capsicum annuum","Self",4,9,"other",-0.491071971497758
+"553","Capsicum annuum","Self",5,0,"other",-0.580482834655613
+"554","Capsicum annuum","Self",6,0,"other",-0.580482834655613
+"555","Capsicum annuum","Self",7,170,"other",1.10838902499276
+"556","Capsicum annuum","Self",8,319,"other",2.5886355372728
+"557","Capsicum annuum","Self",9,182,"other",1.22760350920323
+"558","Capsicum annuum","Self",10,281,"other",2.21112300393964
+"559","Capsicum annuum","Control",1,0,"other",-0.580482834655613
+"560","Capsicum annuum","Control",2,0,"other",-0.580482834655613
+"561","Capsicum annuum","Control",3,0,"other",-0.580482834655613
+"562","Capsicum annuum","Control",4,0,"other",-0.580482834655613
+"563","Capsicum annuum","Control",5,0,"other",-0.580482834655613
+"564","Capsicum annuum","Control",6,0,"other",-0.580482834655613
+"565","Capsicum annuum","Control",7,0,"other",-0.580482834655613
+"566","Capsicum annuum","Control",8,0,"other",-0.580482834655613
+"567","Capsicum annuum","Control",9,0,"other",-0.580482834655613
+"568","Capsicum annuum","Control",10,0,"other",-0.580482834655613
+"569","Capsicum annuum","Flower control",1,0,"other",-0.580482834655613
+"570","Capsicum annuum","Flower control",2,0,"other",-0.580482834655613
+"571","Capsicum annuum","Flower control",3,341,"other",2.80719542499201
+"572","Capsicum annuum","Flower control",4,0,"other",-0.580482834655613
+"573","Capsicum annuum","Flower control",5,0,"other",-0.580482834655613
+"574","Capsicum annuum","Flower control",6,225,"other",1.65478874429076
+"575","Capsicum annuum","Flower control",7,0,"other",-0.580482834655613
+"576","Capsicum annuum","Flower control",8,0,"other",-0.580482834655613
+"577","Capsicum annuum","Flower control",9,0,"other",-0.580482834655613
+"578","Capsicum annuum","Flower control",10,0,"other",-0.580482834655613
+"579","Brassica oleracea","Brassica oleracea",1,NA,"Brassicaceae",NA
+"580","Brassica oleracea","Brassica oleracea",2,NA,"Brassicaceae",NA
+"581","Brassica oleracea","Brassica oleracea",3,NA,"Brassicaceae",NA
+"582","Brassica oleracea","Brassica oleracea",4,NA,"Brassicaceae",NA
+"583","Brassica oleracea","Brassica oleracea",5,NA,"Brassicaceae",NA
+"584","Brassica oleracea","Brassica oleracea",6,NA,"Brassicaceae",NA
+"585","Brassica oleracea","Brassica oleracea",7,NA,"Brassicaceae",NA
+"586","Brassica oleracea","Brassica oleracea",8,NA,"Brassicaceae",NA
+"587","Brassica oleracea","Brassica oleracea",9,NA,"Brassicaceae",NA
+"588","Brassica oleracea","Brassica oleracea",10,NA,"Brassicaceae",NA
+"589","Brassica oleracea","Brassica rapa",1,0,"Brassicaceae",-0.39976991441255
+"590","Brassica oleracea","Brassica rapa",2,0,"Brassicaceae",-0.39976991441255
+"591","Brassica oleracea","Brassica rapa",3,0,"Brassicaceae",-0.39976991441255
+"592","Brassica oleracea","Brassica rapa",4,0,"Brassicaceae",-0.39976991441255
+"593","Brassica oleracea","Brassica rapa",5,0,"Brassicaceae",-0.39976991441255
+"594","Brassica oleracea","Brassica rapa",6,13,"Brassicaceae",3.1843741458379
+"595","Brassica oleracea","Brassica rapa",7,1,"Brassicaceae",-0.124066525162515
+"596","Brassica oleracea","Brassica rapa",8,18,"Brassicaceae",4.56289109208807
+"597","Brassica oleracea","Brassica rapa",9,0,"Brassicaceae",-0.39976991441255
+"598","Brassica oleracea","Brassica rapa",10,0,"Brassicaceae",-0.39976991441255
+"599","Brassica oleracea","Eruca vesicaria",1,0,"Brassicaceae",-0.39976991441255
+"600","Brassica oleracea","Eruca vesicaria",2,0,"Brassicaceae",-0.39976991441255
+"601","Brassica oleracea","Eruca vesicaria",3,0,"Brassicaceae",-0.39976991441255
+"602","Brassica oleracea","Eruca vesicaria",4,1,"Brassicaceae",-0.124066525162515
+"603","Brassica oleracea","Eruca vesicaria",5,0,"Brassicaceae",-0.39976991441255
+"604","Brassica oleracea","Eruca vesicaria",6,0,"Brassicaceae",-0.39976991441255
+"605","Brassica oleracea","Eruca vesicaria",7,0,"Brassicaceae",-0.39976991441255
+"606","Brassica oleracea","Eruca vesicaria",8,0,"Brassicaceae",-0.39976991441255
+"607","Brassica oleracea","Eruca vesicaria",9,0,"Brassicaceae",-0.39976991441255
+"608","Brassica oleracea","Eruca vesicaria",10,0,"Brassicaceae",-0.39976991441255
+"609","Brassica oleracea","Sinapis alba",1,0,"Brassicaceae",-0.39976991441255
+"610","Brassica oleracea","Sinapis alba",2,0,"Brassicaceae",-0.39976991441255
+"611","Brassica oleracea","Sinapis alba",3,1,"Brassicaceae",-0.124066525162515
+"612","Brassica oleracea","Sinapis alba",4,0,"Brassicaceae",-0.39976991441255
+"613","Brassica oleracea","Sinapis alba",5,2,"Brassicaceae",0.151636864087519
+"614","Brassica oleracea","Sinapis alba",6,2,"Brassicaceae",0.151636864087519
+"615","Brassica oleracea","Sinapis alba",7,1,"Brassicaceae",-0.124066525162515
+"616","Brassica oleracea","Sinapis alba",8,1,"Brassicaceae",-0.124066525162515
+"617","Brassica oleracea","Sinapis alba",9,0,"Brassicaceae",-0.39976991441255
+"618","Brassica oleracea","Sinapis alba",10,0,"Brassicaceae",-0.39976991441255
+"619","Brassica oleracea","Ipomoea aquatica",1,0,"Convolvulaceae",-0.39976991441255
+"620","Brassica oleracea","Ipomoea aquatica",2,0,"Convolvulaceae",-0.39976991441255
+"621","Brassica oleracea","Ipomoea aquatica",3,0,"Convolvulaceae",-0.39976991441255
+"622","Brassica oleracea","Ipomoea aquatica",4,0,"Convolvulaceae",-0.39976991441255
+"623","Brassica oleracea","Ipomoea aquatica",5,0,"Convolvulaceae",-0.39976991441255
+"624","Brassica oleracea","Ipomoea aquatica",6,0,"Convolvulaceae",-0.39976991441255
+"625","Brassica oleracea","Ipomoea aquatica",7,0,"Convolvulaceae",-0.39976991441255
+"626","Brassica oleracea","Ipomoea aquatica",8,0,"Convolvulaceae",-0.39976991441255
+"627","Brassica oleracea","Ipomoea aquatica",9,0,"Convolvulaceae",-0.39976991441255
+"628","Brassica oleracea","Ipomoea aquatica",10,0,"Convolvulaceae",-0.39976991441255
+"629","Brassica oleracea","Ipomoea aquatica",1,0,"Convolvulaceae",-0.39976991441255
+"630","Brassica oleracea","Ipomoea aquatica",2,0,"Convolvulaceae",-0.39976991441255
+"631","Brassica oleracea","Ipomoea aquatica",3,0,"Convolvulaceae",-0.39976991441255
+"632","Brassica oleracea","Ipomoea aquatica",4,0,"Convolvulaceae",-0.39976991441255
+"633","Brassica oleracea","Ipomoea aquatica",5,4,"Convolvulaceae",0.703043642587587
+"634","Brassica oleracea","Ipomoea aquatica",6,0,"Convolvulaceae",-0.39976991441255
+"635","Brassica oleracea","Ipomoea aquatica",7,0,"Convolvulaceae",-0.39976991441255
+"636","Brassica oleracea","Ipomoea aquatica",8,0,"Convolvulaceae",-0.39976991441255
+"637","Brassica oleracea","Ipomoea aquatica",9,0,"Convolvulaceae",-0.39976991441255
+"638","Brassica oleracea","Ipomoea aquatica",10,0,"Convolvulaceae",-0.39976991441255
+"639","Brassica oleracea","Ipomoea purpurea",1,0,"Convolvulaceae",-0.39976991441255
+"640","Brassica oleracea","Ipomoea purpurea",2,0,"Convolvulaceae",-0.39976991441255
+"641","Brassica oleracea","Ipomoea purpurea",3,0,"Convolvulaceae",-0.39976991441255
+"642","Brassica oleracea","Ipomoea purpurea",4,0,"Convolvulaceae",-0.39976991441255
+"643","Brassica oleracea","Ipomoea purpurea",5,0,"Convolvulaceae",-0.39976991441255
+"644","Brassica oleracea","Ipomoea purpurea",6,0,"Convolvulaceae",-0.39976991441255
+"645","Brassica oleracea","Ipomoea purpurea",7,0,"Convolvulaceae",-0.39976991441255
+"646","Brassica oleracea","Ipomoea purpurea",8,0,"Convolvulaceae",-0.39976991441255
+"647","Brassica oleracea","Ipomoea purpurea",9,0,"Convolvulaceae",-0.39976991441255
+"648","Brassica oleracea","Ipomoea purpurea",10,0,"Convolvulaceae",-0.39976991441255
+"649","Brassica oleracea","Capsicum annuum",1,7,"Solanaceae",1.53015381033769
+"650","Brassica oleracea","Capsicum annuum",2,12,"Solanaceae",2.90867075658786
+"651","Brassica oleracea","Capsicum annuum",3,8,"Solanaceae",1.80585719958772
+"652","Brassica oleracea","Capsicum annuum",4,6,"Solanaceae",1.25445042108766
+"653","Brassica oleracea","Capsicum annuum",5,1,"Solanaceae",-0.124066525162515
+"654","Brassica oleracea","Capsicum annuum",6,0,"Solanaceae",-0.39976991441255
+"655","Brassica oleracea","Capsicum annuum",7,0,"Solanaceae",-0.39976991441255
+"656","Brassica oleracea","Capsicum annuum",8,0,"Solanaceae",-0.39976991441255
+"657","Brassica oleracea","Capsicum annuum",9,0,"Solanaceae",-0.39976991441255
+"658","Brassica oleracea","Capsicum annuum",10,5,"Solanaceae",0.978747031837622
+"659","Brassica oleracea","Petunia integrifolia",1,5,"Solanaceae",0.978747031837622
+"660","Brassica oleracea","Petunia integrifolia",2,5,"Solanaceae",0.978747031837622
+"661","Brassica oleracea","Petunia integrifolia",3,0,"Solanaceae",-0.39976991441255
+"662","Brassica oleracea","Petunia integrifolia",4,0,"Solanaceae",-0.39976991441255
+"663","Brassica oleracea","Petunia integrifolia",5,0,"Solanaceae",-0.39976991441255
+"664","Brassica oleracea","Petunia integrifolia",6,0,"Solanaceae",-0.39976991441255
+"665","Brassica oleracea","Petunia integrifolia",7,0,"Solanaceae",-0.39976991441255
+"666","Brassica oleracea","Petunia integrifolia",8,0,"Solanaceae",-0.39976991441255
+"667","Brassica oleracea","Petunia integrifolia",9,0,"Solanaceae",-0.39976991441255
+"668","Brassica oleracea","Petunia integrifolia",10,0,"Solanaceae",-0.39976991441255
+"669","Brassica oleracea","Solanum lycopersicum",1,0,"Solanaceae",-0.39976991441255
+"670","Brassica oleracea","Solanum lycopersicum",2,2,"Solanaceae",0.151636864087519
+"671","Brassica oleracea","Solanum lycopersicum",3,0,"Solanaceae",-0.39976991441255
+"672","Brassica oleracea","Solanum lycopersicum",4,0,"Solanaceae",-0.39976991441255
+"673","Brassica oleracea","Solanum lycopersicum",5,4,"Solanaceae",0.703043642587587
+"674","Brassica oleracea","Solanum lycopersicum",6,0,"Solanaceae",-0.39976991441255
+"675","Brassica oleracea","Solanum lycopersicum",7,1,"Solanaceae",-0.124066525162515
+"676","Brassica oleracea","Solanum lycopersicum",8,0,"Solanaceae",-0.39976991441255
+"677","Brassica oleracea","Solanum lycopersicum",9,2,"Solanaceae",0.151636864087519
+"678","Brassica oleracea","Solanum lycopersicum",10,1,"Solanaceae",-0.124066525162515
+"679","Brassica oleracea","Solanum melongena",1,3,"Solanaceae",0.427340253337553
+"680","Brassica oleracea","Solanum melongena",2,0,"Solanaceae",-0.39976991441255
+"681","Brassica oleracea","Solanum melongena",3,2,"Solanaceae",0.151636864087519
+"682","Brassica oleracea","Solanum melongena",4,0,"Solanaceae",-0.39976991441255
+"683","Brassica oleracea","Solanum melongena",5,1,"Solanaceae",-0.124066525162515
+"684","Brassica oleracea","Solanum melongena",6,0,"Solanaceae",-0.39976991441255
+"685","Brassica oleracea","Solanum melongena",7,0,"Solanaceae",-0.39976991441255
+"686","Brassica oleracea","Solanum melongena",8,0,"Solanaceae",-0.39976991441255
+"687","Brassica oleracea","Solanum melongena",9,1,"Solanaceae",-0.124066525162515
+"688","Brassica oleracea","Solanum melongena",10,0,"Solanaceae",-0.39976991441255
+"689","Brassica oleracea","Cross",1,6,"other",1.25445042108766
+"690","Brassica oleracea","Cross",2,14,"other",3.46007753508793
+"691","Brassica oleracea","Cross",3,19,"other",4.8385944813381
+"692","Brassica oleracea","Cross",4,8,"other",1.80585719958772
+"693","Brassica oleracea","Cross",5,12,"other",2.90867075658786
+"694","Brassica oleracea","Cross",6,0,"other",-0.39976991441255
+"695","Brassica oleracea","Cross",7,13,"other",3.1843741458379
+"696","Brassica oleracea","Cross",8,11,"other",2.63296736733783
+"697","Brassica oleracea","Cross",9,10,"other",2.35726397808779
+"698","Brassica oleracea","Cross",10,0,"other",-0.39976991441255
+"699","Brassica oleracea","Self",1,0,"other",-0.39976991441255
+"700","Brassica oleracea","Self",2,0,"other",-0.39976991441255
+"701","Brassica oleracea","Self",3,0,"other",-0.39976991441255
+"702","Brassica oleracea","Self",4,0,"other",-0.39976991441255
+"703","Brassica oleracea","Self",5,0,"other",-0.39976991441255
+"704","Brassica oleracea","Self",6,0,"other",-0.39976991441255
+"705","Brassica oleracea","Self",7,0,"other",-0.39976991441255
+"706","Brassica oleracea","Self",8,0,"other",-0.39976991441255
+"707","Brassica oleracea","Self",9,0,"other",-0.39976991441255
+"708","Brassica oleracea","Self",10,0,"other",-0.39976991441255
+"709","Brassica oleracea","Control",1,0,"other",-0.39976991441255
+"710","Brassica oleracea","Control",2,0,"other",-0.39976991441255
+"711","Brassica oleracea","Control",3,0,"other",-0.39976991441255
+"712","Brassica oleracea","Control",4,0,"other",-0.39976991441255
+"713","Brassica oleracea","Control",5,0,"other",-0.39976991441255
+"714","Brassica oleracea","Control",6,0,"other",-0.39976991441255
+"715","Brassica oleracea","Control",7,0,"other",-0.39976991441255
+"716","Brassica oleracea","Control",8,0,"other",-0.39976991441255
+"717","Brassica oleracea","Control",9,0,"other",-0.39976991441255
+"718","Brassica oleracea","Control",10,0,"other",-0.39976991441255
+"719","Brassica oleracea","Flower control",1,0,"other",-0.39976991441255
+"720","Brassica oleracea","Flower control",2,0,"other",-0.39976991441255
+"721","Brassica oleracea","Flower control",3,0,"other",-0.39976991441255
+"722","Brassica oleracea","Flower control",4,0,"other",-0.39976991441255
+"723","Brassica oleracea","Flower control",5,0,"other",-0.39976991441255
+"724","Brassica oleracea","Flower control",6,0,"other",-0.39976991441255
+"725","Brassica oleracea","Flower control",7,0,"other",-0.39976991441255
+"726","Brassica oleracea","Flower control",8,0,"other",-0.39976991441255
+"727","Brassica oleracea","Flower control",9,0,"other",-0.39976991441255
+"728","Brassica oleracea","Flower control",10,0,"other",-0.39976991441255
+"729","Brassica rapa","Brassica oleracea",1,11,"Brassicaceae",1.66074560414025
+"730","Brassica rapa","Brassica oleracea",2,13,"Brassicaceae",2.0435517832575
+"731","Brassica rapa","Brassica oleracea",3,10,"Brassicaceae",1.46934251458162
+"732","Brassica rapa","Brassica oleracea",4,21,"Brassicaceae",3.5747764997265
+"733","Brassica rapa","Brassica oleracea",5,0,"Brassicaceae",-0.444688381004625
+"734","Brassica rapa","Brassica oleracea",6,3,"Brassicaceae",0.12952088767125
+"735","Brassica rapa","Brassica oleracea",7,7,"Brassicaceae",0.89513324590575
+"736","Brassica rapa","Brassica oleracea",8,12,"Brassicaceae",1.85214869369887
+"737","Brassica rapa","Brassica oleracea",9,4,"Brassicaceae",0.320923977229875
+"738","Brassica rapa","Brassica oleracea",10,0,"Brassicaceae",-0.444688381004625
+"739","Brassica rapa","Brassica rapa",1,NA,"Brassicaceae",NA
+"740","Brassica rapa","Brassica rapa",2,NA,"Brassicaceae",NA
+"741","Brassica rapa","Brassica rapa",3,NA,"Brassicaceae",NA
+"742","Brassica rapa","Brassica rapa",4,NA,"Brassicaceae",NA
+"743","Brassica rapa","Brassica rapa",5,NA,"Brassicaceae",NA
+"744","Brassica rapa","Brassica rapa",6,NA,"Brassicaceae",NA
+"745","Brassica rapa","Brassica rapa",7,NA,"Brassicaceae",NA
+"746","Brassica rapa","Brassica rapa",8,NA,"Brassicaceae",NA
+"747","Brassica rapa","Brassica rapa",9,NA,"Brassicaceae",NA
+"748","Brassica rapa","Brassica rapa",10,NA,"Brassicaceae",NA
+"749","Brassica rapa","Eruca vesicaria",1,0,"Brassicaceae",-0.444688381004625
+"750","Brassica rapa","Eruca vesicaria",2,0,"Brassicaceae",-0.444688381004625
+"751","Brassica rapa","Eruca vesicaria",3,0,"Brassicaceae",-0.444688381004625
+"752","Brassica rapa","Eruca vesicaria",4,0,"Brassicaceae",-0.444688381004625
+"753","Brassica rapa","Eruca vesicaria",5,0,"Brassicaceae",-0.444688381004625
+"754","Brassica rapa","Eruca vesicaria",6,0,"Brassicaceae",-0.444688381004625
+"755","Brassica rapa","Eruca vesicaria",7,0,"Brassicaceae",-0.444688381004625
+"756","Brassica rapa","Eruca vesicaria",8,0,"Brassicaceae",-0.444688381004625
+"757","Brassica rapa","Eruca vesicaria",9,0,"Brassicaceae",-0.444688381004625
+"758","Brassica rapa","Eruca vesicaria",10,0,"Brassicaceae",-0.444688381004625
+"759","Brassica rapa","Sinapis alba",1,0,"Brassicaceae",-0.444688381004625
+"760","Brassica rapa","Sinapis alba",2,0,"Brassicaceae",-0.444688381004625
+"761","Brassica rapa","Sinapis alba",3,0,"Brassicaceae",-0.444688381004625
+"762","Brassica rapa","Sinapis alba",4,0,"Brassicaceae",-0.444688381004625
+"763","Brassica rapa","Sinapis alba",5,0,"Brassicaceae",-0.444688381004625
+"764","Brassica rapa","Sinapis alba",6,0,"Brassicaceae",-0.444688381004625
+"765","Brassica rapa","Sinapis alba",7,0,"Brassicaceae",-0.444688381004625
+"766","Brassica rapa","Sinapis alba",8,0,"Brassicaceae",-0.444688381004625
+"767","Brassica rapa","Sinapis alba",9,0,"Brassicaceae",-0.444688381004625
+"768","Brassica rapa","Sinapis alba",10,0,"Brassicaceae",-0.444688381004625
+"769","Brassica rapa","Ipomoea aquatica",1,0,"Convolvulaceae",-0.444688381004625
+"770","Brassica rapa","Ipomoea aquatica",2,12,"Convolvulaceae",1.85214869369887
+"771","Brassica rapa","Ipomoea aquatica",3,0,"Convolvulaceae",-0.444688381004625
+"772","Brassica rapa","Ipomoea aquatica",4,0,"Convolvulaceae",-0.444688381004625
+"773","Brassica rapa","Ipomoea aquatica",5,0,"Convolvulaceae",-0.444688381004625
+"774","Brassica rapa","Ipomoea aquatica",6,0,"Convolvulaceae",-0.444688381004625
+"775","Brassica rapa","Ipomoea aquatica",7,0,"Convolvulaceae",-0.444688381004625
+"776","Brassica rapa","Ipomoea aquatica",8,0,"Convolvulaceae",-0.444688381004625
+"777","Brassica rapa","Ipomoea aquatica",9,6,"Convolvulaceae",0.703730156347125
+"778","Brassica rapa","Ipomoea aquatica",10,0,"Convolvulaceae",-0.444688381004625
+"779","Brassica rapa","Ipomoea purpurea",1,0,"Convolvulaceae",-0.444688381004625
+"780","Brassica rapa","Ipomoea purpurea",2,0,"Convolvulaceae",-0.444688381004625
+"781","Brassica rapa","Ipomoea purpurea",3,0,"Convolvulaceae",-0.444688381004625
+"782","Brassica rapa","Ipomoea purpurea",4,0,"Convolvulaceae",-0.444688381004625
+"783","Brassica rapa","Ipomoea purpurea",5,0,"Convolvulaceae",-0.444688381004625
+"784","Brassica rapa","Ipomoea purpurea",6,0,"Convolvulaceae",-0.444688381004625
+"785","Brassica rapa","Ipomoea purpurea",7,0,"Convolvulaceae",-0.444688381004625
+"786","Brassica rapa","Ipomoea purpurea",8,2,"Convolvulaceae",-0.061882201887375
+"787","Brassica rapa","Ipomoea purpurea",9,0,"Convolvulaceae",-0.444688381004625
+"788","Brassica rapa","Ipomoea purpurea",10,0,"Convolvulaceae",-0.444688381004625
+"789","Brassica rapa","Capsicum annuum",1,21,"Solanaceae",3.5747764997265
+"790","Brassica rapa","Capsicum annuum",2,5,"Solanaceae",0.5123270667885
+"791","Brassica rapa","Capsicum annuum",3,0,"Solanaceae",-0.444688381004625
+"792","Brassica rapa","Capsicum annuum",4,4,"Solanaceae",0.320923977229875
+"793","Brassica rapa","Capsicum annuum",5,4,"Solanaceae",0.320923977229875
+"794","Brassica rapa","Capsicum annuum",6,3,"Solanaceae",0.12952088767125
+"795","Brassica rapa","Capsicum annuum",7,0,"Solanaceae",-0.444688381004625
+"796","Brassica rapa","Capsicum annuum",8,0,"Solanaceae",-0.444688381004625
+"797","Brassica rapa","Capsicum annuum",9,0,"Solanaceae",-0.444688381004625
+"798","Brassica rapa","Capsicum annuum",10,0,"Solanaceae",-0.444688381004625
+"799","Brassica rapa","Petunia integrifolia",1,0,"Solanaceae",-0.444688381004625
+"800","Brassica rapa","Petunia integrifolia",2,0,"Solanaceae",-0.444688381004625
+"801","Brassica rapa","Petunia integrifolia",3,0,"Solanaceae",-0.444688381004625
+"802","Brassica rapa","Petunia integrifolia",4,0,"Solanaceae",-0.444688381004625
+"803","Brassica rapa","Petunia integrifolia",5,0,"Solanaceae",-0.444688381004625
+"804","Brassica rapa","Petunia integrifolia",6,0,"Solanaceae",-0.444688381004625
+"805","Brassica rapa","Petunia integrifolia",7,0,"Solanaceae",-0.444688381004625
+"806","Brassica rapa","Petunia integrifolia",8,0,"Solanaceae",-0.444688381004625
+"807","Brassica rapa","Petunia integrifolia",9,0,"Solanaceae",-0.444688381004625
+"808","Brassica rapa","Petunia integrifolia",10,0,"Solanaceae",-0.444688381004625
+"809","Brassica rapa","Solanum lycopersicum",1,15,"Solanaceae",2.42635796237475
+"810","Brassica rapa","Solanum lycopersicum",2,0,"Solanaceae",-0.444688381004625
+"811","Brassica rapa","Solanum lycopersicum",3,0,"Solanaceae",-0.444688381004625
+"812","Brassica rapa","Solanum lycopersicum",4,0,"Solanaceae",-0.444688381004625
+"813","Brassica rapa","Solanum lycopersicum",5,1,"Solanaceae",-0.253285291446
+"814","Brassica rapa","Solanum lycopersicum",6,0,"Solanaceae",-0.444688381004625
+"815","Brassica rapa","Solanum lycopersicum",7,3,"Solanaceae",0.12952088767125
+"816","Brassica rapa","Solanum lycopersicum",8,0,"Solanaceae",-0.444688381004625
+"817","Brassica rapa","Solanum lycopersicum",9,0,"Solanaceae",-0.444688381004625
+"818","Brassica rapa","Solanum lycopersicum",10,0,"Solanaceae",-0.444688381004625
+"819","Brassica rapa","Solanum melongena",1,0,"Solanaceae",-0.444688381004625
+"820","Brassica rapa","Solanum melongena",2,0,"Solanaceae",-0.444688381004625
+"821","Brassica rapa","Solanum melongena",3,0,"Solanaceae",-0.444688381004625
+"822","Brassica rapa","Solanum melongena",4,0,"Solanaceae",-0.444688381004625
+"823","Brassica rapa","Solanum melongena",5,0,"Solanaceae",-0.444688381004625
+"824","Brassica rapa","Solanum melongena",6,0,"Solanaceae",-0.444688381004625
+"825","Brassica rapa","Solanum melongena",7,0,"Solanaceae",-0.444688381004625
+"826","Brassica rapa","Solanum melongena",8,0,"Solanaceae",-0.444688381004625
+"827","Brassica rapa","Solanum melongena",9,0,"Solanaceae",-0.444688381004625
+"828","Brassica rapa","Solanum melongena",10,0,"Solanaceae",-0.444688381004625
+"829","Brassica rapa","Cross",1,18,"other",3.00056723105062
+"830","Brassica rapa","Cross",2,18,"other",3.00056723105062
+"831","Brassica rapa","Cross",3,19,"other",3.19197032060925
+"832","Brassica rapa","Cross",4,16,"other",2.61776105193337
+"833","Brassica rapa","Cross",5,17,"other",2.809164141492
+"834","Brassica rapa","Cross",6,6,"other",0.703730156347125
+"835","Brassica rapa","Cross",7,3,"other",0.12952088767125
+"836","Brassica rapa","Cross",8,5,"other",0.5123270667885
+"837","Brassica rapa","Cross",9,4,"other",0.320923977229875
+"838","Brassica rapa","Cross",10,5,"other",0.5123270667885
+"839","Brassica rapa","Cross",11,20,"other",3.38337341016787
+"840","Brassica rapa","Cross",12,16,"other",2.61776105193337
+"841","Brassica rapa","Cross",13,5,"other",0.5123270667885
+"842","Brassica rapa","Self",1,0,"other",-0.444688381004625
+"843","Brassica rapa","Self",2,0,"other",-0.444688381004625
+"844","Brassica rapa","Self",3,0,"other",-0.444688381004625
+"845","Brassica rapa","Self",4,0,"other",-0.444688381004625
+"846","Brassica rapa","Self",5,0,"other",-0.444688381004625
+"847","Brassica rapa","Self",6,0,"other",-0.444688381004625
+"848","Brassica rapa","Self",7,0,"other",-0.444688381004625
+"849","Brassica rapa","Self",8,0,"other",-0.444688381004625
+"850","Brassica rapa","Self",9,0,"other",-0.444688381004625
+"851","Brassica rapa","Self",10,0,"other",-0.444688381004625
+"852","Brassica rapa","Control",1,0,"other",-0.444688381004625
+"853","Brassica rapa","Control",2,0,"other",-0.444688381004625
+"854","Brassica rapa","Control",3,0,"other",-0.444688381004625
+"855","Brassica rapa","Control",4,0,"other",-0.444688381004625
+"856","Brassica rapa","Control",5,0,"other",-0.444688381004625
+"857","Brassica rapa","Control",6,0,"other",-0.444688381004625
+"858","Brassica rapa","Control",7,0,"other",-0.444688381004625
+"859","Brassica rapa","Control",8,0,"other",-0.444688381004625
+"860","Brassica rapa","Control",9,0,"other",-0.444688381004625
+"861","Brassica rapa","Control",10,0,"other",-0.444688381004625
+"862","Brassica rapa","Flower control",1,0,"other",-0.444688381004625
+"863","Brassica rapa","Flower control",2,0,"other",-0.444688381004625
+"864","Brassica rapa","Flower control",3,0,"other",-0.444688381004625
+"865","Brassica rapa","Flower control",4,0,"other",-0.444688381004625
+"866","Brassica rapa","Flower control",5,0,"other",-0.444688381004625
+"867","Brassica rapa","Flower control",6,0,"other",-0.444688381004625
+"868","Brassica rapa","Flower control",7,0,"other",-0.444688381004625
+"869","Brassica rapa","Flower control",8,0,"other",-0.444688381004625
+"870","Brassica rapa","Flower control",9,0,"other",-0.444688381004625
+"871","Brassica rapa","Flower control",10,0,"other",-0.444688381004625
+"872","Sinapis alba","Brassica oleracea",1,0,"Brassicaceae",-0.819882101769637
+"873","Sinapis alba","Brassica oleracea",2,2,"Brassicaceae",-0.00677588513859202
+"874","Sinapis alba","Brassica oleracea",3,0,"Brassicaceae",-0.819882101769637
+"875","Sinapis alba","Brassica oleracea",4,0,"Brassicaceae",-0.819882101769637
+"876","Sinapis alba","Brassica oleracea",5,0,"Brassicaceae",-0.819882101769637
+"877","Sinapis alba","Brassica oleracea",6,0,"Brassicaceae",-0.819882101769637
+"878","Sinapis alba","Brassica oleracea",7,0,"Brassicaceae",-0.819882101769637
+"879","Sinapis alba","Brassica oleracea",8,0,"Brassicaceae",-0.819882101769637
+"880","Sinapis alba","Brassica oleracea",9,2,"Brassicaceae",-0.00677588513859202
+"881","Sinapis alba","Brassica oleracea",10,6,"Brassicaceae",1.6194365481235
+"882","Sinapis alba","Brassica rapa",1,0,"Brassicaceae",-0.819882101769637
+"883","Sinapis alba","Brassica rapa",2,0,"Brassicaceae",-0.819882101769637
+"884","Sinapis alba","Brassica rapa",3,0,"Brassicaceae",-0.819882101769637
+"885","Sinapis alba","Brassica rapa",4,0,"Brassicaceae",-0.819882101769637
+"886","Sinapis alba","Brassica rapa",5,0,"Brassicaceae",-0.819882101769637
+"887","Sinapis alba","Brassica rapa",6,0,"Brassicaceae",-0.819882101769637
+"888","Sinapis alba","Brassica rapa",7,0,"Brassicaceae",-0.819882101769637
+"889","Sinapis alba","Brassica rapa",8,0,"Brassicaceae",-0.819882101769637
+"890","Sinapis alba","Brassica rapa",9,0,"Brassicaceae",-0.819882101769637
+"891","Sinapis alba","Brassica rapa",10,0,"Brassicaceae",-0.819882101769637
+"892","Sinapis alba","Eruca vesicaria",1,0,"Brassicaceae",-0.819882101769637
+"893","Sinapis alba","Eruca vesicaria",2,0,"Brassicaceae",-0.819882101769637
+"894","Sinapis alba","Eruca vesicaria",3,0,"Brassicaceae",-0.819882101769637
+"895","Sinapis alba","Eruca vesicaria",4,0,"Brassicaceae",-0.819882101769637
+"896","Sinapis alba","Eruca vesicaria",5,0,"Brassicaceae",-0.819882101769637
+"897","Sinapis alba","Eruca vesicaria",6,0,"Brassicaceae",-0.819882101769637
+"898","Sinapis alba","Eruca vesicaria",7,6,"Brassicaceae",1.6194365481235
+"899","Sinapis alba","Eruca vesicaria",8,4,"Brassicaceae",0.806330331492453
+"900","Sinapis alba","Eruca vesicaria",9,0,"Brassicaceae",-0.819882101769637
+"901","Sinapis alba","Eruca vesicaria",10,0,"Brassicaceae",-0.819882101769637
+"902","Sinapis alba","Sinapis alba",1,NA,"Brassicaceae",NA
+"903","Sinapis alba","Sinapis alba",2,NA,"Brassicaceae",NA
+"904","Sinapis alba","Sinapis alba",3,NA,"Brassicaceae",NA
+"905","Sinapis alba","Sinapis alba",4,NA,"Brassicaceae",NA
+"906","Sinapis alba","Sinapis alba",5,NA,"Brassicaceae",NA
+"907","Sinapis alba","Sinapis alba",6,NA,"Brassicaceae",NA
+"908","Sinapis alba","Sinapis alba",7,NA,"Brassicaceae",NA
+"909","Sinapis alba","Sinapis alba",8,NA,"Brassicaceae",NA
+"910","Sinapis alba","Sinapis alba",9,NA,"Brassicaceae",NA
+"911","Sinapis alba","Sinapis alba",10,NA,"Brassicaceae",NA
+"912","Sinapis alba","Ipomoea purpurea",1,0,"Convolvulaceae",-0.819882101769637
+"913","Sinapis alba","Ipomoea purpurea",2,0,"Convolvulaceae",-0.819882101769637
+"914","Sinapis alba","Ipomoea purpurea",3,0,"Convolvulaceae",-0.819882101769637
+"915","Sinapis alba","Ipomoea purpurea",4,0,"Convolvulaceae",-0.819882101769637
+"916","Sinapis alba","Ipomoea purpurea",5,5,"Convolvulaceae",1.21288343980798
+"917","Sinapis alba","Ipomoea purpurea",6,0,"Convolvulaceae",-0.819882101769637
+"918","Sinapis alba","Ipomoea purpurea",7,0,"Convolvulaceae",-0.819882101769637
+"919","Sinapis alba","Ipomoea purpurea",8,0,"Convolvulaceae",-0.819882101769637
+"920","Sinapis alba","Ipomoea purpurea",9,0,"Convolvulaceae",-0.819882101769637
+"921","Sinapis alba","Ipomoea purpurea",10,0,"Convolvulaceae",-0.819882101769637
+"922","Sinapis alba","Capsicum annuum",1,7,"Solanaceae",2.02598965643902
+"923","Sinapis alba","Capsicum annuum",2,6,"Solanaceae",1.6194365481235
+"924","Sinapis alba","Capsicum annuum",3,2,"Solanaceae",-0.00677588513859202
+"925","Sinapis alba","Capsicum annuum",4,4,"Solanaceae",0.806330331492453
+"926","Sinapis alba","Capsicum annuum",5,5,"Solanaceae",1.21288343980798
+"927","Sinapis alba","Capsicum annuum",6,0,"Solanaceae",-0.819882101769637
+"928","Sinapis alba","Capsicum annuum",7,6,"Solanaceae",1.6194365481235
+"929","Sinapis alba","Capsicum annuum",8,5,"Solanaceae",1.21288343980798
+"930","Sinapis alba","Capsicum annuum",9,4,"Solanaceae",0.806330331492453
+"931","Sinapis alba","Capsicum annuum",10,5,"Solanaceae",1.21288343980798
+"932","Sinapis alba","Petunia integrifolia",1,6,"Solanaceae",1.6194365481235
+"933","Sinapis alba","Petunia integrifolia",2,4,"Solanaceae",0.806330331492453
+"934","Sinapis alba","Petunia integrifolia",3,4,"Solanaceae",0.806330331492453
+"935","Sinapis alba","Petunia integrifolia",4,5,"Solanaceae",1.21288343980798
+"936","Sinapis alba","Petunia integrifolia",5,5,"Solanaceae",1.21288343980798
+"937","Sinapis alba","Petunia integrifolia",6,4,"Solanaceae",0.806330331492453
+"938","Sinapis alba","Petunia integrifolia",7,0,"Solanaceae",-0.819882101769637
+"939","Sinapis alba","Petunia integrifolia",8,0,"Solanaceae",-0.819882101769637
+"940","Sinapis alba","Petunia integrifolia",9,4,"Solanaceae",0.806330331492453
+"941","Sinapis alba","Petunia integrifolia",10,5,"Solanaceae",1.21288343980798
+"942","Sinapis alba","Solanum lycopersicum",1,7,"Solanaceae",2.02598965643902
+"943","Sinapis alba","Solanum lycopersicum",2,0,"Solanaceae",-0.819882101769637
+"944","Sinapis alba","Solanum lycopersicum",3,1,"Solanaceae",-0.413328993454115
+"945","Sinapis alba","Solanum lycopersicum",4,5,"Solanaceae",1.21288343980798
+"946","Sinapis alba","Solanum lycopersicum",5,5,"Solanaceae",1.21288343980798
+"947","Sinapis alba","Solanum lycopersicum",6,3,"Solanaceae",0.399777223176931
+"948","Sinapis alba","Solanum lycopersicum",7,4,"Solanaceae",0.806330331492453
+"949","Sinapis alba","Solanum lycopersicum",8,4,"Solanaceae",0.806330331492453
+"950","Sinapis alba","Solanum lycopersicum",9,4,"Solanaceae",0.806330331492453
+"951","Sinapis alba","Solanum lycopersicum",10,4,"Solanaceae",0.806330331492453
+"952","Sinapis alba","Solanum melongena",1,0,"Solanaceae",-0.819882101769637
+"953","Sinapis alba","Solanum melongena",2,7,"Solanaceae",2.02598965643902
+"954","Sinapis alba","Solanum melongena",3,0,"Solanaceae",-0.819882101769637
+"955","Sinapis alba","Solanum melongena",4,0,"Solanaceae",-0.819882101769637
+"956","Sinapis alba","Solanum melongena",5,7,"Solanaceae",2.02598965643902
+"957","Sinapis alba","Solanum melongena",6,5,"Solanaceae",1.21288343980798
+"958","Sinapis alba","Solanum melongena",7,4,"Solanaceae",0.806330331492453
+"959","Sinapis alba","Solanum melongena",8,5,"Solanaceae",1.21288343980798
+"960","Sinapis alba","Solanum melongena",9,4,"Solanaceae",0.806330331492453
+"961","Sinapis alba","Solanum melongena",10,0,"Solanaceae",-0.819882101769637
+"962","Sinapis alba","Cross",1,4,"other",0.806330331492453
+"963","Sinapis alba","Cross",2,0,"other",-0.819882101769637
+"964","Sinapis alba","Cross",3,0,"other",-0.819882101769637
+"965","Sinapis alba","Cross",4,6,"other",1.6194365481235
+"966","Sinapis alba","Cross",5,6,"other",1.6194365481235
+"967","Sinapis alba","Cross",6,0,"other",-0.819882101769637
+"968","Sinapis alba","Cross",7,0,"other",-0.819882101769637
+"969","Sinapis alba","Cross",8,7,"other",2.02598965643902
+"970","Sinapis alba","Cross",9,3,"other",0.399777223176931
+"971","Sinapis alba","Cross",10,0,"other",-0.819882101769637
+"972","Sinapis alba","Self",1,0,"other",-0.819882101769637
+"973","Sinapis alba","Self",2,4,"other",0.806330331492453
+"974","Sinapis alba","Self",3,2,"other",-0.00677588513859202
+"975","Sinapis alba","Self",4,5,"other",1.21288343980798
+"976","Sinapis alba","Self",5,4,"other",0.806330331492453
+"977","Sinapis alba","Self",6,3,"other",0.399777223176931
+"978","Sinapis alba","Self",7,0,"other",-0.819882101769637
+"979","Sinapis alba","Self",8,0,"other",-0.819882101769637
+"980","Sinapis alba","Self",9,5,"other",1.21288343980798
+"981","Sinapis alba","Self",10,6,"other",1.6194365481235
+"982","Sinapis alba","Control",1,0,"other",-0.819882101769637
+"983","Sinapis alba","Control",2,0,"other",-0.819882101769637
+"984","Sinapis alba","Control",3,0,"other",-0.819882101769637
+"985","Sinapis alba","Control",4,4,"other",0.806330331492453
+"986","Sinapis alba","Control",5,5,"other",1.21288343980798
+"987","Sinapis alba","Control",6,0,"other",-0.819882101769637
+"988","Sinapis alba","Control",7,0,"other",-0.819882101769637
+"989","Sinapis alba","Control",8,0,"other",-0.819882101769637
+"990","Sinapis alba","Control",9,0,"other",-0.819882101769637
+"991","Sinapis alba","Control",10,0,"other",-0.819882101769637
+"992","Sinapis alba","Flower control",1,0,"other",-0.819882101769637
+"993","Sinapis alba","Flower control",2,0,"other",-0.819882101769637
+"994","Sinapis alba","Flower control",3,3,"other",0.399777223176931
+"995","Sinapis alba","Flower control",4,0,"other",-0.819882101769637
+"996","Sinapis alba","Flower control",5,0,"other",-0.819882101769637
+"997","Sinapis alba","Flower control",6,0,"other",-0.819882101769637
+"998","Sinapis alba","Flower control",7,0,"other",-0.819882101769637
+"999","Sinapis alba","Flower control",8,0,"other",-0.819882101769637
+"1000","Sinapis alba","Flower control",9,0,"other",-0.819882101769637
+"1001","Sinapis alba","Flower control",10,0,"other",-0.819882101769637
+"1002","Sinapis alba","Ipomoea aquatica",1,NA,"Convolvulaceae",NA
+"1003","Sinapis alba","Ipomoea aquatica",2,NA,"Convolvulaceae",NA
+"1004","Sinapis alba","Ipomoea aquatica",3,NA,"Convolvulaceae",NA
+"1005","Sinapis alba","Ipomoea aquatica",4,NA,"Convolvulaceae",NA
+"1006","Sinapis alba","Ipomoea aquatica",5,NA,"Convolvulaceae",NA
+"1007","Sinapis alba","Ipomoea aquatica",6,NA,"Convolvulaceae",NA
+"1008","Sinapis alba","Ipomoea aquatica",7,NA,"Convolvulaceae",NA
+"1009","Sinapis alba","Ipomoea aquatica",8,NA,"Convolvulaceae",NA
+"1010","Sinapis alba","Ipomoea aquatica",9,NA,"Convolvulaceae",NA
+"1011","Sinapis alba","Ipomoea aquatica",10,NA,"Convolvulaceae",NA
+"1012","Eruca vesicaria","Brassica oleracea",1,0,"Brassicaceae",-0.756107631247043
+"1013","Eruca vesicaria","Brassica oleracea",2,0,"Brassicaceae",-0.756107631247043
+"1014","Eruca vesicaria","Brassica oleracea",3,0,"Brassicaceae",-0.756107631247043
+"1015","Eruca vesicaria","Brassica oleracea",4,0,"Brassicaceae",-0.756107631247043
+"1016","Eruca vesicaria","Brassica oleracea",5,0,"Brassicaceae",-0.756107631247043
+"1017","Eruca vesicaria","Brassica oleracea",6,0,"Brassicaceae",-0.756107631247043
+"1018","Eruca vesicaria","Brassica oleracea",7,0,"Brassicaceae",-0.756107631247043
+"1019","Eruca vesicaria","Brassica oleracea",8,0,"Brassicaceae",-0.756107631247043
+"1020","Eruca vesicaria","Brassica oleracea",9,0,"Brassicaceae",-0.756107631247043
+"1021","Eruca vesicaria","Brassica oleracea",10,0,"Brassicaceae",-0.756107631247043
+"1022","Eruca vesicaria","Brassica rapa",1,15,"Brassicaceae",1.59542327932989
+"1023","Eruca vesicaria","Brassica rapa",2,15,"Brassicaceae",1.59542327932989
+"1024","Eruca vesicaria","Brassica rapa",3,17,"Brassicaceae",1.90896073407348
+"1025","Eruca vesicaria","Brassica rapa",4,7,"Brassicaceae",0.341273460355524
+"1026","Eruca vesicaria","Brassica rapa",5,6,"Brassicaceae",0.184504732983728
+"1027","Eruca vesicaria","Brassica rapa",6,13,"Brassicaceae",1.28188582458629
+"1028","Eruca vesicaria","Brassica rapa",7,2,"Brassicaceae",-0.442570176503453
+"1029","Eruca vesicaria","Brassica rapa",8,20,"Brassicaceae",2.37926691618886
+"1030","Eruca vesicaria","Brassica rapa",9,1,"Brassicaceae",-0.599338903875248
+"1031","Eruca vesicaria","Brassica rapa",10,0,"Brassicaceae",-0.756107631247043
+"1032","Eruca vesicaria","Eruca vesicaria",1,NA,"Brassicaceae",NA
+"1033","Eruca vesicaria","Eruca vesicaria",2,NA,"Brassicaceae",NA
+"1034","Eruca vesicaria","Eruca vesicaria",3,NA,"Brassicaceae",NA
+"1035","Eruca vesicaria","Eruca vesicaria",4,NA,"Brassicaceae",NA
+"1036","Eruca vesicaria","Eruca vesicaria",5,NA,"Brassicaceae",NA
+"1037","Eruca vesicaria","Eruca vesicaria",6,NA,"Brassicaceae",NA
+"1038","Eruca vesicaria","Eruca vesicaria",7,NA,"Brassicaceae",NA
+"1039","Eruca vesicaria","Eruca vesicaria",8,NA,"Brassicaceae",NA
+"1040","Eruca vesicaria","Eruca vesicaria",9,NA,"Brassicaceae",NA
+"1041","Eruca vesicaria","Eruca vesicaria",10,NA,"Brassicaceae",NA
+"1042","Eruca vesicaria","Sinapis alba",1,13,"Brassicaceae",1.28188582458629
+"1043","Eruca vesicaria","Sinapis alba",2,10,"Brassicaceae",0.811579642470909
+"1044","Eruca vesicaria","Sinapis alba",3,0,"Brassicaceae",-0.756107631247043
+"1045","Eruca vesicaria","Sinapis alba",4,1,"Brassicaceae",-0.599338903875248
+"1046","Eruca vesicaria","Sinapis alba",5,12,"Brassicaceae",1.1251170972145
+"1047","Eruca vesicaria","Sinapis alba",6,7,"Brassicaceae",0.341273460355524
+"1048","Eruca vesicaria","Sinapis alba",7,2,"Brassicaceae",-0.442570176503453
+"1049","Eruca vesicaria","Sinapis alba",8,12,"Brassicaceae",1.1251170972145
+"1050","Eruca vesicaria","Sinapis alba",9,0,"Brassicaceae",-0.756107631247043
+"1051","Eruca vesicaria","Sinapis alba",10,12,"Brassicaceae",1.1251170972145
+"1052","Eruca vesicaria","Ipomoea aquatica",1,10,"Convolvulaceae",0.811579642470909
+"1053","Eruca vesicaria","Ipomoea aquatica",2,7,"Convolvulaceae",0.341273460355524
+"1054","Eruca vesicaria","Ipomoea aquatica",3,15,"Convolvulaceae",1.59542327932989
+"1055","Eruca vesicaria","Ipomoea aquatica",4,16,"Convolvulaceae",1.75219200670168
+"1056","Eruca vesicaria","Ipomoea aquatica",5,17,"Convolvulaceae",1.90896073407348
+"1057","Eruca vesicaria","Ipomoea aquatica",6,15,"Convolvulaceae",1.59542327932989
+"1058","Eruca vesicaria","Ipomoea aquatica",7,22,"Convolvulaceae",2.69280437093245
+"1059","Eruca vesicaria","Ipomoea aquatica",8,23,"Convolvulaceae",2.84957309830425
+"1060","Eruca vesicaria","Ipomoea aquatica",9,0,"Convolvulaceae",-0.756107631247043
+"1061","Eruca vesicaria","Ipomoea aquatica",10,0,"Convolvulaceae",-0.756107631247043
+"1062","Eruca vesicaria","Ipomoea purpurea",1,0,"Convolvulaceae",-0.756107631247043
+"1063","Eruca vesicaria","Ipomoea purpurea",2,11,"Convolvulaceae",0.968348369842704
+"1064","Eruca vesicaria","Ipomoea purpurea",3,14,"Convolvulaceae",1.43865455195809
+"1065","Eruca vesicaria","Ipomoea purpurea",4,2,"Convolvulaceae",-0.442570176503453
+"1066","Eruca vesicaria","Ipomoea purpurea",5,0,"Convolvulaceae",-0.756107631247043
+"1067","Eruca vesicaria","Ipomoea purpurea",6,0,"Convolvulaceae",-0.756107631247043
+"1068","Eruca vesicaria","Ipomoea purpurea",7,2,"Convolvulaceae",-0.442570176503453
+"1069","Eruca vesicaria","Ipomoea purpurea",8,3,"Convolvulaceae",-0.285801449131657
+"1070","Eruca vesicaria","Ipomoea purpurea",9,0,"Convolvulaceae",-0.756107631247043
+"1071","Eruca vesicaria","Ipomoea purpurea",10,13,"Convolvulaceae",1.28188582458629
+"1072","Eruca vesicaria","Capsicum annuum",1,0,"Solanaceae",-0.756107631247043
+"1073","Eruca vesicaria","Capsicum annuum",2,0,"Solanaceae",-0.756107631247043
+"1074","Eruca vesicaria","Capsicum annuum",3,4,"Solanaceae",-0.129032721759862
+"1075","Eruca vesicaria","Capsicum annuum",4,10,"Solanaceae",0.811579642470909
+"1076","Eruca vesicaria","Capsicum annuum",5,8,"Solanaceae",0.498042187727319
+"1077","Eruca vesicaria","Capsicum annuum",6,6,"Solanaceae",0.184504732983728
+"1078","Eruca vesicaria","Capsicum annuum",7,11,"Solanaceae",0.968348369842704
+"1079","Eruca vesicaria","Capsicum annuum",8,0,"Solanaceae",-0.756107631247043
+"1080","Eruca vesicaria","Capsicum annuum",9,0,"Solanaceae",-0.756107631247043
+"1081","Eruca vesicaria","Capsicum annuum",10,0,"Solanaceae",-0.756107631247043
+"1082","Eruca vesicaria","Petunia integrifolia",1,11,"Solanaceae",0.968348369842704
+"1083","Eruca vesicaria","Petunia integrifolia",2,11,"Solanaceae",0.968348369842704
+"1084","Eruca vesicaria","Petunia integrifolia",3,10,"Solanaceae",0.811579642470909
+"1085","Eruca vesicaria","Petunia integrifolia",4,9,"Solanaceae",0.654810915099114
+"1086","Eruca vesicaria","Petunia integrifolia",5,12,"Solanaceae",1.1251170972145
+"1087","Eruca vesicaria","Petunia integrifolia",6,0,"Solanaceae",-0.756107631247043
+"1088","Eruca vesicaria","Petunia integrifolia",7,0,"Solanaceae",-0.756107631247043
+"1089","Eruca vesicaria","Petunia integrifolia",8,2,"Solanaceae",-0.442570176503453
+"1090","Eruca vesicaria","Petunia integrifolia",9,7,"Solanaceae",0.341273460355524
+"1091","Eruca vesicaria","Petunia integrifolia",10,0,"Solanaceae",-0.756107631247043
+"1092","Eruca vesicaria","Solanum lycopersicum",1,10,"Solanaceae",0.811579642470909
+"1093","Eruca vesicaria","Solanum lycopersicum",2,1,"Solanaceae",-0.599338903875248
+"1094","Eruca vesicaria","Solanum lycopersicum",3,17,"Solanaceae",1.90896073407348
+"1095","Eruca vesicaria","Solanum lycopersicum",4,8,"Solanaceae",0.498042187727319
+"1096","Eruca vesicaria","Solanum lycopersicum",5,0,"Solanaceae",-0.756107631247043
+"1097","Eruca vesicaria","Solanum lycopersicum",6,0,"Solanaceae",-0.756107631247043
+"1098","Eruca vesicaria","Solanum lycopersicum",7,0,"Solanaceae",-0.756107631247043
+"1099","Eruca vesicaria","Solanum lycopersicum",8,0,"Solanaceae",-0.756107631247043
+"1100","Eruca vesicaria","Solanum lycopersicum",9,0,"Solanaceae",-0.756107631247043
+"1101","Eruca vesicaria","Solanum lycopersicum",10,0,"Solanaceae",-0.756107631247043
+"1102","Eruca vesicaria","Solanum melongena",1,0,"Solanaceae",-0.756107631247043
+"1103","Eruca vesicaria","Solanum melongena",2,12,"Solanaceae",1.1251170972145
+"1104","Eruca vesicaria","Solanum melongena",3,11,"Solanaceae",0.968348369842704
+"1105","Eruca vesicaria","Solanum melongena",4,15,"Solanaceae",1.59542327932989
+"1106","Eruca vesicaria","Solanum melongena",5,10,"Solanaceae",0.811579642470909
+"1107","Eruca vesicaria","Solanum melongena",6,15,"Solanaceae",1.59542327932989
+"1108","Eruca vesicaria","Solanum melongena",7,0,"Solanaceae",-0.756107631247043
+"1109","Eruca vesicaria","Solanum melongena",8,17,"Solanaceae",1.90896073407348
+"1110","Eruca vesicaria","Solanum melongena",9,17,"Solanaceae",1.90896073407348
+"1111","Eruca vesicaria","Solanum melongena",10,0,"Solanaceae",-0.756107631247043
+"1112","Eruca vesicaria","Cross",1,16,"other",1.75219200670168
+"1113","Eruca vesicaria","Cross",2,7,"other",0.341273460355524
+"1114","Eruca vesicaria","Cross",3,0,"other",-0.756107631247043
+"1115","Eruca vesicaria","Cross",4,9,"other",0.654810915099114
+"1116","Eruca vesicaria","Cross",5,0,"other",-0.756107631247043
+"1117","Eruca vesicaria","Cross",6,2,"other",-0.442570176503453
+"1118","Eruca vesicaria","Cross",7,0,"other",-0.756107631247043
+"1119","Eruca vesicaria","Cross",8,11,"other",0.968348369842704
+"1120","Eruca vesicaria","Cross",9,12,"other",1.1251170972145
+"1121","Eruca vesicaria","Cross",10,0,"other",-0.756107631247043
+"1122","Eruca vesicaria","Self",1,0,"other",-0.756107631247043
+"1123","Eruca vesicaria","Self",2,0,"other",-0.756107631247043
+"1124","Eruca vesicaria","Self",3,1,"other",-0.599338903875248
+"1125","Eruca vesicaria","Self",4,0,"other",-0.756107631247043
+"1126","Eruca vesicaria","Self",5,0,"other",-0.756107631247043
+"1127","Eruca vesicaria","Self",6,0,"other",-0.756107631247043
+"1128","Eruca vesicaria","Self",7,0,"other",-0.756107631247043
+"1129","Eruca vesicaria","Self",8,0,"other",-0.756107631247043
+"1130","Eruca vesicaria","Self",9,0,"other",-0.756107631247043
+"1131","Eruca vesicaria","Self",10,0,"other",-0.756107631247043
+"1132","Eruca vesicaria","Control",1,0,"other",-0.756107631247043
+"1133","Eruca vesicaria","Control",2,0,"other",-0.756107631247043
+"1134","Eruca vesicaria","Control",3,0,"other",-0.756107631247043
+"1135","Eruca vesicaria","Control",4,0,"other",-0.756107631247043
+"1136","Eruca vesicaria","Control",5,0,"other",-0.756107631247043
+"1137","Eruca vesicaria","Control",6,0,"other",-0.756107631247043
+"1138","Eruca vesicaria","Control",7,0,"other",-0.756107631247043
+"1139","Eruca vesicaria","Control",8,0,"other",-0.756107631247043
+"1140","Eruca vesicaria","Control",9,0,"other",-0.756107631247043
+"1141","Eruca vesicaria","Control",10,0,"other",-0.756107631247043
+"1142","Eruca vesicaria","Flower control",1,0,"other",-0.756107631247043
+"1143","Eruca vesicaria","Flower control",2,0,"other",-0.756107631247043
+"1144","Eruca vesicaria","Flower control",3,0,"other",-0.756107631247043
+"1145","Eruca vesicaria","Flower control",4,0,"other",-0.756107631247043
+"1146","Eruca vesicaria","Flower control",5,0,"other",-0.756107631247043
+"1147","Eruca vesicaria","Flower control",6,0,"other",-0.756107631247043
+"1148","Eruca vesicaria","Flower control",7,0,"other",-0.756107631247043
+"1149","Eruca vesicaria","Flower control",8,0,"other",-0.756107631247043
+"1150","Eruca vesicaria","Flower control",9,0,"other",-0.756107631247043
+"1151","Eruca vesicaria","Flower control",10,0,"other",-0.756107631247043
+"1152","Ipomoea aquatica","Brassica oleracea",1,0,"Brassicaceae",-0.354760666907576
+"1153","Ipomoea aquatica","Brassica oleracea",2,0,"Brassicaceae",-0.354760666907576
+"1154","Ipomoea aquatica","Brassica oleracea",3,0,"Brassicaceae",-0.354760666907576
+"1155","Ipomoea aquatica","Brassica oleracea",4,0,"Brassicaceae",-0.354760666907576
+"1156","Ipomoea aquatica","Brassica oleracea",5,0,"Brassicaceae",-0.354760666907576
+"1157","Ipomoea aquatica","Brassica oleracea",6,0,"Brassicaceae",-0.354760666907576
+"1158","Ipomoea aquatica","Brassica oleracea",7,0,"Brassicaceae",-0.354760666907576
+"1159","Ipomoea aquatica","Brassica oleracea",8,0,"Brassicaceae",-0.354760666907576
+"1160","Ipomoea aquatica","Brassica oleracea",9,0,"Brassicaceae",-0.354760666907576
+"1161","Ipomoea aquatica","Brassica oleracea",10,0,"Brassicaceae",-0.354760666907576
+"1162","Ipomoea aquatica","Brassica rapa",1,0,"Brassicaceae",-0.354760666907576
+"1163","Ipomoea aquatica","Brassica rapa",2,0,"Brassicaceae",-0.354760666907576
+"1164","Ipomoea aquatica","Brassica rapa",3,0,"Brassicaceae",-0.354760666907576
+"1165","Ipomoea aquatica","Brassica rapa",4,0,"Brassicaceae",-0.354760666907576
+"1166","Ipomoea aquatica","Brassica rapa",5,0,"Brassicaceae",-0.354760666907576
+"1167","Ipomoea aquatica","Brassica rapa",6,0,"Brassicaceae",-0.354760666907576
+"1168","Ipomoea aquatica","Brassica rapa",7,0,"Brassicaceae",-0.354760666907576
+"1169","Ipomoea aquatica","Brassica rapa",8,0,"Brassicaceae",-0.354760666907576
+"1170","Ipomoea aquatica","Brassica rapa",9,0,"Brassicaceae",-0.354760666907576
+"1171","Ipomoea aquatica","Brassica rapa",10,0,"Brassicaceae",-0.354760666907576
+"1172","Ipomoea aquatica","Capsicum annuum",1,0,"Solanaceae",-0.354760666907576
+"1173","Ipomoea aquatica","Capsicum annuum",2,0,"Solanaceae",-0.354760666907576
+"1174","Ipomoea aquatica","Capsicum annuum",3,0,"Solanaceae",-0.354760666907576
+"1175","Ipomoea aquatica","Capsicum annuum",4,0,"Solanaceae",-0.354760666907576
+"1176","Ipomoea aquatica","Capsicum annuum",5,0,"Solanaceae",-0.354760666907576
+"1177","Ipomoea aquatica","Capsicum annuum",6,0,"Solanaceae",-0.354760666907576
+"1178","Ipomoea aquatica","Capsicum annuum",7,0,"Solanaceae",-0.354760666907576
+"1179","Ipomoea aquatica","Capsicum annuum",8,0,"Solanaceae",-0.354760666907576
+"1180","Ipomoea aquatica","Capsicum annuum",9,0,"Solanaceae",-0.354760666907576
+"1181","Ipomoea aquatica","Capsicum annuum",10,0,"Solanaceae",-0.354760666907576
+"1182","Ipomoea aquatica","Eruca vesicaria",1,0,"Brassicaceae",-0.354760666907576
+"1183","Ipomoea aquatica","Eruca vesicaria",2,0,"Brassicaceae",-0.354760666907576
+"1184","Ipomoea aquatica","Eruca vesicaria",3,0,"Brassicaceae",-0.354760666907576
+"1185","Ipomoea aquatica","Eruca vesicaria",4,0,"Brassicaceae",-0.354760666907576
+"1186","Ipomoea aquatica","Eruca vesicaria",5,0,"Brassicaceae",-0.354760666907576
+"1187","Ipomoea aquatica","Eruca vesicaria",6,0,"Brassicaceae",-0.354760666907576
+"1188","Ipomoea aquatica","Eruca vesicaria",7,0,"Brassicaceae",-0.354760666907576
+"1189","Ipomoea aquatica","Eruca vesicaria",8,0,"Brassicaceae",-0.354760666907576
+"1190","Ipomoea aquatica","Eruca vesicaria",9,0,"Brassicaceae",-0.354760666907576
+"1191","Ipomoea aquatica","Eruca vesicaria",10,0,"Brassicaceae",-0.354760666907576
+"1192","Ipomoea aquatica","Ipomoea aquatica",1,0,"Convolvulaceae",-0.354760666907576
+"1193","Ipomoea aquatica","Ipomoea aquatica",2,0,"Convolvulaceae",-0.354760666907576
+"1194","Ipomoea aquatica","Ipomoea aquatica",3,0,"Convolvulaceae",-0.354760666907576
+"1195","Ipomoea aquatica","Ipomoea aquatica",4,0,"Convolvulaceae",-0.354760666907576
+"1196","Ipomoea aquatica","Ipomoea aquatica",5,0,"Convolvulaceae",-0.354760666907576
+"1197","Ipomoea aquatica","Ipomoea aquatica",6,0,"Convolvulaceae",-0.354760666907576
+"1198","Ipomoea aquatica","Ipomoea aquatica",7,0,"Convolvulaceae",-0.354760666907576
+"1199","Ipomoea aquatica","Ipomoea aquatica",8,0,"Convolvulaceae",-0.354760666907576
+"1200","Ipomoea aquatica","Ipomoea aquatica",9,0,"Convolvulaceae",-0.354760666907576
+"1201","Ipomoea aquatica","Ipomoea aquatica",10,0,"Convolvulaceae",-0.354760666907576
+"1202","Ipomoea aquatica","Ipomoea purpurea",1,0,"Convolvulaceae",-0.354760666907576
+"1203","Ipomoea aquatica","Ipomoea purpurea",2,0,"Convolvulaceae",-0.354760666907576
+"1204","Ipomoea aquatica","Ipomoea purpurea",3,0,"Convolvulaceae",-0.354760666907576
+"1205","Ipomoea aquatica","Ipomoea purpurea",4,0,"Convolvulaceae",-0.354760666907576
+"1206","Ipomoea aquatica","Ipomoea purpurea",5,0,"Convolvulaceae",-0.354760666907576
+"1207","Ipomoea aquatica","Ipomoea purpurea",6,0,"Convolvulaceae",-0.354760666907576
+"1208","Ipomoea aquatica","Ipomoea purpurea",7,0,"Convolvulaceae",-0.354760666907576
+"1209","Ipomoea aquatica","Ipomoea purpurea",8,0,"Convolvulaceae",-0.354760666907576
+"1210","Ipomoea aquatica","Ipomoea purpurea",9,0,"Convolvulaceae",-0.354760666907576
+"1211","Ipomoea aquatica","Ipomoea purpurea",10,0,"Convolvulaceae",-0.354760666907576
+"1212","Ipomoea aquatica","Petunia integrifolia",1,0,"Solanaceae",-0.354760666907576
+"1213","Ipomoea aquatica","Petunia integrifolia",2,3,"Solanaceae",3.19284600216819
+"1214","Ipomoea aquatica","Petunia integrifolia",3,0,"Solanaceae",-0.354760666907576
+"1215","Ipomoea aquatica","Petunia integrifolia",4,0,"Solanaceae",-0.354760666907576
+"1216","Ipomoea aquatica","Petunia integrifolia",5,0,"Solanaceae",-0.354760666907576
+"1217","Ipomoea aquatica","Petunia integrifolia",6,0,"Solanaceae",-0.354760666907576
+"1218","Ipomoea aquatica","Petunia integrifolia",7,1,"Solanaceae",0.827774889451011
+"1219","Ipomoea aquatica","Petunia integrifolia",8,0,"Solanaceae",-0.354760666907576
+"1220","Ipomoea aquatica","Petunia integrifolia",9,0,"Solanaceae",-0.354760666907576
+"1221","Ipomoea aquatica","Petunia integrifolia",10,0,"Solanaceae",-0.354760666907576
+"1222","Ipomoea aquatica","Sinapis alba",1,0,"Brassicaceae",-0.354760666907576
+"1223","Ipomoea aquatica","Sinapis alba",2,0,"Brassicaceae",-0.354760666907576
+"1224","Ipomoea aquatica","Sinapis alba",3,0,"Brassicaceae",-0.354760666907576
+"1225","Ipomoea aquatica","Sinapis alba",4,0,"Brassicaceae",-0.354760666907576
+"1226","Ipomoea aquatica","Sinapis alba",5,0,"Brassicaceae",-0.354760666907576
+"1227","Ipomoea aquatica","Sinapis alba",6,0,"Brassicaceae",-0.354760666907576
+"1228","Ipomoea aquatica","Sinapis alba",7,0,"Brassicaceae",-0.354760666907576
+"1229","Ipomoea aquatica","Sinapis alba",8,0,"Brassicaceae",-0.354760666907576
+"1230","Ipomoea aquatica","Sinapis alba",9,0,"Brassicaceae",-0.354760666907576
+"1231","Ipomoea aquatica","Sinapis alba",10,0,"Brassicaceae",-0.354760666907576
+"1232","Ipomoea aquatica","Solanum lycopersicum",1,0,"Solanaceae",-0.354760666907576
+"1233","Ipomoea aquatica","Solanum lycopersicum",2,2,"Solanaceae",2.0103104458096
+"1234","Ipomoea aquatica","Solanum lycopersicum",3,0,"Solanaceae",-0.354760666907576
+"1235","Ipomoea aquatica","Solanum lycopersicum",4,0,"Solanaceae",-0.354760666907576
+"1236","Ipomoea aquatica","Solanum lycopersicum",5,0,"Solanaceae",-0.354760666907576
+"1237","Ipomoea aquatica","Solanum lycopersicum",6,0,"Solanaceae",-0.354760666907576
+"1238","Ipomoea aquatica","Solanum lycopersicum",7,0,"Solanaceae",-0.354760666907576
+"1239","Ipomoea aquatica","Solanum lycopersicum",8,0,"Solanaceae",-0.354760666907576
+"1240","Ipomoea aquatica","Solanum lycopersicum",9,0,"Solanaceae",-0.354760666907576
+"1241","Ipomoea aquatica","Solanum lycopersicum",10,0,"Solanaceae",-0.354760666907576
+"1242","Ipomoea aquatica","Solanum melongena",1,0,"Solanaceae",-0.354760666907576
+"1243","Ipomoea aquatica","Solanum melongena",2,0,"Solanaceae",-0.354760666907576
+"1244","Ipomoea aquatica","Solanum melongena",3,0,"Solanaceae",-0.354760666907576
+"1245","Ipomoea aquatica","Solanum melongena",4,0,"Solanaceae",-0.354760666907576
+"1246","Ipomoea aquatica","Solanum melongena",5,0,"Solanaceae",-0.354760666907576
+"1247","Ipomoea aquatica","Solanum melongena",6,0,"Solanaceae",-0.354760666907576
+"1248","Ipomoea aquatica","Solanum melongena",7,0,"Solanaceae",-0.354760666907576
+"1249","Ipomoea aquatica","Solanum melongena",8,0,"Solanaceae",-0.354760666907576
+"1250","Ipomoea aquatica","Solanum melongena",9,0,"Solanaceae",-0.354760666907576
+"1251","Ipomoea aquatica","Solanum melongena",10,0,"Solanaceae",-0.354760666907576
+"1252","Ipomoea aquatica","Cross",1,2,NA,2.0103104458096
+"1253","Ipomoea aquatica","Cross",2,3,NA,3.19284600216819
+"1254","Ipomoea aquatica","Cross",3,0,NA,-0.354760666907576
+"1255","Ipomoea aquatica","Cross",4,0,NA,-0.354760666907576
+"1256","Ipomoea aquatica","Cross",5,3,NA,3.19284600216819
+"1257","Ipomoea aquatica","Cross",6,1,NA,0.827774889451011
+"1258","Ipomoea aquatica","Cross",7,0,NA,-0.354760666907576
+"1259","Ipomoea aquatica","Cross",8,1,NA,0.827774889451011
+"1260","Ipomoea aquatica","Cross",9,2,NA,2.0103104458096
+"1261","Ipomoea aquatica","Cross",10,4,NA,4.37538155852677
+"1262","Ipomoea aquatica","Self",1,0,NA,-0.354760666907576
+"1263","Ipomoea aquatica","Self",2,3,NA,3.19284600216819
+"1264","Ipomoea aquatica","Self",3,1,NA,0.827774889451011
+"1265","Ipomoea aquatica","Self",4,3,NA,3.19284600216819
+"1266","Ipomoea aquatica","Self",5,0,NA,-0.354760666907576
+"1267","Ipomoea aquatica","Self",6,2,NA,2.0103104458096
+"1268","Ipomoea aquatica","Self",7,2,NA,2.0103104458096
+"1269","Ipomoea aquatica","Self",8,1,NA,0.827774889451011
+"1270","Ipomoea aquatica","Self",9,0,NA,-0.354760666907576
+"1271","Ipomoea aquatica","Self",10,0,NA,-0.354760666907576
+"1272","Ipomoea aquatica","Control",1,0,NA,-0.354760666907576
+"1273","Ipomoea aquatica","Control",2,0,NA,-0.354760666907576
+"1274","Ipomoea aquatica","Control",3,0,NA,-0.354760666907576
+"1275","Ipomoea aquatica","Control",4,0,NA,-0.354760666907576
+"1276","Ipomoea aquatica","Control",5,0,NA,-0.354760666907576
+"1277","Ipomoea aquatica","Control",6,0,NA,-0.354760666907576
+"1278","Ipomoea aquatica","Control",7,0,NA,-0.354760666907576
+"1279","Ipomoea aquatica","Control",8,0,NA,-0.354760666907576
+"1280","Ipomoea aquatica","Control",9,0,NA,-0.354760666907576
+"1281","Ipomoea aquatica","Control",10,0,NA,-0.354760666907576
+"1282","Ipomoea aquatica","Flower control",1,0,NA,-0.354760666907576
+"1283","Ipomoea aquatica","Flower control",2,0,NA,-0.354760666907576
+"1284","Ipomoea aquatica","Flower control",3,0,NA,-0.354760666907576
+"1285","Ipomoea aquatica","Flower control",4,3,NA,3.19284600216819
+"1286","Ipomoea aquatica","Flower control",5,0,NA,-0.354760666907576
+"1287","Ipomoea aquatica","Flower control",6,0,NA,-0.354760666907576
+"1288","Ipomoea aquatica","Flower control",7,0,NA,-0.354760666907576
+"1289","Ipomoea aquatica","Flower control",8,1,NA,0.827774889451011
+"1290","Ipomoea aquatica","Flower control",9,4,NA,4.37538155852677
+"1291","Ipomoea aquatica","Flower control",10,0,NA,-0.354760666907576
+"1292","Ipomoea purpurea","Brassica oleracea",1,6,"Brassicaceae",1.99906592259078
+"1293","Ipomoea purpurea","Brassica oleracea",2,4,"Brassicaceae",1.09983211658109
+"1294","Ipomoea purpurea","Brassica oleracea",3,3,"Brassicaceae",0.65021521357624
+"1295","Ipomoea purpurea","Brassica oleracea",4,4,"Brassicaceae",1.09983211658109
+"1296","Ipomoea purpurea","Brassica oleracea",5,0,"Brassicaceae",-0.6986354954383
+"1297","Ipomoea purpurea","Brassica oleracea",6,0,"Brassicaceae",-0.6986354954383
+"1298","Ipomoea purpurea","Brassica oleracea",7,5,"Brassicaceae",1.54944901958593
+"1299","Ipomoea purpurea","Brassica oleracea",8,0,"Brassicaceae",-0.6986354954383
+"1300","Ipomoea purpurea","Brassica oleracea",9,6,"Brassicaceae",1.99906592259078
+"1301","Ipomoea purpurea","Brassica oleracea",10,4,"Brassicaceae",1.09983211658109
+"1302","Ipomoea purpurea","Brassica rapa",1,0,"Brassicaceae",-0.6986354954383
+"1303","Ipomoea purpurea","Brassica rapa",2,2,"Brassicaceae",0.200598310571393
+"1304","Ipomoea purpurea","Brassica rapa",3,1,"Brassicaceae",-0.249018592433453
+"1305","Ipomoea purpurea","Brassica rapa",4,1,"Brassicaceae",-0.249018592433453
+"1306","Ipomoea purpurea","Brassica rapa",5,0,"Brassicaceae",-0.6986354954383
+"1307","Ipomoea purpurea","Brassica rapa",6,0,"Brassicaceae",-0.6986354954383
+"1308","Ipomoea purpurea","Brassica rapa",7,4,"Brassicaceae",1.09983211658109
+"1309","Ipomoea purpurea","Brassica rapa",8,0,"Brassicaceae",-0.6986354954383
+"1310","Ipomoea purpurea","Brassica rapa",9,0,"Brassicaceae",-0.6986354954383
+"1311","Ipomoea purpurea","Brassica rapa",10,0,"Brassicaceae",-0.6986354954383
+"1312","Ipomoea purpurea","Capsicum annuum",1,0,"Solanaceae",-0.6986354954383
+"1313","Ipomoea purpurea","Capsicum annuum",2,0,"Solanaceae",-0.6986354954383
+"1314","Ipomoea purpurea","Capsicum annuum",3,0,"Solanaceae",-0.6986354954383
+"1315","Ipomoea purpurea","Capsicum annuum",4,0,"Solanaceae",-0.6986354954383
+"1316","Ipomoea purpurea","Capsicum annuum",5,0,"Solanaceae",-0.6986354954383
+"1317","Ipomoea purpurea","Capsicum annuum",6,0,"Solanaceae",-0.6986354954383
+"1318","Ipomoea purpurea","Capsicum annuum",7,0,"Solanaceae",-0.6986354954383
+"1319","Ipomoea purpurea","Capsicum annuum",8,0,"Solanaceae",-0.6986354954383
+"1320","Ipomoea purpurea","Capsicum annuum",9,0,"Solanaceae",-0.6986354954383
+"1321","Ipomoea purpurea","Capsicum annuum",10,0,"Solanaceae",-0.6986354954383
+"1322","Ipomoea purpurea","Eruca vesicaria",1,1,"Brassicaceae",-0.249018592433453
+"1323","Ipomoea purpurea","Eruca vesicaria",2,0,"Brassicaceae",-0.6986354954383
+"1324","Ipomoea purpurea","Eruca vesicaria",3,0,"Brassicaceae",-0.6986354954383
+"1325","Ipomoea purpurea","Eruca vesicaria",4,0,"Brassicaceae",-0.6986354954383
+"1326","Ipomoea purpurea","Eruca vesicaria",5,0,"Brassicaceae",-0.6986354954383
+"1327","Ipomoea purpurea","Eruca vesicaria",6,0,"Brassicaceae",-0.6986354954383
+"1328","Ipomoea purpurea","Eruca vesicaria",7,0,"Brassicaceae",-0.6986354954383
+"1329","Ipomoea purpurea","Eruca vesicaria",8,0,"Brassicaceae",-0.6986354954383
+"1330","Ipomoea purpurea","Eruca vesicaria",9,0,"Brassicaceae",-0.6986354954383
+"1331","Ipomoea purpurea","Eruca vesicaria",10,0,"Brassicaceae",-0.6986354954383
+"1332","Ipomoea purpurea","Ipomoea aquatica",1,0,"Convolvulaceae",-0.6986354954383
+"1333","Ipomoea purpurea","Ipomoea aquatica",2,0,"Convolvulaceae",-0.6986354954383
+"1334","Ipomoea purpurea","Ipomoea aquatica",3,6,"Convolvulaceae",1.99906592259078
+"1335","Ipomoea purpurea","Ipomoea aquatica",4,4,"Convolvulaceae",1.09983211658109
+"1336","Ipomoea purpurea","Ipomoea aquatica",5,0,"Convolvulaceae",-0.6986354954383
+"1337","Ipomoea purpurea","Ipomoea aquatica",6,3,"Convolvulaceae",0.65021521357624
+"1338","Ipomoea purpurea","Ipomoea aquatica",7,5,"Convolvulaceae",1.54944901958593
+"1339","Ipomoea purpurea","Ipomoea aquatica",8,5,"Convolvulaceae",1.54944901958593
+"1340","Ipomoea purpurea","Ipomoea aquatica",9,5,"Convolvulaceae",1.54944901958593
+"1341","Ipomoea purpurea","Ipomoea aquatica",10,6,"Convolvulaceae",1.99906592259078
+"1342","Ipomoea purpurea","Ipomoea purpurea",1,NA,"Convolvulaceae",NA
+"1343","Ipomoea purpurea","Ipomoea purpurea",2,NA,"Convolvulaceae",NA
+"1344","Ipomoea purpurea","Ipomoea purpurea",3,NA,"Convolvulaceae",NA
+"1345","Ipomoea purpurea","Ipomoea purpurea",4,NA,"Convolvulaceae",NA
+"1346","Ipomoea purpurea","Ipomoea purpurea",5,NA,"Convolvulaceae",NA
+"1347","Ipomoea purpurea","Ipomoea purpurea",6,NA,"Convolvulaceae",NA
+"1348","Ipomoea purpurea","Ipomoea purpurea",7,NA,"Convolvulaceae",NA
+"1349","Ipomoea purpurea","Ipomoea purpurea",8,NA,"Convolvulaceae",NA
+"1350","Ipomoea purpurea","Ipomoea purpurea",9,NA,"Convolvulaceae",NA
+"1351","Ipomoea purpurea","Ipomoea purpurea",10,NA,"Convolvulaceae",NA
+"1352","Ipomoea purpurea","Petunia integrifolia",1,0,"Solanaceae",-0.6986354954383
+"1353","Ipomoea purpurea","Petunia integrifolia",2,0,"Solanaceae",-0.6986354954383
+"1354","Ipomoea purpurea","Petunia integrifolia",3,0,"Solanaceae",-0.6986354954383
+"1355","Ipomoea purpurea","Petunia integrifolia",4,0,"Solanaceae",-0.6986354954383
+"1356","Ipomoea purpurea","Petunia integrifolia",5,0,"Solanaceae",-0.6986354954383
+"1357","Ipomoea purpurea","Petunia integrifolia",6,5,"Solanaceae",1.54944901958593
+"1358","Ipomoea purpurea","Petunia integrifolia",7,6,"Solanaceae",1.99906592259078
+"1359","Ipomoea purpurea","Petunia integrifolia",8,0,"Solanaceae",-0.6986354954383
+"1360","Ipomoea purpurea","Petunia integrifolia",9,1,"Solanaceae",-0.249018592433453
+"1361","Ipomoea purpurea","Petunia integrifolia",10,0,"Solanaceae",-0.6986354954383
+"1362","Ipomoea purpurea","Sinapis alba",1,0,NA,-0.6986354954383
+"1363","Ipomoea purpurea","Sinapis alba",2,0,NA,-0.6986354954383
+"1364","Ipomoea purpurea","Sinapis alba",3,0,NA,-0.6986354954383
+"1365","Ipomoea purpurea","Sinapis alba",4,2,NA,0.200598310571393
+"1366","Ipomoea purpurea","Sinapis alba",5,2,NA,0.200598310571393
+"1367","Ipomoea purpurea","Sinapis alba",6,4,NA,1.09983211658109
+"1368","Ipomoea purpurea","Sinapis alba",7,2,NA,0.200598310571393
+"1369","Ipomoea purpurea","Sinapis alba",8,0,NA,-0.6986354954383
+"1370","Ipomoea purpurea","Sinapis alba",9,0,NA,-0.6986354954383
+"1371","Ipomoea purpurea","Sinapis alba",10,0,NA,-0.6986354954383
+"1372","Ipomoea purpurea","Solanum lycopersicum",1,0,"Solanaceae",-0.6986354954383
+"1373","Ipomoea purpurea","Solanum lycopersicum",2,0,"Solanaceae",-0.6986354954383
+"1374","Ipomoea purpurea","Solanum lycopersicum",3,0,"Solanaceae",-0.6986354954383
+"1375","Ipomoea purpurea","Solanum lycopersicum",4,0,"Solanaceae",-0.6986354954383
+"1376","Ipomoea purpurea","Solanum lycopersicum",5,0,"Solanaceae",-0.6986354954383
+"1377","Ipomoea purpurea","Solanum lycopersicum",6,0,"Solanaceae",-0.6986354954383
+"1378","Ipomoea purpurea","Solanum lycopersicum",7,0,"Solanaceae",-0.6986354954383
+"1379","Ipomoea purpurea","Solanum lycopersicum",8,0,"Solanaceae",-0.6986354954383
+"1380","Ipomoea purpurea","Solanum lycopersicum",9,0,"Solanaceae",-0.6986354954383
+"1381","Ipomoea purpurea","Solanum lycopersicum",10,0,"Solanaceae",-0.6986354954383
+"1382","Ipomoea purpurea","Solanum melongena",1,3,"Solanaceae",0.65021521357624
+"1383","Ipomoea purpurea","Solanum melongena",2,0,"Solanaceae",-0.6986354954383
+"1384","Ipomoea purpurea","Solanum melongena",3,0,"Solanaceae",-0.6986354954383
+"1385","Ipomoea purpurea","Solanum melongena",4,6,"Solanaceae",1.99906592259078
+"1386","Ipomoea purpurea","Solanum melongena",5,0,"Solanaceae",-0.6986354954383
+"1387","Ipomoea purpurea","Solanum melongena",6,0,"Solanaceae",-0.6986354954383
+"1388","Ipomoea purpurea","Solanum melongena",7,5,"Solanaceae",1.54944901958593
+"1389","Ipomoea purpurea","Solanum melongena",8,0,"Solanaceae",-0.6986354954383
+"1390","Ipomoea purpurea","Solanum melongena",9,1,"Solanaceae",-0.249018592433453
+"1391","Ipomoea purpurea","Solanum melongena",10,0,"Solanaceae",-0.6986354954383
+"1392","Ipomoea purpurea","Cross",1,1,NA,-0.249018592433453
+"1393","Ipomoea purpurea","Cross",2,2,NA,0.200598310571393
+"1394","Ipomoea purpurea","Cross",3,1,NA,-0.249018592433453
+"1395","Ipomoea purpurea","Cross",4,2,NA,0.200598310571393
+"1396","Ipomoea purpurea","Cross",5,1,NA,-0.249018592433453
+"1397","Ipomoea purpurea","Cross",6,6,NA,1.99906592259078
+"1398","Ipomoea purpurea","Cross",7,0,NA,-0.6986354954383
+"1399","Ipomoea purpurea","Cross",8,0,NA,-0.6986354954383
+"1400","Ipomoea purpurea","Cross",9,0,NA,-0.6986354954383
+"1401","Ipomoea purpurea","Cross",10,6,NA,1.99906592259078
+"1402","Ipomoea purpurea","Self",1,5,NA,1.54944901958593
+"1403","Ipomoea purpurea","Self",2,4,NA,1.09983211658109
+"1404","Ipomoea purpurea","Self",3,5,NA,1.54944901958593
+"1405","Ipomoea purpurea","Self",4,5,NA,1.54944901958593
+"1406","Ipomoea purpurea","Self",5,6,NA,1.99906592259078
+"1407","Ipomoea purpurea","Self",6,6,NA,1.99906592259078
+"1408","Ipomoea purpurea","Self",7,5,NA,1.54944901958593
+"1409","Ipomoea purpurea","Self",8,6,NA,1.99906592259078
+"1410","Ipomoea purpurea","Self",9,6,NA,1.99906592259078
+"1411","Ipomoea purpurea","Self",10,4,NA,1.09983211658109
+"1412","Ipomoea purpurea","Control",1,0,NA,-0.6986354954383
+"1413","Ipomoea purpurea","Control",2,0,NA,-0.6986354954383
+"1414","Ipomoea purpurea","Control",3,0,NA,-0.6986354954383
+"1415","Ipomoea purpurea","Control",4,0,NA,-0.6986354954383
+"1416","Ipomoea purpurea","Control",5,0,NA,-0.6986354954383
+"1417","Ipomoea purpurea","Control",6,0,NA,-0.6986354954383
+"1418","Ipomoea purpurea","Control",7,0,NA,-0.6986354954383
+"1419","Ipomoea purpurea","Control",8,0,NA,-0.6986354954383
+"1420","Ipomoea purpurea","Control",9,0,NA,-0.6986354954383
+"1421","Ipomoea purpurea","Control",10,0,NA,-0.6986354954383
+"1422","Ipomoea purpurea","Flower control",1,3,NA,0.65021521357624
+"1423","Ipomoea purpurea","Flower control",2,2,NA,0.200598310571393
+"1424","Ipomoea purpurea","Flower control",3,3,NA,0.65021521357624
+"1425","Ipomoea purpurea","Flower control",4,0,NA,-0.6986354954383
+"1426","Ipomoea purpurea","Flower control",5,0,NA,-0.6986354954383
+"1427","Ipomoea purpurea","Flower control",6,0,NA,-0.6986354954383
+"1428","Ipomoea purpurea","Flower control",7,0,NA,-0.6986354954383
+"1429","Ipomoea purpurea","Flower control",8,0,NA,-0.6986354954383
+"1430","Ipomoea purpurea","Flower control",9,5,NA,1.54944901958593
+"1431","Ipomoea purpurea","Flower control",10,6,NA,1.99906592259078

@@ -1,0 +1,862 @@
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{setspace}\doublespacing
+\usepackage{float}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\captionsetup[figure]{labelformat=empty}
+\captionsetup[table]{labelformat=empty} \renewcommand{\figurename}{}
+
+\section{Supporting information:}\label{supporting-information}
+
+\section{Recipient and donor characteristics govern the hierarchical
+structure of heterospecific pollen competition
+networks}\label{recipient-and-donor-characteristics-govern-the-hierarchical-structure-of-heterospecific-pollen-competition-networks}
+
+\textbf{Authors:} Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman,
+Romina Rader
+
+The following Supporting Information is available for this article:
+
+\textbf{Table S1.} Species names, common names, varieties and sources of
+the different seeds.
+
+\textbf{Table S2.} Trait measurements for all species.
+
+\textbf{Table S3.} Average number of pollen grains of the recipient and
+donor species per stigma with the 50:50 mix CP:HP pollen.
+
+\textbf{Table S4.} Seed:ovule ratio (\%) of the different reproductive
+biology treatments.
+
+\textbf{Table S5.} Summary of the effect from the linear models of the
+different pollen donors on each recipient species.
+
+\textbf{Table S6.} Estimates, standard error, t-value and \emph{P}-value
+of the effect of the different 9 donors on each recipient species.
+
+\textbf{Table S7.} Total number of seeds produced with the 100\% foreign
+pollen treatments.
+
+\textbf{Table S8.} Procrustes analysis results.
+
+\textbf{Table S9.} Phylogenetic signal and significance for all the
+different traits.
+
+\textbf{Figure S1}. Average number of pollen grains of recipient and
+donor species per stigma with the 50:50 mix CP:HP pollen.
+
+\textbf{Figure S2}. Average proportion (\%) of conspecific and
+heterospecific pollen per stigma with the 50:50 mix CP:HP pollen.
+
+\textbf{Figure S3}. Average proportion (\%) of heterospecific and
+conspecific pollen per stigma and family with the 50:50 mix CP:HP
+pollen.
+
+\textbf{Figure S4}. Statistical comparison of the percentage of
+heterospecific pollen with the 50:50 pollen mix by family.
+
+\textbf{Figure S5}. Unipartite bidirectional network with asymmetrical
+effect.
+
+\textbf{Figure S6}. Correlation matrix for all the different traits.
+
+\textbf{Figure S7}. Species reproductive biology.
+
+\textbf{Figure S8}. Grouped effect sizes by family for each recipient
+species.
+
+\newpage
+
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtabu} to \linewidth {>{}l>{\raggedright}X>{\raggedright}X>{\raggedright}X}
+\caption{\label{tab:unnamed-chunk-1}\textbf{Table S1.} Species names, common names, varieties and sources of the different seeds.}\\
+\toprule
+\textbf{Species} & \textbf{Common names} & \textbf{Varieties} & \textbf{Source}\\
+\midrule
+\endfirsthead
+\caption[]{\textbf{Table S1.} Species names, common names, varieties and sources of the different seeds. \textit{(continued)}}\\
+\toprule
+\textbf{Species} & \textbf{Common names} & \textbf{Varieties} & \textbf{Source}\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\em{\cellcolor{gray!6}{Brassica oleracea}} & \cellcolor{gray!6}{Wild cabbage} & \cellcolor{gray!6}{Capitata} & \cellcolor{gray!6}{https://www.mrfothergills.com.au/}\\
+\addlinespace
+\em{Brassica rapa} & Pak choi & Chinensis & https://www.mrfothergills.com.au/\\
+\addlinespace
+\em{\cellcolor{gray!6}{Eruca sativa}} & \cellcolor{gray!6}{Rocket} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{https://www.mrfothergills.com.au/}\\
+\addlinespace
+\em{Sinapis alba} & White mustard &  & https://www.mrfothergills.com.au/\\
+\addlinespace
+\em{\cellcolor{gray!6}{Ipomoea aquatica}} & \cellcolor{gray!6}{Water spinach} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{https://www.theseedcollection.com.au/}\\
+\addlinespace
+\em{Ipomoea purpurea} & Morning glory &  & http://www.shaman-australis.com.au\\
+\addlinespace
+\em{\cellcolor{gray!6}{Capsicum annuum}} & \cellcolor{gray!6}{Capsicum} & \cellcolor{gray!6}{California Wonder} & \cellcolor{gray!6}{https://www.edenseeds.com.au}\\
+\addlinespace
+\em{Petunia integrifolia} & Petunia &  & https://www.dianeseeds.com/\\
+\addlinespace
+\em{\cellcolor{gray!6}{Solanum lycopersicum}} & \cellcolor{gray!6}{Tomato} & \cellcolor{gray!6}{Tommy Toe} & \cellcolor{gray!6}{https://www.mrfothergills.com.au/}\\
+\addlinespace
+\em{Solanum melongena} & Eggplant & Little Fingers & https://www.4seasonsseeds.com.au/\\*
+\end{longtabu}
+
+\endgroup{}
+
+\begin{landscape}
+
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}\textbf{Table S2.} Average values of the trait measurements for each plant species. Sample sizes are provided on the methods section. Detailed information of how pollen:ovule ratio, selfing rate and SI index were calculated is available in the plant functional traits section from the methods. The raw data can be found on the online repository provided within this manuscript.}
+\centering
+\resizebox{\linewidth}{!}{
+\fontsize{6}{8}\selectfont
+\begin{tabu} to \linewidth {>{}l>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\toprule
+\textbf{Species} & \textbf{Pollen size $\mu$m} & \textbf{Pollen grains per anther} & \textbf{Ovule number} & \textbf{Pollen:ovule ratio} & \textbf{Stigma area $\mu$m$^{2}$} & \textbf{Stigma length (mm)} & \textbf{Stigma width (mm)} & \textbf{Style length (mm)} & \textbf{Style width (mm)} & \textbf{Ovary length (mm)} & \textbf{Ovary width (mm)} & \textbf{Selfing rate} & \textbf{SI index}\\
+\midrule
+\em{\cellcolor{gray!6}{Brassica oleracea}} & \cellcolor{gray!6}{27.72} & \cellcolor{gray!6}{42033} & \cellcolor{gray!6}{29} & \cellcolor{gray!6}{8696.48} & \cellcolor{gray!6}{0.62} & \cellcolor{gray!6}{0.53} & \cellcolor{gray!6}{0.88} & \cellcolor{gray!6}{2.32} & \cellcolor{gray!6}{0.65} & \cellcolor{gray!6}{5.93} & \cellcolor{gray!6}{1.11} & \cellcolor{gray!6}{0.0} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{Brassica rapa} & 25.35 & 7133 & 26 & 1646.08 & 0.36 & 0.37 & 0.73 & 1.08 & 0.52 & 3.53 & 0.88 & 0.0 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{Capsicum annuum}} & \cellcolor{gray!6}{32.46} & \cellcolor{gray!6}{30761} & \cellcolor{gray!6}{241} & \cellcolor{gray!6}{765.83} & \cellcolor{gray!6}{1.06} & \cellcolor{gray!6}{0.72} & \cellcolor{gray!6}{1.18} & \cellcolor{gray!6}{3.24} & \cellcolor{gray!6}{1.06} & \cellcolor{gray!6}{3.15} & \cellcolor{gray!6}{5.80} & \cellcolor{gray!6}{0.8} & \cellcolor{gray!6}{0.64}\\
+\addlinespace
+\em{Eruca versicaria} & 24.95 & 22151 & 24 & 5537.75 & 0.35 & 0.73 & 0.67 & 6.60 & 0.73 & 4.42 & 0.94 & 0.1 & 0.02\\
+\addlinespace
+\em{\cellcolor{gray!6}{Ipomoea aquatica}} & \cellcolor{gray!6}{70.10} & \cellcolor{gray!6}{858} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{1072.50} & \cellcolor{gray!6}{3.26} & \cellcolor{gray!6}{1.43} & \cellcolor{gray!6}{2.25} & \cellcolor{gray!6}{19.44} & \cellcolor{gray!6}{0.45} & \cellcolor{gray!6}{2.38} & \cellcolor{gray!6}{1.42} & \cellcolor{gray!6}{0.6} & \cellcolor{gray!6}{0.75}\\
+\addlinespace
+\em{Ipomoea purpurea} & 97.59 & 654 & 6 & 545.00 & 2.27 & 1.24 & 1.88 & 28.23 & 0.58 & 1.06 & 1.57 & 1.0 & 2.74\\
+\addlinespace
+\em{\cellcolor{gray!6}{Petunia integrifolia}} & \cellcolor{gray!6}{24.74} & \cellcolor{gray!6}{34657} & \cellcolor{gray!6}{220} & \cellcolor{gray!6}{787.66} & \cellcolor{gray!6}{1.17} & \cellcolor{gray!6}{0.80} & \cellcolor{gray!6}{1.32} & \cellcolor{gray!6}{14.65} & \cellcolor{gray!6}{0.45} & \cellcolor{gray!6}{3.13} & \cellcolor{gray!6}{1.77} & \cellcolor{gray!6}{0.9} & \cellcolor{gray!6}{0.26}\\
+\addlinespace
+\em{Sinapis alba} & 33.59 & 3507 & 6 & 3507.00 & 0.55 & 0.63 & 0.91 & 3.62 & 0.77 & 1.98 & 1.07 & 0.7 & 1.12\\
+\addlinespace
+\em{\cellcolor{gray!6}{Solanum lycopersicum}} & \cellcolor{gray!6}{22.00} & \cellcolor{gray!6}{28915} & \cellcolor{gray!6}{92} & \cellcolor{gray!6}{1885.76} & \cellcolor{gray!6}{0.09} & \cellcolor{gray!6}{0.19} & \cellcolor{gray!6}{0.35} & \cellcolor{gray!6}{6.47} & \cellcolor{gray!6}{0.31} & \cellcolor{gray!6}{1.16} & \cellcolor{gray!6}{1.13} & \cellcolor{gray!6}{0.7} & \cellcolor{gray!6}{0.48}\\
+\addlinespace
+\em{Solanum melongena} & 25.18 & 166989 & 1010 & 992.01 & 1.14 & 0.96 & 1.33 & 11.33 & 0.94 & 4.02 & 3.55 & 1.0 & 1.45\\
+\bottomrule
+\end{tabu}}
+\end{table}
+
+\end{landscape}
+
+\newpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}\textbf{Table S3.} Average recipient and donor pollen grains per stigma with the 50:50 mix CP:HP pollen for the subset of 20 counts (3 replicates per treatment).}
+\centering
+\resizebox{\linewidth}{!}{
+\fontsize{10}{12}\selectfont
+\begin{tabu} to \linewidth {>{}l>{}l>{\raggedleft}X>{\raggedleft}X}
+\toprule
+\textbf{Recipient species} & \textbf{Donor species} & \textbf{Recipient pollen grains} & \textbf{Donor pollen grains}\\
+\midrule
+\em{\cellcolor{gray!6}{C. annuum}} & \em{\cellcolor{gray!6}{I. purpurea}} & \cellcolor{gray!6}{258} & \cellcolor{gray!6}{11}\\
+\addlinespace
+\em{E. sativa} & \em{I. purpurea} & 1308 & 8\\
+\addlinespace
+\em{\cellcolor{gray!6}{B. oleracea}} & \em{\cellcolor{gray!6}{I. purpurea}} & \cellcolor{gray!6}{90} & \cellcolor{gray!6}{20}\\
+\addlinespace
+\em{B. rapa} & \em{I. purpurea} & 193 & 2\\
+\addlinespace
+\em{\cellcolor{gray!6}{S. melongena}} & \em{\cellcolor{gray!6}{I. aquatica}} & \cellcolor{gray!6}{64} & \cellcolor{gray!6}{26}\\
+\addlinespace
+\em{P. integrifolia} & \em{I. aquatica} & 23 & 20\\
+\addlinespace
+\em{\cellcolor{gray!6}{S. lycopersicum}} & \em{\cellcolor{gray!6}{I. aquatica}} & \cellcolor{gray!6}{56} & \cellcolor{gray!6}{10}\\
+\addlinespace
+\em{S. alba} & \em{I. aquatica} & 1617 & 19\\
+\addlinespace
+\em{\cellcolor{gray!6}{I. purpurea}} & \em{\cellcolor{gray!6}{S. melongena}} & \cellcolor{gray!6}{138} & \cellcolor{gray!6}{362}\\
+\addlinespace
+\em{S. alba} & \em{S. melongena} & 3054 & 1096\\
+\addlinespace
+\em{\cellcolor{gray!6}{E. sativa}} & \em{\cellcolor{gray!6}{P. integrifolia}} & \cellcolor{gray!6}{621} & \cellcolor{gray!6}{321}\\
+\addlinespace
+\em{B. rapa} & \em{S. lycopersicum} & 1114 & 246\\
+\addlinespace
+\em{\cellcolor{gray!6}{I. aquatica}} & \em{\cellcolor{gray!6}{C. annuum}} & \cellcolor{gray!6}{35} & \cellcolor{gray!6}{85}\\
+\addlinespace
+\em{B. oleracea} & \em{C. annuum} & 281 & 209\\
+\addlinespace
+\em{\cellcolor{gray!6}{I. purpurea}} & \em{\cellcolor{gray!6}{E. sativa}} & \cellcolor{gray!6}{27} & \cellcolor{gray!6}{216}\\
+\addlinespace
+\em{S. melongena} & \em{E. sativa} & 1837 & 2231\\
+\addlinespace
+\em{\cellcolor{gray!6}{P. integrifolia}} & \em{\cellcolor{gray!6}{B. oleracea}} & \cellcolor{gray!6}{332} & \cellcolor{gray!6}{376}\\
+\addlinespace
+\em{I. aquatica} & \em{S. alba} & 42 & 170\\
+\addlinespace
+\em{\cellcolor{gray!6}{C. annuum}} & \em{\cellcolor{gray!6}{S. alba}} & \cellcolor{gray!6}{304} & \cellcolor{gray!6}{450}\\
+\addlinespace
+\em{S. lycopersicum} & \em{B. rapa} & 164 & 208\\
+\bottomrule
+\end{tabu}}
+\end{table}
+
+\newpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}\textbf{Table S4.} Results of the test of hand cross-pollination, hand self-pollination, spontaneous selfing and apomixis for all species. The values provided are the seed:ovule ratios in percentage.}
+\centering
+\resizebox{\linewidth}{!}{
+\fontsize{10}{12}\selectfont
+\begin{tabu} to \linewidth {>{}l>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\toprule
+\textbf{Species} & \textbf{Hand cross-pollination} & \textbf{Hand self-pollination} & \textbf{Spontaneous selfing} & \textbf{Apomixis}\\
+\midrule
+\em{\cellcolor{gray!6}{Brassica oleracea}} & \cellcolor{gray!6}{32.07} & \cellcolor{gray!6}{0.00} & \cellcolor{gray!6}{0.00} & \cellcolor{gray!6}{0}\\
+\addlinespace
+\em{Brassica rapa} & 44.97 & 0.00 & 0.00 & 0\\
+\addlinespace
+\em{\cellcolor{gray!6}{Capsicum annuum}} & \cellcolor{gray!6}{80.00} & \cellcolor{gray!6}{56.47} & \cellcolor{gray!6}{19.34} & \cellcolor{gray!6}{0}\\
+\addlinespace
+\em{Eruca sativa} & 23.75 & 0.42 & 0.00 & 0\\
+\addlinespace
+\em{\cellcolor{gray!6}{Ipomoea aquatica}} & \cellcolor{gray!6}{40.00} & \cellcolor{gray!6}{30.00} & \cellcolor{gray!6}{20.00} & \cellcolor{gray!6}{0}\\
+\addlinespace
+\em{Ipomoea purpurea} & 31.67 & 86.67 & 31.67 & 0\\
+\addlinespace
+\em{\cellcolor{gray!6}{Petunia integrifolia}} & \cellcolor{gray!6}{80.16} & \cellcolor{gray!6}{24.77} & \cellcolor{gray!6}{0.00} & \cellcolor{gray!6}{0}\\
+\addlinespace
+\em{Sinapis alba} & 41.67 & 48.33 & 5.00 & 15\\
+\addlinespace
+\em{\cellcolor{gray!6}{Solanum lycopersium}} & \cellcolor{gray!6}{85.65} & \cellcolor{gray!6}{41.20} & \cellcolor{gray!6}{68.48} & \cellcolor{gray!6}{0}\\
+\addlinespace
+\em{Solanum melongena} & 60.48 & 74.87 & 21.56 & 0\\
+\bottomrule
+\end{tabu}}
+\end{table}
+
+\begin{landscape}
+
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-5}\textbf{Table S5.} Summary of the heterospecific pollen impacts from the linear models on each pollen recipient species. The category of “yes” represents a significant effect of the pollen donor (columns) on the recipient species (rows) and the category of “no” represents a lack of significant seed set reduction in comparison with the control treatment. Significance was tested for each species by comparing the different 50-50 CP-HP pollen treatments with the control treatment of hand cross-pollination with conspecific pollen.}
+\centering
+\resizebox{\linewidth}{!}{
+\fontsize{6}{8}\selectfont
+\begin{tabu} to \linewidth {>{}l>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright}X>{\raggedright}X}
+\toprule
+\em{} & \em{Brassica oleracea} & \em{Brassica rapa} & \em{Eruca sativa} & \em{Sinapis alba} & \em{Ipomoea aquatica} & \em{Ipomoea purpurea} & \em{Capsicum annuum} & \em{Petunia integrifolia} & \em{Solanum lycopersicum} & \em{Solanum melongena} & \em{$\%$ of significant effect}\\
+\midrule
+\em{\cellcolor{gray!6}{B. oleracea}} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{100}\\
+\addlinespace
+\em{B. rapa} & No &  & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & 88.9\\
+\addlinespace
+\em{\cellcolor{gray!6}{E. sativa}} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{22.2}\\
+\addlinespace
+\em{S. alba} & No & Yes & No &  & Yes & Yes & Yes & No & No & No & 44.4\\
+\addlinespace
+\em{\cellcolor{gray!6}{I. aquatica}} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{100}\\
+\addlinespace
+\em{I. purpurea} & No & No & Yes & No & No &  & Yes & No & Yes & No & 33.3\\
+\addlinespace
+\em{\cellcolor{gray!6}{C. annuum}} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes1} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{77.8}\\
+\addlinespace
+\em{P. integrifolia} & Yes & No & No & Yes & Yes & Yes & No &  & Yes & Yes & 67.7\\
+\addlinespace
+\em{\cellcolor{gray!6}{S. lycopersicum}} & \cellcolor{gray!6}{No} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Yes} & \cellcolor{gray!6}{88.9}\\
+\addlinespace
+\em{S. melongena} & No & Yes & Yes & No & Yes & Yes & Yes & No & No &  & 55.6\\
+\addlinespace
+\em{\cellcolor{gray!6}{}} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{$\bar{X}=67.8$}\\
+\bottomrule
+\end{tabu}}
+\end{table}
+
+\end{landscape}
+
+\clearpage
+
+\begingroup\fontsize{7}{9}\selectfont
+
+\begin{longtable}[t]{>{}lrrrr}
+\caption{\label{tab:unnamed-chunk-6}\textbf{Table S6.} Results of the linear models conducted to test the effect of heterospecific pollen with the 50-50 CP-HP pollen treatments. We conducted 10 different linear models (M1, M2, M3, M4, M5, M6, M7 M8, M9 and M10) where the effect of the different 9 pollen donors was compared with the control treatment of hand cross pollination with conspecific pollen for each recipient species (intercept). The first species on the row names are the pollen recipient species and the second species the pollen donor species. Each treatment is compared with the control or reference treatment that is indicated with the recipient species names and the intercept term between parentheses.}\\
+\toprule
+\textbf{ } & \textbf{Estimates} & \textbf{Standard error} & \textbf{t-value} & \textbf{{\textit{P}}-value}\\
+\midrule
+\em{\cellcolor{gray!6}{M1 Petunia integrifolia - (Intercept)}} & \cellcolor{gray!6}{4.63} & \cellcolor{gray!6}{0.49} & \cellcolor{gray!6}{9.36} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M1 Petunia integrifolia - Brassica oleracea} & -1.84 & 0.81 & -2.27 & 0.03\\
+\addlinespace
+\em{\cellcolor{gray!6}{M1 Petunia integrifolia - Brassica rapa}} & \cellcolor{gray!6}{-0.97} & \cellcolor{gray!6}{0.81} & \cellcolor{gray!6}{-1.19} & \cellcolor{gray!6}{0.24}\\
+\addlinespace
+\em{M1 Petunia integrifolia - Capsicum annuum} & 0.78 & 0.81 & 0.96 & 0.34\\
+\addlinespace
+\em{\cellcolor{gray!6}{M1 Petunia integrifolia - Eruca vesicaria}} & \cellcolor{gray!6}{-0.91} & \cellcolor{gray!6}{0.81} & \cellcolor{gray!6}{-1.12} & \cellcolor{gray!6}{0.26}\\
+\addlinespace
+\em{M1 Petunia integrifolia - Ipomoea aquatica} & -3.18 & 0.81 & -3.92 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M1 Petunia integrifolia - Ipomoea purpurea}} & \cellcolor{gray!6}{-4.21} & \cellcolor{gray!6}{0.81} & \cellcolor{gray!6}{-5.19} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M1 Petunia integrifolia - Sinapis alba} & -2.99 & 0.81 & -3.69 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M1 Petunia integrifolia - Solanum lycopersicum}} & \cellcolor{gray!6}{-2.40} & \cellcolor{gray!6}{0.81} & \cellcolor{gray!6}{-2.96} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M1 Petunia integrifolia - Solanum melongena} & -2.66 & 0.81 & -3.27 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M2 Solanum lycopersicum - (Intercept)}} & \cellcolor{gray!6}{4.39} & \cellcolor{gray!6}{0.24} & \cellcolor{gray!6}{18.54} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M2 Solanum lycopersicum - Brassica oleracea} & -0.47 & 0.41 & -1.14 & 0.26\\
+\addlinespace
+\em{\cellcolor{gray!6}{M2 Solanum lycopersicum - Brassica rapa}} & \cellcolor{gray!6}{-2.74} & \cellcolor{gray!6}{0.41} & \cellcolor{gray!6}{-6.67} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M2 Solanum lycopersicum - Capsicum annuum} & -4.39 & 0.41 & -10.71 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M2 Solanum lycopersicum - Eruca vesicaria}} & \cellcolor{gray!6}{-2.97} & \cellcolor{gray!6}{0.41} & \cellcolor{gray!6}{-7.25} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M2 Solanum lycopersicum - Ipomoea aquatica} & -4.13 & 0.41 & -10.06 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M2 Solanum lycopersicum - Ipomoea purpurea}} & \cellcolor{gray!6}{-3.80} & \cellcolor{gray!6}{0.41} & \cellcolor{gray!6}{-9.27} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M2 Solanum lycopersicum - Petunia integrifolia} & -1.82 & 0.41 & -4.44 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M2 Solanum lycopersicum - Sinapis alba}} & \cellcolor{gray!6}{-3.72} & \cellcolor{gray!6}{0.41} & \cellcolor{gray!6}{-9.08} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M2 Solanum lycopersicum - Solanum melongena} & -1.84 & 0.41 & -4.49 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M3 Solanum melongena - (Intercept)}} & \cellcolor{gray!6}{6.34} & \cellcolor{gray!6}{0.70} & \cellcolor{gray!6}{9.09} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M3 Solanum melongena - Brassica oleracea} & -0.67 & 0.99 & -0.68 & 0.50\\
+\addlinespace
+\em{\cellcolor{gray!6}{M3 Solanum melongena - Brassica rapa}} & \cellcolor{gray!6}{-4.33} & \cellcolor{gray!6}{0.99} & \cellcolor{gray!6}{-4.39} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M3 Solanum melongena - Capsicum annuum} & -2.33 & 0.99 & -2.36 & 0.02\\
+\addlinespace
+\em{\cellcolor{gray!6}{M3 Solanum melongena - Eruca vesicaria}} & \cellcolor{gray!6}{-3.12} & \cellcolor{gray!6}{0.99} & \cellcolor{gray!6}{-3.16} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M3 Solanum melongena - Ipomoea aquatica} & -6.34 & 0.99 & -6.43 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M3 Solanum melongena - Ipomoea purpurea}} & \cellcolor{gray!6}{-2.71} & \cellcolor{gray!6}{0.99} & \cellcolor{gray!6}{-2.74} & \cellcolor{gray!6}{0.01}\\
+\addlinespace
+\em{M3 Solanum melongena - Petunia integrifolia} & -1.43 & 0.99 & -1.45 & 0.15\\
+\addlinespace
+\em{\cellcolor{gray!6}{M3 Solanum melongena - Sinapis alba}} & \cellcolor{gray!6}{-1.11} & \cellcolor{gray!6}{0.99} & \cellcolor{gray!6}{-1.12} & \cellcolor{gray!6}{0.26}\\
+\addlinespace
+\em{M3 Solanum melongena - Solanum lycopersicum} & -0.84 & 0.99 & -0.86 & 0.39\\
+\addlinespace
+\em{\cellcolor{gray!6}{M4 Capsicum annuum - (Intercept)}} & \cellcolor{gray!6}{4.59} & \cellcolor{gray!6}{0.52} & \cellcolor{gray!6}{8.78} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M4 Capsicum annuum - Brassica oleracea} & -1.80 & 0.74 & -2.43 & 0.02\\
+\addlinespace
+\em{\cellcolor{gray!6}{M4 Capsicum annuum - Brassica rapa}} & \cellcolor{gray!6}{-2.51} & \cellcolor{gray!6}{0.74} & \cellcolor{gray!6}{-3.39} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M4 Capsicum annuum - Eruca vesicaria} & -0.63 & 0.74 & -0.85 & 0.40\\
+\addlinespace
+\em{\cellcolor{gray!6}{M4 Capsicum annuum - Ipomoea aquatica}} & \cellcolor{gray!6}{-1.36} & \cellcolor{gray!6}{0.74} & \cellcolor{gray!6}{-1.84} & \cellcolor{gray!6}{0.07}\\
+\addlinespace
+\em{M4 Capsicum annuum - Ipomoea purpurea} & -4.00 & 0.74 & -5.41 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M4 Capsicum annuum - Petunia integrifolia}} & \cellcolor{gray!6}{-4.59} & \cellcolor{gray!6}{0.74} & \cellcolor{gray!6}{-6.21} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M4 Capsicum annuum - Sinapis alba} & -3.63 & 0.74 & -4.92 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M4 Capsicum annuum - Solanum lycopersicum}} & \cellcolor{gray!6}{-1.52} & \cellcolor{gray!6}{0.74} & \cellcolor{gray!6}{-2.06} & \cellcolor{gray!6}{0.04}\\
+\addlinespace
+\em{M4 Capsicum annuum - Solanum melongena} & -3.29 & 0.74 & -4.46 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M5 Brassica oleracea - (Intercept)}} & \cellcolor{gray!6}{1.99} & \cellcolor{gray!6}{0.22} & \cellcolor{gray!6}{8.98} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M5 Brassica oleracea - Brassica rapa} & -1.37 & 0.31 & -4.35 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M5 Brassica oleracea - Capsicum annuum}} & \cellcolor{gray!6}{-0.87} & \cellcolor{gray!6}{0.31} & \cellcolor{gray!6}{-2.76} & \cellcolor{gray!6}{0.01}\\
+\addlinespace
+\em{M5 Brassica oleracea - Eruca vesicaria} & -1.92 & 0.31 & -6.13 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M5 Brassica oleracea - Ipomoea aquatica}} & \cellcolor{gray!6}{-1.91} & \cellcolor{gray!6}{0.27} & \cellcolor{gray!6}{-7.04} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M5 Brassica oleracea - Ipomoea purpurea} & -1.99 & 0.31 & -6.35 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M5 Brassica oleracea - Petunia integrifolia}} & \cellcolor{gray!6}{-1.64} & \cellcolor{gray!6}{0.31} & \cellcolor{gray!6}{-5.21} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M5 Brassica oleracea - Sinapis alba} & -1.57 & 0.31 & -4.99 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M5 Brassica oleracea - Solanum lycopersicum}} & \cellcolor{gray!6}{-1.47} & \cellcolor{gray!6}{0.31} & \cellcolor{gray!6}{-4.70} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M5 Brassica oleracea - Solanum melongena} & -1.61 & 0.31 & -5.12 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M6 Brassica rapa - (Intercept)}} & \cellcolor{gray!6}{2.37} & \cellcolor{gray!6}{0.19} & \cellcolor{gray!6}{12.49} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M6 Brassica rapa - Brassica oleracea} & -0.54 & 0.29 & -1.89 & 0.06\\
+\addlinespace
+\em{\cellcolor{gray!6}{M6 Brassica rapa - Capsicum annuum}} & \cellcolor{gray!6}{-1.42} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-4.94} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M6 Brassica rapa - Eruca vesicaria} & -2.37 & 0.29 & -8.24 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M6 Brassica rapa - Ipomoea aquatica}} & \cellcolor{gray!6}{-1.92} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-6.67} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M6 Brassica rapa - Ipomoea purpurea} & -2.26 & 0.29 & -7.86 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M6 Brassica rapa - Petunia integrifolia}} & \cellcolor{gray!6}{-2.37} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-8.24} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M6 Brassica rapa - Sinapis alba} & -2.37 & 0.29 & -8.24 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M6 Brassica rapa - Solanum lycopersicum}} & \cellcolor{gray!6}{-1.88} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-6.55} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M6 Brassica rapa - Solanum melongena} & -2.37 & 0.29 & -8.24 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M8 Eruca sativa - (Intercept)}} & \cellcolor{gray!6}{1.34} & \cellcolor{gray!6}{0.35} & \cellcolor{gray!6}{3.80} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M8 Eruca sativa - Brassica oleracea} & -1.34 & 0.50 & -2.69 & 0.01\\
+\addlinespace
+\em{\cellcolor{gray!6}{M8 Eruca sativa - Brassica rapa}} & \cellcolor{gray!6}{0.66} & \cellcolor{gray!6}{0.50} & \cellcolor{gray!6}{1.32} & \cellcolor{gray!6}{0.19}\\
+\addlinespace
+\em{M8 Eruca sativa - Capsicum annuum} & -0.27 & 0.50 & -0.55 & 0.58\\
+\addlinespace
+\em{\cellcolor{gray!6}{M8 Eruca sativa - Ipomoea aquatica}} & \cellcolor{gray!6}{0.87} & \cellcolor{gray!6}{0.50} & \cellcolor{gray!6}{1.75} & \cellcolor{gray!6}{0.08}\\
+\addlinespace
+\em{M8 Eruca sativa - Ipomoea purpurea} & -0.19 & 0.50 & -0.39 & 0.70\\
+\addlinespace
+\em{\cellcolor{gray!6}{M8 Eruca sativa - Petunia integrifolia}} & \cellcolor{gray!6}{0.20} & \cellcolor{gray!6}{0.50} & \cellcolor{gray!6}{0.41} & \cellcolor{gray!6}{0.68}\\
+\addlinespace
+\em{M8 Eruca sativa - Sinapis alba} & 0.32 & 0.50 & 0.65 & 0.52\\
+\addlinespace
+\em{\cellcolor{gray!6}{M8 Eruca sativa - Solanum lycopersicum}} & \cellcolor{gray!6}{-0.52} & \cellcolor{gray!6}{0.50} & \cellcolor{gray!6}{-1.04} & \cellcolor{gray!6}{0.30}\\
+\addlinespace
+\em{M8 Eruca sativa - Solanum melongena} & 0.54 & 0.50 & 1.09 & 0.28\\
+\addlinespace
+\em{\cellcolor{gray!6}{M9 Ipomoea purpurea - (Intercept)}} & \cellcolor{gray!6}{0.82} & \cellcolor{gray!6}{0.20} & \cellcolor{gray!6}{4.05} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M9 Ipomoea purpurea - Brassica oleracea} & 0.37 & 0.29 & 1.31 & 0.19\\
+\addlinespace
+\em{\cellcolor{gray!6}{M9 Ipomoea purpurea - Brassica rapa}} & \cellcolor{gray!6}{-0.41} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-1.43} & \cellcolor{gray!6}{0.16}\\
+\addlinespace
+\em{M9 Ipomoea purpurea - Capsicum annuum} & -0.82 & 0.29 & -2.86 & 0.01\\
+\addlinespace
+\em{\cellcolor{gray!6}{M9 Ipomoea purpurea - Eruca vesicaria}} & \cellcolor{gray!6}{-0.75} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-2.62} & \cellcolor{gray!6}{0.01}\\
+\addlinespace
+\em{M9 Ipomoea purpurea - Ipomoea aquatica} & 0.41 & 0.29 & 1.44 & 0.15\\
+\addlinespace
+\em{\cellcolor{gray!6}{M9 Ipomoea purpurea - Petunia integrifolia}} & \cellcolor{gray!6}{-0.37} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-1.31} & \cellcolor{gray!6}{0.19}\\
+\addlinespace
+\em{M9 Ipomoea purpurea - Sinapis alba} & -0.33 & 0.29 & -1.14 & 0.26\\
+\addlinespace
+\em{\cellcolor{gray!6}{M9 Ipomoea purpurea - Solanum lycopersicum}} & \cellcolor{gray!6}{-0.82} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{-2.86} & \cellcolor{gray!6}{0.01}\\
+\addlinespace
+\em{M9 Ipomoea purpurea - Solanum melongena} & -0.24 & 0.29 & -0.82 & 0.41\\
+\addlinespace
+\em{\cellcolor{gray!6}{M10 Ipomoea aquatica - (Intercept)}} & \cellcolor{gray!6}{0.80} & \cellcolor{gray!6}{0.09} & \cellcolor{gray!6}{9.36} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M10 Ipomoea aquatica - Brassica oleracea} & -0.80 & 0.12 & -6.62 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M10 Ipomoea aquatica - Brassica rapa}} & \cellcolor{gray!6}{-0.80} & \cellcolor{gray!6}{0.12} & \cellcolor{gray!6}{-6.62} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M10 Ipomoea aquatica - Capsicum annuum} & -0.80 & 0.12 & -6.62 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M10 Ipomoea aquatica - Eruca vesicaria}} & \cellcolor{gray!6}{-0.80} & \cellcolor{gray!6}{0.12} & \cellcolor{gray!6}{-6.62} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M10 Ipomoea aquatica - Ipomoea purpurea} & -0.80 & 0.12 & -6.62 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M10 Ipomoea aquatica - Petunia integrifolia}} & \cellcolor{gray!6}{-0.59} & \cellcolor{gray!6}{0.12} & \cellcolor{gray!6}{-4.89} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M10 Ipomoea aquatica - Sinapis alba} & -0.80 & 0.12 & -6.62 & 0.00\\
+\addlinespace
+\em{\cellcolor{gray!6}{M10 Ipomoea aquatica - Solanum lycopersicum}} & \cellcolor{gray!6}{-0.69} & \cellcolor{gray!6}{0.12} & \cellcolor{gray!6}{-5.70} & \cellcolor{gray!6}{0.00}\\
+\addlinespace
+\em{M10 Ipomoea aquatica - Solanum melongena} & -0.80 & 0.12 & -6.62 & 0.00\\
+\bottomrule
+\end{longtable}
+
+\endgroup{}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-7}\textbf{Table S7.} Number of seeds produced with the 100\% foreign pollen treatments (N=900). From 900 pollination events we found seed production in just 13 specific cases and 0 seed production in the other 887 pollination events. In this table we show just the treatments that lead to seed production.}
+\resizebox{\linewidth}{!}{
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{>{}l>{}lr}
+\toprule
+\textbf{Recipient} & \textbf{Donor (100\% foreign pollen)} & \textbf{Seed number}\\
+\midrule
+\em{\cellcolor{gray!6}{Solnamum lycopersicum}} & \em{\cellcolor{gray!6}{Sinapis alba}} & \cellcolor{gray!6}{3}\\
+\addlinespace
+\em{Solnamum melongena} & \em{Petunia integrifolia} & 36\\
+\addlinespace
+\em{\cellcolor{gray!6}{Capsicum annuum}} & \em{\cellcolor{gray!6}{Eruca sativa}} & \cellcolor{gray!6}{3}\\
+\addlinespace
+\em{Capsicum annuum} & \em{Sinapis alba} & 127\\
+\addlinespace
+\em{\cellcolor{gray!6}{Brassica rapa}} & \em{\cellcolor{gray!6}{Brassica oleracea}} & \cellcolor{gray!6}{2}\\
+\addlinespace
+\em{Brassica rapa} & \em{Brassica oleracea} & 13\\
+\addlinespace
+\em{\cellcolor{gray!6}{Sinapis alba}} & \em{\cellcolor{gray!6}{Brassica oleracea}} & \cellcolor{gray!6}{\vphantom{1} 7}\\
+\addlinespace
+\em{Sinapis alba} & \em{Brassica oleracea} & 5\\
+\addlinespace
+\em{\cellcolor{gray!6}{Sinapis alba}} & \em{\cellcolor{gray!6}{Brassica oleracea}} & \cellcolor{gray!6}{7}\\
+\addlinespace
+\em{Sinapis alba} & \em{Capsicum annuum} & 1\\
+\addlinespace
+\em{\cellcolor{gray!6}{Sinapis alba}} & \em{\cellcolor{gray!6}{Capsicum annuum}} & \cellcolor{gray!6}{6}\\
+\addlinespace
+\em{Sinapis alba} & \em{Solanum lycopersicum} & 1\\
+\addlinespace
+\em{\cellcolor{gray!6}{Eruca sativa}} & \em{\cellcolor{gray!6}{Petunia integrifolia}} & \cellcolor{gray!6}{2}\\
+\bottomrule
+\multicolumn{3}{l}{\textsuperscript{} * Note: There are some specific cases that we think that hybridization did not occur and that the recipient species were pollen}\\
+\multicolumn{3}{l}{contaminated, like the one of C. annuum with S. alba with 127 seeds. This seems to be the case for 5 other crosses that had very}\\
+\multicolumn{3}{l}{low seed production when they were pollinated with 100\% foreign pollen with species of other family members. This represents}\\
+\multicolumn{3}{l}{very few isolated cases (0.67\% of all the 100\% foreign pollen crosses conducted) and we think that our results are not}\\
+\multicolumn{3}{l}{compromised by this fact.}\\
+\end{tabular}}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-8}\textbf{Table S8.} Phylogenetic signal and significance for the 13 different reproductive traits measured for all species.}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{rrl}
+\toprule
+\textbf{Lambda} & \textbf{P-value} & \textbf{Traits}\\
+\midrule
+\cellcolor{gray!6}{0.95} & \cellcolor{gray!6}{0.20} & \cellcolor{gray!6}{Selfing rate}\\
+\addlinespace
+1.00 & 0.00 & Pollen size\\
+\addlinespace
+\cellcolor{gray!6}{0.00} & \cellcolor{gray!6}{1.00} & \cellcolor{gray!6}{Pollen anther}\\
+\addlinespace
+0.00 & 1.00 & Ovule number\\
+\addlinespace
+\cellcolor{gray!6}{0.00} & \cellcolor{gray!6}{1.00} & \cellcolor{gray!6}{Pollen-ovule ratio}\\
+\addlinespace
+0.89 & 0.01 & Stigmatic area\\
+\addlinespace
+\cellcolor{gray!6}{0.70} & \cellcolor{gray!6}{0.05} & \cellcolor{gray!6}{Stigma length}\\
+\addlinespace
+0.77 & 0.03 & Stigma width\\
+\addlinespace
+\cellcolor{gray!6}{0.93} & \cellcolor{gray!6}{0.01} & \cellcolor{gray!6}{Style length}\\
+\addlinespace
+0.00 & 1.00 & Style width\\
+\addlinespace
+\cellcolor{gray!6}{0.47} & \cellcolor{gray!6}{0.30} & \cellcolor{gray!6}{Ovary length}\\
+\addlinespace
+0.00 & 1.00 & Ovary width\\
+\addlinespace
+\cellcolor{gray!6}{0.00} & \cellcolor{gray!6}{0.02} & \cellcolor{gray!6}{SI index}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begingroup\fontsize{7}{9}\selectfont
+
+\begin{longtable}[t]{rrrll}
+\caption{\label{tab:unnamed-chunk-9}\textbf{Table S9.} Procrustes correlation, sum of squares and significance from Procrustes analysis between the matrix of effect sizes (species x species matrix) and the distance matrix of each trait for all families, just Solanaceae family and just Brassicaceae family.}\\
+\toprule
+\textbf{Correlation (r)} & \textbf{Sum of squares} & \textbf{P-value} & \textbf{Traits} & \textbf{Family}\\
+\midrule
+\cellcolor{gray!6}{0.34} & \cellcolor{gray!6}{0.88} & \cellcolor{gray!6}{0.70} & \cellcolor{gray!6}{Selfing rate} & \cellcolor{gray!6}{All}\\
+\addlinespace
+0.36 & 0.87 & 0.42 & Pollen size & All\\
+\addlinespace
+\cellcolor{gray!6}{0.35} & \cellcolor{gray!6}{0.88} & \cellcolor{gray!6}{0.57} & \cellcolor{gray!6}{Pollen per anther} & \cellcolor{gray!6}{All}\\
+\addlinespace
+0.33 & 0.89 & 0.55 & Number of ovules & All\\
+\addlinespace
+\cellcolor{gray!6}{0.30} & \cellcolor{gray!6}{0.91} & \cellcolor{gray!6}{0.86} & \cellcolor{gray!6}{Pollen-ovule ratio} & \cellcolor{gray!6}{All}\\
+\addlinespace
+0.37 & 0.86 & 0.69 & Stigmatic area & All\\
+\addlinespace
+\cellcolor{gray!6}{0.62} & \cellcolor{gray!6}{0.62} & \cellcolor{gray!6}{0.10} & \cellcolor{gray!6}{Stigma length} & \cellcolor{gray!6}{All}\\
+\addlinespace
+0.46 & 0.79 & 0.47 & Stigma width & All\\
+\addlinespace
+\cellcolor{gray!6}{0.43} & \cellcolor{gray!6}{0.82} & \cellcolor{gray!6}{0.45} & \cellcolor{gray!6}{Style length} & \cellcolor{gray!6}{All}\\
+\addlinespace
+0.59 & 0.65 & 0.11 & Style width & All\\
+\addlinespace
+\cellcolor{gray!6}{0.34} & \cellcolor{gray!6}{0.88} & \cellcolor{gray!6}{0.57} & \cellcolor{gray!6}{Ovary length} & \cellcolor{gray!6}{All}\\
+\addlinespace
+0.35 & 0.88 & 0.93 & Ovary width & All\\
+\addlinespace
+\cellcolor{gray!6}{0.49} & \cellcolor{gray!6}{0.76} & \cellcolor{gray!6}{0.24} & \cellcolor{gray!6}{Self-incompatibility index} & \cellcolor{gray!6}{All}\\
+\addlinespace
+0.86 & 0.26 & 0.25 & Selfing rate & Solanaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.76} & \cellcolor{gray!6}{0.42} & \cellcolor{gray!6}{0.33} & \cellcolor{gray!6}{Pollen size} & \cellcolor{gray!6}{Solanaceae}\\
+\addlinespace
+0.42 & 0.82 & 0.79 & Pollen per anther & Solanaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.52} & \cellcolor{gray!6}{0.73} & \cellcolor{gray!6}{0.83} & \cellcolor{gray!6}{Number of ovules} & \cellcolor{gray!6}{Solanaceae}\\
+\addlinespace
+0.87 & 0.25 & 0.04 & Pollen-ovule ratio & Solanaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.82} & \cellcolor{gray!6}{0.33} & \cellcolor{gray!6}{0.17} & \cellcolor{gray!6}{Stigmatic area} & \cellcolor{gray!6}{Solanaceae}\\
+\addlinespace
+0.89 & 0.20 & 0.08 & Stigma length & Solanaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.84} & \cellcolor{gray!6}{0.29} & \cellcolor{gray!6}{0.12} & \cellcolor{gray!6}{Stigma width} & \cellcolor{gray!6}{Solanaceae}\\
+\addlinespace
+0.78 & 0.39 & 0.50 & Style length & Solanaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.52} & \cellcolor{gray!6}{0.73} & \cellcolor{gray!6}{0.71} & \cellcolor{gray!6}{Style width} & \cellcolor{gray!6}{Solanaceae}\\
+\addlinespace
+0.64 & 0.60 & 0.79 & Ovary length & Solanaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.87} & \cellcolor{gray!6}{0.23} & \cellcolor{gray!6}{0.17} & \cellcolor{gray!6}{Ovary width} & \cellcolor{gray!6}{Solanaceae}\\
+\addlinespace
+0.50 & 0.75 & 1.00 & Self-incompatibility index & Solanaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.61} & \cellcolor{gray!6}{0.63} & \cellcolor{gray!6}{0.50} & \cellcolor{gray!6}{Selfing rate} & \cellcolor{gray!6}{Brassicaceae}\\
+\addlinespace
+0.60 & 0.64 & 0.71 & Pollen size & Brassicaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.40} & \cellcolor{gray!6}{0.84} & \cellcolor{gray!6}{0.96} & \cellcolor{gray!6}{Pollen per anther} & \cellcolor{gray!6}{Brassicaceae}\\
+\addlinespace
+0.62 & 0.61 & 0.42 & Number of ovules & Brassicaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.49} & \cellcolor{gray!6}{0.76} & \cellcolor{gray!6}{0.96} & \cellcolor{gray!6}{Pollen-ovule ratio} & \cellcolor{gray!6}{Brassicaceae}\\
+\addlinespace
+0.55 & 0.70 & 0.58 & Stigmatic area & Brassicaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.92} & \cellcolor{gray!6}{0.15} & \cellcolor{gray!6}{0.08} & \cellcolor{gray!6}{Stigma length} & \cellcolor{gray!6}{Brassicaceae}\\
+\addlinespace
+0.63 & 0.60 & 0.38 & Stigma width & Brassicaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.83} & \cellcolor{gray!6}{0.31} & \cellcolor{gray!6}{0.08} & \cellcolor{gray!6}{Style length} & \cellcolor{gray!6}{Brassicaceae}\\
+\addlinespace
+0.79 & 0.37 & 0.33 & Style width & Brassicaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.59} & \cellcolor{gray!6}{0.65} & \cellcolor{gray!6}{0.50} & \cellcolor{gray!6}{Ovary length} & \cellcolor{gray!6}{Brassicaceae}\\
+\addlinespace
+0.54 & 0.70 & 1.00 & Ovary width & Brassicaceae\\
+\addlinespace
+\cellcolor{gray!6}{0.50} & \cellcolor{gray!6}{0.75} & \cellcolor{gray!6}{0.83} & \cellcolor{gray!6}{Self-incompatibility index} & \cellcolor{gray!6}{Brassicaceae}\\
+\bottomrule
+\end{longtable}
+
+\endgroup{}
+
+\clearpage
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-10-1.pdf}
+\caption{\textbf{Fig. S1} Average number of pollen grains per stigma for
+20 different treatments (3 replicates per tratment). For each treatment,
+we show the average number of conspecific pollen grains (grey) and
+heterospecific pollen grains (light blue) per stigma. For each pair of
+species on the x-axis, the first species is the recipient species, and
+the second, the donor species.}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-11-1.pdf}
+\caption{\textbf{Fig. S2} Average proportion of conspecific and
+heterospecific pollen per stigma grouped by family, A) Brassicaceae, B)
+Solanaceae and C) Convolvulaceae. These proportions (\%) are the number
+of conspecific pollen grains or heterospecific pollen grains divided by
+the total number of pollen grains per stigma for 20 different
+treatments. We conducted 3 count replicates per treatment and then we
+calculated the average number of pollen grains for these treatments. The
+proportion of conspecific and heterospecific pollen are shown in grey
+and light blue respectively. For each pair of species on the y-axis, the
+first species is the pollen recipient and the second the pollen donor.
+The vertical black line represents 50\% pollen of both donor and
+recipient.}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-12-1.pdf}
+\caption{\textbf{Fig. S3} Average proportion (\%) of heterospecific and
+conspecific pollen per family for the different 20 treatments counted.
+We conducted 3 count replicates per treatment and then we calculated the
+average number of pollen grains for these different 20 treatments.
+Finally, we grouped by family these treatments in order to see general
+tendencies across families as pollen donor and as pollen recipient.
+Pollen ratios were considered as the number of conspecific or
+heterospecific pollen grains divided by the total number of pollen
+grains per stigma. On the y-axis, the first family on each pair of plant
+families is the recipient one, and the second, the family of the donor.
+The vertical bar on intercept 50, represents equal proportions of both
+recipient (grey) and donor (light blue) pollen.}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-13-1.pdf}
+\caption{\textbf{Fig. S4} Pollen ratios comparisons between the
+different pollen recipient families. The boxes represent least square
+means, the error bars confidence intervals 95\% and sharing numbers
+indicate no significant differences between groups (Tukey adjusted
+comparisons). These pollen ratios (\%) are the total number of
+heterospecific pollen grains divided by the total quantity of pollen
+(conspecific pollen + heterospecific pollen). Brassicacea family is
+coloured in blue, Convolvulaceae in green and Solanaceae in orange.}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-14-1.pdf}
+\caption{\textbf{Fig. S5} Unipartite bidirectional network with
+asymmetrical effect. The lines with the arrow heads connect the impact
+of foreign pollen (effect size) of each pollen donor species on each
+recipient species. All the arrow heads point to the recipient species of
+the reciprocal interaction. Lines of species that did not have a
+negative impact are not represented. The different nodes and the effect
+of the donor species on the recipient species appear coloured by family:
+Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green). The
+intensity of the effect is represented by the line´s size where a larger
+effect size corresponds to a thicker line and a thinner line to a
+smaller effect size. Species code: BROL: Brassica oleracea, BRRA:
+Brassica rapa, ERSA: Eruca sativa, SIAL: Sinapis alba, IPAQ: Ipomoea
+aquatica, IPPU: Ipomoea purpurea, CAAN: Capsicum annuum, PEIN: Petunia
+integrifolia, SOLY: Solanum lycopersicum, SOME: Solanum melongena.}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-15-1.pdf}
+\caption{\textbf{Fig. S6} Graphical representation of the correlation
+matrix of all the traits measured. Positive correlations are displayed
+in blue and negative in red. The intensity, size and colour of the
+circles are proportional to the correlation coefficient from Pearson's
+r.}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-16-1.pdf}
+\caption{\textbf{Fig. S7} Violin plot of the proportion of seeds
+coverted to ovule (\%) for all species with four different
+hand-pollination treatments: apomixis (orange), hand cross pollination
+(green), hand self pollination (blue) and spontaneous selfing (yellow).
+The species are grouped by family in three different panels that are
+named with the corresponding family names (Brassicaceae, Convolvulaceae
+and Solanaceae). The coloured dots, represent the different values of
+seed:ovule ratio for each treatment.}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics{Supp_Material_files/figure-latex/unnamed-chunk-17-1.pdf}
+\caption{\textbf{Fig. S8} Grouped effect sizes (95\% confidence
+intervals) of the different families on each focal species. For each
+species, the grouped effect by family is compared with the control
+treatment of hand cross pollination with conspecific pollen. The control
+treatment is represented in yellow and vertically intersected with a
+dashed line through the mean effect size in order to help the visual
+interpretation of the effect sizes. Any value to the left of the
+vertical dashed line represents a negative impact of foreign pollen. The
+different effect sizes and confidence intervals are coloured by family:
+Solanaceae (orange), Brassicaceae (blue) and Convolvulaceae (green).}
+\end{figure}
+
+\end{document}
