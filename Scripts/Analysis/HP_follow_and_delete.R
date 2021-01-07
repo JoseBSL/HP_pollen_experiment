@@ -326,24 +326,39 @@ saveRDS(table, "Data/RData/lm_table.RData")
 #SOLANACEAE
 #PEIN
 pein_seed_set_100 <- read.csv("Raw_data/pein_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="CROSS"),data=pein_seed_set_100)
-summary(mod1)
+#set cross as reference level
+pein_seed_set_100$Treatment <- relevel(pein_seed_set_100$Treatment, ref="CROSS")
+#scale seed set data
+pein_seed_set_100$Seed.production <- scale(pein_seed_set_100$Seed.production)
+#run model
+lm_pein_100=lm(Seed.production~Treatment,data=pein_seed_set_100)
+summary(lm_pein_100)
 #No seeds produced with 100% treatments. For all p<0.05 and 0.01
 #No fruits
 ##############################################################################################################################
 
 #SOLY
 soly_seed_set_100 <- read.csv("Raw_data/soly_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=soly_seed_set_100)
-summary(mod1)
+#set cross as reference level
+soly_seed_set_100$Treatment <- relevel(soly_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+soly_seed_set_100$Seed.production <- scale(soly_seed_set_100$Seed.production)
+#run model
+lm_soly_100=lm(Seed.production~Treatment,data=soly_seed_set_100)
+summary(lm_soly_100)
 #3 seeds produced with SIAL 100%. All differ significantly p<0.05 and 0.01
 #Check for fruits!
 ##############################################################################################################################
 
 #SOME
 some_seed_set_100 <- read.csv("Raw_data/some_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=some_seed_set_100)
-summary(mod1)
+#set cross as reference level
+some_seed_set_100$Treatment <- relevel(some_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+some_seed_set_100$Seed.production <- scale(some_seed_set_100$Seed.production)
+#run model
+lm_some_100=lm(Seed.production~Treatment,data=some_seed_set_100)
+summary(lm_some_100)
 #36 seeds produced with PEIN 100% , control 0 important to remark.
 #All differ significantly p<0.05 and 0.01
 #Check for fruits
@@ -351,8 +366,15 @@ summary(mod1)
 
 #CAAN
 caan_seed_set_100 <- read.csv("Raw_data/caan_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="CROSS"),data=caan_seed_set_100)
-summary(mod1)
+#set cross as reference level
+caan_seed_set_100$Treatment <- relevel(caan_seed_set_100$Treatment, ref="CROSS")
+#scale seed set data
+caan_seed_set_100$Seed.production <- scale(caan_seed_set_100$Seed.production)
+#run model
+lm_caan_100=lm(Seed.production~Treatment,data=caan_seed_set_100)
+summary(lm_caan_100)
+
+
 #All differ significantly p<0.05 and 0.01
 #127 seeds with SIAL 100% and ersa 100% 3 seeds
 #No seeds in control (emasculated flowers)
@@ -361,24 +383,44 @@ summary(mod1)
 #BRASSICACEAE
 #BROL
 brol_seed_set_100 <- read.csv("Raw_data/brol_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=brol_seed_set_100)
-summary(mod1)
+#set cross as reference level
+brol_seed_set_100$Treatment <- relevel(brol_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+brol_seed_set_100$Seed.production <- scale(brol_seed_set_100$Seed.production)
+#run model
+lm_brol_100=lm(Seed.production~Treatment,data=brol_seed_set_100)
+summary(lm_brol_100)
+
 #All differ significantly p<0.5 and 0.01
 #No seeds produced
 ##############################################################################################################################
 
 #BRRA
 brra_seed_set_100 <- read.csv("Raw_data/brra_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=brra_seed_set_100)
-summary(mod1)
+#set cross as reference level
+brra_seed_set_100$Treatment <- relevel(brra_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+brra_seed_set_100$Seed.production <- scale(brra_seed_set_100$Seed.production)
+#run model
+lm_brra_100=lm(Seed.production~Treatment,data=brra_seed_set_100)
+summary(lm_brra_100)
+
+
 #All differ significantly p<0.5 and 0.01
 #BROL 100% 2 and 13 seeds produced for two treatments. Hybridization?
 ##############################################################################################################################
 
 #SIAL
 sial_seed_set_100 <- read.csv("Raw_data/sial_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=sial_seed_set_100)
-summary(mod1)
+#set cross as reference level
+sial_seed_set_100$Treatment <- relevel(sial_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+sial_seed_set_100$Seed.production <- scale(sial_seed_set_100$Seed.production)
+#run model
+lm_sial_100=lm(Seed.production~Treatment,data=sial_seed_set_100)
+summary(lm_sial_100)
+
+
 #BROL 100% 3 TREATMENTS PRODUCED SEEDS. 7,5,7. Hybridization?
 #CAAN 100% 2 TREATMENTS PRODUCED SEEDS. 1 and 6.
 #SOLY 100% 1 seed with one treatment. 
@@ -387,8 +429,13 @@ summary(mod1)
 
 #ERSA
 ersa_seed_set_100 <- read.csv("Raw_data/ersa_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=ersa_seed_set_100)
-summary(mod1)
+#set cross as reference level
+ersa_seed_set_100$Treatment <- relevel(ersa_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+ersa_seed_set_100$Seed.production <- scale(ersa_seed_set_100$Seed.production)
+#run model
+lm_ersa_100=lm(Seed.production~Treatment,data=ersa_seed_set_100)
+summary(lm_ersa_100)
 #significant differences for all
 #2 seeds produced with one treatment of pein
 ##############################################################################################################################
@@ -396,16 +443,26 @@ summary(mod1)
 #CONVOLVULACEAE
 #IPPU
 ippu_seed_set_100 <- read.csv("Raw_data/ippu_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=ippu_seed_set_100)
-summary(mod1)
+#set cross as reference level
+ippu_seed_set_100$Treatment <- relevel(ippu_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+ippu_seed_set_100$Seed.production <- scale(ippu_seed_set_100$Seed.production)
+#run model
+lm_ippu_100=lm(Seed.production~Treatment,data=ippu_seed_set_100)
+summary(lm_ippu_100)
 #significant differences for all
 #No seeds produced with 100% treatments
 ##############################################################################################################################
 
 #IPAQ
 ipaq_seed_set_100 <- read.csv("Raw_data/ipaq_seed_set_100.csv")
-mod1=lm(log(1+Seed.production)~relevel(Treatment,ref="Cross"),data=ipaq_seed_set_100)
-summary(mod1)
+#set cross as reference level
+ipaq_seed_set_100$Treatment <- relevel(ipaq_seed_set_100$Treatment, ref="Cross")
+#scale seed set data
+ipaq_seed_set_100$Seed.production <- scale(ipaq_seed_set_100$Seed.production)
+#run model
+lm_ipaq_100=lm(Seed.production~Treatment,data=ipaq_seed_set_100)
+summary(lm_ipaq_100)
 #significant differences for all
 #No seeds produced with 100% treatments
 ##############################################################################################################################
