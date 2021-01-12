@@ -47,7 +47,8 @@ p1 <- ggplot(ce_1[[1]], aes(x = Treatment, y = Seed.production, colour = (Treatm
   geom_errorbar(data=ce_1[[1]],mapping=aes(x=Treatment, ymin=lower__, ymax=upper__,colour = as.factor(Treatment), group = 
   as.factor(Treatment)), width=.6,alpha=0.8, size = 0.9,position = position_dodge(width = 0.8))+ geom_point(data = ce_1[[1]],aes(x = Treatment, y = (estimate__)),size = 1.2, position = position_dodge(width = 0.8), alpha=1)+
   coord_flip()+ geom_hline(yintercept = as.numeric(ce_1[[1]]$estimate__[ce_1[[1]]$Treatment=="Petunia integrifolia"]),linetype="dashed") + theme(legend.position = "none")+
-  scale_color_manual("Floral visitors guilds",values=c(rep("#D55E00",2),rep("#E69F00",1),rep("#D55E00",1),rep("#009E73",2),rep("#287DAB",4) ))
+  scale_color_manual("Floral visitors guilds",values=c(rep("#D55E00",2),rep("#E69F00",1),rep("#D55E00",1),rep("#009E73",2),rep("#287DAB",4) ))+
+  ggtitle(substitute(paste("Bayesian regression model",italic(' P. integrifolia')))) 
 
 
 ########################################################################################################################################################
@@ -123,8 +124,8 @@ for (i in species){
   
 }
 #Adding species names and families (just initials)
-Species_1 <-c ("B. oleracea","B. rapa", "C. annuum", "P. integrifolia", "E. sativa", "I. aquatica", "I. purpurea",
-               "S. alba", "S. lycopersicum", "S. melongena")
+Species_1 <-c ("Brassica oleracea","Brassica rapa", "Capsicum annuum", "Petunia integrifolia", "Eruca sativa", "Ipomoea aquatica", "Ipomoea purpurea",
+               "Sinapis alba", "Solanum lycopersicum", "Solanum melongena")
 #family names
 Family <- c("B", "B", "S", "S", "B", "C", "C", "B", "S", "S")
 pein_effect_size <- cbind( Species_1, Family, cohen_d,cbind(lower, upper))
@@ -152,14 +153,18 @@ pein_effect_size$Cohen_d <- as.numeric(pein_effect_size$Cohen_d)
 pein_effect_size$Lower  <- as.numeric(pein_effect_size$Lower )
 pein_effect_size$Upper <- as.numeric(pein_effect_size$Upper)
 #Plot
-p2 <- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),plot.margin = unit(c(0,0,0,0), "cm"))+
-  geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.9,show.legend=FALSE, aes(x = Species_1, ymin = Lower, ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",2),"#E69F00","#D55E00", rep("#009E73",2), rep("#0072B2",4)))+
-scale_fill_manual("Species_1",values=c(rep("#D55E00",2),"#E69F00","#D55E00", rep("#009E73",2), rep("#0072B2",4)))+
-xlab("Hedges'g") + ylab("Species") + ggpubr::rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
-geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("H)",italic(' P. integrifolia')))) 
+p2 <- ggplot(pein_effect_size, aes(Species_1,Cohen_d, size=10)) + theme_bw(base_size=10)+theme(plot.title = element_text(size = 10),
+      plot.margin = unit(c(0,0,0,0), "cm"))+geom_point(alpha=c(1,1,1,1,1,1,1,1,1,1),size=1.5,show.legend = FALSE,
+      aes(color=factor(Species_1))) +geom_errorbar(alpha=0.5,size=0.9,show.legend=FALSE, aes(x = Species_1, ymin = Lower, 
+      ymax = Upper,color=factor(Species_1)))+scale_color_manual("Species_1",values=c(rep("#D55E00",2),"#E69F00","#D55E00", 
+      rep("#009E73",2), rep("#0072B2",4)))+scale_fill_manual("Species_1",values=c(rep("#D55E00",2),"#E69F00","#D55E00", rep("#009E73",2), rep("#0072B2",4)))+
+xlab("Species") + ylab("Hedges'g") + ggpubr::rotate(ylim = c(-6, 2))+guides(fill=FALSE)+
+geom_hline(yintercept=0, linetype="dashed", color = "black")+ggtitle(substitute(paste("Effect sizes",italic(' P. integrifolia')))) 
+
+
 ########################################################################################################################################################
 #Now plot side by side eefct sizes and brms output (just one species) 
-gridExtra::grid.arrange(p1, p2)
 
+cowplot::plot_grid(p1, p2, align = "v", ncol = 2, rel_heights = c(1/4, 1/4, 1/2))
 
 
