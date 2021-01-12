@@ -119,18 +119,23 @@ z[,c(5:31)] <- scale(mydata1[,c(5:31)])
 #Model with interaction between a donor and a recipient trait + trait
 model1<-lm(effect_size~Recipient_stigma_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=z)
 summary(model1)
-vif(model1)
+vif(model1) #seems ok
 r.squaredGLMM(model1)
 simulationOutput <- simulateResiduals(fittedModel = model1, plot = T)
 
 
 #test for correlations
 cor.test(mydata$Recipient_stigma_length, mydata$Recipient_style_length)
-cor.test(mydata$Recipient_pollen_ovule_ratio, mydata$Recipient_Selfing_rate)
+cor.test(mydata$Recipient_Selfing_rate, mydata$Recipient_pollen_ovule_ratio)
 
 #supplementary models to show also the impact on these correlated variables
 model1.1<-lm(effect_size~Recipient_style_length*Donor_pollen_size+Recipient_pollen_ovule_ratio,data=z) #changing style length for stigma length
+vif(model1.1) #seems ok
+summary(model1.1)
+
 model1.2<-lm(effect_size~Recipient_stigma_length*Donor_pollen_size+Recipient_Selfing_rate,data=z) #changing selfing rate for pollen:ovule ratios
+vif(model1.2) #seems ok
+summary(model1.2)
 
 ############################################################
 ############################################################
