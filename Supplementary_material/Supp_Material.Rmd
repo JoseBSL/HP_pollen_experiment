@@ -22,7 +22,7 @@ header-includes:
 
 # Recipient and donor characteristics govern the hierarchical structure of heterospecific pollen competition networks
 
-__Authors:__ Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman, Romina Rader
+__Authors:__ Jose B. Lanuza, Ignasi Bartomeus, Tia-Lynn Ashman, Greg Bible and Romina Rader
 
 The following Supporting Information is available for this article:
 
