@@ -1,3 +1,6 @@
+##################################################################################################################################################################
+#Correlation plot between traits
+##################################################################################################################################################################
 #install.packages("corrplot")
 library(corrplot)
 
@@ -5,9 +8,8 @@ library(corrplot)
 M <- cor(mtcars)
 corrplot(M, method = "circle")
 
-#We can kill two birds with one stone, showing the correlation and all the traits
 
-
+#read data
 traits_all <- read.csv("Data/Csv/traits_all.csv")
 si_index <- readRDS("Data/RData/si_index.RData")
 traits_all$si_index <- si_index
